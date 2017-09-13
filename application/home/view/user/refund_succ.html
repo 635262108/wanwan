@@ -1,0 +1,52 @@
+{include file="public/user_header" /}
+{include file="public/user_left" /}
+			<!--右侧-->
+			<div class="userRight">
+			<!--流程-->
+			<div class="payStatus" style="width: 512px;margin-left: 140px;">
+				<div class="payStatus-1 payStatusD z">
+					<span class="payStatus_Bg StatusGo">1</span><span class="payStatus_name StatusGoF">申请退款</span>
+					<hr class="payStatusHr_1 payStatusHrGo">
+				</div>
+				<div class="payStatus-2 payStatusD z"> <span class="payStatus_Bg StatusGo">2</span><span class="payStatus_name StatusGoF">处理退款</span>
+					<hr class="payStatusHr_2">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusIng">3</span><span class="payStatus_name StatusIngF">退款成功</span>
+					<!--<hr class="payStatusHr_2 ">-->
+				</div>
+				<!--<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusNext">4</span> <span class="payStatus_name StatusNextF">报名成功</span>
+				</div>-->
+				<div class="clear"></div>
+			</div>         		
+		 <!--处理退款-->
+		 	 <h4 style="margin-top: 120px;text-align: center;width: 800px;">退款成功!</h4>
+		 	 <div class="refund_content" style="padding: 30px;">
+		 	 	<h4>退款订单记录</h4>
+		 	 	<div class="refund_order">
+		 	 		<span style="margin-left: 50px;">退款总额：<span style="color: #FF4134;">￥{$order_info.order_price}</span></span>
+		 	 		<span style="margin-left: 50px;">退款进度：<span style="color: #FF4134;">已退款</span></span>
+		 	 		<span style="margin-left: 50px;">订单编号：<span>{$order_sn}</span></span>
+		 	 	</div>
+				<div class="refund_info1">
+					<h4>退款说明</h4>
+					<p>1.已退：去玩了已完成退款处理，实际退款时间以到账时间为准。</p>
+					<p>2.待退：订单中含有未退款项，带系统处理，请耐心等待。</p>
+				</div>
+		 	 </div>
+             
+
+			</div>
+		</div>
+		
+           
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+	<script src="js/detail.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".userLeftNav li a").eq(0).css({
+				"color":"#ff4134",
+                "text-decoration":"underline"
+		});
+	</script>
+	</body>
+</html>

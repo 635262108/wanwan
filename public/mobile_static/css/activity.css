@@ -1,0 +1,218 @@
+.pay_content {
+	width: 80%;
+	margin: 0px auto;
+	height: 60px;
+	margin-top: 50px
+}
+
+.pay_content ul {
+	width: 100%;
+	height: 27px;
+	display: flex;
+	justify-content: space-between
+}
+
+.pay_content ul:nth-child(1) li:nth-child(1) {
+	width: 8%;
+	height: 22px;
+	border-radius: 50%;
+	border: 1px solid #FF4134;
+	position: relative
+}
+
+.pay_content ul:nth-child(1) li:nth-child(1) span {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	background: #FF4134;
+	color: #FFFFFF;
+	font-size: 10px;
+	text-align: center;
+	line-height: 14px
+}
+
+.pay_content ul:nth-child(1) li:nth-child(3) {
+	width: 8%;
+	height: 22px;
+	border-radius: 50%;
+	border: 1px solid #FF4134;
+	position: relative
+}
+
+.pay_content ul:nth-child(1) li:nth-child(3) span {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	background: #FF4134;
+	color: #FFFFFF;
+	font-size: 10px;
+	text-align: center;
+	line-height: 14px
+}
+
+.pay_content ul:nth-child(1) li:nth-child(5) {
+	width: 8%;
+	height: 22px;
+	border-radius: 50%;
+	border: 1px solid #FF4134;
+	position: relative
+}
+
+.pay_content ul:nth-child(1) li:nth-child(5) span {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	background: #FF4134;
+	color: #FFFFFF;
+	font-size: 10px;
+	text-align: center;
+	line-height: 14px
+}
+
+.pay_content ul:nth-child(1) .line {
+	width: 20%;
+	height: 2px;
+	background: #FF4134;
+	margin-top: 10px
+}
+
+.pay_content ul:nth-child(2) {
+	margin-top: 5px;
+	font-size: 10px
+}
+
+.pay_content ul:nth-child(2) li {
+	color: #FF4134
+}
+
+.pay_content ul:nth-child(2) li:nth-child(1) {
+	margin-left: -5%
+}
+
+.pay_content ul:nth-child(2) li:nth-child(2) {
+	margin-left: 5%
+}
+
+.pay_content ul:nth-child(2) li:nth-child(3) {
+	margin-right: -5%
+}
+
+.payOff {
+	width: 90%;
+	margin: 20px auto;
+	box-shadow: 0 0 5px #FF4134;
+	padding-left: 10%;
+	font-size: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px
+}
+
+.pay_price ul li {
+	margin-bottom: 10px
+}
+
+.pay_price ul li:nth-child(1) {
+	font-size: 14px;
+	color: #FF4134;
+	margin-bottom: 10px
+}
+
+.pay_price ul li:nth-child(3) {
+	margin-bottom: 0px
+}
+
+.back_cause ul li {
+	margin-bottom: 10px
+}
+
+.back_cause ul li:nth-child(1) {
+	font-size: 14px;
+	color: #FF4134
+}
+
+.back_cause ul li:nth-child(5) {
+	margin-bottom: 0px
+}
+
+.title ul li {
+	font-size: 10px;
+	margin-bottom: 10px
+}
+
+.title ul li:nth-child(1) {
+	color: #FF4134;
+	font-size: 14px;
+	margin-bottom: 20px
+}
+
+.title ul li:nth-child(3) {
+	margin-bottom: 0px
+}
+
+.step_1 {
+	width: 40%;
+	height: 20px;
+	line-height: 15px;
+	border-radius: 15px;
+	border: 1px solid #FF4134;
+	color: #FF4134;
+	font-size: 12px;
+	background: none;
+	margin-left: 30%
+}
+
+.step_1 a {
+	color: #FF4134
+}
+
+.last_warn {
+	font-size: 10px;
+	color: #FF4134;
+	text-align: center
+}
+
+.change_opacity {
+	opacity: 0.5
+}
+
+.success {
+	text-align: center;
+	font-size: 10px;
+	color: #FF4134;
+	margin-top: 60px
+}
+
+.pay_success {
+	margin-top: 80px;
+	color: #FF4134;
+	font-size: 10px;
+	text-align: center;
+	margin-bottom: 30px
+}
+
+.order_detail {
+	font-size: 10px;
+	text-align: center
+}
+
+.order_detail a {
+	color: #656565
+}

@@ -1,0 +1,120 @@
+{include file="public/header" /}
+<div class="begin_wrap">
+    <div class="content">
+        <!--简介-->
+        <div class="info">
+            <div class="wrap_img">
+                <img src="__IMG__/freeplay.png" />
+            </div>
+            <!--简介内容-->
+            <div class="info_main">
+                <div class="info_title">
+                    免费玩儿
+                </div>
+                <div class="info_content">
+                    玩宝简介内容玩起简介内容玩起简介内容玩玩起简 介内容玩起简介内容玩起简介内容玩起简介内容玩玩 起简介内容玩起简介内容玩起简介内容玩玩起简介内 容玩起简介内容玩起简介内容玩玩起简 介内容玩起 简介内容玩起简介内容玩起简介内容玩玩
+                </div>
+            </div>
+            <!--轮播图-->
+            <div class="banner">
+                <div class="banner-btn">
+                    <a href="javascript:;" class="prevBtn"><i></i></a>
+                    <a href="javascript:;" class="nextBtn"><i></i></a>
+                </div>
+                <ul class="banner-img">
+                    <li>
+                        <a href="#">
+                            <img src="__IMG__/begin_ban.jpg">
+                            <span class="f-tag">玩翫碗玩翫碗玩翫碗玩翫碗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="__IMG__/begin_ban.jpg">
+                            <span class="f-tag">玩翫碗玩翫碗玩翫碗玩翫碗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="__IMG__/begin_ban.jpg">
+                            <span class="f-tag">玩翫碗玩翫碗玩翫碗玩翫碗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="__IMG__/begin_ban.jpg">
+                            <span class="f-tag">玩翫碗玩翫碗玩翫碗玩翫碗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="__IMG__/begin_ban.jpg">
+                            <span class="f-tag">玩翫碗玩翫碗玩翫碗玩翫碗</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--<ul class="banner-circle"></ul>-->						
+            </div>
+        </div>
+        <!--栏目-->
+        <div class="content_one" id="fh">
+            <div class="title">
+                <p>
+                    <!--<a href="" target="_blank">更多></a>-->
+                </p>
+                <span>最新活动</span>
+            </div>
+            {foreach name="$newest" item="vo"}
+            <div class="content_one_wrap">
+                <div class="content_one_img">
+                    <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="{$vo.a_index_img}" /></a>
+                </div>
+                <div class="content_one_info">
+                    <div class="info_left">
+                        <p class="name ">{$vo.a_title}</p>
+                        <p class="name_info">{$vo.a_remark}
+                        </p>
+                    </div>
+                    <div class="info_right">
+                        <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="__IMG__/sure.png" /></a>
+                    </div>
+
+                </div>
+            </div>
+            {/foreach}
+
+        </div>
+
+        <!--栏目-->
+        <div class="content_one" id="zy">
+            <div class="title">
+                <p>
+                    <!--<a href="" target="_blank">更多></a>-->
+                </p>
+                <span>往期回顾</span>
+            </div>
+            {foreach name="$review" item="vo"}
+            <div class="content_one_wrap old_activity">
+                <div class="content_one_img">
+                    <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="{$vo.a_index_img}" /></a>
+                </div>
+                <div class="content_one_info">
+                    <div class="info_left" style="width: 100%;">
+                        <p class="name ">{$vo.a_title}</p>
+                    </div>
+                    <!--<div class="info_right">
+                            <a href="buy.html"><img src="__IMG__/sure.png" /></a>
+                    </div>-->
+
+                </div>
+            </div>
+            {/foreach}
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/banner.js" type="text/javascript" charset="utf-8"></script>
+</html>

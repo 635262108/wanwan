@@ -1,0 +1,318 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/detail.css"/>
+		<div class="content">
+			<!--介绍-->
+			<div class="detail_banner">
+				<div class="detail_banner_img">
+					<img src="__AdminIMG__/{$activityInfo.a_img}" />
+				</div>
+				<div class="detail_article">
+					<ul class="detail_article_ul">
+					{foreach name="extensionInfo" item="vo" }
+						<li>
+							<div class="topic_pic">
+                                                            <a href="javascript:;" onclick="openDetail({$vo.extension_id})">
+									<img src="__AdminIMG__/{$vo.extension_img}" />
+								</a>
+							</div>
+							<div class="topic_txt">
+								<a href="javascript:;" onclick="openDetail({$vo.extension_id})">
+									<h5>{$vo.extension_title}</h5>
+									<p>{$vo.extension_remark}</p>
+								</a>
+							</div>
+						</li>
+					{/foreach}	
+					</ul>
+
+				</div>
+			</div>
+			<!--购买-->
+			<div class="buy_con" style="overflow: hidden;margin-bottom: 20px;">
+				<div class="buy_info">
+					<img src="__IMG__/de2.png" />
+					<div class="buy_name">
+						<span style="font-weight: 700;">玩翫</span>信息
+					</div>
+					<form action="{:url('home/Activity/activity_sure')}" method="get">
+					<div class="buy_name_info">
+					<input type="hidden" name="aid" value="{$activityInfo.aid}" />
+						<p><span style="color: #FF4134;">活动时间：</span>{$activityInfo.a_begin_time|date='Y年m月d日',###}-{$activityInfo.a_end_time|date='m月d日',###}</p>
+						<p style="margin-top: 10px;"><span style="color: #FF4134;">活动地点：</span>{$activityInfo.a_address}</p>
+						<div class="number" style="margin-top: 10px;">
+							<span style="color: #FF4134;float: left;">人员数量：</span>
+							<span style="float: left;">大人：￥<span id="adult">{$activityInfo.a_adult_price}</span> </span>
+							<div class="lab" style="margin-top: -3px;">
+								<input id="num-1" class="p-f-text dB_number_s" type="text" name="adult_num" value="1" maxlength="6" />
+								<div class="button">
+									<a id="up-1" class="up changeadd" href="javascript:;"></a>
+									<a id="down-1" class="down changeredu" href="javascript:;"></a>
+								</div>
+							</div>
+
+							<span style="float: left;margin:10px 0 0 80px;">孩子：￥<span id="child">{$activityInfo.a_child_price}</span></span>
+							<div class="lab" style="margin-top: 5px;">
+								<input id="num-2" class="p-f-text dB_number_s" name="child_num" type="text" value="1" maxlength="6" />
+								<div class="button">
+									<a id="up-2" class="up changeadd" href="javascript:;"></a>
+									<a id="down-2" class="down changeredu" href="javascript:;"></a>
+								</div>
+							</div>
+						</div>
+						<div class="activeList">
+							<p class="price">￥<span id="Buy_price">30</span> </p>
+							<input class="entered" style="border-radius: 5px;border:none;" value="我要玩" type="submit" >
+						</div>
+						</form>
+						<div class="share">
+                                                    {empty name = "$isCollection"}
+                                                        <a href="javascript:void(0)"><img id="scButton" src="__IMG__/icon-sc.png" /><span>收藏</span></a>
+                                                    {else/}
+                                                        <a href="javascript:void(0)"><img id="scButton" src="__IMG__/icon-sc2.png" /><span>收藏</span></a>
+                                                    {/empty}
+                                                    
+                                                    <a href="javascript:void(0)"><img id="fxButton" src="__IMG__/icon-fx.png" /><span style="margin-left: 7px;">分享</span></a>
+						</div>
+					</div>
+
+				</div>
+				<!--评论-->
+				<div class="relate_right">
+					<ul class="activity_ul" style="margin:20px 0;">
+						<li class="view-ul"><span style="font-weight: 700;">玩伴</span>评论</li>
+<!--						<li class="all-comment"><span style="font-weight: 700;">相关</span>玩翫</li>-->
+						<li class="all-question"><span style="font-weight: 700;">玩翫</span>答疑</li>
+					</ul>
+					<!--评论-->
+					<div class="active_comment">
+						<h3 style="margin: 20px 0;">全部评价</h3>
+						<ul style="overflow-y:scroll;height:270px;">
+                                                {empty name="commentInfo"}
+                                                    暂无评论......
+                                                {else/}
+						{foreach name="commentInfo" item="vo"}
+							<li class="common_list_li">
+								<div class="userAttar_Img">
+                                                                {if condition="$vo.headIcon eq '' "}
+                                                                <img src="__IMG__/wan.jpg" />
+                                                                {else /}
+                                                                    <img src="{$vo.headIcon}" />
+                                                                {/if}
+								</div>
+								<div class="conment_info">
+									<div class="user_name" style="color: gray;">
+										{$vo.nickname}
+									</div>
+									<div class="act_commoDate" style="color:#b7b7bd;font-size: 0.8em;">
+										{$vo.time|date='Y年m月d日',###}
+									</div>
+									<div class="act_common_content">
+										{$vo.content|htmlentities}
+									</div>
+								</div>
+							</li>
+						{/foreach}
+                                                {/empty}
+						</ul>
+					</div>
+
+					<!--相关玩具-->
+<!--					<div class="relate_toy">
+						精品推荐
+						<h3>精品推荐</h3>
+						{foreach name="recommendInfo" item="vo"}
+						<div class="content_three_wrap">
+							<div class="content_three_img">
+								<a href="products-buy.html"><img src="{$vo.a_index_img}" /></a>
+							</div>
+							<div class="content_three_info">
+								<h4 class="name ">{$vo.a_title}</h4>
+								<p class="activeList-2">
+									<span class="price">￥{$vo.a_price} </span>
+									<a style="margin-left: 45px;font-size: 13px;" href="">点击购买</a>
+								</p>
+							</div>
+						</div>
+						{/foreach}
+						相关翫具
+						<h3>相关翫具</h3>
+						{foreach name="goodsInfo" item="vo"}
+						<div class="content_three_wrap">
+							<div class="content_three_img">
+								<a href="products-buy.html"><img src="{$vo.g_img}" /></a>
+							</div>
+							<div class="content_three_info">
+								<h4 class="name ">{$vo.g_title}</h4>
+								<p class="activeList-2">
+									<span class="price">￥{$vo.g_price} </span>
+									<a style="margin-left: 45px;font-size: 13px;" href="">点击购买</a>
+								</p>
+							</div>
+						</div>
+						{/foreach}
+						</div>-->
+						
+					<!--答疑-->
+					<div class="active_question">
+						<h3 style="margin: 20px 0;">我有疑问</h3>
+						<ul style="overflow-y:scroll;height:270px;">
+                                                        {empty name="question"}
+                                                        暂无答疑......
+                                                        {else/}
+							{foreach $question as $vo} 
+							<li class="common_list_li">
+								<div class="userAttar_Img">
+									<img src="__HEADICON__/{$vo.headIcon}" />
+								</div>
+								<div class="conment_info">
+									<div class="user_name" style="color: gray;">
+										{$vo.nickname}
+									</div>
+									<div class="act_commoDate" style="color:#b7b7bd;font-size: 0.8em;">
+										{$vo.time|date='Y-m-d',###}
+									</div>
+									<div class="act_common_content">
+										{$vo.content}
+									</div>
+								</div>
+							</li>
+							{foreach $answer as $val}
+							{if condition="$vo.comment_id eq $val.reply_id"} 
+							<li class="act_reply_content" style="">
+								<div class="reply_userImg">
+									<img src="__HEADICON__/{$val.headIcon}" />
+								</div>
+								<div class="reply_info">
+									<div class="reply_name" style="color: gray;">
+										{$val.nickname}
+									</div>
+									<div class="act_replyDate" style="color:#b7b7bd;font-size: 0.8em;">
+										{$val.time|date='Y-m-d',###}
+									</div>
+									<div class="act_reply_content">
+										{$val.content}
+									</div>
+								</div>
+
+							</li>
+							{/if}
+							{/foreach}
+							{/foreach}
+                                                        {/empty}
+						</ul>
+						<div class="question_form" style="margin-bottom: 20px;">
+							<div class="share_header" style="margin-bottom: 10px;">
+								<span>我有疑问</span>
+							</div>
+							<form action="" method="post">
+								<textarea name="message" id="message" rows="5" cols="" style="width: 560px;resize: none;"></textarea>
+
+							</form>
+							<div class="share_submit">
+								<button id="ques_button">确定提问</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--弹出框-->
+                {foreach name="extensionInfo" item="vo" }
+                <div id="bg{$vo.extension_id}" style="display: none;" class="bg">
+			<div class="alert_div" onclick="closeDetail({$vo.extension_id})">
+				<div class="close" id="close{$vo.extension_id}" style="border-radius: 5px;">
+					<img src="__IMG__/close.png" style="border-radius: 5px;" />
+				</div>
+				<div class="alert_content" style="overflow-y:scroll;">
+					{$vo.extension_content}
+					
+				</div>
+
+			</div>
+
+		</div>
+                {/foreach}
+
+		<!--底部-->
+		{include file="public/footer" /}
+		<script src="__JS__/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/detail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
+<script>
+    //点击收藏按钮
+    $("#scButton").click(function(){
+        var src = $(this).attr("src")
+        var _this = $(this);
+        if(src == '/public/static/img/icon-sc.png'){
+            $.post("{:url('home/activity/collection')}",{ aid: {$activityInfo.aid},type:1},
+            function(obj){
+                if(obj.state_code != 200){
+                    alert(obj.msg);
+                    return false;
+                }else{
+                    $(_this).attr("src","/public/static/img/icon-sc2.png")
+                }
+            }, "json");
+        }else{
+            $.post("{:url('home/activity/collection')}",{ aid: {$activityInfo.aid},type:2},
+            function(obj){
+                if(obj.state_code != 200){
+                    alert(obj.msg);
+                    return false;
+                }else{
+                    $(_this).attr("src","/public/static/img/icon-sc.png")
+                }
+            }, "json");
+        }
+    })
+    
+    //弹出框
+    function openDetail(id){
+        $(".alert_div"+id).css("display", "block");
+	$("#bg"+id).css("display", "block");
+	$('body').css({
+		"overflow-x": "hidden",
+		"overflow-y": "hidden"
+	});
+    }
+    
+    //关闭弹窗
+    function closeDetail(id){
+        $("#bg"+id).css("display", "none");
+        $('body').css({
+                "overflow-x": "scroll",
+                "overflow-y": "scroll"
+        });
+    }
+    //问题
+    $("#ques_button").click(function() {
+	var message = $("#message").val();
+	if(message == "") {
+		alert("问题不能为空哦~");
+	} else {
+		if(message.length < 5) {
+			alert("问题长度不能少于5个字符~");
+		} else {
+                    $.post("{:url('home/activity/answer_questions')}",{ aid: {$activityInfo.aid},content:message},
+                    function(obj){
+                        if(obj.state_code != 200){
+                            alert(obj.msg);
+                            return false;
+                        }else{
+                            $('.active_question ul').prepend('<li class="common_list_li">' +
+				'<div class="userAttar_Img">' + '<img src="'+obj.data.headIcon+'" />' + '</div>' + '<div class="conment_info">' +
+				'<div class="user_name" style="color: gray;">'+obj.data.nickname+'</div>' +
+				'<div class="act_commoDate" style="color:#b7b7bd;font-size: 0.8em;">' + showTime() + '</div>' +
+				'<div class="act_common_content">' + message + '</div>' + '</div>' + '</li>');
+                        }
+                    }, "json");
+			
+		}
+	};
+	$("#message").val("");
+
+});
+</script>

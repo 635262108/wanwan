@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>玩翫碗~不一样的玩儿</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<style type="text/css">		
+		</style>
+	</head>
+	<body>
+		<header>
+			<!--logo-->
+			<div id="logo">
+				<a href="{:url('home/index/index')}"><img src="__IMG__/logo.png" /></a>
+			</div>
+			<div class="navbar">
+				<ul class="nav_left">
+                                    {foreach name="title" item="vo"}
+					<li>
+                                            <a href="{:url('home/Activity/index',['set'=>$vo.id])}">{$vo.name}</a>
+                                        </li>
+                                    {/foreach}
+                                        <li>
+                                            <a href="{:url('home/Activity/freeplay')}">免费活动</a>
+                                        </li>
+                                        <li>
+                                                <a href="{:url('home/index/about')}">关于我们</a>
+                                        </li>
+				</ul>
+				<ul class="nav_right">
+					<li style="color: white;">400-611-2731</li>
+					{empty name=":session('userInfo')"}
+                                         <li>
+                                            <a href="{:url('home/user/register')}">注册</a>
+                                        </li>
+                                        <li>
+                                            <a href="{:url('home/user/login')}">登录</a>
+                                        </li>
+                                        {else/}
+					<li style="border: 1.5px solid white;padding: 2px 9px;border-radius: 5px;">
+						<a href="{:url('home/User/index')}" style="padding: 2px 9px;">会员中心</a>
+					</li>
+                                        {/empty}
+                                        
+                                       
+				</ul>
+			</div>
+		</header>

@@ -1,0 +1,64 @@
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+      <div id="breadcrumb"> 
+      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
+      	<a href="#" class="tip-bottom">活动管理</a> 
+        <a href="{:url('admin/activity/activityType')}" class="tip-bottom">活动分类</a>
+      	<a href="#" class="current">活动子分类</a> 
+  </div>
+  </div>
+<!--添加开始部分-->
+  <div class="add_order">
+      <a href="{:url('admin/activity/addTypeSonList',['fid'=>$Request.param.fid])}">
+        <div class="add" title="添加分类">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加子分类
+          </span>
+        </div>
+     </a>
+  </div>
+  <!--添加结束部分-->
+<div class="container-fluid">
+  <div class="row-fluid">
+  	  <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>分类列表</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                    <th>分类id</th>
+                    <th>名称</th>
+                    <th>排序</th>
+                    <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                {foreach name="typeInfo" item="vo"}
+                <tr class="gradeX trs">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.sort}</td>
+                    <td>
+                        <a href="{:url('admin/activity/saveTypeList',['tid'=>$vo.id])}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+                        <a href="#"><i class="delete icon-pencil classfy_delete">&nbsp;&nbsp;删除</i></a>
+                    </td>
+
+                </tr>
+                {/foreach}
+              </tbody>
+            </table>
+          </div>
+        </div>
+  	  </div>
+  </div>
+</div>
+</div>
+{include file="public/footer" /}
+</html>

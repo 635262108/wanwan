@@ -1,0 +1,177 @@
+{include file="public/header" /}
+<style type="text/css">
+			.bg {
+				background: url(__IMG__/bg2.jpg) no-repeat top center;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				height: 975px;
+			}
+			
+			.content_ul li {
+				z-index: 10;
+				position: absolute;
+			}
+			
+			.content_ul li:nth-child(1) {
+				top: 110px;
+				left: 350px;
+			}
+			
+			.content_ul li:nth-child(2) {
+				top: 270px;
+				left: 220px;
+			}
+			
+			.content_ul li:nth-child(3) {
+				top: 450px;
+				left: 150px;
+			}
+			
+			.content_ul li:nth-child(4) {
+				top: 630px;
+				left: 220px;
+			}
+			
+			.content_ul li:nth-child(5) {
+				top: 770px;
+				left: 360px;
+			}
+			
+			.text_center {
+				width: 1800px;
+				position: absolute;
+				top: 370px;
+				width: 420px;
+				text-align: end;
+				margin-left: 23%;
+			}
+			
+			.text_center h2 {
+				font-size: 48px;
+				font-weight: 700;
+				color: white;
+			}
+			
+			.text_center p {
+				margin-top: 20px;
+				color: white;
+				font-size: 28px;
+			}
+			
+			.content_ul li:hover img {
+				-ms-transform: scale(1.2);
+				-webkit-transform: scale(1.2);
+				transform: scale(1.2);
+				transition: all 0.5s;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-ms-transition: all 0.5s;
+				-o-transition: all 0.5s;
+			}
+			
+			@media screen and (max-width: 1700px) {
+				.navbar {
+					width: 1300px;
+				}
+				.nav_right {
+					margin-left: 5px;
+				}
+				.nav_left {
+					margin-left: 8px;
+				}
+				.content_ul li img {
+					width: 80%;
+				}
+				.content_ul li:nth-child(1) {
+					top: 100px;
+					left: 340px;
+				}
+				.content_ul li:nth-child(2) {
+					top: 230px;
+					left: 210px;
+				}
+				.content_ul li:nth-child(3) {
+					top: 390px;
+					left: 140px;
+				}
+				.content_ul li:nth-child(4) {
+					top: 540px;
+					left: 210px;
+				}
+				.content_ul li:nth-child(5) {
+					top: 650px;
+					left: 330px;
+				}
+				
+				.bg {
+					background: url(__IMG__/bg2.jpg) no-repeat top center;
+					-webkit-background-size: cover;
+					-moz-background-size: cover;
+					-o-background-size: cover;
+					background-size: cover;
+					height: 880px;
+				}	
+			}
+			
+			@media screen and (max-width: 1280px) {
+				.text_center {
+					width: 700px;
+					margin-left: 0px;
+					top: 350px;
+				}
+			}
+		</style>
+                <!--背景-->
+                <div class="wrap">
+                <div class="bg">
+                </div>
+<div class="content_txt">
+				<ul class="content_ul">
+					<li>
+						<a href="begin.html"><img src="__IMG__/begin.png" /></a>
+					</li>
+					<li>
+						<a href=""><img src="__IMG__/start.png"/></a>
+					</li>
+					<li>
+						<a href=""><img src="__IMG__/play.png" /></a>
+					</li>
+					<li>
+						<a href=""><img src="__IMG__/artisan.png" /></a>
+					</li>
+					<li>
+						<a href=""><img src="__IMG__/study.png" /></a>
+					</li>
+				</ul>
+				<div class="text_center">
+					<div class="text_content">
+						<h2 style="display: none;">不一样的玩？</h2>
+						<p style="display: none;">＜点击了解玩翫碗怎么不一样</p>
+					</div>
+				</div>
+			</div>
+                    </div>
+		<!--底部-->
+		{include file="public/footer" /}
+	<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//为导航栏添加鼠标移入事件
+		$(".nav_left li>a").mouseenter(function() {
+			$(this).css({
+				backgroundColor: 'white',
+				color: '#ff4b3c'
+			});
+		});
+		$(".nav_left li>a").mouseleave(function() {
+			$(this).css({
+				backgroundColor: 'transparent',
+				color: 'white'
+			});
+		});
+		$(".text_center h2").fadeIn(2000, function() {});
+		$(".text_center p").fadeIn(3000, function() {});
+	</script>
+	</body>
+</html>

@@ -1,0 +1,177 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/cart.css" />
+<link rel="stylesheet" type="text/css" href="__CSS__/datePicker.css" />
+		<div class="content">
+			<!--顶部-->
+			<div id="pt" class="top_tip">
+				<div class="z">
+					<a href="./" class="nvhm" title="首页"><img style="width: 20px;" src="__IMG__/icon-home_02.png" /></a> <span><img style="" src="__IMG__/icon-jt.png"/></span>
+					<a href="activity.html">活动</a>
+					<span><img style="" src="__IMG__/icon-jt.png"/></span>
+					<a href="">报名</a>
+				</div>
+			</div>
+			<!--流程-->
+			<div class="payStatus">
+				<div class="payStatus-1 payStatusD z">
+					<a href="detail.html"><span class="payStatus_Bg StatusGo">1</span></a><span class="payStatus_name StatusGoF">我要报名</span>
+					<hr class="payStatusHr_1">
+				</div>
+				<div class="payStatus-2 payStatusD z"> <span class="payStatus_Bg StatusIng">2</span> <span class="payStatus_name StatusIngF">确认报名</span>
+					<hr class="payStatusHr_2">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusNext">3</span> <span class="payStatus_name StatusNextF">在线支付</span>
+					<hr class="payStatusHr_2 payStatusHrGray">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusNext">4</span> <span class="payStatus_name StatusNextF">报名成功</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+		</div>
+
+		<!--订单-->
+		<div class="content content_all">
+			<!--联系人信息-->
+			<form action="{:url('home/Activity/creat_order')}" method="post">
+                        <input type="hidden" name="token"  value="{$Request.token}"/>
+                        <input type="hidden" name="time"  value="{$timeInfo.t_id}"/>
+			<div id="form_project" style="margin-top: 130px;">
+				<div class="user_text" style="background-color: #FF4134;">
+					<p class="user_p">联系人信息</p>
+				</div>
+				<div class="contact_form box" style="font-size:14px;">
+					<table style=" margin-left:5px;" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="80">联系人姓名</td>
+							<td width="150"><input class="px" type="text" name="realname" id="realname" value="" style="width: 100px;font-size:14px;" /></td>
+							<td width="80">联系人电话</td>
+							<td width="200"><input class="px" type="text" name="mobile" id="mobile" value="" style="" /></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!--选择套餐-->
+			<div id="form_project">
+				<div id="topApply" class="user_text">
+					<p class="user_p" style="margin-right: 30px;">选择套餐</p>
+					<p style="color: #cccccc;">您选择<i style="color: white;"><span class="adult_sel">1</span>大<span class="child_sel">2</span>小</i>参加活动 </p>
+				</div>
+				<div class="box  clearfix">
+					<p class="w100 float" style="width:70px;font-size:14px; line-height: 32px;">选择数量：</p>
+					<div class=" float  f1">
+						<label class="person1 float" style="font-size:14px;">大人：￥<span id="adult">{$ActivityInfo.a_adult_price}</span> </label>
+						<div class="clearfix up-down">
+							<input id="value1" class="input-text float dB_number_s" name="adult_num" type="text" value="{$adult_num}" readonly="true" />
+							<div class=" float">
+								<a id="value1-up" class="btn-1 up changeadd" href="javascript:;"></a>
+								<a id="value1-down" class="btn-1 down changeredu" style="" href="javascript:;"></a>
+							</div>
+						</div>
+					</div>
+					<div class=" float f1">
+						<label class="person1 float" style="font-size:14px;">小孩：￥<span id="child">{$ActivityInfo.a_adult_price}</span> </label>
+						<div class="clearfix up-down">
+							<input id="value2" class="input-text float dB_number_s" name="child_num" type="text" value="{$child_num}" readonly="true" />
+							<div class=" float">
+								<a id="value2-up" class="btn-1 up changeadd" href="javascript:;"></a>
+								<a id="value2-down" class="btn-1 down changeredu" style="" href="javascript:;"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--参加人信息-->
+			<div id="form_project" style="margin-top:20px;">
+				<div class="user_text" style="margin-top:20px;">
+					<p class="user_p">参加人信息</p>
+				</div>
+				<div class="box clearfix" style="font-size:14px !important;" id="active_join">
+					<em style="float: left;color: #FF4134;margin-top: 3px;">*</em>
+					<div class="children" style="margin-bottom: 10px;">
+						<select class="ml-10 float" name="child_gender[]" data="role" style="margin-left: 10px;">
+							<option value="1">男孩</option>
+							<option value="2">女孩</option>
+						</select>
+						<label class="float" style="margin-left: 20px;">孩子姓名 </label>
+						<input class="ml-10  input-text-2" type="text" name="child_name[]" placeholder="请填写真实姓名" id="child_realname" data="realname" style="border: 1px solid #d0d0d0;" />
+						<input type="text" name="child_birthday[]" id="datePicker" class="date_picker" placeholder="点击选择生日" />
+						<!--<img style="float: right;margin-right: 200px;" src="__IMG__/icon-xiugai_03.png"/>-->
+					</div>
+
+					<div class="children child_2" style="margin-bottom: 10px;display: none;">
+						<em style="float: left;color: #FF4134;margin-top: 3px;">*</em>
+						<select class="ml-10 float" name="child_gender[]" data="role" style="margin-left: 10px;">
+							<option value="1">男孩</option>
+							<option value="2">女孩</option>
+						</select>
+						<label class="float" style="margin-left: 20px;">孩子姓名 </label>
+						<input class="ml-10  input-text-2" type="text" name="child_name[]" placeholder="请填写真实姓名" id="child_realname2"  data="realname" style="border: 1px solid #d0d0d0;" />
+						<input type="text" name="child_birthday[]" id="datePicker2" class="date_picker" placeholder="点击选择生日" />
+						<!--<img style="float: right;margin-right: 200px;" src="__IMG__/icon-xiugai_03.png"/>-->
+					</div>
+				</div>
+			</div>
+                        <!--选择时间-->
+                        {notempty name="$timeInfo"}
+                        <div id="form_project" style="margin-top:20px;">
+				<div class="user_text" style="margin-top:20px;">
+					<p class="user_p">参加时间</p>
+				</div>
+				<div class="box clearfix" style="font-size:14px !important;" id="active_join">
+					{$timeInfo.t_content}
+				</div>
+			</div>
+                        {/notempty}
+			<!--商品信息-->
+			<div id="form_project" style="margin-top:20px;">
+				<div class="user_text">
+					<p class="user_p">商品信息</p>
+				</div>
+				<div class="contact_form">
+					<table class="settle_table">
+						<thead>
+							<tr style="background-color:#ededed;">
+								<th width="700" class="goods_List_td">商品信息</th>
+								<!--<th>编号</th>-->
+								<th>参与人员</th>
+								<th>单价</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="goods_List_n">
+									<div class="z"> <img src="__AdminIMG__/{$ActivityInfo.a_index_img}" width="95"> </div>
+									<div class="z cart_shop_name cl" style="">
+										<div class="settle_name">{$ActivityInfo.a_title} </div>
+										<div class="settle_Time" style="position:absolute;left: 10px;top: 60px;">活动时间：{$ActivityInfo.a_sign_begin_time|date='Y年m月d日',###}-{$ActivityInfo.a_sign_end_time|date='m月d日',###}</div>
+									</div>
+								</td>
+								<td id="select_num" style="text-align: center;"><span class="adult_sel">1</span>大<span class="child_sel">2</span>小</td>
+								<td>
+									<p id="credit_num" style="text-align: center;">大人：￥{$ActivityInfo.a_adult_price}</p>
+									<p id="credit_num2" style="text-align: center;">孩子：￥{$ActivityInfo.a_child_price}</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<div class="beizhu_">
+							<input type="text" class="beizhu_text" name="remark" value="" placeholder="订单备注">
+						</div>
+						<div class="settle_heji">合计: <i style="font-size: 20px;">￥</i><span id="Buy_price"> 免费</span></div>
+					</div>
+					<div class="settle_zongjie" style="clear:both;">
+						<input type="hidden" name="aid" class="hide_receive_id" value="{$ActivityInfo.aid}" />
+						<p class="settle_zongjie_p">实付款: <i style="font-size: 28px;color: #FF4134;">￥</i><span class="settle_payment" id="Buy_price2" style="font-size: 28px;"> 免费</span> </p>
+						<button type="submit" id="signUpBtn_sure" class="sumbitSign cursor" onclick="return signUpClick()">确定报名</button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/jquery.date_input.pack.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{empty name=":session('userInfo')"}
+<div class="into_page">
+    <span><a href="{:url('mobile/user/login')}">登录</a></span>
+    <span><a href="{:url('mobile/user/register')}">注册</a></span>
+</div>
+{/empty}
+<!--头部图片-->
+<div class="textAlign header">
+    <div class="header_img">
+        <a href="{:url('mobile/activity/index')}"><img src="__MobileImg__/logo.png" /></a>
+    </div>
+</div>
+<!--导航栏tab-->
+<div class="textAlign nav">
+    <ul>
+            {foreach name="title" item="vo"}
+            <li {if condition="$Request.param.set eq $vo.id"}class="play_baby"{/if}><a href="{:url('mobile/Activity/index',['set'=>$vo.id])}">{$vo.name}</a></li>
+            {/foreach}
+            <li {if condition="$Request.action eq 'freeplay' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/freeplay')}">免费玩儿</a></li>
+            <li {if condition="$Request.action eq 'index' "}class="play_baby"{/if}><a href="{:url('mobile/user/index')}">会员中心</a></li>
+            <li {if condition="$Request.action eq 'about' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/about')}">关于我们</a></li>
+    </ul>
+</div>

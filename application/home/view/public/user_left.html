@@ -1,0 +1,22 @@
+<!--左侧列表-->
+		<div class="userBig">
+			<div class="userLeft">
+				<!--<div class="userLName">全部功能</div>-->
+				<ul class="userLeftNav">
+                                    <li>
+						<a {if condition=" request()->action() eq 'index' "}style=color:#FF4134;text-decoration:underline{/if} href="{:url('home/User/index')}">我的主页</a>
+					</li>
+					<li>
+						<a {if condition=" request()->action() eq 'my_activity' "}style=color:#FF4134;text-decoration:underline{/if} href="{:url('home/User/my_activity')}">我的活动</a>
+					</li>
+					<li>
+						<a {if condition=" request()->action() eq 'myfavorite' "}style=color:#FF4134;text-decoration:underline{/if} href="{:url('home/User/myfavorite')}">我的收藏</a>
+					</li>
+					<li>
+						<a {if condition=" request()->action() eq 'my_message' "}style=color:#FF4134;text-decoration:underline{/if} href="{:url('home/User/my_message')}">我的消息</a>
+					</li>
+				</ul>
+			</div>
+                    <script src="__JS__/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+
+               

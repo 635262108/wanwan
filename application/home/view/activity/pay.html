@@ -1,0 +1,103 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/cart.css" />
+
+		<div class="content">
+			<!--顶部-->
+			<div id="pt" class="top_tip">
+				<div class="z">
+					<a href="./" class="nvhm" title="首页"><img style="width: 20px;" src="__IMG__/icon-home_02.png" /></a> <span><img style="" src="__IMG__/icon-jt.png"/></span>
+					<a href="activity.html">活动</a>
+					<span><img style="" src="__IMG__/icon-jt.png"/></span>
+					<a href="">报名</a>
+				</div>
+			</div>
+			<!--流程-->
+			<div class="payStatus">
+				<div class="payStatus-1 payStatusD z">
+					<span class="payStatus_Bg StatusGo">1</span></a><span class="payStatus_name StatusGoF">我要报名</span>
+					<hr class="payStatusHr_1 payStatusHrGo">
+				</div>
+				<div class="payStatus-2 payStatusD z"> <span class="payStatus_Bg StatusGo">2</span> <span class="payStatus_name StatusGoF">确认报名</span>
+					<hr class="payStatusHr_2">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusIng ">3</span> <span class="payStatus_name StatusIngF ">在线支付</span>
+					<hr class="payStatusHr_2 ">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusNext">4</span> <span class="payStatus_name StatusNextF">报名成功</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+		</div>
+		<!--商品信息-->
+		<div class="content">			
+			<div id="form_project" style="margin-top:160px;">
+
+				<table class="settle_table" style="margin-left: 10px;">
+					<thead>
+						<tr style="background-color:#ededed;">
+							<th width="700" class="goods_List_td">商品信息</th>
+							<!--<th>编号</th>-->
+							<th>数量</th>
+							<th>总计</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="goods_List_n">
+								<div class="z"> <img src="__IMG__/de1.png" width="95"> </div>
+								<div class="z cart_shop_name cl" style="">
+									<div class="settle_name">{$activityInfo.a_title} </div>
+									<div class="settle_Time" style="position:absolute;left: 10px;top: 60px;">活动时间：{$activityInfo.a_sign_begin_time|date='Y年m月d日',###}-{$activityInfo.a_sign_end_time|date='m月d日',###}</div>
+								</div>
+							</td>
+							<td id="select_num" style="text-align: center;"><span class="adult_sel1">{$adult_num}</span>大<span class="child_sel1">{$child_num}</span>小</td>
+							<td>
+								<div style="margin-right: 65px;text-align: right;color: #FF4134;font-size: 20px;">￥<span class="Buy_price_all">{$order_price}</span></div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<form action="{:url('home/Activity/payWay')}" method="post">
+				<div>
+					<div class="user_text">
+						<p class="user_p">选择支付方式</p>
+					</div>
+					<input type="hidden" name="order_sn" value="{$order_sn}" />
+					<input type="hidden" name="order_price" value="{$order_price}" />
+					<ul class="pay">
+						<li class="h1 set">
+							<input name="bank_type" type="radio" value="1" checked="true" />
+							<label class="label-2"><img src="__IMG__/zhifub.png" alt="" /></label>
+							<b style="display:block">支付<span class="col-3">30.00</span>元</b>
+						</li>
+						<li class="h1">
+							<input name="bank_type" type="radio" value="2" />
+							<label class="label-2"><img src="__IMG__/weizhifu.png" alt="" /></label>
+							<b>支付<span class="col-3">30.00</span>元</b>
+						</li>
+						<li class="h1">
+							<input name="bank_type" type="radio" value="3" />
+							<label class="label-2"><img src="__IMG__/unionpay.png" alt="" /></label>
+							<b>支付<span class="col-3">30.00</span>元</b>
+						</li>
+					</ul>
+					<div style=" position:relative; height:120px; margin-right:20px;"><button type="submit" ga-data="10003" class="sumbitSign cursor" style="border-radius: 5px;">确定支付</button></div>
+			</div>			
+			</form>	
+	<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+	<script src="__JS__/detail.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".pay li").click(function  () {			
+			$(this).find(":radio").attr("checked",true);
+			$(this).find("b").css("display","block");
+			$(this).addClass("set");
+			 $(this).siblings().removeClass("set");
+			 $(this).siblings().find("b").css("display","none");
+		});
+		var price_all = $(".Buy_price_all").html();
+		$(".col-3").text(price_all);
+	</script>
+	</body>
+</html>

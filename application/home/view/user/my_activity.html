@@ -1,0 +1,553 @@
+{include file="public/user_header" /}
+{include file="public/user_left" /}
+<!--右侧-->
+<div class="userRight">
+    <ul class="userRightNav">
+        <li class="active_userRight navMyOrder">我的订单</li>
+        <li class="navNoPay">未付款</li>
+        <li class="navHavePay">已付款</li>
+        <li class="navAccess">待评价</li>
+        <li class="navRefund">退款/售后</li>
+    </ul>
+    <!--我的订单-->
+    <div class="orderList allTableList">
+        <table width="830" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th width="390">订单信息</th>
+                    <th width="110">下单时间</th>
+                    <th width="80">套餐</th>
+                    <th width="40">金额</th>
+                    <th width="80">交易状态 </th>
+                    <th width="80">参与状态 </th>
+                    <th width="100">操作</th>
+                </tr>
+                {foreach name="myOrderData" item="vo"}
+                <tr>
+                    <td class="orderInfo">
+                        <div class="orderInfo-1 z">
+                            <a href="#" >
+                                <img src="__AdminIMG__/{$vo.a_index_img}" width="80" height="80" title="{$vo.a_title}" />
+                            </a>
+                        </div>
+                        <div class="orderInfo-2 z">
+                            <h4><a href = "#" style = "text-align: left;" >{$vo.a_title}</a></h4>
+                            <p>订单号：{$vo.order_sn}</p>
+                            <p class="col1">活动时间：{$vo.a_begin_time|date='Y-m-d H:i',###}~{$vo.a_end_time|date='Y-m-d H:i',###}</p>
+                        </div>
+                    </td>
+                    <td style="display: none"><span>{$vo.aid}</span><span2>{$vo.order_sn}</span2></td>
+            <td class="order_time">{$vo.addtime|date='Y-m-d H:i',###}</td>
+            <td>{$vo.adult_num}大{$vo.child_num}小</td>
+            <td>￥{$vo.order_price}</td>
+            <td id="r_26562_1" class="zhuangtai">
+                {switch name="$vo.order_status"}
+                {case value="1"}已完成{/case}
+                {case value="2"}未付款{/case}
+                {case value="3"}已付款{/case}
+                {case value="4"}已付款{/case}
+                {case value="5"}退款中{/case}
+                {case value="6"}已退款{/case}
+                {case value="7"}已请假{/case}
+                {/switch}
+            </td>
+            <td id="" class="canyu">
+                {switch name="$vo.order_status"}
+                {case value="1|4"}已参加{/case}
+                {default}未参加
+                {/switch}
+            </td>
+            <td>
+                <a href="{:url('home/user/order_detail',['order_sn'=>$vo.order_sn])}">订单详情</a>
+                {switch name="$vo.order_status"}
+                {case value="4"}<a class="a1 pl" href="javascript:void(0);" style="color: white;" id="tocomment">去评论</a>{/case}
+                {/switch}
+            </td>
+            </tr>
+            {/foreach}
+
+            </tbody>
+        </table>
+    </div>
+    <!--未付款-->
+    <div class="no_pay allTableList">
+        <table width="830" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th width="390">订单信息</th>
+                    <th width="110">下单时间</th>
+                    <th width="80">套餐</th>
+                    <th width="40">金额</th>
+                    <th width="80">交易状态 </th>
+                    <th width="80">参与状态 </th>
+                    <th width="100">操作</th>
+                </tr>
+                {foreach name="notPay" item="vo"}
+                <tr>
+                    <td class="orderInfo">
+                        <div class="orderInfo-1 z">
+                            <a href="#" >
+                                <img src="__AdminIMG__/{$vo.a_index_img}" width="80" height="80" title="{$vo.a_title}" />
+                            </a>
+                        </div>
+                        <div class="orderInfo-2 z">
+                            <h4><a href = "#" style = "text-align: left;" >{$vo.a_title}</a></h4>
+                            <p>订单号：{$vo.order_sn}</p>
+                            <p class="col1">活动时间：{$vo.a_begin_time|date='Y-m-d H:i',###}~{$vo.a_end_time|date='Y-m-d H:i',###}</p>
+                        </div>
+                    </td>
+                    <td class="order_time">{$vo.addtime|date='Y-m-d H:i',###}</td>
+                    <td>{$vo.adult_num}大{$vo.child_num}小</td>
+                    <td>￥{$vo.order_price}</td>
+                    <td id="r_26562_1" class="zhuangtai">
+                        未付款</td>
+                    <td id="" class="canyu">
+                        未参加</td>
+                    <td>
+                        <a href="{:url('home/user/order_detail',['order_sn'=>$vo.order_sn])}">订单详情</a>
+                        <a class="a1" href="{:url('home/activity/creat_order',['order_sn'=>$vo.order_sn])}"  style="color: white;">去付款</a>
+                    </td>
+                </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
+    <!--已付款-->
+    <div class="have_pay allTableList">
+        <table width="830" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th width="390">订单信息</th>
+                    <th width="110">下单时间</th>
+                    <th width="80">套餐</th>
+                    <th width="40">金额</th>
+                    <th width="80">交易状态 </th>
+                    <th width="80">参与状态 </th>
+                    <th width="100">操作</th>
+                </tr>
+                {foreach name="havePay" item="vo"}
+                <tr>
+                    <td class="orderInfo">
+                        <div class="orderInfo-1 z">
+                            <a href="#" >
+                                <img src="__AdminIMG__/{$vo.a_index_img}" width="80" height="80" title="{$vo.a_title}" />
+                            </a>
+                        </div>
+                        <div class="orderInfo-2 z">
+                            <h4><a href = "#" style = "text-align: left;" >{$vo.a_title}</a></h4>
+                            <p>订单号：{$vo.order_sn}</p>
+                            <p class="col1">活动时间：{$vo.a_begin_time|date='Y-m-d H:i',###}~{$vo.a_end_time|date='Y-m-d H:i',###}</p>
+                        </div>
+                    </td>
+                    <td style="display: none"><span>{$vo.aid}</span><span2>{$vo.order_sn}</span2></td>
+            <td class="order_time">{$vo.addtime|date='Y-m-d H:i',###}</td>
+            <td>{$vo.adult_num}大{$vo.child_num}小</td>
+            <td>￥<span3>{$vo.order_price}</span3></td>
+            <td id="r_26562_1" class="zhuangtai">
+                已付款</td>
+            <td id="" class="canyu">
+                {switch name="$vo.order_status"}
+                {case value="1|4"}已参加{/case}
+                {default}未参加
+                {/switch}
+            </td>
+            <td>
+                <a href="{:url('home/user/order_detail',['order_sn'=>$vo.order_sn])}">订单详情</a>
+                {switch name="$vo.order_status"}
+                {case value="3"}
+                <a class="a1 qj" href="javascript:void(0);" style="color: white;" id="applicate">去请假</a>
+                {if condition="$vo.order_price neq 0"}
+                <a class="a1 tk" href="javascript:void(0);" style="color: white;" id="torefund">去退款</a>
+                {/if}
+                {/case}
+                {case value="7"}<a class="a1" href="javascript:void(0);" style="color: white;">已请假</a>{/case}
+                {/switch}                                                                        
+            </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+    <!--待评价-->
+    <div class="no_access allTableList">
+        <table width="830" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th width="390">订单信息</th>
+                    <th width="110">下单时间</th>
+                    <th width="80">套餐</th>
+                    <th width="40">金额</th>
+                    <th width="80">交易状态 </th>
+                    <th width="80">参与状态 </th>
+                    <th width="100">操作</th>
+                </tr>
+                {foreach name="notEvaluate" item="vo"}
+                <tr>
+                    <td class="orderInfo">
+                        <div class="orderInfo-1 z">
+                            <a href="#" >
+                                <img src="__AdminIMG__/{$vo.a_index_img}" width="80" height="80" title="{$vo.a_title}" />
+                            </a>
+                        </div>
+                        <div class="orderInfo-2 z">
+                            <h4><a href = "#" style = "text-align: left;" >{$vo.a_title}</a></h4>
+                            <p>订单号：{$vo.order_sn}</p>
+                            <p class="col1">活动时间：{$vo.a_begin_time|date='Y-m-d H:i',###}~{$vo.a_end_time|date='Y-m-d H:i',###}</p>
+                        </div>
+                        <span style="display: none">{$vo.aid}</span>
+            <span2 style="display: none">{$vo.order_sn}</span2>
+            </td>
+            <td class="order_time">{$vo.addtime|date='Y-m-d H:i',###}</td>
+            <td>{$vo.adult_num}大{$vo.child_num}小</td>
+            <td>￥{$vo.order_price}</td>
+            <td id="r_26562_1" class="zhuangtai">
+                已付款</td>
+            <td id="" class="canyu">
+                已参加</td>
+            <td>
+                <a href="{:url('home/user/order_detail',['order_sn'=>$vo.order_sn])}">订单详情</a>
+                {switch name="$vo.order_status"}
+                {case value="4"}<a class="a1 pl" href="javascript:void(0);" style="color: white;" id="tocomment">去评论</a>{/case}
+                {/switch}
+            </td>
+            </tr>	
+            {/foreach}
+            </tbody> 
+        </table>
+    </div>
+    <!--已退款-->
+    <div class="refund allTableList">
+        <table width="830" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th width="390">订单信息</th>
+                    <th width="110">下单时间</th>
+                    <th width="80">套餐</th>
+                    <th width="40">金额</th>
+                    <th width="80">交易状态 </th>
+                    <th width="80">参与状态 </th>
+                    <th width="100">操作</th>
+                </tr>
+                {foreach name="afterSale" item="vo"}
+                <tr>
+                    <td class="orderInfo">
+                        <div class="orderInfo-1 z">
+                            <a href="#">
+                                <img src="__AdminIMG__/{$vo.a_index_img}" width="80" height="80" title="{$vo.a_title}" />
+                            </a>
+                        </div>
+                        <div class="orderInfo-2 z">
+                            <h4><a href = "#" style = "text-align: left;">{$vo.a_title}</a></h4>
+                            <p>订单号：{$vo.order_sn}</p>
+                            <p class="col1">活动时间：{$vo.a_begin_time|date='Y-m-d H:i',###}~{$vo.a_end_time|date='Y-m-d H:i',###}</p>
+                        </div>
+                    </td>
+                    <td class="order_time">{$vo.addtime|date='Y-m-d H:i',###}</td>
+                    <td>{$vo.adult_num}大{$vo.child_num}小</td>
+                    <td>￥{$vo.order_price}</td>
+                    <td id="r_26562_1" class="zhuangtai">
+                        已付款</td>
+                    <td id="" class="canyu">
+                        未参加</td>
+                    <td>
+                        <a href="{:url('home/user/order_detail',['order_sn'=>$vo.order_sn])}">订单详情</a>
+                        {switch name="$vo.order_status"}
+                        {case value="5"}<a class="a1" href="{:url('home/user/refund',['order_sn'=>$vo.order_sn])}"  style="color: white;">退款处理中</a>{/case}
+                        {case value="6"}<a class="a1" href="{:url('home/user/refund_succ',['order_sn'=>$vo.order_sn])}"  style="color: white;">已退款</a>{/case}
+                        {/switch}
+                    </td>
+                </tr>	
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--请假-->
+<div class="bg" id="applicateBg" style="display: none;">
+    <div class="alert_div" style="">
+        <div class="close1" style="border-radius: 5px;">
+            <img src="__IMG__/close.png" style="border-radius: 5px;" />
+        </div>
+        <div class="alert_content">
+            <h3 style="color:#FF4134">请假条</h3>
+            <form action="" method="post" style="margin:30px 0 0 30px;line-height: 40px;">
+                <input type="hidden" value="" id="setLid"/>
+                <span style="margin-left: 7px;">请假活动：</span><span  id="leaveTitle" style="margin-left: 5px;"></span><br />
+                <i style="float: left;">*</i><span style="margin-top: 30px;">请假理由：</span>
+                <textarea style="vertical-align:text-top;resize: none;font-size: 15px;" name="" rows="9" cols="43" id="liyou"></textarea>
+                <input type="submit" name="" id="applicateBtn" value="提交" style="float: right;margin-right: 84px;" />
+            </form>
+            <p class="check_liyou_info" style="color: #FF4134;font-size: 12px;margin-left: 120px;"></p>
+        </div>
+    </div>
+</div>
+<!--评论-->
+<div class="bg" id="commentBg" style="display: none;">
+    <div class="alert_div" style="">
+        <div class="close1" style="border-radius: 5px;">
+            <img src="__IMG__/close.png" style="border-radius: 5px;" />
+        </div>
+        <div class="alert_content">
+            <h3 style="color:#FF4134">评论</h3>
+            <form action="" method="post" style="margin:30px 0 0 30px;line-height: 40px;">
+                <input type="hidden" value="" id="setAid"/>
+                <span style="margin-left: 7px;">活动：</span><span id="commentTitle" style="margin-left: 5px;"></span><span id="order_sn" style="margin-left: 5px;"></span><br />
+                <i style="float: left;">*</i><span style="margin-top: 30px;">评论：</span>
+                <textarea style="vertical-align:text-top;resize: none;font-size: 15px;" name="" rows="9" cols="43" id="comment"></textarea>
+                <input type="button" name="" id="commentBtn" value="提交" style="float: right;margin-right: 115px;" />
+            </form>
+            <p class="check_comment_info" style="color: #FF4134;font-size: 12px;margin-left: 90px;"></p>
+        </div>
+    </div>
+</div>
+<!--退款-->
+<div class="bg" id="refundBg" style="display: none;">
+    <div class="alert_div" style="height: 500px;">
+        <div class="close1" style="border-radius: 5px;">
+            <img src="__IMG__/close.png" style="border-radius: 5px;" />
+        </div>
+        <div class="alert_content">
+            <h3 style="color:#FF4134">申请退款</h3>
+
+            <form action='{:url("home/User/refund")}' method="post" style="margin:30px 0 0 5px;line-height: 40px;">
+                <div class="refund_price">
+                    <p>退款金额：<i style="color: #FF4134;">￥</i><span class="price" style="color: #FF4134;"></span></p>
+                </div>
+                <input type="hidden" name="order_sn" class='order_sn' value=""/>
+                <input type="hidden" name="aid" class='aid' value=""/>
+                <input type="hidden" name="token"  value="{$Request.token}"/>
+                <div class="yuanyin" style="padding:0 15px;">
+                    <h4 style="font-weight: 600;">退款原因</h4>
+                    <input type="radio" name="tuikuan" id="tuikuan" value="买错了" />买错了
+                    <br />
+                    <input type="radio" name="tuikuan" id="tuikuan1" value="与我参与的其他活动有时间冲突" />与我参与的其他活动有时间冲突
+                    <br />
+                    <input type="radio" name="tuikuan" id="tuikuan2" value="计划有变，改日再去玩" />计划有变，改日再去玩
+                    <br />
+                    <input type="radio" name="tuikuan" id="tuikuan3" value="0" />其他原因
+                    <input type="text" name="reason" value="" style="height: 22px;"/>
+                </div>
+                <input type="submit" name="" id="refundBtn" value="提交" style="float: right;margin-right: 225px;" />
+            </form>
+            <p class="check_refund_info" style="color: #FF4134;font-size: 12px;margin-left: 25px;"></p>
+            <div class="refund_info" style="padding: 15px;margin-top: 20px;">
+                <h4>温馨提示</h4>
+                <span>-订单成功退款后无法恢复</span><br />
+                <span>-该订单已付金额将由工作人员联系返还</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="__JS__/detail.js" type="text/javascript" charset="utf-8"></script>-->
+</body>	
+</html>
+<script type="text/javascript" charset="utf-8">
+    //个人中心-我的活动
+    $(".userRightNav li").click(function() {
+        $(this).addClass("active_userRight").siblings().removeClass("active_userRight");
+    });
+    $(".navMyOrder").click(function() {
+        $(".orderList").css("display", "block");
+        $(".no_pay").css("display", "none");
+        $(".have_pay").css("display", "none");
+        $(".no_access").css("display", "none");
+        $(".refund").css("display", "none");
+    });
+    $(".navNoPay").click(function() {
+        $(".orderList").css("display", "none");
+        $(".no_pay").css("display", "block");
+        $(".have_pay").css("display", "none");
+        $(".no_access").css("display", "none");
+        $(".refund").css("display", "none");
+    });
+    $(".navHavePay").click(function() {
+        $(".orderList").css("display", "none");
+        $(".no_pay").css("display", "none");
+        $(".have_pay").css("display", "block");
+        $(".no_access").css("display", "none");
+        $(".refund").css("display", "none");
+    });
+    $(".navAccess").click(function() {
+        $(".orderList").css("display", "none");
+        $(".no_pay").css("display", "none");
+        $(".have_pay").css("display", "none");
+        $(".no_access").css("display", "block");
+        $(".refund").css("display", "none");
+    });
+    $(".navRefund").click(function() {
+        $(".orderList").css("display", "none");
+        $(".no_pay").css("display", "none");
+        $(".have_pay").css("display", "none");
+        $(".no_access").css("display", "none");
+        $(".refund").css("display", "block");
+    });
+    //个人中心-我的收藏
+    $(".deleteCollect").click(function() {
+        if (confirm("您确定要删除吗？")) {
+            $(this).parent().parent().parent().remove();
+            return true;
+        } else {
+            return false;
+        }
+    });
+    $(".nav_pay_favorite").click(function() {
+        $(".pay_myfavorite").css("display", "block");
+        $(".nopay_myfavorite").css("display", "none");
+    });
+    $(".nav_nopay_favorite").click(function() {
+        $(".pay_myfavorite").css("display", "none");
+        $(".nopay_myfavorite").css("display", "block");
+    });
+    //我的消息
+
+    $(".navTalkMessage").click(function() {
+        $(".buyMessage").css("display", "none");
+        $(".talkMessage").css("display", "block");
+    });
+    $(".navBuyMessage").click(function() {
+        $(".buyMessage").css("display", "block");
+        $(".talkMessage").css("display", "none");
+    });
+    //关闭弹窗
+    $(".close1").click(function() {
+        $(".bg").css("display", "none");
+        $('body').css({
+            "overflow-x": "scroll",
+            "overflow-y": "scroll"
+        });
+    });
+    //请假
+    $(".qj").click(function() {
+        var title = $(this).parent().parent().find("H4").text();
+        var aid = $(this).parent().parent().find("span").html();
+        var order_sn = $(this).parent().parent().find("span2").text();
+
+        $("#leaveTitle").html(title);
+        $("#order_sn").val(order_sn);
+        $("#setAid").val(aid);
+        $("#applicateBg").css("display", "block");
+    });
+    //评论
+    $(".pl").click(function() {
+        var title = $(this).parent().parent().find("H4").text();
+        var aid = $(this).parent().parent().find("span").html();
+        var order_sn = $(this).parent().parent().find("span2").text();
+        $("#commentTitle").html(title);
+        $("#order_sn").val(order_sn);
+        $("#setAid").val(aid);
+        $("#commentBg").css("display", "block");
+    });
+    //退款
+    $(".tk").click(function() {
+        var order_sn = $(this).parent().parent().find("span2").text();
+        var aid = $(this).parent().parent().find("span").text();
+        var order_price = $(this).parent().parent().find("span3").text();
+
+        $(".price").html(order_price);
+        $(".order_sn").val(order_sn);
+        $(".aid").val(aid);
+        $("#refundBg").css("display", "block");
+    });
+
+    //请假提交
+    $("#applicateBtn").click(function() {
+        if ($("#liyou").val() != "") {
+            var liyou = $("#liyou").val();
+            var aid = $("#setAid").val();
+            var order_sn = $("#order_sn").val();
+            $.ajax({
+                url: '{:url("home/User/leave")}',
+                type: "post",
+                async: false,
+                data: {
+                    reason: liyou,
+                    aid: aid,
+                    order_sn: order_sn
+                },
+                success: function(obj) {
+                    if (obj.state_code == 200) {
+                        alert('提交成功')
+                        window.location.reload();
+                        $(".bg").css("display", "none");
+                        $('body').css({
+                            "overflow-x": "scroll",
+                            "overflow-y": "scroll"
+                        });
+                    } else {
+                        alert(obj.msg)
+                    }
+
+                }
+
+            });
+            return false;
+        } else {
+            $(".check_liyou_info").text("请假内容不能为空");
+            return false;
+        }
+    });
+    //提交评论
+    $("#commentBtn").click(function() {
+        if ($("#comment").val() != "" && $("#comment").val().length >= 5) {
+            var comment = $("#comment").val();
+            var aid = $("#setAid").val();
+            var order_sn = $("#order_sn").val();
+            $.ajax({
+                url: '{:url("home/User/comments")}',
+                type: "post",
+                async: false,
+                data: {
+                    comment: comment,
+                    aid: aid,
+                    order_sn: order_sn
+                },
+                success: function(obj) {
+                    if (obj.state_code == 200) {
+                        alert('提交成功')
+                        window.location.reload();
+                        $(".bg").css("display", "none");
+                        $('body').css({
+                            "overflow-x": "scroll",
+                            "overflow-y": "scroll"
+                        });
+                    } else {
+                        alert(obj.msg)
+                    }
+
+                }
+
+            });
+            return false;
+        } else {
+            if ($("#comment").val() == "") {
+                $(".check_comment_info").text("评论内容不能为空");
+                return false;
+
+            } else if ($("#comment").val().length < 5) {
+                $(".check_comment_info").text("评论长度不能少于5个字符");
+                return false;
+            }
+        }
+    });
+    //			退款判断
+    $('input:radio[name="tuikuan"]').click(function() {
+        if ($("input:radio[name='tuikuan']:checked").val() == null) {
+            $(".check_refund_info").text("您还未选择原因");
+        } else {
+            $(".check_refund_info").text("");
+        }
+    });
+    //提交退款
+    $("#refundBtn").click(function() {
+        var refundVal = $("input:radio[name='tuikuan']:checked").val();
+        if (refundVal == null) {
+            $(".check_refund_info").text("您还未选择原因");
+            return false;
+
+        } else {
+            $(".check_refund_info").text("");
+            return true;
+        }
+    });
+</script>

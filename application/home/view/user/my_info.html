@@ -1,0 +1,316 @@
+                {include file="public/user_header" /}
+                <link rel="stylesheet" type="text/css" href="__CSS__/htmleaf-demo.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/normalize.css" />
+		<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+                <script src="__JS__/birthday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+		<link href="__CSS__/cropper.min.css" rel="stylesheet">
+		<link href="__CSS__/sitelogo.css" rel="stylesheet">
+		<script src="__JS__/cropper.min.js"></script>
+		<script src="__JS__/sitelogo.js"></script>
+		<script src="__JS__/bootstrap.min.js"></script>
+		<!--头像-->
+		{include file="public/user_info_left" /}
+				<!--右边-->
+				<div class="appl_right" style="">
+					<div class="mn">
+						<div class="bm bw0">
+							<div class="right_mark" style="font-size: 18px;">
+								个人资料
+							</div>
+							<!--信息-->
+							<div class="personInfo_wrap" style="width: 700px;margin-top: 30px;">
+<!--								<form action="" method="post">-->
+									<ul class="person_ul" style="font-size: 17px;">
+										<li>
+											<span><i>*</i>昵称:</span>
+											<div class="info_right">
+												<input type="" name="nickname" id="nickname" value="{$userInfo.nickname}" />
+												<p id="my_name_chk" style="color: #FF4134;font-size: 13px;float: right;margin-left: 20px;display: none;">昵称不能为空！</p>
+											</div>
+										</li>
+										<li>
+											<span><i>*</i>性别:</span>
+											<div class="info_right">
+												<input type="radio" name="sex" id="sex" value="1" {if condition="$userInfo.sex eq 1"}checked="checked"{/if} /> 男
+												<input style="margin-left: 35px;" type="radio" name="sex" id="sex1" value="2" {if condition="$userInfo.sex eq 2"}checked="checked"{/if} /> 女
+												<p id="my_sex_chk" style="color: #FF4134;font-size: 13px;float: right;margin-left: 20px;display: none;">您还未选择性别！</p>
+											</div>
+										</li>
+										<li>
+											<span>生日:</span>
+											<div class="info_right">
+												<!--<form name="form1">-->
+												<div id="birthday_container">
+													<select name="year">
+														<option value=""></option>
+													</select> 年
+													<select name="month">
+														<option value=""></option>
+													</select> 月
+													<select name="day">
+														<option value=""></option>
+													</select> 日
+												</div>
+												<!--</form>-->
+											</div>
+										</li>
+										<li>
+											<span>邮箱:</span>
+											<div class="info_right email">
+												<input type="" name="" id="email1" value="{$userInfo.email}" style="font-size: 16px;"/>
+												<p id="my_email_chk" style="color: #FF4134;font-size: 13px;float: right;margin-right: 60px;display: none;">邮箱格式不正确！</p>
+												<!--<ul class="on_changes" style="position: absolute; left: 0px; top: 25px">
+												<li email="">请选择邮箱类型</li>
+												<li email=""></li>
+												<li email="@sina.com"></li>
+												<li email="@163.com"></li>
+												<li email="@qq.com"></li>
+												<li email="@hotmail.com"></li>
+												<li email="@126.com"></li>
+												<li email="@gmail.com"></li>
+												<li email="@yahoo.com"></li>
+											</ul>-->
+											</div>
+											<!--<span id="my_email_chk" style="color: #FF4134;font-size: 13px;">111111111</span>-->
+
+										</li>
+
+										<li>
+											<span>兴趣爱好:</span>
+											<div class="info_right">
+												<input id="hobby" type="" name="" value="{$userInfo.hobby}" style="height: 26px;"/>
+											</div>
+										</li>
+										<li>
+											<span>所在地区:</span>
+											<div class="info_right" style="width: 500px;">
+                                                                                            <select id="seachprov" name="seachprov" onChange="seachcitys($(this).val())">
+                                                                                                <option value=''>请选择</option>
+                                                                                                {foreach name="province" item="vo"}
+                                                                                                <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.province"}selected="selected"{/if} >{$vo.name}</option>
+                                                                                                {/foreach}
+                                                                                            </select>&nbsp;&nbsp;
+                                                                                            <select id="seachcity"  name="homecity" onChange="seachdistricts($(this).val())">
+                                                                                            <option value=''>请选择</option>
+                                                                                            {foreach name="city" item="vo"}
+                                                                                            <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.city"}selected="selected"{/if}>{$vo.name}</option>
+                                                                                            {/foreach}
+                                                                                            </select>&nbsp;&nbsp;
+                                                                                            <select id="seachdistrict"  name="seachdistrict">
+                                                                                                <option value=''>请选择</option>
+                                                                                                {foreach name="district" item="vo"}
+                                                                                                <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.district"}selected="selected"{/if}>{$vo.name}</option>
+                                                                                                {/foreach}
+                                                                                            </select>
+											</div>
+										</li>
+										<li >
+											<span>详细住址:</span>
+											<div class="info_right">
+												<textarea id="address" name="" rows="5" cols="40" data-ph="建议您如实填写详细收货地址，例如街道名称，门牌号码等信息" style="resize:none;font-size: 16px;">{$userInfo.address}</textarea>
+											</div>
+										</li>
+										<li>
+											<p id="my_add_chk" style="color: #FF4134;font-size: 13px;"></p>
+										</li>
+
+										<li style="margin: 0 auto;">
+											<button id="sure_send" style="margin-bottom: 50px;">确认提交</button>
+										</li>
+									</ul>
+<!--								</form>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+                <!--提交成功-->
+                <div class="bg" id="okBg" style="display:none">
+			<div class="alert_div" style="height: 100px;width: 250px;margin-left: -125px;top:80%;">
+				<div class="alert_content">
+					<div class="alert_ok" style="margin-top: 8px;text-align: center;">
+						<img style="width: 50px;vertical-align: middle;" src="__IMG__/ok.png"/><span>  提交成功!</span>
+					</div>					
+				</div>
+			</div>
+		</div>		
+
+		<div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<form class="avatar-form" action="{:url('home/user/saveHeadicon')}" enctype="multipart/form-data" method="post">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal" type="button">&times;</button>
+							<h4 class="modal-title" id="avatar-modal-label">修改头像</h4>
+						</div>
+						<div class="modal-body">
+							<div class="avatar-body">
+								<div class="avatar-upload">
+									<input class="avatar-src" name="avatar_src" type="hidden">
+									<input class="avatar-data" name="avatar_data" type="hidden">
+									<label for="avatarInput">图片上传</label>
+									<input class="avatar-input" id="avatarInput" name="avatar_file" type="file"></div>
+								<div class="row">
+									<div class="col-md-9">
+										<div class="avatar-wrapper"></div>
+									</div>
+									<div class="col-md-3">
+										<div class="avatar-preview preview-lg"></div>
+										<div class="avatar-preview preview-md"></div>
+										<div class="avatar-preview preview-sm"></div>
+									</div>
+								</div>
+								<div class="row avatar-btns">
+									<div class="col-md-9">
+<!--										<div class="btn-group">
+											<button class="btn" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"><i class="fa fa-undo"></i> 向左旋转</button>
+										</div>
+										<div class="btn-group">
+											<button class="btn" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"><i class="fa fa-repeat"></i> 向右旋转</button>
+										</div>-->
+									</div>
+									<div class="col-md-3">
+										<button class="btn btn-success btn-block avatar-save" type="submit"><i class="fa fa-save"></i> 保存修改</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/birthday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/inputmail.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+                        var years = {$userInfo.birthday|date='Y',###};
+                        var months = {$userInfo.birthday|date='m',###};
+                        var days = {$userInfo.birthday|date='d',###};
+			function seachcitys(province){
+                            $.get("{:url('home/user/getRegion')}",{id:province},
+                            function(obj){
+                                if(obj.state_code == 200){
+                                    $("#seachcity").html(obj.data);
+                                }
+                            }, "json");
+                        }
+                        function seachdistricts(city){
+                            $.get("{:url('home/user/getRegion')}",{id:city},
+                            function(obj){
+                                if(obj.state_code == 200){
+                                    $("#seachdistrict").html(obj.data);
+                                }
+                            }, "json");
+                        }
+                        
+                        //生日
+                        $("#birthday_container").birthday();
+			//邮箱验证
+			$("#email1").blur(function() {
+				var email = $("#email1").val();
+				var reg1 = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+				if(email == "") {
+					$("#my_email_chk").css("display","none");
+				} else {
+					if(!reg1.test(email)) {
+						//					alert("邮箱格式不正确！请重新输入");
+						$("#my_email_chk").css("display","block");
+					} else {
+						$("#my_email_chk").css("display","none");
+					}
+				}
+			});
+            //昵称
+            $("#nickname").blur(function  () {
+            	if ($("#nickname").val()=="") {
+            		$("#my_name_chk").css("display","block");
+            	}else{
+            		$("#my_name_chk").css("display","none");
+            	}
+            });
+            //性别
+            $('input:radio[name="sex"]').click(function  () {
+            	if ($('input:radio[name="sex"]:checked').val() =="1"||$('input:radio[name="sex"]:checked').val() =="2") {
+//          		$("#my_sex_chk").css("display","block");
+            		$("#my_sex_chk").css("display","none");
+            	}else{
+            		$("#my_sex_chk").css("display","block");
+            	}
+            })
+            
+			$("#address").blur(function() {
+				var address = $("#address").val();
+				var myReg = /^[\u4e00-\u9fa5]+$/;
+				if(address != "") {
+					if(address.length < 5) {
+						$("#my_add_chk").text("地址长度不能少于5个字符!");
+					} else if(address.length > 60) {
+						$("#my_add_chk").text("您的地址字数太长了!");
+					} else if((address.length > 5) && (address.length < 60)) {
+						$("#my_add_chk").text("");
+					}
+				} else {
+					$("#my_add_chk").text("");
+				}
+			});
+
+			$("#sure_send").click(function() {
+				var email = $("#email1").val();
+				if($("#nickname").val() == "") {
+					$("#my_name_chk").css("display","block");
+				}
+				if($("#nickname").val() != "" && $('input:radio[name="sex"]:checked').val() != null) {
+					var nickname = $("#nickname").val();
+                                        var sex = $("input[name='sex']:checked").val();
+                                        var birthdayY = $("select[name='year']").val();
+                                        var birthdayM = $("select[name='month']").val();
+                                        var birthdayD = $("select[name='day']").val();
+                                        var email = $("#email1").val();
+                                        var hobby = $("#hobby").val();
+                                        var prov = $("select[name='seachprov']").val();
+                                        var city = $("select[name='homecity']").val();
+                                        var district = $("select[name='seachdistrict']").val();
+                                        var address = $("#address").val();
+                                        
+                                        $.ajax({
+                                            url:"{:url('home/user/saveUserInfo')}",
+                                            type:"post",          
+                                            async: false,
+                                            data:{
+                                                    "nikename":nickname,
+                                                    "sex":sex,
+                                                    "birthday":birthdayY+"/"+birthdayM+"/"+birthdayD,
+                                                    "email":email,
+                                                    "hobby":hobby,
+                                                    "prov":prov,
+                                                    "city":city,
+                                                    "district":district,
+                                                    "address":address
+                                            },
+                                            error: function(request) {
+                                               alert("Connection error");
+                                            },
+                                            success: function(data) {
+                                               $("#okBg").css("display","block");
+                                               window.setTimeout('$("#okBg").hide()',1000);
+                                               window.location.reload(); 
+                                            }
+                                        });
+				} else {
+					if($("#nickname").val() == "") {
+					} else if($('input:radio[name="sex"]:checked').val() == null) {
+						$("#my_sex_chk").css("display","block");
+					}
+					return false;
+				}
+				
+		});		
+		</script>
+	</body>
+
+</html>

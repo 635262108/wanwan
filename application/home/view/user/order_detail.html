@@ -1,0 +1,68 @@
+                    {include file="public/user_header" /}
+                    {include file="public/user_left" /}
+			<!--右侧-->
+			<div class="userRight">
+				<div class="order_detail_top">
+					<a href="{:url('home/user/my_activity')}" class="col3" style="color: black;"><strong>我的订单</strong></a> > 订单详情</div>
+				<div class="detailBox">
+					<span>状态：
+                                        {switch name="$orderInfo.order_status"}
+                                        {case value="1"}已完成{/case}
+                                        {case value="2"}未付款{/case}
+                                        {case value="3"}已付款{/case}
+                                        {case value="4"}已付款{/case}
+                                        {case value="5"}退款中{/case}
+                                        {case value="6"}已退款{/case}
+                                        {/switch}
+                                        </span>
+					<span>支付方式：
+                                        {switch name="$orderInfo.pay_way"}
+                                        {case value="0"}未支付{/case}
+                                        {case value="1"}支付宝{/case}
+                                        {case value="2"}微信{/case}
+                                        {/switch}
+                                        </span>
+					<span>下单时间：{$orderInfo.addtime|date='Y-m-d H:i',###}</span>
+					<span>订单号：{$orderInfo.order_sn}</span>
+                                        {if condition="$orderInfo.pay_time neq 0"}
+                                        <span>支付时间：{$orderInfo.pay_time|date='Y-m-d H:i',###}</span>
+                                        {/if}
+					
+				</div>
+				<div class="detailBox">
+					<h2 class="b">联系人信息</h2>
+					<div>
+						<span>用&nbsp;户&nbsp;名：{:session('userInfo.nickname')}</span>
+						<span>联系人姓名：{$orderInfo.name}</span>
+						<span>联系人手机：{$orderInfo.mobile}</span>
+					</div>
+					<h2 class="b">其他信息</h2>
+					<p>备注:{$orderInfo.remark} </p>
+					<h2 class="b">活动信息</h2>
+					<div style="margin-top:10px;">
+						<a style="display:block;height:60px;" href="" target="_blank">
+							<img src="__AdminIMG__/{$ActivityInfo.a_index_img}" style="clear:both;width:80px;height:60px;float:left;" />
+							<span style="width:80%;margin-left:10px">{$ActivityInfo.a_title}</span>
+							<span style="width:80%;margin-left:10px;color:#ff4134;font-weight:bold;">活动时间：{$ActivityInfo.a_begin_time|date='Y-m-d H:i',###}~{$ActivityInfo.a_end_time|date='Y-m-d H:i',###}</span>
+						</a>
+					</div>
+				</div>
+                                {if condition="$orderInfo.pay_time neq 0"}
+				<div class="order_detail-2"><span>支付价格：</span><i class="sum-1 col4" style="color: #FF4134;">￥{$orderInfo.order_price}</i></div>
+                                {/if}
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/detail.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".userLeftNav li a").eq(1).css({
+				"color": "#ff4134",
+				"text-decoration": "underline"
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,96 @@
+
+{include file="public/user_header" /}
+{include file="public/user_left" /}
+<!--右侧-->
+<div class="userRight">
+<!--流程-->
+<div class="payStatus" style="width: 512px;margin-left: 140px;">
+        <div class="payStatus-1 payStatusD z">
+                <span class="payStatus_Bg StatusGo">1</span><span class="payStatus_name StatusGoF">申请退款</span>
+                <hr class="payStatusHr_1 ">
+        </div>
+        <div class="payStatus-2 payStatusD z"> <span class="payStatus_Bg StatusIng">2</span> <span class="payStatus_name StatusIngF">处理退款</span>
+                <hr class="payStatusHr_2">
+        </div>
+        <div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusNext ">3</span> <span class="payStatus_name StatusNextF">退款成功</span>
+                <!--<hr class="payStatusHr_2 ">-->
+        </div>
+        <!--<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusNext">4</span> <span class="payStatus_name StatusNextF">报名成功</span>
+        </div>-->
+        <div class="clear"></div>
+</div>         		
+<!--处理退款-->
+ <h4 style="margin-top: 120px;text-align: center;width: 800px;">我们正在为您退款中，请耐心等待!</h4>
+ <div class="refund_content" style="padding: 30px;">
+        <h4>退款订单记录</h4>
+        <div class="refund_order">
+                <span style="margin-left: 50px;">退款总额：<span style="color: #FF4134;">￥{$order_info.order_price}</span></span>
+                <span style="margin-left: 50px;">退款进度：<span style="color: #FF4134;">退款处理中...</span></span>
+                <span style="margin-left: 50px;">订单编号：<span>{$order_sn}</span></span>
+        </div>
+        <h4 style="margin-top: 30px;">退款申请进度</h4>
+        <table class="settle_table" style="width: 750px;border-bottom: 1px solid #e6e6e6;margin-top: 20px;margin-left: 0;">
+                <thead>
+                        <tr style="background-color:#ededed;">
+                                <th width="150" class="goods_List_td">提交时间</th>
+                                <!--<th>编号</th>-->
+                                <th width="400">处理结果</th>
+                                <th width="100">操作人</th>
+                        </tr>
+                </thead>
+                <tbody style="font-size: 13px;">
+                        <tr>
+                                <td>
+                                        <span>{$addtime|date='Y-m-d H:i',###}</span>
+                                </td>
+                                <td >您的申请退款已提交，工作人员将在两个工作日进行审核。</td>
+                                <td>
+                                        <div >家长</div>
+                                </td>
+                        </tr>
+                </tbody>
+        </table>
+        <h4 style="margin-top: 30px;">退款订单详细信息</h4>
+        <table class="refund_detail" border="0" cellspacing="0" style="width: 750px;border: 1px solid #e6e6e6;margin-top: 20px;">
+                <tr>
+                        <td>订单编号</td>
+                        <td>{$order_sn}</td>
+                </tr>
+                <tr>
+                        <td>支付总额</td>
+                        <td>￥{$order_info.order_price}</td>
+                </tr>
+                <tr>
+                        <td>支付方式</td>
+                        <td>
+                            {switch name="$order_info.pay_way"}
+                            {case value="1"}微信{/case}
+                            {case value="2"}支付宝{/case}
+                            {case value="3"}银联{/case}
+                            {/switch}
+                        </td>
+                </tr>
+                <tr>
+                        <td>退款原因</td>
+                        <td>{$reason}</td>
+                </tr>
+        </table>
+        <div class="refund_info1">
+                <h4>退款说明</h4>
+                <p>1.已退：玩翫碗已完成退款处理，实际退款时间以到账时间为准。</p>
+                <p>2.待退：订单中含有未退款项，带系统处理，请耐心等待。</p>
+        </div>
+ </div>
+</div>
+</div>       
+<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>		
+<script src="__JS__/detail.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(".userLeftNav li a").eq(0).css({
+        "color":"#ff4134",
+"text-decoration":"underline"
+});
+</script>
+</body>
+</html>

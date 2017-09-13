@@ -1,0 +1,134 @@
+.form_info {
+	width: 90%;
+	margin: 30px auto
+}
+
+.form_info .nickName {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 25px;
+	flex-wrap: wrap
+}
+
+.form_info .nickName span {
+	width: 24%;
+	line-height: 30px;
+	color: #FF4134
+}
+
+.form_info .nickName input {
+	width: 76%;
+	height: 30px
+}
+
+.form_info .sex {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 25px
+}
+
+.form_info .sex span {
+	width: 24%;
+	line-height: 30px;
+	color: #FF4134
+}
+
+.form_info .sex .man {
+	width: 76%;
+	line-height: 30px
+}
+
+.form_info .sex .man input {
+	margin-right: 2%
+}
+
+.form_info .sex .man .woman {
+	margin-left: 5%
+}
+
+.form_info .outer {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 25px
+}
+
+.form_info .outer span {
+	width: 40%;
+	line-height: 30px;
+	color: #FF4134
+}
+
+.form_info .outer select {
+	width: 39%;
+	height: 30px;
+	margin-right: 1%
+}
+
+.form_info .outer select option {
+	text-align: center
+}
+
+.form_info .hobby textarea {
+	height: 63px;
+	width: 76%
+}
+
+.form_info button {
+	width: 40%;
+	height: 30px;
+	border-radius: 20px;
+	background: #FF4134;
+	color: #FFFFFF;
+	border: none;
+	margin-left: 30%
+}
+
+.modal_box {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 66666
+}
+
+.modal_box .moal_div {
+	width: 53%;
+	height: 14%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background: #FFFFFF;
+	border-radius: 16px;
+	color: #FF4134;
+	text-align: center;
+	font-size: 19px;
+	line-height: 95px
+}
+
+.modal_box .cancel {
+	width: 10%;
+	height: 25px;
+	position: absolute;
+	top: 5%;
+	right: 5%
+}
+
+.modal_box .cancel img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0
+}

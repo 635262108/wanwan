@@ -1,0 +1,128 @@
+.textAlign {
+	width: 90%;
+	margin: 0px auto
+}
+
+.textAlign .wanTitle_img {
+	width: 42%;
+	height: 100px;
+	margin: 40px auto 80px
+}
+
+.textAlign .wanTitle_img img {
+	width: 100%;
+	height: 100%
+}
+
+.textAlign .information_content {
+	width: 100%
+}
+
+.textAlign .information_content form {
+	width: 100%
+}
+
+.textAlign .information_content form div {
+	width: 100%;
+	padding-left: 8%;
+	box-sizing: border-box;
+	height: 50px;
+	border-radius: 40px;
+	margin-bottom: 40px;
+	font-size: 15px;
+	line-height: 50px;
+	color: #FF4134;
+	box-shadow: 1px 2px 5px #FF4134;
+	position: relative
+}
+
+.textAlign .information_content form div input {
+	width: 67%;
+	height: 94%;
+	border: none;
+	font-size: 15px;
+	position: absolute;
+	left: 27%;
+	outline: none
+}
+
+.textAlign .information_content form .yanzhengma {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: none;
+	padding-left: 0px;
+	border: none
+}
+
+.textAlign .information_content form .yanzhengma .prompt {
+	width: 48%
+}
+
+.textAlign .information_content form .yanzhengma .prompt input {
+	left: 14%
+}
+
+.textAlign .information_content form .yanzhengma .get_num,
+.textAlign .information_content form .yanzhengma .register_get_num {
+	width: 32%;
+	height: 50px;
+	padding-left: 4%;
+	border-radius: 40px;
+	color: #FF4134;
+	box-shadow: 1px 2px 5px #FF4134;
+	outline: none;
+	background: none;
+	border: none;
+	left: 65%
+}
+
+.textAlign .information_content form .register,
+.textAlign .information_content form .login_register,
+.textAlign .information_content form .forget_register,
+.textAlign .information_content form .reset_register {
+	width: 50%;
+	height: 40px;
+	border-radius: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #FFFFFF;
+	background: #FF4134;
+	font-size: 15px;
+	outline: none;
+	border: none;
+	position: absolute;
+	left: 24%
+}
+
+.textAlign .information_content form .register a,
+.textAlign .information_content form .login_register a,
+.textAlign .information_content form .forget_register a,
+.textAlign .information_content form .reset_register a {
+	text-decoration: none;
+	color: #FFFFFF
+}
+
+.textAlign .information_content form .login {
+	box-shadow: none;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 0;
+	padding-left: 0;
+	margin-top: 10px
+}
+
+.textAlign .information_content form .login a {
+	font-size: 15px;
+	text-decoration: none
+}
+
+.textAlign .information_content form .login .forget {
+	color: #FF4134
+}
+
+.textAlign .information_content form .login .register_word {
+	color: #656565
+}

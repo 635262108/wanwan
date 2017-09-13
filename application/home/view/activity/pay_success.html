@@ -1,0 +1,68 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/cart.css" />
+		<div class="content">
+			<!--顶部-->
+			<div id="pt" class="top_tip">
+				<div class="z">
+					<a href="./" class="nvhm" title="首页"><img style="width: 20px;" src="__IMG__/icon-home_02.png" /></a> <span><img style="" src="__IMG__/icon-jt.png"/></span>
+					<a href="activity.html">活动</a>
+					<span><img style="" src="__IMG__/icon-jt.png"/></span>
+					<a href="">报名</a>
+				</div>
+			</div>
+			<!--流程-->
+			<div class="payStatus">
+				<div class="payStatus-1 payStatusD z">
+					<span class="payStatus_Bg StatusGo">1</span></a><span class="payStatus_name StatusGoF">我要报名</span>
+					<hr class="payStatusHr_1 payStatusHrGo">
+				</div>
+				<div class="payStatus-2 payStatusD z"> <span class="payStatus_Bg StatusGo">2</span> <span class="payStatus_name StatusGoF">确认报名</span>
+					<hr class="payStatusHr_2 payStatusHrGo">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusGo ">3</span> <span class="payStatus_name StatusGoF">在线支付</span>
+					<hr class="payStatusHr_2">
+				</div>
+				<div class="payStatus-3 payStatusD z"> <span class="payStatus_Bg StatusIng">4</span> <span class="payStatus_name StatusIngF">报名成功</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="content">
+		<div id="form_project" style="margin-top:160px;">
+				<table class="settle_table" style="margin-left: 10px;">
+					<thead>
+						<tr style="background-color:#ededed;">
+							<th width="700" class="goods_List_td">商品信息</th>
+							<!--<th>编号</th>-->
+							<th>数量</th>
+							<th>已付费</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="goods_List_n">
+								<div class="z"> <img src="{$activityInfo.a_index_img}" width="95"> </div>
+								<div class="z cart_shop_name cl" style="">
+									<div class="settle_name">{$activityInfo.a_title} </div>
+									<div class="settle_Time" style="position:absolute;left: 10px;top: 60px;">活动时间：{$activityInfo.a_sign_begin_time|date='Y年m月d日',###}-{$activityInfo.a_sign_end_time|date='m月d日',###}</div>
+								</div>
+							</td>
+							<td id="select_num" style="text-align: center;"><span class="adult_sel1">{$order.adult_num}</span>大<span class="child_sel1">{$order.child_num}</span>小</td>
+							<td>
+								<div style="margin-right: 65px;text-align: right;color: #FF4134;font-size: 20px;">￥<span class="Buy_price_all">{$order.order_price}</span></div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<div class="success" style="margin-top: 100px;text-align: center;">
+						<p style="text-align: center;font-size: 24px;color: #FF4134;">您已报名成功！</p>
+						<p style="margin-top: 10px;height: 50px;">您可以 <a href="{:url('home/Index/index')}">返回主页</a> <a href="{:url('home/User/index')}">个人中心</a></p>
+					</div>
+					
+					</div>
+		
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

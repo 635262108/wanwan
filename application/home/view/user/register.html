@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>.
+    <head>
+        <meta charset="UTF-8">
+        <title>注册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit">
+        <link rel="stylesheet" type="text/css" href="__CSS__/login.css"/>
+        <style type="text/css">
+            .login_bg {
+                background: url(__IMG__/bg.jpg) no-repeat top center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                height: 1250px;
+            }
+            
+            .content_wrap {
+                width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
+                position: relative;
+                height: 700px;
+                z-index: 999;
+            }
+            
+            @media screen and (max-width: 1700px) {
+                .login_bg {
+                    height: 980px;
+                }
+            }
+            .lyby_tip{
+                display: none;
+            }
+        </style>
+</head>
+    <body>
+        <div class="login_bg">
+            <div class="content_wrap">
+            <div class="login_wrap">
+                <div class="wx_title">
+                    <p>注册</p>
+                </div>
+                 <div class="wx_phone">
+                        <div class="wx_error" id="userNameInfo" style="color: red;">
+                            <!--请输入正确的手机号码！-->
+                        </div>
+                        <div class="wx_input_box">
+                            <input type="text" placeholder="手机号" class="wx_ID" name="" id="userName" value="" />
+                            <div class="wx_confirm passed" id="wx_confirme1" style="color: green;">√</div>
+                        </div>
+                        <div class="wx_error" id="displayNameInfo" style="color: red;">
+                            <!--昵称不能为空！-->
+                        </div>
+                        <!-- <div class="wx_input_box">
+                            <input type="text" placeholder="昵称" class="password_q" name="" id="displayName" value="" />
+                            <div class="wx_confirm passed" id="wx_confirme2" style="color: green;">√</div>
+                        </div> -->
+                        <div class="wx_error" id="passwordInfo" style="color: red;">
+                            <!--密码应为6-20位，由数字，英语字母，符号组成！-->
+                        </div>
+                        <div class="wx_input_box">
+                            <input type="password" placeholder="密码" class="password_q" name="" id="password" value="" />
+                            <div class="wx_confirm passed" id="wx_confirme3" style="color: green;">√</div>
+                        </div>
+                        <div class="wx_error" id="repasswordInfo" style="color: red;">
+                            <!--确认密码与密码不一致-->
+                        </div>
+                        <div class="wx_input_box">
+                            <input type="password" placeholder="确认密码" class="password_q" name="" id="repassword" value="" />
+                            <div class="wx_confirm passed" id="wx_confirme4" style="color: green;">√</div>
+                        </div>
+                        <div class="wx_error" id="checkCodeInfo" style="color: red;">
+                            <!--验证码不能为空！-->
+                        </div>
+                        <div class="wx_input_box" id="msgCheckCode">
+                            <input style="width: 180px;" type="text" placeholder="验证码" class="password_j" name="" id="checkCodeMsg" maxlength="6" value="" />
+                            <div class="code_main active">
+                                <input style="font-size: 14px;" type="button" name="" class="wx_auth" id="sendBtn" value="获取验证码" />
+                                 <!--图片验证码-->
+                        <!--<div class="lyby_tip arrowDown" style="width: 140px;bottom: inherit;top: 35px;left: -30.5px;display: none;">
+                            <div class="tipBody">
+                                <div class="ckbox m-ckcnt f-cb">
+                                    <div class="ckimgbox inputbox f-fr">
+                                        <img class="ckimg" title="点击刷新验证码" alt="点击获取验证码" src="__IMG__/imgcode.jpg"/>
+                                    </div>
+                                    <div class="ckin inputbox">
+                                        <div class="u-input">
+                                            <input type="text" data-placeholder="图片验证码" data-pattern="^[0-9a-zA-Z]{4,6}$"
+                                                name="checkcode" id="imgcode" value="" maxlength="4" placeholder="图片验证码"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottoms"></div>
+                            </div>
+                        </div>-->
+                            </div>
+                        </div>
+                    </div>
+                 <div class="wx_terms">
+                    <span>
+                        注册即表示您已同意我们的
+                    </span>
+                    <a style="text-decoration: none;color: #FF4134;" href="" class="wx_terms_a" target="_blank">服务条款</a>
+                 </div>
+                 <div class="wx_continue_n">
+                    <!--<a href="" id="submitFormBut" class="wx_continue_a">注册</a>-->
+                    <button id="submitFormBut" class="wx_continue_a">注册</button>
+                 </div>
+                 <div class="wx_disembark" style="font-size: 14px;float:right;margin-right: 50px;">
+                 <span>已经拥有账户？</span>
+                 <a href="login.html" class="wx_disembark_a">登录</a>
+                 </div>
+            </div>          
+        </div>
+        </div>
+    </body> 
+<!--<script src="__JS__/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/login.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var indexUrl = '{:url("home/User/index")}';
+    var loginUrl = '{:url("home/User/login")}';
+    var verifyUrl = '{:url("home/user/getVerify")}';
+    var registerUrl = '{:url("home/user/register")}';
+</script>
+</html>

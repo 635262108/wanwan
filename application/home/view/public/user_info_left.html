@@ -1,0 +1,30 @@
+<!--头像-->
+<div class="content">
+        <div class="setting_big">
+                <!--左边-->
+                <div class="appl">
+                        <div class="tbn ibox-content">
+                                <div class="userImg " id="crop-avatar">
+                                        <div class="avatar-view" title="点我修改头像">
+                                                {if condition="session('userInfo.headIcon') eq '' "}
+                                                    <img src="/public/static/img/wan.jpg" />
+                                                {else /}
+                                                    <img src="__HEADICON__/{:session('userInfo.headIcon')}" />
+                                                {/if}
+                                        </div>
+                                        <p class="name">{:session('userInfo.nickname')}</p>
+                                </div>
+                                <h2 class="mt bbs mbm" style="font-size: 25px;margin-top: 0px;">账号管理</h2>
+                                <ul style="font-size: 17px;">
+                                        <li class="a">
+                                                <a href="{:url('home/home/user/my_info')}" {if condition=" request()->action() eq 'my_info' "}style="color: #FF4134;text-decoration: underline;{/if}">个人资料</a>
+                                        </li>
+                                        <!--<li>
+                                                <a href="setting.html">修改头像</a>
+                                        </li>-->
+                                        <li>
+                                                <a href="{:url('home/home/user/account')}" {if condition=" request()->action() eq 'account' "}style="color: #FF4134;text-decoration: underline;{/if}">账户管理</a>
+                                        </li>
+                                </ul>
+                        </div>
+                </div>

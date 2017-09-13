@@ -1,0 +1,282 @@
+{include file="public/user_header" /}
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<link rel="stylesheet" type="text/css" href="__CSS__/user.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/htmleaf-demo.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/normalize.css" />
+		<script src="__JS__/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+		<link href="__CSS__/cropper.min.css" rel="stylesheet">
+		<link href="__CSS__/sitelogo.css" rel="stylesheet">
+		<script src="__JS__/cropper.min.js"></script>
+		<script src="__JS__/sitelogo.js"></script>
+		<script src="__JS__/bootstrap.min.js"></script>
+		<title></title>
+	</head>
+		<!--头像-->
+		{include file="public/user_info_left" /}
+				<!--右边-->
+				<div class="appl_right" style="">
+					<div class="mn">
+						<div class="bm bw0">
+							<div class="right_mark" style="font-size: 18px;">
+								账户管理
+							</div>
+							<p class="bbda pbm mbm mtm">您可以通过以下绑定的账号进行登录</p>
+							<table cellspacing="0" cellpadding="0" class="tfm" width="855">
+								<!--<tr class="bbda">
+									<th>微信</th>
+									<td>
+										<span class="span1">13460315306</span>
+									</td>
+								</tr>-->
+								<tr class="bbda">
+									<th>手机</th>
+									<td>
+										<span class="span1">{:session('userInfo.mobile')}</span>
+										<a href="javascript:void(0);" class="xi1 newxi2" id="changePhone">更换绑定手机</a>
+									</td>
+								</tr>
+								<tr class="bbda">
+									<th>密码</th>
+									<td>
+										<span class="span1">******</span>
+										<a href="javascript:void(0);" class="xi1 newxi2" id="changePassword">修改密码</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--更换绑定手机弹出框-->
+		<div class="bg" id="changePhoneBg">
+			<div class="alert_div" style="">
+				<div class="close1" style="border-radius: 5px;">
+					<img src="__IMG__/close.png" style="border-radius: 5px;opacity: 1;" />
+				</div>
+				<div class="alert_content">
+					<h4 style="color: #FF4134;">更换绑定手机</h4>
+					<div class="changephonediv">
+						<input type="text" name="" id="newPhone" value="" placeholder="请输入您的手机号" />
+						<p id="chkMobile" class="check_info" style="margin: 0;"></p>
+						<input type="text" name="" id="checkCode" value="" placeholder="请输入验证码" />
+						<input style="font-size: 14px;" type="button" name="" class="wx_auth sendBtn" id="sendBtn1" value="获取验证码" />
+						<p id="chkcode" class="check_info" style=""></p>
+						<input type="submit" value="确定" id="changePhoneBtn_sure" style="margin:50px 0 0 50px" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--更换密码弹出框-->
+		<div class="bg" id="changepasswordBg">
+			<div class="alert_div" style="">
+				<div class="close1" style="border-radius: 5px;">
+					<img src="__IMG__/close.png" style="border-radius: 5px;" />
+				</div>
+				<div class="alert_content">
+					<h4 style="color: #FF4134;">修改密码</h4>
+					<div class="changephonediv">
+						<p class="check_info">您已绑定手机：<span id="mobile">{:session('userInfo.mobile')}</span></p>
+						<input type="text" name="" id="checkCode2" value="" placeholder="请输入验证码" />
+						<input style="font-size: 14px;" type="button" name="" class="wx_auth sendBtn" id="sendBtn2" value="获取验证码" />
+						<p id="chkcode2" class="check_info"></p>
+						<input type="password" name="" id="newPsw" value="" placeholder="请输入您的新密码" />
+						<p id="chkPsw" class="check_info"></p>
+						<input type="submit" value="确定" id="changePswBtn_sure" style="margin:20px 0 0 50px" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//下拉菜单          
+			$("#topUserName").mousemove(function() {
+				var left_dis = $("#topUserName").offset().left;
+				$(".header_user").css({
+					position: "absolute",
+					'left': left_dis - 12
+				});
+				$(".header_user").show().mouseleave(function() {
+					$(this).hide()
+				})
+			});
+///**************************更换绑定手机***************************/
+			var wait = 60;
+			function time(code) {
+				if(wait == 0) {
+					code.removeAttribute("disabled");
+					code.value = "获取验证码";
+					wait = 60;
+				} else {
+					code.setAttribute("disabled", true);
+					code.value = "重新发送(" + wait + ")";
+					code.style.backgroundColor = "darkgray";
+					wait--;
+					setTimeout(function() {
+						time(code)
+					}, 1000)
+				}
+			}
+			var reg = /^1[345789]\d{9}$/;
+			//点击获取验证码
+			$("#sendBtn1").click(function() {
+                                var _this = this;
+                                var phone = $("#newPhone").val();
+				if($("#newPhone").val() == "") {
+					$("#chkMobile").text("手机号不能为空！");
+				} else {
+					if(reg.test($("#newPhone").val())) {
+                                                $.get("{:url('home/user/getVerify')}",{ mobile: phone},
+                                                function(obj){
+                                                    if(obj.state_code != 200){
+                                                        alert(obj.msg);
+                                                        return false;
+                                                    }else{
+                                                        $("#chkMobile").text("");
+                                                        time(_this);
+                                                    }
+                                                }, "json");
+						
+						
+					} else {
+						$("#chkMobile").text("手机号不正确！");
+					}
+				}
+			});
+			
+			$("#newPhone").blur(function  () {
+				var reg1 = /^1[345789]\d{9}$/;
+				if($("#newPhone").val() == "") {
+					$("#chkMobile").text("手机号不能为空！");
+				} else {
+					if(reg.test($("#newPhone").val())) {
+						$("#chkMobile").text("");
+					} else {
+						$("#chkMobile").text("手机号不正确！");
+					}
+				}
+				
+			});
+			$("#checkCode").blur(function  () {
+				if ($("#checkCode").val()=="") {
+					$("#chkcode").text("验证码不能为空!");
+				}else{
+					$("#chkcode").text("");
+				}
+				
+			});
+			
+			//点击确定绑定手机
+			$("#changePhoneBtn_sure").click(function() {
+				var regP = /^1[345789]\d{9}$/;
+                                var phone = $("#newPhone").val();
+                                var mobileCode = $("#checkCode").val();
+				if(regP.test($("#newPhone").val()) && $("#checkCode").val() != "") {
+					$.post("{:url('home/user/bindingPhone')}",{ mobile: phone,mobileCode:mobileCode},
+                                        function(obj){
+                                            if(obj.state_code != 200){
+                                                alert(obj.msg);
+                                                return false;
+                                            }else{
+                                                window.location.reload();
+                                            }
+                                        }, "json");
+				} else {
+					if($("#newPhone").val() == "") {
+						$("#chkMobile").text("手机号不能为空!");
+					}
+					if($("#checkCode").val() == "") {
+						$("#chkcode").text("验证码不能为空!");
+					}
+					return false;
+				}
+
+			});
+			$("#changePhone").click(function() {
+				$("#changePhoneBg").css("display", "block");
+			});
+			$("#changePassword").click(function() {
+				$("#changepasswordBg").css("display", "block");
+			});
+			//关闭弹窗
+			$(".close1").click(function() {
+				$(".bg").css("display", "none");
+				$('body').css({
+					"overflow-x": "scroll",
+					"overflow-y": "scroll"
+				});
+			});
+///**************************修改密码***************************/
+			$("#sendBtn2").click(function() {
+                            var _this = this;
+                            var phone = $("#mobile").html();
+                            $.get("{:url('home/user/getVerify')}",{ mobile: phone,type:1},
+                            function(obj){
+                                if(obj.state_code != 200){
+                                    alert(obj.msg);
+                                    return false;
+                                }else{
+                                    time(_this);
+                                }
+                            }, "json");
+			});
+			$("#checkCode2").blur(function  () {
+				if($("#checkCode2").val() == "") {
+                                        $("#chkcode2").text("验证码不能为空！");
+				}else{
+					$("#chkcode2").text("");
+				}
+			});
+			$("#newPsw").blur(function  () {
+				var regpsw1 = /^[A-Za-z0-9\s\S]{6,16}$/;
+				if ($("#newPsw").val()=="") {
+					$("#chkPsw").text("密码不能为空！");
+				}else{
+					if (regpsw1.test($("#newPsw").val())) {
+						$("#chkPsw").text("");
+					}else{
+						$("#chkPsw").text("密码应为6-16位，由数字，英语字母，符号组成！");
+					}
+					
+					
+				}
+			});
+			//确定修改密码
+			$("#changePswBtn_sure").click(function() {
+				var regpsw = /^[A-Za-z0-9\s\S]{6,16}$/;
+				if(regpsw.test($("#newPsw").val()) && $("#checkCode2").val() != "") {
+					var newPwd = $("#newPsw").val();
+                                        var mobileCode = $("#checkCode2").val();
+                                        var phone = $("#mobile").html();
+                                        $.post("{:url('home/user/savePwd')}",{ newPwd: newPwd,mobileCode:mobileCode,mobile:phone},
+                                        function(obj){
+                                            if(obj.state_code != 200){
+                                                alert(obj.msg);
+                                                return false;
+                                            }else{
+                                                alert('修改成功')
+                                                window.location.reload();
+                                            }
+                                        }, "json");
+				} else {
+					if($("#newPsw").val() == "") {
+						$("#chkPsw").text("密码不能为空！");
+					}
+					if($("#checkCode2").val() == "") {
+						$("#chkcode2").text("验证码不能为空！");
+					}
+					return false;
+				}				
+			});
+		</script>
+	</body>
+
+</html>

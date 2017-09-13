@@ -1,0 +1,78 @@
+
+{include file="public/header" /}
+{include file="public/nav" /}
+<!--轮播图-->
+<div class="device">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img src="__MobileImg__/lunbo1.jpg"> </div>
+            <div class="swiper-slide"> <img src="__MobileImg__/lunbo2.jpg"> </div>
+            <div class="swiper-slide"><img src="__MobileImg__/lunbo3.jpg"></div>
+        </div>
+    </div>
+    <div class="pagination"></div>
+</div>
+
+<!--玩宝总体内容部分-->
+<div class="playBaby_content almost">
+    <div class="title title_img">
+        <img src="__MobileImg__/wan_whole.png"/>
+        <div class="playBady_word">{$titleInfo.name}</div>
+    </div>
+    <div class="content">
+        <div class="baby_img">
+            <img src="{$titleInfo.logo}" />
+        </div>
+        <div class="baby_detail">
+           {$titleInfo.introduce}
+        </div>
+    </div>
+</div>
+<!--五官-->
+{foreach name="titleSon" item="vo"}
+<div class="five_organs almost">
+    <div class="five_title title_img">
+        <img src="__MobileImg__/wan_whole.png"/>
+          <div class="playBady_word">{$vo.name}</div>
+    </div>
+
+    <div class="five_content">
+        <div class="slider2">
+            {foreach $result as $v}
+            {if condition="$v.a_type eq $vo.id"}
+            <div class="slide">
+                <ul>
+                    <li>
+                        <img src="__AdminIMG__/{$v.a_index_img}"/>
+                    </li>
+                    <li>
+                        <p>{$v.a_title|subtext='25'}</p>
+                        <p>{$v.a_remark|subtext='10'}</p>
+                    </li>
+                    <li>
+                        {in name="$v.aid" value="$collections"}
+                            <div><a href="javascript:void(0)" aid="{$v.aid}" class="collect">已收藏</a></div>
+                        {else/}
+                            <div><a href="javascript:void(0)"  aid="{$v.aid}" class="collect">收藏</a></div>
+                        {/in}
+                        <div><a href=""  class="sign_up">我要报名</a></div>
+                    </li>
+                </ul>
+            </div>
+            {/if}
+            {/foreach}
+        </div>
+    </div>
+
+</div>
+{/foreach}
+
+{include file="public/footer" /}
+
+</body>
+<script src="__MobileJs__/jquery.min.js"></script>
+<script src="__MobileJs__/idangerous.swiper.min.js"></script>
+<script src="__MobileJs__/jquery.bxslider.js"></script>
+<script src="__MobileJs__/index.js" ></script>
+</html>
+
