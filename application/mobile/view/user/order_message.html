@@ -1,0 +1,41 @@
+{include file="public/header" /}
+
+        <!--头部图片-->
+        <div class="textAlign header">
+            <div class="header_img">
+                <img src="__MobileImg__/logo.png" />
+            </div>
+        </div>
+
+        <div class="playBaby_content almost">
+            <div class="title title_img">
+                <img src="__MobileImg__/wan_whole.png"/>
+                <div class="playBady_word">订单消息</div>
+            </div>
+
+            <div id="orderContent_info">
+                {foreach name="messageInfo" item="vo"}
+                <div class="content">
+                    <div class="baby_img center_img order_img">
+                        <!--<img src="__MobileImg__/dada.png" />-->
+                    </div>
+                    <div class="baby_detail">
+                        <ul>
+                            <li>{$vo.send_time|date='Y-m-d H:i',###}</li>
+                            <li>{$vo.content}</li>
+                        </ul>
+
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+
+        </div>
+
+
+        <script src="__MobileJs__/jquery.min.js"></script>
+        <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+        <script src="__MobileJs__/index.js"></script>
+    </body>
+</html>
+

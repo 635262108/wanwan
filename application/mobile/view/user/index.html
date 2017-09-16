@@ -274,44 +274,25 @@
     </div>
     <div class="myActivity_content" id="myComment">
         <div class="myActivity_big">
-            
+            {foreach name="myCollection" item="vo"}
             <div class="activity_part">
                 <ul>
                     <li>
-                        <img src="__MobileImg__/99999_03.png"/>
+                        <img src="__AdminIMG__/{$vo.a_index_img}"/>
                     </li>
                     <li>
-                        <p><span>第一期：眼睛的模样</span></p>
+                        <p><span>{$vo.a_title}</span></p>
                         <!--<p>2017.09.12--2017.09.16</p>-->
-                        <p>眼睛的模样眼睛的模样眼睛的模样眼睛的模样眼睛的模样眼睛的模样</p>
+                        <p>{$vo.a_remark}</p>
                     </li>
                     <li>
-                        <div><span class="cancel_collect">取消收藏</span></div>
+                        <div><span href="javascript:void(0)" aid="{$vo.aid}" class="cancel_collect">取消收藏</span></div>
                         <div><a href="#"  class="sign_up">我要报名</a></div>
                     </li>
                 </ul>
             </div>
-            
-            <div class="activity_part">
-                <ul>
-                    <li>
-                        <img src="__MobileImg__/99999_03.png"/>
-                    </li>
-                    <li>
-                        <p><span>第一期：眼睛的模样</span></p>
-                        <!--<p>2017.09.12--2017.09.16</p>-->
-                        <p>眼睛的模样眼睛的模样眼睛的模样眼睛的模样眼睛的模样眼睛的模样</p>
-                    </li>
-                    <li>
-                        <div><span class="cancel_collect">取消收藏</span></div>
-                        <div><a href="#"  class="sign_up">我要报名</a></div>
-                    </li>
-                </ul>
-            </div>
-           
+            {/foreach}
         </div>
-        
-        
 
         <div class="activity_more"><a href="my_collect.html">更多</a></div>
 
@@ -322,14 +303,14 @@
 </div>
 
 <div class="five_organs almost">
-    <div class="five_title title_img">
+<!--    <div class="five_title title_img">
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">我的消息</div>
     </div>
     <div class="message_classfy">
-        <div class="order_message common"><a href="order_message.html">订单消息</a></div>
-        <div class="system_message common"><a href="system_information.html">系统消息</a></div>
-    </div>
+        <div class="order_message common"><a href="{:url('mobile/user/order_message')}">订单消息</a></div>
+        <div class="system_message common"><a href="{:url('mobile/user/systems_message')}">系统消息</a></div>
+    </div>-->
 </div>
 
 {include file="public/footer" /}

@@ -112,7 +112,18 @@ $(".collect").on("click",function(){
 
 //点击取消收藏
     $(".cancel_collect").on("click", function() {
-        $(this).parent().parent().parent().parent(".activity_part").css("display", "none");
+        var aid = $(this).attr('aid');
+        var _this = $(this);
+        $.post("/home/activity/collection",{ aid:aid,type:2},
+            function(obj){
+                if(obj.state_code != 200){
+                    alert(obj.msg);
+                    return false;
+                }else{
+                    _this.parent().parent().parent().parent(".activity_part").css("display", "none");
+                }
+            }, "json");
+          
     })
     
     //点击提问按钮
@@ -212,14 +223,4 @@ $(".child_reduce").on("click",function(){
 //生日插件
 $(".birthdayContainer").birthday();
 
-//控制小孩的数量
-var num;
-if(num==1){
-        $(".child_1").show();
-        $(".child_2").hide();
-}
-if(num==2){
-        $(".child_1").show();
-        $(".child_2").show();
-}
 })

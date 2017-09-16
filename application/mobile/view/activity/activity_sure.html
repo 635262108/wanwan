@@ -1,0 +1,148 @@
+{include file="public/header" /}
+
+    <body>
+        <!--头部图片-->
+        <div class="textAlign header">
+            <div class="header_img">
+                <img src="__MobileImg__/logo.png" />
+            </div>
+        </div>
+
+
+        <!--玩宝总体内容部分-->
+        <div class="playBaby_content almost">
+            <div class="title title_img">
+                <img src="__MobileImg__/wan_whole.png"/>
+                <div class="playBady_word">报名信息</div>
+            </div>
+
+        </div>
+
+
+        <!--大人和小孩的具体信息-->
+        <div class="form_Content">
+            <form action="{:url('mobile/activity/creat_order')}" method="post">
+                <input type="hidden" name="aid" value="{$ActivityInfo.aid}"/>
+                <input type="hidden" name="adult_num" value="{$adult_num}"/>
+                <input type="hidden" name="child_num" value="{$child_num}"/>
+                <input type="hidden" name="token"  value="{$Request.token}"/>
+                <div class="form_common">
+                    <div class="adult_img">
+                        <img src="__MobileImg__/adult_img.png" />
+                    </div>
+                    <div><span>姓名</span><input type="text" name="realname" class="adultName">
+                        <p class="adultName_warn" style="color: #FF4134;font-size: 12px;text-align: center;margin-left: 40%;display: none;">姓名不能为空！</p>
+                    </div>
+
+<!--                    <div><span>性别</span><p class="sex"><input type="radio" name="adultSex" checked="checked">男<input type="radio" class="woman"name="adultSex">女</p> </div>-->
+                    <div><span>联系方式</span><input type="text" name="mobile" class="adultTel">
+                        <p class="adultTel_warn" style="color: #FF4134;font-size: 12px;text-align: center;margin-left: 40%;display: none;">联系方式不能为空！</p>
+                    </div>
+                </div>
+                <!--第一个小孩-->
+                <div class="form_common child_1" num="1">
+                    <div class="child_img adult_img">
+                        <img src="__MobileImg__/child_img.png" />
+                    </div>
+                    <div><span>姓名</span><input type="text" name="child_name[]" class="childName_one">
+                        <p class="child_warn" style="color: #FF4134;font-size: 12px;text-align: center;margin-left: 40%;display: none;">姓名不能为空！</p>
+                    </div>
+                    <div><span>性别</span>
+                        <p class="sex"><input type="radio" name="child_gender1" value="1" checked="checked">男<input type="radio" class="woman" value="2" name="child_gender1">女</p>
+                    </div>
+
+                    <div class="child_birthday"><span>生日</span>
+                        <div class="birthdayContainer">
+                            <select name="year[]" class="childYear_one">
+                                <option>2017</option>
+                            </select>
+                            <select name="month[]" class="childMonth_one">
+                                <option>4</option>
+                            </select>
+                            <select name="day[]" class="childDay_one">
+                                <option>5</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--第二个小孩-->
+                <div class="form_common child_2" num="2">
+                    <div class="child_img adult_img">
+                        <img src="__MobileImg__/child_img.png" />
+                    </div>
+                    <div><span>姓名</span><input type="text" name="child_name[]" class="childName_two">
+                        <p class="child_warn2" style="color: #FF4134;font-size: 12px;text-align: center;margin-left: 40%;display: none;">姓名不能为空！</p>
+                    </div>
+                    <div><span>性别</span>
+                        <p class="sex"><input type="radio" name="child_gender2" value="1" checked="checked">男<input type="radio" class="woman" value="2" name="child_gender2">女</p>
+                    </div>
+
+                    <div class="child_birthday"><span>生日</span>
+                        <div class="birthdayContainer">
+                            <select name="year[]" class="childYear_two">
+                                <option>2014</option>
+                            </select>
+                            <select name="month[]" class="childMonth_two">
+                                <option>8</option>
+                            </select>
+                            <select name="day[]" class="childDay_two">
+                                <option>9</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--活动详细信息-->
+                <div class="playBaby_content almost" id="detail_info">
+
+                    <div class="content" id="theme_information" style="height: 180px;">
+                        <!--<div class="baby_img">
+                                <img src="__MobileImg__/eye.png" />
+                        </div>-->
+                        <div class="baby_detail" style="width: 100%;">
+                            <ul class="information_ul">
+                                <li><span>活动时间:</span><span>请咨询玩宝客服</span></li>
+                                <li><span>活动地点:</span><span class="max_width">郑州市金水区地区</span></li>
+                                <li style="height: 14px;"><span>活动人数:</span>
+                                    <span style="width: 65%;">1大2小</span>
+
+                                </li>
+                                <li><span>应付金额:</span><span>总计:<b>￥</b><b class="total">{$price}</b></span></li>
+                                <li><input type="text" placeholder="备注" style="width: 70%;" class="beizhu" name="remark"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <input type="submit" class="name_sure" value="确认报名">
+            </form>
+        </div>
+
+
+
+
+        <script src="__MobileJs__/jquery.min.js"></script>
+        <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+        <script src="__MobileJs__/jquery.bxslider.js"></script>
+        <script src="__MobileJs__/index.js"></script>
+        <script type="text/javascript" src="__MobileJs__/birthday.js"></script>
+        <script type="text/javascript" src="__MobileJs__/emit_information.js"></script>
+        <script>
+            //控制小孩的数量
+            var num = {$child_num};
+            if(num==1){
+                    $(".child_1").show();
+                    $(".child_2").hide();
+            }
+            if(num==2){
+                    $(".child_1").show();
+                    $(".child_2").show();
+            }
+        </script>
+    </body>
+</html>
+

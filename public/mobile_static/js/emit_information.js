@@ -617,8 +617,6 @@ $(function() {
 //点击确认报名
     $(".name_sure").on("click", function() {
 
-
-
         if ($(".adultName").val() == "") {
             $(".adultName_warn").show();
             return false;
@@ -636,12 +634,5 @@ $(function() {
             $(".child_warn").show();
             return false;
         }
-        if ($(".childName_two").val() == "") {
-            $(".child_warn2").show();
-            return false;
-        }
-
-
-
     })
 })

@@ -234,8 +234,8 @@ class User extends Base
     	return $this->fetch();
     }
 
-    //我的消息
-    public function my_message(){
+    //订单消息
+    public function order_message(){
         $uid = Session::get('userInfo.uid');
         //消息改为已读
         $message = model('message');
@@ -245,21 +245,30 @@ class User extends Base
         session('messageCount',null);
         
         //获取我的消息
-        $messageInfo = $message->getMessage($uid);
+        $map['uid'] = $uid;
+        $map['type'] = 1;
+        $messageInfo = $message->getMessages($map);
         
-        //消息分类
-        $orderMessage = array();
-        $systemMessage = array();
-        foreach($messageInfo as $key=>$val){
-            if($val['type'] == 1){
-                $orderMessage[] = $val;
-            }else{
-                $systemMessage[] = $val;
-            }
-        }
+        $this->assign('messageInfo',$messageInfo);
+    	return $this->fetch();
+    }
+    
+    //系统消息
+    public function systems_message(){
+        $uid = Session::get('userInfo.uid');
+        //消息改为已读
+        $message = model('message');
+        $message->saveStatus($uid);
         
-        $this->assign('orderMessage',$orderMessage);
-        $this->assign('systemMessage',$systemMessage);
+        //清空消息数
+        session('messageCount',null);
+        
+        //获取我的消息
+        $map['uid'] = $uid;
+        $map['type'] = 2;
+        $messageInfo = $message->getMessages($map);
+        
+        $this->assign('messageInfo',$messageInfo);
     	return $this->fetch();
     }
     

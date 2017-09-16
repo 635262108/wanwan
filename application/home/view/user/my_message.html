@@ -1,54 +1,54 @@
 {include file="public/user_header" /}
 {include file="public/user_left" /}
-			<!--右侧-->
-			<div class="userRight">
-				<ul class="userRightNav">
-					<li class="active_userRight navBuyMessage">订单消息</li>
-					<li class="navTalkMessage">系统消息</li>
-				</ul>
-				<!--订单消息-->				
-				 <ul class="buyMessage">
-                                {foreach name="orderMessage" item="vo"}
-			    	<li style="list-style: none;">
-			    		<div class="z myMessage-img"><img src="__IMG__/de1.png" ></div>
-			    		<div class="myMessage">
-			    			<span>{$vo.send_time|date='Y-m-d H:i:s',###}</span>
-			    			<p>{$vo.content}</p>
-			    		</div>
-			    	</li>
-                                {/foreach}
-			    </ul>
-			    <!--互动消息-->
-			    <ul class="talkMessage" style="display: none;">
-                                {foreach name="systemMessage" item="vo"}
-			    	<li style="list-style: none;">
-			    		<div class="z myMessage-img"><img src="__IMG__/de1.png" ></div>
-			    		<div class="myMessage">
-			    			<span>{$vo.send_time|date='Y-m-d H:i:s',###}</span>
-			    			<p>{$vo.content} </p>
-			    		</div>
-			    	</li>
-                                {/foreach}
-			    </ul>
+<!--右侧-->
+<div class="userRight">
+    <ul class="userRightNav">
+        <li class="active_userRight navBuyMessage">订单消息</li>
+        <li class="navTalkMessage">系统消息</li>
+    </ul>
+    <!--订单消息-->				
+    <ul class="buyMessage">
+        {foreach name="orderMessage" item="vo"}
+        <li style="list-style: none;">
+            <div class="z myMessage-img"><img src="__IMG__/de1.png" ></div>
+            <div class="myMessage">
+                <span>{$vo.send_time|date='Y-m-d H:i:s',###}</span>
+                <p>{$vo.content}</p>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+    <!--互动消息-->
+    <ul class="talkMessage" style="display: none;">
+        {foreach name="systemMessage" item="vo"}
+        <li style="list-style: none;">
+            <div class="z myMessage-img"><img src="__IMG__/de1.png" ></div>
+            <div class="myMessage">
+                <span>{$vo.send_time|date='Y-m-d H:i:s',###}</span>
+                <p>{$vo.content} </p>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
 
-			</div>
-		</div>
-		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(".userRightNav li").click(function() {
-				$(this).addClass("active_userRight").siblings().removeClass("active_userRight");
-			});
-			$(".deleteCollect").click(function  () {
-				$(this).parent().parent().parent().remove();
-			})
-			$(".navTalkMessage").click(function  () {
-				$(".buyMessage").css("display","none");
-				$(".talkMessage").css("display","block");
-			});
-			$(".navBuyMessage").click(function  () {
-				$(".buyMessage").css("display","block");
-				$(".talkMessage").css("display","none");
-			})
-		</script>
-	</body>
+</div>
+</div>
+<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(".userRightNav li").click(function() {
+        $(this).addClass("active_userRight").siblings().removeClass("active_userRight");
+    });
+    $(".deleteCollect").click(function() {
+        $(this).parent().parent().parent().remove();
+    })
+    $(".navTalkMessage").click(function() {
+        $(".buyMessage").css("display", "none");
+        $(".talkMessage").css("display", "block");
+    });
+    $(".navBuyMessage").click(function() {
+        $(".buyMessage").css("display", "block");
+        $(".talkMessage").css("display", "none");
+    })
+</script>
+</body>
 </html>

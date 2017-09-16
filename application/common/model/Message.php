@@ -39,10 +39,15 @@ class Message extends Model
         $data['status'] = 1;
         $this->where($map)->update($data);
     }
-    
+    //获取未读消息数
     public function getUnReadMessageCount($uid){
         $map['uid'] = $uid;
         $map['status'] = 0;
         return $this->where($map)->count();
+    }
+    
+    //获取消息
+    public function getMessages($map=array()){
+        return $this->where($map)->select();
     }
 }

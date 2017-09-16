@@ -1,0 +1,30 @@
+{include file="public/header" /}
+
+    <body>
+        <!--头部图片-->
+        <div class="textAlign header">
+            <div class="header_img">
+                <img src="__MobileImg__/logo.png" />
+            </div>
+        </div>
+
+
+        <div class="playBaby_content almost">
+            <div class="title title_img">
+                <img src="__MobileImg__/wan_whole.png"/>
+                <div class="playBady_word">支付成功</div>
+            </div>
+        </div>
+
+        <div class="pay_success">支付成功！请注意活动时间</div>
+        <div class="order_detail">
+            <a href="{:url('mobile/user/order_detail',['order_sn'=>$order.order_sn])}">订单详情>></a>
+        </div>
+
+
+        <script src="__MobileJs__/jquery.min.js"></script>
+        <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+
+    </body>
+</html>
+

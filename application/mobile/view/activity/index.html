@@ -43,7 +43,7 @@
             <div class="slide">
                 <ul>
                     <li>
-                        <img src="__AdminIMG__/{$v.a_index_img}"/>
+                        <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}"><img src="__AdminIMG__/{$v.a_index_img}"/></a>
                     </li>
                     <li>
                         <p>{$v.a_title|subtext='25'}</p>
@@ -55,7 +55,7 @@
                         {else/}
                             <div><a href="javascript:void(0)"  aid="{$v.aid}" class="collect">收藏</a></div>
                         {/in}
-                        <div><a href=""  class="sign_up">我要报名</a></div>
+                        <div><a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}"  class="sign_up">我要报名</a></div>
                     </li>
                 </ul>
             </div>
