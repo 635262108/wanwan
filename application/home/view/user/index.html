@@ -1,111 +1,111 @@
 
-		{include file="public/user_header" /}
-		{include file="public/user_left" /}
-			<!--右侧-->
-			<div class="userRight1">
-				<!--个人信息-->
-				<div class="user_info">
-					<!--<img src="__IMG__/buy.jpg"/>-->
-					<div class="user_face_left">
-						<div class="user_face_img">
-                                                    {if condition="$userInfo.headIcon eq '' "}
-                                                        <img src="/public/static/img/wan.jpg" />
-                                                    {else /}
-							<img src="__HEADICON__/{:session('userInfo.headIcon')}" />
-                                                    {/if}
-						</div>
-						<div class="user_info-1" style="position: absolute;left: 200px;">
-							<p class="user_name">{$userInfo.nickname}</p>
-							<span style="font-size: 12px;">{$userInfo.signature}</span>
-						</div>
-					</div>
-					<div class="user_face_right">
-						<img src="__IMG__/my-bg.png" />
-					</div>
-				</div>
-				<!--下部-->
-				<!--<div class="user_pro_list">
-					<div class="user_pro">
-						<div class="user_ac_text">
-							<p class="user_ac_p">最新参加的活动</p>
-							<a href="" class="user_ac_a">详细</a>
-						</div>
-						<div class="my_new_activity m_ac">
-							<div class="my_activity_img">
-								<img src="__IMG__/banner1.png" width="170px" />
-							</div>
-							<div class="ac_name" style="">
-								<div class="ac_settle_name">探索眼睛的秘密</div>
-								<div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
-							</div>
-						</div>
-					</div>
-					<div class="user_pro">
-						<div class="user_ac_text">
-							<p class="user_ac_p">未支付的活动</p>
-							<a href="" class="user_ac_a">详细</a>
-						</div>
-						<div class="my_new_activity m_ac">
-							<div class="my_activity_img">
-								<img src="__IMG__/banner1.png" width="170px" />
-							</div>
-							<div class="ac_name" style="">
-								<div class="ac_settle_name">探索眼睛的秘密</div>
-								<div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
-							</div>
-						</div>
-					</div>
-					<div class="user_pro">
-						<div class="user_ac_text">
-							<p class="user_ac_p">已报名的活动</p>
-							<a href="" class="user_ac_a">详细</a>
-						</div>
-						<div class="my_new_activity m_ac">
-							<div class="my_activity_img">
-								<img src="__IMG__/banner1.png" width="170px" />
-							</div>
-							<div class="ac_name" style="">
-								<div class="ac_settle_name">探索眼睛的秘密</div>
-								<div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
-							</div>
-						</div>
-					</div>
-					<div class="user_pro">
-						<div class="user_ac_text">
-							<p class="user_ac_p">待评价的活动</p>
-							<a href="" class="user_ac_a">详细</a>
-						</div>
-						<div class="my_new_activity m_ac">
-							<div class="my_activity_img">
-								<img src="__IMG__/banner1.png" width="170px" />
-							</div>
-							<div class="ac_name" style="">
-								<div class="ac_settle_name">探索眼睛的秘密</div>
-								<div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
-							</div>
-						</div>
-					</div>
-				</div>-->
-				<!--猜你喜欢-->
-				<div class="favoriteList">
-					<p class="favoriteList1"><img style="width: 35px;height: 35px;vertical-align: middle;" src="__IMG__/like.png" />猜你喜欢</p>
-					<ul class="activeFList activeFList1">
-						{foreach $like as $vo}
-						<li>
-							<div>
-								<a href="{:url('home/Activity/detail',['aid'=>$vo.aid])}"><img src="{$vo.a_index_img}" title="" /></a>
-							</div>
-							<h4><a href="{:url('home/Activity/detail',['aid'=>$vo.aid])}" title = "">{$vo.a_title} ...</a></h4>
-							<p class="activeFList-2 fav_height" style="top:30px;">{$vo.a_price}<i class="col7 f">已报名{$vo.a_sold_num}人</i></p>
-						</li>
-						{/foreach}
-					</ul>
+{include file="public/user_header" /}
+{include file="public/user_left" /}
+<!--右侧-->
+<div class="userRight1">
+    <!--个人信息-->
+    <div class="user_info">
+        <!--<img src="__IMG__/buy.jpg"/>-->
+        <div class="user_face_left">
+            <div class="user_face_img">
+                {if condition="$userInfo.headIcon eq '' "}
+                <img src="/public/static/img/wan.jpg" />
+                {else /}
+                <img src="__HEADICON__/{:session('userInfo.headIcon')}" />
+                {/if}
+            </div>
+            <div class="user_info-1" style="position: absolute;left: 200px;">
+                <p class="user_name">{$userInfo.nickname}</p>
+                <span style="font-size: 12px;">{$userInfo.signature}</span>
+            </div>
+        </div>
+        <div class="user_face_right">
+            <img src="__IMG__/my-bg.png" />
+        </div>
+    </div>
+    <!--下部-->
+    <!--<div class="user_pro_list">
+            <div class="user_pro">
+                    <div class="user_ac_text">
+                            <p class="user_ac_p">最新参加的活动</p>
+                            <a href="" class="user_ac_a">详细</a>
+                    </div>
+                    <div class="my_new_activity m_ac">
+                            <div class="my_activity_img">
+                                    <img src="__IMG__/banner1.png" width="170px" />
+                            </div>
+                            <div class="ac_name" style="">
+                                    <div class="ac_settle_name">探索眼睛的秘密</div>
+                                    <div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
+                            </div>
+                    </div>
+            </div>
+            <div class="user_pro">
+                    <div class="user_ac_text">
+                            <p class="user_ac_p">未支付的活动</p>
+                            <a href="" class="user_ac_a">详细</a>
+                    </div>
+                    <div class="my_new_activity m_ac">
+                            <div class="my_activity_img">
+                                    <img src="__IMG__/banner1.png" width="170px" />
+                            </div>
+                            <div class="ac_name" style="">
+                                    <div class="ac_settle_name">探索眼睛的秘密</div>
+                                    <div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
+                            </div>
+                    </div>
+            </div>
+            <div class="user_pro">
+                    <div class="user_ac_text">
+                            <p class="user_ac_p">已报名的活动</p>
+                            <a href="" class="user_ac_a">详细</a>
+                    </div>
+                    <div class="my_new_activity m_ac">
+                            <div class="my_activity_img">
+                                    <img src="__IMG__/banner1.png" width="170px" />
+                            </div>
+                            <div class="ac_name" style="">
+                                    <div class="ac_settle_name">探索眼睛的秘密</div>
+                                    <div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
+                            </div>
+                    </div>
+            </div>
+            <div class="user_pro">
+                    <div class="user_ac_text">
+                            <p class="user_ac_p">待评价的活动</p>
+                            <a href="" class="user_ac_a">详细</a>
+                    </div>
+                    <div class="my_new_activity m_ac">
+                            <div class="my_activity_img">
+                                    <img src="__IMG__/banner1.png" width="170px" />
+                            </div>
+                            <div class="ac_name" style="">
+                                    <div class="ac_settle_name">探索眼睛的秘密</div>
+                                    <div class="ac_settle_Time">时间：2017/03/26 - 2017/03/26</div>
+                            </div>
+                    </div>
+            </div>
+    </div>-->
+    <!--猜你喜欢-->
+    <div class="favoriteList">
+        <p class="favoriteList1"><img style="width: 35px;height: 35px;vertical-align: middle;" src="__IMG__/like.png" />猜你喜欢</p>
+        <ul class="activeFList activeFList1">
+            {foreach $like as $vo}
+            <li>
+                <div>
+                    <a href="{:url('home/Activity/detail',['aid'=>$vo.aid])}"><img src="{$vo.a_index_img}" title="" /></a>
+                </div>
+                <h4><a href="{:url('home/Activity/detail',['aid'=>$vo.aid])}" title = "">{$vo.a_title} ...</a></h4>
+                <p class="activeFList-2 fav_height" style="top:30px;">{$vo.a_price}<i class="col7 f">已报名{$vo.a_sold_num}人</i></p>
+            </li>
+            {/foreach}
+        </ul>
 
-				</div>
+    </div>
 
-			</div>
-		</div>
+</div>
+</div>
 
-	</body>
+</body>
 
 </html>

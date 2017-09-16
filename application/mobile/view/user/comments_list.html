@@ -1,0 +1,58 @@
+{include file="public/header" /}
+   
+   <!--玩宝总体内容部分-->
+  <div class="playBaby_content almost">
+  	  <div class="title title_img">
+  	  	  <img src="__MobileImg__/wan_whole.png"/>
+  	  	  <div class="playBady_word">评论</div>
+  	  </div>
+  	  <div  id="commit_content">
+  	  	   <form action="" method="post">
+  	  	   	   <textarea class="commit_content" name="comment"></textarea>
+                           <p class="commit_erro" style="font-size: 15px;color: #ff4314;text-align: center;margin-top: 5px;display: none">评论不能为空</p>
+  	  	   	   <button type="submit" class="commit_submit">提交</button>
+  	  	   </form>
+  	  </div>
+  </div>
+  
+		<script src="__MobileJs__/jquery.min.js"></script>
+	</body>
+        <script>
+        //点击提交评论
+        $(".commit_submit").on("click",function(){
+                if($(".commit_content").val()==""){
+                        $(".commit_erro").show();
+                        return false;
+                }
+                else{
+                    var aid = "{$order_info.aid}";
+                    var osn = "{$order_info.order_sn}";
+                    var com = $(".commit_content").val();
+                    $.post("/home/user/comments",{ aid:aid,comment:com,order_sn:osn},
+                    function(obj){
+                        if(obj.state_code != 200){
+                            alert(obj.msg);
+                        }else{
+                            alert("提交成功");
+                            window.location.href = '/mobile/user/index';
+                        }
+                    }, "json");
+                }
+                return false;
+        })
+
+
+        $(".commit_content").on("blur",function(){
+                if($(this).val()==""){
+                        $(".commit_erro").show();
+                        return false;
+                }
+                else{
+                        $(".commit_erro").hide();
+                }
+        })
+            </script>
+</html>
+
+
+

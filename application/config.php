@@ -275,4 +275,11 @@ return [
         //支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
         'alipay_public_key' => "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh296Hi/T56D2a8QXwXWOoF5iMBeybBBqXPlBp5Jl5Kz9xhFtRQK777mIDp3/pEDxIwZ3eWses2vp9vfM/41+SghzL/1679HmKEdRaEFR1eySLdR9am4zwpV75xXuuwRPhullK8uqa85xPhvF8vlvQqYPXXJ9bEoDvH1TvKPG2W9Rj2oET1MZ3CyZbdXo8JxqQGS394CH189Ge62HRCiD/uyibvGqUvjV89bEgzjgFpM3WHo3SMnu9K2qsOx33lVqpGbLzhqXIE/qSwU0hHGHfax32UFvnlnQcAWNDSKU0RoGjV8gwNAAvnXlIDyvACFSUbkh8MFZVsFJG7y3plh97QIDAQAB",
     ],
+    
+    //微信支付配置
+    'wxpay'        =>  [
+        'app_id' => 'wx08a2c3912060777b',
+        'mch_id' => '1235594202',
+        'key'    => '42128531f65b1a5325b7f06558374e6c',
+    ],
 ];

@@ -1,0 +1,63 @@
+{include file="public/header" /}
+
+<div class="playBaby_content almost">
+    <div class="title title_img">
+        <img src="__MobileImg__/wan_whole.png"/>
+        <div class="playBady_word">退款</div>
+    </div>
+    <div class="pay_content">
+        <ul>
+            <li><span>1</span></li>
+            <li class="line"></li>
+            <li class="change_opacity"><span>2</span></li>
+            <li class="line"></li>
+            <li class="change_opacity"><span>3</span></li>
+        </ul>
+
+        <ul>
+            <li>申请退款</li>
+            <li class="change_opacity">退款处理中</li>
+            <li class="change_opacity">退款成功</li>
+        </ul>
+    </div>
+
+    <div class="pay_price payOff">
+        <ul>
+            <li>退款金额</li>
+            <li>退款金额：￥{$order_info.order_price}</li>
+        </ul>
+    </div>
+<form action="{:url('mobile/user/submit_refund')}" method="post">
+    <div class="back_cause payOff">
+        <input type="hidden" name="order_sn" value="{$order_info.order_sn}"/>
+        <input type="hidden" name="aid" value="{$order_info.aid}"/>
+            <ul>
+                <li>退款原因</li>
+                <li><input type="radio" value="买错了" name="reason"/>&nbsp;买错了</li>
+                <li><input type="radio" value="与我参与的其他活动有冲突" name="reason"/> 与我参与的其他活动有冲突</li>
+                <li><input type="radio" value="计划有变，改日再去" name="reason"/> 计划有变，改日再去</li>
+                <li><input type="radio" value="其他" name="reason"/> 其他</li>
+                <p class="please" style="display:none;font-size: 14px;color: #FF4134;margin-top: 10px;">请选择原因！</p>
+            </ul>
+
+    </div>
+    <div class="title payOff">
+        <ul>
+            <li>温馨提示</li>
+            <li>订单退款成功后无法恢复</li>
+            <li>该订单退款金额有人工客服联系返还</li>
+        </ul>
+    </div>
+        <button type="submit" class="step_1">提交</button>
+
+    </form>
+
+</div>
+
+
+<script src="__MobileJs__/jquery.min.js"></script>
+<script src="__MobileJs__/idangerous.swiper.min.js"></script>
+<script src="__MobileJs__/emit_information.js"></script>
+</body>
+</html>
+

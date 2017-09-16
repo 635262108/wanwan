@@ -1,0 +1,39 @@
+{include file="public/header" /}
+<body>
+    <!--头部图片-->
+    <div class="textAlign header">
+        <div class="header_img">
+            <img src="__MobileImg__/logo.png" />
+        </div>
+    </div>
+
+    
+    <div class="playBaby_content almost">
+        <div class="title title_img">
+            <img src="__MobileImg__/wan_whole.png"/>
+            <div class="playBady_word">选择支付</div>
+        </div>
+    </div>
+
+    <div class="pay_stytle">
+        <a href="{:url('mobile/activity/payWay',['order_sn'=>$order_sn,'bank_type'=>2])}">
+            <div class="style weixinS">
+                <div class="weixin_pic"><img src="__MobileImg__/weixin.png"></div>
+                <div>微信支付</div>
+            </div>
+        </a>
+        <a href="{:url('mobile/activity/payWay',['order_sn'=>$order_sn,'bank_type'=>1])}">
+            <div class="style zhifubaoS">
+                <div class="zhifubao_pic"><img src="__MobileImg__/zhifubao.png"></div>
+                <div>支付宝支付</div>
+            </div>
+        </a>
+    </div>
+
+
+    <script src="__MobileJs__/jquery.min.js"></script>
+    <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+
+</body>
+</html>
+

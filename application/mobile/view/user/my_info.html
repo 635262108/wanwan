@@ -1,0 +1,102 @@
+{include file="public/header" /}
+    <body>
+
+        <!--头部图片-->
+        <div class="textAlign header">
+            <div class="header_img">
+                <img src="__MobileImg__/logo.png" />
+            </div>
+        </div>
+
+
+        <div class="playBaby_content almost">
+            <div class="title title_img">
+                <img src="__MobileImg__/ger_06.png"/>
+            </div>
+            <form action="{:url('mobile/user/saveUserInfo')}" method="post" class="form_info">
+                <div class="nickName">
+                    <span>昵称</span> <input type="text" value="{$userInfo.nickname}" name="nikename" id="nickName"/>
+                    <p id="my_name_chk" style="color: #FF4134;font-size: 13px;float: right;text-align: center;width: 100%;margin-top: 5px;display: none;">昵称不能为空！</p>
+                </div>
+                <div class="sex">
+                    <span>性别</span>
+                    <div class="man">
+                        <input type="radio" value="1" {if condition="$userInfo.sex eq 1"}checked="checked"{/if} name="sex" id="man" checked="checked"/>男
+                        <input type="radio" value="2" {if condition="$userInfo.sex eq 2"}checked="checked"{/if} class="woman" name="sex"/>女
+                    </div>
+                </div>
+                <div class="email nickName">
+                    <span>邮箱</span><input value="{$userInfo.email}" type="text" name="email" id="email"/>
+                    <p id="my_email_chk" style="color: #FF4134;font-size: 13px;width: 100%;text-align: center;margin-top: 5px;display: none;">邮箱格式不正确！</p>
+                </div>
+                <div class="outer">
+                    <span>地址</span>
+                    <select id="seachprov" name="prov" onChange="seachcitys($(this).val())">
+                        <option value=''>请选择</option>
+                        {foreach name="province" item="vo"}
+                        <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.province"}selected="selected"{/if} >{$vo.name}</option>
+                        {/foreach}
+                    </select>
+                    <select id="seachcity"  name="city" onChange="seachdistricts($(this).val())">
+                        <option value=''>请选择</option>
+                        {foreach name="city" item="vo"}
+                        <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.city"}selected="selected"{/if}>{$vo.name}</option>
+                        {/foreach}
+                    </select>
+                    <select id="seachdistrict"  name="district">
+                        <option value=''>请选择</option>
+                        {foreach name="district" item="vo"}
+                        <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.district"}selected="selected"{/if}>{$vo.name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="area nickName">
+                    <span>街道</span>
+                    <input type="text" value="{$userInfo.address}" name="address" id="area"/>
+                    <p id="my_name_street" style="color: #FF4134;font-size: 13px;float: right;text-align: center;width: 100%;margin-top: 5px;display: none;">街道不能为空！</p>
+                </div>
+                <div class="hobby nickName">
+                    <span>兴趣</span>
+                    <textarea name="hobby" id="hobby">{$userInfo.hobby}</textarea>
+                    <p id="my_name_hobby" style="color: #FF4134;font-size: 13px;float: right;text-align: center;width: 100%;margin-top: 5px;display: none;">兴趣不能为空！</p>
+                </div>
+
+                <button id="submit" type="submit">提交</button>
+            </form>
+
+            <div class="modal_box">
+
+                <div class="moal_div">
+                    修改成功
+                    <div class="cancel">
+                        <img src="__MobileImg__/cancel.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="__MobileJs__/jquery.min.js"></script>
+        <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+        <script type="text/javascript" src="__MobileJs__/emit_information.js"></script>
+    </body>
+    <script>
+        function seachcitys(province) {
+            $.get("{:url('home/user/getRegion')}", {id: province},
+            function(obj) {
+                if (obj.state_code == 200) {
+                    $("#seachcity").html(obj.data);
+                }
+            }, "json");
+        }
+        function seachdistricts(city) {
+            $.get("{:url('home/user/getRegion')}", {id: city},
+            function(obj) {
+                if (obj.state_code == 200) {
+                    $("#seachdistrict").html(obj.data);
+                }
+            }, "json");
+        }
+    </script>
+</html>
+

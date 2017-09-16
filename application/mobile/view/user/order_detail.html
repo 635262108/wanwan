@@ -1,0 +1,88 @@
+{include file="public/header" /}
+<body>
+    <!--头部图片-->
+    <div class="textAlign header">
+        <div class="header_img">
+            <img src="__MobileImg__/logo.png" />
+        </div>
+    </div>
+
+    <div class="playBaby_content almost">
+        <div class="title title_img">
+            <img src="__MobileImg__/wan_whole.png"/>
+            <div class="playBady_word">订单详情</div>
+        </div>
+
+        <div id="orderDetail_content">
+            <div class="content">
+
+                <div class="baby_detail">
+                    <ul class="detail_information">
+                        <li>联系人信息</li>
+                        <li>用户名：{:session('userInfo.nickname')}</li>
+                        <li>联系人姓名：{$orderInfo.name}</li>
+                        <li>联系方式：{$orderInfo.mobile}</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <div class="baby_detail">
+                    <ul class="detail_information">
+                        <li>活动信息</li>
+                        <li>主题：{$ActivityInfo.a_title}</li>
+                        <li>活动时间：{$ActivityInfo.a_begin_time|date='Y.m.d',###}-{$ActivityInfo.a_begin_time|date='Y.m.d',###}</li>
+                        <li>活动地点：{$ActivityInfo.a_address}</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <div class="baby_detail">
+                    <ul class="detail_information">
+                        <li>订单信息</li>
+                        <li>
+                        订单状态：{switch name="$orderInfo.order_status"}
+                                {case value="1"}已完成{/case}
+                                {case value="2"}未付款{/case}
+                                {case value="3"}已付款{/case}
+                                {case value="4"}已付款{/case}
+                                {case value="5"}退款中{/case}
+                                {case value="6"}已退款{/case}
+                                {case value="7"}已请假{/case}
+                                {/switch}
+                        </li>
+                        <li>
+                        支付方式：{switch name="$orderInfo.pay_way"}
+                                {case value="0"}未支付{/case}
+                                {case value="1"}支付宝{/case}
+                                {case value="2"}微信{/case}
+                                {/switch}
+                        </li>
+                        <li>
+                            {if condition="$orderInfo.pay_way eq 0"}
+                            提交时间：{$orderInfo.addtime|date='Y.m.d H:i',###}
+                            {else/}
+                            支付时间：{$orderInfo.pay_time|date='Y.m.d H:i',###}
+                            {/if}
+                            </li>
+                        <li>订单编号：{$orderInfo.order_sn}</li>
+                    </ul>
+
+                </div>
+
+            </div>
+            
+
+    <script src="__MobileJs__/jquery.min.js"></script>
+    <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+    <script src="__MobileJs__/index.js"></script>
+</body>
+</html>
+

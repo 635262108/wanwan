@@ -1,4 +1,4 @@
-$(function() {
+$(function() {    
     var mySwiper = new Swiper('.swiper-container', {
         // 自动轮播
         autoplay: 2000,
@@ -64,30 +64,17 @@ $(function() {
     $("#submit").on("click", function() {
         var nickName = $("#nickName").val();
         var emial = $("#email").val();
-        var street = $("#area").val();
-        var hobby = $("#hobby").val();
         var reg1 = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
         if (nickName == "") {
             $("#my_name_chk").css("display", "block");
             return false;
         }
-        if (emial == "") {
-            $("#my_email_chk").css("display", "block");
-            $("#my_email_chk").text("邮箱不能为空");
-            return false;
-        }
-        if (reg1.test(emial) == false) {
-            $("#my_email_chk").css("display", "block");
-            return false;
-        }
-        if (street == "") {
-            $("#my_name_street").show();
-            return false;
-        }
-        if (hobby == "") {
-            $("#my_name_hobby").show();
-            return false;
-        }
+        if (emial != "") {
+            if (reg1.test(emial) == false) {
+                $("#my_email_chk").css("display", "block");
+                return false;
+            }
+        }       
         else {
             $(".modal_box").show();
         }
@@ -98,6 +85,18 @@ $(function() {
 
     $(".cancel").on("click", function() {
         $(".modal_box").hide();
+    })
+    //退款理由选择
+    $(".step_1").on("click",function(){
+            var gender=$('input:radio[name="reason"]:checked').val();
+            if(gender==null){
+                    $(".please").show();
+                    return false;
+            }
+            else{
+                    $(".please").hide();
+            }
+
     })
 
 
@@ -564,5 +563,85 @@ $(function() {
             }
         }, "json");
         return false;
+    })
+    
+    // 大人信息验证
+
+    $(".adultName").on("blur", function() {
+        if ($(this).val() == "") {
+            $(".adultName_warn").show();
+        }
+        else {
+            $(".adultName_warn").hide();
+        }
+    })
+
+//联系方式验证
+    $(".adultTel").on("blur", function() {
+        if ($(this).val() !== "") {
+            if (isMobilePhone($(".adultTel").val())) {
+                $(".adultTel_warn").hide();
+            }
+            else {
+                $(".adultTel_warn").show();
+                $(".adultTel_warn").text("手机号格式不正确")
+            }
+        }
+        else {
+            $(".adultTel_warn").show();
+        }
+
+    })
+
+//小孩名字的验证
+    $(".childName_one").on("blur", function() {
+        if ($(this).val() == "") {
+            $(".child_warn").show();
+        }
+        else {
+            $(".child_warn").hide();
+        }
+    })
+
+//第二个小孩名字验证
+    $(".childName_two").on("blur", function() {
+        if ($(this).val() == "") {
+            $(".child_warn2").show();
+        }
+        else {
+            $(".child_warn2").hide();
+        }
+    })
+
+
+//点击确认报名
+    $(".name_sure").on("click", function() {
+
+
+
+        if ($(".adultName").val() == "") {
+            $(".adultName_warn").show();
+            return false;
+        }
+        if ($(".adultTel").val() == "") {
+            $(".adultTel_warn").show();
+            return false;
+        }
+        if (!isMobilePhone($(".adultTel").val())) {
+            $(".adultTel_warn").show();
+            $(".adultTel_warn").text("手机号格式不正确");
+            return false;
+        }
+        if ($(".childName_one").val() == "") {
+            $(".child_warn").show();
+            return false;
+        }
+        if ($(".childName_two").val() == "") {
+            $(".child_warn2").show();
+            return false;
+        }
+
+
+
     })
 })

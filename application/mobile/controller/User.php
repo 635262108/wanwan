@@ -160,6 +160,12 @@ class User extends Base
                     break;
             }
         }
+        
+        //获取我的收藏
+        $ActivityCollection = model('ActivityCollection');
+        $myCollection = $ActivityCollection->myCollection($uid);
+        
+        $this->assign('myCollection',$myCollection);
         $this->assign('notPay',$notPay);
         $this->assign('havePay',$havePay);
         $this->assign('notEvaluate',$notEvaluate);
@@ -265,105 +271,107 @@ class User extends Base
         Session::set('messageCount', $count);
         return_info(200,'请求成功',$count);
     }
+    
+    //评论展示
+    public function comments_list(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
+        //订单号
+        $order_sn = input("order_sn");
 
-
-    //评论提交
-    public function comments(){
-        if(request()->isAjax()){
-            //用户id
-            $uid = Session::get('userInfo.uid');
-            //昵称
-            $nickname = Session::get('userInfo.nickname');
-            //头像
-            $headIcon = Session::get('userInfo.headIcon');
-            //活动id
-            $aid = input("post.aid");
-            //评论内容
-            $comment = input("post.comment");
-            //订单号
-            $order_sn = input("post.order_sn");
-            
-            //插入评论
-            $ActivityComments = model('ActivityComments');
-            $ActivityComments->addComments($nickname,$headIcon,$comment,$aid);
-            
-            //修改订单状态
-            $ActivityOrder = model('ActivityOrder');
-            $ActivityOrder->setOrderStatus($order_sn,1);
-            return return_info(200,'成功');
-        }else{
-            return return_info(-1,'非法请求');
+        //获取订单信息
+        $ActivityOrder = model('ActivityOrder');
+        $order_field = 'uid,order_sn,aid';
+        $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$order_field);
+        if($order_info['uid'] != $uid){
+            $this->error('订单异常');
         }
+        $this->assign('order_info',$order_info);
+        return $this->fetch();
+    }
+    
+    //请假展示
+    public function leave_list(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
+        //订单号
+        $order_sn = input("order_sn");
+
+        //获取订单信息
+        $ActivityOrder = model('ActivityOrder');
+        $order_field = 'uid,order_sn,aid';
+        $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$order_field);
+        if($order_info['uid'] != $uid){
+            $this->error('订单异常');
+        }
+        $this->assign('order_info',$order_info);
+        return $this->fetch();
+    }
+    
+    //退款1
+    public function refund(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
+        //订单号
+        $order_sn = input("order_sn");
+        
+        //获取订单信息
+        $ActivityOrder = model('ActivityOrder');
+        $order_field = 'uid,aid,order_price,order_sn';
+        $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$order_field);
+        if($order_info['uid'] != $uid){
+            $this->error('订单异常');
+        }
+        $this->assign('order_info',$order_info);
+        return $this->fetch();
     }
     
     //退款提交
-    public function refund(){
-        if(request()->isPost()){//我要退款时显示界面
-            //用户id
-            $uid = Session::get('userInfo.uid');
-            //订单号
-            $order_sn = input("post.order_sn");
-            //活动id
-            $aid = input("post.aid");
-            //退款原因
-            $refund = input("post.tuikuan");
-            //其他原因
-            $reason = input("post.reason");
-            //token防止重复提交
-            $token = input("post.token");
-            if(Session::get('__token__') == $token){
-                Session::set('__token__',null);
-            }else{
-                return return_info(-1,'禁止重复提交');
-            }
-            
+    public function submit_refund(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
+        //订单号
+        $order_sn = input("post.order_sn");
+        //活动id
+        $aid = input("post.aid");
+        //请假理由
+        $reason = input("post.reason");            
 
-            //退款原因为0时,插入其他原因
-            if($refund == '0'){
-                $refund = $reason;
-            }
+        //插入请假
+        $ActivityRefund = model('ActivityRefund');
+        $addtime = $ActivityRefund->addLeave($uid,$aid,$reason,$order_sn);
 
-            //插入退款信息
-            $ActivityRefund = model('ActivityRefund');
-            $addtime = $ActivityRefund->addRefund($uid,$aid,$refund,$order_sn);
+        //修改订单状态
+        $ActivityOrder = model('ActivityOrder');
+        $ActivityOrder->setOrderStatus($order_sn,5);
 
-            //修改订单状态
-            $ActivityOrder = model('ActivityOrder');
-            $ActivityOrder->setOrderStatus($order_sn,5);
+        $this->redirect('/mobile/user/refund2/order_sn/'.$order_sn);
+    }
+    
+    //退款处理中2
+    public function refund2(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
+        //订单号
+        $order_sn = input("order_sn");
 
-            //获取订单信息
-            $order_field = 'order_price,pay_way,pay_time,order_status,addtime';
-            $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$order_field);
-
-            $this->assign('order_info',$order_info);
-            $this->assign('reason',$reason);
-            $this->assign('order_sn',$order_sn);
-            $this->assign('addtime',$addtime);
-            return $this->fetch();
-        }else if(request()->isGet()){//正在退款时显示界面
-            //用户id
-            $uid = Session::get('userInfo.uid');
-            //订单号
-            $order_sn = input("order_sn");
-            
-            //获取订单信息
-            $ActivityOrder = model('ActivityOrder');
-            $order_field = 'order_price,pay_way,pay_time,order_status,addtime';
-            $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$order_field);
-            
-            //获取退款信息
-            $ActivityRefund = model('ActivityRefund');
-            $field = 'reason,time';
-            $refundData = $ActivityRefund->getSnAnyOneRefund($order_sn,$field);
-            
-            $this->assign('order_info',$order_info);
-            $this->assign('reason',$refundData['reason']);
-            $this->assign('order_sn',$order_sn);
-            $this->assign('addtime',$refundData['time']);
-            return $this->fetch();
-        }else{
-            return return_info(-1,'非法请求');
+        //获取订单信息
+        $ActivityOrder = model('ActivityOrder');
+        $order_field = 'uid,order_price,pay_way,pay_time,order_status,addtime';
+        $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$order_field);
+        if($order_info['uid'] != $uid){
+            $this->error('订单异常');
         }
+        //获取退款信息
+        $ActivityRefund = model('ActivityRefund');
+        $field = 'reason,time';
+        $refundData = $ActivityRefund->getSnAnyOneRefund($order_sn,$field);
+
+        $this->assign('order_info',$order_info);
+        $this->assign('reason',$refundData['reason']);
+        $this->assign('order_sn',$order_sn);
+        $this->assign('addtime',$refundData['time']);
+        return $this->fetch();
     }
     
     //新增请假
@@ -439,84 +447,40 @@ class User extends Base
         return $this->fetch();
     }
     
-    //获取子级地区
-    public function getRegion(){
-        $id = input('get.id');
-        $region = model('region');
-        $sonData = $region->getSonData($id);
-        //拼成option集合
-        $str = "<option value=''>请选择</option>";
-        foreach($sonData as $k=>$v){
-            $str .= "<option value='".$v['id']."'>".$v['name']."</option>";
-        }
-        return_info(200,'成功',$str);
-    }
-    
     //修改用户信息
     public function saveUserInfo(){
-        if(request()->isAjax()){
-            //接收数据
-            $uid = Session::get('userInfo.uid');
-            $nickname = input('post.nikename');
-            $sex = input('post.sex');
-            $birthday = input('post.birthday');
-            $email = input('post.email');
-            $hobby = input('post.hobby');
-            $prov = input('post.prov');
-            $city = input('post.city');
-            $district = input('post.district');
-            $address = input('post.address');
-            
-            //数据组合修改
-            $data['nickname'] = $nickname;
-            $data['sex'] = $sex;
-            $data['birthday'] = time($birthday);
-            $data['email'] = $email;
-            $data['hobby'] = $hobby;
-            $data['province'] = $prov;
-            $data['city'] = $city;
-            $data['district'] = $district;
-            $data['address'] = $address;
-            
-            $user = model('user');
-            $result = $user->saveUserInfo($uid,$data);
-            if($result){
-                Session::set('userInfo.nickname',$data['nickname']);
-                return_info(200,'修改成功');
-            }else{
-                return_info(-1,'数据库错误');
-            }
-            
-        }else{
-            return_info(-1,'非法请求');
-        }
-    }
-    
-    //修改头像
-    public function saveHeadicon(){
-        if(request()->isAjax()){
-            // 获取表单上传文件 例如上传了001.jpg
-            $uid = Session::get('userInfo.uid');
-            $file = request()->file('avatar_file');
-            // 移动到框架应用根目录/public/uploads/headicon 目录下
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads'. DS .'headicon');
-            if($info){
-                //修改用户头像
-                $user = model('user');
-                $data['headIcon'] = $info->getSaveName();
-                $user->saveUserInfo($uid,$data);
-                Session::set('userInfo.headIcon',$data['headIcon']);
-                return_info(200,'修改成功');
-            }else{
-                // 上传失败获取错误信息
-                return_info(200,'修改失败',$file->getError());
-            }
-        }else{
-            return_info(-1,'非法请求');
-        }
-        
-    }
+        //接收数据
+        $uid = Session::get('userInfo.uid');
+        $nickname = input('post.nikename');
+        $sex = input('post.sex');
+        $birthday = input('post.birthday');
+        $email = input('post.email');
+        $hobby = input('post.hobby');
+        $prov = input('post.prov');
+        $city = input('post.city');
+        $district = input('post.district');
+        $address = input('post.address');
 
+        //数据组合修改
+        $data['nickname'] = $nickname;
+        $data['sex'] = $sex;
+        $data['birthday'] = time($birthday);
+        $data['email'] = $email;
+        $data['hobby'] = $hobby;
+        $data['province'] = $prov;
+        $data['city'] = $city;
+        $data['district'] = $district;
+        $data['address'] = $address;
+
+        $user = model('user');
+        $result = $user->saveUserInfo($uid,$data);
+        if($result){
+            Session::set('userInfo.nickname',$data['nickname']);
+            $this->success('修改成功','mobile/user/index');
+        }else{
+            $this->error('数据错误');
+        }
+    }    
 
     //帐号管理
     public function account(){
@@ -569,18 +533,20 @@ class User extends Base
     
     //订单详情
     public function order_detail($order_sn){
+        //用户id
+        $uid = Session::get('userInfo.uid');
         //获取订单信息
         $ActivityOrder = model('ActivityOrder');
         $orderInfo = $ActivityOrder->getSnOrderInfo($order_sn);
-        if(empty($orderInfo)){
+        if($orderInfo['uid'] != $uid){
             $this->error('订单异常');
         }
         //获取活动信息
         $Activity = model('Activity');
-        $field = 'aid,a_title,a_index_img,a_begin_time,a_end_time';
+        $field = 'aid,a_title,a_index_img,a_address,a_begin_time,a_end_time';
         $ActivityInfo = $Activity->getIdActivity($orderInfo['aid'],$field);
         if(empty($ActivityInfo)){
-            $this->error('订单异常');
+            $this->error('活动结束,订单已失效');
         }
         
         $this->assign('orderInfo',$orderInfo);

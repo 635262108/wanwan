@@ -1,0 +1,75 @@
+{include file="public/header" /}
+<body>
+    <!--头部图片-->
+    <div class="textAlign header">
+        <div class="header_img">
+            <img src="__MobileImg__/logo.png" />
+        </div>
+    </div>
+
+    <div class="playBaby_content almost">
+        <div class="title title_img">
+            <img src="__MobileImg__/wan_whole.png"/>
+            <div class="playBady_word">退款</div>
+        </div>
+        <div class="pay_content">
+            <ul>
+                <li class="change_opacity"><span>1</span></li>
+                <li class="line"></li>
+                <li><span>2</span></li>
+                <li class="line"></li>
+                <li class="change_opacity"><span>3</span></li>
+            </ul>
+
+            <ul>
+                <li class="change_opacity">申请退款</li>
+                <li>退款处理中</li>
+                <li class="change_opacity">退款成功</li>
+            </ul>
+        </div>
+
+        <div class="pay_price payOff">
+            <ul>
+                <li>退款金额</li>
+                <li>退款金额：￥{$order_info.order_price}</li>
+                <li>订单编号：{$order_sn}</li>
+            </ul>
+        </div>
+
+        <div class="back_cause payOff">
+            <form action="" method="post">
+                <ul>
+                    <li>退款进度</li>
+                    <li>操作人：家长</li>
+                    <li>提交时间：{$addtime|date='Y.m.d H:i',###}</li>
+                    <li>处理结束：您的申请已提交，工作人员将在两个工作日内审核</li>
+
+                </ul>
+            </form>
+
+
+
+        </div>
+        <div class="title payOff">
+            <ul>
+                <li>退款详细信息</li>
+                <li>支付方式：{switch name="$order_info.pay_way"}
+                            {case value="1"}微信{/case}
+                            {case value="2"}支付宝{/case}
+                            {case value="3"}银联{/case}
+                            {/switch}</li>
+                <li>退款原因：{$reason}</li>
+            </ul>
+        </div>
+
+        <div class="last_warn">注意：退款金额由人工客服联系并退还</div>
+
+    </div>
+    <hr><hr>
+
+    <script src="__MobileJs__/jquery.min.js"></script>
+    <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+    <script src="__MobileJs__/index.js"></script>
+</body>
+</html>
+

@@ -12,8 +12,8 @@
 return [
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
-   'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
-    // 'dispatch_error_tmpl'    => 'public/error',
+   //'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
+     'dispatch_error_tmpl'    => 'public/error',
     // 默认控制器名
     'default_controller'     => 'Activity',
     // 默认操作名

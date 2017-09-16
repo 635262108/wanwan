@@ -12,7 +12,7 @@ use think\Db;
 use \think\Validate;
 use \think\Session;
 use think\Request;
-
+use wxpay\wechatAppPay;
 
 class Activity extends Base
 {
@@ -280,52 +280,48 @@ class Activity extends Base
                 $this->error("本次活动已报满");
             }
         }else{
+            //用户id
+            $uid = Session::get('userInfo.uid');
             //活动id
             $order_sn = input('order_sn');
             
             //获取订单信息
             $ActivityOrder = model('ActivityOrder');
-            $field = 'aid,adult_num,child_num,order_price';
+            $field = 'aid,uid,adult_num,child_num,order_price';
             $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$field);
-            if(empty($order_info)){
+            if($order_info['uid'] != $uid){
                 $this->error("无效订单");
             }
-            //获取活动信息
-            $aid = $order_info['aid'];
-            $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img');
-        
-            $this->assign('adult_num',$order_info['adult_num']);
-            $this->assign('child_num',$order_info['child_num']);
-            $this->assign('order_price',$order_info['order_price']);
-            $this->assign('activityInfo',$activityInfo);
             $this->assign('order_sn',$order_sn);
         }
         
-        return $this->fetch('activity/pay');
+        return $this->fetch('activity/select_pay');
     }
 
     /**
     *支付
     */
     public function payWay(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
         //订单号
-        $order_sn = input('post.order_sn');
-        //订单价格
-        $order_price = input('post.order_price');
+        $order_sn = input('order_sn');
         //支付方式1：支付宝 2：微信 3：银联
-        $bank_type = input('post.bank_type');
+        $bank_type = input('bank_type');
+        
         $ActivityOrder = model('ActivityOrder');
+        $order = $ActivityOrder->getSnOrderInfo($order_sn,'uid,order_price,pay_time');
+        if($order['uid'] != $uid){
+            $this->error("无效订单");
+        }
         if($bank_type == 1){
-            $activityOrder = model('ActivityOrder');
-            $order = $activityOrder->getSnOrderInfo($order_sn,'order_price,pay_time');
             //订单号
             $params['out_trade_no'] = $order_sn;
             //订单标题
             $params['subject'] = '玩翫碗活动报名';
             //订单金额
             $params['total_amount'] = $order['order_price'];
-            \alipay\Pagepay::pay($params);
+            \alipay\Wappay::pay($params);
         }
         else if($bank_type == 2){
             //生成支付码
@@ -333,7 +329,7 @@ class Activity extends Base
 
             $this->assign('code_url',$code_url);
             $this->assign('order_sn',$order_sn);
-            $this->assign('order_price',$order_price);
+            $this->assign('order_price',$order['order_price']);
             return $this->fetch('wxpay');
         }
         else{
@@ -507,7 +503,7 @@ class Activity extends Base
     }
     
     /**
-     * 使用微信支付SDK生成支付用的二维码
+     * 微信手机端网站支付（H5支付）
      * @param $order_sn
      */
     public function wxpayQRCode($order_sn)
@@ -517,24 +513,20 @@ class Activity extends Base
         if(empty($order)){
             $this->error('订单号不正确');
         }
-        //生成订单
-        $money = $order['order_price']*100;
-        $notify = new NativePay();
-        $input = new WxPayUnifiedOrder();
-        $input->setBody("玩翫碗活动报名");   //订单内容
-        $input->setAttach("test");  
-        $input->setOutTradeNo($order_sn);   //商户系统内部订单号
-        $input->setTotalFee($money);   //订单价格
-        $input->setTimeStart(date("YmdHis"));   //订单生成时间
-        $input->setTimeExpire(date("YmdHis", time() + 7200));    //订单失效时间
-        $input->setGoodsTag("QRCode");  //设置商品标记
-        $input->setNotifyUrl("http://www.baobaowaner.com/public/index.php/home/Activity/notify/order_sn/".$order_sn); //设置回调地址
-        $input->setTradeType("NATIVE"); //设置支付类型
-        $input->setProductId($order_sn);  //商品id
-        $result = $notify->getPayUrl($input);   
-        $url = $result["code_url"];
-        //生成二维码
-        return "http://paysdk.weixin.qq.com/example/qrcode.php?data=".urlencode($url);
+        $appid =  config('wxpay.app_id');
+        $mch_id = config('wxpay.mch_id');//商户号
+        $key = config('wxpay.key');//商户key
+        $notify_url = "http://www.baobaowaner.com/public/index.php/home/Activity/notify/order_sn/".$order_sn;//回调地址
+        $wechatAppPay = new wechatAppPay($appid, $mch_id, $notify_url, $key);
+        $params['body'] = '玩翫碗活动报名';                       //商品描述
+        $params['out_trade_no'] = $order_sn;    //自定义的订单号
+        $params['total_fee'] = '1';                       //订单金额 只能为整数 单位为分
+        $params['trade_type'] = 'MWEB';                   //交易类型 JSAPI | NATIVE | APP | WAP 
+        $params['scene_info'] = '{"h5_info": {"type":"Wap","wap_url": "https://api.lanhaitools.com/wap","wap_name": "蓝海工具商城"}}';
+        $result = $wechatAppPay->unifiedOrder( $params );
+        var_dump($result);die;
+        $url = $result['mweb_url'].'&redirect_url=http://www.baobaowaner.com/';//redirect_url 是支付完成后返回的页面
+        return $url;
     }
 
     /**
