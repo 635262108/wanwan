@@ -612,8 +612,6 @@ $(function() {
 
 
 //点击确认报名
-
-
     $(".name_sure").on("click", function() {
 
         if ($(".adultName").val() == "") {

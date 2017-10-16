@@ -141,6 +141,20 @@ $(".collect").on("click",function(){
     $(".li_first").trigger("click");
 
 
+//加载更多
+//    $(window).scroll(function() {
+//        var doc_height = $(document).height();
+//        var scroll_top = $(document).scrollTop();
+//
+//        var window_height = $(window).height();
+//        if (scroll_top + window_height >= doc_height) {
+//            $(".my_Activity_content").css("height", "auto");
+//            $("#my_collectMore").css("height", "auto");
+//            $(".free_more").hide();
+//            $(".discuss_content").css("height","auto");
+//        }
+//    })
+
 
     var leave_activity = $(".leave_activity").val();
     var leave_cause = $(".leave_cause").val();
