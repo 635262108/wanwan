@@ -9,11 +9,11 @@ use think\Cache;
 class User extends Base
 {
     
-//    public function _initialize() {
-//        parent::_initialize();
-//        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail');
-//        $this->checkUserLogin($noLogin);
-//    }
+    public function _initialize() {
+        parent::_initialize();
+        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail');
+        $this->checkUserLogin($noLogin);
+    }
     
     //注册
     public function register(){
@@ -42,7 +42,14 @@ class User extends Base
             $userInfo = $user->getMobileUserInfo($mobile,'uid,headIcon,nickname,mobile');
             Session::set('userInfo',$userInfo);
             
-            return return_info(200,'注册成功');
+            if (!empty(session::get('userurl'))){
+                //会话中有要跳转的页面
+                $url = session::get('userurl');
+            }else{
+                //没有要跳转的页面，则转到首页
+                $url = url('mobile/activity/index');
+            }             
+            return return_info(200,'注册成功',array('url'=>$url));
         }else{
             return $this->fetch();
         }
@@ -108,7 +115,15 @@ class User extends Base
                 $data['nickname'] = $userInfo['nickname'];
                 $data['mobile'] = $userInfo['mobile'];
                 Session::set('userInfo',$data);
-                return return_info(200,'登录成功');
+                
+                if (!empty(session::get('userurl'))){
+                    //会话中有要跳转的页面
+                    $url = session::get('userurl');
+                }else{
+                    //没有要跳转的页面，则转到首页
+                    $url = url('mobile/activity/index');
+                } 
+                return return_info(200,'登录成功',array('url'=>$url));
             }else{
                 return return_info(-1,'帐号或密码错误');
             }
@@ -116,6 +131,9 @@ class User extends Base
 //            if(session('?userInfo')){
 //                $this->redirect("user/index");
 //            }else{
+                if(isset($_SERVER['HTTP_REFERER'])){
+                    session::set('userurl',$_SERVER['HTTP_REFERER']);
+                }
                 return $this->fetch();
 //            }
         }
@@ -214,23 +232,13 @@ class User extends Base
     }
 
     //我的收藏
-    public function myfavorite(){
+    public function my_collect(){
         $uid = Session::get('userInfo.uid');
         $activityCollection = model('ActivityCollection');
         //获取我收藏的活动
         $collectionData = $activityCollection->myCollection($uid);
-        //分成免费和收费
-        $mfData = array();
-        $sfData = array();
-        foreach($collectionData as $k=>$v){
-            if($v['a_price'] == 0){
-                $mfData[] = $v;
-            }else {
-                $sfData[] = $v;
-            }
-        }
-        $this->assign('mfData',$mfData);
-        $this->assign('sfData',$sfData);
+        
+        $this->assign('collectionData',$collectionData);
     	return $this->fetch();
     }
 
@@ -346,9 +354,15 @@ class User extends Base
         //请假理由
         $reason = input("post.reason");            
 
-        //插入请假
+
         $ActivityRefund = model('ActivityRefund');
-        $addtime = $ActivityRefund->addLeave($uid,$aid,$reason,$order_sn);
+        //查看订单是否已操作过
+        $refundInfo = $ActivityRefund->getSnAnyOneRefund($order_sn);
+        if(!empty($refundInfo)){
+            $this->error('请勿重复提交订单');
+        }
+        //插入请假
+        $ActivityRefund->addRefund($uid,$aid,$reason,$order_sn);
 
         //修改订单状态
         $ActivityOrder = model('ActivityOrder');
@@ -485,7 +499,7 @@ class User extends Base
         $result = $user->saveUserInfo($uid,$data);
         if($result){
             Session::set('userInfo.nickname',$data['nickname']);
-            $this->success('修改成功','mobile/user/index');
+            echo "<script>alert('修改成功');window.location.href='index'</script>";
         }else{
             $this->error('数据错误');
         }
@@ -571,5 +585,25 @@ class User extends Base
     //忘记密码2
     public function reset_pwd(){
         return $this->fetch();
+    }
+
+    //隐私保护
+    public function privacy(){
+        return $this->fetch('footer/privacy');
+    }
+
+    //免责申明
+    public function disclaimer(){
+        return $this->fetch('footer/disclaimer');
+    }
+
+    //版权声明
+    public function copy(){
+        return $this->fetch('footer/copy');
+    }
+
+    //会员条款
+    public function user(){
+        return $this->fetch('footer/user');
     }
 }

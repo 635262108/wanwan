@@ -43,13 +43,13 @@
               <tbody id="tbody_center" style='font-size: 12px;'>
                 {foreach name="extInfo" item="vo"}
                 <tr class="gradeX trs">
-                  <td>{$vo.extension_id}</td>
+                    <td class="td_id">{$vo.extension_id}</td>
                   <td>{$vo.a_title}</td>  
                   <td><img src="__AdminIMG__/{$vo.extension_img}" width="100px;" height="80px;"/></td>
                   <td>{$vo.extension_title}</td>
                   <td>{$vo.extension_remark}</td>
                   <td class="center"><a href="{:url('admin/activity/saveExtensionList',['eid'=>$vo.extension_id])}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-                <i class="delete icon-pencil ask_delete">&nbsp;&nbsp;删除</i>	
+                <i class="delete icon-pencil ext_delete">&nbsp;&nbsp;删除</i>	
                   </td>
                   
                 </tr>

@@ -102,6 +102,25 @@ $(".ask_delete").live("click",function(){
 	}
 })
 
+//扩展删除
+$(".ext_delete").live("click",function(){
+	var trueOrfalse=confirm("是否确认删除");
+        var _this = $(this);
+	if(!trueOrfalse){
+            return;
+	}
+	else{
+            var eid=$(this).parent().siblings(".td_id").html();
+            $.post("/abab.php/activity/del_extension",{"id":eid},function(data){
+                if(data.state_code == 200){
+                    _this.parent().parent().hide();
+                }else{
+                    alert(data.msg)
+                }
+            })
+	}
+})
+
 //评论删除
 $(".com_delete").live("click",function(){
 	var trueOrfalse=confirm("是否确认删除");
@@ -129,7 +148,8 @@ $(".spe_delete").live("click",function(){
             return;
 	}
 	else{
-            var cid=$(this).parent().parent().parent().find("td").eq(0).html();
+            var cid=$(this).parent().siblings(".td_id").html();
+            
             $.post("/abab.php/activity/delAnySpe",{"id":cid},function(data){
                 if(data.state_code == 200){
                     _this.parent().parent().hide();

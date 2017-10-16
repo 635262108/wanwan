@@ -1,91 +1,116 @@
-{include file="public/header" /}
-`
-<!--头部图片-->
-<div class="textAlign header">
-    <div class="header_img">
-        <img src="__MobileImg__/logo.png" />
-    </div>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/index.css" />
+    <link rel="stylesheet" href="__MobileCss__/reset.css" />
+</head>
+<body>
+<!--返回按钮-->
+<div class="three_img">
+    <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/third_back.png" /></a>
 </div>
 
-<!--玩宝总体内容部分
-<div class="playBaby_content almost">
-    <div class="title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">眼睛</div>
-    </div>
-    <div class="content">
-        <div class="baby_img">
-            <img src="__MobileImg__/playBady_img.png" />
-        </div>
-        <div class="baby_detail">
-            我的最爱是大虾我的最爱是大虾我的最爱是大虾
-            我的最爱是大虾我的最爱是大虾我的最爱是大虾
-            我的最爱是大虾我的最爱是大虾我的最爱是大虾
-        </div>
-    </div>
-</div>-->
-<!--五官-->
-<div class="five_organs almost">
-    <div class="five_title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">主题活动</div>
-    </div>
-    <div class="five_content" id="theme_cotent">
-
-        <div class="slider2">
-            {foreach name="extensionInfo" item="vo" }
-            <div class="slide">
-                <ul>
-                    <li>
-                        <a href="activityDetail_last.html">
-                            <img src="__AdminIMG__/{$vo.extension_img}"/>
-                        </a>
-
-                    </li>
-                    <li>
-                        {$vo.extension_title}
-                    </li>
-
-                </ul>
-            </div>
-            {/foreach}
-        </div>
-    </div>
-</div>
 <!--玩翫碗信息-->
-<div class="playBaby_content almost">
-    <div class="title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">玩翫信息</div>
-    </div>
+<div class="playBaby_content almost" id="theme_information_content">
     <div class="content" id="theme_information">
         <div class="baby_img">
-            <img src="__AdminIMG__/{$activityInfo.a_index_img}" />
+            <img src="__AdminIMG__/{$activityInfo.a_img}" />
         </div>
-        <form method="get" action="{:url('mobile/activity/activity_sure')}">
-            <input type="hidden" name="aid" value="{$activityInfo.aid}"/>
         <div class="baby_detail">
+            <h2 style="margin-bottom: 17px;font-size: 16px;text-align: left;margin-left: -0.5%;color: #656565;">{$activityInfo.a_title}</h2>
             <ul class="information_ul">
                 <li><span>活动时间:</span><span>{$activityInfo.a_begin_time|date='Y.m.d',###}-{$activityInfo.a_end_time|date='Y.m.d',###}</span></li>
                 <li><span>活动地点:</span><span class="max_width">{$activityInfo.a_address}</span></li>
-                <li><span>活动时间:</span>
+                <li class="last"><span>活动金额:</span>
                     <ul class="time_ul">
-                        <li><span>大人:<b>￥</b><b class="aldut_price">{$activityInfo.a_adult_price}</b></span><span class="adult_reduce">-</span><input name="adult_num" type="text" value="1" class="adult_val"><span class="plus adult_plus">+</span></li>
-                        <li><span>小孩:<b>￥</b><b class="child_price">{$activityInfo.a_child_price}</b></span><span class="child_reduce">-</span><input name="child_num" type="text" value="1" class="child_val"><span  class="plus child_plus">+</span></li>
+                        <li><span>大人:<b style="color: #656565;margin-left: 14%;">￥</b><b class="aldut_price" style="color: #656565;">{$activityInfo.a_adult_price}</b></span></li>
+                        <li><span>小孩:<b style="color: #656565;margin-left: 14%;">￥</b><b class="child_price" style="color: #656565;">{$activityInfo.a_child_price}</b></span></li>
                     </ul>
                 </li>
-                <li><span>应付金额:</span><span>总计:<b>￥</b><b class="total">{$activityInfo.a_price}</b></span></li>
             </ul>
         </div>
         <div class="theme_info">
             {empty name = "$isCollection"}
-            <span class="collect" aid="{$vo.aid}">收藏</span>
+            <span class="collect" aid="{$activityInfo.aid}">收藏</span>
             {else/}
-            <span class="collect" aid="{$vo.aid}">已收藏</span>
+            <span class="collect" aid="{$activityInfo.aid}">已收藏</span>
             {/empty}
-            <span><input type="submit" value="我要报名"></span>
+            <span><a href="javascript:;" class="i_want">我要报名</a></span>
         </div>
-        </form>
+    </div>
+</div>
+
+<!--点击我要报名-->
+<div id="theme_modal_box">
+    <form method="get" action="{:url('mobile/activity/activity_sure')}">
+        <input type="hidden" name="aid" value="{$activityInfo.aid}"/>
+        <div class="moal_div">
+            <div class="modal_detail">
+                <div class="detail_img">
+                    <img src="__MobileImg__/eye.png" />
+                </div>
+                <div class="detail_ul">
+                    <ul>
+                        <li>{$activityInfo.a_title}</li>
+                        <li>{$activityInfo.a_remark}</li>
+                        <li>活动时间：{$activityInfo.a_begin_time|date='Y.m.d',###}-{$activityInfo.a_end_time|date='Y.m.d',###}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity_address">
+                <p>活动地点</p>
+                <div class="address">{$activityInfo.a_address}</div>
+            </div>
+
+            <div class="pay_total">
+                <p>总计：<b>￥</b><b class="total">0.02</b></p>
+                <ul class="time_ul">
+                    <li><span>大人:<b>￥</b><b class="prompt_aldut_price">{$activityInfo.a_adult_price}</b></span>
+                        <div class="reduce_plus">
+                            <span class="prompt_adult_reduce">-</span><input name="adult_num" type="text"  value="1" class="prompt_adult_val"><span class="plus prompt_adult_plus">+</span>
+                        </div>
+
+                    </li>
+                    <li><span>小孩:<b>￥</b><b class="prompt_child_price">{$activityInfo.a_child_price}</b></span>
+                        <div class="reduce_plus">
+                            <span class="prompt_child_reduce">-</span><input type="text" name="child_num" value="1" class="prompt_child_val"><span  class="plus prompt_child_plus">+</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="my_name">我要报名</button>
+
+        </div>
+    </form>
+</div>
+
+<!--活动内容-->
+<div class="detailActivity">
+    <div class="dot"></div>
+    <h3>活动内容</h3>
+    <div class="activity_parts">
+        {foreach name="extensionInfo" item="vo" }
+        <div class="acyivity_part">
+            <div class="activity_imgBorder">
+                <!--<div class="img_activity">-->
+                    <a href="{:url('mobile/activity/detail_list',['eid'=>$vo.extension_id])}">
+                        <img src="__AdminIMG__/{$vo.extension_img}"/>
+                    </a>
+                <!--</div>-->
+            </div>
+            <div class="activity_detail">
+                <ul>
+                    <li>{$vo.extension_title}</li>
+                    <li>{$vo.extension_remark|subtext='40'}</li>
+                </ul>
+            </div>
+        </div>
+        {/foreach}
     </div>
 </div>
 
@@ -95,12 +120,11 @@
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">玩伴评论</div>
     </div>
-    {empty name="commentInfo"}
-        暂无评论......
-    {else/}
-    {foreach name="commentInfo" item="vo"}
     <div class="discuss_content">
-        
+        {empty name="commentInfo"}
+        <div class="nothing"> 暂无评论......</div>
+        {else/}
+        {foreach name="commentInfo" item="vo"}
         <div class="discuss_part">
             <div class="discuss_img">
                 <img src="__HEADICON__/{$vo.headIcon}" />
@@ -112,8 +136,8 @@
             </ul>
         </div>
         {/foreach}
-        {/empty}
         <div class="discuss_more"><a href="{:url('mobile/activity/comments_list',['aid'=>$activityInfo.aid])}">查看全部</a></div>
+        {/empty}
     </div>
 </div>
 
@@ -211,13 +235,14 @@
         </div>
     </div>
 </div>-->
-<hr><hr><hr>
+<br><br><br>
 {include file="public/footer" /}
 
 <script src="__MobileJs__/jquery.min.js"></script>
-<script src="__MobileJs__/idangerous.swiper.min.js"></script>
-<script src="__MobileJs__/jquery.bxslider.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
+<script>
+    $(".freeActivity_content p img").attr("style","width:100%");
+</script>
 </body>
 </html>
 

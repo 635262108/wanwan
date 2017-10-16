@@ -48,7 +48,7 @@ function return_info($state_code = '',$msg = '',$data = array()){
 *mobile:手机号
 */
 function getMobileVerify($mobile){
-  /*$ch = curl_init();
+  $ch = curl_init();
   // 必要参数
   $apikey = "18e38978462c146b837c43e92eee92cc"; //修改为您的apikey(https://www.yunpian.com)登录官网后获取
   $rand = rand(100000,999999);
@@ -60,10 +60,10 @@ function getMobileVerify($mobile){
   curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
   $json_data = curl_exec($ch);
   //解析返回结果（json格式字符串）
-  $array = json_decode($json_data,true);*/
+  $array = json_decode($json_data,true);
   //验证码放缓存
   $array = array('code'=>0);
-  Cache::set($mobile,123456,60);
+  Cache::set($mobile,$rand,60);
   return $array;
 }
 
@@ -95,5 +95,12 @@ function subtext($text, $length)
     if(mb_strlen($text, 'utf8') > $length) 
     return mb_substr($text, 0, $length, 'utf8').'...';
     return $text;
+}
+
+//判断是否为微信浏览器
+function is_weixin() { 
+    if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) { 
+        return true; 
+    } return false; 
 }
 

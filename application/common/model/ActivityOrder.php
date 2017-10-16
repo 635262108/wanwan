@@ -90,4 +90,14 @@ class ActivityOrder extends Model
         $field = 'o.*,a.a_title';
         return $this->alias('o')->field($field)->join('mfw_activity a','o.aid=a.aid')->select();
     }
+    
+    //获取某条(带条件)
+    public function getOrder($map){
+        return $this->where($map)->find();
+    }
+    
+    //获取多条（带条件）
+    public function getOrders($map){
+        return $this->where($map)->select();
+    }
 }

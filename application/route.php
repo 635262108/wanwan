@@ -9,7 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-//return [    
+//return [
 // '' => 'home/index/index', //首页
 // ':controller/:action'=>'home/:controller/:action', //控制器方法
 //];

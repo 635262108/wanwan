@@ -75,9 +75,6 @@ $(function() {
                 return false;
             }
         }       
-        else {
-            $(".modal_box").show();
-        }
     })
 
 
@@ -444,13 +441,13 @@ $(function() {
             $(".check_warn").text("验证码输入格式有误");
             return false;
         }
-        $.post('/home/user/register',{ mobile: tel,password:pwd,mobileCode:check_num},
+        $.post('/mobile/user/register',{ mobile: tel,password:pwd,mobileCode:check_num},
             function(obj){
                 if(obj.state_code != 200){
                     alert(obj.msg);
                     return false;
                 }else{
-                    window.location.href = '/mobile/activity/index';
+                    window.location.href = obj.data.url;;
                 }
         }, "json");
         return false;
@@ -483,13 +480,13 @@ $(function() {
             return false;
         }
         
-        $.post('/home/User/login', {mobile: userName, password: login_pwd},
+        $.post('/mobile/User/login', {mobile: userName, password: login_pwd},
         function(obj) {
             if (obj.state_code != 200) {
                 alert(obj.msg);
                 return false;
             } else {
-                window.location.href = '/mobile/activity/index'
+                window.location.href = obj.data.url;
             }
         }, "json");
         return false;
@@ -594,27 +591,29 @@ $(function() {
     })
 
 //小孩名字的验证
-    $(".childName_one").on("blur", function() {
-        if ($(this).val() == "") {
-            $(".child_warn").show();
-        }
-        else {
-            $(".child_warn").hide();
-        }
-    })
+//     $(".childName_one").on("blur", function() {
+//         if ($(this).val() == "") {
+//             $(".child_warn").show();
+//         }
+//         else {
+//             $(".child_warn").hide();
+//         }
+//     })
 
 //第二个小孩名字验证
-    $(".childName_two").on("blur", function() {
-        if ($(this).val() == "") {
-            $(".child_warn2").show();
-        }
-        else {
-            $(".child_warn2").hide();
-        }
-    })
+//     $(".childName_two").on("blur", function() {
+//         if ($(this).val() == "") {
+//             $(".child_warn2").show();
+//         }
+//         else {
+//             $(".child_warn2").hide();
+//         }
+//     })
 
 
 //点击确认报名
+
+
     $(".name_sure").on("click", function() {
 
         if ($(".adultName").val() == "") {
@@ -630,9 +629,10 @@ $(function() {
             $(".adultTel_warn").text("手机号格式不正确");
             return false;
         }
-        if ($(".childName_one").val() == "") {
-            $(".child_warn").show();
-            return false;
-        }
+        //孩子验证，暂时不要
+        // if ($(".childName_one").val() == "") {
+        //     $(".child_warn").show();
+        //     return false;
+        // }
     })
 })

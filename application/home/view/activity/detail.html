@@ -70,8 +70,6 @@
                 {else/}
                 <a href="javascript:void(0)"><img id="scButton" src="__IMG__/icon-sc2.png" /><span>收藏</span></a>
                 {/empty}
-
-                <a href="javascript:void(0)"><img id="fxButton" src="__IMG__/icon-fx.png" /><span style="margin-left: 7px;">分享</span></a>
             </div>
         </div>
 
@@ -88,7 +86,7 @@
             <h3 style="margin: 20px 0;">全部评价</h3>
             <ul style="overflow-y:scroll;height:270px;">
                 {empty name="commentInfo"}
-                暂无评论......
+                <p style="text-align: center;line-height: 200px;">暂无评论......</p>
                 {else/}
                 {foreach name="commentInfo" item="vo"}
                 <li class="common_list_li">
@@ -157,7 +155,7 @@
             <h3 style="margin: 20px 0;">我有疑问</h3>
             <ul style="overflow-y:scroll;height:270px;">
                 {empty name="question"}
-                暂无答疑......
+                    <p style="text-align: center;line-height: 200px;">暂无疑问......</p>
                 {else/}
                 {foreach $question as $vo} 
                 <li class="common_list_li">

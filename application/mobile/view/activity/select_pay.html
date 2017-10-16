@@ -1,19 +1,17 @@
 {include file="public/header" /}
-<body>
-    <!--头部图片-->
-    <div class="textAlign header">
-        <div class="header_img">
-            <img src="__MobileImg__/logo.png" />
+<body style="background: #F6F6F6">
+<!--头部导航-->
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" onclick="window.location.href = document.referrer;" >
+        <div class="comeback_img">
+            <img src="__MobileImg__/second_back.png"/>
         </div>
+
     </div>
 
-    
-    <div class="playBaby_content almost">
-        <div class="title title_img">
-            <img src="__MobileImg__/wan_whole.png"/>
-            <div class="playBady_word">选择支付</div>
-        </div>
-    </div>
+    <div class="title_word second_activity">选择支付</div>
+
+</div>
 
     <div class="pay_stytle">
         <a href="{:url('mobile/activity/payWay',['order_sn'=>$order_sn,'bank_type'=>2])}">

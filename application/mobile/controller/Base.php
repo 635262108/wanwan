@@ -23,7 +23,8 @@ class Base extends Controller
     public function checkUserLogin($noLogin = array()) {
         if(in_array(request()->action(),$noLogin)){
             if(!session('?userInfo')){
-                $this->redirect("user/login");
+                //return $this->redirect("public/select_login");
+                echo $this->fetch('public/select_login');die;
             }
         }
     }

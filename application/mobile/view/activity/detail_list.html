@@ -1,0 +1,55 @@
+{include file="public/header" /}
+
+    <body>
+
+        <!--头部图片-->
+        <div class="comeback textAlign" id="second_page">
+            <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
+                <div class="comeback_img">
+                    <img src="__MobileImg__/second_back.png"/>
+                </div>
+
+            </div>
+
+            <div class="title_word second_activity">活动详情</div>
+
+        </div>
+        <!--导航栏tab-->
+
+
+        <!--轮播图-->
+
+        <!--玩宝总体内容部分-->
+        <div class="playBaby_content almost" id="detail_last">
+
+            <div class="content">
+                <div class="baby_img">
+                    <img src="__AdminIMG__/{$einfo.extension_img}" />
+                </div>
+                <div class="baby_detail">
+                    <ul>
+                        <li>{$einfo.extension_title}</li>
+                        <li></li>
+                        <li>{$einfo.extension_remark}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="eyesContent">
+            {$einfo.extension_content}
+        </div>
+
+        <script src="__MobileJs__/jquery.min.js"></script>
+
+    </body>
+    
+    <script>
+       
+    $(".eyesContent p img").attr("style","width: 100%");
+
+    $(".eyesContent p").attr("style","text-align: center;");
+    </script>
+</html>
+

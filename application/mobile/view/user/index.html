@@ -19,7 +19,7 @@
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">会员中心</div>
     </div>
-    <div class="content">
+    <div class="content personal_content">
         <div class="baby_img center_img">
             <img src="__HEADICON__/{$userInfo.headIcon}" />
         </div>
@@ -266,7 +266,7 @@
 
 </div>
 
-<!--我的推荐-->
+<!--我的收藏-->
 <div class="five_organs almost">
     <div class="five_title title_img">
         <img src="__MobileImg__/wan_whole.png"/>
@@ -274,7 +274,8 @@
     </div>
     <div class="myActivity_content" id="myComment">
         <div class="myActivity_big">
-            {foreach name="myCollection" item="vo"}
+            {notempty name="myCollection"}
+            {volist name="myCollection" id="vo" length='2'}
             <div class="activity_part">
                 <ul>
                     <li>
@@ -287,21 +288,22 @@
                     </li>
                     <li>
                         <div><span href="javascript:void(0)" aid="{$vo.aid}" class="cancel_collect">取消收藏</span></div>
-                        <div><a href="#"  class="sign_up">我要报名</a></div>
+                        <div><a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}"  class="sign_up">我要报名</a></div>
                     </li>
                 </ul>
             </div>
-            {/foreach}
+            {/volist}            
         </div>
-
-        <div class="activity_more"><a href="my_collect.html">更多</a></div>
-
-
+        <div class="collect_more"><a href="my_collect.html">更多</a></div>
+        {else/}
+        <div class="collect_no">
+            空空如也~
+        </div>
+        {/notempty}
 
     </div>
 
 </div>
-
 <div class="five_organs almost">
 <!--    <div class="five_title title_img">
         <img src="__MobileImg__/wan_whole.png"/>
@@ -318,6 +320,19 @@
 <script src="__MobileJs__/idangerous.swiper.min.js"></script>
 <script src="__MobileJs__/jquery.bxslider.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+
+        // 自动轮播
+        autoplay:2000,
+        autoHeight:true,
+        // 分页容器
+        pagination: '.pagination',
+        grabCursor: true,
+        paginationElement : 'li'
+    })
+
+</script>
 </body>
 </html>
 

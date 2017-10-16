@@ -1,24 +1,90 @@
 $(function(){
-    var mySwiper = new Swiper('.swiper-container',{
-		
-    // 自动轮播
-    autoplay:2000,
-    autoHeight:true,
-    // 分页容器
-    pagination: '.pagination',
-    grabCursor: true,
-    paginationElement : 'li'
- })
- $('.slider2').bxSlider({
-        slideWidth: 300,
-        auto: true,
-        minSlides: 2,
-        maxSlides: 2,
-        slideMargin: 8,
-        moveSlides: 2,
-        controls: false
 
- });
+    //大人的加
+    var adult_price=$(".prompt_aldut_price").text();
+    var child_price=$(".prompt_child_price").text();
+
+    var adult_num=$(".prompt_adult_val").val();
+    var child_num=$(".prompt_child_val").val();
+
+//大人的加法
+    $(".prompt_adult_plus").on("click",function(event){
+        event.stopPropagation();
+
+        adult_num++;
+        $(".prompt_adult_val").val(adult_num);
+        $(".total").text(adult_num*adult_price+child_num*child_price);
+        if(adult_num>=2){
+            adult_num=2;
+            $(".prompt_adult_val").val(adult_num);
+            $(".total").text(adult_num*adult_price+child_num*child_price);
+        }
+
+    })
+
+//大人的减法
+    $(".prompt_adult_reduce").on("click",function(event){
+        event.stopPropagation();
+        adult_num--;
+        $(".prompt_adult_val").val(adult_num);
+
+        $(".total").text(adult_num*adult_price+child_num*child_price);
+        if(adult_num<=1){
+            adult_num=1;
+            $(".prompt_adult_val").val(adult_num);
+            $(".total").text(adult_num*adult_price+child_num*child_price);
+        }
+    })
+
+//孩子的加法
+    $(".prompt_child_plus").on("click",function(event){
+        event.stopPropagation();
+        child_num++;
+        $(".prompt_child_val").val(child_num);
+
+        $(".total").text(adult_num*adult_price+child_num*child_price);
+        if(child_num>=2){
+            child_num=2;
+            $(".prompt_child_val").val(child_num);
+            $(".total").text(adult_num*adult_price+child_num*child_price);
+        }
+    })
+
+//孩子的减法
+    $(".prompt_child_reduce").on("click",function(event){
+        event.stopPropagation();
+        child_num--;
+        $(".prompt_child_val").val(child_num);
+
+        $(".total").text(adult_num*adult_price+child_num*child_price);
+        if(child_num<=1){
+            child_num=1;
+            $(".prompt_child_val").val(child_num);
+            $(".total").text(adult_num*adult_price+child_num*child_price);
+        }
+    })
+
+
+//我要报名操作
+
+    $(".i_want").on("click",function(){
+        $(".themeDetail_bottom").attr("style","display: none;");
+        $("#theme_modal_box").show();
+        $(".moal_div").animate({"bottom":"0px"},200);
+
+
+    })
+
+//模态框的操作
+    $("#theme_modal_box").on("click",function(){
+        $("#theme_modal_box").hide();
+        $(".moal_div").animate({"bottom":"-100%"},200);
+
+    })
+
+    $(".moal_div").on("click",function(event){
+        event.stopPropagation();
+    })
  //收藏
 $(".collect").on("click",function(){
      var aid = $(this).attr('aid');
@@ -74,20 +140,6 @@ $(".collect").on("click",function(){
     })
     $(".li_first").trigger("click");
 
-
-//加载更多
-    $(window).scroll(function() {
-        var doc_height = $(document).height();
-        var scroll_top = $(document).scrollTop();
-
-        var window_height = $(window).height();
-        if (scroll_top + window_height >= doc_height) {
-            $(".my_Activity_content").css("height", "auto");
-            $("#my_collectMore").css("height", "auto");
-            $(".free_more").hide();
-            $(".discuss_content").css("height","auto");
-        }
-    })
 
 
     var leave_activity = $(".leave_activity").val();
@@ -153,74 +205,6 @@ $(".quiz").on("blur",function(){
 $(".cancel").on("click",function(){
 	$(".modal_box").hide();
 })
-
-//报名加减
-//大人的加
-var adult_price=$(".aldut_price").text();
-var child_price=$(".child_price").text();
-
-var adult_num=$(".adult_val").val();
-var child_num=$(".child_val").val();
-
-//大人的加法
-$(".adult_plus").on("click",function(){
-	
-	adult_num++;
-	$(".adult_val").val(adult_num);
-	
-//	var total_price=Math.floor((adult_num*adult_price+child_num*child_price)*100/100);
-	$(".total").text(adult_num*adult_price+child_num*child_price);
-	
-	
-	if(adult_num>=2){
-		adult_num=2;
-		$(".adult_val").val(adult_num);
-		$(".total").text(adult_num*adult_price+child_num*child_price);
-	}
-	
-})
-
-//大人的减法
-$(".adult_reduce").on("click",function(){
-	adult_num--;
-	$(".adult_val").val(adult_num);
-	
-	$(".total").text(adult_num*adult_price+child_num*child_price);
-	if(adult_num<=1){
-		adult_num=1;
-			$(".adult_val").val(adult_num);
-		$(".total").text(adult_num*adult_price+child_num*child_price);
-	}
-})
-
-//孩子的加法
-$(".child_plus").on("click",function(){
-	child_num++;
-	$(".child_val").val(child_num);
-	
-	$(".total").text(adult_num*adult_price+child_num*child_price);
-	if(child_num>=2){
-		child_num=2;
-		$(".child_val").val(child_num);
-		$(".total").text(adult_num*adult_price+child_num*child_price);
-	}
-})
-
-//孩子的减法
-$(".child_reduce").on("click",function(){
-	child_num--;
-	$(".child_val").val(child_num);
-	
-	$(".total").text(adult_num*adult_price+child_num*child_price);
-	if(child_num<=1){
-		child_num=1;
-		$(".child_val").val(child_num);
-		$(".total").text(adult_num*adult_price+child_num*child_price);
-	}
-})
-
-
 //生日插件
-$(".birthdayContainer").birthday();
-
+$(".birthdayContainer").selectDate();
 })

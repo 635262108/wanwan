@@ -104,25 +104,25 @@
 }
 
 .pay_content ul:nth-child(2) li:nth-child(1) {
-	margin-left: -5%
+	margin-left: -3%
 }
 
 .pay_content ul:nth-child(2) li:nth-child(2) {
-	margin-left: 5%
+	margin-left: 0%
 }
 
 .pay_content ul:nth-child(2) li:nth-child(3) {
-	margin-right: -5%
+	margin-right: -3%
 }
 
 .payOff {
 	width: 90%;
 	margin: 20px auto;
 	box-shadow: 0 0 5px #FF4134;
-	padding-left: 10%;
+	padding-left: 4%;
 	font-size: 10px;
-	padding-top: 20px;
-	padding-bottom: 20px
+	padding-top: 11px;
+	padding-bottom: 11px
 }
 
 .pay_price ul li {
@@ -141,6 +141,9 @@
 
 .back_cause ul li {
 	margin-bottom: 10px
+}
+.back_cause ul li:last-child{
+	margin-bottom: 0px;
 }
 
 .back_cause ul li:nth-child(1) {

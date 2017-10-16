@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
+        <file>
+            <url>application/mobile/view/activity/detail.html</url>
+            <bookmark id="2">
+                <name/>
+                <line>83</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/chuangzhixing/wanwan/application/home/controller/Index.php</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/mobile/controller/Activity.php</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/home/view/activity/freeplay.html</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/mobile/view/activity/freeplay.html</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/mobile/view/activity/index.html</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/common/model/ActivityCollection.php</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/mobile/view/public/nav.html</file>
-            <file>file:/E:/chuangzhixing/wanwan/application/mobile/view/activity/about.html</file>
+            <file>file:/E:/chuangzhixing/wanwan/application/common/model/Activity.php</file>
+            <file>file:/E:/chuangzhixing/wanwan/application/admin/view/user/attendance_detail.html</file>
+            <file>file:/E:/chuangzhixing/wanwan/application/common/model/ActivityOrder.php</file>
+            <file>file:/E:/chuangzhixing/wanwan/application/common/model/ActivityTime.php</file>
+            <file>file:/E:/chuangzhixing/wanwan/application/admin/controller/User.php</file>
+            <file>file:/E:/chuangzhixing/wanwan/application/admin/view/user/attendance.html</file>
+            <file>file:/E:/chuangzhixing/wanwan/extend/excel/PHPExcel/IOFactory.php</file>
         </group>
     </open-files>
 </project-private>

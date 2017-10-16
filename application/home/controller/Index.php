@@ -9,7 +9,7 @@ class Index extends Base
     {	
         // 如果是手机跳转到 手机模块
         if(true == request()->isMobile()){
-            header("Location: ".url('mobile/activity/index'));
+            header("Location: ".url('mobile/activity/about'));
             exit;
         }
         return $this->fetch();

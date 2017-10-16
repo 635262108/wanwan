@@ -48,4 +48,9 @@ class ActivityExtension extends Model
     public function addExtension($data){
         return $this->insert($data);
     }
+    
+    //删除扩展
+    public function delExtension($map){
+        return $this->where($map)->delete();
+    }
 }

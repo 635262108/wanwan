@@ -1,66 +1,95 @@
-;(function($){
-	$.fn.birthday = function(options){
-	var opts = $.extend({}, $.fn.birthday.defaults, options);//整合参数
-	var $year = $(this).children("select[name="+ opts.year +"]");
-	var $month = $(this).children("select[name="+ opts.month +"]");
-	var $day = $(this).children("select[name="+ opts.day +"]");
-	MonHead = [31,28,31,30,31,30,31,31,30,31,30,31];
-	return this.each(function(){
-		var y = new Date().getFullYear();
-		var con = "";
-		//添加年份
-		for(i = y; i >= (y-60); i--){
-		con += "<option value='"+i+"'>"+i+"</option>";
+$.fn.selectDate = function(){
+			var minYear = 1900
+			var maxYear = (new Date).getFullYear()
+			var yearSel = document.getElementById('year')
+			var monthSel = document.getElementById('month')
+			var daySel = document.getElementById('days')
+			
+			var yearTwo=document.getElementById('year_two')
+			var monthTwo=document.getElementById('month_two')
+			var dayTwo=document.getElementById('day_two')
+	
+			for(var y = maxYear;y >= minYear;y--){
+				var yearOpt = document.createElement('option')
+				yearOpt.value = y
+				yearOpt.innerHTML = y
+				yearSel.appendChild(yearOpt)
+				
+			}
+			
+			for(var y = maxYear;y >= minYear;y--){
+				var yearOpt = document.createElement('option')
+				yearOpt.value = y
+				yearOpt.innerHTML = y
+				yearTwo.appendChild(yearOpt)
+				
+			}
+//          第一个生日
+			$("#year").change(function(event){
+				removeOption(monthSel)
+				addOption(12,monthSel)
+				removeOption(daySel)
+			})
+//			第二个生日
+			$("#year_two").change(function(event){
+				removeOption(monthTwo)
+				addOption(12,monthTwo)
+				removeOption(dayTwo)
+			})
+
+			$("#month").change(function(){
+				removeOption(daySel)
+				var year = $("#year option:selected").val()
+				var month = $("#month option:selected").val()
+				if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){
+					addOption(31,daySel)
+				}else if(month==4 || month==6 || month==9 || month==11){
+					addOption(30,daySel)
+				}else if(month==2){
+					if((year%4 == 0 && year%100 != 0 ) || (year%400 == 0)){
+						addOption(29,daySel)
+					}else{	
+						addOption(28,daySel)
+					}
+				}
+			})
+			
+			
+			$("#month_two").change(function(){
+				removeOption(dayTwo)
+				var year = $("#year_two option:selected").val()
+				var month = $("#month_two option:selected").val()
+				if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){
+					addOption(31,dayTwo)
+				}else if(month==4 || month==6 || month==9 || month==11){
+					addOption(30,dayTwo)
+				}else if(month==2){
+					if((year%4 == 0 && year%100 != 0 ) || (year%400 == 0)){
+						addOption(29,dayTwo)
+					}else{	
+						addOption(28,dayTwo)
+					}
+				}
+			})
+
+			function addOption(num,parent){
+				//parent：父对象
+				//unit：单位（年/月/日）
+				 //num：选项个数
+				for(var index=1;index <= num;index++){
+					var opt =document.createElement('option')
+					$(opt).attr('value',index)
+					if(index<10){index = '0'+index}
+					$(opt).html(index)
+					$(parent).append(opt)
+				}
+			}
+			
+			function removeOption(parent){
+				//parent：父对象
+				var options = $(parent).find('option')
+				for(var index = 1;index < options.length;index++){
+					parent.removeChild(options[index])
+				}
+			}
 		}
-		$year.append(con);
-		con = "";
-		//添加月份
-		for(i = 1;i <= 12; i++){
-		con += "<option value='"+i+"'>"+i+"</option>";
-		}
-		$month.append(con);
-		con = "";
-		//添加日期
-		var n = MonHead[0];//默认显示第一月
-		for(i = 1; i <= n; i++){
-		con += "<option value='"+i+"'>"+i+"</option>";
-		}
-		$day.append(con);
-		$.fn.birthday.change($(this));
-		
-	});
-	};
-	$.fn.birthday.change = function(obj){
-	obj.children("select[name="+ $.fn.birthday.defaults.year +"],select[name="+ $.fn.birthday.defaults.month +"]").change(function(){
-		var $year = obj.children("select[name="+ $.fn.birthday.defaults.year +"]");
-		var $month = obj.children("select[name="+ $.fn.birthday.defaults.month +"]");
-		var $day = obj.children("select[name="+ $.fn.birthday.defaults.day +"]");
-		$day.empty();
-		var selectedYear = $year.find("option:selected").val();
-		var selectedMonth = $month.find("option:selected").val();
-		if(selectedMonth == 2 && $.fn.birthday.IsRunYear(selectedYear)){//如果是闰年
-		var c ="";
-		for(var i = 1; i <= 29; i++){
-//			c += "<option value='"+i+"'>"+i+"日"+"</option>";
-			c += "<option value='"+i+"'>"+i+"</option>";
-		}
-		$day.append(c);
-		}else {//如果不是闰年也没选2月份
-		var c = "";
-		for(var i = 1; i <= MonHead[selectedMonth-1]; i++){
-			c += "<option value='"+i+"'>"+i+"</option>";
-//			c += "<option value='"+i+"'>"+i+"日"+"</option>";
-		}
-		$day.append(c);
-		}
-	});
-	};
-	$.fn.birthday.IsRunYear = function(selectedYear){
-	return(0 == selectedYear % 4 && (selectedYear%100 != 0 || selectedYear % 400 == 0));
-	};
-	$.fn.birthday.defaults = {
-	year:"year",
-	month:"month",
-	day:"day"
-	};
-})(jQuery);

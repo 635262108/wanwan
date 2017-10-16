@@ -67,7 +67,7 @@
             {foreach name="$newest" item="vo"}
             <div class="content_one_wrap">
                 <div class="content_one_img">
-                    <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="{$vo.a_index_img}" /></a>
+                    <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="__AdminIMG__/{$vo.a_index_img}" /></a>
                 </div>
                 <div class="content_one_info">
                     <div class="info_left">
@@ -96,7 +96,7 @@
             {foreach name="$review" item="vo"}
             <div class="content_one_wrap old_activity">
                 <div class="content_one_img">
-                    <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="{$vo.a_index_img}" /></a>
+                    <a href="{:url('home/activity/free_detail',['aid'=>$vo.aid])}"><img src="__AdminIMG__/{$vo.a_index_img}" /></a>
                 </div>
                 <div class="content_one_info">
                     <div class="info_left" style="width: 100%;">

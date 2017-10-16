@@ -135,15 +135,12 @@ class User extends Base
         Session::set('messageCount',$messageCount);
         
     	//猜你喜欢(活动中随机取6个)
-    	$end = $activity->getActivityNum();
-    	$rand_array = range(1, $end);	//随机范围
-        shuffle($rand_array);			//随机排放
-        $randData = array_slice($rand_array, 0, 6);	//取值6个
-        $aids = implode($randData, ",");
-        $like = $activity->getIdsActivity($aids,'aid,a_title,a_index_img,a_sold_num,a_price');  //取活动内容
+    	$activityInfo = $activity->getActivityAll();
+        shuffle($activityInfo);			//随机排放
+        $randData = array_slice($activityInfo, 0, 6);	//取值6个
         
         $this->assign('userInfo',$userInfo);
-        $this->assign('like',$like);
+        $this->assign('like',$randData);
     	return $this->fetch();
     }
 
@@ -292,7 +289,7 @@ class User extends Base
             if(Session::get('__token__') == $token){
                 Session::set('__token__',null);
             }else{
-                return return_info(-1,'禁止重复提交');
+                $this->error('已提交成功,请在我的活动里查看');
             }
             
 

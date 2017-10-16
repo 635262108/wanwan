@@ -17,14 +17,14 @@ use wxpay\wechatAppPay;
 class Activity extends Base
 {
     
-//    public function _initialize() {
-//        parent::_initialize();
-//        $noLogin = array('activity_sure');
-//        $this->checkUserLogin($noLogin);
-//    }
+    public function _initialize() {
+        parent::_initialize();
+        $noLogin = array('activity_sure');
+        $this->checkUserLogin($noLogin);
+    }
     
     //活动界面
-    public function index($set = 1){
+    public function index($set = 26){
         
         $ActivityType = model('ActivityType');
         //获取标题
@@ -83,7 +83,7 @@ class Activity extends Base
     	$Goods = model('Goods');
     	$ActivityExtension = model('ActivityExtension');
     	//获取活动信息
-    	$a_field = 'aid,a_index_img,a_price,a_img,a_address,a_begin_time,a_end_time,a_adult_price,a_child_price,a_status,a_content';
+    	$a_field = 'aid,a_title,a_index_img,a_remark,a_price,a_img,a_address,a_begin_time,a_end_time,a_adult_price,a_child_price,a_status,a_content';
     	$activityInfo = $Activity->getIdActivity($aid,$a_field);
     	//获取活动评论
     	$commentInfo = $ActivityComments->getActivityComment($aid);
@@ -119,6 +119,16 @@ class Activity extends Base
     	$this->assign('goodsInfo',$goodsInfo);
     	$this->assign('extensionInfo',$extensionInfo);
     	return $this->fetch();
+    }
+    
+    //活动扩展显示
+    public function detail_list(){
+        $eid = input('eid');
+        $ActivityExtension = model('ActivityExtension');
+        //获取活动扩展信息
+    	$einfo = $ActivityExtension->getAnyInfo($eid);
+        $this->assign('einfo',$einfo);
+        return $this->fetch();
     }
     
     //全部评论
@@ -161,7 +171,7 @@ class Activity extends Base
         }
         //检查活动名额
         $Activity = model('Activity');
-        $ActivityInfo = $Activity->getIdActivity($aid,'aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img,a_adult_price,a_child_price');
+        $ActivityInfo = $Activity->getIdActivity($aid);
         //获取活动时间
         $ActivityTime = model('ActivityTime');
         $timeInfo = $ActivityTime->getAnyTime($time);
@@ -179,7 +189,7 @@ class Activity extends Base
             $this->error("本活动报名已满");
         }
         
-    }
+    } 
 
     /**
      * 订单提交
@@ -246,25 +256,37 @@ class Activity extends Base
                 //算订单价格
                 $order_price = $adult_num*$activityInfo['a_adult_price']+$child_num*$activityInfo['a_child_price'];
 
-                //增加订单
+//                //相同的活动中一个手机号只能报一次
                 $ActivityOrder = model('ActivityOrder');
+//                $map['aid'] = $aid;
+//                $map['mobile'] = $mobile;
+//                $map['order_status'] = array('or','2,3');
+//                $check_order = $ActivityOrder->getOrder($map);
+//                if(!empty($check_order)){
+//                    $this->error('相同的手机号不能重复报名哦,如果已报名请去会员中心进行下一步操作');
+//                }
+                //增加订单
                 $result = $ActivityOrder->addActivityOrder($uid,$aid,$realname,$mobile,$order_price,$adult_num,$child_num,$remark,$time);
 
                 //增加孩子
                 $ActivityOrderPersonnel = model('ActivityOrderPersonnel');
                 $personnelIds = '';
+                //如果填写的有孩子的信息就保存
                 for($i=0;$i<$child_num;$i++){
-                    $child_birthday = $year[$i]."/".$month[$i]."/".$day[$i];
-                    $personnelId = $ActivityOrderPersonnel->addChild($child_name[$i],$child_birthday,$child_gender[$i],$result['activityOrderId'],$uid);
-                    $personnelIds .= $personnelId.",";
+                    if(!empty($child_name[$i])){
+                        $child_birthday = $year[$i]."/".$month[$i]."/".$day[$i];
+                        $personnelId = $ActivityOrderPersonnel->addChild($child_name[$i],$child_birthday,$child_gender[$i],$result['activityOrderId'],$uid);
+                        $personnelIds .= $personnelId.",";
+                    }
                 }
-                
+
                 //免费活动直接条支付成功
                 if($order_price == 0){
                     $order['aid'] =  $aid;
                     $order['child_num'] = $child_num;
                     $order['adult_num'] = $adult_num;
                     $order['order_price'] = $order_price;
+                    $order['order_sn'] = $result['order_sn'];
                     //库存-1
                     $Activity->DecActivity($aid);
                     //报名人员+1
@@ -274,7 +296,7 @@ class Activity extends Base
                     $ActivityTime->DecTicketNum($time);
                     //给用户发送一条消息
                     $aid = $order['aid'];
-                    $url = url('activity/free_detail',['aid'=>$aid]);
+                    $url = url('home/activity/free_detail',['aid'=>$aid]);
                     $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动付款成功,请您注意活动参与时间!";
                     $message = model('Message');
                     $message->sendMessage($uid,$content,1);    
@@ -284,6 +306,15 @@ class Activity extends Base
                     return $this->fetch('activity/pay_success');
                 }
                 
+                //微信浏览器支付
+                if(is_weixin()){
+                    //session记录订单
+                    session::set($uid,$result['order_sn']);
+                    //跳转url获取openid,跳转到wx_browser_pay
+                    $tools = new JsApiPay();
+                    $tools->getOpenid();
+                }
+                                
                 //给用户发送一条消息
                 $url = url('activity/detail',['aid'=>$aid]);
                 $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动未付款,名额有限,请及时付款!";
@@ -304,6 +335,14 @@ class Activity extends Base
             //活动id
             $order_sn = input('order_sn');
             
+            //微信浏览器支付
+            if(is_weixin()){
+                //session记录订单
+                session::set($uid,$order_sn);
+                //跳转url获取openid,跳转到wx_browser_pay
+                $tools = new JsApiPay();
+                $tools->getOpenid();
+            }
             //获取订单信息
             $ActivityOrder = model('ActivityOrder');
             $field = 'aid,uid,adult_num,child_num,order_price';
@@ -316,7 +355,47 @@ class Activity extends Base
         
         return $this->fetch('activity/select_pay');
     }
+       
+    //微信浏览器支付
+    public function wx_browser_pay(){
+        //获取订单信息
+        $uid = Session::get('userInfo.uid');
+        $order_sn = Session::get($uid);
+        $ActivityOrder = model('ActivityOrder');
+        $order = $ActivityOrder->getSnOrderInfo($order_sn);
 
+        //获取活动信息
+        $Activity = model('Activity');
+        $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
+
+        //获取用户openid
+        $tools = new JsApiPay();
+        if(session::get('openid') == null){
+            $openId = $tools->getOpenid();
+            session::set('openid',$openId);
+        }else{
+            $openId = session::get('openid');
+        }
+
+        //统一下单
+        $money = $order['order_price'];
+        $input = new WxPayUnifiedOrder();
+        $input->setBody("玩翫碗活动报名");
+        $input->setAttach("玩翫碗活动报名");
+        $input->setOutTradeNo($order_sn);   //订单号
+        $input->setTotalFee($money * 100);  //价格
+        $input->setTimeStart(date("YmdHis"));   //生成时间
+        $input->setTradeType("JSAPI");
+        $input->setOpenid($openId);
+        $input->setNotifyUrl("http://www.baobaowaner.com/home/Activity/notify/order_sn/".$order_sn); //设置回调地址
+        $orders = WxPayApi::unifiedOrder($input);
+        $jsApiParameters = $tools->getJsApiParameters($orders);
+        $this->assign('jsApiParameters', $jsApiParameters);
+        $this->assign('order', $order);
+        $this->assign('activityInfo', $activityInfo);
+        return $this->fetch('activity/wx_cli_pay');
+    }
+    
     /**
     *支付
     */
@@ -518,6 +597,7 @@ class Activity extends Base
         $Activity->commit();
     }
     
+    
     /**
      * 微信手机端网站支付（H5支付）
      * @param $order_sn
@@ -532,7 +612,7 @@ class Activity extends Base
         $appid =  config('wxpay.app_id');
         $mch_id = config('wxpay.mch_id');//商户号
         $key = config('wxpay.key');//商户key
-        $notify_url = "http://www.baobaowaner.com/home/Activity/alipay_notify/order_sn/".$order_sn;//回调地址
+        $notify_url = "http://www.baobaowaner.com/home/Activity/notify/order_sn/".$order_sn;//回调地址
         $wechatAppPay = new wechatAppPay($appid, $mch_id, $notify_url, $key);
         $params['body'] = '玩翫碗活动报名';                       //商品描述
         $params['out_trade_no'] = $order_sn;    //自定义的订单号
@@ -559,17 +639,47 @@ class Activity extends Base
         }
     }
 
-    //支付成功
+    //微信支付跳转
     public function pay_success($order_sn = ''){
         //获取活动信息
         $activityOrder = model('ActivityOrder');
-        $order = $activityOrder->getSnOrderInfo($order_sn,'aid,child_num,adult_num,order_price');
+        $order = $activityOrder->getSnOrderInfo($order_sn,'order_sn,aid,child_num,adult_num,order_price,order_status');
         if(!isset($order)){
             $this->error('参数错误');
         }
-
-        $this->assign('order',$order);
-        return $this->fetch();
+        
+        //查询订单
+        $notify = new PayNotifyCallBack();
+        $notify->handle(true);
+        $result = $notify->queryTradeOrder($order_sn);
+        if($result){
+            $this->assign('order',$order);
+            return $this->fetch();
+        }else{
+            $this->error('支付失败,有疑问请联系客服');
+        }
+    }
+    
+    //支付宝支付跳转
+    public function ali_pay_url(){
+        //本站订单号
+        $out_trade_no = input('get.out_trade_no');
+        //支付宝订单号
+        $trade_no = input('get.trade_no');
+        
+        //获取活动信息
+        $activityOrder = model('ActivityOrder');
+        $order = $activityOrder->getSnOrderInfo($out_trade_no);
+        if(!isset($order)){
+            $this->error('参数错误');
+        }
+        $result = \alipay\Query::exec($trade_no);
+        if($result['trade_status'] == 'TRADE_SUCCESS'){
+            $this->assign('order',$order);
+            return $this->fetch('activity/pay_success');
+        }else{
+            $this->error('支付失败,有疑问请联系客服');
+        }
     }
     
     //活动收藏
@@ -675,14 +785,48 @@ class Activity extends Base
         $ActivityTime = model('ActivityTime');
         $timeInfo = $ActivityTime->getActivityTime($aid);
         
+        //查看是否收藏
+        $uid = Session::get("userInfo.uid");
+        $activityCollection = model('ActivityCollection');
+        $isCollection = $activityCollection->isCollection($aid,$uid);
+        
         $this->assign('timeInfo',$timeInfo);
         $this->assign('activityInfo',$activityInfo);
         $this->assign('commentInfo',$commentInfo);
+        $this->assign('isCollection',$isCollection);
         return $this->fetch();
     }
-    
+
     //关于我们
     public function about() {
         return $this->fetch();
+    }
+
+     //签到展示页
+    public function sign() {
+        //活动id
+        $aid = input('get.a');
+        $activity = model('activity');
+        $activityInfo = $activity->getIdActivity($aid);
+        $this->assign('activityInfo',$activityInfo);
+        return $this->fetch();
+    }
+    
+    //签到
+    public function add_sign() {
+        $aid = input('post.a');
+        $mobile = input('post.mobile');
+        $ActivityOrder = model('ActivityOrder');
+        //获取订单信息
+        $map['aid'] = $aid;
+        $map['mobile'] = $mobile;
+        $map['order_status'] = 3;
+        $oInfo = $ActivityOrder->getOrder($map);
+        if(empty($oInfo)){
+            return $this->fetch('activity/sign_fail');
+        }else{
+            $ActivityOrder->setOrderStatus($oInfo['order_sn'],4);
+            return $this->fetch('activity/sign_success');
+        }
     }
 }

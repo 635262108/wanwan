@@ -1,17 +1,18 @@
 {include file="public/header" /}
 <body>
-    <!--头部图片-->
-    <div class="textAlign header">
-        <div class="header_img">
-            <img src="__MobileImg__/logo.png" />
+<!--头部导航-->
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
+        <div class="comeback_img">
+            <img src="__MobileImg__/second_back.png"/>
         </div>
     </div>
 
+    <div class="title_word second_activity">退款列表</div>
+
+</div>
+
     <div class="playBaby_content almost">
-        <div class="title title_img">
-            <img src="__MobileImg__/wan_whole.png"/>
-            <div class="playBady_word">退款</div>
-        </div>
         <div class="pay_content">
             <ul>
                 <li class="change_opacity"><span>1</span></li>
@@ -54,8 +55,8 @@
             <ul>
                 <li>退款详细信息</li>
                 <li>支付方式：{switch name="$order_info.pay_way"}
-                            {case value="1"}微信{/case}
-                            {case value="2"}支付宝{/case}
+                            {case value="1"}支付宝{/case}
+                            {case value="2"}微信{/case}
                             {case value="3"}银联{/case}
                             {/switch}</li>
                 <li>退款原因：{$reason}</li>
@@ -65,7 +66,7 @@
         <div class="last_warn">注意：退款金额由人工客服联系并退还</div>
 
     </div>
-    <hr><hr>
+    <br><br>
 
     <script src="__MobileJs__/jquery.min.js"></script>
     <script src="__MobileJs__/idangerous.swiper.min.js"></script>

@@ -30,7 +30,7 @@ class ActivityRefund extends Model
      * @param type $order_sn
      * @param type $field
      */
-    public function getSnAnyOneRefund($order_sn,$field){
+    public function getSnAnyOneRefund($order_sn,$field='*'){
         $map['order_sn'] = $order_sn;
         $data = $this->field($field)->where($map)->find();
         return $data;

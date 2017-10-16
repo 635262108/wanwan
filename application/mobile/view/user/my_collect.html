@@ -1,0 +1,51 @@
+{include file="public/header" /}
+
+<body>
+<!--头部导航-->
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
+        <div class="comeback_img">
+            <img src="__MobileImg__/second_back.png"/>
+        </div>
+
+    </div>
+
+    <div class="title_word second_activity">全部收藏</div>
+
+</div>
+</div>
+
+    <!--我的推荐-->
+    <div class="five_organs almost">
+        <div class="myActivity_content" id="my_collectMore">
+            <div class="myActivity_big">
+                {foreach name="collectionData" item="vo"}
+                <div class="activity_part">
+                    <ul>
+                        <li>
+                            <img src="__AdminIMG__/{$vo.a_index_img}"/>
+                        </li>
+                        <li>
+                            <p><span>{$vo.a_title}</span></p>
+                            <!--<p>2017.09.12--2017.09.16</p>-->
+                            <p>{$vo.a_remark}</p>
+                        </li>
+                        <li>
+                            <div><span href="javascript:void(0)" aid="{$vo.aid}" class="cancel_collect">取消收藏</span></div>
+                            <div><a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}"  class="sign_up">我要报名</a></div>
+                        </li>
+                    </ul>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+
+    </div>
+
+    <script src="__MobileJs__/jquery.min.js"></script>
+    <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+    <script src="__MobileJs__/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="__MobileJs__/index.js" ></script>
+</body>
+</html>
+

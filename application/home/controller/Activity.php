@@ -187,7 +187,7 @@ class Activity extends Base
             if(Session::get('__token__') == $token){
                 Session::set('__token__',null);
             }else{
-                $this->error("系统异常,请再试一次");
+                $this->error("已提交成功,请前往会员中心查看");
             }
             //检查提交信息
             $checkData['aid'] = $aid;
@@ -277,7 +277,7 @@ class Activity extends Base
             //获取活动信息
             $aid = $order_info['aid'];
             $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img');
+            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_begin_time,a_end_time,a_num,a_index_img');
         
             $this->assign('adult_num',$order_info['adult_num']);
             $this->assign('child_num',$order_info['child_num']);
@@ -506,7 +506,7 @@ class Activity extends Base
         $notify = new NativePay();
         $input = new WxPayUnifiedOrder();
         $input->setBody("玩翫碗活动报名");   //订单内容
-        $input->setAttach("test");  
+        $input->setAttach("玩翫碗活动报名");  
         $input->setOutTradeNo($order_sn);   //商户系统内部订单号
         $input->setTotalFee($money);   //订单价格
         $input->setTimeStart(date("YmdHis"));   //订单生成时间
@@ -515,7 +515,7 @@ class Activity extends Base
         $input->setNotifyUrl("http://www.baobaowaner.com/public/index.php/home/Activity/notify/order_sn/".$order_sn); //设置回调地址
         $input->setTradeType("NATIVE"); //设置支付类型
         $input->setProductId($order_sn);  //商品id
-        $result = $notify->getPayUrl($input);   
+        $result = $notify->getPayUrl($input);  
         $url = $result["code_url"];
         //生成二维码
         return "http://paysdk.weixin.qq.com/example/qrcode.php?data=".urlencode($url);
@@ -540,9 +540,13 @@ class Activity extends Base
     public function pay_success($order_sn = ''){
         //获取活动信息
         $activityOrder = model('ActivityOrder');
-        $order = $activityOrder->getSnOrderInfo($order_sn,'aid,child_num,adult_num,order_price');
+        $order = $activityOrder->getSnOrderInfo($order_sn,'aid,child_num,adult_num,order_price,order_status');
         if(!isset($order)){
             exit('参数错误');
+        }
+        
+        if($order['order_status'] != 3){
+            $this->error('未付款,如有疑问请联系客服');
         }
         $aid = $order['aid'];
         $activityInfo = model('Activity')->getIdActivity($aid,'a_title,a_sign_begin_time,a_sign_end_time,a_index_img');

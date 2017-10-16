@@ -1,18 +1,25 @@
 {include file="public/header" /}
     <body>
 
-        <!--头部图片-->
-        <div class="textAlign header">
-            <div class="header_img">
-                <img src="__MobileImg__/logo.png" />
+    <!--头部导航-->
+    <div class="comeback textAlign" id="second_page">
+        <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
+            <div class="comeback_img">
+                <img src="__MobileImg__/second_back.png"/>
             </div>
+
         </div>
+
+        <div class="title_word second_activity">个人信息</div>
+
+    </div>
+    </div>
 
 
         <div class="playBaby_content almost">
-            <div class="title title_img">
-                <img src="__MobileImg__/ger_06.png"/>
-            </div>
+            <!--<div class="title title_img">-->
+                <!--<img src="__MobileImg__/ger_06.png"/>-->
+            <!--</div>-->
             <form action="{:url('mobile/user/saveUserInfo')}" method="post" class="form_info">
                 <div class="nickName">
                     <span>昵称</span> <input type="text" value="{$userInfo.nickname}" name="nikename" id="nickName"/>
@@ -64,7 +71,7 @@
                 <button id="submit" type="submit">提交</button>
             </form>
 
-            <div class="modal_box">
+<!--            <div class="modal_box">
 
                 <div class="moal_div">
                     修改成功
@@ -72,7 +79,7 @@
                         <img src="__MobileImg__/cancel.png" />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
 
 

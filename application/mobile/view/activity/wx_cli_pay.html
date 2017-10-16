@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+ {include file="public/header" /}
+
+    <body>
+    <div class="comeback textAlign" id="second_page">
+        <div class="comeback_whole" onclick="javascript:window.history.back(-1);window.location.reload()" >
+            <div class="comeback_img">
+                <img src="__MobileImg__/second_back.png"/>
+            </div>
+
+        </div>
+        <div class="title_word second_activity">确认支付</div>
+
+    </div>
+    <div class="playBaby_content almost">
+
+                <div id="orderDetail_content">
+                    <div class="content">
+
+                        <div class="baby_detail">
+                            <ul class="detail_information">
+                                <li class="li_color">联系人信息</li>
+                                <li>用户名：{:session('userInfo.nickname')}</li>
+                                <li>联系人姓名：{$order.name}</li>
+                                <li>联系方式：{$order.mobile}</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="content">
+
+                        <div class="baby_detail">
+                            <div class="pay_title">活动信息</div>
+                            <div class="pay_contentDetail">
+                               
+                                <ul class="detail_information">
+                                    <li>主题：{$activityInfo.a_title}</li>
+                                    <li>活动时间：{$activityInfo.a_begin_time|date='Y-m-d',###}~{$activityInfo.a_end_time|date='Y-m-d',###}</li>
+                                    <li>活动地点：{$activityInfo.a_address}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="content">
+
+                        <div class="baby_detail">
+                            <ul class="detail_information">
+                                <li class="li_color">支付信息</li>
+                                <li>支付金额：￥{$order.order_price}</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <button onclick="callpay()" style="background: #FF4134;border-radius: 15px;color: #FFFFFF;outline: none;font-size: 12px;border: none;width: 40%;height: 30px;margin-top: 30px;margin-left: 30%;">确认支付</button>
+
+                </div>
+
+            </div>
+
+    </body>
+    <script type="text/javascript">
+    //调用微信JS api 支付
+    function onBridgeReady() {
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                {$jsApiParameters},
+                function (res) {
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        alert('支付成功');
+                        window.location.href = "{:url('mobile/activity/pay_success',['order_sn'=>$order.order_sn])}"
+                    }     // 使用以上方式判断前端返回,微信团队郑重提示:res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                    if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                        alert('取消支付');
+                        history.back();
+                    }
+                }
+        );
+    }
+
+    function callpay() {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    }
+</script>
+</html>
+

@@ -1,24 +1,29 @@
 
-{include file="public/header" /}
-{include file="public/nav" /}
-<!--轮播图-->
-<div class="device">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"> <img src="__MobileImg__/lunbo1.jpg"> </div>
-            <div class="swiper-slide"> <img src="__MobileImg__/lunbo2.jpg"> </div>
-            <div class="swiper-slide"><img src="__MobileImg__/lunbo3.jpg"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/index.css" />
+    <link rel="stylesheet" href="__MobileCss__/reset.css" />
+</head>
+<!--头部图片-->
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" >
+        <div class="comeback_img">
+            <a href="{:url('/mobile/activity/about')}"><img src="__MobileImg__/second_back.png"/></a>
         </div>
-    </div>
-    <div class="pagination"></div>
-</div>
 
+    </div>
+
+    <div class="title_word second_activity">{$titleInfo.name}</div>
+
+</div>
 <!--玩宝总体内容部分-->
 <div class="playBaby_content almost">
-    <div class="title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">{$titleInfo.name}</div>
-    </div>
     <div class="content">
         <div class="baby_img">
             <img src="{$titleInfo.logo}" />
@@ -36,29 +41,26 @@
           <div class="playBady_word">{$vo.name}</div>
     </div>
 
-    <div class="five_content">
-        <div class="slider2">
+        <div class="play_baoContent">
             {foreach $result as $v}
             {if condition="$v.a_type eq $vo.id"}
-            <div class="slide">
-                <ul>
-                    <li>
-                        <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}"><img src="__AdminIMG__/{$v.a_index_img}"/></a>
-                    </li>
-                    <li>
-                        <p>{$v.a_title|subtext='25'}</p>
-                        <p>{$v.a_remark|subtext='10'}</p>
-                    </li>
-                    <li>
-                        {in name="$v.aid" value="$collections"}
-                            <div><a href="javascript:void(0)" aid="{$v.aid}" class="collect">已收藏</a></div>
-                        {else/}
-                            <div><a href="javascript:void(0)"  aid="{$v.aid}" class="collect">收藏</a></div>
-                        {/in}
-                        <div><a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}"  class="sign_up">我要报名</a></div>
-                    </li>
-                </ul>
-            </div>
+            <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">
+                <div class="playBao_part">
+                    <div class="bao_img">
+                        <img src="__AdminIMG__/{$v.a_index_img}"/>
+                    </div>
+                    <div class="bao_content">
+  	    	 	 	<span class="outer_border">
+  	    	 	 		<span class="inside_border">{$v.a_title|subtext='25'}</span>
+  	    	 	 	</span>
+                        <ul>
+                            <li>活动介绍：{$v.a_remark|subtext='10'}</li>
+                            <li>活动时间：2017.09.28-2-17.10.29</li>
+                            <li>活动地点：郑州市金水区啦啦啦啦</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
             {/if}
             {/foreach}
         </div>

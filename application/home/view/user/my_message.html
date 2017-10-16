@@ -8,6 +8,9 @@
     </ul>
     <!--订单消息-->				
     <ul class="buyMessage">
+        {empty name="orderMessage"}
+            <p style="line-height: 200px;margin-left:35%;">暂无订单消息</p>
+        {else/}
         {foreach name="orderMessage" item="vo"}
         <li style="list-style: none;">
             <div class="z myMessage-img"><img src="__IMG__/de1.png" ></div>
@@ -17,9 +20,13 @@
             </div>
         </li>
         {/foreach}
+        {/empty}
     </ul>
     <!--互动消息-->
     <ul class="talkMessage" style="display: none;">
+        {empty name="systemMessage"}
+            <p style="line-height: 200px;">暂无系统消息</p>
+        {else/}
         {foreach name="systemMessage" item="vo"}
         <li style="list-style: none;">
             <div class="z myMessage-img"><img src="__IMG__/de1.png" ></div>
@@ -29,6 +36,7 @@
             </div>
         </li>
         {/foreach}
+        {/empty}
     </ul>
 
 </div>

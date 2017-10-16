@@ -10,7 +10,7 @@ class Activity extends Model
 {
 
     /**
-	* 获取*条玩宝下最新的活动信息
+	* 获取*条玩宝下最新的活动信息(付费活动)
 	*@type 2:五官,3:四肢,4:整体,5:性启蒙,6:心理,不传全查
 	*@field 需要字段，默认全查
 	*@limit 限制条数
@@ -19,7 +19,7 @@ class Activity extends Model
     	if($type > 0){
     		$map['a_type'] = $type;
     	}else{
-    		$map = '';
+    		$map = array();
     	}
         $map['a_price'] = array('gt',0);
     	$data = $this->where($map)->field($field)->order('aid desc')->limit($limit)->select();
@@ -108,6 +108,13 @@ class Activity extends Model
         $map['a_price'] = 0;
         return $this->where($map)->order('aid desc')->select();
     }
+    /**
+     * 获取所有活动
+     * @return type
+     */
+    public function getActivityAll($field = '*'){
+        return $this->field($field)->select();
+    }
     
     /**
      * 修改活动信息
@@ -129,5 +136,35 @@ class Activity extends Model
     //添加活动
     public function addActivity($data){
         return $this->insert($data);
+    }
+    
+    /**
+     * 获取活动（带条件）
+     * @param type $map 条件
+     * @return type
+     */
+    public function getActivityMap($map){
+        return $this->where($map)->select();
+    }
+    
+    //获取出勤表
+    public function getAttendance(){
+        $sql = 'SELECT
+                    a.aid,
+                    a.a_title,
+                    a.a_num,
+                    a.a_sold_num,
+                    (
+                            SELECT
+                                    count(*)
+                            FROM
+                                    mfw_activity_order
+                            WHERE
+                                    aid = a.aid
+                            AND order_status = 4
+                    ) attendance
+                FROM
+                    mfw_activity AS a';
+        return $this->query($sql);
     }
 }

@@ -1,24 +1,30 @@
-{include file="public/header" /}
-{include file="public/nav" /}
-
-<!--轮播图-->
-<div class="device">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"> <img src="__MobileImg__/lunbo1.jpg"> </div>
-            <div class="swiper-slide"> <img src="__MobileImg__/lunbo2.jpg"> </div>
-            <div class="swiper-slide"><img src="__MobileImg__/lunbo3.jpg"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/index.css" />
+    <link rel="stylesheet" href="__MobileCss__/reset.css" />
+</head>
+<!--头部图片-->
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" >
+        <div class="comeback_img">
+            <a href="{:url('/mobile/activity/about')}"><img src="__MobileImg__/second_back.png"/></a>
         </div>
+
     </div>
-    <div class="pagination"></div>
+
+    <div class="title_word second_activity">免费玩儿</div>
+
 </div>
 
-<!--玩宝总体内容部分-->
+<!--免费活动-->
 <div class="playBaby_content almost">
-    <div class="title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">免费玩儿</div>
-    </div>
+
     <div class="content">
         <div class="baby_img">
             <img src="__IMG__/freeplay.png" />
@@ -36,35 +42,26 @@
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">最新活动</div>
     </div>
-    <div class="five_content">
-
-        <div class="slider2">
-            {foreach name="newest" item="vo"}
-            <div class="slide">
-
+    <div class="play_baoContent">
+        {foreach name="newest" item="v"}
+        <a href="{:url('mobile/activity/free_detail',['aid'=>$v.aid])}">
+        <div class="playBao_part">
+            <div class="bao_img">
+                <img src="__AdminIMG__/{$v.a_index_img}"/>
+            </div>
+            <div class="bao_content">
+  	    	 	 	<span class="outer_border">
+  	    	 	 		<span class="inside_border">{$v.a_title|subtext='25'}</span>
+  	    	 	 	</span>
                 <ul>
-                    <li>
-                        <a href="wuguan_activity.html">
-                            <img src="__AdminIMG__/{$vo.a_index_img}"/>
-                        </a>
-
-                    </li>
-                    <li>
-                        <p>{$vo.a_title}</p>
-                        <p>{$vo.a_remark}</p>
-                    </li>
-                    <li>
-                        {in name="$vo.aid" value="$collections"}
-                            <div><a href="javascript:void(0)" aid="{$vo.aid}" class="collect">已收藏</a></div>
-                        {else/}
-                            <div><a href="javascript:void(0)"  aid="{$vo.aid}" class="collect">收藏</a></div>
-                        {/in}
-                        <div><a href="#"  class="sign_up">我要报名</a></div>
-                    </li>
+                    <li>活动介绍：{$v.a_remark|subtext='10'}</li>
+                    <li>活动时间：{$v.a_begin_time|date='Y.m.d',###}-{$v.a_end_time|date='Y.m.d',###}</li>
+                    <li>活动地点：{$v.a_address}</li>
                 </ul>
             </div>
-            {/foreach}
         </div>
+        </a>
+        {/foreach}
     </div>
 </div>
 
@@ -74,40 +71,31 @@
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">往期回顾</div>
     </div>
-    <div class="five_content">
-
-        <div class="slider2">
-            {foreach name="review" item="vo"}
-            <div class="slide">
-
+    <div class="play_baoContent">
+        {foreach name="review" item="v"}
+        <a href="{:url('mobile/activity/free_detail',['aid'=>$v.aid])}">
+        <div class="playBao_part">
+            <div class="bao_img">
+                <img src="__AdminIMG__/{$v.a_index_img}"/>
+            </div>
+            <div class="bao_content">
+  	    	 	 	<span class="outer_border">
+  	    	 	 		<span class="inside_border">{$v.a_title|subtext='25'}</span>
+  	    	 	 	</span>
                 <ul>
-                    <li>
-                        <a href="wuguan_activity.html">
-                            <img src="__AdminIMG__/{$vo.a_index_img}"/>
-                        </a>
-
-                    </li>
-                    <li>
-                        <p>{$vo.a_title}</p>
-                        <p>{$vo.a_remark}</p>
-                    </li>
-                    <li>
-                        {in name="$vo.aid" value="$collections"}
-                            <div><a href="javascript:void(0)" aid="{$vo.aid}" class="collect">已收藏</a></div>
-                        {else/}
-                            <div><a href="javascript:void(0)"  aid="{$vo.aid}" class="collect">收藏</a></div>
-                        {/in}
-                        <div><a href="#"  class="sign_up">我要报名</a></div>
-                    </li>
+                    <li>活动介绍：{$v.a_remark|subtext='10'}</li>
+                    <li>活动时间：{$v.a_begin_time|date='Y.m.d',###}-{$v.a_end_time|date='Y.m.d',###}</li>
+                    <li>活动地点：{$v.a_address}</li>
                 </ul>
             </div>
-            {/foreach}
         </div>
+        </a>
+        {/foreach}
     </div>
 </div>
 
 
-{include file="public/footer" /}
+{include file="public/footer"/}
 
 
 <script src="__MobileJs__/jquery.min.js"></script>

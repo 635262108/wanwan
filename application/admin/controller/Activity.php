@@ -13,7 +13,7 @@ class Activity extends Base
     public function index(){
         //获取活动信息
         $Activity = model('Activity');
-        $ActivityInfo = $Activity->getActivity();
+        $ActivityInfo = $Activity->getActivityAll();
         $this->assign('ActivityInfo',$ActivityInfo);
     	return $this->fetch();
     }
@@ -182,13 +182,12 @@ class Activity extends Base
                 echo $file->getError();die;
             }
         }
-        
         //修改
         $data['aid'] = $aid;
         $data['a_title'] = $a_title;
         $data['a_remark'] = $a_remark;
-        $data['a_begin_time'] = time($a_begin_time);
-        $data['a_end_time'] = time($a_end_time);
+        $data['a_begin_time'] = strtotime($a_begin_time);
+        $data['a_end_time'] = strtotime($a_end_time);
         $data['a_address'] = $a_address;
         $data['a_num'] = $a_num;
         $data['a_adult_price'] = $a_adult_price;
@@ -411,10 +410,21 @@ class Activity extends Base
     public function save_refund(){
         $rid = input('post.rid');
         $status = input('post.status');
+        $order_sn = input('post.order_sn');
         $ActivityRefund = model('ActivityRefund');
+        //修改退款表状态
         $data['id'] = $rid;
         $data['type'] = $status;
         $ActivityRefund->saveRefund($data);
+
+        //修改订单表状态
+        $ActivityOrder = model('ActivityOrder');
+        //退款列表状态为1订单表状态改为5，退款表状态为3订单表状态改为6
+        if($status == 1){
+            $ActivityOrder->setOrderStatus($order_sn,5);
+        }else{
+            $ActivityOrder->setOrderStatus($order_sn,6);
+        }
         $this->success('处理成功','activity/refund');
     }
     
@@ -426,6 +436,20 @@ class Activity extends Base
         return $this->fetch();
     }
     
+    //删除扩展
+    public function del_extension(){
+        if(request()->isAjax()){
+            $id = input('post.id');
+            $ActivityExtension = model('ActivityExtension');
+            $map['extension_id'] = $id;
+            $extInfo = $ActivityExtension->delExtension($map);
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
+
     //修改扩展列表
     public function saveExtensionList(){
         $eid = input('eid');
@@ -512,7 +536,7 @@ class Activity extends Base
     public function addSpeList(){
         //获取活动标题
         $Activity = model('Activity');
-        $ActivityInfo = $Activity->getActivity('','','aid,a_title');
+        $ActivityInfo = $Activity->getActivityAll();
         $this->assign('ActivityInfo',$ActivityInfo);
         return $this->fetch();
     }
