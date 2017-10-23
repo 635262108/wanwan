@@ -1,61 +1,43 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\about.html";i:1508309656;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\nav.html";i:1508724539;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\about.html";i:1508740909;s:91:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\second_header.html";i:1508737887;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
+
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>玩翫碗不一样的玩</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-        <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
-        <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
-        <link rel="stylesheet" href="__MobileCss__/index.css" />
-        <link rel="stylesheet" href="__MobileCss__/reset.css" />
-        <link rel="stylesheet" href="__MobileCss__/idangerous.swiper.css" />
-        <link rel="stylesheet" href="__MobileCss__/jquery.bxslider.css"/>
-        <link rel="stylesheet" href="__MobileCss__/activity.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/index.css" />
+    <link rel="stylesheet" href="__MobileCss__/reset.css" />
+</head>
 
-<?php if(empty(session('userInfo')) || ((session('userInfo') instanceof \think\Collection || session('userInfo') instanceof \think\Paginator ) && session('userInfo')->isEmpty())): ?>
-<div class="into_page">
-    <span><a href="<?php echo url('mobile/user/login'); ?>">登录</a></span>
-    <span><a href="<?php echo url('mobile/user/register'); ?>">注册</a></span>
-</div>
-<?php endif; ?>
-<!--头部图片-->
-<div class="textAlign header">
-    <div class="header_img">
-        <img src="__MobileImg__/logo.png" />
-    </div>
-</div>
-<!--导航栏tab-->
-<div class="textAlign nav">
-    <ul>
-            <li <?php if(\think\Request::instance()->action() == 'new_activity'): ?>class="play_baby"<?php endif; ?>><a href="<?php echo url('mobile/Activity/new_activity'); ?>">首页</a></li>
-
-            <?php if(is_array($title) || $title instanceof \think\Collection || $title instanceof \think\Paginator): if( count($title)==0 ) : echo "" ;else: foreach($title as $key=>$vo): ?>
-            <li <?php if(\think\Request::instance()->param('set') == $vo['id']): ?>class="play_baby"<?php endif; ?>><a href="<?php echo url('mobile/Activity/index',['set'=>$vo['id']]); ?>"><?php echo $vo['name']; ?></a></li>
-            <?php endforeach; endif; else: echo "" ;endif; ?>
-            <li <?php if(\think\Request::instance()->action() == 'freeplay'): ?>class="play_baby"<?php endif; ?>><a href="<?php echo url('mobile/Activity/freeplay'); ?>">免费玩儿</a></li>
-            <li <?php if(\think\Request::instance()->controller() == 'User'): ?>class="play_baby"<?php endif; ?>><a href="<?php echo url('mobile/Activity/about'); ?>">关于我们</a></li>
-    </ul>
-</div>
-
-
-
-<div class="device">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"> <img src="__MobileImg__/lunbo1.jpg"> </div>
-            <div class="swiper-slide"> <img src="__MobileImg__/lunbo2.jpg"> </div>
-            <div class="swiper-slide"><img src="__MobileImg__/lunbo3.jpg"></div>
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" >
+        <div class="comeback_img">
+            <a onclick="window.location.href=document.referrer"><img src="__MobileImg__/second_back.png"/></a>
         </div>
+
     </div>
-    <div class="pagination"></div>
+
+    <div class="title_word second_activity"> <?php echo $titleInfo['name']; ?></div>
+    <div class="click_stroggle">
+    	<a href="javascript:;"><img src="__MobileImg__/dot_img.png" /></a>
+    </div>
+    
+    <!--<ul class="stroggle_ul display_none">
+    	<div class="singel_img">
+    		<img src="__MobileImg__/triangle.png" />
+    	</div>
+    	<li>会员中心</li>
+    	<li>我的活动</li>
+    	<li>我的收藏</li>
+    	<li>退出登录</li>
+    </ul>-->
+
 </div>
+</html>
+
 
 <!--玩宝总体内容部分-->
 <div class="playBaby_content almost">

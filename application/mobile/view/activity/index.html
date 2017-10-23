@@ -1,39 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
-    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="__MobileCss__/index.css" />
-    <link rel="stylesheet" href="__MobileCss__/reset.css" />
-</head>
-<!--头部图片-->
-<div class="comeback textAlign" id="second_page">
-    <div class="comeback_whole" >
-        <div class="comeback_img">
-            <a href="{:url('/mobile/activity/about')}"><img src="__MobileImg__/second_back.png"/></a>
-        </div>
-
-    </div>
-
-    <div class="title_word second_activity">{$titleInfo.name}</div>
-    <div class="click_stroggle">
-    	<img src="__MobileImg__/dot_img.png" />
-    </div>
-    <ul class="stroggle_ul display_none">
-    	<div class="singel_img">
-    		<img src="__MobileImg__/triangle.png" />
-    	</div>
-    	<li>会员中心</li>
-    	<li>我的活动</li>
-    	<li>我的收藏</li>
-    	<li>退出登录</li>
-    </ul>
-
-</div>
+{include file="public/second_header" /}
 <!--玩宝总体内容部分-->
 <div class="playBaby_content almost">
     <div class="content">
@@ -58,9 +23,6 @@
             {if condition="$v.a_type eq $vo.id"}
             <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">
                 <div class="playBao_part">
-                	<div class="click_sianImg">
-                		<img src="__MobileImg__/click_sign.png"/>
-                	</div>
                     <div class="bao_img">
                         <img src="__AdminIMG__/{$v.a_index_img}"/>
                     </div>
@@ -72,17 +34,16 @@
                             <li>活动介绍：{$v.a_remark|subtext='10'}</li>
                             <li>活动时间：2017.09.28-2-17.10.29</li>
                             <li>活动地点：郑州市金水区啦啦啦啦</li>
-                            <li>活动金额：￥0.01</li>
+       
                         </ul>
+                         <div class="content_bottom"><span>￥0.01</span><a href="javascript:;">点我报名>></a></div>
                     </div>
                 </div>
             </a>
             {/if}
             {/foreach}
         </div>
-    </div>
-
-</div>
+   </div>
 {/foreach}
 
 {include file="public/footer" /}

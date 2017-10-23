@@ -1,5 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\index.html";i:1508319343;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
-
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\index.html";i:1508737815;s:91:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\second_header.html";i:1508737887;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,20 +10,21 @@
     <link rel="stylesheet" href="__MobileCss__/index.css" />
     <link rel="stylesheet" href="__MobileCss__/reset.css" />
 </head>
-<!--头部图片-->
+
 <div class="comeback textAlign" id="second_page">
     <div class="comeback_whole" >
         <div class="comeback_img">
-            <a href="<?php echo url('/mobile/activity/about'); ?>"><img src="__MobileImg__/second_back.png"/></a>
+            <a onclick="window.location.href=document.referrer"><img src="__MobileImg__/second_back.png"/></a>
         </div>
 
     </div>
 
-    <div class="title_word second_activity"><?php echo $titleInfo['name']; ?></div>
+    <div class="title_word second_activity"> <?php echo $titleInfo['name']; ?></div>
     <div class="click_stroggle">
-    	<img src="__MobileImg__/dot_img.png" />
+    	<a href="javascript:;"><img src="__MobileImg__/dot_img.png" /></a>
     </div>
-    <ul class="stroggle_ul display_none">
+    
+    <!--<ul class="stroggle_ul display_none">
     	<div class="singel_img">
     		<img src="__MobileImg__/triangle.png" />
     	</div>
@@ -32,9 +32,11 @@
     	<li>我的活动</li>
     	<li>我的收藏</li>
     	<li>退出登录</li>
-    </ul>
+    </ul>-->
 
 </div>
+</html>
+
 <!--玩宝总体内容部分-->
 <div class="playBaby_content almost">
     <div class="content">
@@ -58,9 +60,6 @@
             <?php foreach($result as $v): if($v['a_type'] == $vo['id']): ?>
             <a href="<?php echo url('mobile/activity/detail',['aid'=>$v['aid']]); ?>">
                 <div class="playBao_part">
-                	<div class="click_sianImg">
-                		<img src="__MobileImg__/click_sign.png"/>
-                	</div>
                     <div class="bao_img">
                         <img src="__AdminIMG__/<?php echo $v['a_index_img']; ?>"/>
                     </div>
@@ -72,16 +71,15 @@
                             <li>活动介绍：<?php echo subtext($v['a_remark'],'10'); ?></li>
                             <li>活动时间：2017.09.28-2-17.10.29</li>
                             <li>活动地点：郑州市金水区啦啦啦啦</li>
-                            <li>活动金额：￥0.01</li>
+       
                         </ul>
+                         <div class="content_bottom"><span>￥0.01</span><a href="javascript:;">点我报名>></a></div>
                     </div>
                 </div>
             </a>
             <?php endif; endforeach; ?>
         </div>
-    </div>
-
-</div>
+   </div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 
 <div class="bottom">

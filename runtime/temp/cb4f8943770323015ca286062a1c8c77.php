@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:88:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\freeplay.html";i:1508309656;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:88:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\freeplay.html";i:1508751988;s:91:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\second_header.html";i:1508737887;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="__MobileCss__/index.css" />
     <link rel="stylesheet" href="__MobileCss__/reset.css" />
 </head>
-<!--头部图片-->
 <div class="comeback textAlign" id="second_page">
     <div class="comeback_whole" >
         <div class="comeback_img">
-            <a href="<?php echo url('/mobile/activity/about'); ?>"><img src="__MobileImg__/second_back.png"/></a>
+              <a onclick="window.location.href=document.referrer"><img src="__MobileImg__/second_back.png"/></a>
         </div>
 
     </div>
@@ -22,6 +21,44 @@
     <div class="title_word second_activity">免费玩儿</div>
 
 </div>
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/index.css" />
+    <link rel="stylesheet" href="__MobileCss__/reset.css" />
+</head>
+
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" >
+        <div class="comeback_img">
+            <a onclick="window.location.href=document.referrer"><img src="__MobileImg__/second_back.png"/></a>
+        </div>
+
+    </div>
+
+    <div class="title_word second_activity"> <?php echo $titleInfo['name']; ?></div>
+    <div class="click_stroggle">
+    	<a href="javascript:;"><img src="__MobileImg__/dot_img.png" /></a>
+    </div>
+    
+    <!--<ul class="stroggle_ul display_none">
+    	<div class="singel_img">
+    		<img src="__MobileImg__/triangle.png" />
+    	</div>
+    	<li>会员中心</li>
+    	<li>我的活动</li>
+    	<li>我的收藏</li>
+    	<li>退出登录</li>
+    </ul>-->
+
+</div>
+</html>
+-->
 
 <!--免费活动-->
 <div class="playBaby_content almost">

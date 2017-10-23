@@ -1,7 +1,65 @@
-{include file="public/header" /}
-{include file="public/second_header"}
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:93:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\activity_sure.html";i:1508738741;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\header.html";i:1508309656;s:91:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\second_header.html";i:1508737887;}*/ ?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>玩翫碗不一样的玩</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+        <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="__MobileCss__/index.css" />
+        <link rel="stylesheet" href="__MobileCss__/reset.css" />
+        <link rel="stylesheet" href="__MobileCss__/idangerous.swiper.css" />
+        <link rel="stylesheet" href="__MobileCss__/jquery.bxslider.css"/>
+        <link rel="stylesheet" href="__MobileCss__/activity.css">
+    </head>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="__MobileCss__/index.css" />
+    <link rel="stylesheet" href="__MobileCss__/reset.css" />
+</head>
+
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" >
+        <div class="comeback_img">
+            <a onclick="window.location.href=document.referrer"><img src="__MobileImg__/second_back.png"/></a>
+        </div>
+
+    </div>
+
+    <div class="title_word second_activity"> <?php echo $titleInfo['name']; ?></div>
+    <div class="click_stroggle">
+    	<a href="javascript:;"><img src="__MobileImg__/dot_img.png" /></a>
+    </div>
+    
+    <!--<ul class="stroggle_ul display_none">
+    	<div class="singel_img">
+    		<img src="__MobileImg__/triangle.png" />
+    	</div>
+    	<li>会员中心</li>
+    	<li>我的活动</li>
+    	<li>我的收藏</li>
+    	<li>退出登录</li>
+    </ul>-->
+
+</div>
+</html>
+
 
     <body>
+    <!--头部导航-->
     <!--<div class="comeback textAlign" id="second_page">
         <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
             <div class="comeback_img">
@@ -17,12 +75,12 @@
 
         <!--大人和小孩的具体信息-->
         <div class="form_Content">
-            <form action="{:url('mobile/activity/creat_order')}" method="post">
-                <input type="hidden" name="aid" value="{$ActivityInfo.aid}"/>
-                <input type="hidden" name="adult_num" value="{$adult_num}"/>
-                <input type="hidden" name="child_num" value="{$child_num}"/>
-                <input type="hidden" name="token"  value="{$Request.token}"/>
-                <input type="hidden" name="time"  value="{$timeInfo.t_id}"/>
+            <form action="<?php echo url('mobile/activity/creat_order'); ?>" method="post">
+                <input type="hidden" name="aid" value="<?php echo $ActivityInfo['aid']; ?>"/>
+                <input type="hidden" name="adult_num" value="<?php echo $adult_num; ?>"/>
+                <input type="hidden" name="child_num" value="<?php echo $child_num; ?>"/>
+                <input type="hidden" name="token"  value="<?php echo \think\Request::instance()->token(); ?>"/>
+                <input type="hidden" name="time"  value="<?php echo $timeInfo['t_id']; ?>"/>
                 <div class="form_common">
                     <div class="adult_img">
                         <img src="__MobileImg__/adult_img.png" />
@@ -96,21 +154,25 @@
                 <div class="playBaby_content almost" id="detail_info">
 
                     <div class="content" id="theme_information" style="box-shadow: 0px 0px 3px #ff4134;">
+                        <!--<div class="baby_img">
+                                <img src="__MobileImg__/eye.png" />
+                        </div>-->
                         <div class="baby_detail" style="width: 100%;">
                             <ul class="information_ul">
-                                <li><span>活动时间:</span><span>{$ActivityInfo.a_begin_time|date='Y.m.d',###}-{$ActivityInfo.a_end_time|date='Y.m.d',###}</span></li>
-                                <li><span>活动地点:</span><span class="max_width">{$ActivityInfo.a_address}</span></li>
+                                <li><span>活动时间:</span><span><?php echo date('Y.m.d',$ActivityInfo['a_begin_time']); ?>-<?php echo date('Y.m.d',$ActivityInfo['a_end_time']); ?></span></li>
+                                <li><span>活动地点:</span><span class="max_width"><?php echo $ActivityInfo['a_address']; ?></span></li>
                                 <li style="height: 14px;justify-content: inherit"><span style="width: 19%;">活动人数:</span>
-                                    <span style="width: 65%;">{$adult_num}大{$child_num}小</span>
+                                    <span style="width: 65%;"><?php echo $adult_num; ?>大<?php echo $child_num; ?>小</span>
 
                                 </li>
-                                <li><span>应付金额:</span><span>总计:<b>￥</b><b class="total">{$price}</b></span></li>
+                                <li><span>应付金额:</span><span>总计:<b>￥</b><b class="total"><?php echo $price; ?></b></span></li>
                                 <li><input type="text" placeholder="备注" style="width: 70%;" class="beizhu" name="remark"></li>
                             </ul>
                         </div>
 
                     </div>
                 </div>
+
                 <input type="submit" class="name_sure" value="确认报名">
             </form>
         </div>
@@ -126,7 +188,7 @@
         <script type="text/javascript" src="__MobileJs__/emit_information.js"></script>
         <script>
             //控制小孩的数量
-            var num = {$child_num};
+            var num = <?php echo $child_num; ?>;
             if(num==1){
                     $(".child_1").show();
                     $(".child_2").hide();

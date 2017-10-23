@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\order.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\order.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508725962;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -67,6 +67,17 @@
         <li><a href="<?php echo url('admin/activity/refund'); ?>">退款列表</a></li>
        </ul>
    </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-bell"></i>
+          <span>权限中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="<?php echo url('admin/activity/order'); ?>">管理员管理</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">角色列表</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">管理员日志</a></li>
+      </ul>
+  </li>
   </ul>
 </div>
 <div id="content">
