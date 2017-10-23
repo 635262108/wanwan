@@ -108,12 +108,14 @@ class Activity extends Model
         $map['a_price'] = 0;
         return $this->where($map)->order('aid desc')->select();
     }
-    /**
-     * 获取所有活动
-     * @return type
+
+    /**获取所有活动
+     * @param string $field
+     * @param string $offset
+     * @param string $limit
      */
-    public function getActivityAll($field = '*'){
-        return $this->field($field)->select();
+    public function getActivityAll($field = '*',$offset = '',$limit = ''){
+        return $this->field($field)->limit($offset,$limit)->order('aid desc')->select();
     }
     
     /**

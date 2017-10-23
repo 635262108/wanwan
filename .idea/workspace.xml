@@ -21,9 +21,22 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="804" column="10" lean-forward="true" selection-start-line="804" selection-start-column="10" selection-end-line="804" selection-end-column="10" />
+            <state relative-caret-position="401">
+              <caret line="804" column="0" lean-forward="true" selection-start-line="804" selection-start-column="0" selection-end-line="804" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/common/model/Activity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="112" column="27" lean-forward="true" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
+              <folding>
+                <marker date="1508727465811" expanded="true" signature="3221:3761" ph="SELECT a.aid... mfw_activity" />
+                <marker date="1508727465811" expanded="true" signature="3399:3669" ph="SELECT count... mfw_activity_order" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>theme_information</find>
       <find>.detailActivity .activity_parts .acyivity_part .activity_detail</find>
       <find>.detailActivity .activity_parts .acyivity_part</find>
       <find>pay_content</find>
@@ -109,6 +121,7 @@
       <find>pay_s</find>
       <find>pay_success</find>
       <find>noth</find>
+      <find>最新</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -130,7 +143,6 @@
         <option value="$PROJECT_DIR$/application/mobile/view/activity/about.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/public/nav.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/activity/comments_list.html" />
-        <option value="$PROJECT_DIR$/application/common/model/Activity.php" />
         <option value="$PROJECT_DIR$/application/mobile/view/user/my_info.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/user/my_activity.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/user/my_collect.html" />
@@ -176,6 +188,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/permissions/role.html" />
         <option value="$PROJECT_DIR$/application/admin/view/permissions/adminlog.html" />
         <option value="$PROJECT_DIR$/application/admin/view/public/left.html" />
+        <option value="$PROJECT_DIR$/application/common/model/Activity.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
       </list>
     </option>
@@ -227,14 +240,20 @@
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="common" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="common" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="model" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -291,12 +310,12 @@
       <workItem from="1508319033965" duration="3614000" />
       <workItem from="1508379516340" duration="103000" />
       <workItem from="1508379902340" duration="766000" />
-      <workItem from="1508721534321" duration="1807000" />
+      <workItem from="1508721534321" duration="3957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101981000" />
+    <option name="totallyTimeSpent" value="104131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -335,13 +354,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/home/view/user/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/user/leave_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -703,10 +715,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="112" column="27" lean-forward="true" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
+          <folding>
+            <marker date="1508727465811" expanded="true" signature="3221:3761" ph="SELECT a.aid... mfw_activity" />
+            <marker date="1508727465811" expanded="true" signature="3399:3669" ph="SELECT count... mfw_activity_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="804" column="10" lean-forward="true" selection-start-line="804" selection-start-column="10" selection-end-line="804" selection-end-column="10" />
+        <state relative-caret-position="401">
+          <caret line="804" column="0" lean-forward="true" selection-start-line="804" selection-start-column="0" selection-end-line="804" selection-end-column="0" />
           <folding />
         </state>
       </provider>
