@@ -802,6 +802,11 @@ class Activity extends Base
         return $this->fetch();
     }
 
+    //最新活动
+    public function new_activity(){
+        return $this->fetch();
+    }
+
      //签到展示页
     public function sign() {
         //活动id

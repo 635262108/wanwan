@@ -4171,3 +4171,118 @@
 [ sql ] [ DB ] CONNECT:[ UseTime:0.062000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
 [ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.038000s ]
 [ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.043000s ]
+---------------------------------------------------------------
+[ 2017-10-23T10:23:54+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile
+[ info ] www.chuangzhixing.com/mobile [运行时间：3.312000s][吞吐率：0.30req/s] [内存消耗：2,116.14kb] [文件加载：47]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=1hp0fsfi7dso0jclm168p1ovq4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->about[ D:\chuangzhixing\wanwan\application\mobile\controller\Activity.php ]
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/mobile\view\activity\about.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:1.324000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.781000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:1.151000s ]
+---------------------------------------------------------------
+[ 2017-10-23T10:24:02+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/activity/new_activity.html
+[ info ] www.chuangzhixing.com/mobile/activity/new_activity.html [运行时间：5.149000s][吞吐率：0.19req/s] [内存消耗：1,965.52kb] [文件加载：46]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=1hp0fsfi7dso0jclm168p1ovq4',
+  'referer' => 'http://www.chuangzhixing.com/mobile',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:2.030000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:1.532000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:1.539000s ]
+---------------------------------------------------------------
+[ 2017-10-23T10:25:06+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/activity/new_activity.html
+[ info ] www.chuangzhixing.com/mobile/activity/new_activity.html [运行时间：4.257000s][吞吐率：0.23req/s] [内存消耗：2,111.01kb] [文件加载：47]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=1hp0fsfi7dso0jclm168p1ovq4',
+  'referer' => 'http://www.chuangzhixing.com/mobile',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ D:\chuangzhixing\wanwan\application\mobile\controller\Activity.php ]
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/mobile\view\activity\new_activity.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:2.709000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.674000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.814000s ]
