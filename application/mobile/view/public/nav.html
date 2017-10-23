@@ -13,12 +13,12 @@
 <!--导航栏tab-->
 <div class="textAlign nav">
     <ul>
-            <li {if condition="$Request.action eq 'about' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/about')}">首页</a></li>
+            <li {if condition="$Request.action eq 'new_activity' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/new_activity')}">首页</a></li>
 
             {foreach name="title" item="vo"}
             <li {if condition="$Request.param.set eq $vo.id"}class="play_baby"{/if}><a href="{:url('mobile/Activity/index',['set'=>$vo.id])}">{$vo.name}</a></li>
             {/foreach}
             <li {if condition="$Request.action eq 'freeplay' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/freeplay')}">免费玩儿</a></li>
-            <li {if condition="$Request.controller eq 'User' "}class="play_baby"{/if}><a href="{:url('mobile/user/index')}">会员中心</a></li>
+            <li {if condition="$Request.controller eq 'User' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/about')}">关于我们</a></li>
     </ul>
 </div>

@@ -1,4 +1,7 @@
 $(function(){
+	$(".click_stroggle").on("click",function(){
+		$(".stroggle_ul").slideToggle(100)
+	})
 
     //大人的加
     var adult_price=$(".prompt_aldut_price").text();
