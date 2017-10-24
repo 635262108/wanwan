@@ -43,122 +43,22 @@ $(".btn-warning").on("click",function(){
 	return confirm("是否确认取消");
 })
 
+
+
 //活动页面删除
-$(".activity_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var activityId=$(this).parent().parent().children("td:nth-child(1)").html();
-            $.post("/abab.php/activity/delActivity",{"aid":activityId},function(data){
-                if(data.state_code== 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-		
-	}
-	
-})
-
+deleteData($(".activity_delete"),"/abab.php/activity/delActivity","aid",$(this).parent().parent().children("td:nth-child(1)").html())
 //活动分类删除
-$(".classfy_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var tid=$(this).parent().parent().parent().find("td").eq(0).html();
-            $.post("/abab.php/activity/delType",{"id":tid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
-})
-
+deleteData($(".classfy_delete"),"/abab.php/activity/delType","id",$(this).parent().parent().parent().find("td").eq(0).html())
 //评论提问删除
-$(".ask_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var cid=$(this).parent().parent().parent().find("td").eq(0).html();
-            $.post("/abab.php/activity/delAnyReply",{"id":cid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
-})
-
+deleteData($(".ask_delete"),"/abab.php/activity/delAnyReply","id",$(this).parent().parent().parent().find("td").eq(0).html())
 //扩展删除
-$(".ext_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var eid=$(this).parent().siblings(".td_id").html();
-            $.post("/abab.php/activity/del_extension",{"id":eid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
-})
-
+deleteData($(".ext_delete"),"/abab.php/activity/del_extension","id",$(this).parent().siblings(".td_id").html())
 //评论删除
-$(".com_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var cid=$(this).parent().parent().find("td").eq(0).html();
-            $.post("/abab.php/activity/delAnyReply",{"id":cid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
-})
-
+deleteData($(".com_delete"),"/abab.php/activity/delAnyReply","id",$(this).parent().parent().find("td").eq(0).html())
 //活动规格
-$(".spe_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var cid=$(this).parent().siblings(".td_id").html();
-            
-            $.post("/abab.php/activity/delAnySpe",{"id":cid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
-})
+deleteData($(".spe_delete"),"/abab.php/activity/delAnySpe","id",$(this).parent().siblings(".td_id").html());
+
+
 })
 
 //省改变事件
@@ -187,4 +87,25 @@ function changeActivityType(tid){
             $("#sonType").html(obj.data);
         }
     }, "json");
+}
+
+
+//是否确认删除按钮
+function deleteData(delete_btn,url,paid,Id){
+	delete_btn.live("click",function(){
+		var trueOrfalse=confirm("是否确认删除");
+        var _this = $(this);
+        if(!trueOrfalse){
+        	return;
+        }
+        else{
+        	$.post(url,{paid:Id},function(data){
+                if(data.state_code== 200){
+                    _this.parent().parent().hide();
+                }else{
+                    alert(data.msg)
+                }
+            })
+        }
+	})
 }
