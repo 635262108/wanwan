@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\index.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508829896;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:90:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\recharge_record.html";i:1508830892;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508829896;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -115,69 +115,45 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="#" class="tip-bottom">活动管理</a> 
-      	<a href="#" class="current">活动列表</a> 
+      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
+      	<a href="#" class="current">充值记录</a> 
   </div>
   </div>
-<!--添加开始部分-->
-  <div class="add_order">
-  	 <a href="<?php echo url('admin/activity/addActivityList'); ?>">
-        <div class="add" title="添加活动">
-          <span style="font-size: 14px;">
-              <i class="icon-plus"></i>
-                 添加活动
-          </span>
-        </div>
-     </a>
-  </div>
-<!--添加结束-->
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
   	  	        <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
+            <h5>充值记录</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>
-                  <th>活动名称</th>
-                  <th>活动开始时间</th>
-                  <th>活动结束时间</th>
-                  <th>剩余名额</th>
-                  <th>已报名额</th>
-                  <th>大人价格</th>
-                  <th>小孩价格</th>
-                  <th>活动价格</th>
-                  <th>是否推荐</th>
-                  <th>操作</th>
-                </tr>
+                  <th>会员名称</th>
+                  <th>手机号</th>
+                  <th>充值金额</th>
+                  <th>余额</th>
+                  <th>支付方式</th>
+                  <th>充值时间</th>
+                 
+               </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
-                <?php if(is_array($ActivityInfo) || $ActivityInfo instanceof \think\Collection || $ActivityInfo instanceof \think\Paginator): if( count($ActivityInfo)==0 ) : echo "" ;else: foreach($ActivityInfo as $key=>$vo): ?>
-                <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo subtext($vo['a_title'],17); ?></td>
-                  <td><?php echo date("m-d H:i",$vo['a_begin_time']); ?></td>
-                  <td><?php echo date("m-d H:i",$vo['a_end_time']); ?></td>
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['a_adult_price']; ?></td>
-                  <td><?php echo $vo['a_child_price']; ?></td>
-                  <td><?php echo $vo['a_price']; ?></td>
-                  <td>
-                      <?php switch($vo['a_is_recommend']): case "1": ?>是<?php break; case "0": ?>否<?php break; endswitch; ?>
-                  </td>
+               
+                <tr>
+                  <td>飒飒</td>
+                  <td>18437076116</td>
+                  <td>500</td>
+                  <td>10</td>
+                  <td>微信</td>
+                  <td>2015.2.12</td>
                   
-                  <td class="center">
-                  	<a href="<?php echo url('admin/activity/saveActivityList','aid='.$vo['aid']); ?>"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-                    <i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>	
-                    <a target="view_window" href="http://qr.topscan.com/api.php?text=www.baobaowaner.com/mobile/activity/sign?a=<?php echo $vo['aid']; ?>"><i class="check icon-reorder">&nbsp;&nbsp;二维码</i></a>
-                  </td>
+                  
+                  
+                  
                 </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
+            
               </tbody>
             </table>
           </div>
@@ -185,6 +161,50 @@
   	  </div>
   </div>
 </div>
+</div>
+<div class="modal_box hide">
+	<div class="modal_div">
+		<div class="cancel">X</div>
+		<table class="detail_information" border="1" style="width:700px ;height: 200px;font-size: 12px;">
+			<tr>
+				<td>用户id</td>
+				<td class="userId"></td>
+				<td>手机号</td>
+				<td class="phone"></td>
+				<td>昵称</td>
+				<td class="nickname"></td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td class="normal"></td>
+				<td>注册时间</td>
+				<td class="start"></td>
+				<td>最后登录时间</td>
+				<td class="finsh"></td>
+			</tr>
+			<tr>
+				<td>生日</td>
+				<td class="birthday"></td>
+				<td>爱好</td>
+                                <td class="hobby"></td>
+				<td>所在省</td>
+				<td class="province"></td>
+			</tr>
+			<tr>
+				<td>所在市</td>
+				<td class="country"></td>
+				<td>所在区</td>
+				<td class="area"></td>
+				<td>详细地址</td>
+				<td class="address"></td>
+			</tr>
+                        <tr>
+				<td>个性签名</td>
+                                <td colspan="5" class="sign"></td>
+			</tr>
+			
+		</table>
+	</div>
 </div>
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508725962;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508829896;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -39,14 +39,15 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>会员管理</span> <span class="label label-important">3</span></a>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">4</span></a>
       <ul>
-        <li><a href="<?php echo url('admin/user/index'); ?>">会员列表</a></li>
+        <li><a href="<?php echo url('admin/user/index'); ?>">客户列表</a></li>
         <li><a href="<?php echo url('admin/user/attendance'); ?>">会员考勤</a></li>
+        <li><a href="<?php echo url('admin/user/recharge_record'); ?>">充值记录</a></li>
         <li><a href="#">待添加....</a></li>
       </ul>
     </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动管理</span> <span class="label label-important">7</span></a>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
       <ul>
         <li ><a href="<?php echo url('admin/activity/index'); ?>">活动列表</a></li>
         <li><a href="<?php echo url('admin/activity/activityType'); ?>">活动分类</a></li>
@@ -57,9 +58,18 @@
         <li><a href="<?php echo url('admin/activity/leave_for'); ?>">请假列表</a></li>
       </ul>
     </li>
+      <li class="submenu">
+          <a href="#"><i class="icon-edit"></i>
+              <span>签到中心</span>
+              <span class="label label-important">1</span>
+          </a>
+          <ul style="display: none;">
+              <li><a href="<?php echo url('admin/activity/order'); ?>">签到概况</a></li>
+          </ul>
+      </li>
     <li class="submenu"> 
         <a href="#"><i class="icon icon-inbox"></i>
-            <span>订单管理</span>
+            <span>订单中心</span>
             <span class="label label-important">2</span>
         </a>
     	<ul style="display: none;">
@@ -67,15 +77,35 @@
         <li><a href="<?php echo url('admin/activity/refund'); ?>">退款列表</a></li>
        </ul>
    </li>
+      <li class="submenu">
+          <a href="#"><i class="icon-headphones"></i>
+              <span>客服中心</span>
+              <span class="label label-important">1</span>
+          </a>
+          <ul style="display: none;">
+              <li><a href="<?php echo url('admin/activity/order'); ?>">报名情况</a></li>
+          </ul>
+      </li>
   <li class="submenu">
       <a href="#"><i class="icon-bell"></i>
           <span>权限中心</span>
           <span class="label label-important">3</span>
       </a>
       <ul style="display: none;">
-          <li><a href="<?php echo url('admin/activity/order'); ?>">管理员管理</a></li>
+          <li><a href="#">管理员管理</a></li>
           <li><a href="<?php echo url('admin/activity/refund'); ?>">角色列表</a></li>
           <li><a href="<?php echo url('admin/activity/refund'); ?>">管理员日志</a></li>
+      </ul>
+  </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-align-left"></i>
+          <span>统计中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="<?php echo url('admin/activity/order'); ?>">会员到场率</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">会员增长率</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">活动排名</a></li>
       </ul>
   </li>
   </ul>
