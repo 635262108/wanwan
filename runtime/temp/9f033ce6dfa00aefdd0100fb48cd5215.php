@@ -1,5 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/home\view\activity\index.html";i:1508309656;s:82:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/home\view\public\header.html";i:1508309656;s:82:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/home\view\public\footer.html";i:1508309656;}*/ ?>
-
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:62:"D:\chuangzhixing\wanwan/application/home\view\index\index.html";i:1508318472;s:64:"D:\chuangzhixing\wanwan/application/home\view\public\header.html";i:1508391782;s:64:"D:\chuangzhixing\wanwan/application/home\view\public\footer.html";i:1508318472;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +17,7 @@
         <header>
             <!--logo-->
             <div id="logo">
-                <a href="<?php echo url('home/index/index'); ?>"><img src="__IMG__/logo.png" /></a>
+                <a href="/"><img src="__IMG__/logo.png" /></a>
             </div>
             <div class="navbar">
                 <ul class="nav_left">
@@ -53,84 +52,161 @@
                 </ul>
             </div>
         </header>
-<div class="begin_wrap">
-    <div class="content">
-        <!--简介-->
-        <div class="info">
+<style type="text/css">
+    .bg {
+        background: url(__IMG__/bg2.jpg) no-repeat top center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 975px;
+    }
 
-            <div class="wrap_img">
-                <img src="<?php echo $titleInfo['logo']; ?>" />
+    .content_ul li {
+        z-index: 10;
+        position: absolute;
+    }
+
+    .content_ul li:nth-child(1) {
+        top: 110px;
+        left: 350px;
+    }
+
+    .content_ul li:nth-child(2) {
+        top: 270px;
+        left: 220px;
+    }
+
+    .content_ul li:nth-child(3) {
+        top: 450px;
+        left: 150px;
+    }
+
+    .content_ul li:nth-child(4) {
+        top: 630px;
+        left: 220px;
+    }
+
+    .content_ul li:nth-child(5) {
+        top: 770px;
+        left: 360px;
+    }
+
+    .text_center {
+        width: 1800px;
+        position: absolute;
+        top: 370px;
+        width: 420px;
+        text-align: end;
+        margin-left: 23%;
+    }
+
+    .text_center h2 {
+        font-size: 48px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .text_center p {
+        margin-top: 20px;
+        color: white;
+        font-size: 28px;
+    }
+
+    .content_ul li:hover img {
+        -ms-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+    }
+
+    @media screen and (max-width: 1700px) {
+        .navbar {
+            width: 1300px;
+        }
+        .nav_right {
+            margin-left: 5px;
+        }
+        .nav_left {
+            margin-left: 8px;
+        }
+        .content_ul li img {
+            width: 80%;
+        }
+        .content_ul li:nth-child(1) {
+            top: 100px;
+            left: 340px;
+        }
+        .content_ul li:nth-child(2) {
+            top: 230px;
+            left: 210px;
+        }
+        .content_ul li:nth-child(3) {
+            top: 390px;
+            left: 140px;
+        }
+        .content_ul li:nth-child(4) {
+            top: 540px;
+            left: 210px;
+        }
+        .content_ul li:nth-child(5) {
+            top: 650px;
+            left: 330px;
+        }
+
+        .bg {
+            background: url(__IMG__/bg2.jpg) no-repeat top center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 880px;
+        }	
+    }
+
+    @media screen and (max-width: 1280px) {
+        .text_center {
+            width: 700px;
+            margin-left: 0px;
+            top: 350px;
+        }
+    }
+</style>
+<!--背景-->
+<div class="wrap">
+    <div class="bg">
+    </div>
+    <div class="content_txt">
+        <ul class="content_ul">
+            <li>
+                <a href="<?php echo url('home/activity/index',['set'=>26]); ?>"><img src="__IMG__/begin.png" /></a>
+            </li>
+            <li>
+                <a href="<?php echo url('home/activity/index',['set'=>27]); ?>"><img src="__IMG__/start.png"/></a>
+            </li>
+            <li>
+                <a href="<?php echo url('home/activity/index',['set'=>28]); ?>"><img src="__IMG__/play.png" /></a>
+            </li>
+            <li>
+                <a href="<?php echo url('home/activity/index',['set'=>29]); ?>"><img src="__IMG__/artisan.png" /></a>
+            </li>
+            <li>
+                <a href="<?php echo url('home/activity/index',['set'=>30]); ?>"><img src="__IMG__/study.png" /></a>
+            </li>
+        </ul>
+        <div class="text_center">
+            <div class="text_content">
+                <h2 style="display: none;">不一样的玩？</h2>
+                <p style="display: none;">＜点击了解玩翫碗怎么不一样</p>
             </div>
-            <!--简介内容-->
-            <div class="info_main">
-                <div class="info_title">
-                    <?php echo $titleInfo['name']; ?>简介
-                </div>
-                <div class="info_content">
-                    <?php echo $titleInfo['introduce']; ?>
-                </div>
-            </div>
-            <!--轮播图-->
-            <div class="banner">
-                <div class="banner-btn">
-                    <a href="javascript:;" class="prevBtn"><i></i></a>
-                    <a href="javascript:;" class="nextBtn"><i></i></a>
-                </div>
-                <ul class="banner-img">
-                    <?php if(is_array($banner) || $banner instanceof \think\Collection || $banner instanceof \think\Paginator): if( count($banner)==0 ) : echo "" ;else: foreach($banner as $key=>$vo): ?>
-                    <li>
-                        <a href="#">
-                            <img src="<?php echo $vo['banner_url']; ?>">
-                            <span class="f-tag"><?php echo $vo['banner_title']; ?></span>
-                        </a>
-                    </li>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                </ul>
-                <!--<ul class="banner-circle"></ul>-->
-
-            </div>
-
-        </div>
-
-        <!--五官栏目-->
-        <?php if(is_array($titleSon) || $titleSon instanceof \think\Collection || $titleSon instanceof \think\Paginator): if( count($titleSon)==0 ) : echo "" ;else: foreach($titleSon as $key=>$vo): ?>
-        <div class="content_one" id="<?php echo $vo['id']; ?>">
-
-            <div class="title">
-                <span><?php echo $titleInfo['name']; ?>-<?php echo $vo['name']; ?></span>
-            </div>
-            <?php foreach($result as $v): if($v['a_type'] == $vo['id']): ?>
-            <div class="content_one_wrap">
-                <div class="content_one_img">
-                    <a href="<?php echo url('home/Activity/detail',['aid'=>$v['aid']]); ?>"><img src="__AdminIMG__/<?php echo $v['a_index_img']; ?>" /></a>
-                </div>
-                <div class="content_one_info">
-                    <div class="info_left">
-                        <p class="name"><?php echo $v['a_title']; ?></p>
-                        <p class="name_info"><?php echo $v['a_remark']; ?>
-                        </p>
-                    </div>
-                    <div class="info_right">
-                        <a href="<?php echo url('home/Activity/detail',['aid'=>$v['aid']]); ?>"><img src="__IMG__/sure.png" /></a>
-                    </div>
-
-                </div>
-            </div>
-            <?php endif; endforeach; ?>
-        </div>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
-        <!--悬浮框-->
-        <div class="tool">
-            <ul class="tooll">
-                <?php if(is_array($titleSon) || $titleSon instanceof \think\Collection || $titleSon instanceof \think\Paginator): if( count($titleSon)==0 ) : echo "" ;else: foreach($titleSon as $key=>$vo): ?>
-                <li>
-                    <a href="#<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></a>
-                </li>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
         </div>
     </div>
-</body>
+</div>
+<!--底部-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -267,6 +343,24 @@
 </html>
 
 <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="__JS__/main.js" type="text/javascript" charset="utf-8"></script>
-<script src="__JS__/banner.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //为导航栏添加鼠标移入事件
+    $(".nav_left li>a").mouseenter(function() {
+        $(this).css({
+            backgroundColor: 'white',
+            color: '#ff4b3c'
+        });
+    });
+    $(".nav_left li>a").mouseleave(function() {
+        $(this).css({
+            backgroundColor: 'transparent',
+            color: 'white'
+        });
+    });
+    $(".text_center h2").fadeIn(2000, function() {
+    });
+    $(".text_center p").fadeIn(3000, function() {
+    });
+</script>
+</body>
 </html>

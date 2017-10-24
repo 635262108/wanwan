@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:88:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\extension.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\attendance.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508826818;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -39,14 +39,14 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>会员管理</span> <span class="label label-important">3</span></a>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
       <ul>
-        <li><a href="<?php echo url('admin/user/index'); ?>">会员列表</a></li>
+        <li><a href="<?php echo url('admin/user/index'); ?>">客户列表</a></li>
         <li><a href="<?php echo url('admin/user/attendance'); ?>">会员考勤</a></li>
         <li><a href="#">待添加....</a></li>
       </ul>
     </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动管理</span> <span class="label label-important">7</span></a>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
       <ul>
         <li ><a href="<?php echo url('admin/activity/index'); ?>">活动列表</a></li>
         <li><a href="<?php echo url('admin/activity/activityType'); ?>">活动分类</a></li>
@@ -57,9 +57,18 @@
         <li><a href="<?php echo url('admin/activity/leave_for'); ?>">请假列表</a></li>
       </ul>
     </li>
+      <li class="submenu">
+          <a href="#"><i class="icon-edit"></i>
+              <span>签到中心</span>
+              <span class="label label-important">1</span>
+          </a>
+          <ul style="display: none;">
+              <li><a href="<?php echo url('admin/activity/order'); ?>">签到概况</a></li>
+          </ul>
+      </li>
     <li class="submenu"> 
         <a href="#"><i class="icon icon-inbox"></i>
-            <span>订单管理</span>
+            <span>订单中心</span>
             <span class="label label-important">2</span>
         </a>
     	<ul style="display: none;">
@@ -67,6 +76,37 @@
         <li><a href="<?php echo url('admin/activity/refund'); ?>">退款列表</a></li>
        </ul>
    </li>
+      <li class="submenu">
+          <a href="#"><i class="icon-headphones"></i>
+              <span>客服中心</span>
+              <span class="label label-important">1</span>
+          </a>
+          <ul style="display: none;">
+              <li><a href="<?php echo url('admin/activity/order'); ?>">报名情况</a></li>
+          </ul>
+      </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-bell"></i>
+          <span>权限中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="<?php echo url('admin/activity/order'); ?>">管理员管理</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">角色列表</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">管理员日志</a></li>
+      </ul>
+  </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-align-left"></i>
+          <span>统计中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="<?php echo url('admin/activity/order'); ?>">会员到场率</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">会员增长率</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">活动排名</a></li>
+      </ul>
+  </li>
   </ul>
 </div>
 <div id="content">
@@ -74,22 +114,11 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="#" class="tip-bottom">活动管理</a> 
-      	<a href="#" class="current">活动扩展</a> 
+      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
+      	<a href="#" class="current">考勤列表</a> 
   </div>
   </div>
-<!--添加开始部分-->
-  <div class="add_order">
-  	 <a href="<?php echo url('admin/activity/addExtensionList'); ?>">
-        <div class="add" title="添加活动扩展">
-          <span style="font-size: 14px;">
-              <i class="icon-plus"></i>
-                 添加扩展
-          </span>
-        </div>
-     </a>
-  </div>
-<!--添加结束-->
+
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
@@ -101,24 +130,35 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>id</th>
+                  <th>活动id</th>  
                   <th>活动标题</th>
-                  <th>扩展图片</th>
-                  <th>扩展标题</th>
-                  <th>扩展描述</th>
+                  <th>剩余名额</th>
+                  <th>报名人数</th>
+                  <th>签到人数</th>
+                  <th>到场率</th>
                   <th>操作</th>
            </tr>
               </thead>
               <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($extInfo) || $extInfo instanceof \think\Collection || $extInfo instanceof \think\Paginator): if( count($extInfo)==0 ) : echo "" ;else: foreach($extInfo as $key=>$vo): ?>
+                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
                 <tr class="gradeX trs">
-                    <td class="td_id"><?php echo $vo['extension_id']; ?></td>
+                  <td><?php echo $vo['aid']; ?></td>
                   <td><?php echo $vo['a_title']; ?></td>  
-                  <td><img src="__AdminIMG__/<?php echo $vo['extension_img']; ?>" width="100px;" height="80px;"/></td>
-                  <td><?php echo $vo['extension_title']; ?></td>
-                  <td><?php echo $vo['extension_remark']; ?></td>
-                  <td class="center"><a href="<?php echo url('admin/activity/saveExtensionList',['eid'=>$vo['extension_id']]); ?>"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-                <i class="delete icon-pencil ext_delete">&nbsp;&nbsp;删除</i>	
+                  <td><?php echo $vo['a_num']; ?></td>
+                  <td><?php echo $vo['a_sold_num']; ?></td>
+                  <td><?php echo $vo['attendance']; ?></td>
+                  <td>
+                      <?php
+                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
+                                echo '0%';
+                            }else{
+                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
+                                echo $result."%";
+                            }
+                      ?>
+                  </td>
+                  <td class="center">
+                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
                   </td>
                   
                 </tr>

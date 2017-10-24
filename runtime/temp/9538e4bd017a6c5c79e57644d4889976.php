@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:86:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\activity\detail.html";i:1508309656;s:84:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/mobile\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"D:\chuangzhixing\wanwan/application/mobile\view\activity\detail.html";i:1508318472;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
 <html>
 <head>
     <meta charset="UTF-8">
