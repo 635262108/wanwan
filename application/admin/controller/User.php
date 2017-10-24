@@ -281,6 +281,6 @@ class User extends Base
 
     //充值记录
     public function recharge_record(){
-        $this->fetch();
+        return $this->fetch();
     }
 }

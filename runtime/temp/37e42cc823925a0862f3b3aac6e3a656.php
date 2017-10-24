@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\attendance.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508832479;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\attendance.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508829896;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -39,11 +39,12 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">4</span></a>
       <ul>
         <li><a href="<?php echo url('admin/user/index'); ?>">客户列表</a></li>
-        <li><a href="<?php echo url('admin/user/attendance'); ?>">签到概况</a></li>
+        <li><a href="<?php echo url('admin/user/attendance'); ?>">会员考勤</a></li>
         <li><a href="<?php echo url('admin/user/recharge_record'); ?>">充值记录</a></li>
+        <li><a href="#">待添加....</a></li>
       </ul>
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
@@ -57,7 +58,15 @@
         <li><a href="<?php echo url('admin/activity/leave_for'); ?>">请假列表</a></li>
       </ul>
     </li>
-
+      <li class="submenu">
+          <a href="#"><i class="icon-edit"></i>
+              <span>签到中心</span>
+              <span class="label label-important">1</span>
+          </a>
+          <ul style="display: none;">
+              <li><a href="<?php echo url('admin/activity/order'); ?>">签到概况</a></li>
+          </ul>
+      </li>
     <li class="submenu"> 
         <a href="#"><i class="icon icon-inbox"></i>
             <span>订单中心</span>
