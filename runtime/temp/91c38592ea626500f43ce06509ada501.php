@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\attendance.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508826818;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\attendance.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508830954;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -42,7 +42,7 @@
     <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
       <ul>
         <li><a href="<?php echo url('admin/user/index'); ?>">客户列表</a></li>
-        <li><a href="<?php echo url('admin/user/attendance'); ?>">会员考勤</a></li>
+        <li><a href="<?php echo url('admin/user/attendance'); ?>">签到概况</a></li>
         <li><a href="#">待添加....</a></li>
       </ul>
     </li>
@@ -57,15 +57,7 @@
         <li><a href="<?php echo url('admin/activity/leave_for'); ?>">请假列表</a></li>
       </ul>
     </li>
-      <li class="submenu">
-          <a href="#"><i class="icon-edit"></i>
-              <span>签到中心</span>
-              <span class="label label-important">1</span>
-          </a>
-          <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">签到概况</a></li>
-          </ul>
-      </li>
+
     <li class="submenu"> 
         <a href="#"><i class="icon icon-inbox"></i>
             <span>订单中心</span>
@@ -91,7 +83,7 @@
           <span class="label label-important">3</span>
       </a>
       <ul style="display: none;">
-          <li><a href="<?php echo url('admin/activity/order'); ?>">管理员管理</a></li>
+          <li><a href="#">管理员管理</a></li>
           <li><a href="<?php echo url('admin/activity/refund'); ?>">角色列表</a></li>
           <li><a href="<?php echo url('admin/activity/refund'); ?>">管理员日志</a></li>
       </ul>
