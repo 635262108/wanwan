@@ -7,6 +7,6 @@ use think\Cache;
 
 class Attendance extends Base
 {
-    
-    
+
+
 }
