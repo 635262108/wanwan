@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\attendance.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:91:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\savetypelist.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -102,67 +102,51 @@
   </ul>
 </div>
 <div id="content">
-<!--breadcrumbs-->
-  <div id="content-header">
-      <div id="breadcrumb"> 
-      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
-  </div>
-  </div>
-
-<div class="container-fluid">
-  <div class="row-fluid">
-  	  <div class="span12">
-  	  	        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
-                  <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
-                  <th>操作</th>
-           </tr>
-              </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
-                <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
-                  <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
-                  </td>
-                  <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
-                  </td>
-                  
-                </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-              </tbody>
-            </table>
-          </div>
+        <div id="content-header">
+                <div id="breadcrumb">
+                        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+                        <a href="<?php echo url('admin/activity/activityType'); ?>" class="tip-bottom">分类列表</a>
+                        <a href="#" class="current">修改分类</a>
+                </div>
         </div>
-  	  </div>
-  </div>
-</div>
-</div>
+
+        <div class="row-fluid" id="emit_information">
+                <div class="span6" style="margin-left: 12%;">
+                        <div class="widget-box" style="width: 700px;">
+                                <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                                        <h5>修改</h5>
+                                </div>
+                                <div class="widget-content nopadding">
+                                        <form action="<?php echo url('admin/activity/updataType'); ?>" method="post" class="form-horizontal" name="quitPay_form">
+                                                <input type="hidden" name="id" value="<?php echo $titleInfo['id']; ?>"/>
+                                                <div class="control-group">
+                                                    <label class="control-label">分类名称：</label>
+                                                    <div class="controls">
+                                                            <input class="span11" value="<?php echo $titleInfo['name']; ?>" name="name" type="text">
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="control-group">
+                                                    <label class="control-label">排序：</label>
+                                                    <div class="controls">
+                                                            <input class="span11" value="<?php echo $titleInfo['sort']; ?>" name="sort" type="text">
+                                                    </div>
+                                                </div>
+
+
+                                            <div class="form-actions" style="text-align: center">
+                                                        <button type="submit" class="btn btn-success info_sure">修改</button>
+                                                        <a href="javascript:history.back(-1)" class="btn-warning">取消</a>
+                                                </div>
+                                                </form>
+
+
+
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>		
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
 </div>
@@ -175,6 +159,7 @@
 <script src="__AJS__/matrix.js"></script> 
 <script src="__AJS__/matrix.tables.js"></script>
 <script src="__AJS__/operat_table.js"></script>
-</body>
-</html>
+		
+	</body>
 
+</html>

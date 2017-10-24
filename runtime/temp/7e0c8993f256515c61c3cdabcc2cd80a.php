@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\attendance.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\consumption_details.html";i:1508843369;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -106,55 +106,44 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
+      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
+      	<a href="#" class="current">消费明细</a> 
   </div>
   </div>
-
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
-  	  	        <div class="widget-box">
+  	  	 <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
+            <h5>消费明细</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
-                  <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
-                  <th>操作</th>
-           </tr>
+                  <th>消费活动</th>
+                  <th>消费金额</th>
+                  <th>消费时间</th>
+                  <th>支付方式</th>
+                  <th>余额</th>
+                 
+                  
+                 
+               </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
-                <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
-                  <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
-                  </td>
-                  <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
-                  </td>
+              <tbody id="tbody_center" style="font-size: 12px;">
+               
+                <tr>
+                  <td>君子六艺</td>
+                  <td>20</td>
+                  <td>2013.4.6</td>
+                  <td>支付宝</td>
+                  <td>30</td>
+                  
                   
                 </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
+                 
+            
               </tbody>
             </table>
           </div>
@@ -175,6 +164,4 @@
 <script src="__AJS__/matrix.js"></script> 
 <script src="__AJS__/matrix.tables.js"></script>
 <script src="__AJS__/operat_table.js"></script>
-</body>
 </html>
-

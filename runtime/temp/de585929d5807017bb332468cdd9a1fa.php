@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\attendance.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\refund.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -106,11 +106,10 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
+      	<a href="#" class="tip-bottom">订单管理</a> 
+      	<a href="#" class="current">退款列表</a> 
   </div>
   </div>
-
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
@@ -122,37 +121,30 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
-                  <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
+                  <th>退款id</th>
+                  <th>退款人</th>
+                  <th>退款人手机</th>
+                  <th>退款商品</th>
+                  <th>退款原因</th>
+                  <th>申请时间</th>
+                  <th>状态</th>
                   <th>操作</th>
            </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                <?php if(is_array($refundInfo) || $refundInfo instanceof \think\Collection || $refundInfo instanceof \think\Paginator): if( count($refundInfo)==0 ) : echo "" ;else: foreach($refundInfo as $key=>$vo): ?>
                 <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
+                  <td><?php echo $vo['id']; ?></td>
+                  <td><?php echo $vo['nickname']; ?></td>
+                  <td><?php echo $vo['mobile']; ?></td>
+                  <td><?php echo $vo['a_title']; ?></td>
+                  <td><?php echo $vo['reason']; ?></td>
+                  <td><?php echo date("Y-m-d H:i:s",$vo['time']); ?></td>
                   <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
+                    <?php switch($vo['type']): case "1": ?>待退款<?php break; case "3": ?>已退款<?php break; endswitch; ?>
+                  </td>   
+                  <td class="center"><a href="<?php echo url('admin/activity/order_amend',['rid'=>$vo['id']]); ?>"><i class="check icon-reorder">&nbsp;&nbsp;修改</i></a>
                   </td>
-                  <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
-                  </td>
-                  
                 </tr>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
               </tbody>

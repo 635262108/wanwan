@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:90:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\recharge_record.html";i:1508830892;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508829896;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:90:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\recharge_record.html";i:1508833190;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -39,12 +39,11 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">4</span></a>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
       <ul>
         <li><a href="<?php echo url('admin/user/index'); ?>">客户列表</a></li>
-        <li><a href="<?php echo url('admin/user/attendance'); ?>">会员考勤</a></li>
+        <li><a href="<?php echo url('admin/user/attendance'); ?>">签到概况</a></li>
         <li><a href="<?php echo url('admin/user/recharge_record'); ?>">充值记录</a></li>
-        <li><a href="#">待添加....</a></li>
       </ul>
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
@@ -58,15 +57,7 @@
         <li><a href="<?php echo url('admin/activity/leave_for'); ?>">请假列表</a></li>
       </ul>
     </li>
-      <li class="submenu">
-          <a href="#"><i class="icon-edit"></i>
-              <span>签到中心</span>
-              <span class="label label-important">1</span>
-          </a>
-          <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">签到概况</a></li>
-          </ul>
-      </li>
+
     <li class="submenu"> 
         <a href="#"><i class="icon icon-inbox"></i>
             <span>订单中心</span>
@@ -83,7 +74,7 @@
               <span class="label label-important">1</span>
           </a>
           <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">报名情况</a></li>
+              <li><a href="<?php echo url('admin/service/index'); ?>">报名情况</a></li>
           </ul>
       </li>
   <li class="submenu">
@@ -161,50 +152,6 @@
   	  </div>
   </div>
 </div>
-</div>
-<div class="modal_box hide">
-	<div class="modal_div">
-		<div class="cancel">X</div>
-		<table class="detail_information" border="1" style="width:700px ;height: 200px;font-size: 12px;">
-			<tr>
-				<td>用户id</td>
-				<td class="userId"></td>
-				<td>手机号</td>
-				<td class="phone"></td>
-				<td>昵称</td>
-				<td class="nickname"></td>
-			</tr>
-			<tr>
-				<td>状态</td>
-				<td class="normal"></td>
-				<td>注册时间</td>
-				<td class="start"></td>
-				<td>最后登录时间</td>
-				<td class="finsh"></td>
-			</tr>
-			<tr>
-				<td>生日</td>
-				<td class="birthday"></td>
-				<td>爱好</td>
-                                <td class="hobby"></td>
-				<td>所在省</td>
-				<td class="province"></td>
-			</tr>
-			<tr>
-				<td>所在市</td>
-				<td class="country"></td>
-				<td>所在区</td>
-				<td class="area"></td>
-				<td>详细地址</td>
-				<td class="address"></td>
-			</tr>
-                        <tr>
-				<td>个性签名</td>
-                                <td colspan="5" class="sign"></td>
-			</tr>
-			
-		</table>
-	</div>
 </div>
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>

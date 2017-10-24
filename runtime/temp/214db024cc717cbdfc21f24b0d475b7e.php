@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508829896;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html";i:1508838671;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -39,12 +39,11 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">4</span></a>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
       <ul>
         <li><a href="<?php echo url('admin/user/index'); ?>">客户列表</a></li>
-        <li><a href="<?php echo url('admin/user/attendance'); ?>">会员考勤</a></li>
+        <li><a href="<?php echo url('admin/user/attendance'); ?>">签到概况</a></li>
         <li><a href="<?php echo url('admin/user/recharge_record'); ?>">充值记录</a></li>
-        <li><a href="#">待添加....</a></li>
       </ul>
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
@@ -58,15 +57,7 @@
         <li><a href="<?php echo url('admin/activity/leave_for'); ?>">请假列表</a></li>
       </ul>
     </li>
-      <li class="submenu">
-          <a href="#"><i class="icon-edit"></i>
-              <span>签到中心</span>
-              <span class="label label-important">1</span>
-          </a>
-          <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">签到概况</a></li>
-          </ul>
-      </li>
+
     <li class="submenu"> 
         <a href="#"><i class="icon icon-inbox"></i>
             <span>订单中心</span>
@@ -83,7 +74,7 @@
               <span class="label label-important">1</span>
           </a>
           <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">报名情况</a></li>
+              <li><a href="<?php echo url('admin/service/index'); ?>">报名情况</a></li>
           </ul>
       </li>
   <li class="submenu">
@@ -115,9 +106,20 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/index'); ?>" class="tip-bottom">会员管理</a> 
-      	<a href="#" class="current">会员列表</a> 
+      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
+      	<a href="#" class="current">客户列表</a> 
   </div>
+  </div>
+  
+   <div class="add_order">
+  	 <a href="<?php echo url('admin/user/add_member'); ?>">
+        <div class="add" title="添加会员">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加会员
+          </span>
+        </div>
+     </a>
   </div>
 <div class="container-fluid">
   <div class="row-fluid">
@@ -135,9 +137,10 @@
                   <th>手机号</th>
                   <th>性别</th>
                   <th>状态</th>
-                  <th>注册时间</th>
-                  <th>最后登录时间</th>
+                  <th>加入时间</th>
                   <th>地址</th>
+                  <th>余额</th>
+                  <th>等级</th>
                   <th>操作</th>
                </tr>
               </thead>
@@ -162,11 +165,14 @@
                     <?php endif; ?>
                   </td>
                   <td><?php echo date('Y-m-d H:i:s',$vo['reg_time']); ?></td>
-                  <td><?php echo date('Y-m-d H:i:s',$vo['last_time']); ?></td>
                   <td><?php echo $vo['address']; ?></td>
-                  
-                  <td class="center"><i class="check icon-reorder">&nbsp;&nbsp;查看</i>
-                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>	
+                  <td></td>
+                  <td></td>
+                  <td class="center">
+                      <i class="check icon-reorder">&nbsp;&nbsp;查看</i>
+                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>
+                      <a href="<?php echo url('admin/user/Consumption_details','uid='.$vo['uid']); ?>"><i class="icon-edit">&nbsp;&nbsp;明细</i></a>
+                      <a href="<?php echo url('admin/user/recharge','uid='.$vo['uid']); ?>"><i class="icon-credit-card">&nbsp;&nbsp;充值</i></a>
                   </td>
                   
                 </tr>

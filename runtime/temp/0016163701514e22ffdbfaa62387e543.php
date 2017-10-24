@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\attendance.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\activity_comment.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -106,11 +106,10 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
+      	<a href="#" class="tip-bottom">活动管理</a> 
+      	<a href="#" class="current">评论列表</a> 
   </div>
   </div>
-
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
@@ -122,35 +121,24 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
-                  <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
+                  <th>id</th>
+                  <th>昵称</th>
+                  <th>活动名称</th>
+                  <th>内容</th>
+                  <th>评论时间</th>
                   <th>操作</th>
            </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                <?php if(is_array($comInfo) || $comInfo instanceof \think\Collection || $comInfo instanceof \think\Paginator): if( count($comInfo)==0 ) : echo "" ;else: foreach($comInfo as $key=>$vo): ?>
                 <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
-                  <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
-                  </td>
+                  <td><?php echo $vo['comment_id']; ?></td>
+                  <td><?php echo $vo['nickname']; ?></td>
+                  <td><?php echo $vo['a_title']; ?></td>
+                  <td><?php echo htmlentities($vo['content']); ?></td>
+                  <td><?php echo date('Y-m-d H:i:s',$vo['time']); ?></td>   
                   <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
+                        <i class="delete icon-pencil com_delete">&nbsp;&nbsp;删除</i>	
                   </td>
                   
                 </tr>
