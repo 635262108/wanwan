@@ -5,35 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/logic/UserLogic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/common/model/AdminUser.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/log/201710/18.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/log/201710/19.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/log/201710/20.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/0016163701514e22ffdbfaa62387e543.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/0751fa595728f3e1968a96e1dc84b03c.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/1390b1dc540675d0f7339faf62795950.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/17a155d9cf55392c0626f0419e85d650.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/17f9761ded606c3b125dbe17d64f06ef.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/1d3039b9eda93a6c666ad2b333820906.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/23f21a74751f3eab86eb981a390fcaff.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/2513916a3ed58e7351a56a37bdbdb90f.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/48cd0e51583f025d7d22fdbc02bd4ff7.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/5767e7a810289bf20386576b190fcf7b.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/5d506e35ddfb43dac2237f28b2662235.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/6bd50d9133eebc671ceac2070c21f3da.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/8f24f3364ce874f632de5a34aaff78e4.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/95903675283a8129730804bc3977bf90.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/cc66513baa91df0195e9b674f0ae6548.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/ce5514d8741d70c6f92ab011fd210575.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/d22efae7f8ccc380e3a8694eacfb8b46.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/f152de40a27ec4cb9aa7b444aae1a5f8.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/f3a4a27d979b11ec0a9c1d1bec2f8766.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/public/left.html" afterPath="$PROJECT_DIR$/application/admin/view/public/left.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/log/201710/23.log" afterPath="$PROJECT_DIR$/runtime/log/201710/23.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,8 +39,8 @@
       <file leaf-file-name="left.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/public/left.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="61" column="43" lean-forward="false" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+            <state relative-caret-position="453">
+              <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -213,7 +185,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -367,15 +339,15 @@
       <workItem from="1508379902340" duration="766000" />
       <workItem from="1508721534321" duration="11907000" />
       <workItem from="1508752317751" duration="1323000" />
-      <workItem from="1508825620638" duration="1272000" />
+      <workItem from="1508825620638" duration="1875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114676000" />
+    <option name="totallyTimeSpent" value="115279000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11770833" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -777,8 +749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/public/left.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="61" column="43" lean-forward="false" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+        <state relative-caret-position="453">
+          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
           <folding />
         </state>
       </provider>
