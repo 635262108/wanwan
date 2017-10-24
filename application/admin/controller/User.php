@@ -283,4 +283,19 @@ class User extends Base
     public function recharge_record(){
         return $this->fetch();
     }
+
+    //明细
+    public function  Consumption_details(){
+        return $this->fetch();
+    }
+
+    //充值
+    public function recharge(){
+        return $this->fetch();
+    }
+
+    //添加会员
+    public function add_member(){
+        return $this->fetch();
+    }
 }

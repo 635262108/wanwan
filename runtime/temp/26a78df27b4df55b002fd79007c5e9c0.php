@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\chuangzhixing\wanwan/application/admin\view\user\recharge_record.html";i:1508832240;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508832479;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\chuangzhixing\wanwan/application/admin\view\user\recharge_record.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -74,7 +74,7 @@
               <span class="label label-important">1</span>
           </a>
           <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">报名情况</a></li>
+              <li><a href="<?php echo url('admin/service/index'); ?>">报名情况</a></li>
           </ul>
       </li>
   <li class="submenu">
@@ -152,50 +152,6 @@
   	  </div>
   </div>
 </div>
-</div>
-<div class="modal_box hide">
-	<div class="modal_div">
-		<div class="cancel">X</div>
-		<table class="detail_information" border="1" style="width:700px ;height: 200px;font-size: 12px;">
-			<tr>
-				<td>用户id</td>
-				<td class="userId"></td>
-				<td>手机号</td>
-				<td class="phone"></td>
-				<td>昵称</td>
-				<td class="nickname"></td>
-			</tr>
-			<tr>
-				<td>状态</td>
-				<td class="normal"></td>
-				<td>注册时间</td>
-				<td class="start"></td>
-				<td>最后登录时间</td>
-				<td class="finsh"></td>
-			</tr>
-			<tr>
-				<td>生日</td>
-				<td class="birthday"></td>
-				<td>爱好</td>
-                                <td class="hobby"></td>
-				<td>所在省</td>
-				<td class="province"></td>
-			</tr>
-			<tr>
-				<td>所在市</td>
-				<td class="country"></td>
-				<td>所在区</td>
-				<td class="area"></td>
-				<td>详细地址</td>
-				<td class="address"></td>
-			</tr>
-                        <tr>
-				<td>个性签名</td>
-                                <td colspan="5" class="sign"></td>
-			</tr>
-			
-		</table>
-	</div>
 </div>
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>

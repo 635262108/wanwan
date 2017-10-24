@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508837507;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508833150;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508837945;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -74,7 +74,7 @@
               <span class="label label-important">1</span>
           </a>
           <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">活动工作</a></li>
+              <li><a href="<?php echo url('admin/service/index'); ?>">报名情况</a></li>
           </ul>
       </li>
   <li class="submenu">
@@ -109,6 +109,17 @@
       	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
       	<a href="#" class="current">客户列表</a> 
   </div>
+  </div>
+  
+   <div class="add_order">
+  	 <a href="<?php echo url('admin/activity/addActivityList'); ?>">
+        <div class="add" title="添加客户">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加会员
+          </span>
+        </div>
+     </a>
   </div>
 <div class="container-fluid">
   <div class="row-fluid">
