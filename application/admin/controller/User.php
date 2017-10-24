@@ -277,5 +277,10 @@ class User extends Base
         header('Content-Disposition:attachment;filename="'.$filename.'.xls"');  
         header("Content-Transfer-Encoding:binary");  
         $objWriter->save('php://output');  
-    }      
+    }
+
+    //充值记录
+    public function recharge_record(){
+        $this->fetch();
+    }
 }

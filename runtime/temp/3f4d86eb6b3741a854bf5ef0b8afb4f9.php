@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508826482;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508828364;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -58,7 +58,7 @@
       </ul>
     </li>
       <li class="submenu">
-          <a href="#"><i class="icon icon-inbox"></i>
+          <a href="#"><i class="icon-edit"></i>
               <span>签到中心</span>
               <span class="label label-important">1</span>
           </a>
@@ -77,7 +77,7 @@
        </ul>
    </li>
       <li class="submenu">
-          <a href="#"><i class="icon icon-inbox"></i>
+          <a href="#"><i class="icon-headphones"></i>
               <span>客服中心</span>
               <span class="label label-important">1</span>
           </a>
@@ -91,13 +91,13 @@
           <span class="label label-important">3</span>
       </a>
       <ul style="display: none;">
-          <li><a href="<?php echo url('admin/activity/order'); ?>">管理员管理</a></li>
+          <li><a href="#">管理员管理</a></li>
           <li><a href="<?php echo url('admin/activity/refund'); ?>">角色列表</a></li>
           <li><a href="<?php echo url('admin/activity/refund'); ?>">管理员日志</a></li>
       </ul>
   </li>
   <li class="submenu">
-      <a href="#"><i class="icon-bell"></i>
+      <a href="#"><i class="icon-align-left"></i>
           <span>统计中心</span>
           <span class="label label-important">3</span>
       </a>

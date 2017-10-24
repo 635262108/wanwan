@@ -746,3 +746,87 @@
                     ) attendance
                 FROM
                     mfw_activity AS a [ RunTime:0.046800s ]
+---------------------------------------------------------------
+[ 2017-10-24T15:04:35+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.358800s][吞吐率：2.79req/s] [内存消耗：2,142.76kb] [文件加载：45]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=lh6u4kam8m09up5qh8sqij9j25',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/attendance.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\chuangzhixing\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.171600s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.062400s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.062400s ]
+---------------------------------------------------------------
+[ 2017-10-24T15:14:00+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.187200s][吞吐率：5.34req/s] [内存消耗：2,002.98kb] [文件加载：43]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=lh6u4kam8m09up5qh8sqij9j25',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/attendance.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\chuangzhixing\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046800s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.046800s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.046800s ]
