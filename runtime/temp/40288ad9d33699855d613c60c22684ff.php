@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\attendance.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508833150;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\chuangzhixing\wanwan/application/admin\view\activity\activityType.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508833150;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -106,11 +106,22 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
+      	<a href="#" class="tip-bottom">活动管理</a> 
+      	<a href="#" class="current">活动分类</a> 
   </div>
   </div>
-
+<!--添加开始部分-->
+  <div class="add_order">
+  	 <a href="<?php echo url('admin/activity/addTypeList'); ?>">
+        <div class="add" title="添加分类">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加分类
+          </span>
+        </div>
+     </a>
+  </div>
+  <!--添加结束部分-->
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
@@ -122,37 +133,24 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
-                  <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
-                  <th>操作</th>
-           </tr>
+                    <th>分类id</th>
+                    <th>名称</th>
+                    <th>排序</th>
+                    <th>操作</th>
+                </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                <?php if(is_array($typeInfo) || $typeInfo instanceof \think\Collection || $typeInfo instanceof \think\Paginator): if( count($typeInfo)==0 ) : echo "" ;else: foreach($typeInfo as $key=>$vo): ?>
                 <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
-                  <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
-                  </td>
-                  <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
-                  </td>
-                  
+                    <td><?php echo $vo['id']; ?></td>
+                    <td><?php echo $vo['name']; ?></td>
+                    <td><?php echo $vo['sort']; ?></td>
+                    <td>
+                        <a href="<?php echo url('admin/activity/activityTypeSon',['fid'=>$vo['id']]); ?>"><i class="icon-search">&nbsp;&nbsp;下级分类</i></a>
+                        <a href="<?php echo url('admin/activity/saveTypeList',['tid'=>$vo['id']]); ?>"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+                        <a href="#"><i class="delete icon-pencil classfy_delete">&nbsp;&nbsp;删除</i></a>
+                    </td>
+
                 </tr>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
               </tbody>
@@ -175,6 +173,4 @@
 <script src="__AJS__/matrix.js"></script> 
 <script src="__AJS__/matrix.tables.js"></script>
 <script src="__AJS__/operat_table.js"></script>
-</body>
 </html>
-

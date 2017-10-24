@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\attendance.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508833150;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508837507;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508833150;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -106,51 +106,62 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
+      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
+      	<a href="#" class="current">客户列表</a> 
   </div>
   </div>
-
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
   	  	        <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
+            <h5>会员列表</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
-                  <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
+                  <th>用户id</th>
+                  <th>昵称</th>
+                  <th>手机号</th>
+                  <th>性别</th>
+                  <th>状态</th>
+                  <th>加入时间</th>
+                  <th>地址</th>
+                  <th>余额</th>
+                  <th>等级</th>
                   <th>操作</th>
-           </tr>
+               </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
-                <tr class="gradeX trs">
-                  <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
-                  <td><?php echo $vo['a_num']; ?></td>
-                  <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                <?php if(is_array($userInfo) || $userInfo instanceof \think\Collection || $userInfo instanceof \think\Paginator): if( count($userInfo)==0 ) : echo "" ;else: foreach($userInfo as $key=>$vo): ?>
+                <tr>
+                  <td><?php echo $vo['uid']; ?></td>
+                  <td><?php echo $vo['nickname']; ?></td>
+                  <td><?php echo $vo['mobile']; ?></td>
                   <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
+                    <?php if($vo['sex'] == 1): ?>
+                      男
+                    <?php else: ?>
+                      女
+                    <?php endif; ?>
                   </td>
+                  <td>
+                    <?php if($vo['status'] == 1): ?>
+                      正常
+                    <?php else: ?>
+                      被禁
+                    <?php endif; ?>
+                  </td>
+                  <td><?php echo date('Y-m-d H:i:s',$vo['reg_time']); ?></td>
+                  <td><?php echo $vo['address']; ?></td>
+                  <td></td>
+                  <td></td>
                   <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
+                      <i class="check icon-reorder">&nbsp;&nbsp;查看</i>
+                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>
+                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="icon-edit">&nbsp;&nbsp;明细</i></a>
+                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="icon-credit-card">&nbsp;&nbsp;充值</i></a>
                   </td>
                   
                 </tr>
@@ -162,6 +173,50 @@
   	  </div>
   </div>
 </div>
+</div>
+<div class="modal_box hide">
+	<div class="modal_div">
+		<div class="cancel">X</div>
+		<table class="detail_information" border="1" style="width:700px ;height: 200px;font-size: 12px;">
+			<tr>
+				<td>用户id</td>
+				<td class="userId"></td>
+				<td>手机号</td>
+				<td class="phone"></td>
+				<td>昵称</td>
+				<td class="nickname"></td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td class="normal"></td>
+				<td>注册时间</td>
+				<td class="start"></td>
+				<td>最后登录时间</td>
+				<td class="finsh"></td>
+			</tr>
+			<tr>
+				<td>生日</td>
+				<td class="birthday"></td>
+				<td>爱好</td>
+                                <td class="hobby"></td>
+				<td>所在省</td>
+				<td class="province"></td>
+			</tr>
+			<tr>
+				<td>所在市</td>
+				<td class="country"></td>
+				<td>所在区</td>
+				<td class="area"></td>
+				<td>详细地址</td>
+				<td class="address"></td>
+			</tr>
+                        <tr>
+				<td>个性签名</td>
+                                <td colspan="5" class="sign"></td>
+			</tr>
+			
+		</table>
+	</div>
 </div>
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
@@ -175,6 +230,4 @@
 <script src="__AJS__/matrix.js"></script> 
 <script src="__AJS__/matrix.tables.js"></script>
 <script src="__AJS__/operat_table.js"></script>
-</body>
 </html>
-

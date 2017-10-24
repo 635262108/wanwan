@@ -47,7 +47,13 @@
                   <td>{$vo.mobile}</td>  
                   <td>{$vo.adult_num}</td>
                   <td>{$vo.child_num}</td>
-                  <td>{$vo.sign_time|date='Y.m.d H:i',###}</td>
+                  <td>
+                      {if condition='$vo.sign_time eq 0'}
+                      未参加
+                      {else/}
+                      {$vo.sign_time|date='Y.m.d H:i',###}
+                      {/if}
+                      </td>
                   <td>
                       {switch name="vo.order_status"}
                         {case value="1|4"}已参加{/case}
