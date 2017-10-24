@@ -1158,6 +1158,9 @@ form {
 .form-horizontal .form-actions {
 	margin-top: 0;
 	margin-bottom: 0;
+	padding-left: 26%;
+	box-sizing: border-box;
+	
 }
 .help-block, .help-inline {
 	color: #999999;

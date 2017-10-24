@@ -10492,3 +10492,773 @@
 [ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\recharge.html [ array (
 ) ]
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-24T19:21:23+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/recharge/uid/95.html
+[ info ] www.chuangzhixing.com/abab.php/user/recharge/uid/95.html [运行时间：0.035000s][吞吐率：28.57req/s] [内存消耗：1,397.76kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'recharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '95',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->recharge[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\recharge.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-24T19:21:44+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/recharge/uid/95.html
+[ info ] www.chuangzhixing.com/abab.php/user/recharge/uid/95.html [运行时间：0.039000s][吞吐率：25.64req/s] [内存消耗：1,397.76kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'recharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '95',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->recharge[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\recharge.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-24T19:21:48+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.387000s][吞吐率：2.58req/s] [内存消耗：2,536.67kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/recharge/uid/95.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.139000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.090000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.079000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:21:54+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/add_member.html
+[ info ] www.chuangzhixing.com/abab.php/user/add_member.html [运行时间：0.052600s][吞吐率：19.01req/s] [内存消耗：1,397.30kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'add_member',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->add_member[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\add_member.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-24T19:21:59+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.391000s][吞吐率：2.56req/s] [内存消耗：2,536.67kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/recharge/uid/95.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.191000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.067000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.065000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:05+08:00 ] 127.0.0.1 127.0.0.1 POST /abab.php/user/getUserInfo
+[ info ] www.chuangzhixing.com/abab.php/user/getUserInfo [运行时间：0.879800s][吞吐率：1.14req/s] [内存消耗：2,403.63kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'getUserInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'content-length' => '6',
+  'accept' => '*/*',
+  'origin' => 'http://www.chuangzhixing.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '95',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->getUserInfo[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.207800s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.062400s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 95 LIMIT 1 [ RunTime:0.062400s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_region` [ RunTime:0.153400s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.078000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `id` = 149 LIMIT 1 [ RunTime:0.131800s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `id` = 1251 LIMIT 1 [ RunTime:0.140400s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:08+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/saveuserlist/uid/95.html
+[ info ] www.chuangzhixing.com/abab.php/user/saveuserlist/uid/95.html [运行时间：0.652600s][吞吐率：1.53req/s] [内存消耗：2,649.03kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'saveuserlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '95',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->saveUserList[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\saveuserlist.html [ array (
+  0 => 'provinces',
+  1 => 'citys',
+  2 => 'districts',
+  3 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.110000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.078000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 95 LIMIT 1 [ RunTime:0.072000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_region` [ RunTime:0.074000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `level` = 1 [ RunTime:0.073000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `parent_id` = 11 [ RunTime:0.074000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `parent_id` = 149 [ RunTime:0.089000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:08+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/saveuserlist/uid/img/right.png
+[ info ] www.chuangzhixing.com/abab.php/user/saveuserlist/uid/img/right.png [运行时间：0.504000s][吞吐率：1.98req/s] [内存消耗：2,461.10kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'saveuserlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/saveuserlist/uid/95.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => 'img',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->saveUserList[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.087000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.057000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 0 LIMIT 1 [ RunTime:0.066000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_region` [ RunTime:0.059000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `level` = 1 [ RunTime:0.057000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `parent_id` = null [ RunTime:0.059000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `parent_id` = null [ RunTime:0.060000s ]
+[ error ] [8]未定义数组索引: last_time[D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php:88]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:17+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.326000s][吞吐率：3.07req/s] [内存消耗：2,536.67kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/recharge/uid/95.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.103000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.070000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.071000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:25+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/activity/index.html
+[ info ] www.chuangzhixing.com/abab.php/activity/index.html [运行时间：0.303000s][吞吐率：3.30req/s] [内存消耗：2,635.86kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Activity->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\Activity.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\index.html [ array (
+  0 => 'ActivityInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.084000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.058000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc [ RunTime:0.084000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:27+08:00 ] 127.0.0.1 127.0.0.1 POST /abab.php/user/getUserInfo
+[ info ] www.chuangzhixing.com/abab.php/user/getUserInfo [运行时间：0.489000s][吞吐率：2.04req/s] [内存消耗：2,461.32kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'getUserInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'content-length' => '8',
+  'accept' => '*/*',
+  'origin' => 'http://www.chuangzhixing.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/activity/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => 'null',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->getUserInfo[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.085000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.055000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 0 LIMIT 1 [ RunTime:0.054000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_region` [ RunTime:0.056000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.060000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.056000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_region` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.059000s ]
+[ error ] [8]未定义数组索引: last_time[D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php:57]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:27+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/activity/saveactivitylist/aid/30.html
+[ info ] www.chuangzhixing.com/abab.php/activity/saveactivitylist/aid/30.html [运行时间：0.825000s][吞吐率：1.21req/s] [内存消耗：2,570.94kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'activity',
+    2 => 'saveactivitylist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/activity/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '30',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Activity->saveActivityList[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\Activity.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\saveactivitylist.html [ array (
+  0 => 'titleSon',
+  1 => 'title',
+  2 => 'fidInfo',
+  3 => 'ActivityInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.060000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.039000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` WHERE  `aid` = 30 LIMIT 1 [ RunTime:0.040000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.039000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.040000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `id` = 31 LIMIT 1 [ RunTime:0.040000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 26 ORDER BY sort asc [ RunTime:0.040000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:34+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/activity/index.html
+[ info ] www.chuangzhixing.com/abab.php/activity/index.html [运行时间：0.357000s][吞吐率：2.80req/s] [内存消耗：2,635.86kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Activity->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\Activity.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\index.html [ array (
+  0 => 'ActivityInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.113000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.077000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc [ RunTime:0.113000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:38+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.271000s][吞吐率：3.69req/s] [内存消耗：2,536.66kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/activity/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.122000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.037000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.037000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:47+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/add_member.html
+[ info ] www.chuangzhixing.com/abab.php/user/add_member.html [运行时间：0.045000s][吞吐率：22.22req/s] [内存消耗：1,397.30kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'add_member',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->add_member[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\add_member.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-24T19:22:50+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/index.html
+[ info ] www.chuangzhixing.com/abab.php/user/index.html [运行时间：0.302000s][吞吐率：3.31req/s] [内存消耗：2,536.66kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/activity/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\index.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.103000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.075000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` ORDER BY uid desc [ RunTime:0.066000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:54+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/activity/index.html
+[ info ] www.chuangzhixing.com/abab.php/activity/index.html [运行时间：0.355000s][吞吐率：2.82req/s] [内存消耗：2,635.86kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Activity->index[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\Activity.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\index.html [ array (
+  0 => 'ActivityInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.107000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.070000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc [ RunTime:0.102000s ]
+---------------------------------------------------------------
+[ 2017-10-24T19:22:57+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/activity/addactivitylist.html
+[ info ] www.chuangzhixing.com/abab.php/activity/addactivitylist.html [运行时间：0.249000s][吞吐率：4.02req/s] [内存消耗：2,485.62kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'activity',
+    2 => 'addactivitylist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chuangzhixing.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/activity/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=2gkn61pu4iajgg22g1uikjf4d1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Activity->addActivityList[ D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan\application\admin\controller\Activity.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\addactivitylist.html [ array (
+  0 => 'fidInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.061000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.040000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.041000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.038000s ]
