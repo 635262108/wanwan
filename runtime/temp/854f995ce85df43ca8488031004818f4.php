@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:88:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\leave_for.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\chuangzhixing\wanwan/application/admin\view\activity\order.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508722551;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -67,6 +67,17 @@
         <li><a href="<?php echo url('admin/activity/refund'); ?>">退款列表</a></li>
        </ul>
    </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-bell"></i>
+          <span>权限中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="<?php echo url('admin/activity/order'); ?>">管理员管理</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">角色列表</a></li>
+          <li><a href="<?php echo url('admin/activity/refund'); ?>">管理员日志</a></li>
+      </ul>
+  </li>
   </ul>
 </div>
 <div id="content">
@@ -74,8 +85,8 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="#" class="tip-bottom">活动管理</a> 
-      	<a href="#" class="current">請假</a> 
+      	<a href="#" class="tip-bottom">订单管理</a> 
+      	<a href="#" class="current">订单列表</a> 
   </div>
   </div>
 <div class="container-fluid">
@@ -89,21 +100,37 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                    <th>请假人</th>
-                    <th>请假人手机</th>
-                    <th>活动标题</th>
-                    <th>原因</th>
-                    <th>提交时间</th>
+                    <th>订单号</th>
+                    <th style="width: 200px;">商品信息</th>
+                    <th>提交人</th>
+                    <th>手机号</th>
+                    <th>大人数量</th>
+                    <th>小孩数量</th>
+                    <th>总金额</th>
+                    <th>支付方式</th>
+                    <th>订单状态</th>
+                    <th>订单提交时间</th>
                  </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
-                <?php if(is_array($leaInfo) || $leaInfo instanceof \think\Collection || $leaInfo instanceof \think\Paginator): if( count($leaInfo)==0 ) : echo "" ;else: foreach($leaInfo as $key=>$vo): ?>
+                <?php if(is_array($orderInfo) || $orderInfo instanceof \think\Collection || $orderInfo instanceof \think\Paginator): if( count($orderInfo)==0 ) : echo "" ;else: foreach($orderInfo as $key=>$vo): ?>
                 <tr class="gradeX trs">
-                  <td><?php echo $vo['nickname']; ?></td>
+                  <td><?php echo $vo['order_sn']; ?></td>
+                  <td><?php echo subtext($vo['a_title'],17); ?></td>
+                  <td><?php echo $vo['name']; ?></td>
                   <td><?php echo $vo['mobile']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>
-                  <td><?php echo $vo['reason']; ?></td>
-                  <td><?php echo date("Y-m-d H:i:s",$vo['time']); ?></td>  
+                  <td><?php echo $vo['adult_num']; ?></td>
+                  <td><?php echo $vo['child_num']; ?></td>
+                  <td><?php echo $vo['order_price']; ?></td>
+                  <td>
+                      <?php switch($vo['pay_way']): case "1": ?>支付宝<?php break; case "2": ?>微信<?php break; endswitch; ?>
+                  </td>
+                  <td>
+                        <?php switch($vo['order_status']): case "1": ?>已完成<?php break; case "2": ?>未付款<?php break; case "3": ?>已付款<?php break; case "4": ?>已付款<?php break; case "5": ?>退款中<?php break; case "6": ?>已退款<?php break; case "7": ?>已请假<?php break; endswitch; ?>
+                  </td> 
+                  <td>
+                    <?php echo date("Y-m-d H:i",$vo['addtime']); ?>
+                  </td>
                 </tr>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
               </tbody>
