@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"D:\chuangzhixing\wanwan/application/mobile\view\activity\index.html";i:1508752767;s:73:"D:\chuangzhixing\wanwan/application/mobile\view\public\second_header.html";i:1508840840;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"D:\chuangzhixing\wanwan/application/mobile\view\activity\index.html";i:1508893222;s:73:"D:\chuangzhixing\wanwan/application/mobile\view\public\second_header.html";i:1508840840;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,11 +69,11 @@
   	    	 	 	</span>
                         <ul>
                             <li>活动介绍：<?php echo subtext($v['a_remark'],'10'); ?></li>
-                            <li>活动时间：2017.09.28-2-17.10.29</li>
-                            <li>活动地点：郑州市金水区啦啦啦啦</li>
+                            <li>活动时间：<?php echo date('Y.m.d',$v['a_begin_time']); ?>-<?php echo date('Y.m.d',$v['a_end_time']); ?></li>
+                            <li>活动地点：<?php echo $v['a_address']; ?></li>
        
                         </ul>
-                         <div class="content_bottom"><span>￥0.01</span><a href="javascript:;">点我报名>></a></div>
+                         <div class="content_bottom"><span>￥<?php echo $v['a_price']; ?></span><a href="javascript:;">点我报名>></a></div>
                     </div>
                 </div>
             </a>

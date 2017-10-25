@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"D:\chuangzhixing\wanwan/application/mobile\view\activity\new_activity.html";i:1508842936;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/mobile\view\public\nav.html";i:1508725403;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"D:\chuangzhixing\wanwan/application/mobile\view\activity\new_activity.html";i:1508893672;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/mobile\view\public\nav.html";i:1508725403;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -74,11 +74,11 @@ and open the template in the editor.
   	    	 	 	</span>
                         <ul>
                             <li>活动介绍：<?php echo subtext($vo['a_remark'],'15'); ?></li>
-                            <li>活动时间：2017.09.28-2-17.10.29</li>
-                            <li>活动地点：郑州市金水区啦啦啦啦</li>
+                            <li>活动时间：<?php echo date('Y.m.d',$vo['a_begin_time']); ?>-<?php echo date('Y.m.d',$vo['a_end_time']); ?></li>
+                            <li>活动地点：<?php echo $vo['a_address']; ?></li>
                            
                         </ul>
-                         <div class="content_bottom"><span>￥0.01</span><a href="javascript:;">点我报名>></a></div>
+                         <div class="content_bottom"><span>￥<?php echo $vo['a_price']; ?></span><a href="javascript:;">点我报名>></a></div>
                     </div>
                 </div>
             </a>
