@@ -8338,3 +8338,150 @@
 [ sql ] [ SQL ] SELECT `o`.`order_sn`,`o`.`addtime`,`o`.`order_price`,`o`.`order_status`,`o`.`adult_num`,`o`.`child_num`,`a`.`aid`,`a`.`a_index_img`,`a`.`a_title`,`a`.`a_begin_time`,`a`.`a_end_time` FROM `mfw_activity_order` `o` INNER JOIN `mfw_activity` `a` ON `o`.`aid`=`a`.`aid` WHERE  `uid` = 95 ORDER BY o.order_id desc [ RunTime:0.052000s ]
 [ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.041000s ]
 [ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` `c` INNER JOIN `mfw_activity` `a` ON `a`.`aid`=`c`.`aid` WHERE  `c`.`uid` = 95 [ RunTime:0.045000s ]
+---------------------------------------------------------------
+[ 2017-10-25T11:06:46+08:00 ] 127.0.0.1 127.0.0.1 GET /abab.php/user/recharge/uid/95.html
+[ info ] www.chuangzhixing.com/abab.php/user/recharge/uid/95.html [运行时间：0.192000s][吞吐率：5.21req/s] [内存消耗：2,076.21kb] [文件加载：45]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'recharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ags85tupcs4ok6ve1lu0eidh30',
+  'referer' => 'http://www.chuangzhixing.com/abab.php/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '95',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\User->recharge[ D:\chuangzhixing\wanwan\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/admin\view\user\recharge.html [ array (
+  0 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.062000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.043000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 95 LIMIT 1 [ RunTime:0.037000s ]
+---------------------------------------------------------------
+[ 2017-10-25T11:08:00+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/activity/creat_order/order_sn/201710131714453095.html
+[ info ] www.chuangzhixing.com/mobile/activity/creat_order/order_sn/201710131714453095.html [运行时间：0.283000s][吞吐率：3.53req/s] [内存消耗：2,193.10kb] [文件加载：49]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'creat_order',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ags85tupcs4ok6ve1lu0eidh30',
+  'referer' => 'http://www.chuangzhixing.com/mobile/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+  'order_sn' => '201710131714453095',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->creat_order[ D:\chuangzhixing\wanwan\application\mobile\controller\Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/mobile\view\activity\select_pay.html [ array (
+  0 => 'title',
+  1 => 'order_sn',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.061000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.049000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.041000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_order` [ RunTime:0.039000s ]
+[ sql ] [ SQL ] SELECT `aid`,`uid`,`adult_num`,`child_num`,`order_price` FROM `mfw_activity_order` WHERE  `order_sn` = '201710131714453095' LIMIT 1 [ RunTime:0.041000s ]
+---------------------------------------------------------------
+[ 2017-10-25T11:08:07+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/user/index.html
+[ info ] www.chuangzhixing.com/mobile/user/index.html [运行时间：0.765000s][吞吐率：1.31req/s] [内存消耗：2,383.27kb] [文件加载：50]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=ags85tupcs4ok6ve1lu0eidh30',
+  'referer' => 'http://www.chuangzhixing.com/mobile/activity/creat_order/order_sn/201710131714453095.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mobile\controller\User->index[ D:\chuangzhixing\wanwan\application\mobile\controller\User.php ]
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/mobile\view\user\index.html [ array (
+  0 => 'title',
+  1 => 'myCollection',
+  2 => 'notPay',
+  3 => 'havePay',
+  4 => 'notEvaluate',
+  5 => 'afterSale',
+  6 => 'myOrderData',
+  7 => 'userInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.091000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.056000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.061000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.063000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 95 LIMIT 1 [ RunTime:0.063000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_message` [ RunTime:0.056000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `mfw_message` WHERE  `uid` = 95  AND `status` = 0 LIMIT 1 [ RunTime:0.058000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_order` [ RunTime:0.063000s ]
+[ sql ] [ SQL ] SELECT `o`.`order_sn`,`o`.`addtime`,`o`.`order_price`,`o`.`order_status`,`o`.`adult_num`,`o`.`child_num`,`a`.`aid`,`a`.`a_index_img`,`a`.`a_title`,`a`.`a_begin_time`,`a`.`a_end_time` FROM `mfw_activity_order` `o` INNER JOIN `mfw_activity` `a` ON `o`.`aid`=`a`.`aid` WHERE  `uid` = 95 ORDER BY o.order_id desc [ RunTime:0.062000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.063000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` `c` INNER JOIN `mfw_activity` `a` ON `a`.`aid`=`c`.`aid` WHERE  `c`.`uid` = 95 [ RunTime:0.059000s ]

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:65:"D:\chuangzhixing\wanwan/application/admin\view\user\recharge.html";i:1508843523;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:65:"D:\chuangzhixing\wanwan/application/admin\view\user\recharge.html";i:1508900805;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,7 +124,7 @@
 								<div class="control-group">
 									<label class="control-label">会员名称</label>
 									<div class="controls">
-										<input class="span11" value='' name="UserName" type="text" style="width: 32%;" readonly>
+										<input class="span11" value='<?php echo $userInfo['nickname']; ?>' name="UserName" type="text" style="width: 32%;" readonly>
 									</div>
 								</div>
 								<div class="control-group">

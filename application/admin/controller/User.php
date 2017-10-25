@@ -7,15 +7,6 @@ use app\admin\Logic\UserLogic;
 class User extends Base
 {
 
-    protected $region;
-    protected $user;
-    public function _initialize() {
-        parent::_initialize();
-
-        $this->region = model('region');
-        $this->user = model('user');
-    }
-
     //登录
     public function login(){
         // 检测是否为ajax请求
@@ -289,6 +280,7 @@ class User extends Base
 
     //充值记录
     public function recharge_record(){
+
         return $this->fetch();
     }
 
@@ -298,7 +290,10 @@ class User extends Base
     }
 
     //充值
-    public function recharge(){
+    public function recharge($uid){
+        $user = model('user');
+        $userInfo = $user->getIdUser($uid);
+        $this->assign('userInfo',$userInfo);
         return $this->fetch();
     }
 
@@ -334,9 +329,10 @@ class User extends Base
             }
         }else{
             //获取所有的省市区
-            $provinces = $this->region->getAnyLevelData(1);
-            $citys = $this->region->getSonData(2);
-            $districts = $this->region->getSonData(3);
+            $region = model('region');
+            $provinces = $region->getAnyLevelData(1);
+            $citys = $region->getSonData(2);
+            $districts = $region->getSonData(3);
 
             $this->assign('provinces',$provinces);
             $this->assign('citys',$citys);
