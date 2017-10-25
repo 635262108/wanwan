@@ -4,8 +4,8 @@
         <div id="content-header">
                 <div id="breadcrumb">
                         <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
-                        <a href="{:url('admin/activity/specification')}" class="tip-bottom">规格列表</a>
-                        <a href="#" class="current">添加规格</a>
+                        <a href="{:url('admin/activity/extension')}" class="tip-bottom">扩展列表</a>
+                        <a href="#" class="current">修改扩展</a>
                 </div>
         </div>
 
@@ -13,32 +13,45 @@
             <div class="span6" style="margin-left: 0">
                         <div class="widget-box" style="width: 180%;">
                                 <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                                        <h5>添加</h5>
+                                        <h5>修改</h5>
                                 </div>
                                 <div class="widget-content nopadding">
-                                        <form action="{:url('admin/activity/addSpe')}" enctype="multipart/form-data" method="post" class="form-horizontal" name="quitPay_form">
+                                        <form action="{:url('admin/activity/updataExtension')}" enctype="multipart/form-data" method="post" class="form-horizontal" name="quitPay_form">
+                                                <input type="hidden" name="id" value="{$extInfo.extension_id}"/>
                                                 <div class="control-group">
                                                     <label class="control-label">活动标题：</label>
                                                     <div class="controls">
-                                                        <select name="aid">
-                                                            {foreach name="ActivityInfo" item="vo"}
-                                                                <option value="{$vo.aid}">{$vo.a_title}</option>
-                                                            {/foreach}
-                                                        </select>
+                                                            <input class="span11" value="{$extInfo.a_title}" readonly type="text">
                                                     </div>
                                                 </div>
                                                 <div class="control-group">
-                                                    <label class="control-label">规格内容：</label>
+                                                    <label class="control-label">扩展标题：</label>
                                                     <div class="controls">
-                                                            <input class="span11" value="" name="content" type="text">
+                                                            <input class="span11" value="{$extInfo.extension_title}" name="title" type="text">
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="control-group">
-                                                    <label class="control-label">规格数量：</label>
+                                                    <label class="control-label">扩展描述：</label>
                                                     <div class="controls">
-                                                         <input class="span11" value="" placeholder="整数" name="num" type="text">
+                                                         <textarea class="span11" name="remark">{$extInfo.extension_remark}</textarea>
                                                     </div>
+                                                </div>
+                                                
+                                                <div class="control-group">
+                                                    <label class="control-label">扩展图</label>
+                                                    <div class="controls">
+                                                        <input type="file"  name="img"/>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="control-group">
+                                                    <label class="control-label">活动详情</label>
+                                                    <textarea id="editor" name="content" style="width:780px;height:500px;margin-left: 15px;display: inline-block;z-index: 0">
+                                                        {$extInfo.extension_content}
+                                                    </textarea>
+                                                    <!--<script id="editor" type="text/plain" name="content" style="width:780px;height:500px;margin-left: 15px;display: inline-block;z-index: 0"></script>-->
+
                                                 </div>
 
                                             <div class="form-actions" style="text-align: center">

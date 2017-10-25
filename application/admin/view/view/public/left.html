@@ -1,0 +1,33 @@
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul style="display: block;">
+    <li class="active"><a href="{url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a></li>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>会员管理</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="{:url('admin/user/index')}">会员列表</a></li>
+        <li><a href="#">待添加....</a></li>
+        <li><a href="#">待添加....</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动管理</span> <span class="label label-important">7</span></a>
+      <ul>
+        <li ><a href="{:url('admin/activity/index')}">活动列表</a></li>
+        <li><a href="{:url('admin/activity/activityType')}">活动分类</a></li>
+        <li><a href="{:url('admin/activity/extension')}">活动扩展</a></li>
+        <li><a href="{:url('admin/activity/specification')}">活动规格</a></li>
+        <li><a href="{:url('admin/activity/activity_ask')}">活动提问</a></li>
+        <li><a href="{:url('admin/activity/activity_comment')}">评论列表</a></li>
+        <li><a href="{:url('admin/activity/leave_for')}">请假列表</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> 
+        <a href="#"><i class="icon icon-inbox"></i>
+            <span>订单管理</span>
+            <span class="label label-important">2</span>
+        </a>
+    	<ul style="display: none;">
+        <li><a href="{:url('admin/activity/order')}">订单列表</a></li>
+        <li><a href="{:url('admin/activity/refund')}">退款列表</a></li>
+       </ul>
+   </li>
+  </ul>
+</div>
