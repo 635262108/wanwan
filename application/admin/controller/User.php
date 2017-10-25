@@ -2,12 +2,20 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Session;
-use think\Request;
-use think\Cache;
-
+use app\admin\Logic\UserLogic;
 
 class User extends Base
-{    
+{
+
+    protected $region;
+    protected $user;
+    public function _initialize() {
+        parent::_initialize();
+
+        $this->region = model('region');
+        $this->user = model('user');
+    }
+
     //登录
     public function login(){
         // 检测是否为ajax请求
@@ -296,6 +304,45 @@ class User extends Base
 
     //添加会员
     public function add_member(){
-        return $this->fetch();
+        if(request()->ispost()){
+            //昵称
+            $data['nickname'] = input('post.nickname');
+            //手机号
+            $data['mobile'] = input('post.mobile');
+            //密码
+            $data['password'] = input('post.password');
+            //性别
+            $data['sex'] = input('post.sex');
+            //省
+            $data['province'] = input('post.province');
+            //市
+            $data['city'] = input('post.city');
+            //区
+            $data['district'] = input('post.district');
+            //详细地址
+            $data['address'] = input('post.address');
+            //生日
+            $data['birthday'] = time(input('post.birthday'));
+            //余额
+            $data['balance'] = input('post.balance');
+            $model = new UserLogic();
+            $result = $model->addUser($data);
+            if($result['status'] == 200){
+                $this->success('添加成功','user/index');
+            }else{
+                $this->error($result['msg']);
+            }
+        }else{
+            //获取所有的省市区
+            $provinces = $this->region->getAnyLevelData(1);
+            $citys = $this->region->getSonData(2);
+            $districts = $this->region->getSonData(3);
+
+            $this->assign('provinces',$provinces);
+            $this->assign('citys',$citys);
+            $this->assign('districts',$districts);
+            return $this->fetch();
+        }
+
     }
 }

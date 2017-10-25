@@ -71,6 +71,7 @@ class Activity extends Base
         $this->assign('collections',$collections);
         $this->assign('banner',$banner);
         $this->assign('titleInfo',$titleInfo);
+        $this->assign('title',$titleInfo['name']);
         $this->assign('result',$result);
     	$this->assign('titleSon',$titleSon);
     	return $this->fetch();
@@ -139,6 +140,7 @@ class Activity extends Base
         $ActivityComments = model('ActivityComments');
     	$comInfo = $ActivityComments->getActivityComment($aid);
         $this->assign('comInfo',$comInfo);
+        $this->assign('title','评论列表');
         return $this->fetch();
     }
 
@@ -185,6 +187,7 @@ class Activity extends Base
             $this->assign('child_num',$child_num);
             $this->assign('price',$price);
             $this->assign('timeInfo',$timeInfo);
+            $this->assign('title','订单填写');
             return $this->fetch();
         }else{
             $this->error("本活动报名已满");
@@ -304,6 +307,7 @@ class Activity extends Base
                     
                     $this->assign('order',$order);
                     $this->assign('activityInfo',$activityInfo);
+                    $this->assign('title','报名成功');
                     return $this->fetch('activity/pay_success');
                 }
                 
@@ -353,7 +357,7 @@ class Activity extends Base
             }
             $this->assign('order_sn',$order_sn);
         }
-        
+        $this->assign('title','选择支付');
         return $this->fetch('activity/select_pay');
     }
        
@@ -394,6 +398,7 @@ class Activity extends Base
         $this->assign('jsApiParameters', $jsApiParameters);
         $this->assign('order', $order);
         $this->assign('activityInfo', $activityInfo);
+        $this->assign('title','微信支付');
         return $this->fetch('activity/wx_cli_pay');
     }
     
@@ -654,6 +659,7 @@ class Activity extends Base
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
+            $this->assign('title','支付成功');
             $this->assign('order',$order);
             return $this->fetch();
         }else{
@@ -769,6 +775,7 @@ class Activity extends Base
                 }
             }
         }
+        $this->assign('title','免费活动');
         $this->assign('collections',$collections);
         $this->assign('newest',$newest);
         $this->assign('review',$review);
@@ -800,6 +807,7 @@ class Activity extends Base
 
     //关于我们
     public function about() {
+        $this->assign('title','关于我们');
         return $this->fetch();
     }
 

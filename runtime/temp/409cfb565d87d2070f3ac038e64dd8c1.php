@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\activity\saveactivitylist.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"D:\chuangzhixing\wanwan/application/admin\view\activity\addactivitylist.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -109,7 +109,7 @@
             <div id="breadcrumb">
                 <a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
                 <a href="<?php echo url('admin/activity/index'); ?>" class="tip-bottom" data-original-title="">活动管理</a>
-                <a href="#" class="current">编辑活动</a>
+                <a href="#" class="current">添加活动</a>
             </div>
         </div>
 
@@ -120,23 +120,17 @@
                         <h5>活动信息</h5>
                     </div>
                     <div class="widget-content nopadding" style="">
-                        <form action="<?php echo url('admin/activity/saveActivity'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
-                            <div class="control-group">
-                                <label class="control-label">活动Id :</label>
-                                <div class="controls">
-                                    <input class="span11" readonly="" value='<?php echo $ActivityInfo['aid']; ?>' name="activityId" type="text" style="width: 20%">
-                                </div>
-                            </div>
+                        <form action="<?php echo url('admin/activity/addActivity'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
                             <div class="control-group">
                                 <label class="control-label">标题 :</label>
                                 <div class="controls">
-                                    <input class="span11" value='<?php echo $ActivityInfo['a_title']; ?>' name="activityTitle" type="text">
+                                    <input class="span11" value='' name="activityTitle" type="text">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">活动描述</label>
                                 <div class="controls">
-                                    <textarea class="span11" name="remark"><?php echo $ActivityInfo['a_remark']; ?></textarea>
+                                    <textarea class="span11" name="remark"></textarea>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -154,45 +148,38 @@
                             <div class="control-group">
                                 <label class="control-label">活动开始时间 :</label>
                                 <div class="controls">
-                                    <input class="span11" value="<?php echo date('Y-m-d H:i:s',$ActivityInfo['a_begin_time']); ?>"  name="begin_time" type="text" style="width: 20%">
+                                    <input class="span11" value="" placeholder="格式：2017-09-07 15:30"  name="begin_time" type="text" style="width: 30%">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">活动结束时间:</label>
                                 <div class="controls">
-                                    <input class="span11" value="<?php echo date('Y-m-d H:i:s',$ActivityInfo['a_end_time']); ?>"  name="end_time" type="text" style="width:20%">
+                                    <input class="span11" value="" placeholder="格式：2017-09-07 15:30"  name="end_time" type="text" style="width:30%">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">活动地址:</label>
                                 <div class="controls">
-                                    <input class="span11" value="<?php echo $ActivityInfo['a_address']; ?>"  name="address" type="text" style="width:20%">
+                                    <input class="span11" value="" name="address" type="text" style="width:30%">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label">剩余名额</label>
+                                <label class="control-label">名额</label>
                                 <div class="controls">
-                                    <input class="span11"  style="width: 20%;" value='<?php echo $ActivityInfo['a_num']; ?>' name="residue" type="text">
+                                    <input class="span11"  style="width: 20%;" value='' name="residue" type="text">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">大人价格</label>
                                 <div class="controls">
-                                    <input class="span11" value='<?php echo $ActivityInfo['a_adult_price']; ?>' style="width: 20%;margin-right: 10px;" name="adult_price" type="text">元
+                                    <input class="span11" value='' style="width: 20%;margin-right: 10px;" name="adult_price" type="text">元
 
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="control-label">小孩价格</label>
                                 <div class="controls">
-                                    <input class="span11" value='<?php echo $ActivityInfo['a_child_price']; ?>' style="width: 20%;margin-right: 10px;" name="child_price" type="text">元
-
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">活动价格</label>
-                                <div class="controls">
-                                    <input class="span11" value='<?php echo $ActivityInfo['a_price']; ?>' style="width: 20%;margin-right: 10px;" name="child_price" type="text">元
+                                    <input class="span11" value='' style="width: 20%;margin-right: 10px;" name="child_price" type="text">元
 
                                 </div>
                             </div>
@@ -200,8 +187,8 @@
                                 <label class="control-label">活动状态</label>
                                 <div class="controls">
                                     <select style="width: 20%;" name="activity_status" autocomplete = "off">
-                                        <option value="1" <?php if($ActivityInfo['a_status'] == 1): ?> selected="selected" <?php endif; ?>>上架</option>
-                                        <option value="2" <?php if($ActivityInfo['a_status'] == 2): ?> selected="selected" <?php endif; ?>>下架</option>
+                                        <option value="1" selected="selected">上架</option>
+                                        <option value="2" >下架</option>
                                     </select>
 
                                 </div>
@@ -211,15 +198,12 @@
                                 <div class="controls">
                                     <select style="width: 20%;" autocomplete = "off" onChange="changeActivityType($(this).val())">
                                         <option>请选择...</option>
-                                        <?php if(is_array($title) || $title instanceof \think\Collection || $title instanceof \think\Paginator): if( count($title)==0 ) : echo "" ;else: foreach($title as $key=>$vo): ?>
-                                        <option value="<?php echo $vo['id']; ?>" <?php if($fidInfo['fid'] == $vo['id']): ?> selected="selected" <?php endif; ?>><?php echo $vo['name']; ?></option>
+                                        <?php if(is_array($fidInfo) || $fidInfo instanceof \think\Collection || $fidInfo instanceof \think\Paginator): if( count($fidInfo)==0 ) : echo "" ;else: foreach($fidInfo as $key=>$vo): ?>
+                                        <option value="<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></option>
                                         <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </select>
                                     <select id="sonType" style="width: 20%;" name="activity_type">
                                         <option>请选择...</option>
-                                        <?php if(is_array($titleSon) || $titleSon instanceof \think\Collection || $titleSon instanceof \think\Paginator): if( count($titleSon)==0 ) : echo "" ;else: foreach($titleSon as $key=>$vo): ?>
-                                        <option value="<?php echo $vo['id']; ?>" <?php if($ActivityInfo['a_type'] == $vo['id']): ?> selected="selected" <?php endif; ?>><?php echo $vo['name']; ?></option>
-                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </select>
                                 </div>
                             </div>
@@ -227,8 +211,8 @@
                                 <label class="control-label">是否推荐</label>
                                 <div class="controls">
                                     <select style="width: 20%;" name="recommend" autocomplete = "off">
-                                        <option value="1" <?php if($ActivityInfo['a_is_recommend'] == 1): ?> selected="selected" <?php endif; ?>>是</option>
-                                        <option value="0" <?php if($ActivityInfo['a_is_recommend'] == 0): ?> selected="selected" <?php endif; ?>>否</option>
+                                        <option value="1">是</option>
+                                        <option value="0">否</option>
                                     </select>
                                 </div>
                             </div>
@@ -236,7 +220,7 @@
                             <div class="control-group" style="">
                                 <label class="control-label">活动详情</label>
                                 <textarea id="editor" name="myContent" style="width:790px;height:500px;display: inline-block;margin-left: 15px;z-index: 0;">
-                                            <?php echo $ActivityInfo['a_content']; ?>
+                                            
                                 </textarea>
 
                                 <!--<script id="editor" type="text/plain" name="myContent" style="width:500px;height:500px;display: inline-block;margin-left: 15px;z-index: 0;"></script>-->

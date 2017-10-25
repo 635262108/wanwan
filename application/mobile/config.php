@@ -17,5 +17,5 @@ return [
     // 默认控制器名
     'default_controller'     => 'Activity',
     // 默认操作名
-    'default_action'         => 'about',
+    'default_action'         => 'new_activity',
 ];

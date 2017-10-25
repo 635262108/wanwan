@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\attendance.html";i:1508309656;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\chuangzhixing\wanwan/application/admin\view\activity\index.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -106,11 +106,22 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="<?php echo url('admin/user/attendance'); ?>" class="tip-bottom">会员考勤</a>
-      	<a href="#" class="current">考勤列表</a> 
+      	<a href="#" class="tip-bottom">活动管理</a> 
+      	<a href="#" class="current">活动列表</a> 
   </div>
   </div>
-
+<!--添加开始部分-->
+  <div class="add_order">
+  	 <a href="<?php echo url('admin/activity/addActivityList'); ?>">
+        <div class="add" title="添加活动">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加活动
+          </span>
+        </div>
+     </a>
+  </div>
+<!--添加结束-->
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
@@ -122,37 +133,40 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>活动id</th>  
-                  <th>活动标题</th>
+                  <th>活动id</th>
+                  <th>活动名称</th>
+                  <th>活动开始时间</th>
+                  <th>活动结束时间</th>
                   <th>剩余名额</th>
-                  <th>报名人数</th>
-                  <th>签到人数</th>
-                  <th>到场率</th>
+                  <th>已报名额</th>
+                  <th>大人价格</th>
+                  <th>小孩价格</th>
+                  <th>活动价格</th>
+                  <th>是否推荐</th>
                   <th>操作</th>
-           </tr>
+                </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
-                <?php if(is_array($actinfo) || $actinfo instanceof \think\Collection || $actinfo instanceof \think\Paginator): if( count($actinfo)==0 ) : echo "" ;else: foreach($actinfo as $key=>$vo): ?>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                <?php if(is_array($ActivityInfo) || $ActivityInfo instanceof \think\Collection || $ActivityInfo instanceof \think\Paginator): if( count($ActivityInfo)==0 ) : echo "" ;else: foreach($ActivityInfo as $key=>$vo): ?>
                 <tr class="gradeX trs">
                   <td><?php echo $vo['aid']; ?></td>
-                  <td><?php echo $vo['a_title']; ?></td>  
+                  <td><?php echo subtext($vo['a_title'],17); ?></td>
+                  <td><?php echo date("m-d H:i",$vo['a_begin_time']); ?></td>
+                  <td><?php echo date("m-d H:i",$vo['a_end_time']); ?></td>
                   <td><?php echo $vo['a_num']; ?></td>
                   <td><?php echo $vo['a_sold_num']; ?></td>
-                  <td><?php echo $vo['attendance']; ?></td>
+                  <td><?php echo $vo['a_adult_price']; ?></td>
+                  <td><?php echo $vo['a_child_price']; ?></td>
+                  <td><?php echo $vo['a_price']; ?></td>
                   <td>
-                      <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
-                                echo '0%';
-                            }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
-                                echo $result."%";
-                            }
-                      ?>
-                  </td>
-                  <td class="center">
-                      <a href="<?php echo url('admin/user/attendance_detail',['aid'=>$vo['aid']]); ?>"><i class="delete icon-pencil">&nbsp;&nbsp;详情</i></a>	
+                      <?php switch($vo['a_is_recommend']): case "1": ?>是<?php break; case "0": ?>否<?php break; endswitch; ?>
                   </td>
                   
+                  <td class="center">
+                  	<a href="<?php echo url('admin/activity/saveActivityList','aid='.$vo['aid']); ?>"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+                    <i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>	
+                    <a target="view_window" href="http://qr.topscan.com/api.php?text=www.baobaowaner.com/mobile/activity/sign?a=<?php echo $vo['aid']; ?>"><i class="check icon-reorder">&nbsp;&nbsp;二维码</i></a>
+                  </td>
                 </tr>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
               </tbody>
@@ -175,6 +189,4 @@
 <script src="__AJS__/matrix.js"></script> 
 <script src="__AJS__/matrix.tables.js"></script>
 <script src="__AJS__/operat_table.js"></script>
-</body>
 </html>
-

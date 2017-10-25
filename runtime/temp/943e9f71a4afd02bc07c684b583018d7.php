@@ -1,5 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\user\consumption_details.html";i:1508843369;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\header.html";i:1508309656;s:81:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\left.html";i:1508834326;s:83:"D:\phpStudy\PHPTutorial\WWW\wanwan\wanwan/application/admin\view\public\footer.html";i:1508309656;}*/ ?>
-<head>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\chuangzhixing\wanwan/application/admin\view\user\add_member.html";i:1508846977;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +39,7 @@
     <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
-
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+ <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
@@ -101,58 +104,118 @@
   </li>
   </ul>
 </div>
-<div id="content">
-<!--breadcrumbs-->
-  <div id="content-header">
-      <div id="breadcrumb"> 
-      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
-      	<a href="#" class="current">消费明细</a> 
-  </div>
-  </div>
-<div class="container-fluid">
-  <div class="row-fluid">
-  	  <div class="span12">
-  	  	 <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>消费明细</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>消费活动</th>
-                  <th>消费金额</th>
-                  <th>消费时间</th>
-                  <th>支付方式</th>
-                  <th>余额</th>
-                 
-                  
-                 
-               </tr>
-              </thead>
-              <tbody id="tbody_center" style="font-size: 12px;">
-               
-                <tr>
-                  <td>君子六艺</td>
-                  <td>20</td>
-                  <td>2013.4.6</td>
-                  <td>支付宝</td>
-                  <td>30</td>
-                  
-                  
-                </tr>
-                 
-            
-              </tbody>
-            </table>
-          </div>
-        </div>
-  	  </div>
-  </div>
-</div>
-</div>
-<div class="row-fluid">
+		<div id="content" style="">
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
+					<a href="<?php echo url('admin/activity/index'); ?>" class="tip-bottom" data-original-title="">客户中心</a>
+					<a href="#" class="current">添加会员</a>
+				</div>
+			</div>
+
+			<div class="row-fluid" id="emit_information" style="width: 1300px;">
+				<div class="span6" style="margin-left: 12%;">
+					<div class="widget-box" style="width: 100%;">
+						<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+							<h5>客户信息</h5>
+						</div>
+						<div class="widget-content nopadding" style="">
+							<form action="<?php echo url('admin/user/add_member'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+								<div class="control-group">
+									<label class="control-label">昵称</label>
+									<div class="controls">
+										<input class="span11" value='' name="nickname" type="text" style="width: 32%;">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">手机号</label>
+									<div class="controls">
+										<input class="span11" style="width: 30%;" value='' name="mobile" type="text">
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">密码</label>
+									<div class="controls">
+										<input class="span11" style="width: 30%;" value='' name="password" type="password">
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">性别</label>
+									<div class="controls">
+										<select style="width: 20%;" name="sex" autocomplete="off">
+											<option value="1" selected="selected">男</option>
+											<option value="2">女</option>
+										</select>
+
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">所在省</label>
+									<div class="controls">
+										<select name="province" onChange="seachcitys($(this).val())">
+											<option value="0">请选择...</option>
+											<?php if(is_array($provinces) || $provinces instanceof \think\Collection || $provinces instanceof \think\Paginator): if( count($provinces)==0 ) : echo "" ;else: foreach($provinces as $key=>$vo): ?>
+											<option value="<?php echo $vo['id']; ?>" ><?php echo $vo['name']; ?></option>
+											<?php endforeach; endif; else: echo "" ;endif; ?>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">所在市</label>
+									<div class="controls">
+										<select name="city" id="seachcity" onChange="seachdistricts($(this).val())">
+											<option value="0">请选择...</option>
+										</select>
+
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">所在区</label>
+									<div class="controls">
+										<select name="district" id="seachdistrict">
+											<option value="0">请选择...</option>
+										</select>
+
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">详细地址</label>
+									<div class="controls">
+										<textarea class="span11" style="width: 40%;" value='' name="address"></textarea>
+									</div>
+								</div>
+								
+								  <div class="control-group">
+							              <label class="control-label">生日</label>
+							              <div class="controls">
+							                <input type="text" value="" placeholder="格式：2017-09-07" class="span11" name="birthday" style="width: 30%;">
+							               
+							              </div>
+            					</div>
+            						  <div class="control-group">
+							              <label class="control-label">余额</label>
+							              <div class="controls">
+							               			 <input type="text" value="" class="span11" name="balance" style="width: 30%;">
+							              </div>
+            						  </div>
+
+								<div class="form-actions">
+									<button type="submit" class="btn btn-success info_sure">保存</button>
+									<a href="<?php echo url('admin/user/index'); ?>" class="btn-warning">取消</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</body>
+		<div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
 </div>
 <script src="__AJS__/jquery.min.js"></script> 
@@ -164,4 +227,5 @@
 <script src="__AJS__/matrix.js"></script> 
 <script src="__AJS__/matrix.tables.js"></script>
 <script src="__AJS__/operat_table.js"></script>
+
 </html>

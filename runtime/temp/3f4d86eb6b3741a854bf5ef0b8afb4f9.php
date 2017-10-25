@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508837945;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\chuangzhixing\wanwan/application/admin\view\user\index.html";i:1508840237;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
 <head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
@@ -112,8 +112,8 @@
   </div>
   
    <div class="add_order">
-  	 <a href="<?php echo url('admin/activity/addActivityList'); ?>">
-        <div class="add" title="添加客户">
+  	 <a href="<?php echo url('admin/user/add_member'); ?>">
+        <div class="add" title="添加会员">
           <span style="font-size: 14px;">
               <i class="icon-plus"></i>
                  添加会员
@@ -140,7 +140,6 @@
                   <th>加入时间</th>
                   <th>地址</th>
                   <th>余额</th>
-                  <th>等级</th>
                   <th>操作</th>
                </tr>
               </thead>
@@ -167,12 +166,11 @@
                   <td><?php echo date('Y-m-d H:i:s',$vo['reg_time']); ?></td>
                   <td><?php echo $vo['address']; ?></td>
                   <td></td>
-                  <td></td>
                   <td class="center">
                       <i class="check icon-reorder">&nbsp;&nbsp;查看</i>
                       <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>
-                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="icon-edit">&nbsp;&nbsp;明细</i></a>
-                      <a href="<?php echo url('admin/user/saveUserList','uid='.$vo['uid']); ?>"><i class="icon-credit-card">&nbsp;&nbsp;充值</i></a>
+                      <a href="<?php echo url('admin/user/Consumption_details','uid='.$vo['uid']); ?>"><i class="icon-edit">&nbsp;&nbsp;明细</i></a>
+                      <a href="<?php echo url('admin/user/recharge','uid='.$vo['uid']); ?>"><i class="icon-credit-card">&nbsp;&nbsp;充值</i></a>
                   </td>
                   
                 </tr>

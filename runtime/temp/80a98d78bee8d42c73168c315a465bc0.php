@@ -1,5 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\chuangzhixing\wanwan/application/admin\view\activity\activityType.html";i:1508318472;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508833150;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\footer.html";i:1508318472;}*/ ?>
-<head>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:65:"D:\chuangzhixing\wanwan/application/admin\view\user\recharge.html";i:1508843523;s:65:"D:\chuangzhixing\wanwan/application/admin\view\public\header.html";i:1508318472;s:63:"D:\chuangzhixing\wanwan/application/admin\view\public\left.html";i:1508837847;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<head>
 <title>玩翫碗后台管理</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +39,7 @@
     <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
-
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+ <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul style="display: block;">
     <li class="active"><a href="<?php echo url("","",true,false);?>"><i class="icon icon-home"></i> <span>首页</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
@@ -74,7 +77,7 @@
               <span class="label label-important">1</span>
           </a>
           <ul style="display: none;">
-              <li><a href="<?php echo url('admin/activity/order'); ?>">活动工作</a></li>
+              <li><a href="<?php echo url('admin/service/index'); ?>">报名情况</a></li>
           </ul>
       </li>
   <li class="submenu">
@@ -101,76 +104,84 @@
   </li>
   </ul>
 </div>
-<div id="content">
-<!--breadcrumbs-->
-  <div id="content-header">
-      <div id="breadcrumb"> 
-      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a href="#" class="tip-bottom">活动管理</a> 
-      	<a href="#" class="current">活动分类</a> 
-  </div>
-  </div>
-<!--添加开始部分-->
-  <div class="add_order">
-  	 <a href="<?php echo url('admin/activity/addTypeList'); ?>">
-        <div class="add" title="添加分类">
-          <span style="font-size: 14px;">
-              <i class="icon-plus"></i>
-                 添加分类
-          </span>
-        </div>
-     </a>
-  </div>
-  <!--添加结束部分-->
-<div class="container-fluid">
-  <div class="row-fluid">
-  	  <div class="span12">
-  	  	        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                    <th>分类id</th>
-                    <th>名称</th>
-                    <th>排序</th>
-                    <th>操作</th>
-                </tr>
-              </thead>
-              <tbody id="tbody_center" style="font-size: 12px;">
-                <?php if(is_array($typeInfo) || $typeInfo instanceof \think\Collection || $typeInfo instanceof \think\Paginator): if( count($typeInfo)==0 ) : echo "" ;else: foreach($typeInfo as $key=>$vo): ?>
-                <tr class="gradeX trs">
-                    <td><?php echo $vo['id']; ?></td>
-                    <td><?php echo $vo['name']; ?></td>
-                    <td><?php echo $vo['sort']; ?></td>
-                    <td>
-                        <a href="<?php echo url('admin/activity/activityTypeSon',['fid'=>$vo['id']]); ?>"><i class="icon-search">&nbsp;&nbsp;下级分类</i></a>
-                        <a href="<?php echo url('admin/activity/saveTypeList',['tid'=>$vo['id']]); ?>"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-                        <a href="#"><i class="delete icon-pencil classfy_delete">&nbsp;&nbsp;删除</i></a>
-                    </td>
+		<div id="content" style="">
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
+					<a href="<?php echo url('admin/activity/index'); ?>" class="tip-bottom" data-original-title="">客户中心</a>
+					<a href="#" class="current">充值</a>
+				</div>
+			</div>
 
-                </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-  	  </div>
-  </div>
-</div>
-</div>
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
-</div>
-<script src="__AJS__/jquery.min.js"></script> 
-<script src="__AJS__/jquery.ui.custom.js"></script> 
-<script src="__AJS__/bootstrap.min.js"></script> 
-<script src="__AJS__/jquery.uniform.js"></script> 
-<script src="__AJS__/select2.min.js"></script> 
-<script src="__AJS__/jquery.dataTables.min.js"></script> 
-<script src="__AJS__/matrix.js"></script> 
-<script src="__AJS__/matrix.tables.js"></script>
-<script src="__AJS__/operat_table.js"></script>
+			<div class="row-fluid" id="emit_information" style="width: 1300px;">
+				<div class="span6" style="margin-left: 12%;">
+					<div class="widget-box" style="width: 100%;">
+						<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+							<h5>充值信息</h5>
+						</div>
+						<div class="widget-content nopadding" style="">
+							<form action="<?php echo url('admin/activity/addActivity'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+								<div class="control-group">
+									<label class="control-label">会员名称</label>
+									<div class="controls">
+										<input class="span11" value='' name="UserName" type="text" style="width: 32%;" readonly>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">充值金额</label>
+									<div class="controls">
+										<input class="span11" style="width: 30%;" value='' name="pay_num" type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+									</div>
+								</div>
+
+								
+
+								
+								
+								<div class="control-group">
+									<label class="control-label">支付方式</label>
+									<div class="controls">
+										<select name="pay_style" id="seachcity" onChange="seachdistricts($(this).val())">
+											
+											
+											<option value="0" selected='selected' >支付宝</option>
+											<option value="1" >微信</option>
+											<option value="2">现金</option>
+											
+										</select>
+
+									</div>
+								</div>
+						
+							
+						
+            						
+
+								<div class="form-actions">
+									<button type="submit" class="btn btn-success info_sure">保存</button>
+									<a href="<?php echo url('admin/activity/index'); ?>" class="btn-warning">取消</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="__AJS__/jquery.min.js"></script>
+		<script src="__AJS__/jquery.ui.custom.js"></script>
+		<script src="__AJS__/bootstrap.min.js"></script>
+		<script src="__AJS__/jquery.uniform.js"></script>
+		<script src="__AJS__/select2.min.js"></script>
+		<script src="__AJS__/jquery.dataTables.min.js"></script>
+		<script src="__AJS__/matrix.js"></script>
+		<script src="__AJS__/birthday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__AJS__/operat_table.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.all.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="__EDITER__/lang/zh-cn/zh-cn.js"></script>
+
+		</body>
+
 </html>

@@ -18,18 +18,18 @@
     </div>
 
         <div class="play_baoContent">
-           
-            <a href="javascript:;">
+           {foreach name="actInfo" item="vo"}
+            <a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}">
                 <div class="playBao_part">
                     <div class="bao_img">
-                        <img src="__MobileImg__/99999_03.png"/>
+                        <img src="__AdminIMG__/{$vo.a_index_img}"/>
                     </div>
                     <div class="bao_content">
   	    	 	 	<span class="outer_border">
-  	    	 	 		<span class="inside_border">眼睛</span>
+  	    	 	 		<span class="inside_border">{$vo.a_title}</span>
   	    	 	 	</span>
                         <ul>
-                            <li>活动介绍：jsjdssdsds</li>
+                            <li>活动介绍：{$vo.a_remark|subtext='15'}</li>
                             <li>活动时间：2017.09.28-2-17.10.29</li>
                             <li>活动地点：郑州市金水区啦啦啦啦</li>
                            
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </a>
-       
+            {/foreach}
         </div>
    </div>
 
