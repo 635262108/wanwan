@@ -19,6 +19,6 @@
             <li {if condition="$Request.param.set eq $vo.id"}class="play_baby"{/if}><a href="{:url('mobile/Activity/index',['set'=>$vo.id])}">{$vo.name}</a></li>
             {/foreach}
             <li {if condition="$Request.action eq 'freeplay' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/freeplay')}">免费玩儿</a></li>
-            <li {if condition="$Request.controller eq 'User' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/about')}">关于我们</a></li>
+            <li><a href="{:url('mobile/Activity/about')}">关于我们</a></li>
     </ul>
 </div>

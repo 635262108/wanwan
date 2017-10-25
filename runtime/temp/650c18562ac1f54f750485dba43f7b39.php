@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\chuangzhixing\wanwan/application/mobile\view\activity\freeplay.html";i:1508893875;s:73:"D:\chuangzhixing\wanwan/application/mobile\view\public\second_header.html";i:1508840840;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\chuangzhixing\wanwan/application/mobile\view\activity\freeplay.html";i:1508893875;s:73:"D:\chuangzhixing\wanwan/application/mobile\view\public\second_header.html";i:1508899980;s:66:"D:\chuangzhixing\wanwan/application/mobile\view\public\footer.html";i:1508318472;}*/ ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,10 +21,11 @@
     </div>
 
     <div class="title_word second_activity"> <?php echo $title; ?></div>
+    <?php if(\think\Request::instance()->controller() != 'User'): ?>
     <div class="click_stroggle">
     	<a href="<?php echo url('mobile/user/index'); ?>"><img src="__MobileImg__/dot_img.png" /></a>
     </div>
-    
+    <?php endif; ?>
     <!--<ul class="stroggle_ul display_none">
     	<div class="singel_img">
     		<img src="__MobileImg__/triangle.png" />
