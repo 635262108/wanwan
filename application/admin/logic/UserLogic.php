@@ -61,4 +61,63 @@ class UserLogic{
             return array('status'=>-1,'msg'=>'添加失败');
         }
     }
+
+    /**
+     * 增加用户充值
+     * @param $data
+     */
+    public function addRecharge($data){
+        //查看用户是否存在
+        $user = model('user');
+        $userInfo = $user->getIdUser($data['uid']);
+        if(empty($userInfo)){
+            return array('status'=>-1,'msg'=>'用户不存在');
+        }
+        //检查余额是否为整数
+        if(!is_numeric($data['amount'])){
+            return array('status'=>-1,'msg'=>'金额必须为整数');
+        }
+        //添加数据
+        $add_data = array(
+            'uid' => $data['uid'],
+            'amount' => $data['amount'],
+            'pay_way' => $data['pay_way'],
+            'pay_time' => time()
+        );
+
+        $rechargeRecord = model('RechargeRecord');
+        $res = $rechargeRecord->saveRecharge($add_data);
+        if($res !== false){
+            //增加用户余额
+            $userInfo->uid = $userInfo['uid'];
+            $userInfo->balance = $userInfo['balance'] + $data['amount'];
+            $result = $userInfo->save();
+            if($result !== false){
+                return array('status'=>200,'msg'=>'充值成功');
+            }else{
+                return array('status'=>-1,'msg'=>'充值失败');
+            }
+        }else{
+            return array('status'=>-1,'msg'=>'充值记录失败');
+        }
+    }
+
+    /**
+     * 获取用户明细
+     * @param $uid
+     */
+    public function getUserRecord($uid){
+        //获取充值记录
+        $RechargeRecord = model('RechargeRecord');
+        $recordInfo = $RechargeRecord->getRechargeAll();
+        //获取消费记录
+        $ActivityOrder = model('ActivityOrder');
+        $reaharge = $ActivityOrder->alias('o')
+            ->field('o.order_price,o.pay_way,o.pay_time,u.balance')
+            ->join('mfw_activity a','o.aid=a.aid','left')
+            ->join('user u','o.uid=u.uid','left')
+            ->where('o.order_status=1 or  o.order_status=3 or o.order_status=4')
+            ->select();
+        var_dump(objectArray($reaharge));die;
+    }
 }
