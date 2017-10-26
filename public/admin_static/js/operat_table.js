@@ -66,39 +66,44 @@ function deleteData(url,option,parent){
 }
 //活动页面删除
 $(".activity_delete").live("click",function(){
-   	deleteData("/abab.php/activity/delActivity",{"aid":parseInt($(this).parent().parent().children("td:nth-child(1)").text())},$(this).parent().parent())
+   	deleteData("/abab.php/activity/delActivity",
+   	{"aid":parseInt($(this).parent().parent().children("td:nth-child(1)").text())},
+   	$(this).parent().parent())
 })
 //活动分类删除
 $(".classfy_delete").live("click",function(){
-   	deleteData("/abab.php/activity/delType",{"id":parseInt($(this).parent().parent().parent().find("td").eq(0).html())},$(this).parent().parent().parent())
+   	deleteData("/abab.php/activity/delType",
+   	{"id":parseInt($(this).parent().parent().parent().find("td").eq(0).html())}
+   	,$(this).parent().parent().parent())
 })
 //评论提问删除
 $(".ask_delete").live("click",function(){
-   	deleteData("/abab.php/activity/delAnyReply",{"id":parseInt($(this).parent().parent().parent().find("td").eq(0).html())},$(this).parent().parent().parent())
+   	deleteData("/abab.php/activity/delAnyReply",
+   	{"id":parseInt($(this).parent().parent().parent().find("td").eq(0).html())},
+   	$(this).parent().parent().parent())
    	
 })
 //扩展删除
 $(".ext_delete").live("click",function(){
-   	deleteData("/abab.php/activity/del_extension",{"id":parseInt($(this).parent().siblings(".td_id").html())},$(this).parent().parent())
+   	deleteData("/abab.php/activity/del_extension",
+   	{"id":parseInt($(this).parent().siblings(".td_id").html())},
+   	$(this).parent().parent())
    	
 })
 //评论删除
 $(".com_delete").live("click",function(){
-   	deleteData("/abab.php/activity/delAnyReply",{"id":parseInt($(this).parent().parent().find("td").eq(0).html())},$(this).parent().parent())
+   	deleteData("/abab.php/activity/delAnyReply",
+   	{"id":parseInt($(this).parent().parent().find("td").eq(0).html())},
+   	$(this).parent().parent())
    	
 })
 //活动规格
 $(".spe_delete").live("click",function(){
-   	deleteData("/abab.php/activity/delAnySpe",{"id":parseInt($(this).parent().siblings(".td_id").html())},$(this).parent().parent())
+   	deleteData("/abab.php/activity/delAnySpe",
+   	{"id":parseInt($(this).parent().siblings(".td_id").html())},
+   	$(this).parent().parent())
    	
 })
-
-
-
-
-
-
-
 })
 
 //省改变事件
