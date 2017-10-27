@@ -280,13 +280,17 @@ class User extends Base
 
     //充值记录
     public function recharge_record(){
+        $model = new UserLogic();
+        $res = $model->getUseRechargeRecord();
+        $this->assign('res',$res);
         return $this->fetch();
     }
 
     //明细
     public function  consumption_details($uid){
         $model = new UserLogic();
-        $model->getUserRecord($uid);
+        $res = $model->getUserRecord($uid);
+        $this->assign('res',$res);
         return $this->fetch();
     }
 
@@ -315,7 +319,6 @@ class User extends Base
         }else{
             $this->error($res['msg']);
         }
-
     }
 
     //添加会员

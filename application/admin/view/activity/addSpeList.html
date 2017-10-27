@@ -41,6 +41,17 @@
                             </div>
                         </div>
 
+                        <div class="control-group">
+                            <label class="control-label">负责人:</label>
+                            <div class="controls">
+                                <select name="head">
+                                    {foreach name="userInfo" item="vo"}
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-actions" style="text-align: center">
                             <button type="submit" class="btn btn-success info_sure">保存</button>
                             <a href="javascript:history.back(-1)" class="btn-warning">取消</a>

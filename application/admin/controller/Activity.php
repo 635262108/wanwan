@@ -1,5 +1,6 @@
 <?php
 namespace app\admin\controller;
+use app\admin\Logic\ActivityLogic;
 use think\Controller;
 use think\Session;
 use think\Request;
@@ -524,10 +525,10 @@ class Activity extends Base
         $this->success('增加成功','activity/extension');
     }
     
-    //规格列表
+    //安排列表
     public function specification(){
-        $ActivityTime = model('ActivityTime');
-        $speInfo = $ActivityTime->getAllTime();
+        $ActivityTime = new ActivityLogic();
+        $speInfo = $ActivityTime->getActivityTime();
         $this->assign('speInfo',$speInfo);
         return $this->fetch();
     }
@@ -537,6 +538,11 @@ class Activity extends Base
         //获取活动标题
         $Activity = model('Activity');
         $ActivityInfo = $Activity->getActivityAll();
+        //获取负责人
+        $map['role_id'] = 3;
+        $AdminUser = model('AdminUser');
+        $userInfo = $AdminUser->getUsers($map);
+        $this->assign('userInfo',$userInfo);
         $this->assign('ActivityInfo',$ActivityInfo);
         return $this->fetch();
     }
@@ -546,6 +552,7 @@ class Activity extends Base
         $data['aid'] = input('post.aid');
         $data['t_content'] = input('post.content');
         $data['ticket_num'] = input('post.num');
+        $data['head'] = input('post.head');
         $ActivityTime = model('ActivityTime');
         $ActivityTime->add($data);
         $this->success('添加成功','activity/specification');

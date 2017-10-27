@@ -103,21 +103,32 @@ class UserLogic{
     }
 
     /**
-     * 获取用户明细
+     * 获取用户消费明细
      * @param $uid
      */
     public function getUserRecord($uid){
-        //获取充值记录
-        $RechargeRecord = model('RechargeRecord');
-        $recordInfo = $RechargeRecord->getRechargeAll();
         //获取消费记录
         $ActivityOrder = model('ActivityOrder');
         $reaharge = $ActivityOrder->alias('o')
-            ->field('o.order_price,o.pay_way,o.pay_time,u.balance')
+            ->field('o.order_price,o.pay_way,o.pay_time,a.a_title')
             ->join('mfw_activity a','o.aid=a.aid','left')
-            ->join('user u','o.uid=u.uid','left')
+            ->where('o.uid ='.$uid)
             ->where('o.order_status=1 or  o.order_status=3 or o.order_status=4')
             ->select();
-        var_dump(objectArray($reaharge));die;
+        return $reaharge;
+    }
+
+    /**
+     * 获取充值记录
+     * @return mixed
+     */
+    public function getUseRechargeRecord(){
+        //获取记录
+        $RechargeRecord = model('RechargeRecord');
+        $res = $RechargeRecord->alias('r')
+            ->field('r.*,u.nickname,u.mobile,u.balance')
+            ->join('mfw_user u','r.uid=u.uid','left')
+            ->select();
+        return $res;
     }
 }
