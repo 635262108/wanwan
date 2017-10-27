@@ -58,5 +58,14 @@ class User extends Model
     public function getAllUser(){
         return $this->order('uid desc')->select();
     }
-    
+
+    /**
+     * 新增或更新用户信息
+     * @param array $data
+     * @return false|int|mixed
+     */
+    public function saveUser($data = array()){
+        return $this->save($data);
+    }
+
 }

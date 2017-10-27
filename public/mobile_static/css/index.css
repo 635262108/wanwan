@@ -41,7 +41,55 @@ html {
 	justify-content: flex-start;
 	background: #EFEFEF;
 	width: 100%;
-	border-bottom: 1px solid #D3D3D3
+	border-bottom: 1px solid #D3D3D3;
+	position: relative;
+}
+.comeback .click_stroggle{
+	cursor: pointer;
+	position: absolute;
+	right: 12px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 18px;
+	height: 18px;
+}
+.comeback .click_stroggle img{
+	width: 100%;
+	height: 100%;
+}
+
+.comeback .stroggle_ul{
+	position: absolute;
+	width: 140px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 1px #1f1f1f;
+	text-align: center;
+	background: #FFFFFF;
+	right: 4px;
+	top: 42px;
+	z-index: 999999999999;
+	
+}
+.comeback .stroggle_ul .singel_img{
+	width: 26px;
+	height: 13px;
+	position: absolute;
+	top: -15px;
+	right: 6px;
+}
+.comeback .stroggle_ul .singel_img img{
+	width: 100%;
+	height: 100%;
+}
+.comeback .stroggle_ul li{
+	font-size: 13px;
+	width: 81px;
+	border-bottom: 0.2px solid #ffd9d6;
+	margin: 0px auto;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
 }
 
 .comeback .comeback_whole {
@@ -125,7 +173,7 @@ html {
 
 .header {
 	justify-content: center;
-	margin-bottom: 25px;
+	margin-bottom: 17px;
 	justify-content: center;
 	align-items: center;
 	margin-top: 20px
@@ -159,7 +207,6 @@ html {
 	font-size: 12px;
 	margin-bottom: 10px
 }
-
 .nav ul li:nth-child(4) {
 	margin-right: 0px
 }
@@ -169,7 +216,8 @@ html {
 }
 
 .nav ul li a {
-	color: #ff4134
+	display: block;
+	color: #ff4134;
 }
 
 .nav ul .play_baby {
@@ -185,7 +233,6 @@ html {
 	width: 100%;
 	height: 150px;
 	background: #111;
-	margin: 20px auto;
 	position: relative;
 	margin-bottom: 30px;
 }
@@ -285,12 +332,18 @@ html {
 	margin: 10px auto;
 	display: flex;
 	flex-direction: row;
+	position: relative;
 
 }
+.five_organs .play_baoContent .playBao_part a{
+	display: block;
+	margin-right: 2%;
+}
+
 
 .five_organs .play_baoContent .playBao_part .bao_img {
-	width: 122px;
-	height: 102px;
+	width: 119px;
+	height: 116px;
 	margin-right: 2%;
 }
 
@@ -300,11 +353,21 @@ html {
 }
 
 .five_organs .play_baoContent .playBao_part .bao_content {
-	width: 74%
+	width: 74%;
 }
-
+.five_organs .play_baoContent .playBao_part .bao_content .content_bottom{
+	display: flex;
+	justify-content: space-between;
+}
+.five_organs .play_baoContent .playBao_part .bao_content .content_bottom span{
+	font-size: 13px;
+	color: #FF4314;
+}
+.five_organs .play_baoContent .playBao_part .bao_content .content_bottom a{
+	font-size: 13px;
+	color: #FF4314;
+}
 .five_organs .play_baoContent .playBao_part .bao_content .outer_border {
-	margin-top: 5px;
 	display: inline-block;
 	height: 26px;
 	border-bottom: 1px solid #FF4134
@@ -326,6 +389,15 @@ html {
 	font-size: 13px;
 	color: #656565;
 	margin-bottom: 7px
+}
+.five_organs .play_baoContent .playBao_part .bao_content ul li:last-child {
+	margin-bottom: 12px
+}
+
+.five_organs .play_baoContent .playBao_part .bao_content ul li:nth-child(4) {
+	display: flex;
+	justify-content: space-around;
+	
 }
 
 .bottom {

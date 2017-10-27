@@ -2,12 +2,11 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Session;
-use think\Request;
-use think\Cache;
-
+use app\admin\Logic\UserLogic;
 
 class User extends Base
-{    
+{
+
     //登录
     public function login(){
         // 检测是否为ajax请求
@@ -132,7 +131,7 @@ class User extends Base
         $user->saveUserInfo($uid,$data);
         $this->success('修改成功',"user/index");
     }
-    
+
     //考勤首页
     public function attendance(){
         $Activity = model('Activity');
@@ -140,7 +139,7 @@ class User extends Base
         $this->assign('actinfo',$actinfo);
         return $this->fetch();
     }
-    
+
     //考勤详情
     public function attendance_detail($aid=0){
         $ActivityOrder = model('ActivityOrder');
@@ -151,13 +150,13 @@ class User extends Base
         $this->assign('aid',$aid);
         return $this->fetch();
     }
-    
+
     //导出签到
     public function conversions_attendance($aid=0){
         //活动信息
         $Activity = model('Activity');
         $actinfo = $Activity->getIdActivity($aid,'a_title');
-        
+
         $ActivityOrder = model('ActivityOrder');
         $map['aid'] = $aid;
         $map['order_status'] = array('neq',2);
@@ -199,44 +198,44 @@ class User extends Base
                     break;
             }
         }
-        
+
         //导出excel
         $filename = "玩翫碗".$actinfo['a_title']."活动签到表";
         $title = '玩翫碗-'.$actinfo['a_title']."活动签到表";
         $key = array('id','name','mobile','mobile2','time','sign');
         $this->exportExcel($result,$filename,$key,$title);
     }
-    
-    /** 
-    * 创建(导出)Excel数据表格 
-    * @param  array   $list        要导出的数组格式的数据 
-    * @param  string  $filename    导出的Excel表格数据表的文件名 
-    * @param  array   $indexKey    $list数组中与Excel表格表头$header中每个项目对应的字段的名字(key值) 
-    * 比如: $indexKey与$list数组对应关系如下: 
-    *     $indexKey = array('id','username','sex','age'); 
-    *     $list = array(array('id'=>1,'username'=>'YQJ','sex'=>'男','age'=>24)); 
-    */  
-    public function exportExcel($list,$filename,$indexKey=array(),$title){  
-        require EXTEND_PATH.'excel/PHPExcel/IOFactory.php';  
-        require EXTEND_PATH."excel/PHPExcel.php";
-        require EXTEND_PATH.'excel/PHPExcel/Writer/Excel2007.php';  
 
-        $header_arr = array('A','B','C','D','E','F','G','H','I','J','K','L','M', 'N','O','P','Q','R','S','T','U','V','W','X','Y','Z');  
-        
-        $objPHPExcel = new \PHPExcel();                        //初始化PHPExcel(),不使用模板  
-//        $template = EXTEND_PATH.'excel/attendance.xlsx';          //使用模板  
+    /**
+    * 创建(导出)Excel数据表格
+    * @param  array   $list        要导出的数组格式的数据
+    * @param  string  $filename    导出的Excel表格数据表的文件名
+    * @param  array   $indexKey    $list数组中与Excel表格表头$header中每个项目对应的字段的名字(key值)
+    * 比如: $indexKey与$list数组对应关系如下:
+    *     $indexKey = array('id','username','sex','age');
+    *     $list = array(array('id'=>1,'username'=>'YQJ','sex'=>'男','age'=>24));
+    */
+    public function exportExcel($list,$filename,$indexKey=array(),$title){
+        require EXTEND_PATH.'excel/PHPExcel/IOFactory.php';
+        require EXTEND_PATH."excel/PHPExcel.php";
+        require EXTEND_PATH.'excel/PHPExcel/Writer/Excel2007.php';
+
+        $header_arr = array('A','B','C','D','E','F','G','H','I','J','K','L','M', 'N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+
+        $objPHPExcel = new \PHPExcel();                        //初始化PHPExcel(),不使用模板
+//        $template = EXTEND_PATH.'excel/attendance.xlsx';          //使用模板
 //        $inputFileType = \PHPExcel_IOFactory::identify($template);
 //        $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
 //        $objReader->setReadDataOnly(true);//解决load一直加载不出来问题,原因是excel表格中有特殊字符
 //        $objPHPExcel = $objReader->load($template);
-        $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);  //设置保存版本格式  
-        
-        //写数据到表格里面去  
+        $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);  //设置保存版本格式
+
+        //写数据到表格里面去
         $objActSheet = $objPHPExcel->getActiveSheet();
         //设置单元格样式
         $objPHPExcel->getActiveSheet()->mergeCells('A1:G1');    //合并单元格
         //设置默认字体大小加粗
-        $objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setName("微软雅黑")->setSize(16)->setBold(true); 
+        $objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setName("微软雅黑")->setSize(16)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('A2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('B2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('C2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
@@ -254,28 +253,92 @@ class User extends Base
         $objActSheet->setCellValue('E2',  '活动时间');
         $objActSheet->setCellValue('F2',  '签到');
         $objActSheet->setCellValue('G2',  '备注');
-        $i = 3;  
-        foreach ($list as $row) {  
-            foreach ($indexKey as $key => $value){  
-                //这里是设置单元格的内容  
-                $objActSheet->setCellValue($header_arr[$key].$i,$row[$value]);  
-            }  
-            $i++;  
-        }  
+        $i = 3;
+        foreach ($list as $row) {
+            foreach ($indexKey as $key => $value){
+                //这里是设置单元格的内容
+                $objActSheet->setCellValue($header_arr[$key].$i,$row[$value]);
+            }
+            $i++;
+        }
 
-        // 1.保存至本地Excel表格  
-        //$objWriter->save($filename.'.xls');  
+        // 1.保存至本地Excel表格
+        //$objWriter->save($filename.'.xls');
 
-        // 2.接下来当然是下载这个表格了，在浏览器输出就好了  
-        header("Pragma: public");  
-        header("Expires: 0");  
-        header("Cache-Control:must-revalidate, post-check=0, pre-check=0");  
-        header("Content-Type:application/force-download");  
-        header("Content-Type:application/vnd.ms-execl");  
-        header("Content-Type:application/octet-stream");  
-        header("Content-Type:application/download");;  
-        header('Content-Disposition:attachment;filename="'.$filename.'.xls"');  
-        header("Content-Transfer-Encoding:binary");  
-        $objWriter->save('php://output');  
-    }      
+        // 2.接下来当然是下载这个表格了，在浏览器输出就好了
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control:must-revalidate, post-check=0, pre-check=0");
+        header("Content-Type:application/force-download");
+        header("Content-Type:application/vnd.ms-execl");
+        header("Content-Type:application/octet-stream");
+        header("Content-Type:application/download");;
+        header('Content-Disposition:attachment;filename="'.$filename.'.xls"');
+        header("Content-Transfer-Encoding:binary");
+        $objWriter->save('php://output');
+    }
+
+    //充值记录
+    public function recharge_record(){
+
+        return $this->fetch();
+    }
+
+    //明细
+    public function  Consumption_details(){
+        return $this->fetch();
+    }
+
+    //充值
+    public function recharge($uid){
+        $user = model('user');
+        $userInfo = $user->getIdUser($uid);
+        $this->assign('userInfo',$userInfo);
+        return $this->fetch();
+    }
+
+    //添加会员
+    public function add_member(){
+        if(request()->ispost()){
+            //昵称
+            $data['nickname'] = input('post.nickname');
+            //手机号
+            $data['mobile'] = input('post.mobile');
+            //密码
+            $data['password'] = input('post.password');
+            //性别
+            $data['sex'] = input('post.sex');
+            //省
+            $data['province'] = input('post.province');
+            //市
+            $data['city'] = input('post.city');
+            //区
+            $data['district'] = input('post.district');
+            //详细地址
+            $data['address'] = input('post.address');
+            //生日
+            $data['birthday'] = time(input('post.birthday'));
+            //余额
+            $data['balance'] = input('post.balance');
+            $model = new UserLogic();
+            $result = $model->addUser($data);
+            if($result['status'] == 200){
+                $this->success('添加成功','user/index');
+            }else{
+                $this->error($result['msg']);
+            }
+        }else{
+            //获取所有的省市区
+            $region = model('region');
+            $provinces = $region->getAnyLevelData(1);
+            $citys = $region->getSonData(2);
+            $districts = $region->getSonData(3);
+
+            $this->assign('provinces',$provinces);
+            $this->assign('citys',$citys);
+            $this->assign('districts',$districts);
+            return $this->fetch();
+        }
+
+    }
 }

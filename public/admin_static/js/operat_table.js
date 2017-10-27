@@ -43,122 +43,62 @@ $(".btn-warning").on("click",function(){
 	return confirm("是否确认取消");
 })
 
+function deleteData(url,option,parent){
+	var trueOrfalse=confirm("是否确认删除");
+    var _this = $(this);
+    if(!trueOrfalse){
+        	return;
+    }
+    else{
+    
+    	
+    	$.post(url,option,function(data){ 
+    		
+                if(data.state_code== 200){
+                	parent.hide();
+                }else{
+                    alert(data.msg)
+                }
+        })
+    }
+    
+   
+}
 //活动页面删除
 $(".activity_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var activityId=$(this).parent().parent().children("td:nth-child(1)").html();
-            $.post("/abab.php/activity/delActivity",{"aid":activityId},function(data){
-                if(data.state_code== 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-		
-	}
-	
+   	deleteData("/abab.php/activity/delActivity",{"aid":parseInt($(this).parent().parent().children("td:nth-child(1)").text())},$(this).parent().parent())
 })
-
 //活动分类删除
 $(".classfy_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var tid=$(this).parent().parent().parent().find("td").eq(0).html();
-            $.post("/abab.php/activity/delType",{"id":tid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
+   	deleteData("/abab.php/activity/delType",{"id":parseInt($(this).parent().parent().parent().find("td").eq(0).html())},$(this).parent().parent().parent())
 })
-
 //评论提问删除
 $(".ask_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var cid=$(this).parent().parent().parent().find("td").eq(0).html();
-            $.post("/abab.php/activity/delAnyReply",{"id":cid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
+   	deleteData("/abab.php/activity/delAnyReply",{"id":parseInt($(this).parent().parent().parent().find("td").eq(0).html())},$(this).parent().parent().parent())
+   	
 })
-
 //扩展删除
 $(".ext_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var eid=$(this).parent().siblings(".td_id").html();
-            $.post("/abab.php/activity/del_extension",{"id":eid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
+   	deleteData("/abab.php/activity/del_extension",{"id":parseInt($(this).parent().siblings(".td_id").html())},$(this).parent().parent())
+   	
 })
-
 //评论删除
 $(".com_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var cid=$(this).parent().parent().find("td").eq(0).html();
-            $.post("/abab.php/activity/delAnyReply",{"id":cid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
+   	deleteData("/abab.php/activity/delAnyReply",{"id":parseInt($(this).parent().parent().find("td").eq(0).html())},$(this).parent().parent())
+   	
 })
-
 //活动规格
 $(".spe_delete").live("click",function(){
-	var trueOrfalse=confirm("是否确认删除");
-        var _this = $(this);
-	if(!trueOrfalse){
-            return;
-	}
-	else{
-            var cid=$(this).parent().siblings(".td_id").html();
-            
-            $.post("/abab.php/activity/delAnySpe",{"id":cid},function(data){
-                if(data.state_code == 200){
-                    _this.parent().parent().hide();
-                }else{
-                    alert(data.msg)
-                }
-            })
-	}
+   	deleteData("/abab.php/activity/delAnySpe",{"id":parseInt($(this).parent().siblings(".td_id").html())},$(this).parent().parent())
+   	
 })
+
+
+
+
+
+
+
 })
 
 //省改变事件
@@ -188,3 +128,6 @@ function changeActivityType(tid){
         }
     }, "json");
 }
+
+
+//是否确认删除按钮

@@ -1,8 +1,8 @@
 {include file="public/header" /}
+{include file="public/second_header"}
 
     <body>
-    <!--头部导航-->
-    <div class="comeback textAlign" id="second_page">
+    <!--<div class="comeback textAlign" id="second_page">
         <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
             <div class="comeback_img">
                 <img src="__MobileImg__/second_back.png"/>
@@ -12,7 +12,7 @@
 
         <div class="title_word second_activity">报名信息</div>
 
-    </div>
+    </div>-->
 
 
         <!--大人和小孩的具体信息-->
@@ -96,9 +96,6 @@
                 <div class="playBaby_content almost" id="detail_info">
 
                     <div class="content" id="theme_information" style="box-shadow: 0px 0px 3px #ff4134;">
-                        <!--<div class="baby_img">
-                                <img src="__MobileImg__/eye.png" />
-                        </div>-->
                         <div class="baby_detail" style="width: 100%;">
                             <ul class="information_ul">
                                 <li><span>活动时间:</span><span>{$ActivityInfo.a_begin_time|date='Y.m.d',###}-{$ActivityInfo.a_end_time|date='Y.m.d',###}</span></li>
@@ -114,7 +111,6 @@
 
                     </div>
                 </div>
-
                 <input type="submit" class="name_sure" value="确认报名">
             </form>
         </div>

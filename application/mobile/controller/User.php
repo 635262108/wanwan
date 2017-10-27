@@ -228,6 +228,7 @@ class User extends Base
         $this->assign('notEvaluate',$notEvaluate);
         $this->assign('afterSale',$afterSale);
         $this->assign('myOrderData',$myOrderData);
+        $this->assign('title','我的活动');
     	return $this->fetch();
     }
 
@@ -239,6 +240,7 @@ class User extends Base
         $collectionData = $activityCollection->myCollection($uid);
         
         $this->assign('collectionData',$collectionData);
+        $this->assign('title','我的收藏');
     	return $this->fetch();
     }
 
@@ -339,6 +341,7 @@ class User extends Base
         if($order_info['uid'] != $uid){
             $this->error('订单异常');
         }
+        $this->assign('title','申请退款');
         $this->assign('order_info',$order_info);
         return $this->fetch();
     }
@@ -394,6 +397,7 @@ class User extends Base
         $this->assign('reason',$refundData['reason']);
         $this->assign('order_sn',$order_sn);
         $this->assign('addtime',$refundData['time']);
+        $this->assign('title','退款处理中');
         return $this->fetch();
     }
     
@@ -467,6 +471,7 @@ class User extends Base
         $this->assign('city',$city);
         $this->assign('district',$district);
         $this->assign('province',$province);
+        $this->assign('title','用户信息');
         return $this->fetch();
     }
     
@@ -574,6 +579,7 @@ class User extends Base
         
         $this->assign('orderInfo',$orderInfo);
         $this->assign('ActivityInfo',$ActivityInfo);
+        $this->assign('title','订单详情');
         return $this->fetch();
     }
     

@@ -2,6 +2,10 @@
 	outline:none !important;
 	-moz-outline: none !important;
 }
+.table tr td{
+	text-align: center;
+}
+
 html, body{height:100%}
 /* Main */
 
@@ -1034,7 +1038,8 @@ div.dataTables_wrapper .ui-widget-header {
 	text-align: left;
 }
 .dataTables_filter input {
-	margin-bottom: 0;
+	margin-bottom: 4px;
+	height: 30px;
 }
 .table th {
 	height: auto;
@@ -1153,6 +1158,9 @@ form {
 .form-horizontal .form-actions {
 	margin-top: 0;
 	margin-bottom: 0;
+	padding-left: 26%;
+	box-sizing: border-box;
+	
 }
 .help-block, .help-inline {
 	color: #999999;

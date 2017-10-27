@@ -1,0 +1,1279 @@
+---------------------------------------------------------------
+[ 2017-10-27T00:15:13+08:00 ] 172.17.222.163 106.11.156.237 GET /home/activity/free_detail/aid/40.html
+[ info ] www.baobaowaner.com/home/activity/free_detail/aid/40.html [运行时间：0.074916s][吞吐率：13.35req/s] [内存消耗：2,988.75kb] [文件加载：61]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'activity',
+    2 => 'free_detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-cn,en-us,zh-tw,en-gb,en;',
+  'host' => 'www.baobaowaner.com',
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'user-agent' => 'YisouSpider',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '40',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Activity->free_detail[ /var/www/html/wanwan/application/home/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/home/view/activity/free_detail.html [ array (
+  0 => 'title',
+  1 => 'timeInfo',
+  2 => 'activityInfo',
+  3 => 'commentInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006902s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.004943s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004540s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004985s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` WHERE  `aid` = 40 LIMIT 1 [ RunTime:0.004592s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_comments` [ RunTime:0.004814s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 40  AND `type` = 1 [ RunTime:0.004537s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_time` [ RunTime:0.004749s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_time` WHERE  `aid` = 40 [ RunTime:0.004462s ]
+---------------------------------------------------------------
+[ 2017-10-27T00:52:32+08:00 ] 172.17.222.163 123.125.71.102 GET /
+[ info ] www.baobaowaner.com/ [运行时间：0.053145s][吞吐率：18.82req/s] [内存消耗：2,607.62kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
+  'accept-language' => 'zh-cn,zh-tw',
+  'if-none-match' => '""19b0-55327c6d8d14f""',
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /var/www/html/wanwan/application/home/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/home/view/index/index.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007315s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005522s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004794s ]
+---------------------------------------------------------------
+[ 2017-10-27T01:54:05+08:00 ] 172.17.222.163 123.125.67.163 GET /robots.txt
+[ info ] www.baobaowaner.com/robots.txt [运行时间：0.019490s][吞吐率：51.31req/s] [内存消耗：1,336.51kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'robots.txt',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-cn,zh-tw',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-27T03:13:56+08:00 ] 172.17.222.163 46.229.164.99 GET /robots.txt
+[ info ] www.baobaowaner.com/robots.txt [运行时间：0.013250s][吞吐率：75.47req/s] [内存消耗：1,334.83kb] [文件加载：40]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'robots.txt',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (compatible; SemrushBot/1.2~bl; +http://www.semrush.com/bot.html)',
+  'host' => 'www.baobaowaner.com',
+  'accept-encoding' => 'gzip,deflate',
+  'accept' => '*/*',
+  'connection' => 'close',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-10-27T08:48:20+08:00 ] 172.17.222.163 123.151.42.71 GET /
+[ info ] www.baobaowaner.com/ [运行时间：0.048412s][吞吐率：20.66req/s] [内存消耗：2,538.97kb] [文件加载：53]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /var/www/html/wanwan/application/home/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007146s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005353s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004659s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:20+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/new_activity.html
+[ info ] www.baobaowaner.com/mobile/activity/new_activity.html [运行时间：0.054847s][吞吐率：18.23req/s] [内存消耗：2,805.22kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007359s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005252s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004874s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005214s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc LIMIT 0,10 [ RunTime:0.004913s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:29+08:00 ] 172.17.222.163 117.185.27.114 GET /
+[ info ] www.baobaowaner.com/ [运行时间：0.042590s][吞吐率：23.48req/s] [内存消耗：2,535.89kb] [文件加载：53]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.9 TBS/036906 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /var/www/html/wanwan/application/home/controller/Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007487s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005967s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004990s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:29+08:00 ] 172.17.222.163 117.185.27.114 GET /mobile/activity/new_activity.html
+[ info ] www.baobaowaner.com/mobile/activity/new_activity.html [运行时间：0.062514s][吞吐率：16.00req/s] [内存消耗：2,801.85kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.9 TBS/036906 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'referer' => 'http://www.baobaowaner.com/',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007068s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005205s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004669s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005148s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc LIMIT 0,10 [ RunTime:0.004809s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:30+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/index/set/26.html
+[ info ] www.baobaowaner.com/mobile/activity/index/set/26.html [运行时间：0.087171s][吞吐率：11.47req/s] [内存消耗：2,784.32kb] [文件加载：59]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'set' => '26',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->index[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/index.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'banner',
+  3 => 'titleInfo',
+  4 => 'result',
+  5 => 'titleSon',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007356s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005341s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004880s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 26 ORDER BY sort asc [ RunTime:0.004768s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005187s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_title`,`a_remark`,`a_type`,`a_begin_time`,`a_end_time`,`a_address`,`a_price` FROM `mfw_activity` WHERE  `a_type` = 31  AND `a_price` > 0 ORDER BY aid desc LIMIT 3 [ RunTime:0.004777s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` `t` INNER JOIN `mfw_activity_type_extension` `e` ON `t`.`id`=`e`.`type_id` WHERE  `t`.`id` = '26' LIMIT 1 [ RunTime:0.004822s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type_banner` [ RunTime:0.005090s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type_banner` WHERE  `type_id` = 26 [ RunTime:0.004729s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.005038s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `uid` = 100 [ RunTime:0.004730s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:33+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/new_activity.html
+[ info ] www.baobaowaner.com/mobile/activity/new_activity.html [运行时间：0.064761s][吞吐率：15.44req/s] [内存消耗：2,805.61kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/index/set/26.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007498s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005527s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004979s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005479s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc LIMIT 0,10 [ RunTime:0.005060s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:36+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/freeplay.html
+[ info ] www.baobaowaner.com/mobile/activity/freeplay.html [运行时间：0.063234s][吞吐率：15.81req/s] [内存消耗：2,798.66kb] [文件加载：59]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'freeplay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->freeplay[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/freeplay.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'newest',
+  3 => 'review',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007049s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005176s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004670s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004972s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` WHERE  `a_price` = 0 ORDER BY aid desc [ RunTime:0.004748s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.004874s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `uid` = 100 [ RunTime:0.004544s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:40+08:00 ] 172.17.222.163 120.204.17.68 GET /mobile/activity/index/set/26.html
+[ info ] www.baobaowaner.com/mobile/activity/index/set/26.html [运行时间：0.072391s][吞吐率：13.81req/s] [内存消耗：2,761.77kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat QBCore/3.43.27.400 QQBrowser/9.0.2524.400',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'set' => '26',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->index[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/index.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'banner',
+  3 => 'titleInfo',
+  4 => 'result',
+  5 => 'titleSon',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007392s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005165s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004783s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 26 ORDER BY sort asc [ RunTime:0.004693s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005113s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_title`,`a_remark`,`a_type`,`a_begin_time`,`a_end_time`,`a_address`,`a_price` FROM `mfw_activity` WHERE  `a_type` = 31  AND `a_price` > 0 ORDER BY aid desc LIMIT 3 [ RunTime:0.004819s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` `t` INNER JOIN `mfw_activity_type_extension` `e` ON `t`.`id`=`e`.`type_id` WHERE  `t`.`id` = '26' LIMIT 1 [ RunTime:0.004879s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type_banner` [ RunTime:0.005136s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type_banner` WHERE  `type_id` = 26 [ RunTime:0.004691s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:42+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/new_activity.html
+[ info ] www.baobaowaner.com/mobile/activity/new_activity.html [运行时间：0.053670s][吞吐率：18.63req/s] [内存消耗：2,805.61kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/freeplay.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007097s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005183s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004678s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004943s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc LIMIT 0,10 [ RunTime:0.004766s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:43+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/about.html
+[ info ] www.baobaowaner.com/mobile/activity/about.html [运行时间：0.040305s][吞吐率：24.81req/s] [内存消耗：2,745.37kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'about',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->about[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/about.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007211s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005115s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004707s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:46+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/new_activity.html
+[ info ] www.baobaowaner.com/mobile/activity/new_activity.html [运行时间：0.052882s][吞吐率：18.91req/s] [内存消耗：2,805.56kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/about.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007103s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005167s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004797s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005047s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc LIMIT 0,10 [ RunTime:0.004810s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:46+08:00 ] 172.17.222.163 183.192.201.97 GET /mobile/activity/freeplay.html
+[ info ] www.baobaowaner.com/mobile/activity/freeplay.html [运行时间：0.056278s][吞吐率：17.77req/s] [内存消耗：2,789.10kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'freeplay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1.1; SM801 Build/LMY47V; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->freeplay[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/freeplay.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'newest',
+  3 => 'review',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007582s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005560s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004995s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005395s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` WHERE  `a_price` = 0 ORDER BY aid desc [ RunTime:0.005074s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:53+08:00 ] 172.17.222.163 120.204.17.46 GET /mobile/activity/about.html
+[ info ] www.baobaowaner.com/mobile/activity/about.html [运行时间：0.041394s][吞吐率：24.16req/s] [内存消耗：2,742.65kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'about',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/en',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->about[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/about.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007131s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005163s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004849s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:48:59+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/about.html
+[ info ] www.baobaowaner.com/mobile/activity/about.html [运行时间：0.040260s][吞吐率：24.84req/s] [内存消耗：2,745.37kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'about',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->about[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/about.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006839s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.004927s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004515s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:02+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/new_activity.html
+[ info ] www.baobaowaner.com/mobile/activity/new_activity.html [运行时间：0.051265s][吞吐率：19.51req/s] [内存消耗：2,805.56kb] [文件加载：58]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/about.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006985s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005100s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004524s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004893s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` ORDER BY aid desc LIMIT 0,10 [ RunTime:0.004616s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:04+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/index/set/26.html
+[ info ] www.baobaowaner.com/mobile/activity/index/set/26.html [运行时间：0.084754s][吞吐率：11.80req/s] [内存消耗：2,784.32kb] [文件加载：59]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'set' => '26',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->index[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/index.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'banner',
+  3 => 'titleInfo',
+  4 => 'result',
+  5 => 'titleSon',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007731s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005406s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004782s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 26 ORDER BY sort asc [ RunTime:0.004715s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005226s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_title`,`a_remark`,`a_type`,`a_begin_time`,`a_end_time`,`a_address`,`a_price` FROM `mfw_activity` WHERE  `a_type` = 31  AND `a_price` > 0 ORDER BY aid desc LIMIT 3 [ RunTime:0.004787s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` `t` INNER JOIN `mfw_activity_type_extension` `e` ON `t`.`id`=`e`.`type_id` WHERE  `t`.`id` = '26' LIMIT 1 [ RunTime:0.004742s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type_banner` [ RunTime:0.005066s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type_banner` WHERE  `type_id` = 26 [ RunTime:0.004712s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.005637s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `uid` = 100 [ RunTime:0.004840s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:08+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/detail/aid/41.html
+[ info ] www.baobaowaner.com/mobile/activity/detail/aid/41.html [运行时间：0.097977s][吞吐率：10.21req/s] [内存消耗：2,877.95kb] [文件加载：62]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/index/set/26.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '41',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->detail[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/detail.html [ array (
+  0 => 'title',
+  1 => 'activityInfo',
+  2 => 'isCollection',
+  3 => 'commentInfo',
+  4 => 'question',
+  5 => 'answer',
+  6 => 'recommendInfo',
+  7 => 'goodsInfo',
+  8 => 'extensionInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006813s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.004933s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004501s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004841s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_title`,`a_index_img`,`a_remark`,`a_price`,`a_img`,`a_address`,`a_begin_time`,`a_end_time`,`a_adult_price`,`a_child_price`,`a_status`,`a_content` FROM `mfw_activity` WHERE  `aid` = 41 LIMIT 1 [ RunTime:0.004519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_comments` [ RunTime:0.004680s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 41  AND `type` = 1 [ RunTime:0.004447s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 41  AND `type` = 2 ORDER BY comment_id desc [ RunTime:0.004464s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_price`,`a_title` FROM `mfw_activity` WHERE  `a_is_recommend` = 1 [ RunTime:0.004504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_goods` [ RunTime:0.004705s ]
+[ sql ] [ SQL ] SELECT `gid`,`g_img`,`g_title`,`g_price` FROM `mfw_goods` WHERE  `aid` = 41 [ RunTime:0.004387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_extension` [ RunTime:0.004680s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_extension` WHERE  `aid` = 41 [ RunTime:0.004495s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.004673s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `aid` = 41  AND `uid` = 100 LIMIT 1 [ RunTime:0.004500s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:15+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/index/set/26.html
+[ info ] www.baobaowaner.com/mobile/activity/index/set/26.html [运行时间：0.082066s][吞吐率：12.19req/s] [内存消耗：2,784.32kb] [文件加载：59]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'set' => '26',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->index[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/index.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'banner',
+  3 => 'titleInfo',
+  4 => 'result',
+  5 => 'titleSon',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006994s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005205s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004761s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 26 ORDER BY sort asc [ RunTime:0.004477s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004947s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_title`,`a_remark`,`a_type`,`a_begin_time`,`a_end_time`,`a_address`,`a_price` FROM `mfw_activity` WHERE  `a_type` = 31  AND `a_price` > 0 ORDER BY aid desc LIMIT 3 [ RunTime:0.004572s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` `t` INNER JOIN `mfw_activity_type_extension` `e` ON `t`.`id`=`e`.`type_id` WHERE  `t`.`id` = '26' LIMIT 1 [ RunTime:0.004568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type_banner` [ RunTime:0.004857s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type_banner` WHERE  `type_id` = 26 [ RunTime:0.004553s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.004869s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `uid` = 100 [ RunTime:0.004532s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:18+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/detail/aid/30.html
+[ info ] www.baobaowaner.com/mobile/activity/detail/aid/30.html [运行时间：0.126282s][吞吐率：7.92req/s] [内存消耗：2,916.95kb] [文件加载：62]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/index/set/26.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '30',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->detail[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/detail.html [ array (
+  0 => 'title',
+  1 => 'activityInfo',
+  2 => 'isCollection',
+  3 => 'commentInfo',
+  4 => 'question',
+  5 => 'answer',
+  6 => 'recommendInfo',
+  7 => 'goodsInfo',
+  8 => 'extensionInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024951s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005117s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004746s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004977s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_title`,`a_index_img`,`a_remark`,`a_price`,`a_img`,`a_address`,`a_begin_time`,`a_end_time`,`a_adult_price`,`a_child_price`,`a_status`,`a_content` FROM `mfw_activity` WHERE  `aid` = 30 LIMIT 1 [ RunTime:0.004737s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_comments` [ RunTime:0.004839s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 30  AND `type` = 1 [ RunTime:0.004564s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 30  AND `type` = 2 ORDER BY comment_id desc [ RunTime:0.004557s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_price`,`a_title` FROM `mfw_activity` WHERE  `a_is_recommend` = 1 [ RunTime:0.004618s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_goods` [ RunTime:0.004921s ]
+[ sql ] [ SQL ] SELECT `gid`,`g_img`,`g_title`,`g_price` FROM `mfw_goods` WHERE  `aid` = 30 [ RunTime:0.004546s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_extension` [ RunTime:0.004823s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_extension` WHERE  `aid` = 30 [ RunTime:0.006766s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.004884s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `aid` = 30  AND `uid` = 100 LIMIT 1 [ RunTime:0.004570s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:18+08:00 ] 172.17.222.163 183.192.201.97 GET /mobile/activity/detail/aid/41.html
+[ info ] www.baobaowaner.com/mobile/activity/detail/aid/41.html [运行时间：0.104107s][吞吐率：9.61req/s] [内存消耗：2,872.77kb] [文件加载：62]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.4; HUAWEI ALE-CL00 Build/HuaweiALE-CL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'keep-alive',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '41',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->detail[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/detail.html [ array (
+  0 => 'title',
+  1 => 'activityInfo',
+  2 => 'isCollection',
+  3 => 'commentInfo',
+  4 => 'question',
+  5 => 'answer',
+  6 => 'recommendInfo',
+  7 => 'goodsInfo',
+  8 => 'extensionInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007399s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.004952s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.005924s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004792s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_title`,`a_index_img`,`a_remark`,`a_price`,`a_img`,`a_address`,`a_begin_time`,`a_end_time`,`a_adult_price`,`a_child_price`,`a_status`,`a_content` FROM `mfw_activity` WHERE  `aid` = 41 LIMIT 1 [ RunTime:0.004461s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_comments` [ RunTime:0.004751s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 41  AND `type` = 1 [ RunTime:0.004432s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 41  AND `type` = 2 ORDER BY comment_id desc [ RunTime:0.004429s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_price`,`a_title` FROM `mfw_activity` WHERE  `a_is_recommend` = 1 [ RunTime:0.004601s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_goods` [ RunTime:0.004761s ]
+[ sql ] [ SQL ] SELECT `gid`,`g_img`,`g_title`,`g_price` FROM `mfw_goods` WHERE  `aid` = 41 [ RunTime:0.004524s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_extension` [ RunTime:0.004695s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_extension` WHERE  `aid` = 41 [ RunTime:0.005416s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.004708s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `aid` = 41  AND `uid` = null LIMIT 1 [ RunTime:0.007139s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:25+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/detail_list/eid/12.html
+[ info ] www.baobaowaner.com/mobile/activity/detail_list/eid/12.html [运行时间：0.051435s][吞吐率：19.44req/s] [内存消耗：2,791.98kb] [文件加载：62]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'detail_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/detail/aid/30.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'eid' => '12',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->detail_list[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/detail_list.html [ array (
+  0 => 'title',
+  1 => 'einfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007086s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005132s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004680s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_extension` [ RunTime:0.004890s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_extension` WHERE  `extension_id` = 12 LIMIT 1 [ RunTime:0.004639s ]
+[ error ] [8]Array to string conversion[/var/www/html/wanwan/runtime/temp/69dc365f512efebef98db497994cd05e.php:42]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:27+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/detail/aid/30.html
+[ info ] www.baobaowaner.com/mobile/activity/detail/aid/30.html [运行时间：0.108432s][吞吐率：9.22req/s] [内存消耗：2,916.95kb] [文件加载：62]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/index/set/26.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '30',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->detail[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/detail.html [ array (
+  0 => 'title',
+  1 => 'activityInfo',
+  2 => 'isCollection',
+  3 => 'commentInfo',
+  4 => 'question',
+  5 => 'answer',
+  6 => 'recommendInfo',
+  7 => 'goodsInfo',
+  8 => 'extensionInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007497s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005453s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.005170s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.005300s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_title`,`a_index_img`,`a_remark`,`a_price`,`a_img`,`a_address`,`a_begin_time`,`a_end_time`,`a_adult_price`,`a_child_price`,`a_status`,`a_content` FROM `mfw_activity` WHERE  `aid` = 30 LIMIT 1 [ RunTime:0.004927s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_comments` [ RunTime:0.005141s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 30  AND `type` = 1 [ RunTime:0.004897s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_comments` WHERE  `aid` = 30  AND `type` = 2 ORDER BY comment_id desc [ RunTime:0.004891s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_price`,`a_title` FROM `mfw_activity` WHERE  `a_is_recommend` = 1 [ RunTime:0.004897s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_goods` [ RunTime:0.005228s ]
+[ sql ] [ SQL ] SELECT `gid`,`g_img`,`g_title`,`g_price` FROM `mfw_goods` WHERE  `aid` = 30 [ RunTime:0.004824s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_extension` [ RunTime:0.005121s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_extension` WHERE  `aid` = 30 [ RunTime:0.007206s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.005110s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `aid` = 30  AND `uid` = 100 LIMIT 1 [ RunTime:0.004878s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:49:29+08:00 ] 172.17.222.163 123.151.42.71 GET /mobile/activity/index/set/26.html
+[ info ] www.baobaowaner.com/mobile/activity/index/set/26.html [运行时间：0.079865s][吞吐率：12.52req/s] [内存消耗：2,784.32kb] [文件加载：59]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/wxpic,image/sharpp,*/*;q=0.8',
+  'accept-encoding' => 'gzip',
+  'accept-language' => 'zh-CN,en-US;q=0.8',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=aafaa8bd2f909f6074bb8967bf1f081f',
+  'host' => 'www.baobaowaner.com',
+  'referer' => 'http://www.baobaowaner.com/mobile/activity/new_activity.html',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1; PRO 5 Build/LMY47D; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043610 Safari/537.36 MicroMessenger/6.5.16.1120 NetType/WIFI Language/zh_CN',
+  'x-forwarded-for' => '1.192.242.175',
+)
+[ info ] [ PARAM ] array (
+  'set' => '26',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->index[ /var/www/html/wanwan/application/mobile/controller/Activity.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/html/wanwan/application/mobile/view/activity/index.html [ array (
+  0 => 'title',
+  1 => 'collections',
+  2 => 'banner',
+  3 => 'titleInfo',
+  4 => 'result',
+  5 => 'titleSon',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006876s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005024s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004566s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 26 ORDER BY sort asc [ RunTime:0.004501s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.004889s ]
+[ sql ] [ SQL ] SELECT `aid`,`a_index_img`,`a_title`,`a_remark`,`a_type`,`a_begin_time`,`a_end_time`,`a_address`,`a_price` FROM `mfw_activity` WHERE  `a_type` = 31  AND `a_price` > 0 ORDER BY aid desc LIMIT 3 [ RunTime:0.004498s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` `t` INNER JOIN `mfw_activity_type_extension` `e` ON `t`.`id`=`e`.`type_id` WHERE  `t`.`id` = '26' LIMIT 1 [ RunTime:0.004735s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type_banner` [ RunTime:0.004769s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type_banner` WHERE  `type_id` = 26 [ RunTime:0.004422s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_collection` [ RunTime:0.004682s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_collection` WHERE  `uid` = 100 [ RunTime:0.004453s ]
+---------------------------------------------------------------
+[ 2017-10-27T08:52:48+08:00 ] 172.17.222.163 123.125.71.107 GET /
+[ info ] www.baobaowaner.com/ [运行时间：0.042892s][吞吐率：23.31req/s] [内存消耗：2,607.62kb] [文件加载：56]
+[ info ] [ LANG ] /var/www/html/wanwan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.baobaowaner.com',
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
+  'accept-language' => 'zh-cn,zh-tw',
+  'if-none-match' => '""19b0-55327c6d8d14f""',
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /var/www/html/wanwan/application/home/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/html/wanwan/application/home/view/index/index.html [ array (
+  0 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007531s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.005383s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0 ORDER BY sort asc [ RunTime:0.004969s ]
