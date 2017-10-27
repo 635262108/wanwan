@@ -123,3 +123,6 @@ li{
     margin-top: 10px;
     font-size: 18px;
 }
+.add_order a:hover{
+	border: 1px solid rgb(40,183,121);
+}

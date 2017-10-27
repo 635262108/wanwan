@@ -601,18 +601,64 @@ html {
 
 }
 
+
 #personal_center .content .center_img,
 .playBaby_content .content .center_img {
 	border-radius: 50%;
 	border: 1px solid #FF4134
 }
 
-#personal_center .content .baby_detail,
+
 .playBaby_content .content .baby_detail {
 	padding-top: 10px;
 	height: auto
 }
+#personal_center .content .baby_detail{
+	padding-top: 0px;
+}
+#personal_center .content .baby_detail .ul_first,#personal_center .content .baby_detail .ul_second{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 10px;
+}
+#personal_center .content .baby_detail .ul_first li,#personal_center .content .baby_detail .ul_second li{
+	margin-bottom: 0px;
+}
 
+#personal_center .content .baby_detail .ul_first li:nth-child(2){
+	width: 20px;
+	height: 20px;
+	margin-left: 5%;
+}
+#personal_center .content .baby_detail .ul_second li:nth-child(2){
+	margin-left: 4%;
+}
+#personal_center .content .baby_detail .ul_second li:nth-child(2) .pay_for{
+	box-sizing: border-box;
+	
+	padding-left:5px ;
+	width: 56px;
+	height: 20px;
+	border: 1px solid #FF4134;
+	border-radius: 10px;
+	font-size: 12px;
+	color: #FF4314;
+}
+#personal_center .content .baby_detail .ul_second li:nth-child(2) .pay_for span{
+	display: inline-block;
+	height: 15px;
+	margin-top: 1px;
+}
+#personal_center .content .baby_detail .ul_second li:nth-child(2) .pay_for img{
+	width:15px ;
+	height: 15px;
+	vertical-align: middle;
+}
+#personal_center .content .baby_detail .ul_first li:nth-child(2) img{
+	width: 100%;
+	height: 100%;
+}
 #personal_center .content .baby_detail ul li,
 .playBaby_content .content .baby_detail ul li {
 	margin-bottom: 10px

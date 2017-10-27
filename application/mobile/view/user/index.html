@@ -24,12 +24,23 @@
             <img src="__HEADICON__/{$userInfo.headIcon}" />
         </div>
         <div class="baby_detail">
-            <ul>
+            <ul class="ul_first">
                 <li>{$userInfo.nickname}</li>
-                <li>{$userInfo.signature}</li>
                 <li>
                     <a href="{:url('mobile/user/my_info')}">
                         <img src="__MobileImg__/emit.png">
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="ul_second">
+                <li>余额：0.01</li>
+                <li>
+                    <a href="{:url('mobile/user/my_info')}">
+                    	
+                        <div class="pay_for">
+                        	<img src="__MobileImg__/pay_img.png" />
+                        	<span>充值</span></div>
                     </a>
                 </li>
             </ul>
