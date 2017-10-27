@@ -569,4 +569,15 @@ class Activity extends Base
             return_info(-1,'失败');
         }
     }
+
+    //显示会员导入
+    public function dis_import_user($aid){
+        $this->assign('aid',$aid);
+        return $this->fetch();
+    }
+
+    //会员导入
+    public function import_user(){
+        var_dump(input('file.'));
+    }
 }

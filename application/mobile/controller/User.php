@@ -582,6 +582,11 @@ class User extends Base
         $this->assign('title','订单详情');
         return $this->fetch();
     }
+
+    //充值
+    public function recharge(){
+        return $this->fetch();
+    }
     
     //忘记密码
     public function forget_pwd(){
