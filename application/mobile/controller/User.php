@@ -630,6 +630,7 @@ class User extends Base
             $input->setOutTradeNo($add_data['order_sn']);   //订单号
             $input->setTotalFee($money * 100);  //价格
             $input->setTimeStart(date("YmdHis"));   //生成时间
+            $input->setNotifyUrl("http://www.baobaowaner.com"); //设置回调地址
             $input->setTradeType("JSAPI");
             $input->setOpenid($openId);
             $orders = WxPayApi::unifiedOrder($input);
