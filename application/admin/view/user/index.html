@@ -1,0 +1,128 @@
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+      <div id="breadcrumb"> 
+      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
+      	<a href="{:url('admin/user/index')}" class="tip-bottom">客户中心</a>
+      	<a href="#" class="current">客户列表</a> 
+  	  </div>
+  </div>
+  
+   <div class="add_order">
+  	 <a href="{:url('admin/user/add_member')}">
+        <div class="add" title="添加会员">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                		 添加会员
+          </span>
+        </div>
+     </a>
+  </div>
+<div class="container-fluid">
+  <div class="row-fluid">
+  	  <div class="span12">
+  	  	        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>会员列表</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>用户id</th>
+                  <th>昵称</th>
+                  <th>手机号</th>
+                  <th>性别</th>
+                  <th>状态</th>
+                  <th>加入时间</th>
+                  <th>余额</th>
+                  <th>操作</th>
+               </tr>
+              </thead>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                {foreach name="$userInfo" item="vo"}
+                <tr>
+                  <td>{$vo.uid}</td>
+                  <td>{$vo.nickname}</td>
+                  <td>{$vo.mobile}</td>
+                  <td>
+                    {if condition="$vo.sex eq 1"}
+                      男
+                    {else/}
+                      女
+                    {/if}
+                  </td>
+                  <td>
+                    {if condition="$vo.status eq 1"}
+                      正常
+                    {else/}
+                      被禁
+                    {/if}
+                  </td>
+                  <td>{$vo.reg_time|date='Y-m-d H:i:s',###}</td>
+                  <td>{$vo.balance}</td>
+                  <td class="center">
+                      <i class="check icon-reorder">&nbsp;&nbsp;查看</i>
+                      <a href="{:url('admin/user/saveUserList','uid='.$vo.uid)}"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>
+                      <a href="{:url('admin/user/Consumption_details','uid='.$vo.uid)}"><i class="icon-edit">&nbsp;&nbsp;消费</i></a>
+                      <a href="{:url('admin/user/recharge','uid='.$vo.uid)}"><i class="icon-credit-card">&nbsp;&nbsp;充值</i></a>
+                  </td>
+                  
+                </tr>
+                {/foreach}
+              </tbody>
+            </table>
+          </div>
+        </div>
+  	  </div>
+  </div>
+</div>
+</div>
+<div class="modal_box hide">
+	<div class="modal_div">
+		<div class="cancel">X</div>
+		<table class="detail_information" border="1" style="width:700px ;height: 200px;font-size: 12px;">
+			<tr>
+				<td>用户id</td>
+				<td class="userId"></td>
+				<td>手机号</td>
+				<td class="phone"></td>
+				<td>昵称</td>
+				<td class="nickname"></td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td class="normal"></td>
+				<td>注册时间</td>
+				<td class="start"></td>
+				<td>最后登录时间</td>
+				<td class="finsh"></td>
+			</tr>
+			<tr>
+				<td>生日</td>
+				<td class="birthday"></td>
+				<td>爱好</td>
+        <td class="hobby"></td>
+				<td>所在省</td>
+				<td class="province"></td>
+			</tr>
+			<tr>
+				<td>所在市</td>
+				<td class="country"></td>
+				<td>所在区</td>
+				<td class="area"></td>
+				<td>详细地址</td>
+				<td class="address"></td>
+			</tr>
+       <tr>
+				<td>个性签名</td>
+        <td colspan="5" class="sign"></td>
+			</tr>
+			
+		</table>
+	</div>
+</div>
+{include file="public/footer" /}
+</html>

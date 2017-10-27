@@ -1,0 +1,52 @@
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+        <div id="content-header">
+                <div id="breadcrumb">
+                        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+                        <a href="#" class="tip-bottom">分类列表</a>
+                        <a href="#" class="current">添加分类</a>
+                </div>
+        </div>
+
+        <div class="row-fluid" id="emit_information">
+                <div class="span6" style="margin-left: 12%;">
+                        <div class="widget-box" style="width: 700px;">
+                                <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                                        <h5>添加</h5>
+                                </div>
+                                <div class="widget-content nopadding">
+                                        <form action="{:url('admin/activity/addType')}" method="post" class="form-horizontal" name="quitPay_form">
+                                                <div class="control-group">
+                                                    <label class="control-label">分类名称：</label>
+                                                    <div class="controls">
+                                                            <input class="span11" name="name" type="text">
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="control-group">
+                                                    <label class="control-label">排序：</label>
+                                                    <div class="controls">
+                                                            <input class="span11" name="sort" type="text">
+                                                    </div>
+                                                </div>
+
+
+                                            <div class="form-actions" style="text-align: center">
+                                                        <button type="submit" class="btn btn-success info_sure">添加</button>
+                                                        <a href="{:url('admin/activity/activityType')}" class="btn-warning">取消</a>
+                                                </div>
+                                                </form>
+
+
+
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>		
+{include file="public/footer" /}
+		
+	</body>
+
+</html>

@@ -1,0 +1,83 @@
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+      <div id="breadcrumb"> 
+      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
+      	<a href="#" class="tip-bottom">活动管理</a> 
+      	<a href="#" class="current">活动列表</a> 
+  </div>
+  </div>
+<!--添加开始部分-->
+  <div class="add_order">
+  	 <a href="{:url('admin/activity/addActivityList')}">
+        <div class="add" title="添加活动">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加活动
+          </span>
+        </div>
+     </a>
+  </div>
+<!--添加结束-->
+<div class="container-fluid">
+  <div class="row-fluid">
+  	  <div class="span12">
+  	  	        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Data table</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>活动id</th>
+                  <th>活动名称</th>
+                  <th>活动开始时间</th>
+                  <th>活动结束时间</th>
+                  <th>剩余名额</th>
+                  <th>已报名额</th>
+                  <th>大人价格</th>
+                  <th>小孩价格</th>
+                  <th>活动价格</th>
+                  <th>是否推荐</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                {foreach name="ActivityInfo" item="vo"}
+                <tr class="gradeX trs">
+                  <td>{$vo.aid}</td>
+                  <td>{$vo.a_title|subtext=17}</td>
+                  <td>{$vo.a_begin_time|date="m-d H:i",###}</td>
+                  <td>{$vo.a_end_time|date="m-d H:i",###}</td>
+                  <td>{$vo.a_num}</td>
+                  <td>{$vo.a_sold_num}</td>
+                  <td>{$vo.a_adult_price}</td>
+                  <td>{$vo.a_child_price}</td>
+                  <td>{$vo.a_price}</td>
+                  <td>
+                      {switch name="$vo.a_is_recommend"}
+                        {case value="1"}是{/case}
+                        {case value="0"}否{/case}
+                    {/switch}
+                  </td>
+                  
+                  <td class="center">
+                  	<a href="{:url('admin/activity/saveActivityList','aid='.$vo.aid)}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+                    <i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>	
+                    <a target="view_window" href="http://qr.topscan.com/api.php?text=www.baobaowaner.com/mobile/activity/sign?a={$vo.aid}"><i class="check icon-reorder">&nbsp;&nbsp;二维码</i></a>
+                  </td>
+                </tr>
+                {/foreach}
+              </tbody>
+            </table>
+          </div>
+        </div>
+  	  </div>
+  </div>
+</div>
+</div>
+{include file="public/footer" /}
+</html>

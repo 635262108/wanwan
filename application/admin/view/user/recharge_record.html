@@ -1,0 +1,51 @@
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+      <div id="breadcrumb"> 
+      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
+      	<a href="{:url('admin/user/index')}" class="tip-bottom">客户中心</a>
+      	<a href="#" class="current">充值记录</a> 
+  </div>
+  </div>
+<div class="container-fluid">
+  <div class="row-fluid">
+  	  <div class="span12">
+  	  	        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>充值记录</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>会员名称</th>
+                  <th>手机号</th>
+                  <th>充值金额</th>
+                  <th>余额</th>
+                  <th>支付方式</th>
+                  <th>充值时间</th>
+               </tr>
+              </thead>
+              <tbody id="tbody_center" style="font-size: 12px;">
+               {foreach name="res" item="vo"}
+                <tr>
+                  <td>{$vo.nickname}</td>
+                  <td>{$vo.mobile}</td>
+                  <td>{$vo.amount}</td>
+                  <td>{$vo.balance}</td>
+                  <td>{$vo.pay_way|payWay}</td>
+                  <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
+                </tr>
+                {/foreach}
+              </tbody>
+            </table>
+          </div>
+        </div>
+  	  </div>
+  </div>
+</div>
+</div>
+{include file="public/footer" /}
+</html>

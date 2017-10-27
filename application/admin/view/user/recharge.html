@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		{include file="public/header" /} {include file="public/left" /}
+		<div id="content" style="">
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
+					<a href="{:url('admin/activity/index')}" class="tip-bottom" data-original-title="">客户中心</a>
+					<a href="#" class="current">充值</a>
+				</div>
+			</div>
+
+			<div class="row-fluid" id="emit_information" style="width: 1300px;">
+				<div class="span6" style="margin-left: 12%;">
+					<div class="widget-box" style="width: 100%;">
+						<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+							<h5>充值信息</h5>
+						</div>
+						<div class="widget-content nopadding" style="">
+							<form action="{:url('admin/user/add_recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
+								<input type="hidden" name="uid" value="{$userInfo.uid}">
+								<div class="control-group">
+									<label class="control-label">会员名称</label>
+									<div class="controls">
+										<input class="span11" value='{$userInfo.nickname}' type="text" style="width: 32%;" readonly>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">充值金额</label>
+									<div class="controls">
+										<input class="span11" style="width: 30%;" value='' name="amount" type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">支付方式</label>
+									<div class="controls">
+										<select name="pay_way">
+											<option value=1" selected='selected' >支付宝</option>
+											<option value="2" >微信</option>
+											<option value="3">现金</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn btn-success info_sure">保存</button>
+									<a href="{:url('admin/user/index')}" class="btn-warning">取消</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="__AJS__/jquery.min.js"></script>
+		<script src="__AJS__/jquery.ui.custom.js"></script>
+		<script src="__AJS__/bootstrap.min.js"></script>
+		<script src="__AJS__/jquery.uniform.js"></script>
+		<script src="__AJS__/select2.min.js"></script>
+		<script src="__AJS__/jquery.dataTables.min.js"></script>
+		<script src="__AJS__/matrix.js"></script>
+		<script src="__AJS__/birthday.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__AJS__/operat_table.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.all.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="__EDITER__/lang/zh-cn/zh-cn.js"></script>
+
+		</body>
+
+</html>

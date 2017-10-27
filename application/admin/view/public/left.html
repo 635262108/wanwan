@@ -1,0 +1,65 @@
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul style="display: block;">
+    <li class="active"><a href="{url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a></li>
+    <li class="submenu"> <a href="#"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="{:url('admin/user/index')}">客户列表</a></li>
+        <li><a href="{:url('admin/user/attendance')}">签到概况</a></li>
+        <li><a href="{:url('admin/user/recharge_record')}">充值记录</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
+      <ul>
+        <li ><a href="{:url('admin/activity/index')}">活动列表</a></li>
+        <li><a href="{:url('admin/activity/activityType')}">活动分类</a></li>
+        <li><a href="{:url('admin/activity/extension')}">活动扩展</a></li>
+        <li><a href="{:url('admin/activity/specification')}">活动安排</a></li>
+        <li><a href="{:url('admin/activity/activity_ask')}">活动提问</a></li>
+        <li><a href="{:url('admin/activity/activity_comment')}">评论列表</a></li>
+        <li><a href="{:url('admin/activity/leave_for')}">请假列表</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu"> 
+        <a href="#"><i class="icon icon-inbox"></i>
+            <span>订单中心</span>
+            <span class="label label-important">2</span>
+        </a>
+    	<ul style="display: none;">
+        <li><a href="{:url('admin/activity/order')}">订单列表</a></li>
+        <li><a href="{:url('admin/activity/refund')}">退款列表</a></li>
+       </ul>
+   </li>
+      <li class="submenu">
+          <a href="#"><i class="icon-headphones"></i>
+              <span>客服中心</span>
+              <span class="label label-important">1</span>
+          </a>
+          <ul style="display: none;">
+              <li><a href="{:url('admin/service/index')}">报名情况</a></li>
+          </ul>
+      </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-bell"></i>
+          <span>权限中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="#">管理员管理</a></li>
+          <li><a href="{:url('admin/activity/refund')}">角色列表</a></li>
+          <li><a href="{:url('admin/activity/refund')}">管理员日志</a></li>
+      </ul>
+  </li>
+  <li class="submenu">
+      <a href="#"><i class="icon-align-left"></i>
+          <span>统计中心</span>
+          <span class="label label-important">3</span>
+      </a>
+      <ul style="display: none;">
+          <li><a href="{:url('admin/activity/order')}">会员到场率</a></li>
+          <li><a href="{:url('admin/activity/refund')}">会员增长率</a></li>
+          <li><a href="{:url('admin/activity/refund')}">活动排名</a></li>
+      </ul>
+  </li>
+  </ul>
+</div>
