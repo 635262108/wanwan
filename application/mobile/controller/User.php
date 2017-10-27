@@ -4,6 +4,14 @@ use think\Controller;
 use think\Session;
 use think\Request;
 use think\Cache;
+use wxpay\database\WxPayUnifiedOrder;
+use wxpay\JsApiPay;
+use wxpay\NativePay;
+use wxpay\PayNotifyCallBack;
+use think\Log;
+use wxpay\WxPayApi;
+use wxpay\WxPayConfig;
+use wxpay\wechatAppPay;
 
 
 class User extends Base
