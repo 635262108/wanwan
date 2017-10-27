@@ -1,6 +1,7 @@
 <?php
 namespace app\mobile\controller;
 use think\Controller;
+use think\session;
 
 class Base extends Controller
 {
