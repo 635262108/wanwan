@@ -344,9 +344,8 @@ class Activity extends Base
             if(is_weixin()){
                 //session记录订单
                 session::set($uid,$order_sn);
-                //跳转url获取openid,跳转到wx_browser_pay
-                $tools = new JsApiPay();
-                $tools->getOpenid();
+                //跳转到wx_browser_pay
+                $this->redirect('activity/wx_browser_pay');
             }
             //获取订单信息
             $ActivityOrder = model('ActivityOrder');
@@ -377,6 +376,7 @@ class Activity extends Base
         $openId = session::get('openid');
 
         //统一下单
+        $tools = new JsApiPay();
         $money = $order['order_price'];
         $input = new WxPayUnifiedOrder();
         $input->setBody("玩翫碗活动报名");

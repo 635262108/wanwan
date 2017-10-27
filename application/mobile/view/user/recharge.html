@@ -1,45 +1,11 @@
 {include file="public/second_header" /}
-<form action="" method="post">
+<form action="{:url('admin/user/enter_recharge')}" method="post">
 	<div class="pay_num">
 	    <p>充值金额</p>
 	    <div class="prompt_num">
-	    	<span>￥</span><input type="text" placeholder="0.00"/>
+	    	<span>￥</span><input name="money" type="text" placeholder="0.00"/>
 	    </div>
 	</div>
 	    <p class="warn">提示：账户金额可以用于玩翫碗的所有活动</p>
-	
-	
-	<button type="submit" class="user_pay">充值</button>
+		<button type="submit" class="user_pay">充值</button>
 </form>
-
-<script type="text/javascript">
-    //调用微信JS api 支付
-    function onBridgeReady() {
-        WeixinJSBridge.invoke(
-            'getBrandWCPayRequest',
-            {$jsApiParameters},
-            function (res) {
-                if (res.err_msg == "get_brand_wcpay_request:ok") {
-                    alert('支付成功');
-                    window.location.href = "{:url('mobile/activity/pay_success',['order_sn'=>$order.order_sn])}"
-                }     // 使用以上方式判断前端返回,微信团队郑重提示:res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
-                if (res.err_msg == "get_brand_wcpay_request:cancel") {
-                    alert('取消支付');
-                    history.back();
-                }
-            }
-        );
-    }
-    function callpay() {
-        if (typeof WeixinJSBridge == "undefined") {
-            if (document.addEventListener) {
-                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-            } else if (document.attachEvent) {
-                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-            }
-        } else {
-            onBridgeReady();
-        }
-    }
-</script>

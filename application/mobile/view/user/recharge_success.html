@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+{include file="public/header" /}
+{include file="public/second_header"}
 <body>
-$END$
+<!--<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" onclick="javascript:window.history.back(-1);window.location.reload()" >
+        <div class="comeback_img">
+            <img src="__MobileImg__/second_back.png"/>
+        </div>
+
+    </div>
+    <div class="title_word second_activity">报名成功</div>
+
+</div>-->
+
+<div class="new_background">
+
+    <div class="login_operat">
+        <div class="first" style="font-size: 14px;">充值成功</div>
+        <div style="font-size: 10px;color: #8d8d8d;"><span class="count">3</span>s后自动跳转首页</div>
+    </div>
+</div>
+
+<script src="__MobileJs__/jquery.min.js"></script>
+<script src="__MobileJs__/idangerous.swiper.min.js"></script>
+<script>
+    var count=$(".count").html();
+
+    window.setInterval(function(){
+        count--;
+        $(".count").html(count)
+        if(count<=1){
+            location.href="{:url('mobile/user/index')}";
+            clearInterval();
+        }
+    },1500);
+
+
+
+
+</script>
+
 </body>
 </html>
+

@@ -141,16 +141,6 @@ class User extends Base
 
 	//会员中心首页
     public function index(){
-        //微信浏览器先获取openid
-        if(is_weixin()) {
-            if (session::get('openid') == null) {
-                //获取openId
-                $tools = new JsApiPay();
-                $openId = $tools->getOpenid();
-                session::set('openid', $openId);
-            }
-        }
-
     	//获取用户信息
         $userInfo = Session::get('userInfo');
     	$uid = $userInfo['uid'];
@@ -597,6 +587,67 @@ class User extends Base
     public function recharge(){
     	$this->assign('title','用户充值');
         return $this->fetch();
+    }
+
+    //充值确认
+    public function enter_recharge(){
+        //金额
+        $money = input('post.money');
+        $uid = Session::get('userInfo.uid');
+        //获取openid
+        $openId = session::get('openid');
+        //增加订单
+        $add_data['uid'] = $uid;
+        $add_data['amount'] = $money;
+        $add_data['pay_way'] = 2;
+        $add_data['pay_time'] = time();
+        $add_data['status'] = 0;
+        $add_data['order_sn'] = getOrderSn($uid,000);
+        $id = model('RechargeRecord')->insertGetId($add_data);
+        if($id){
+            //微信下单
+            $tools = new JsApiPay();
+            $input = new WxPayUnifiedOrder();
+            $input->setBody("玩翫碗余额充值");
+            $input->setAttach("玩翫碗余额充值");
+            $input->setOutTradeNo($add_data['order_sn']);   //订单号
+            $input->setTotalFee($money * 100);  //价格
+            $input->setTimeStart(date("YmdHis"));   //生成时间
+            $input->setTradeType("JSAPI");
+            $input->setOpenid($openId);
+            $orders = WxPayApi::unifiedOrder($input);
+            $jsApiParameters = $tools->getJsApiParameters($orders);
+        }
+        $this->assign('order_sn',$add_data['order_sn']);
+        $this->assign('jsApiParameters', $jsApiParameters);
+        return $this->fetch();
+    }
+
+    //充值成功
+    public function recharge_success($order_sn){
+        //获取充值信息
+        $map['order_sn'] = $order_sn;
+        $rechargeInfo = model('RechargeRecord')->getRecharge($map);
+
+        //检查用户
+        $userInfo = model('user')->getIdUser($rechargeInfo['uid']);
+
+        if(empty($rechargeInfo) || empty($userInfo)){
+            $this->error('参数错误');
+        }
+
+        //查询订单
+        $notify = new PayNotifyCallBack();
+        $notify->handle(true);
+        $result = $notify->queryTradeOrder($order_sn);
+        if($result){
+            //增加余额
+            $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
+            $userInfo->save();
+            return $this->fetch();
+        }else{
+            $this->error('支付失败,有疑问请联系客服');
+        }
     }
     
     //忘记密码

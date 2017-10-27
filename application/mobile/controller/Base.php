@@ -5,6 +5,15 @@ use think\Controller;
 class Base extends Controller
 {
     public function _initialize() {
+        //微信浏览器先获取openid
+        if(is_weixin()) {
+            if (session::get('openid') == null) {
+                //获取openId
+                $tools = new JsApiPay();
+                $openId = $tools->getOpenid();
+                session::set('openid', $openId);
+            }
+        }
         $this->public_assign();
     }
     /**

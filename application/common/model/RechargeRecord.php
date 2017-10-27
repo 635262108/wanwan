@@ -21,6 +21,24 @@ class RechargeRecord extends Model
     }
 
     /**
+     * 根据id获取单条充值记录
+     * @param $id
+     * @return array|false|\PDOStatement|string|Model
+     */
+    public function getIdRecharge($id){
+        return $this->find($id);
+    }
+
+    /**
+     * 获取一条充值记录
+     * @param $map
+     * @return array|false|\PDOStatement|string|Model
+     */
+    public function getRecharge($map){
+        return $this->where($map)->find();
+    }
+
+    /**
      * 获取充值记录
      * @param $map
      * @param $limit
