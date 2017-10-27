@@ -571,13 +571,83 @@ class Activity extends Base
     }
 
     //显示会员导入
-    public function dis_import_user($aid){
+    public function dis_import_user($aid,$t_id){
         $this->assign('aid',$aid);
+        $this->assign('t_id',$t_id);
         return $this->fetch();
     }
 
     //会员导入
     public function import_user(){
-        var_dump(input('file.'));
+        //活动id
+        $aid = input('post.aid');
+        //时间id
+        $tid = input('post.t_id');
+        //获取文件
+        $filename = $_FILES['user']['tmp_name'];
+        require EXTEND_PATH.'excel/PHPExcel/IOFactory.php';
+        require EXTEND_PATH."excel/PHPExcel.php";
+        require EXTEND_PATH.'excel/PHPExcel/Writer/Excel5.php';
+
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');//use excel2007 for 2007 format
+        $objPHPExcel = $objReader->load($filename); //$filename可以是上传的文件，或者是指定的文件
+        $sheet = $objPHPExcel->getSheet(0);
+        $highestRow = $sheet->getHighestRow(); // 取得总行数
+//        $highestColumn = $sheet->getHighestColumn(); // 取得总列数
+
+        //循环读取excel文件,读取一条,插入一条
+        $k = 0;
+        for($j=2;$j<=$highestRow;$j++)
+        {
+            $a = $objPHPExcel->getActiveSheet()->getCell("A".$j)->getValue();//获取A列的值，用户名
+            $b = $objPHPExcel->getActiveSheet()->getCell("B".$j)->getValue();//获取B列的值，手机号
+            $c = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取C列的值，下单时间
+            $d = $objPHPExcel->getActiveSheet()->getCell("D".$j)->getValue();//获取D列的值，支付时间
+            $e = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，付款金额
+
+            if(empty($a) || empty($b) || empty($c) || empty($d) || empty($e)){
+                continue;
+            }
+            $excel_data[$k]['name'] = $a;
+            $excel_data[$k]['mobile'] = $b;
+            $excel_data[$k]['addtime'] = strtotime($c);
+            $excel_data[$k]['pay_time'] = strtotime($d);
+            $excel_data[$k]['order_price'] = $e;
+            $k++;
+        }
+
+        //获取时间段信息
+        $timeInfo = model('ActivityTime')->getAnyTime($tid);
+        //定义最多报名数
+        $num = $timeInfo['ticket_num'];
+        //添加订单
+        $Activity = model('Activity');
+        $ActivityTime = model('ActivityTime');
+        for($i=0;$i<$num;$i++){
+            $add_data[$i]['order_sn'] = getOrderSn(000,$aid);
+            $add_data[$i]['aid'] = $aid;
+            $add_data[$i]['uid'] = -1;
+            $add_data[$i]['mobile'] = $excel_data[$i]['mobile'];
+            $add_data[$i]['name'] = $excel_data[$i]['name'];
+            $add_data[$i]['adult_num'] = 1;
+            $add_data[$i]['child_num'] = 1;
+            $add_data[$i]['order_price'] = $excel_data[$i]['order_price'];
+            $add_data[$i]['pay_way'] = 5;
+            $add_data[$i]['pay_time'] = $excel_data[$i]['pay_time'];
+            $add_data[$i]['order_status'] = 3;
+            $add_data[$i]['addtime'] = $excel_data[$i]['addtime'];
+            //库存-1
+            $Activity->DecActivity($aid);
+            //报名人员+1
+            $Activity->IncActivity($aid);
+            //时间库存票数-1
+            $ActivityTime->DecTicketNum($tid);
+        }
+        $order = model('ActivityOrder')->insertAll($add_data);
+        if($order){
+            $this->success('导入成功','activity/specification');
+        }else{
+            $this->success('数据库插入失败','activity/specification');
+        }
     }
 }

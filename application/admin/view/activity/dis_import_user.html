@@ -18,7 +18,8 @@
                 </div>
                 <div class="widget-content nopadding">
                     <form action="{:url('admin/activity/import_user')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="quitPay_form">
-
+                        <input type="hidden" value="{$aid}" name="aid">
+                        <input type="hidden" value="{$t_id}" name="t_id">
                         <div class="control-group">
                             <label class="control-label">选择excel文件</label>
                             <div class="controls">

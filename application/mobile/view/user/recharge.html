@@ -11,3 +11,35 @@
 	
 	<button type="submit" class="user_pay">充值</button>
 </form>
+
+<script type="text/javascript">
+    //调用微信JS api 支付
+    function onBridgeReady() {
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',
+            {$jsApiParameters},
+            function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    alert('支付成功');
+                    window.location.href = "{:url('mobile/activity/pay_success',['order_sn'=>$order.order_sn])}"
+                }     // 使用以上方式判断前端返回,微信团队郑重提示:res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                    alert('取消支付');
+                    history.back();
+                }
+            }
+        );
+    }
+    function callpay() {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    }
+</script>

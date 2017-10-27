@@ -103,7 +103,16 @@ function is_weixin() {
         return true; 
     } return false; 
 }
-
+/**
+ *生成订单号
+ *规则：当前时间+aid+uid
+ *uid 用户id
+ *aid 活动id
+ */
+function getOrderSn($uid,$aid){
+    $time = date('YmdHis');
+    return $time.$aid.$uid;
+}
 /**
  * 支付方式转义
  * @param $payWay
@@ -122,6 +131,8 @@ function payWay($code){
             break;
         case 4:
             return '余额';
+        case 5:
+            return '机构';
         default:
             return '未付款';
     }

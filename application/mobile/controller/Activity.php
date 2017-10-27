@@ -316,9 +316,8 @@ class Activity extends Base
                 if(is_weixin()){
                     //session记录订单
                     session::set($uid,$result['order_sn']);
-                    //跳转url获取openid,跳转到wx_browser_pay
-                    $tools = new JsApiPay();
-                    $tools->getOpenid();
+                    //跳转到wx_browser_pay
+                    $this->redirect('activity/wx_browser_pay');
                 }
                                 
                 //给用户发送一条消息
@@ -375,13 +374,7 @@ class Activity extends Base
         $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
 
         //获取用户openid
-        $tools = new JsApiPay();
-        if(session::get('openid') == null){
-            $openId = $tools->getOpenid();
-            session::set('openid',$openId);
-        }else{
-            $openId = session::get('openid');
-        }
+        $openId = session::get('openid');
 
         //统一下单
         $money = $order['order_price'];
