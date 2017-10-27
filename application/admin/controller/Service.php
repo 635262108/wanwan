@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\model;
-use app\admin\Logic\ServiceLogic;
+use app\admin\logic\ServiceLogic;
 class Service extends Base
 {
 

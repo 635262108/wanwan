@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Session;
-use app\admin\Logic\UserLogic;
+use app\admin\logic\UserLogic;
 
 class User extends Base
 {
