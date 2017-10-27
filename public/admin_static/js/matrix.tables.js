@@ -6,7 +6,8 @@ $(document).ready(function(){
 		"sPaginationType": "full_numbers",
 		"sDom": '<""l>t<"F"fp>',
 		"bFilter":true,
-		"bLengthChange":true
+		"bLengthChange":true,
+		"aaSorting":[[0,"desc"]]
 	});
 	
 	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();

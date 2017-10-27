@@ -280,12 +280,17 @@ class User extends Base
 
     //充值记录
     public function recharge_record(){
-
+        $model = new UserLogic();
+        $res = $model->getUseRechargeRecord();
+        $this->assign('res',$res);
         return $this->fetch();
     }
 
     //明细
-    public function  Consumption_details(){
+    public function  consumption_details($uid){
+        $model = new UserLogic();
+        $res = $model->getUserRecord($uid);
+        $this->assign('res',$res);
         return $this->fetch();
     }
 
@@ -295,6 +300,25 @@ class User extends Base
         $userInfo = $user->getIdUser($uid);
         $this->assign('userInfo',$userInfo);
         return $this->fetch();
+    }
+
+    //添加充值
+    public function add_recharge(){
+        //用户id
+        $data['uid'] = input('post.uid');
+        //金额
+        $data['amount'] = input('post.amount');
+        //支付方式
+        $data['pay_way'] = input('post.pay_way');
+
+        //添加
+        $model = new UserLogic();
+        $res = $model->addRecharge($data);
+        if($res['status']== 200){
+            $this->success($res['msg'],'user/index');
+        }else{
+            $this->error($res['msg']);
+        }
     }
 
     //添加会员
