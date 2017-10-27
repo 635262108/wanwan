@@ -585,6 +585,7 @@ class User extends Base
 
     //充值
     public function recharge(){
+    	$this->assign('title','用户充值');
         return $this->fetch();
     }
     
