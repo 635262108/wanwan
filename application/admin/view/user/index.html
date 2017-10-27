@@ -5,7 +5,7 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
+      	<a href="{:url('admin/user/index')}" class="tip-bottom">客户中心</a>
       	<a href="#" class="current">客户列表</a> 
   	  </div>
   </div>
@@ -37,7 +37,6 @@
                   <th>性别</th>
                   <th>状态</th>
                   <th>加入时间</th>
-                  <th>地址</th>
                   <th>余额</th>
                   <th>操作</th>
                </tr>
@@ -63,12 +62,11 @@
                     {/if}
                   </td>
                   <td>{$vo.reg_time|date='Y-m-d H:i:s',###}</td>
-                  <td>{$vo.address}</td>
-                  <td></td>
+                  <td>{$vo.balance}</td>
                   <td class="center">
                       <i class="check icon-reorder">&nbsp;&nbsp;查看</i>
                       <a href="{:url('admin/user/saveUserList','uid='.$vo.uid)}"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>
-                      <a href="{:url('admin/user/Consumption_details','uid='.$vo.uid)}"><i class="icon-edit">&nbsp;&nbsp;明细</i></a>
+                      <a href="{:url('admin/user/Consumption_details','uid='.$vo.uid)}"><i class="icon-edit">&nbsp;&nbsp;消费</i></a>
                       <a href="{:url('admin/user/recharge','uid='.$vo.uid)}"><i class="icon-credit-card">&nbsp;&nbsp;充值</i></a>
                   </td>
                   

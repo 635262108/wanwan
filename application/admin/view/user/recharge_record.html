@@ -5,7 +5,7 @@
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
-      	<a onclick="window.location.href=document.referrer" class="tip-bottom">客户中心</a> 
+      	<a href="{:url('admin/user/index')}" class="tip-bottom">客户中心</a>
       	<a href="#" class="current">充值记录</a> 
   </div>
   </div>
@@ -26,24 +26,19 @@
                   <th>余额</th>
                   <th>支付方式</th>
                   <th>充值时间</th>
-                 
                </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
-               
+               {foreach name="res" item="vo"}
                 <tr>
-                  <td>飒飒</td>
-                  <td>18437076116</td>
-                  <td>500</td>
-                  <td>10</td>
-                  <td>微信</td>
-                  <td>2015.2.12</td>
-                  
-                  
-                  
-                  
+                  <td>{$vo.nickname}</td>
+                  <td>{$vo.mobile}</td>
+                  <td>{$vo.amount}</td>
+                  <td>{$vo.balance}</td>
+                  <td>{$vo.pay_way|payWay}</td>
+                  <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
                 </tr>
-            
+                {/foreach}
               </tbody>
             </table>
           </div>

@@ -4,8 +4,8 @@
     <div id="content-header">
         <div id="breadcrumb">
             <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
-            <a href="{:url('admin/activity/specification')}" class="tip-bottom">规格列表</a>
-            <a href="#" class="current">添加规格</a>
+            <a href="{:url('admin/activity/specification')}" class="tip-bottom">活动安排</a>
+            <a href="#" class="current">添加安排</a>
         </div>
     </div>
 
@@ -28,16 +28,27 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">规格内容：</label>
+                            <label class="control-label">时间/备注：</label>
                             <div class="controls">
                                 <input class="span11" value="" name="content" type="text">
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label">规格数量：</label>
+                            <label class="control-label">数量：</label>
                             <div class="controls">
                                 <input class="span11" value="" placeholder="整数" name="num" type="text">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">负责人:</label>
+                            <div class="controls">
+                                <select name="head">
+                                    {foreach name="userInfo" item="vo"}
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                    {/foreach}
+                                </select>
                             </div>
                         </div>
 

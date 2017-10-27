@@ -97,7 +97,7 @@ class ActivityOrder extends Model
     }
     
     //获取多条（带条件）
-    public function getOrders($map){
-        return $this->where($map)->select();
+    public function getOrders($map=array(),$field='*',$limit=''){
+        return $this->field($field)->where($map)->limit($limit)->select();
     }
 }

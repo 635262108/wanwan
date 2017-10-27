@@ -129,6 +129,7 @@ class Activity extends Base
         $ActivityExtension = model('ActivityExtension');
         //获取活动扩展信息
     	$einfo = $ActivityExtension->getAnyInfo($eid);
+    	$this->assign('title','详情');
         $this->assign('einfo',$einfo);
         return $this->fetch();
     }
