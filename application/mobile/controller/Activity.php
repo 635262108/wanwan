@@ -79,6 +79,15 @@ class Activity extends Base
 
     //活动详情页（点击报名进入详情页）
     public function detail(){
+        //微信浏览器先获取openid
+        if(is_weixin()) {
+            if (Session::get('openid') == null) {
+                //获取openId
+                $tools = new JsApiPay();
+                $openId = $tools->getOpenid();
+                session::set('openid', $openId);
+            }
+        }
     	$aid = input('aid');
     	$Activity = model('Activity');
     	$ActivityComments = model('ActivityComments');

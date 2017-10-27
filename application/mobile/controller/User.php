@@ -141,6 +141,15 @@ class User extends Base
 
 	//会员中心首页
     public function index(){
+        //微信浏览器先获取openid
+        if(is_weixin()) {
+            if (Session::get('openid') == null) {
+                //获取openId
+                $tools = new JsApiPay();
+                $openId = $tools->getOpenid();
+                session::set('openid', $openId);
+            }
+        }
     	//获取用户信息
         $userInfo = Session::get('userInfo');
     	$uid = $userInfo['uid'];
