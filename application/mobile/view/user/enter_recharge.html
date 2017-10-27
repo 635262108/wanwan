@@ -5,8 +5,21 @@
     <title>确认支付</title>
 </head>
 <body>
-<button onclick="callpay()" style="display: none;">确认支付</button>
+<button id="wxpay" onclick="callpay()" style="display: none;">确认支付</button>
 <script type="text/javascript">
+    // 自动点击
+    setTimeout(function() {
+        // IE
+        if(document.all) {
+            document.getElementById("wxpay").click();
+        }
+        // 其它浏览器
+        else {
+            var e = document.createEvent("MouseEvents");
+            e.initEvent("click", true, true);
+            document.getElementById("wxpay").dispatchEvent(e);
+        }
+    }, 100);
     //调用微信JS api 支付
     function onBridgeReady() {
         WeixinJSBridge.invoke(
