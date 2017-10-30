@@ -1646,7 +1646,8 @@ html {
 }
 
 .detailActivity .activity_parts .acyivity_part .activity_detail ul li:nth-child(2) {
-	font-size: 12px
+	font-size: 12px;
+	color: #565656;
 }
 
 .discuss_content {
@@ -2717,7 +2718,7 @@ html {
 	margin-bottom: 16px
 }
 
-/*用户充值*/
+/*用户充值样式*/
 .pay_num{
 	width: 90%;
 	margin: 27px auto 0px;

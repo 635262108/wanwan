@@ -94,14 +94,14 @@
     <div class="dot"></div>
     <h3>活动内容</h3>
     <div class="activity_parts">
+    	
         {foreach name="extensionInfo" item="vo" }
+       <a href="{:url('mobile/activity/detail_list',['eid'=>$vo.extension_id])}">
         <div class="acyivity_part">
             <div class="activity_imgBorder">
-                <!--<div class="img_activity">-->
-                    <a href="{:url('mobile/activity/detail_list',['eid'=>$vo.extension_id])}">
+                
                         <img src="__AdminIMG__/{$vo.extension_img}"/>
-                    </a>
-                <!--</div>-->
+          
             </div>
             <div class="activity_detail">
                 <ul>
@@ -110,7 +110,9 @@
                 </ul>
             </div>
         </div>
+          </a>
         {/foreach}
+      
     </div>
 </div>
 
