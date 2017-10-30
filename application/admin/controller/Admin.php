@@ -9,7 +9,7 @@
 namespace app\admin\controller;
 
 
-class AdminUser extends Base
+class Admin extends Base
 {
 
     //首页
@@ -21,4 +21,5 @@ class AdminUser extends Base
     public function role(){
         return $this->fetch();
     }
+
 }

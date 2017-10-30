@@ -228,7 +228,7 @@ EOF;
             if (!file_exists($path)) {
                 $message = 'File at "%s" does not exist, check your classmap definitions';
             } elseif (!is_readable($path)) {
-                $message = 'File at "%s" is not readable, check its AdminUser';
+                $message = 'File at "%s" is not readable, check its Admin';
             } elseif ('' === trim(file_get_contents($path))) {
                 return [];
             } else {
