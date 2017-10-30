@@ -1,6 +1,6 @@
 <?php
 namespace app\admin\controller;
-use app\admin\Logic\ActivityLogic;
+use app\admin\logic\ActivityLogic;
 use think\Controller;
 use think\Session;
 use think\Request;
