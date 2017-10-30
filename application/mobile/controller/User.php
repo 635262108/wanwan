@@ -531,7 +531,7 @@ class User extends Base
     public function account(){
         return $this->fetch();
     }
-    
+
     //修改绑定手机
     public function bindingPhone(){
         if(request()->isAjax()){
@@ -602,6 +602,10 @@ class User extends Base
 
     //充值
     public function recharge(){
+        if(!is_weixin()){
+            $this->assign('msg','请在微信下进行充值哦');
+            return $this->fetch('public/prompt');
+        }
     	$this->assign('title','用户充值');
         return $this->fetch();
     }
@@ -667,6 +671,7 @@ class User extends Base
             //增加余额
             $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
             $userInfo->save();
+            $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');
             return $this->fetch();
         }else{

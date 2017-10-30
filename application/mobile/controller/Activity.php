@@ -662,6 +662,7 @@ class Activity extends Base
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
+            $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('order',$order);
             return $this->fetch();
