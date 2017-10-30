@@ -32,7 +32,7 @@
                     </div>
 
 <!--                    <div><span>性别</span><p class="sex"><input type="radio" name="adultSex" checked="checked">男<input type="radio" class="woman"name="adultSex">女</p> </div>-->
-                    <div><span>联系方式</span><input type="text" name="mobile" class="adultTel">
+                    <div><span>联系方式</span><input type="text" name="mobile" class="adultTel" style="margin-bottom: 15px;">
                         <p class="adultTel_warn" style="color: #FF4134;font-size: 12px;text-align: center;margin-left: 40%;display: none;">联系方式不能为空！</p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="playBaby_content almost" id="detail_info">
 
                     <div class="content" id="theme_information" style="box-shadow: 0px 0px 3px #ff4134;">
-                        <div class="baby_detail" style="width: 100%;">
+                        <div class="baby_detail" style="width: 100%;padding-left: 5%;">
                             <ul class="information_ul">
                                 <li><span>活动时间:</span><span>{$ActivityInfo.a_begin_time|date='Y.m.d',###}-{$ActivityInfo.a_end_time|date='Y.m.d',###}</span></li>
                                 <li><span>活动地点:</span><span class="max_width">{$ActivityInfo.a_address}</span></li>
@@ -105,7 +105,7 @@
 
                                 </li>
                                 <li><span>应付金额:</span><span>总计:<b>￥</b><b class="total">{$price}</b></span></li>
-                                <li><input type="text" placeholder="备注" style="width: 70%;" class="beizhu" name="remark"></li>
+                                <li style="margin-bottom: 10px;"><input type="text" placeholder="备注" style="width: 70%;" class="beizhu" name="remark"></li>
                             </ul>
                         </div>
 
