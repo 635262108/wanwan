@@ -6,18 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/view/Admin/dis_add_user.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/view/Admin/dis_save_user.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/common/model/Role.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Admin.php" afterPath="$PROJECT_DIR$/application/admin/controller/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/logic/AdminUserLogic.php" afterPath="$PROJECT_DIR$/application/admin/logic/AdminUserLogic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/Admin/index.html" afterPath="$PROJECT_DIR$/application/admin/view/Admin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/AdminUser.php" afterPath="$PROJECT_DIR$/application/common/model/AdminUser.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/activityType.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/activitytype.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/activityTypeSon.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/activitytypeson.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/addActivityList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addactivitylist.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/user/saveUserList.html" afterPath="$PROJECT_DIR$/application/admin/view/user/saveuserlist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/addExtensionList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addextensionlist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/addSpeList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/addTypeList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addtypelist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/addTypeSonList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addtypesonlist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/saveActivityList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/saveExtensionList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/saveextensionlist.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/activity/saveTypeList.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/savetypelist.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -325,6 +321,14 @@
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="service" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -448,12 +452,12 @@
       <workItem from="1509067034542" duration="632000" />
       <workItem from="1509068277151" duration="26862000" />
       <workItem from="1509154727124" duration="10318000" />
-      <workItem from="1509324051811" duration="22654000" />
+      <workItem from="1509324051811" duration="22859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248261000" />
+    <option name="totallyTimeSpent" value="248466000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -751,7 +755,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addTypeList.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addtypelist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
@@ -759,7 +763,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addTypeSonList.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addtypesonlist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="12" column="61" lean-forward="true" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
