@@ -7,9 +7,9 @@
  */
 
 namespace app\common\model;
+use think\Model;
 
-use think\model;
-class AdminUser extends model
+class AdminUser extends Model
 {
     /**
      * 获取单个数据
