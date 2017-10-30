@@ -340,6 +340,7 @@ class User extends Base
         if($order_info['uid'] != $uid){
             $this->error('订单异常');
         }
+        $this->assign('title','请假列表');
         $this->assign('order_info',$order_info);
         return $this->fetch();
     }

@@ -23,7 +23,6 @@
                   <th>会员名称</th>
                   <th>手机号</th>
                   <th>充值金额</th>
-                  <th>余额</th>
                   <th>支付方式</th>
                   <th>支付状态</th>
                   <th>充值时间</th>
@@ -35,7 +34,6 @@
                   <td>{$vo.nickname}</td>
                   <td>{$vo.mobile}</td>
                   <td>{$vo.amount}</td>
-                  <td>{$vo.balance}</td>
                   <td>{$vo.pay_way|payWay}</td>
                   <td>
                       {if condition="$vo.status eq 0"}
