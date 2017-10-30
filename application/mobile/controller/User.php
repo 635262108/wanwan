@@ -667,6 +667,7 @@ class User extends Base
             //增加余额
             $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
             $userInfo->save();
+            $this->assign('title','充值成功');
             return $this->fetch();
         }else{
             $this->error('支付失败,有疑问请联系客服');
