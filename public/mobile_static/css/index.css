@@ -1,4 +1,4 @@
-html {
+user_payhtml {
 	font-size: 18px;
 }
 
@@ -342,7 +342,7 @@ html {
 
 
 .five_organs .play_baoContent .playBao_part .bao_img {
-	width: 119px;
+	width: 113px;
 	height: 116px;
 	margin-right: 2%;
 }
@@ -458,7 +458,6 @@ html {
 
 #system_content .system_part {
 	margin-left: 3%;
-	padding-left: 2%;
 	width: 98%;
 	display: flex;
 	flex-direction: row;
@@ -485,7 +484,7 @@ html {
 }
 
 #system_content .system_part ul li {
-	width: 100%;
+	width: 98%;
 	font-size: 12px;
 	line-height: 18px;
 	margin-bottom: 8px;
@@ -614,7 +613,7 @@ html {
 	height: auto
 }
 #personal_center .content .baby_detail{
-	padding-top: 0px;
+	padding-top: 8px;
 }
 #personal_center .content .baby_detail .ul_first,#personal_center .content .baby_detail .ul_second{
 	display: flex;
@@ -1040,7 +1039,7 @@ html {
 }
 
 #orderDetail_content .content .baby_detail .pay_contentDetail .detail_information {
-	width: 70%;
+	width: 100%;
 	font-size: 13px;
 }
 
@@ -2106,8 +2105,8 @@ html {
 }
 
 .form_Content form .form_common .adult_img {
-	width: 20%;
-	height: 60px
+	width: 15%;
+	height: 44px
 }
 
 .form_Content form .form_common .adult_img img {
@@ -2116,7 +2115,8 @@ html {
 }
 
 .form_Content form .form_common .child_birthday .birthdayContainer {
-	width: 74%
+	width: 74%;
+	margin-top: 5px;
 }
 
 .form_Content form .form_common .child_birthday .birthdayContainer select {
@@ -2135,7 +2135,8 @@ html {
 	outline: none;
 	border: none;
 	margin-left: 30%;
-	margin-top: 20px
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .form_Content form .name_sure a {
@@ -2757,13 +2758,14 @@ html {
 	color: #FF4314;
 }
 .user_pay{
-	width:20% ;
-	height:25px;
+	text-align: center;
+	width:26% ;
+	height:30px;
 	border: 1px solid #FF4314;
 	border-radius:15px ;
 	font-size: 13px;
 	background: #FF4134;
-	line-height: 23px;
+	line-height: 30px;
 	color: #FFFFFF;
 	margin-top: 150px;
 	margin-left: 39%;
