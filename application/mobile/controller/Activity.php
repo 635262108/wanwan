@@ -686,6 +686,7 @@ class Activity extends Base
         }
         $result = \alipay\Query::exec($trade_no);
         if($result['trade_status'] == 'TRADE_SUCCESS'){
+            $this->assign('title','支付成功');
             $this->assign('order',$order);
             return $this->fetch('activity/pay_success');
         }else{
