@@ -13,9 +13,12 @@
 <div class="comeback textAlign" id="second_page">
     <div class="comeback_whole" >
         <div class="comeback_img">
-            <a onclick="window.location.href=document.referrer"><img src="__MobileImg__/second_back.png"/></a>
+            {empty name="$url"}
+                <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a>
+            {else/}
+                <a href="{$url}"><img src="__MobileImg__/second_back.png"/></a>
+            {/empty}
         </div>
-
     </div>
 
     <div class="title_word second_activity"> {$title}</div>
