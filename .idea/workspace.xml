@@ -6,18 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/admin/view/AdminUser/adminlog.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/public/left.html" afterPath="$PROJECT_DIR$/application/admin/view/public/left.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" afterPath="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/user/refund.html" afterPath="$PROJECT_DIR$/application/mobile/view/user/refund.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/admin_static/editer/dialogs/wordimage/tangram.js" afterPath="$PROJECT_DIR$/public/admin_static/editer/dialogs/wordimage/tangram.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/thinkphp/library/think/console/command/optimize/Autoload.php" afterPath="$PROJECT_DIR$/thinkphp/library/think/console/command/optimize/Autoload.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/controller/AdminUser.php" afterPath="$PROJECT_DIR$/application/admin/controller/Admin.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/AdminUser/index.html" afterPath="$PROJECT_DIR$/application/admin/view/Admin/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/admin/view/AdminUser/role.html" afterPath="$PROJECT_DIR$/application/admin/view/Admin/role.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/activity/pay_success.html" afterPath="$PROJECT_DIR$/application/mobile/view/activity/pay_success.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,8 +31,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="186" column="30" lean-forward="true" selection-start-line="186" selection-start-column="30" selection-end-line="186" selection-end-column="30" />
+            <state relative-caret-position="330">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,8 +41,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="333" column="38" lean-forward="true" selection-start-line="333" selection-start-column="38" selection-end-line="333" selection-end-column="38" />
+            <state relative-caret-position="406">
+              <caret line="393" column="4" lean-forward="true" selection-start-line="393" selection-start-column="4" selection-end-line="393" selection-end-column="4" />
               <folding>
                 <element signature="e#39#60#0#PHP" expanded="true" />
               </folding>
@@ -130,7 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/controller/Base.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/add_member.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/activity/freeplay.html" />
         <option value="$PROJECT_DIR$/application/home/controller/Index.php" />
@@ -180,6 +169,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Admin.php" />
         <option value="$PROJECT_DIR$/application/admin/view/public/left.html" />
+        <option value="$PROJECT_DIR$/application/mobile/view/activity/pay_success.html" />
         <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
       </list>
     </option>
@@ -191,7 +181,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -285,6 +275,29 @@
               <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="activity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -347,15 +360,15 @@
       <workItem from="1509067034542" duration="632000" />
       <workItem from="1509068277151" duration="26862000" />
       <workItem from="1509154727124" duration="10318000" />
-      <workItem from="1509324051811" duration="10533000" />
+      <workItem from="1509324051811" duration="11392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236140000" />
+    <option name="totallyTimeSpent" value="236999000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11770833" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -659,14 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/pay_success.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/sign_success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -687,14 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="680" column="16" lean-forward="true" selection-start-line="680" selection-start-column="16" selection-end-line="680" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/public/second_header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -790,18 +787,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/public/second_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/pay_success.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="186" column="30" lean-forward="true" selection-start-line="186" selection-start-column="30" selection-end-line="186" selection-end-column="30" />
+        <state relative-caret-position="330">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="333" column="38" lean-forward="true" selection-start-line="333" selection-start-column="38" selection-end-line="333" selection-end-column="38" />
+        <state relative-caret-position="406">
+          <caret line="393" column="4" lean-forward="true" selection-start-line="393" selection-start-column="4" selection-end-line="393" selection-end-column="4" />
           <folding>
             <element signature="e#39#60#0#PHP" expanded="true" />
           </folding>
