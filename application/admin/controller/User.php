@@ -310,6 +310,8 @@ class User extends Base
         $data['amount'] = input('post.amount');
         //支付方式
         $data['pay_way'] = input('post.pay_way');
+        //支付状态.后台添加默认已收款
+        $data['status'] = 1;
 
         //添加
         $model = new UserLogic();

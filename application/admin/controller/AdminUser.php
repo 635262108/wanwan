@@ -14,6 +14,11 @@ class AdminUser extends Base
 
     //首页
     public function index(){
+        return $this->fetch();
+    }
 
+    //权限列表
+    public function role(){
+        return $this->fetch();
     }
 }

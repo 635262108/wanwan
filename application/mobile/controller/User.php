@@ -610,6 +610,11 @@ class User extends Base
     public function enter_recharge(){
         //金额
         $money = input('post.money');
+        //检查金额
+        if(!is_numeric($money)){
+            $this->error('金额输入不正确');
+        }
+
         $uid = Session::get('userInfo.uid');
         //获取openid
         $openId = session::get('openid');

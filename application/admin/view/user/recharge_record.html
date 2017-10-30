@@ -25,6 +25,7 @@
                   <th>充值金额</th>
                   <th>余额</th>
                   <th>支付方式</th>
+                  <th>支付状态</th>
                   <th>充值时间</th>
                </tr>
               </thead>
@@ -36,6 +37,13 @@
                   <td>{$vo.amount}</td>
                   <td>{$vo.balance}</td>
                   <td>{$vo.pay_way|payWay}</td>
+                  <td>
+                      {if condition="$vo.status eq 0"}
+                      未支付
+                      {else/}
+                      已支付
+                      {/if}
+                  </td>
                   <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
                 </tr>
                 {/foreach}

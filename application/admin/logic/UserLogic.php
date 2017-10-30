@@ -82,6 +82,7 @@ class UserLogic{
             'uid' => $data['uid'],
             'amount' => $data['amount'],
             'pay_way' => $data['pay_way'],
+            'status' => $data['status'],
             'pay_time' => time()
         );
 

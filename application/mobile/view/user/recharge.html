@@ -3,7 +3,7 @@
 	<div class="pay_num">
 	    <p>充值金额</p>
 	    <div class="prompt_num">
-	    	<span>￥</span><input name="money" type="text" placeholder="0.00"/>
+	    	<span>￥</span><input name="money" onkeyup="value=value.replace(/[^\-?\d.]/g,'')" type="text" placeholder="0.00"/>
 	    </div>
 	</div>
 	    <p class="warn">提示：账户金额可以用于玩翫碗的所有活动</p>
