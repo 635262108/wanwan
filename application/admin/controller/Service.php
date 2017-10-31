@@ -8,12 +8,13 @@ class Service extends Base
 
     //客服首页
     public function index(){
-        //获取数据enrol_num报名人数access_num待预约人数visit_num待回访人数not_go_num放弃人数
+        //获取数据enrol_num报名人数access_num待预约人数visit_num待回访人数not_go_num放弃人数enter_num已预约人数
         $res = model('activity')->query("select a_title,aid,
                     (select count(*) from mfw_activity_order where aid=mfw_activity.aid) as enrol_num,
                     (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id=0 and record='') as access_num,
-                    (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id>0) as visit_num,
-                    (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id=0 and record<>'') as not_go_num
+                    (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id>0) as enter_num,
+                    (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id=0 and record<>'') as not_go_num,
+                    (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id>0 and sign_time>0) as visit_num
                     from mfw_activity");
         $this->assign('res',$res);
         return $this->fetch();

@@ -384,8 +384,11 @@ class Activity extends Base
     
     //订单列表
     public function order(){
-        $ActivityOrder = model('ActivityOrder');
-        $orderInfo = $ActivityOrder->getAllOrder();
+        $orderInfo = model('ActivityOrder')
+                            ->alias('o')->field('o.*,a.a_title,s.name as source_name')
+                            ->join('mfw_activity a','o.aid=a.aid')
+                            ->join('mfw_source s','o.source=s.id','LEFT')
+                            ->select();
         $this->assign('orderInfo',$orderInfo);
         return $this->fetch();
     }
@@ -572,8 +575,11 @@ class Activity extends Base
 
     //显示会员导入
     public function dis_import_user($aid,$t_id){
+        //获取来源数据
+        $source = model('Source')->getSources();
         $this->assign('aid',$aid);
         $this->assign('t_id',$t_id);
+        $this->assign('source',$source);
         return $this->fetch();
     }
 
@@ -583,6 +589,8 @@ class Activity extends Base
         $aid = input('post.aid');
         //时间id
         $tid = input('post.t_id');
+        //来源id
+        $source = input('post.source');
         //获取文件
         $filename = $_FILES['user']['tmp_name'];
         require EXTEND_PATH.'excel/PHPExcel/IOFactory.php';
@@ -620,6 +628,9 @@ class Activity extends Base
         $timeInfo = model('ActivityTime')->getAnyTime($tid);
         //定义最多报名数
         $num = $timeInfo['ticket_num'];
+        if($num == 0){
+            $this->error('活动已报满啦');
+        }
         //添加订单
         $Activity = model('Activity');
         $ActivityTime = model('ActivityTime');
@@ -636,6 +647,7 @@ class Activity extends Base
             $add_data[$i]['pay_time'] = $excel_data[$i]['pay_time'];
             $add_data[$i]['order_status'] = 3;
             $add_data[$i]['addtime'] = $excel_data[$i]['addtime'];
+            $add_data[$i]['source'] = $source;
             //库存-1
             $Activity->DecActivity($aid);
             //报名人员+1

@@ -94,12 +94,22 @@
 							               
 							              </div>
             					</div>
-            						  <div class="control-group">
-							              <label class="control-label">余额</label>
-							              <div class="controls">
-							               			 <input type="text" value="" class="span11" name="balance" style="width: 30%;">
-							              </div>
-            						  </div>
+								  <div class="control-group">
+									  <label class="control-label">余额</label>
+									  <div class="controls">
+												 <input type="text" value="0" class="span11" name="balance" style="width: 30%;">
+									  </div>
+								  </div>
+								<div class="control-group">
+									<label class="control-label">报名来源</label>
+									<div class="controls">
+										<select name="source">
+											{foreach name="source" item="vo"}
+											<option value="{$vo.id}">{$vo.name}</option>
+											{/foreach}
+										</select>
+									</div>
+								</div>
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-success info_sure">保存</button>

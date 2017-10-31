@@ -52,7 +52,8 @@ class UserLogic{
             'birthday' => $data['birthday'],
             'address' => $data['address'],
             'balance' => $data['balance'],
-            'member_grade' => 1
+            'member_grade' => 1,
+            'source' => $data['source'],
         );
         $res = model('user')->saveUser($add_data);
         if($res !== false){

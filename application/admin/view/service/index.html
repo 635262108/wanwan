@@ -23,8 +23,9 @@
                   <th>活动名称</th>
                   <th>报名人数</th>
                   <th>待预约人数</th>
-                  <th>待回访人数</th>
+                  <th>已预约人数</th>
                   <th>放弃人数</th>
+                  <th>待回访人数</th>
                   <th>操作</th>
                </tr>
               </thead>
@@ -34,8 +35,9 @@
                   <td>{$vo.a_title}</td>
                   <td>{$vo.enrol_num}</td>
                   <td>{$vo.access_num}</td>
-                  <td>{$vo.visit_num}</td>
+                  <td>{$vo.enter_num}</td>
                   <td><a href="{:url('admin/service/not_go')}">{$vo.not_go_num}</a></td>
+                  <td>{$vo.visit_num}</td>
                   <td class="center"> <a href="{:url('admin/service/access',['aid'=>$vo.aid])}"><i class="check icon-reorder" style="width: 100px;";>&nbsp;&nbsp;预约记录</i></a>
                       <a href="{:url('admin/service/return_visit',['aid'=>$vo.aid])}"><i class="change icon-pencil" style="width: 100px;">&nbsp;&nbsp;回访记录</i></a>
                   </td>

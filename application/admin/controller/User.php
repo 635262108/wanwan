@@ -32,8 +32,9 @@ class User extends Base
     
     //会员列表
     public function index(){
-        $user = model('user');
-        $userInfo = $user->getAllUser();
+        $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
+                    ->join('mfw_source s','u.source=s.id')
+                    ->select();
         $this->assign('userInfo',$userInfo);
     	return $this->fetch();
     }
@@ -350,6 +351,8 @@ class User extends Base
             $data['birthday'] = time(input('post.birthday'));
             //余额
             $data['balance'] = input('post.balance');
+            //来源
+            $data['source'] = input('post.source');
             $model = new UserLogic();
             $result = $model->addUser($data);
             if($result['status'] == 200){
@@ -363,7 +366,10 @@ class User extends Base
             $provinces = $region->getAnyLevelData(1);
             $citys = $region->getSonData(2);
             $districts = $region->getSonData(3);
+            //获取来源数据
+            $source = model('Source')->getSources();
 
+            $this->assign('source',$source);
             $this->assign('provinces',$provinces);
             $this->assign('citys',$citys);
             $this->assign('districts',$districts);

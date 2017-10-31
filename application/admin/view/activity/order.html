@@ -30,6 +30,7 @@
                     <th>支付方式</th>
                     <th>订单状态</th>
                     <th>订单提交时间</th>
+                    <th>订单来源</th>
                  </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
@@ -62,6 +63,7 @@
                   <td>
                     {$vo.addtime|date="Y-m-d H:i",###}
                   </td>
+                  <td>{$vo.source_name}</td>
                 </tr>
                 {/foreach}
               </tbody>
