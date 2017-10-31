@@ -400,7 +400,25 @@ class User extends Base
         $data['tid'] = input('post.tid');
         $data['money'] = input('post.money');
         $data['remark'] = input('post.remark');
-        //添加
 
+        //添加
+        $model = new UserLogic();
+        $res = $model->addDealRecord($data);
+        if($res['status'] == 200){
+            $this->success($res['msg'],'user/deal');
+        }else{
+            $this->error($res['msg']);
+        }
+    }
+
+    //删除成单记录
+    public function del_deal(){
+        $id = input('post.id');
+        $res = model('DealRecord')->where('id',$id)->delete();
+        if($res){
+            return_info(200,'删除成功');
+        }else{
+            return_info(-1,'删除失败');
+        }
     }
 }

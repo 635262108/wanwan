@@ -140,11 +140,12 @@ class UserLogic{
     public function addDealRecord($data){
         //获取uid
         if(empty($data['uid'])){
-            if(!isMobile($data['mobile'])){
+            if(isMobile($data['mobile'])){
                 $user = model('user')->getMobileUserInfo($data['mobile']);
                 if(empty($user)){
                     return array('status'=>-1,'msg'=>'请先添加该会员');
                 }
+                $data['uid'] = $user['uid'];
             }else{
                 return array('status'=>-1,'msg'=>'手机号输入错误');
             }
@@ -154,9 +155,29 @@ class UserLogic{
         if(!is_numeric($data['money'])){
             return array('status'=>-1,'msg'=>'金额必须为整数');
         }
-
+        //修改
         if(!empty($data['id'])){
-
+            $res = model('DealRecord')->update($data);
+            if($res){
+                return array('status'=>200,'msg'=>'更新成功');
+            }else{
+                return array('status'=>-1,'msg'=>'更新失败');
+            }
+        }
+        //添加
+        $add_data = array(
+            'uid' => $data['uid'],
+            'aid' => $data['aid'],
+            'tid' => $data['tid'],
+            'money' => $data['money'],
+            'time' => time(),
+            'remark' => $data['remark']
+        );
+        $res = model('DealRecord')->insert($add_data);
+        if($res){
+            return array('status'=>200,'msg'=>'添加成功');
+        }else{
+            return array('status'=>-1,'msg'=>'添加失败');
         }
 
     }
