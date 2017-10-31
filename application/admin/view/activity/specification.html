@@ -47,7 +47,7 @@
                   <td>{$vo.a_title}</td>  
                   <td>{$vo.t_content}</td>
                   <td>{$vo.ticket_num}</td>
-                  <td>{$vo.name}</td>
+                  <td class="title">{$vo.name}</td>
                   <td class="center">
                     <i class="delete icon-pencil spe_delete">&nbsp;&nbsp;删除</i>
                     <a href="{:url('admin/activity/dis_import_user',['aid'=>$vo.aid,'t_id'=>$vo.t_id])}"><i class="icon-plus" style="width:80px;">&nbsp;&nbsp;导入会员</i></a>

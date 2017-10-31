@@ -50,7 +50,7 @@ function deleteData(url,option,parent){
         	return;
     }
     else{
-    
+        
     	
     	$.post(url,option,function(data){ 
     		
@@ -104,6 +104,51 @@ $(".spe_delete").live("click",function(){
    	$(this).parent().parent())
    	
 })
+
+//成单删除
+$(".deal_delete").live("click",function(){
+   	deleteData("/abab.php/user/del_deal",
+   	{"id":parseInt($(this).parent().siblings(".td_id").html())},
+   	$(this).parent().parent())
+   	
+})
+
+
+$(".select_activity").on("change",function(){
+	var str = '';
+	var Activityid=$(this).val();
+	$.post("/abab.php/activity/getActivityTime",{aid:Activityid},
+    function(obj){
+    	if(obj.state_code==-1){
+    		$(".warn").show();
+    		$(".warn").html(obj.msg);
+    		$("#s2id_select_time span").html('');
+    		$("#select_time").empty();
+
+
+    	}
+        else  if(obj.state_code == 200){
+        	
+        	
+        		
+	        	for(var i=0;i<obj.data.length;i++){
+	        		var t_id=obj.data[i].t_id;
+	        		str += "<option value="+t_id+">"+obj.data[i].t_content+"</option>"; 
+	        	   
+	        	   
+	        	}
+	        	
+        	
+        		$("#select_time").html(str);
+        		$(".warn").hide();
+        	
+        	
+        	
+        }
+    }, "json");
+	
+})
+
 })
 
 //省改变事件
