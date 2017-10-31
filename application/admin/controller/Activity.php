@@ -543,7 +543,7 @@ class Activity extends Base
         $ActivityInfo = $Activity->getActivityAll();
         //获取负责人
         $map['role_id'] = 3;
-        $AdminUser = model('Admin');
+        $AdminUser = model('AdminUser');
         $userInfo = $AdminUser->getUsers($map);
         $this->assign('userInfo',$userInfo);
         $this->assign('ActivityInfo',$ActivityInfo);

@@ -6,8 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
@@ -52,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="575" column="12" lean-forward="false" selection-start-line="575" selection-start-column="12" selection-end-line="575" selection-end-column="12" />
+            <state relative-caret-position="384">
+              <caret line="545" column="40" lean-forward="true" selection-start-line="545" selection-start-column="40" selection-end-line="545" selection-end-column="40" />
               <folding>
                 <element signature="e#38#72#0#PHP" expanded="true" />
               </folding>
@@ -151,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>e</find>
       <find>getOrderSn</find>
       <find>票</find>
       <find>DecTicketNum</find>
@@ -181,6 +179,7 @@
       <find>添加会员</find>
       <find>dis_i</find>
       <find>attendance</find>
+      <find>addspelist</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -243,7 +242,6 @@
         <option value="$PROJECT_DIR$/application/common/model/Source.php" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/dis_import_user.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/order.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/index.html" />
         <option value="$PROJECT_DIR$/application/admin/logic/UserLogic.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/add_member.html" />
@@ -251,6 +249,7 @@
         <option value="$PROJECT_DIR$/application/admin/controller/Statistical.php" />
         <option value="$PROJECT_DIR$/application/admin/view/Statistical/source.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
       </list>
     </option>
   </component>
@@ -447,12 +446,12 @@
       <workItem from="1509068277151" duration="26862000" />
       <workItem from="1509154727124" duration="10318000" />
       <workItem from="1509324051811" duration="32015000" />
-      <workItem from="1509410759463" duration="14259000" />
+      <workItem from="1509410759463" duration="14571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271881000" />
+    <option name="totallyTimeSpent" value="272193000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -840,16 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="575" column="12" lean-forward="false" selection-start-line="575" selection-start-column="12" selection-end-line="575" selection-end-column="12" />
-          <folding>
-            <element signature="e#38#72#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/public/left.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
@@ -914,6 +903,16 @@
             <marker date="1509433881805" expanded="true" signature="4292:4609" ph="select a_tit... mfw_activity" />
             <marker date="1509433881805" expanded="true" signature="4354:4431" ph="select count... mfw_activity_order" />
             <marker date="1509433881805" expanded="true" signature="4472:4554" ph="select count... mfw_activity_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="545" column="40" lean-forward="true" selection-start-line="545" selection-start-column="40" selection-end-line="545" selection-end-column="40" />
+          <folding>
+            <element signature="e#38#72#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
