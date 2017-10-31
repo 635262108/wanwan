@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{foreach name="res" item="vo"}
+来源名称{$vo.name}
+订单数{$vo.order_num}
+成交金额{$vo.order_sum_price}
+已预约人数{$vo.enter_num}
+签到人数{$vo.sign_num}
+会员转换人数{$vo.user_num}
+{/foreach}
+</body>
+</html>

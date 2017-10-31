@@ -138,7 +138,7 @@ class User extends Base
         //获取数据
         $actinfo = model('Activity')->query("select a_title,aid,a_num,a_sold_num,
                         (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id>0) as enter_num,
-                        (select count(*) from mfw_activity_order where aid=mfw_activity.aid and sign_time>0) as sign_num
+                        (select count(*) from mfw_activity_order where aid=mfw_activity.aid and sign_time>0) as sign_num,
                         from mfw_activity");
 
         $this->assign('actinfo',$actinfo);
