@@ -1,18 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+      <div id="breadcrumb"> 
+      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
+      	<a href="{:url('admin/user/attendance')}" class="tip-bottom">统计中心</a>
+      	<a href="#" class="current">来源统计</a> 
+  </div>
+  </div>
 
-{foreach name="res" item="vo"}
-来源名称{$vo.name}
-订单数{$vo.order_num}
-成交金额{$vo.order_sum_price}
-已预约人数{$vo.enter_num}
-签到人数{$vo.sign_num}
-会员转换人数{$vo.user_num}
-{/foreach}
+<div class="container-fluid">
+  <div class="row-fluid">
+  	  <div class="span12">
+  	  	        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Data table</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>来源名称</th>  
+                  <th>订单数</th>
+                  <th>成交金额</th>
+                  <th>已预约人数</th>
+                  <th>签到人数</th>
+                  <th>会员转换人数</th>
+                  
+           </tr>
+              </thead>
+              <tbody id="tbody_center" style='font-size: 12px;'>
+                {foreach name="res" item="vo"}
+                <tr class="gradeX trs">
+                  <td class="td_id">{$vo.name}</td>
+                  <td>{$vo.order_num}</td>  
+                  <td>{$vo.order_sum_price}</td>
+                  <td>{$vo.enter_num}</td>
+                  <td>{$vo.sign_num}</td>
+                  <td>
+                     {$vo.user_num}
+                  </td>
+               
+          
+                  
+                </tr>
+                {/foreach}
+              </tbody>
+            </table>
+          </div>
+        </div>
+  	  </div>
+  </div>
+</div>
+</div>
+{include file="public/footer" /}
 </body>
 </html>
+
