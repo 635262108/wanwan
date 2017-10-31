@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{foreach name="res" item="vo"}
+{$vo.id}成单id
+{$vo.a_title}活动标题
+{$vo.nickname}会员姓名
+{$vo.mobile}手机号
+{$vo.t_content}活动时间
+{$vo.money}成单金额
+{$vo.time|date='Y.m.d H:i',###}成单时间
+{/foreach}
+</body>
+</html>

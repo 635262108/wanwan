@@ -650,4 +650,21 @@ class Activity extends Base
             $this->success('数据库插入失败','activity/specification');
         }
     }
+
+    //得到活动时间
+    public function getActivityTime(){
+        if(request()->isAjax()){
+            $aid = input('post.aid');
+            $res = model('ActivityTime')->getActivityTime($aid);
+            if(!empty($res)){
+                return_info(200,'成功',$res);
+            }else{
+                return_info(-1,'没有安排时间');
+            }
+
+        }else{
+            return_info(-1,'请求错误');
+        }
+
+    }
 }

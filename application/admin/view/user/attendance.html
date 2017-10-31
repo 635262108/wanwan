@@ -24,7 +24,7 @@
                   <th>活动id</th>  
                   <th>活动标题</th>
                   <th>剩余名额</th>
-                  <th>报名人数</th>
+                  <th>已预约人数</th>
                   <th>签到人数</th>
                   <th>到场率</th>
                   <th>操作</th>
@@ -36,14 +36,14 @@
                   <td>{$vo.aid}</td>
                   <td>{$vo.a_title}</td>  
                   <td>{$vo.a_num}</td>
-                  <td>{$vo.a_sold_num}</td>
-                  <td>{$vo.attendance}</td>
+                  <td>{$vo.enter_num}</td>
+                  <td>{$vo.sign_num}</td>
                   <td>
                       <?php
-                            if($vo['a_sold_num'] == 0 || $vo['attendance'] == 0){
+                            if($vo['enter_num'] == 0 || $vo['sign_num'] == 0){
                                 echo '0%';
                             }else{
-                                $result = floor(($vo['attendance']/$vo['a_sold_num'])*10000)/10000*100;
+                                $result = floor(($vo['sign_num']/$vo['enter_num'])*10000)/10000*100;
                                 echo $result."%";
                             }
                       ?>

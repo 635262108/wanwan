@@ -132,4 +132,32 @@ class UserLogic{
             ->select();
         return $res;
     }
+
+    /**
+     * 增加或修改成单记录
+     * @param $data
+     */
+    public function addDealRecord($data){
+        //获取uid
+        if(empty($data['uid'])){
+            if(!isMobile($data['mobile'])){
+                $user = model('user')->getMobileUserInfo($data['mobile']);
+                if(empty($user)){
+                    return array('status'=>-1,'msg'=>'请先添加该会员');
+                }
+            }else{
+                return array('status'=>-1,'msg'=>'手机号输入错误');
+            }
+        }
+
+        //检查金额是否为整数
+        if(!is_numeric($data['money'])){
+            return array('status'=>-1,'msg'=>'金额必须为整数');
+        }
+
+        if(!empty($data['id'])){
+
+        }
+
+    }
 }

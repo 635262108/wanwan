@@ -415,7 +415,7 @@ class User extends Base
         $this->assign('reason',$refundData['reason']);
         $this->assign('order_sn',$order_sn);
         $this->assign('addtime',$refundData['time']);
-        $this->assign('url',url('mobile/user/index'));
+        $this->assign('url',url('mobile/user.i'));
         $this->assign('title','退款处理中');
         return $this->fetch();
     }

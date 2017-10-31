@@ -134,8 +134,12 @@ class User extends Base
 
     //考勤首页
     public function attendance(){
-        $Activity = model('Activity');
-        $actinfo = $Activity->getAttendance();
+        //获取数据
+        $actinfo = model('Activity')->query("select a_title,aid,a_num,a_sold_num,
+                        (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id>0) as enter_num,
+                        (select count(*) from mfw_activity_order where aid=mfw_activity.aid and sign_time>0) as sign_num
+                        from mfw_activity");
+
         $this->assign('actinfo',$actinfo);
         return $this->fetch();
     }
@@ -365,6 +369,38 @@ class User extends Base
             $this->assign('districts',$districts);
             return $this->fetch();
         }
+    }
+
+    //成单记录
+    public function deal(){
+        //获取数据
+        $res = model('DealRecord')->field('d.*,u.nickname,u.mobile,t.t_content,a.a_title')
+                    ->alias("d")
+                    ->join('mfw_user u','d.uid=u.uid','LEFT')
+                    ->join('mfw_activity a','d.aid=a.aid','LEFT')
+                    ->join('mfw_activity_time t','d.tid=t.t_id','LEFT')
+                    ->select();
+        $this->assign('res',$res);
+        return $this->fetch();
+    }
+
+    //显示添加成单记录
+    public function dis_add_deal(){
+        //获取活动标题
+        $activity = model('Activity')->field('aid,a_title')->select();
+        $this->assign('activity',$activity);
+        return $this->fetch();
+    }
+
+    //添加成单记录
+    public function add_deal(){
+        //接收数据
+        $data['mobile'] = input('post.mobile');
+        $data['aid'] = input('post.aid');
+        $data['tid'] = input('post.tid');
+        $data['money'] = input('post.money');
+        $data['remark'] = input('post.remark');
+        //添加
 
     }
 }

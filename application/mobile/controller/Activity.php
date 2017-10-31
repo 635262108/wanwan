@@ -844,10 +844,14 @@ class Activity extends Base
         $map['mobile'] = $mobile;
         $map['order_status'] = 3;
         $oInfo = $ActivityOrder->getOrder($map);
+
         if(empty($oInfo)){
             return $this->fetch('activity/sign_fail');
         }else{
-            $ActivityOrder->setOrderStatus($oInfo['order_sn'],4);
+            //修改签到时间和修改订单状态
+            $oInfo->sign_time = time();
+            $oInfo->order_status = 4;
+            $oInfo->save();
             return $this->fetch('activity/sign_success');
         }
     }

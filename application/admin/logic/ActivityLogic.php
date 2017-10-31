@@ -17,7 +17,7 @@ class ActivityLogic{
         $res = $ActivityTime->alias('t')
             ->field('t.*,a.a_title,u.name')
             ->join('mfw_activity a','t.aid=a.aid','LEFT')
-            ->join('mfw_admin_user u','t.head=u.id','right')
+            ->join('mfw_admin_user u','t.head=u.id','LEFT')
             ->select();
         return $res;
     }

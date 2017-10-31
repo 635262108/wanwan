@@ -148,25 +148,4 @@ class Activity extends Model
     public function getActivityMap($map){
         return $this->where($map)->select();
     }
-    
-    //获取出勤表
-    public function getAttendance(){
-        $sql = 'SELECT
-                    a.aid,
-                    a.a_title,
-                    a.a_num,
-                    a.a_sold_num,
-                    (
-                            SELECT
-                                    count(*)
-                            FROM
-                                    mfw_activity_order
-                            WHERE
-                                    aid = a.aid
-                            AND order_status = 4
-                    ) attendance
-                FROM
-                    mfw_activity AS a';
-        return $this->query($sql);
-    }
 }
