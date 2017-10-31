@@ -322,6 +322,7 @@ class User extends Base
         if($order_info['uid'] != $uid){
             $this->error('订单异常');
         }
+        $this->assign('title','评价内容');
         $this->assign('order_info',$order_info);
         return $this->fetch();
     }
@@ -415,7 +416,7 @@ class User extends Base
         $this->assign('reason',$refundData['reason']);
         $this->assign('order_sn',$order_sn);
         $this->assign('addtime',$refundData['time']);
-        $this->assign('url',url('mobile/user.i'));
+        $this->assign('url',url('mobile/user/index'));
         $this->assign('title','退款处理中');
         return $this->fetch();
     }
