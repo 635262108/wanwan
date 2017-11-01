@@ -138,3 +138,22 @@ function payWay($code){
     }
 }
 
+/**
+ * 用户明细type转义
+ */
+function user_detail_type($type){
+    switch ($type){
+        case 1:
+            return '充值';
+            break;
+        case 2:
+            return '扣费';
+            break;
+        case 3:
+            return '付费';
+            break;
+        default:
+            return '';
+    }
+}
+

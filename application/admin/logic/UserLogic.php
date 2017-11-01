@@ -129,17 +129,14 @@ class UserLogic{
     }
 
     /**
-     * 获取用户消费明细
+     * 获取用户金额消细
      * @param $uid
      */
     public function getUserRecord($uid){
-        //获取消费记录
-        $ActivityOrder = model('ActivityOrder');
-        $reaharge = $ActivityOrder->alias('o')
-            ->field('o.order_price,o.pay_way,o.pay_time,a.a_title')
-            ->join('mfw_activity a','o.aid=a.aid','left')
-            ->where('o.uid ='.$uid)
-            ->where('o.order_status=1 or  o.order_status=3 or o.order_status=4')
+        $reaharge = model('UserDetail')->alias('d')
+            ->field('d.*,u.uid,u.nickname,u.mobile')
+            ->join('mfw_user u','d.uid=u.uid','left')
+            ->where('d.uid',$uid)
             ->select();
         return $reaharge;
     }
