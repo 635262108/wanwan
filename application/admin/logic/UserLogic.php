@@ -68,16 +68,6 @@ class UserLogic{
      * @param $data
      */
     public function saveRecharge($data){
-        //查看用户是否存在
-        $user = model('user');
-        $userInfo = $user->getIdUser($data['uid']);
-        if(empty($userInfo)){
-            return array('status'=>-1,'msg'=>'用户不存在');
-        }
-        //检查余额是否为整数
-        if(!is_numeric($data['amount'])){
-            return array('status'=>-1,'msg'=>'金额必须为整数');
-        }
 
         $rechargeRecord = model('RechargeRecord');
         //修改
@@ -89,6 +79,19 @@ class UserLogic{
                 return array('status'=>-1,'msg'=>'更新失败');
             }
         }
+
+        //检查余额是否为整数
+        if(!is_numeric($data['amount'])){
+            return array('status'=>-1,'msg'=>'金额必须为整数');
+        }
+
+        //查看用户是否存在
+        $user = model('user');
+        $userInfo = $user->getIdUser($data['uid']);
+        if(empty($userInfo)){
+            return array('status'=>-1,'msg'=>'用户不存在');
+        }
+
         //添加数据
         $add_data = array(
             'uid' => $data['uid'],
@@ -99,6 +102,7 @@ class UserLogic{
             'giveaway' => $data['giveaway'],
             'is_get' => $data['is_get'],
             'remark' => $data['remark'],
+            'order_sn' => getOrderSn($data['uid'],000),
         );
         $res = $rechargeRecord->insert($add_data);
         if($res !== false){
@@ -106,6 +110,14 @@ class UserLogic{
             $userInfo->uid = $userInfo['uid'];
             $userInfo->balance = $userInfo['balance'] + $data['amount'];
             $result = $userInfo->save();
+            //记录到用户金额明细
+            $add_detail = array(
+                'uid' =>   $data['uid'],
+                'type' => 1,
+                'money' =>   $data['amount'],
+                'balance' =>   $userInfo->balance,
+            );
+            $this->saveDetail($add_detail);
             if($result !== false){
                 return array('status'=>200,'msg'=>'充值成功');
             }else{
@@ -187,11 +199,55 @@ class UserLogic{
             'remark' => $data['remark']
         );
         $res = model('DealRecord')->insert($add_data);
+
         if($res){
             return array('status'=>200,'msg'=>'添加成功');
         }else{
             return array('status'=>-1,'msg'=>'添加失败');
         }
 
+    }
+
+    /**
+     * 新增或修改用户金额明细
+     * @param $data
+     * @return array
+     */
+    public function saveDetail($data){
+        //修改
+        if(!empty($data['id'])){
+            $res = model('DealRecord')->update($data);
+            if($res){
+                return array('status'=>200,'msg'=>'更新成功');
+            }else{
+                return array('status'=>-1,'msg'=>'更新失败');
+            }
+        }
+        //检查字段是否完整
+        if(!isset($data['uid']) || !isset($data['type']) || !isset($data['money']) || !isset($data['balance'])){
+            return array('status'=>-1,'msg'=>'字段不完整');
+        }
+
+        //描述默认为空
+        if(empty($data['remark'])){
+            $data['remark'] = '';
+        }
+
+        //添加
+        $add_data = array(
+            'uid' => $data['uid'],
+            'type' => $data['type'],
+            'money' => $data['money'],
+            'balance' => $data['balance'],
+            'addtime' => time(),
+            'remark' => $data['remark'],
+        );
+
+        $res = model('UserDetail')->insert($add_data);
+        if($res){
+            return array('status'=>200,'msg'=>'添加成功');
+        }else{
+            return array('status'=>-1,'msg'=>'添加失败');
+        }
     }
 }
