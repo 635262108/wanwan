@@ -1,7 +1,7 @@
 $(function(){
-	$(".click_stroggle").on("click",function(){
-		$(".stroggle_ul").slideToggle(100)
-	})
+//	$(".click_stroggle").on("click",function(){
+//		$(".stroggle_ul").slideToggle(100)
+//	})
 
     //大人的加
     var adult_price=$(".prompt_aldut_price").text();
@@ -9,6 +9,9 @@ $(function(){
 
     var adult_num=$(".prompt_adult_val").val();
     var child_num=$(".prompt_child_val").val();
+    
+//  初始化总计
+ $(".total").text(adult_num*adult_price+child_num*child_price)
 
 //大人的加法
     $(".prompt_adult_plus").on("click",function(event){
@@ -143,20 +146,6 @@ $(".collect").on("click",function(){
     })
     $(".li_first").trigger("click");
 
-
-//加载更多
-//    $(window).scroll(function() {
-//        var doc_height = $(document).height();
-//        var scroll_top = $(document).scrollTop();
-//
-//        var window_height = $(window).height();
-//        if (scroll_top + window_height >= doc_height) {
-//            $(".my_Activity_content").css("height", "auto");
-//            $("#my_collectMore").css("height", "auto");
-//            $(".free_more").hide();
-//            $(".discuss_content").css("height","auto");
-//        }
-//    })
 
 
     var leave_activity = $(".leave_activity").val();
