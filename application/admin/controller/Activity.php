@@ -573,15 +573,22 @@ class Activity extends Base
         }
     }
 
-    //显示会员导入
+    //显示订单导入,选择好时间段导入
     public function dis_import_user($aid,$t_id){
         //获取来源数据
-        $source = model('Source')->getSources();
         $this->assign('aid',$aid);
         $this->assign('t_id',$t_id);
-        $this->assign('source',$source);
         return $this->fetch();
     }
+
+    //显示订单导入，没有时间段直接导入
+    public function dis_import_order(){
+        //获取活动标题
+        $a_title = model('Activity')->field('aid,a_title')->select();
+        $this->assign('a_title',$a_title);
+        return $this->fetch();
+    }
+
 
     //会员导入
     public function import_user(){
@@ -589,10 +596,11 @@ class Activity extends Base
         $aid = input('post.aid');
         //时间id
         $tid = input('post.t_id');
-        //来源id
-        $source = input('post.source');
+        if(empty($tid)){
+            $tid = 0;
+        }
         //获取文件
-        $filename = $_FILES['user']['tmp_name'];
+        $filename = $_FILES['file']['tmp_name'];
         require EXTEND_PATH.'excel/PHPExcel/IOFactory.php';
         require EXTEND_PATH."excel/PHPExcel.php";
         require EXTEND_PATH.'excel/PHPExcel/Writer/Excel5.php';
@@ -602,7 +610,6 @@ class Activity extends Base
         $sheet = $objPHPExcel->getSheet(0);
         $highestRow = $sheet->getHighestRow(); // 取得总行数
 //        $highestColumn = $sheet->getHighestColumn(); // 取得总列数
-
         //循环读取excel文件,读取一条,插入一条
         $k = 0;
         for($j=2;$j<=$highestRow;$j++)
@@ -612,29 +619,53 @@ class Activity extends Base
             $c = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取C列的值，下单时间
             $d = $objPHPExcel->getActiveSheet()->getCell("D".$j)->getValue();//获取D列的值，支付时间
             $e = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，付款金额
+            $f = $objPHPExcel->getActiveSheet()->getCell("F".$j)->getValue();//获取列的值，来源
 
-            if(empty($a) || empty($b) || empty($c) || empty($d) || empty($e)){
+            //用户名，手机号，来源为必填项，任何一个为空就不记录
+            if(empty($a) || empty($b) || empty($f)){
                 continue;
+            }
+            //下单时间，支付时间为空时默认导入时间，付款金额为空是默认0
+            if(empty($c)){
+                $c = date('Y-m-d H:i:s');
+            }
+            if(empty($d)){
+                $d = date('Y-m-d H:i:s');
+            }
+            if(empty($e)){
+                $e = 0;
             }
             $excel_data[$k]['name'] = $a;
             $excel_data[$k]['mobile'] = $b;
             $excel_data[$k]['addtime'] = strtotime($c);
             $excel_data[$k]['pay_time'] = strtotime($d);
             $excel_data[$k]['order_price'] = $e;
+            $excel_data[$k]['source'] = $f;
             $k++;
         }
+        /*//获取时间段信息
+        if($tid != 0){
+            $timeInfo = model('ActivityTime')->getAnyTime($tid);
+            //定义最多报名数
+            $num = $timeInfo['ticket_num'];
+            if($num == 0){
+                $this->error('活动已报满啦');
+            }
+        }*/
+        $num = count($excel_data);
 
-        //获取时间段信息
-        $timeInfo = model('ActivityTime')->getAnyTime($tid);
-        //定义最多报名数
-        $num = $timeInfo['ticket_num'];
-        if($num == 0){
-            $this->error('活动已报满啦');
+        //为空直接返回
+        if(!isset($excel_data)){
+            $this->error('导入失败，请检查姓名，手机号，来源是否已填');
         }
+
         //添加订单
         $Activity = model('Activity');
         $ActivityTime = model('ActivityTime');
+        $sourceModel = model('Source');
         for($i=0;$i<$num;$i++){
+            //获取来源id
+            $source = $sourceModel->where('name',$excel_data[$i]['source'])->value('id');
             $add_data[$i]['order_sn'] = getOrderSn(000,$aid);
             $add_data[$i]['aid'] = $aid;
             $add_data[$i]['uid'] = -1;
@@ -648,13 +679,16 @@ class Activity extends Base
             $add_data[$i]['order_status'] = 3;
             $add_data[$i]['addtime'] = $excel_data[$i]['addtime'];
             $add_data[$i]['source'] = $source;
-            //库存-1
-            $Activity->DecActivity($aid);
-            //报名人员+1
-            $Activity->IncActivity($aid);
-            //时间库存票数-1
-            $ActivityTime->DecTicketNum($tid);
+            $add_data[$i]['t_id'] = $tid;
         }
+        /*$k_num = count($add_data);
+        //减库存
+        $Activity->where('aid',$aid)->setDec('a_num',$k_num);
+        //增加报名人员
+        $Activity->where('aid',$aid)->setInc('a_sold_num',$k_num);
+        //减时间库存
+        $ActivityTime->where('t_id',$tid)->setDec('ticket_num',$k_num);*/
+
         $order = model('ActivityOrder')->insertAll($add_data);
         if($order){
             $this->success('导入成功','activity/specification');

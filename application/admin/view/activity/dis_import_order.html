@@ -6,7 +6,7 @@
             <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
             <a href="{:url('admin/activity/index')}" class="tip-bottom">活动中心</a>
             <a href="{:url('admin/activity/specification')}" class="tip-bottom">活动安排</a>
-            <a href="#" class="current">会员导入</a>
+            <a href="#" class="current">订单导入</a>
         </div>
     </div>
 
@@ -18,15 +18,22 @@
                 </div>
                 <div class="widget-content nopadding">
                     <form action="{:url('admin/activity/import_user')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="quitPay_form">
-                        <input type="hidden" value="{$aid}" name="aid">
-                        <input type="hidden" value="{$t_id}" name="t_id">
                         <div class="control-group">
-                            <label class="control-label">选择excel文件</label>
+                            <label class="control-label">活动标题：</label>
+                            <div class="controls">
+                                <select name="aid">
+                                    {foreach name="a_title" item="vo"}
+                                    <option value="{$vo.aid}">{$vo.a_title}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">选择excel文件：</label>
                             <div class="controls">
                                 <input type="file" name="file" />
                             </div>
                         </div>
-
                         <div class="form-actions" style="text-align: center">
                             <button type="submit" class="btn btn-success info_sure">添加</button>
                             <a href="{:url('admin/activity/specification')}" class="btn-warning">取消</a>
