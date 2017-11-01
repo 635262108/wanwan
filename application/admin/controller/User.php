@@ -138,7 +138,7 @@ class User extends Base
         //获取数据
         $actinfo = model('Activity')->query("select a_title,aid,a_num,a_sold_num,
                         (select count(*) from mfw_activity_order where aid=mfw_activity.aid and t_id>0) as enter_num,
-                        (select count(*) from mfw_activity_order where aid=mfw_activity.aid and sign_time>0) as sign_num,
+                        (select count(*) from mfw_activity_order where aid=mfw_activity.aid and sign_time>0) as sign_num
                         from mfw_activity");
 
         $this->assign('actinfo',$actinfo);
@@ -317,10 +317,16 @@ class User extends Base
         $data['pay_way'] = input('post.pay_way');
         //支付状态.后台添加默认已收款
         $data['status'] = 1;
+        //充值赠送
+        $data['giveaway'] = input('post.giveaway');
+        //是否全部领取
+        $data['is_get'] = input('post.is_get');
+        //备注
+        $data['remark'] = input('post.remark');
 
         //添加
         $model = new UserLogic();
-        $res = $model->addRecharge($data);
+        $res = $model->saveRecharge($data);
         if($res['status']== 200){
             $this->success($res['msg'],'user/index');
         }else{

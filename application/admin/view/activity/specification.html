@@ -12,7 +12,7 @@
 <!--添加开始部分-->
   <div class="add_order">
   	 <a href="{:url('admin/activity/addSpeList')}">
-        <div class="add" title="添加活动规格">
+        <div class="add" title="添加安排">
           <span style="font-size: 14px;">
               <i class="icon-plus"></i>
                  添加安排
@@ -20,6 +20,16 @@
         </div>
      </a>
   </div>
+<div class="add_order">
+    <a href="{:url('admin/activity/dis_import_order')}">
+        <div class="add" title="按活动导入">
+      <span style="font-size: 14px;">
+          <i class="icon-plus"></i>
+             按活动导入
+      </span>
+        </div>
+    </a>
+</div>
 <!--添加结束-->
 <div class="container-fluid">
   <div class="row-fluid">
@@ -49,8 +59,8 @@
                   <td>{$vo.ticket_num}</td>
                   <td class="title">{$vo.name}</td>
                   <td class="center">
-                    <i class="delete icon-pencil spe_delete">&nbsp;&nbsp;删除</i>
                     <a href="{:url('admin/activity/dis_import_user',['aid'=>$vo.aid,'t_id'=>$vo.t_id])}"><i class="icon-plus" style="width:80px;">&nbsp;&nbsp;导入会员</i></a>
+                      <i class="delete icon-pencil spe_delete">&nbsp;&nbsp;删除</i>
                   </td>
                   
                 </tr>

@@ -37,7 +37,7 @@ class PHPExcel_Calculation_Function
     const CATEGORY_LOGICAL              = 'Logical';
     const CATEGORY_LOOKUP_AND_REFERENCE = 'Lookup and Reference';
     const CATEGORY_MATH_AND_TRIG        = 'Math and Trig';
-    const CATEGORY_STATISTICAL          = 'Statistical';
+    const CATEGORY_STATISTICAL          = 'statistical';
     const CATEGORY_TEXT_AND_DATA        = 'Text and Data';
 
     /**

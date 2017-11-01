@@ -26,6 +26,9 @@
                   <th>支付方式</th>
                   <th>支付状态</th>
                   <th>充值时间</th>
+                  <th>赠品</th>
+                  <th>是否领取完</th>
+                  <th>备注</th>
                </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
@@ -43,6 +46,15 @@
                       {/if}
                   </td>
                   <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
+                  <td>{$vo.giveaway}</td>
+                  <td>
+                      {if condition='$vo.is_get eq 0'}
+                        否
+                      {else/}
+                        是
+                      {/if}
+                  </td>
+                  <td>{$vo.remark}</td>
                 </tr>
                 {/foreach}
               </tbody>

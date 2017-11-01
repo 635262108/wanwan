@@ -64,10 +64,10 @@ class UserLogic{
     }
 
     /**
-     * 增加用户充值
+     * 增加或修改用户充值
      * @param $data
      */
-    public function addRecharge($data){
+    public function saveRecharge($data){
         //查看用户是否存在
         $user = model('user');
         $userInfo = $user->getIdUser($data['uid']);
@@ -78,17 +78,29 @@ class UserLogic{
         if(!is_numeric($data['amount'])){
             return array('status'=>-1,'msg'=>'金额必须为整数');
         }
+
+        $rechargeRecord = model('RechargeRecord');
+        //修改
+        if(!empty($data['id'])){
+            $res = $rechargeRecord->update($data);
+            if($res !== false){
+                return array('status'=>200,'msg'=>'更新成功');
+            }else{
+                return array('status'=>-1,'msg'=>'更新失败');
+            }
+        }
         //添加数据
         $add_data = array(
             'uid' => $data['uid'],
             'amount' => $data['amount'],
             'pay_way' => $data['pay_way'],
             'status' => $data['status'],
-            'pay_time' => time()
+            'pay_time' => time(),
+            'giveaway' => $data['giveaway'],
+            'is_get' => $data['is_get'],
+            'remark' => $data['remark'],
         );
-
-        $rechargeRecord = model('RechargeRecord');
-        $res = $rechargeRecord->saveRecharge($add_data);
+        $res = $rechargeRecord->insert($add_data);
         if($res !== false){
             //增加用户余额
             $userInfo->uid = $userInfo['uid'];
