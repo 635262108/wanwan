@@ -9,7 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/logic/UserLogic.php" afterPath="$PROJECT_DIR$/application/admin/logic/UserLogic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/recharge.html" afterPath="$PROJECT_DIR$/application/admin/view/user/recharge.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,17 +19,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="431" column="20" lean-forward="true" selection-start-line="431" selection-start-column="20" selection-end-line="431" selection-end-column="20" />
+            <state relative-caret-position="484">
+              <caret line="435" column="35" lean-forward="false" selection-start-line="435" selection-start-column="35" selection-end-line="435" selection-end-column="35" />
               <folding>
-                <marker date="1509605174772" expanded="true" signature="4292:4722" ph="select a_tit... mfw_activity" />
-                <marker date="1509605174772" expanded="true" signature="4337:4423" ph="select count... mfw_activity_order" />
-                <marker date="1509605174772" expanded="true" signature="4463:4534" ph="select count... mfw_activity_order" />
-                <marker date="1509605174772" expanded="true" signature="4463:4544" ph="select count... mfw_activity_order" />
-                <marker date="1509605174772" expanded="true" signature="4585:4667" ph="select count... mfw_activity_order" />
+                <marker date="1509611660570" expanded="true" signature="4292:4722" ph="select a_tit... mfw_activity" />
+                <marker date="1509611660570" expanded="true" signature="4337:4423" ph="select count... mfw_activity_order" />
+                <marker date="1509611660570" expanded="true" signature="4463:4534" ph="select count... mfw_activity_order" />
+                <marker date="1509611660570" expanded="true" signature="4463:4544" ph="select count... mfw_activity_order" />
+                <marker date="1509611660570" expanded="true" signature="4585:4667" ph="select count... mfw_activity_order" />
               </folding>
             </state>
           </provider>
@@ -61,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserLogic.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserLogic.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="60" column="9" lean-forward="true" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+            <state relative-caret-position="484">
+              <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -315,6 +314,14 @@
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="common" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -421,12 +428,12 @@
       <workItem from="1509324051811" duration="32015000" />
       <workItem from="1509410759463" duration="16331000" />
       <workItem from="1509498042291" duration="26499000" />
-      <workItem from="1509584115948" duration="11419000" />
+      <workItem from="1509584115948" duration="14998000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311871000" />
+    <option name="totallyTimeSpent" value="315450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -467,13 +474,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/admin_static/js/ueditor.all.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/public/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -774,7 +774,7 @@
         <state relative-caret-position="836">
           <caret line="38" column="38" lean-forward="false" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
           <folding>
-            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -862,14 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="60" column="9" lean-forward="true" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
@@ -878,17 +870,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/public/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="431" column="20" lean-forward="true" selection-start-line="431" selection-start-column="20" selection-end-line="431" selection-end-column="20" />
+        <state relative-caret-position="484">
+          <caret line="435" column="35" lean-forward="false" selection-start-line="435" selection-start-column="35" selection-end-line="435" selection-end-column="35" />
           <folding>
-            <marker date="1509605174772" expanded="true" signature="4292:4722" ph="select a_tit... mfw_activity" />
-            <marker date="1509605174772" expanded="true" signature="4337:4423" ph="select count... mfw_activity_order" />
-            <marker date="1509605174772" expanded="true" signature="4463:4534" ph="select count... mfw_activity_order" />
-            <marker date="1509605174772" expanded="true" signature="4463:4544" ph="select count... mfw_activity_order" />
-            <marker date="1509605174772" expanded="true" signature="4585:4667" ph="select count... mfw_activity_order" />
+            <marker date="1509611660570" expanded="true" signature="4292:4722" ph="select a_tit... mfw_activity" />
+            <marker date="1509611660570" expanded="true" signature="4337:4423" ph="select count... mfw_activity_order" />
+            <marker date="1509611660570" expanded="true" signature="4463:4534" ph="select count... mfw_activity_order" />
+            <marker date="1509611660570" expanded="true" signature="4463:4544" ph="select count... mfw_activity_order" />
+            <marker date="1509611660570" expanded="true" signature="4585:4667" ph="select count... mfw_activity_order" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>

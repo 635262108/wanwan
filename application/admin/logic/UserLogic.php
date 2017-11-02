@@ -50,14 +50,18 @@ class UserLogic{
 
         //有孩子信息添加孩子信息
         if(!empty($data['child_name']) & $uid>0){
-            $add_child['uid'] = $uid;
-            $add_child['name'] = $data['child_name'];
-            $add_child['gender'] = $data['child_gender'];
-            $add_child['birthday'] = $data['child_birthday'];
-            $add_child['school'] = $data['child_school'];
-            $add_child['play_time'] = $data['child_play_time'];
-            $add_child['time'] = date("Y-m-d H:i:s");
-            db('user_child')->insert($add_child);
+            $num = count($data['child_name']);
+            for($i=0;$i<$num;$i++){
+                $add_child[$i]['uid'] = $uid;
+                $add_child[$i]['name'] = $data['child_name'][$i];
+                $add_child[$i]['gender'] = $data['child_gender'][$i];
+                $add_child[$i]['birthday'] = $data['child_birthday'][$i];
+                $add_child[$i]['school'] = $data['child_school'][$i];
+                $add_child[$i]['play_time'] = $data['child_play_time'][$i];
+                $add_child[$i]['time'] = date("Y-m-d H:i:s");
+            }
+
+            db('user_child')->insertAll($add_child);
         }
 
         if($uid > 0){

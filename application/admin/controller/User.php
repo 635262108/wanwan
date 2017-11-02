@@ -422,15 +422,16 @@ class User extends Base
             //来源
             $data['source'] = input('post.source');
             //孩子姓名
-            $data['child_name'] = input('post.child_name');
+            $data['child_name'] = input('post.child_name/a');
             //孩子性别
-            $data['child_gender'] = input('post.child_gender');
+            $data['child_gender'] = input('post.child_gender/a');
             //孩子生日
-            $data['child_birthday'] = input('post.child_birthday');
+            $data['child_birthday'] = input('post.child_birthday/a');
             //孩子学校
-            $data['child_school'] = input('post.child_school');
+            $data['child_school'] = input('post.child_school/a');
             //可以玩耍时间
-            $data['child_play_time'] = input('post.child_play_time');
+            $data['child_play_time'] = input('post.child_play_time/a');
+
             $model = new UserLogic();
             $result = $model->addUser($data);
             if($result['status'] == 200){
