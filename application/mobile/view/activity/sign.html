@@ -132,7 +132,7 @@
                 欢迎您参加本次活动
             </div>
             <form action="{:url('mobile/activity/add_sign')}" method="post">
-                <input type="hidden" name="a" value="{$activityInfo.aid}"/>
+                <input type="hidden" name="a" value="{:base64_encode($activityInfo.aid)}"/>
             <div class="phone_con">
                 <p>联系电话</p>
                 <input type="text" name="mobile" id="phone" />

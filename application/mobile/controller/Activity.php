@@ -829,29 +829,29 @@ class Activity extends Base
         //活动id
         $aid = input('get.a');
         $activity = model('activity');
-        $activityInfo = $activity->getIdActivity($aid);
+        $activityInfo = $activity->getIdActivity(base64_decode($aid));
         $this->assign('activityInfo',$activityInfo);
         return $this->fetch();
     }
     
     //签到
     public function add_sign() {
-        $aid = input('post.a');
+        $aid = base64_decode(input('post.a'));
         $mobile = input('post.mobile');
-        $ActivityOrder = model('ActivityOrder');
-        //获取订单信息
+        //获取订单信息，如果有多个签到，记录最新的
         $map['aid'] = $aid;
         $map['mobile'] = $mobile;
         $map['order_status'] = 3;
-        $oInfo = $ActivityOrder->getOrder($map);
-
-        if(empty($oInfo)){
+        $order_info = model('ActivityOrder')->where($map)->order('order_id desc')->select();
+        $order = $order_info[0];
+        //记录
+        if(empty($order)){
             return $this->fetch('activity/sign_fail');
         }else{
             //修改签到时间和修改订单状态
-            $oInfo->sign_time = time();
-            $oInfo->order_status = 4;
-            $oInfo->save();
+            $order->sign_time = time();
+            $order->order_status = 4;
+            $order->save();
             return $this->fetch('activity/sign_success');
         }
     }
