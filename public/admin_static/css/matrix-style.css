@@ -2,6 +2,25 @@
 	outline:none !important;
 	-moz-outline: none !important;
 }
+
+/*special_style*/
+.recharge_record tr td:nth-child(7) .good_prompt,.recharge_record tr td:nth-child(10) .beizhu{
+	color: #333333;
+	height: 50px;
+	font-size: 12px;
+	resize: none;
+	border: none;
+	background: none;
+}
+
+.recharge_record tr td:nth-child(9) span{
+	cursor: pointer;
+} 
+
+.recharge_record tr td:nth-child(8) input::-webkit-input-placeholder{
+	font-size: 12px;
+}
+
 .table tr td{
 	text-align: center;
 }

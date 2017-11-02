@@ -59,6 +59,9 @@ $(document).ready(function() {
 
 	}
 	//活动页面删除
+
+	console.log($(".activity_delete"), 8888888)
+
 	$(".activity_delete").live("click", function() {
 		deleteData("/abab.php/activity/delActivity", { "aid": parseInt($(this).parent().parent().children("td:nth-child(1)").text()) },
 			$(this).parent().parent())
@@ -128,6 +131,27 @@ $(document).ready(function() {
 
 	})
 
+	//	赠品传值
+	$(".recharge_record tr td:nth-child(8) textarea").live("blur", function() {
+		var goosVal = $(this).val();
+		var goodsValId = $(this).parent().siblings(".td_id").html();
+		sendgoods({ id: goodsValId, giveaway: goosVal })
+	})
+
+	//备注传值
+	$(".recharge_record tr td:nth-child(10) textarea").live("blur", function() {
+		sendgoods({ id: $(this).parent().siblings(".td_id").html(), remark: $(this).val() })
+	})
+	// 点击是否
+	$(".recharge_record tr td:nth-child(9) span").live("click", function() {
+
+		if($(this).attr("class") == "no") {
+			sendVal({ id: $(this).parent().siblings(".td_id").html(), is_get: 1 }, $(this), $(this).children(".no_text"), $(this).children("i:nth-child(1)"))
+		} else {
+			sendVal({ id: $(this).parent().siblings(".td_id").html(), is_get: 0 }, $(this), $(this).children(".no_text"), $(this).children("i:nth-child(1)"))
+		}
+	})
+
 })
 
 //省改变事件
@@ -159,3 +183,29 @@ function changeActivityType(tid) {
 }
 
 //是否确认删除按钮
+
+function sendVal(option, my, children_one, children_two) {
+
+	$.post("/abab.php/user/save_recharge", option, function(obj) {
+		if(obj.state_code == 200) {
+			if(my.attr("class") == "no") {
+				my.attr({ "class": "yes", "style": "color:rgb(27,188,157)" });
+				children_one.text("是");
+				children_two.attr({ "class": "icon-ok", "style": "color:rgb(27,188,157)" })
+
+			} else {
+				my.attr({ "class": "no", "style": "color:rgb(158,163,167)" });
+				children_one.text("否");
+				children_two.attr({ "class": "icon-ban-circle", "style": "color:rgb(158,163,167)" });
+			}
+		}
+
+	})
+
+}
+
+function sendgoods(option) {
+	$.post("/abab.php/user/save_recharge", option, function(data) {
+
+	})
+}

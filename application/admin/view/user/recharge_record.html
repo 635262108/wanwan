@@ -20,6 +20,7 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
+                	<th>id</th>
                   <th>会员名称</th>
                   <th>手机号</th>
                   <th>充值金额</th>
@@ -31,9 +32,10 @@
                   <th>备注</th>
                </tr>
               </thead>
-              <tbody id="tbody_center" style="font-size: 12px;">
+              <tbody id="tbody_center" style="font-size: 12px;" class="recharge_record">
                {foreach name="res" item="vo"}
                 <tr>
+                	<td class="td_id">{$vo.id}</td>
                   <td>{$vo.nickname}</td>
                   <td>{$vo.mobile}</td>
                   <td>{$vo.amount}</td>
@@ -46,15 +48,21 @@
                       {/if}
                   </td>
                   <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
-                  <td>{$vo.giveaway}</td>
+                  <td>   
+                  	
+           
+                  	 <textarea class="good_prompt"/ style="outline: none;border: none;resize: none;font-size: 12px;">{$vo.giveaway}</textarea>
+                  </td>
                   <td>
                       {if condition='$vo.is_get eq 0'}
-                        否
+                        <span class="no" style="color: rgb(158,163,167);"><i class="icon-ban-circle" style="margin-right: 5%;"></i><i class="no_text">否</i></span>
                       {else/}
-                        是
+                        <span class="yes" style="color:rgb(27,188,157);"><i class="icon-ok"  style="margin-right: 5%;color: rgb(27,188,157);" id="gray"></i><i class="no_text">是</i></span>
                       {/if}
                   </td>
-                  <td>{$vo.remark}</td>
+                  <td>
+                  	<textarea  class="beizhu"/>{$vo.remark}</textarea>
+                  	</td>
                 </tr>
                 {/foreach}
               </tbody>
