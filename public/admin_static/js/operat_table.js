@@ -156,6 +156,25 @@ lis.on("click",function(){
 	contens.eq($(this).index()).show().siblings().hide();
 })
 
+
+//孩子选择tab栏的转换
+$(".select_num").on("change",function(){
+	if($(this).val()==1){
+		$(".one").show().siblings().hide();
+	}
+	else if($(this).val()==2){
+		$(".two").show().siblings().hide();
+	}
+	else if($(this).val()==3){
+		$(".three").show().siblings().hide();
+	}
+	else{
+		$(".none").show().siblings().hide();
+	}
+
+})
+
+
 })
 
 //省改变事件

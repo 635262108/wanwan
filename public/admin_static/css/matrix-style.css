@@ -67,6 +67,22 @@
 	background-color: #F9F9F9 !important; 
 }
 /*客户列表充值扣费记录结束记录*/
+
+.add-on{
+	display: inline-block;
+    width: auto;
+    height: 20px;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-left: -4px;
+}
 .table tr td{
 	text-align: center;
 }

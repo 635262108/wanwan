@@ -10,7 +10,6 @@ $(document).ready(function(){
 		"aaSorting":[[0,"desc"]]
 	});
 	
-	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
 	
 	$('select').select2();
 	
