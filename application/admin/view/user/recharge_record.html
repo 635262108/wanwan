@@ -49,20 +49,28 @@
                   </td>
                   <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
                   <td>   
-                  	{$vo.giveaway|subtext=25}
+                  	
+                  	<div class="show_word">{$vo.giveaway|subtext=25}</div>
+                  	
            
-                  	 <!--<textarea class="good_prompt"/ style="outline: none;border: none;resize: none;font-size: 12px;">{$vo.giveaway}</textarea>-->
+                  	<textarea class="good_prompt">{$vo.giveaway}</textarea>
                   </td>
                   <td>
                       {if condition='$vo.is_get eq 0'}
-                        <span class="no" style="color: rgb(158,163,167);"><i class="icon-ban-circle" style="margin-right: 5%;"></i><i class="no_text">否</i></span>
+                        <p class="no" style="color: rgb(158,163,167);">
+                        	<i class="icon-ban-circle" style="margin-right: 3%;"></i>
+                        	<span class="no_text">否</i>
+                       </span>
                       {else/}
-                        <span class="yes" style="color:rgb(27,188,157);"><i class="icon-ok"  style="margin-right: 5%;color: rgb(27,188,157);" id="gray"></i><i class="no_text">是</i></span>
+                        <p class="yes" style="color:rgb(27,188,157);">
+                        	<i class="icon-ok"  style="margin-right: 3%;color: rgb(27,188,157);"></i>
+                        	<span class="no_text">是</span>
+                        </span>
                       {/if}
                   </td>
                   <td>
-                      {$vo.remark|subtext=25}
-                  	<!--<textarea  class="beizhu"/>{$vo.remark}</textarea>-->
+                     <div class="beizhu_word">{$vo.remark|subtext=25}</div> 
+                  	<textarea  class="beizhu"/>{$vo.remark}</textarea>
                   	</td>
                 </tr>
                 {/foreach}

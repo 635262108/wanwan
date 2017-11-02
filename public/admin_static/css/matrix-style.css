@@ -2,15 +2,27 @@
 	outline:none !important;
 	-moz-outline: none !important;
 }
+/*充值记录样式开始部分*/
+.recharge_record tr td:nth-child(8),.recharge_record tr td:nth-child(10){
+	position: relative;
+}
 
 /*special_style*/
-.recharge_record tr td:nth-child(7) .good_prompt,.recharge_record tr td:nth-child(10) .beizhu{
+.recharge_record tr td:nth-child(8) .good_prompt,.recharge_record tr td:nth-child(10) .beizhu{
 	color: #333333;
 	height: 50px;
 	font-size: 12px;
 	resize: none;
-	border: none;
 	background: none;
+	border: 1px solid black;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: 0;
+	right: 0;
+	display: none;
+	border: none;
 }
 
 .recharge_record tr td:nth-child(9) span{
@@ -20,7 +32,41 @@
 .recharge_record tr td:nth-child(8) input::-webkit-input-placeholder{
 	font-size: 12px;
 }
+/*充值记录样式结束部分*/
 
+/*客户列表充值扣费记录开始记录*/
+.pay_recordContent .record_title{
+	background: #EFEFEF;
+	border-bottom: 1px solid #CDCDCD;
+	height: 36px;
+	
+}
+.pay_recordContent .record_title ul{
+	overflow: hidden;
+	
+	margin-left: 1px;
+}
+.pay_recordContent .record_title ul li{
+	float: left;
+	
+	font-size: 16px;
+	line-height: 36px;
+	height: 36px;
+	font-size: 14px;
+	cursor: pointer;
+	color: #999999;
+    text-shadow: 0 1px 0 #FFFFFF;
+    font-weight: bold;
+   
+    width: 50px;
+    text-align: center;
+  
+}
+.pay_recordContent .record_title ul li.active{
+	color: #444444;
+	background-color: #F9F9F9 !important; 
+}
+/*客户列表充值扣费记录结束记录*/
 .table tr td{
 	text-align: center;
 }

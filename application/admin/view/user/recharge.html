@@ -7,7 +7,7 @@
 			<div id="content-header">
 				<div id="breadcrumb">
 					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
-					<a href="{:url('admin/activity/index')}" class="tip-bottom" data-original-title="">客户中心</a>
+					<a href="{:url('admin/user/index')}" class="tip-bottom" data-original-title="">客户中心</a>
 					<a href="#" class="current">充值</a>
 				</div>
 			</div>
@@ -18,69 +18,118 @@
 						<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
 							<h5>充值信息</h5>
 						</div>
-						<div class="widget-content nopadding" style="">
-							<form action="{:url('admin/user/add_recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
-								<input type="hidden" name="uid" value="{$userInfo.uid}">
-								<div class="control-group">
-									<label class="control-label">会员名称</label>
-									<div class="controls">
-										<input class="span11" value='{$userInfo.nickname}' type="text" style="width: 32%;" readonly>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">充值金额</label>
-									<div class="controls">
-										<input class="span11" style="width: 30%;" value='' name="amount" type="text" onkeyup="value=value.replace(/[^\-?\d.]/g,'')">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">充值赠送</label>
-									<div class="controls">
-										<textarea name="giveaway"></textarea>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">是否全部领取</label>
-									<div class="controls">
-										<input type="radio" name="is_get" value="1">是
-										<input type="radio" name="is_get" value="0">否
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">支付方式</label>
-									<div class="controls">
-										<select name="pay_way">
-											<option value=1" selected='selected' >支付宝</option>
-											<option value="2" >微信</option>
-											<option value="3">现金</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-actions">
-									<button type="submit" class="btn btn-success info_sure">保存</button>
-									<a href="{:url('admin/user/index')}" class="btn-warning">取消</a>
-								</div>
 
-							</form>
+						<div class="pay_recordContent">
+							<div class="record_title">
+								<ul>
+									<li class="active">充值</li>
+									<li>扣费</li>
+								</ul>
+							</div>
+							<!--详细的扣费信息开始部分-->
+							<div class="detail_record">
+								<!--充值记录开始部分-->
+								<div class="widget-content nopadding" style="">
+									<form action="{:url('admin/user/add_recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
+										<input type="hidden" name="uid" value="{$userInfo.uid}">
+										<div class="control-group">
+											<label class="control-label">会员名称</label>
+											<div class="controls">
+												<input class="span11" value='{$userInfo.nickname}' type="text" style="width: 32%;" readonly>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">充值金额</label>
+											<div class="controls">
+												<input class="span11" style="width: 30%;" value='' name="amount" type="text" onkeyup="value=value.replace(/[^\-?\d.]/g,'')">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">充值赠送</label>
+											<div class="controls">
+												<textarea name="giveaway"></textarea>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">是否全部领取</label>
+											<div class="controls">
+												<input type="radio" name="is_get" value="1">是
+												<input type="radio" name="is_get" value="0">否
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">支付方式</label>
+											<div class="controls">
+												<select name="pay_way">
+													<option value=1 " selected='selected' >支付宝</option>
+														<option value="2 " >微信</option>
+														<option value="3 ">现金</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-actions ">
+												<button type="submit " class="btn btn-success info_sure ">保存</button>
+												<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
+											</div>
+			
+										</form>
+									</div>
+							     <div class="widget-content " style="display: none; ">
+			                        <form action="{:url('admin/user/add_deduction')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
+										<input type="hidden" name="uid" value="{$userInfo.uid}">
+										<div class="control-group">
+											<label class="control-label">会员名称</label>
+											<div class="controls">
+												<input class="span11" value='{$userInfo.nickname}' type="text" style="width: 33%;" readonly>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">扣除金额</label>
+											<div class="controls">
+												<input class="span11" style="width: 30%;" value='' name="money" type="text" onkeyup="value=value.replace(/[^\-?\d.]/g,'')">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">备注</label>
+											<div class="controls">
+												<textarea name="remark"></textarea>
+											</div>
+										</div>
+									
+									
+											<div class="form-actions ">
+												<button type="submit " class="btn btn-success info_sure ">保存</button>
+												<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
+											</div>
+			
+										</form>
+								 </div>
+				
 						</div>
-					</div>
+				
+		        	</div>
+			</div>
+					
+					
+	</div>
+					
+					 
 				</div>
 			</div>
 		</div>
-		<script src="__AJS__/jquery.min.js"></script>
-		<script src="__AJS__/jquery.ui.custom.js"></script>
-		<script src="__AJS__/bootstrap.min.js"></script>
-		<script src="__AJS__/jquery.uniform.js"></script>
-		<script src="__AJS__/select2.min.js"></script>
-		<script src="__AJS__/jquery.dataTables.min.js"></script>
-		<script src="__AJS__/matrix.js"></script>
-		<script src="__AJS__/birthday.js" type="text/javascript" charset="utf-8"></script>
-		<script src="__AJS__/operat_table.js"></script>
+		<script src="__AJS__/jquery.min.js "></script>
+		<script src="__AJS__/jquery.ui.custom.js "></script>
+		<script src="__AJS__/bootstrap.min.js "></script>
+		<script src="__AJS__/jquery.uniform.js "></script>
+		<script src="__AJS__/select2.min.js "></script>
+		<script src="__AJS__/jquery.dataTables.min.js "></script>
+		<script src="__AJS__/matrix.js "></script>
+		<script src="__AJS__/birthday.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="__AJS__/operat_table.js "></script>
 
-		<script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.config.js"></script>
-		<script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.all.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="__EDITER__/lang/zh-cn/zh-cn.js"></script>
+		<script type="text/javascript " charset="utf-8 " src="__EDITER__/ueditor.config.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="__EDITER__/ueditor.all.min.js "></script>
+		<script type="text/javascript " charset="utf-8 " src="__EDITER__/lang/zh-cn/zh-cn.js "></script>
 
-		</body>
 
 </html>

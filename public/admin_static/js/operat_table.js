@@ -40,27 +40,8 @@ $(document).ready(function() {
 		return confirm("是否确认取消");
 	})
 
-	function deleteData(url, option, parent) {
-		var trueOrfalse = confirm("是否确认删除");
-		var _this = $(this);
-		if(!trueOrfalse) {
-			return;
-		} else {
 
-			$.post(url, option, function(data) {
-
-				if(data.state_code == 200) {
-					parent.hide();
-				} else {
-					alert(data.msg)
-				}
-			})
-		}
-
-	}
 	//活动页面删除
-
-	console.log($(".activity_delete"), 8888888)
 
 	$(".activity_delete").live("click", function() {
 		deleteData("/abab.php/activity/delActivity", { "aid": parseInt($(this).parent().parent().children("td:nth-child(1)").text()) },
@@ -130,27 +111,50 @@ $(document).ready(function() {
 			}, "json");
 
 	})
+	
+//	点击赠品输入框
 
-	//	赠品传值
-	$(".recharge_record tr td:nth-child(8) textarea").live("blur", function() {
+
+$(".recharge_record tr td:nth-child(8)").live("click",function(){
+	$(this).children(".show_word").hide();
+	$(this).children(".good_prompt").show();
+	$(this).children(".good_prompt").trigger("focus");
+})
+
+//	赠品传值
+$(".recharge_record tr td:nth-child(8) textarea").live("blur", function() {
 		var goosVal = $(this).val();
 		var goodsValId = $(this).parent().siblings(".td_id").html();
-		sendgoods({ id: goodsValId, giveaway: goosVal })
-	})
+		sendgoods({ id: goodsValId, giveaway: goosVal },$(this),$(this).siblings(".show_word"))
+})
+
+$(".recharge_record tr td:nth-child(10)").live("click",function(){
+	$(this).children(".beizhu_word").hide();
+	$(this).children(".beizhu").show();
+	$(this).children(".beizhu").trigger("focus");
+})
 
 	//备注传值
 	$(".recharge_record tr td:nth-child(10) textarea").live("blur", function() {
-		sendgoods({ id: $(this).parent().siblings(".td_id").html(), remark: $(this).val() })
+		sendgoods({ id: $(this).parent().siblings(".td_id").html(), remark: $(this).val() },$(this),$(this).siblings(".beizhu_word"))
 	})
 	// 点击是否
-	$(".recharge_record tr td:nth-child(9) span").live("click", function() {
+	$(".recharge_record tr td:nth-child(9) p").live("click", function() {
 
 		if($(this).attr("class") == "no") {
-			sendVal({ id: $(this).parent().siblings(".td_id").html(), is_get: 1 }, $(this), $(this).children(".no_text"), $(this).children("i:nth-child(1)"))
+			sendVal({ id: $(this).parent().siblings(".td_id").html(), is_get: 1 }, $(this), $(this).children(".no_text"), $(this).children("i"))
 		} else {
-			sendVal({ id: $(this).parent().siblings(".td_id").html(), is_get: 0 }, $(this), $(this).children(".no_text"), $(this).children("i:nth-child(1)"))
+			sendVal({ id: $(this).parent().siblings(".td_id").html(), is_get: 0 }, $(this), $(this).children(".no_text"), $(this).children("i"))
 		}
 	})
+	
+//	tab栏的转换
+var lis=$(".record_title ul").children("li");
+var contens=$(".detail_record").children();
+lis.on("click",function(){
+	$(this).addClass("active").siblings("li").removeClass("active");
+	contens.eq($(this).index()).show().siblings().hide();
+})
 
 })
 
@@ -182,8 +186,8 @@ function changeActivityType(tid) {
 		}, "json");
 }
 
-//是否确认删除按钮
 
+//传递是否参数
 function sendVal(option, my, children_one, children_two) {
 
 	$.post("/abab.php/user/save_recharge", option, function(obj) {
@@ -203,9 +207,35 @@ function sendVal(option, my, children_one, children_two) {
 	})
 
 }
+//赠品和备注的传值
 
-function sendgoods(option) {
-	$.post("/abab.php/user/save_recharge", option, function(data) {
+function sendgoods(option,my,brother) {
+	$.post("/abab.php/user/save_recharge", option, function(obj) {
+		if(obj.state_code==200){
+			brother.html(my.val());
+			my.hide();
+			brother.show();
+		}
 
 	})
 }
+
+//是否确认删除传值
+function deleteData(url, option, parent) {
+		var trueOrfalse = confirm("是否确认删除");
+		var _this = $(this);
+		if(!trueOrfalse) {
+			return;
+		} else {
+
+			$.post(url, option, function(data) {
+
+				if(data.state_code == 200) {
+					parent.hide();
+				} else {
+					alert(data.msg)
+				}
+			})
+		}
+
+	}
