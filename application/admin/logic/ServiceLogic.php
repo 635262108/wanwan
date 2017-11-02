@@ -23,7 +23,7 @@ class ServiceLogic
         $map['order_id'] = $data['oid'];
         $order = $ActivityOrder->getOrder($map);
         if(empty($order)){
-            return array('status'=>-1,'msg'=>'活动不存在');
+            return array('status'=>-1,'msg'=>'报名信息不存在');
         }
         //检查时间是否正确
         if($data['t_id'] < 0){
@@ -34,7 +34,13 @@ class ServiceLogic
         if($data['t_id'] > 0){
             $order->t_id = $data['t_id'];
         }
-        $order->record = $data['record'];
+        if(isset($data['is_enter'])){
+            $order->is_enter = $data['is_enter'];
+        }
+        if(!empty($data['record'])){
+            $order->record = $data['record'];
+        }
+
         if($order->save()){
             return array('status'=>200,'msg'=>'记录成功');
         }else{

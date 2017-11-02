@@ -334,6 +334,67 @@ class User extends Base
         }
     }
 
+    //添加扣费
+    public function add_deduction(){
+        //用户id
+        $data['uid'] = input('post.uid');
+        //扣除金额
+        $data['money'] = input('post.money');
+        //备注
+        $data['remark'] = input('post.remark');
+        //定义扣款属性
+        $data['type'] = 2;
+
+        //扣费
+        $userInfo = model('user')->find($data['uid']);
+        if(empty($userInfo)){
+            $this->error('用户不存在');
+        }
+        $userInfo->balance = $userInfo->balance-$data['money'];
+        $userInfo->save();
+        $data['balance'] = $userInfo->balance;      //操作完后余额
+        //记录明细
+        $model = new UserLogic();
+        $res = $model->saveDetail($data);
+        if($res['status']== 200){
+            $this->success($res['msg'],'user/index');
+        }else{
+            $this->error($res['msg']);
+        }
+    }
+
+    //修改充值
+    public function save_recharge(){
+        //id
+        $id = input('post.id');
+        if(empty($id)){
+            return_info(-1,'id不能为空');
+        }
+        $data['id'] = $id;
+        //赠品
+        $giveaway = input('post.giveaway');
+        if(!empty($giveaway)){
+            $data['giveaway'] = $giveaway;
+        }
+        //是否全部领取完毕
+        $is_get = input('post.is_get');
+        if(isset($is_get)){
+            $data['is_get'] = $is_get;
+        }
+        //描述
+        $remark = input('post.remark');
+        if(!empty($remark)){
+            $data['remark'] = $remark;
+        }
+        $model = new UserLogic();
+        $res = $model->saveRecharge($data);
+        if($res['msg'] == 200){
+            return_info($res['status'],$res['msg']);
+        }else{
+            return_info($res['status'],$res['msg']);
+        }
+    }
+
     //添加会员
     public function add_member(){
         if(request()->ispost()){
