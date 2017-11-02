@@ -421,6 +421,16 @@ class User extends Base
             $data['balance'] = input('post.balance');
             //来源
             $data['source'] = input('post.source');
+            //孩子姓名
+            $data['child_name'] = input('post.child_name');
+            //孩子性别
+            $data['child_gender'] = input('post.child_gender');
+            //孩子生日
+            $data['child_birthday'] = input('post.child_birthday');
+            //孩子学校
+            $data['child_school'] = input('post.child_school');
+            //可以玩耍时间
+            $data['child_play_time'] = input('post.child_play_time');
             $model = new UserLogic();
             $result = $model->addUser($data);
             if($result['status'] == 200){

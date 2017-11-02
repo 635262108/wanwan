@@ -8,16 +8,6 @@
 namespace app\admin\Logic;
 
 class UserLogic{
-
-    /**
-     * 登录逻辑
-     * @param $username
-     * @param $password
-     */
-    public function login($username,$password){
-        
-    }
-
     /**
      * 增加一个用户
      * @param $data
@@ -41,8 +31,9 @@ class UserLogic{
         }
         //添加数据
         $add_data = array(
+            'nickname' => $data['nickname'],
             'mobile' => $data['mobile'],
-            'password' => $data['password'],
+            'password' => md5($data['password']),
             'status' => 1,
             'reg_time' => time(),
             'province' => $data['province'],
@@ -55,8 +46,21 @@ class UserLogic{
             'member_grade' => 1,
             'source' => $data['source'],
         );
-        $res = model('user')->saveUser($add_data);
-        if($res !== false){
+        $uid = model('user')->insertGetId($add_data);
+
+        //有孩子信息添加孩子信息
+        if(!empty($data['child_name']) & $uid>0){
+            $add_child['uid'] = $uid;
+            $add_child['name'] = $data['child_name'];
+            $add_child['gender'] = $data['child_gender'];
+            $add_child['birthday'] = $data['child_birthday'];
+            $add_child['school'] = $data['child_school'];
+            $add_child['play_time'] = $data['child_play_time'];
+            $add_child['time'] = date("Y-m-d H:i:s");
+            db('user_child')->insert($add_child);
+        }
+
+        if($uid > 0){
             return array('status'=>200,'msg'=>'添加成功');
         }else{
             return array('status'=>-1,'msg'=>'添加失败');
