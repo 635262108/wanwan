@@ -8,7 +8,7 @@
 			<div id="content-header">
 				<div id="breadcrumb">
 					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
-					<a href="{:url('admin/activity/index')}" class="tip-bottom" data-original-title="">客户中心</a>
+					<a href="{:url('admin/user/index')}" class="tip-bottom" data-original-title="">客户中心</a>
 					<a href="#" class="current">添加会员</a>
 				</div>
 			</div>
@@ -98,6 +98,36 @@
 									<label class="control-label">开卡金额</label>
 									<div class="controls">
 										<input type="text" value="0" class="span11" name="balance" style="width: 30%;">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">支付方式</label>
+									<div class="controls">
+										<select name="pay_way">
+											<option value="0" selected="selected">不充值</option>
+											<option value="1">支付宝</option>
+											<option value="2">微信</option>
+											<option value="3">现金</option>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">赠品</label>
+									<div class="controls">
+										<textarea name="giveaway"></textarea>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">是否领取</label>
+									<div class="controls">
+										<input type="radio" name="is_get" value="0">是
+										<input type="radio" name="is_get" value="1">否
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">充值备注</label>
+									<div class="controls">
+										<textarea name="remark"></textarea>
 									</div>
 								</div>
 								<div class="control-group">

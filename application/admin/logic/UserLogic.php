@@ -42,11 +42,23 @@ class UserLogic{
             'sex' => $data['sex'],
             'birthday' => $data['birthday'],
             'address' => $data['address'],
-            'balance' => $data['balance'],
             'member_grade' => 1,
             'source' => $data['source'],
         );
         $uid = model('user')->insertGetId($add_data);
+
+        //有充值增加余额
+        if($uid > 0 & $data['pay_way'] > 0 &  $data['balance'] > 0){
+            $set_data['uid'] = $uid;
+            $set_data['amount'] = $data['balance'];
+            $set_data['pay_way'] = $data['pay_way'];
+            $set_data['status'] = 1;
+            $set_data['giveaway'] = $data['giveaway'];
+            $set_data['is_get'] = $data['is_get'];
+            $set_data['remark'] = $data['remark'];
+
+            $this->saveRecharge($set_data);
+        }
 
         //有孩子信息添加孩子信息
         if(!empty($data['child_name']) & $uid>0){

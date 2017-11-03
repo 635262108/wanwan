@@ -478,6 +478,14 @@ class User extends Base
             $data['balance'] = input('post.balance');
             //来源
             $data['source'] = input('post.source');
+            //支付方式
+            $data['pay_way'] = input('post.pay_way');
+            //赠品
+            $data['giveaway'] = input('post.giveaway');
+            //赠品是否领取
+            $data['is_get'] = input('post.is_get');
+            //赠品备注
+            $data['remark'] = input('post.remark');
             //孩子姓名
             $data['child_name'] = input('post.child_name/a');
             //孩子性别
