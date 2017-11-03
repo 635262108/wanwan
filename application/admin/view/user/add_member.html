@@ -2,8 +2,7 @@
 <html lang="en">
 
 	<head>
-		{include file="public/header" /} 
-		{include file="public/left" /}
+		{include file="public/header" /} {include file="public/left" /}
 		<div id="content" style="">
 			<div id="content-header">
 				<div id="breadcrumb">
@@ -33,13 +32,13 @@
 										<input class="span11" style="width: 30%;" value='' name="mobile" type="text">
 									</div>
 								</div>
-								
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
+
+								<div class="control-group">
+									<label class="control-label">生日</label>
+									<div class="controls">
+										<input type="text" value="" name="birthday" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
+									</div>
+								</div>
 
 								<div class="control-group">
 									<label class="control-label">密码</label>
@@ -52,54 +51,54 @@
 									<label class="control-label">性别</label>
 									<div class="controls">
 										<input type="radio" name="sex" value="1" checked="checked">男
-									    <input type="radio" name="sex" value="2" style="margin-left: 5px;">女
+										<input type="radio" name="sex" value="2" style="margin-left: 5px;">女
 
 									</div>
 								</div>
-                              <div class="select_address" style="display: flex;justify-content: flex-start;padding-left: 145px;">
-								<div class="control-group">
-									<label class="control-label" style="width: auto;margin-right: 10px;">所在省</label>
-									<div class="controls" style="margin-left: 0px;width: 155px;">
-										<select name="province" onChange="seachcitys($(this).val())" style="width:89px;">
-											<option value="0">请选择...</option>
-											{foreach name="provinces" item="vo"}
-											<option value="{$vo.id}" >{$vo.name}</option>
-											{/foreach}
-										</select>
+								<div class="select_address" style="display: flex;justify-content: flex-start;padding-left: 145px;">
+									<div class="control-group">
+										<label class="control-label" style="width: auto;margin-right: 10px;">所在省</label>
+										<div class="controls" style="margin-left: 0px;width: 155px;">
+											<select name="province" onChange="seachcitys($(this).val())" style="width:89px;">
+												<option value="0">请选择...</option>
+												{foreach name="provinces" item="vo"}
+												<option value="{$vo.id}">{$vo.name}</option>
+												{/foreach}
+											</select>
+										</div>
 									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" style="width: auto;margin-right: 10px;">所在市</label>
-									<div class="controls" style="margin-left: 0px;width: 155px;">
-										<select name="city" id="seachcity" onChange="seachdistricts($(this).val())" style="width:89px;">
-											<option value="0">请选择...</option>
-										</select>
+									<div class="control-group">
+										<label class="control-label" style="width: auto;margin-right: 10px;">所在市</label>
+										<div class="controls" style="margin-left: 0px;width: 155px;">
+											<select name="city" id="seachcity" onChange="seachdistricts($(this).val())" style="width:89px;">
+												<option value="0">请选择...</option>
+											</select>
 
+										</div>
 									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" style="width: auto;margin-right: 10px;">所在区</label>
-									<div class="controls" style="margin-left: 0px;width: 155px;">
-										<select name="district" id="seachdistrict" style="width:89px;">
-											<option value="0">请选择...</option>
-										</select>
+									<div class="control-group">
+										<label class="control-label" style="width: auto;margin-right: 10px;">所在区</label>
+										<div class="controls" style="margin-left: 0px;width: 155px;">
+											<select name="district" id="seachdistrict" style="width:89px;">
+												<option value="0">请选择...</option>
+											</select>
 
+										</div>
 									</div>
 								</div>
-							</div>
 								<div class="control-group">
 									<label class="control-label">详细地址</label>
 									<div class="controls">
 										<textarea class="span11" style="width: 40%;" value='' name="address"></textarea>
 									</div>
 								</div>
-								
-							  <div class="control-group">
-									  <label class="control-label">开卡金额</label>
-									  <div class="controls">
-										 <input type="text" value="0" class="span11" name="balance" style="width: 30%;">
-									  </div>
-								  </div>
+
+								<div class="control-group">
+									<label class="control-label">开卡金额</label>
+									<div class="controls">
+										<input type="text" value="0" class="span11" name="balance" style="width: 30%;">
+									</div>
+								</div>
 								<div class="control-group">
 									<label class="control-label">报名来源</label>
 									<div class="controls">
@@ -113,329 +112,18 @@
 								<div class="control-group">
 									<label class="control-label">孩子数量</label>
 									<div class="controls">
-										<select  class="select_num">
-											 <option selected="selected">暂不选择</option>
-											 <option>1</option>
-											 <option>2</option>
-											 <option>3</option>
+										<select class="select_num">
+											<option selected="selected">暂不选择</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
 										</select>
 									</div>
 								</div>
-								
-				<div class="children_information">
-					<!--没有选择-->
-						<div class="none"></div>
-						<!--选择一个孩子开始部分-->
-						<div class="one" style="display: none;">
-							    <div class="control-group">
-									<label class="control-label">孩子姓名</label>
-									<div class="controls">
-										<input type="text" style="width: 30%;" name="child_name[]"/>
-									</div>
-								</div>
-								
-								
-										<div class="control-group">
-										    <label class="control-label">性别</label>
-										    
-										    <div class="controls">
-										    	
-										    	<select name="child_gender[]">
-										    		<option value="1" selected="selected">男</option>
-										    		<option value="2">女</option>
-										    	</select>
-										    		
-										    </div>
-													
-													
-													
-										</div>
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday[]" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
-            					
-            					<div class="control-group">
-										<label class="control-label">学校</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_school[]">
-							              </div>
-														
-													
-								</div>
-								
-								<div class="control-group">
-										<label class="control-label">可以玩耍的时间</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_play_time[]">
-							              </div>
-														
-													
-								</div>
-						</div>
-						<!--选择一个孩子结束部分-->
-						<!--选择两个个孩子开始部分-->
-						<div class="two" style="display: none;">
-										    <div class="control-group">
-									<label class="control-label">孩子姓名</label>
-									<div class="controls">
-										<input type="text" style="width: 30%;" name="child_name[]"/>
-									</div>
-								</div>
-								
-								
-										<div class="control-group">
-										    <label class="control-label">性别</label>
-										    
-										     <div class="controls">
-										    	
-										    	<select name="child_gender[]">
-										    		<option value="1" selected="selected">男</option>
-										    		<option value="2">女</option>
-										    	</select>
-										    		
-										    </div>
-													
-													
-													
-										</div>
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday[]" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
-            					
-            					<div class="control-group">
-										<label class="control-label">学校</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_school[]">
-							              </div>
-														
-													
-								</div>
-								
-								<div class="control-group">
-										<label class="control-label">可以玩耍的时间</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_play_time[]">
-							              </div>
-														
-													
-								</div>
-								
-								
-								
-								
-								
-												    <div class="control-group">
-									<label class="control-label">孩子姓名</label>
-									<div class="controls">
-										<input type="text" style="width: 30%;" name="child_name[]"/>
-									</div>
-								</div>
-								
-								
-										<div class="control-group">
-										    <label class="control-label">性别</label>
-										    
-										     <div class="controls">
-										    	
-										    	<select name="child_gender[]">
-										    		<option value="1" selected="selected">男</option>
-										    		<option value="2">女</option>
-										    	</select>
-										    		
-										    </div>
-													
-													
-													
-										</div>
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday[]" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
-            					
-            					<div class="control-group">
-										<label class="control-label">学校</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_school[]">
-							              </div>
-														
-													
-								</div>
-								
-								<div class="control-group">
-										<label class="control-label">可以玩耍的时间</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_play_time[]">
-							              </div>
-														
-													
-								</div>
-						</div>
-						<!--选择两个个孩子结束部分-->
-						<!--选择三个孩子开始部分-->
-						<div class="three" style="display: none;">
-				              <div class="control-group">
-									<label class="control-label">孩子姓名</label>
-									<div class="controls">
-										<input type="text" style="width: 30%;" name="child_name[]"/>
-									</div>
-								</div>
-								
-								
-										<div class="control-group">
-										    <label class="control-label">性别</label>
-										    
-										     <div class="controls">
-										    	
-										    	<select name="child_gender[]">
-										    		<option value="1" selected="selected">男</option>
-										    		<option value="2">女</option>
-										    	</select>
-										    		
-										    </div>
-													
-													
-													
-										</div>
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday[]" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
-            					
-            					<div class="control-group">
-										<label class="control-label">学校</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_school[]">
-							              </div>
-														
-													
-								</div>
-								
-								<div class="control-group">
-										<label class="control-label">可以玩耍的时间</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_play_time[]">
-							              </div>
-														
-													
-								</div>
-								
-								
-								
-													    <div class="control-group">
-									<label class="control-label">孩子姓名</label>
-									<div class="controls">
-										<input type="text" style="width: 30%;" name="child_name[]"/>
-									</div>
-								</div>
-								
-								
-										<div class="control-group">
-										    <label class="control-label">性别</label>
-										    
-										    <div class="controls">
-										    	
-										    	<select name="child_gender[]">
-										    		<option value="1" selected="selected">男</option>
-										    		<option value="2">女</option>
-										    	</select>
-										    		
-										    </div>
-													
-													
-													
-										</div>
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday[]" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
-            					
-            					<div class="control-group">
-										<label class="control-label">学校</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_school[]">
-							              </div>
-														
-													
-								</div>
-								
-								<div class="control-group">
-										<label class="control-label">可以玩耍的时间</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_play_time[]">
-							              </div>
-														
-													
-								</div>
-								
-								
-												    <div class="control-group">
-									<label class="control-label">孩子姓名</label>
-									<div class="controls">
-										<input type="text" style="width: 30%;" name="child_name[]"/>
-									</div>
-								</div>
-								
-								
-										<div class="control-group">
-										    <label class="control-label">性别</label>
-										    
-										    <div class="controls">
-										    	
-										    	<select name="child_gender[]">
-										    		<option value="1" selected="selected">男</option>
-										    		<option value="2">女</option>
-										    	</select>
-										    		
-										    </div>
-													
-													
-													
-										</div>
-								  <div class="control-group">
-							              <label class="control-label">生日</label>
-							              <div class="controls">
-							                <input type="text" value="" name="birthday[]" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
-							              </div>
-            					  </div>
-            					
-            					<div class="control-group">
-										<label class="control-label">学校</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_school[]">
-							              </div>
-														
-													
-								</div>
-								
-								<div class="control-group">
-										<label class="control-label">可以玩耍的时间</label>
-										 <div class="controls">
-							                <input type="text" value=""  class="span11" style="width: 33%" name="child_play_time[]">
-							              </div>
-														
-													
-								</div>
-						</div>
-						<!--选择三个孩子结束部分-->
-				   </div>
-								
-								
-								
-								
 
-
+								<div class="children_information">
+									
+								</div>
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-success info_sure">保存</button>
@@ -460,7 +148,7 @@
 		<script src="__AJS__/birthday.js " type="text/javascript " charset="utf-8 "></script>
 		<script src="__AJS__/operat_table.js "></script>
 		<script src="__AJS__/Calendar.js"></script>
-		<script src="__AJS__/matrix.js"></script> 
+		<script src="__AJS__/matrix.js"></script>
 		<script src="__AJS__/matrix.tables.js"></script>
 
 </html>
