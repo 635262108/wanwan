@@ -64,8 +64,46 @@ class User extends Base
             $userInfo['province'] = $province['name'];
             $userInfo['city'] = $city['name'];
             $userInfo['district'] = $district['name'];
-            
-            return_info(200,'成功',$userInfo);
+
+            //获取小孩信息
+            $child = db('user_child')->where('uid',$uid)->select();
+            foreach($child as $k=>$v){
+                if($v['gender'] == 1){
+                    $child[$k]['gender'] = '男';
+                }else{
+                    $child[$k]['gender'] = '女';
+                }
+            }
+            //消费金额，余额，参加活动次数，信用积分
+            $map['uid'] = $uid;
+            $map['sign_time'] = array('gt',0);
+            $consumption = db('activity_order')->where($map)->sum('order_price');
+            if(empty($consumption)){
+                $consumption = 0;
+            }
+
+            $join_num = db('activity_order')->where($map)->count();
+
+            $enrol_num = db('activity_order')->where('uid',$uid)->count();
+
+            $source = db('source')->find($userInfo['source']);
+
+            $result = array(
+                'probably' => array(//会员概况
+                    'nickname' => $userInfo['nickname'],
+                    'mobile'   => $userInfo['mobile'],
+                    'balance'  => $userInfo['balance'], //余额
+                    'consumption'=> $consumption,       //消费金额
+                    'join_num'  => $join_num,           //参加活动次数
+                    'credit'    => 100,                  //信用积分，此功能暂时没有，默认100
+                    'enrol_num' => $enrol_num,           //报名次数
+                    'source'    => $source['name']       //来源
+
+                ),
+                'detail' => objectArray($userInfo),  //会员详情
+                'child'  => $child      //孩子信息
+            );
+            return_info(200,'成功',$result);
         }else{
             return_info(-1,'请求失败');
         }
