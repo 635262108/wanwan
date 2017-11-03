@@ -122,6 +122,11 @@ $(document).ready(function() {
 			$(".select_activity").on("change", function() {
 				var str = '';
 				var Activityid = $(this).val();
+				
+				var price=$(this).children("option:selected").attr("price")
+				
+				$(".price_num").val(price)
+				
 				$.post("/abab.php/activity/getActivityTime", { aid: Activityid },
 					function(obj) {
 						if(obj.state_code == -1) {
@@ -131,6 +136,7 @@ $(document).ready(function() {
 							$("#select_time").empty();
 
 						} else if(obj.state_code == 200) {
+							
 
 							for(var i = 0; i < obj.data.length; i++) {
 								var t_id = obj.data[i].t_id;
@@ -147,6 +153,26 @@ $(document).ready(function() {
 					}, "json");
 
 			})
+			
+			
+//			输入手机号显示姓名
+
+                $(".get_phone").on("blur",function(){
+                	var phoneVal=$(this).val();
+                	$.post("/abab.php/user/getUserMobile", { mobile: phoneVal },
+						function(obj) {
+							
+								if(obj.state_code == 200) {
+								    $(".get_name").val(obj.data.nickname)
+								    $(".uid").val(obj.data.uid);
+								 
+								}
+								else{
+									$(".uid").val(-1);
+								}
+					}, "json");
+                })
+            
 
 			//	点击赠品输入框
 
