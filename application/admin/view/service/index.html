@@ -20,6 +20,7 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
+                  <th>活动id</th>
                   <th>活动名称</th>
                   <th>报名人数</th>
                   <th>未确定人数</th>
@@ -30,6 +31,7 @@
               <tbody id="tbody_center" style="font-size: 12px;">
                {foreach name="res" item="vo"}
                 <tr>
+                  <td>{$vo.aid}</td>
                   <td>{$vo.a_title}</td>
                   <td>{$vo.enrol_num}</td>
                   <td>{$vo.access_num}</td>
