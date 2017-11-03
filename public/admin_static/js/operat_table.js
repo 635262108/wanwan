@@ -234,6 +234,17 @@ $(".select_num").trigger("change");
 				}
 
 			})
+			
+//			开卡金额控制
+  $(".pay_price").trigger("blur");
+        $(".pay_price").on("blur",function(){
+        	if($(this).val()==0){
+        		$(".payNum_contents").hide();
+        	}
+        	else if($(this).val()>0){
+        		$(".payNum_contents").show();
+        	}
+        })
 
 
 })
