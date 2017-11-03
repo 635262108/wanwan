@@ -392,7 +392,59 @@ class Activity extends Base
         $this->assign('orderInfo',$orderInfo);
         return $this->fetch();
     }
-    
+
+    //显示添加订单
+    public function dis_add_order(){
+        //活动信息
+        $activity = db('activity')->select();
+        //来源信息
+        $source = db('source')->select();
+        $this->assign('source',$source);
+        $this->assign('activity',$activity);
+        return $this->fetch();
+    }
+
+    //添加订单
+    public function add_order(){
+        //活动id
+        $data['aid'] = input('post.aid');
+        //手机号
+        $data['mobile'] = input('post.mobile');
+        if(!isMobile($data['mobile'])){
+            $this->error('手机号错误');
+        }
+        //用户uid
+        $data['uid'] = input('post.uid');
+        //姓名
+        $data['name'] = input('post.name');
+        //小孩数量
+        $data['child_num'] = input('post.child_num');
+        //支付方式
+        $data['pay_way'] = input('post.pay_way');
+        //支付时间
+        $data['pay_time'] = time();
+        //状态，管理员添加默认为已付款
+        $data['order_status'] = 3;
+        //下单时间
+        $data['addtime'] = time();
+        //活动时间
+        $data['t_id'] = input('post.t_id');
+        //订单备注
+        $data['record'] = input('post.record');
+        //来源
+        $data['source'] = input('post.source');
+        //价格
+        $data['order_price'] = input('post.order_price') * $data['child_num'];
+        //添加订单
+        $model = new ActivityLogic();
+        $res = $model->save_order($data);
+        if($res['status'] == 200){
+            $this->success($res['msg'],'activity/order');
+        }else{
+            $this->error($res['msg']);
+        }
+    }
+
     //退款列表
     public function refund(){
         $ActivityRefund = model('ActivityRefund');
