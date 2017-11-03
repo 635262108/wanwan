@@ -435,6 +435,8 @@ class Activity extends Base
         $data['source'] = input('post.source');
         //价格
         $data['order_price'] = input('post.order_price') * $data['child_num'];
+        //订单号
+        $data['order_sn'] = getOrderSn($data['uid'],$data['aid']);
         //添加订单
         $model = new ActivityLogic();
         $res = $model->save_order($data);

@@ -108,6 +108,25 @@ class User extends Base
             return_info(-1,'请求失败');
         }
     }
+
+    //根据手机号获取用户基本信息
+    public function getUserMobile(){
+        if(request()->isAjax()){
+            $mobile = input('post.mobile');
+            if(!isMobile($mobile)){
+                return_info(-1,'手机号不正确');
+            }
+            $userInfo = db('user')->where('mobile',$mobile)->find();
+            if(!empty($userInfo)){
+                return_info(200,'成功',$userInfo);
+            }else{
+                return_info(-1,'数据为空','');
+            }
+        }else{
+            return_info(-1,'请求失败');
+        }
+
+    }
     
     //修改个人信息展示
     public function saveUserList($uid){
