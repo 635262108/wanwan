@@ -1,8 +1,6 @@
 $(document).ready(function() {
 			var trs = $("#tbody_center tr");
-			//	console.log($(".check"),8888)
 			var checks = $(".check");
-			//	console.log(trs.children("td").find(".check"),8888)
 			checks.live("click", function(event) {
 
 				event.stopPropagation();
@@ -11,25 +9,64 @@ $(document).ready(function() {
 				var userId = $(this).parent().parent().children("td:nth-child(1)").html();
 				$.post("/abab.php/user/getUserInfo", { "uid": userId }, function(obj) {
 					if(obj.state_code == 200) {
-						$(".userId").html(userId);
-						$(".phone").html(obj.data.mobile);
-						$(".nickname").html(obj.data.nickname);
-						$(".birthday").html(obj.data.birthday);
-						$(".hobby").html(obj.data.hobby);
-						$(".normal").html(obj.data.status); //状态
-						$(".address").html(obj.data.address);
-						$(".start").html(obj.data.reg_time); //注册时间
-						$(".finsh").html(obj.data.last_time); //最后登录时间
-						$(".province").html(obj.data.province); //所在省
-						$(".country").html(obj.data.city);
-						$(".area").html(obj.data.district); //区
-						$(".sign").html(obj.data.signature);
+						console.log(obj);
+//						会员概要
+                         $(".member_name").html(obj.data.probably.nickname);
+                         $(".member_phone").html(obj.data.probably.mobile);
+                         $(".balance").html(obj.data.probably.balance);
+                         $(".consumtion").html(obj.data.probably.consumption);
+                         $(".enrol_num").html(obj.data.probably.enrol_num);
+                         $(".join_num").html(obj.data.probably.join_num);
+                         $(".credit").html(obj.data.probably.credit);
+                         $(".source").html(obj.data.probably.source);
+//                       详细信息
+						$(".phone").html(obj.data.detail.mobile);
+						$(".nickname").html(obj.data.detail.nickname);
+						if(obj.data.detail.sex==1){
+							$(".sex").html("男");
+						}
+						else{
+							$(".sex").html("女");
+						}
+						$(".reg_time").html(obj.data.detail.reg_time)
+						$(".province").html(obj.data.detail.province)
+						$(".city").html(obj.data.detail.city)
+						$(".district").html(obj.data.detail.district);
+						$(".address").html(obj.data.detail.address)
+						$(".birthday").html(obj.data.detail.birthday);
+						$(".email").html(obj.data.detail.email);
+						$(".hobby").html(obj.data.detail.hobby);
+						
+						var child_str='';
+//						孩子信息
+                          for(var i=0;i<obj.data.child.length;i++){
+                          	child_str+="<ul>"
+                          	+"<li><span>孩子姓名</span><span>"+obj.data.child[i].name+"</span></li>"+
+                          	 "<li><span>孩子性别</span><span>"+obj.data.child[i].gender+"</span></li>"+
+                          	 "<li><span>孩子生日</span><span>"+obj.data.child[i].birthday+"</span></li>"+
+                          	 "<li><span>孩子学校</span><span>"+obj.data.child[i].school+"</span></li>"+
+                          	 "<li><span>可玩时间</span><span>"+obj.data.child[i].play_time+"</span></li>"+
+                          	 "<li><span>登记时间</span><span>"+obj.data.child[i].time+"</span></li>"+
+                     
+                          	"</ul>"
+                          }
+                         $(".child_information").html(child_str);
+                         
+
 					} else {
 						alert(obj.msg)
 					}
 				})
 			})
+			
+			
+//			会员信息tab栏转换
+           var liDetails=$(".member_title ul").children();
+        
+           liDetails.on("mouseenter",function(){
+           	     tabChange($(this),$(".memberContents").children())
 
+           })
 			//弹出关闭按钮
 			$(".cancel").on("click", function() {
 				$(".modal_box").hide();
@@ -146,18 +183,18 @@ $(document).ready(function() {
 				}
 			})
 
-			//	tab栏的转换
+			//	金额变动tab栏的转换
 			var lis = $(".record_title ul").children("li");
-			var contens = $(".detail_record").children();
 			lis.on("click", function() {
-				$(this).addClass("active").siblings("li").removeClass("active");
-				contens.eq($(this).index()).show().siblings().hide();
+				 tabChange($(this),$(".detail_record").children())
+
 			})
 
 			
 
 var str_num="<div class='one'><div class='control-group'><label class='control-label'>孩子姓名</label><div class='controls'><input type='text' style='width: 30%;' name='child_name[]' /></div></div></div><div class='control-group'><label class='control-label'>性别</label><div class='controls'><select name='child_gender[]'><option value='1' selected='selected'>男</option><option value='2'>女</option></select></div></div><div class='control-group'><label class='control-label'>生日</label><div class='controls'><input type='text' value='' name='child_birthday[]' placeholder='2017-09-07' onClick='new Calendar().show(this);' class='span11'  style='width: 25%;margin-top: -3px;cursor: pointer;'></div></div>	<div class='control-group'><label class='control-label'>学校</label><div class='controls'><input type='text' value='' class='span11' style='width: 33%' name='child_school[]'></div></div><div class='control-group'><label class='control-label'>可以玩耍的时间</label><div class='controls'><input type='text' value='' class='span11' style='width: 33%' name='child_play_time[]'></div></div>"
 //孩子选择tab栏的转换
+$(".select_num").trigger("change");
 			$(".select_num").on("change", function() {
 				if($(this).val() == 1) {
 					$(".children_information").html(str_num)
@@ -256,3 +293,10 @@ function deleteData(url, option, parent) {
 		}
 
 	}
+
+
+//tba栏转换
+function tabChange(my,brother){
+	 my.addClass("active").siblings().removeClass("active");
+     brother.eq(my.index()).show().siblings().hide();
+}

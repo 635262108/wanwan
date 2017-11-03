@@ -82,48 +82,64 @@
   </div>
 </div>
 </div>
+
+<!--查看模态框-->
 <div class="modal_box hide">
 	<div class="modal_div">
 		<div class="cancel">X</div>
-		<table class="detail_information" border="1" style="width:700px ;height: 200px;font-size: 12px;">
-			<tr>
-				<td>用户id</td>
-				<td class="userId"></td>
-				<td>手机号</td>
-				<td class="phone"></td>
-				<td>昵称</td>
-				<td class="nickname"></td>
-			</tr>
-			<tr>
-				<td>状态</td>
-				<td class="normal"></td>
-				<td>注册时间</td>
-				<td class="start"></td>
-				<td>最后登录时间</td>
-				<td class="finsh"></td>
-			</tr>
-			<tr>
-				<td>生日</td>
-				<td class="birthday"></td>
-				<td>爱好</td>
-        <td class="hobby"></td>
-				<td>所在省</td>
-				<td class="province"></td>
-			</tr>
-			<tr>
-				<td>所在市</td>
-				<td class="country"></td>
-				<td>所在区</td>
-				<td class="area"></td>
-				<td>详细地址</td>
-				<td class="address"></td>
-			</tr>
-       <tr>
-				<td>个性签名</td>
-        <td colspan="5" class="sign"></td>
-			</tr>
-			
-		</table>
+		<div class="total_title">会员信息</div>
+		<div class="member_title">
+			  <ul>
+			  	 <li class="active">会员概要</li>
+			  	 <li>详细信息</li>
+			  	 <li>孩子信息</li>
+			  </ul>
+		</div>
+		
+		<div class="memberContents">
+			  <div class="memeber_information">
+			  	   <ul>
+			  	   	   <li><span>会员姓名</span><span class="member_name"></span></li>
+			  	   	   <li><span>会员手机</span><span class="member_phone"></span></li>
+			  	   	   <li><span>会员余额</span><span class="balance"></span></li>
+			  	   	   <li><span>消费金额</span><span class="consumtion"></span></li>
+			  	   	   <li><span>报名次数</span><span class="enrol_num"></span></li>
+			  	   	   <li><span>参加次数</span><span class="join_num"></span></li>
+			  	   	   <li><span>信用积分</span><span class="credit"></span></li>
+			  	   	   <li><span>会员来源</span><span class="source"></span></li>
+			  	   	       
+			  	   </ul>
+			  	   
+			  	  
+			  </div>
+			  <div class="detailContent_information" style="display: none;">
+			  	  <ul>
+			  	   	   <li><span>会员姓名</span><span class="nickname"></span></li>
+			  	   	   <li><span>会员手机</span><span class="phone"></span></li>
+			  	   	   <li><span>会员性别</span><span class="sex"></span></li>
+			  	   	   <li><span>加入时间</span><span class="reg_time"></span></li>
+			  	   	   <li><span style="text-align: right;">省</span><span class="province"></span></li>
+			  	   	   <li><span style="text-align: right;">市</span><span class="city"></span></li>
+			  	   	   <li><span style="text-align: right;">区</span><span class="district"></span></li>
+			  	   	   <li><span>详细地址</span><span class="address"></span></li>
+			  	   	   <li><span>会员生日</span><span class="birthday"></span></li>
+			  	   	   <li><span>会员邮箱</span><span class="email"></span></li>
+			  	   	   <li><span>会员爱好</span><span class="hobby"></span></li>
+			  	   	       
+			  	   </ul>
+			  </div>
+			  <div class="child_information" style="display: none;">
+			  	<ul>
+			  	   	   <li><span>孩子姓名</span><span>薛茜</span></li>
+			  	   	   <li><span>孩子性别</span><span>男</span></li>
+			  	   	   <li><span>孩子生日</span><span>2012.2.4</span></li>
+			  	   	   <li><span>孩子学校</span><span>第一中学</span></li>
+			  	   	   <li><span>可玩时间</span><span>上午9点半</span></li>
+			  	   	   <li><span>等级时间</span><span>2014.78</span></li>
+			  	</ul>
+			  </div>
+		</div>
+
 	</div>
 </div>
 {include file="public/footer" /}
