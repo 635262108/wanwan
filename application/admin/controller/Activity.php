@@ -436,7 +436,11 @@ class Activity extends Base
         //价格
         $data['order_price'] = input('post.order_price') * $data['child_num'];
         //订单号
-        $data['order_sn'] = getOrderSn($data['uid'],$data['aid']);
+        if($data['uid'] > 0){
+            $data['order_sn'] = getOrderSn($data['uid'],$data['aid']);
+        }else{
+            $data['order_sn'] = getOrderSn(000,$data['aid']);
+        }
         //添加订单
         $model = new ActivityLogic();
         $res = $model->save_order($data);
