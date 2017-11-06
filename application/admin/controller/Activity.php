@@ -490,7 +490,7 @@ class Activity extends Base
         $this->success('处理成功','activity/refund');
     }
     
-    //活动扩展
+    //活动安排
     public function extension(){
         $ActivityExtension = model('ActivityExtension');
         $extInfo = $ActivityExtension->getAll();

@@ -9,7 +9,7 @@
 namespace app\admin\Logic;
 use think\model;
 
-class AdminUserLogic
+class AdminLogic
 {
     /**
      * 添加或修改管理员信息
@@ -45,6 +45,25 @@ class AdminUserLogic
         );
 
         if($model->insert($add_data)){
+            return array('status'=>200,'msg'=>'添加成功');
+        }else{
+            return array('status'=>-1,'msg'=>'添加失败');
+        }
+    }
+
+    public function save_role($data){
+        //修改
+        if(isset($data['id'])){
+            $res = db('role')->update($data);
+            if($res){
+                return array('status'=>200,'msg'=>'更新成功');
+            }else{
+                return array('status'=>-1,'msg'=>'更新失败');
+            }
+        }
+        //添加
+        $res = db('role')->insert($data);
+        if($res){
             return array('status'=>200,'msg'=>'添加成功');
         }else{
             return array('status'=>-1,'msg'=>'添加失败');

@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-权限管理
-</body>
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+            <a href="{:url('admin/admin/index')}" class="tip-bottom">权限中心</a>
+            <a href="#" class="current">角色管理</a>
+        </div>
+    </div>
+
+    <div class="add_order">
+        <a href="{:url('admin/admin/dis_add_role')}">
+            <div class="add" title="添加管理员">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                		 添加角色
+          </span>
+            </div>
+        </a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                        <h5>会员列表</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>角色名</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody_center" style="font-size: 12px;">
+                            {foreach name="role" item="vo"}
+                            <tr>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.role_name}</td>
+                                <td class="center">
+                                    <a href="{:url('admin/admin/dis_save_role','id='.$vo.id)}"><i class="check icon-pencil">&nbsp;&nbsp;编辑</i></a>
+                                    <i class="delete icon-trash">&nbsp;&nbsp;删除</i>
+                                </td>
+
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="public/footer" /}
 </html>

@@ -6,5 +6,9 @@
 </head>
 <body>
 修改管理员
+{foreach name="role" item="vo"}
+    {$vo.id}{$vo.role_name}
+{/foreach}
+{$userInfo.id}{$userInfo.mobile}{$userInfo.name}{$userInfo.role_id}
 </body>
 </html>

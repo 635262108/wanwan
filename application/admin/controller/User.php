@@ -190,7 +190,7 @@ class User extends Base
         $this->success('修改成功',"user/index");
     }
 
-    //考勤首页
+    //签到概况
     public function attendance(){
         //获取数据
         $actinfo = model('Activity')->query("select a_title,aid,
