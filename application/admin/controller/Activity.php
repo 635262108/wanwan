@@ -215,12 +215,12 @@ class Activity extends Base
     }
 
     //活动分类列表
-    public function activityType(){
+    public function activity_type(){
         //获取分类名称
         $ActivityType = model('ActivityType');
         $typeInfo = $ActivityType->getTitle();
         $this->assign('typeInfo',$typeInfo);
-        return $this->fetch('activityType');
+        return $this->fetch();
     }
     
     //活动子分类
