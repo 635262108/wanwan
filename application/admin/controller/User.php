@@ -7,29 +7,6 @@ use app\admin\logic\UserLogic;
 class User extends Base
 {
 
-    //登录
-    public function login(){
-        // 检测是否为ajax请求
-        if(request()->isAjax()){
-            //用户名
-            $name = input('post.name');
-            //密码
-            $password = input('post.pwd');
-
-            //登录验证
-            if($password == 'wanwanwan123!@#' & $name=='admin'){
-                //存储用户信息
-                $data['nickname'] = 'admin';
-                Session::set('adminInfo',$data);
-                return return_info(200,'登录成功');
-            }else{
-                return return_info(-1,'帐号或密码错误');
-            }
-        }else{
-            return $this->fetch();
-        }
-    }
-    
     //会员列表
     public function index(){
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')

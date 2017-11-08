@@ -13,6 +13,26 @@ use app\common\model\AdminUser;
 class Admin extends Base
 {
 
+    //登录
+    public function login(){
+        // 检测是否为ajax请求
+        if(request()->isAjax()){
+            //用户名
+            $name = input('post.name');
+            //密码
+            $password = input('post.pwd');
+            if(empty($name) || empty($password)){
+                return_info(-1,'账号或密码不能为空');
+            }
+            //登录验证
+            $model = new AdminLogic();
+            $res = $model->check_login($name,$password);
+            return_info($res['status'],$res['msg']);
+        }else{
+            return $this->fetch();
+        }
+    }
+
     //首页
     public function index(){
         //获取数据

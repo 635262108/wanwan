@@ -8,6 +8,7 @@
 
 namespace app\admin\Logic;
 use think\model;
+use think\Session;
 
 class AdminLogic
 {
@@ -51,6 +52,11 @@ class AdminLogic
         }
     }
 
+    /**
+     * 更新角色
+     * @param $data
+     * @return array
+     */
     public function save_role($data){
         //修改
         if(isset($data['id'])){
@@ -67,6 +73,30 @@ class AdminLogic
             return array('status'=>200,'msg'=>'添加成功');
         }else{
             return array('status'=>-1,'msg'=>'添加失败');
+        }
+    }
+
+    /**
+     * 检查用户名和密码
+     * @param $name
+     * @param $pwd
+     * @return array
+     */
+    public function check_login($name,$pwd){
+        $map['mobile'] = $name;
+        $map['password'] = md5($pwd);
+        $user = db('admin_user')->where($map)->find();
+        if (!empty($user)){
+            //记录登录信息
+            $data['id'] = $user['id'];
+            $data['login_ip'] = request()->ip();
+            $data['login_time'] = time();
+            db('admin_user')->update($data);
+            //存储用户信息
+            Session::set('adminInfo',$user);
+            return array('status'=>200,'msg'=>'登录成功');
+        }else{
+            return array('status'=>-1,'msg'=>'账号或密码错误');
         }
     }
 }
