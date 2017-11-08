@@ -140,4 +140,15 @@ class Admin extends Base
         }
     }
 
+    //删除角色
+    public function del_role(){
+        $id = input('post.id');
+        $res = db('role')->delete($id);
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
 }
