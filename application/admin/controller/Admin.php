@@ -50,11 +50,11 @@ class Admin extends Base
     //删除管理员
     public function del_user(){
         $id = input('post.id');
-        $res = model('AdminUser')->delete($id);
+        $res = db('admin_user')->delete($id);
         if ($res){
-            return array('status'=>200,'msg'=>'删除成功');
+            return_info(200,'成功');
         }else{
-            return array('status'=>-1,'msg'=>'删除失败');
+            return_info(-1,'失败');
         }
     }
 
