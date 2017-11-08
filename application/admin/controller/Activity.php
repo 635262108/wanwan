@@ -724,7 +724,8 @@ class Activity extends Base
         for($i=0;$i<$num;$i++){
             //获取来源id
             $source = $sourceModel->where('name',$excel_data[$i]['source'])->value('id');
-            $add_data[$i]['order_sn'] = getOrderSn(000,$aid);
+            $mob = substr($excel_data[$i]['mobile'],7,4);
+            $add_data[$i]['order_sn'] = getOrderSn($mob,$aid);
             $add_data[$i]['aid'] = $aid;
             $add_data[$i]['uid'] = -1;
             $add_data[$i]['mobile'] = $excel_data[$i]['mobile'];
