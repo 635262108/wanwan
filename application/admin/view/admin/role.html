@@ -39,11 +39,11 @@
                             <tbody id="tbody_center" style="font-size: 12px;">
                             {foreach name="role" item="vo"}
                             <tr>
-                                <td>{$vo.id}</td>
+                                <td class="td_id">{$vo.id}</td>
                                 <td>{$vo.role_name}</td>
                                 <td class="center">
                                     <a href="{:url('admin/admin/dis_save_role','id='.$vo.id)}"><i class="check icon-pencil">&nbsp;&nbsp;编辑</i></a>
-                                    <i class="delete icon-trash">&nbsp;&nbsp;删除</i>
+                                    <i class="delete icon-trash role_delete">&nbsp;&nbsp;删除</i>
                                 </td>
 
                             </tr>

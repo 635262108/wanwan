@@ -28,17 +28,21 @@
                         <div class="control-group">
                             <label class="control-label">权限：</label>
                             <div class="controls">
-                                <input type="checkbox">全部<br>
+                                <input type="checkbox" class="whole_check">全部<br>
                                 {foreach name="node" item="vo"}
 
                                 {if condition="$vo.fid eq 0"}
-                                <input type="checkbox" name="rule[]" <?php if(strpos($role['rule'],(string)$vo['id']) !== false){echo 'checked="checked"';}?> value="{$vo.id}">{$vo.node_name}<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="first_check" style="margin-top: 10px;">
+                                <input class="first_child" type="checkbox" name="rule[]" <?php if(strpos($role['rule'],(string)$vo['id']) !== false){echo 'checked="checked"';}?> value="{$vo.id}">{$vo.node_name}<br>
+                               
+                                <div class="second_check" style="padding-left: 3%;">
                                 {foreach name="node" item="v"}
                                 {if condition="$v.fid eq $vo.id"}
                                     <input type="checkbox"  <?php if(strpos($role['rule'],(string)$v['id']) !== false){echo 'checked="checked"';}?>  name="rule[]" value="{$v.id}">{$v.node_name}
                                 {/if}
-                                {/foreach}<br>
+                                {/foreach}
+                                </div>
+                                </div>
                                 {/if}
                                 {/foreach}
                             </div>

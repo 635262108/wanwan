@@ -9,7 +9,6 @@ $(document).ready(function() {
 				var userId = $(this).parent().parent().children("td:nth-child(1)").html();
 				$.post("/abab.php/user/getUserInfo", { "uid": userId }, function(obj) {
 					if(obj.state_code == 200) {
-						console.log(obj);
 //						会员概要
                          $(".member_name").html(obj.data.probably.nickname);
                          $(".member_phone").html(obj.data.probably.mobile);
@@ -118,7 +117,20 @@ $(document).ready(function() {
 					$(this).parent().parent())
 
 			})
+			
+			//管理员的删除
+			$(".manager_delete").live("click", function() {
+				deleteData("/abab.php/admin/del_user", { "id": parseInt($(this).parent().siblings(".td_id").html()) },
+					$(this).parent().parent())
 
+			})
+			
+			//角色列表的删除
+			$(".role_delete").live("click", function() {
+				deleteData("/abab.php/admin/del_role", { "id": parseInt($(this).parent().siblings(".td_id").html()) },
+					$(this).parent().parent())
+
+			})
 			$(".select_activity").on("change", function() {
 				var str = '';
 				var Activityid = $(this).val();
@@ -220,7 +232,7 @@ $(document).ready(function() {
 
 var str_num="<div class='one'><div class='control-group'><label class='control-label'>孩子姓名</label><div class='controls'><input type='text' style='width: 30%;' name='child_name[]' /></div></div></div><div class='control-group'><label class='control-label'>性别</label><div class='controls'><select name='child_gender[]'><option value='1' selected='selected'>男</option><option value='2'>女</option></select></div></div><div class='control-group'><label class='control-label'>生日</label><div class='controls'><input type='text' value='' name='child_birthday[]' placeholder='2017-09-07' onClick='new Calendar().show(this);' class='span11'  style='width: 25%;margin-top: -3px;cursor: pointer;'></div></div>	<div class='control-group'><label class='control-label'>学校</label><div class='controls'><input type='text' value='' class='span11' style='width: 33%' name='child_school[]'></div></div><div class='control-group'><label class='control-label'>可以玩耍的时间</label><div class='controls'><input type='text' value='' class='span11' style='width: 33%' name='child_play_time[]'></div></div>"
 //孩子选择tab栏的转换
-$(".select_num").trigger("change");
+			$(".select_num").trigger("change");
 			$(".select_num").on("change", function() {
 				if($(this).val() == 1) {
 					$(".children_information").html(str_num)
@@ -236,7 +248,7 @@ $(".select_num").trigger("change");
 			})
 			
 //			开卡金额控制
-  $(".pay_price").trigger("blur");
+ 		$(".pay_price").trigger("focus");
         $(".pay_price").on("blur",function(){
         	if($(this).val()==0){
         		$(".payNum_contents").hide();
@@ -245,7 +257,70 @@ $(".select_num").trigger("change");
         		$(".payNum_contents").show();
         	}
         })
+        
+        
+//      权限选择
 
+// 点击全部
+   $(".whole_check").on("click",function(){
+   	    if($(this).attr("checked")){
+   	    	$(this).siblings().find("input").attr("checked",true);
+   	    }
+   	    else{
+   	    	$(this).siblings().find("input").attr("checked",false);
+   	    }
+   })
+   
+// 点击一级标题
+	var inputs=$(".first_check").children(".first_child");
+    inputs.on("click",function(){
+      	var checked_len=$(".first_check").children(".first_child:checked").length;
+        if(checked_len===3){
+    		$(".whole_check").attr("checked",true);
+    		
+    	}
+        if($(this).attr("checked")){
+        	$(this).siblings(".second_check").find("input").attr("checked",true);
+        }
+        else{
+        	$(this).siblings(".second_check").find("input").attr("checked",false)
+        	$(".whole_check").attr("checked",false);
+        }
+        
+      
+
+    })
+    
+//  三级的点击事件
+		$(".first_check").each(function(){
+			var threeInput=$(this).children(".second_check").find("input");
+			$(this).children(".second_check").find("input:checked").length
+			
+			threeInput.on("click",function(){
+				
+				var threeInput_len=$(this).parent(".second_check").find("input:checked").length;
+				
+				if(threeInput_len==0){
+					  $(this).parent(".second_check").siblings(".first_child").attr("checked",false);
+					  $(".whole_check").attr("checked",false);
+				}
+				
+				
+				 if($(this).attr("checked")){
+				 	
+				 	  $(this).parent(".second_check").siblings(".first_child").attr("checked",true);
+				 	  
+				 }
+			})
+			
+		})
+   
+    
+
+   
+    
+    
+    
 
 })
 
