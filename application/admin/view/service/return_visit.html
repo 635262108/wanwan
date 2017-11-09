@@ -23,6 +23,8 @@
                                 <th>会员名称</th>
                                 <th>手机号</th>
                                 <th>签到时间</th>
+                                <th>场次时间</th>
+                                <th>报名来源</th>
                                 <th>备注</th>
                                 <th>操作</th>
                             </tr>
@@ -39,6 +41,8 @@
                                         {$vo.sign_time|date='Y.m.d H:i',###}
                                     {/if}
                                 </td>
+                                <td></td>
+                                <td></td>
                                 <td>{$vo.record}</td>
                                 <td class="center"> <a href="{:url('admin/service/dis_save_visit',['aid'=>$vo.aid,'oid'=>$vo.order_id])}"><i class="check icon-reorder">&nbsp;&nbsp;记录</i></a>
                                 </td>

@@ -36,8 +36,8 @@
                   <td>{$vo.enrol_num}</td>
                   <td>{$vo.access_num}</td>
                   <td>{$vo.visit_num}</td>
-                  <td class="center"> <a href="{:url('admin/service/access',['aid'=>$vo.aid])}"><i class="check icon-edit" style="width: 100px;";>&nbsp;&nbsp;进行确认</i></a>
-                      <a href="{:url('admin/service/return_visit',['aid'=>$vo.aid])}"><i class="change icon-phone" style="width: 100px;">&nbsp;&nbsp;进行回访</i></a>
+                  <td class="center"> <a href="{:url('admin/service/access',['aid'=>$vo.aid])}"><i class="check icon-edit" style="width: 100px;";>&nbsp;&nbsp;邀约</i></a>
+                      <a href="{:url('admin/service/return_visit',['aid'=>$vo.aid])}"><i class="change icon-phone" style="width: 100px;">&nbsp;&nbsp;回访</i></a>
                   </td>
                 </tr>
                 {/foreach}

@@ -512,6 +512,52 @@ class User extends Base
         }
     }
 
+    //更新孩子
+    public function  save_child(){
+        //id,存在时为更新
+        $id = input('post.id');
+        if(!empty($id)){
+            $data['id'] = $id;
+        }
+
+        //用户id
+        $data['uid'] = input('post.uid');
+        if(empty($data['uid']) & empty($id)){
+            return_info(-1,'用户id不能为空');
+        }
+        //孩子姓名
+        $data['name'] = input('post.child_name');
+        if(empty($data['name'])){
+            return_info(-1,'姓名不能为空');
+        }
+        //孩子性别
+        $data['gender'] = input('post.child_gender');
+        //孩子生日
+        $data['birthday'] = input('post.child_birthday');
+        //孩子学校
+        $data['school'] = input('post.child_school');
+        //可以玩耍时间
+        $data['play_time'] = input('post.child_play_time');
+
+        $model = new UserLogic();
+        $res = $model->saveChild($data);
+        return_info($res['status'],$res['msg']);
+    }
+
+    //删除孩子
+    public function del_child(){
+        $id = input('post.id');
+        if(empty($id)){
+            return_info(-1,'参数不完整');
+        }
+        $res = db('user_child')->delete($id);
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
     //成单记录
     public function deal(){
         //获取数据

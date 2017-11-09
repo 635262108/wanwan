@@ -21,10 +21,9 @@ class Activity extends Base
     //添加活动列表
     public function addActivityList(){
         //获取活动类型
-        $ActivityType = model('ActivityType');
-        $title = $ActivityType->getTitleSon(0);
+
         //获取标题父id
-        $fidInfo = $ActivityType->getTitle();
+        $fidInfo = db('activity_type')->where('fid',0)->select();
         
         $this->assign('fidInfo',$fidInfo);
         return $this->fetch();
@@ -66,7 +65,7 @@ class Activity extends Base
                 $data['a_index_img'] = $a_inde_img->getSaveName();
             }else{
                 // 上传失败获取错误信息
-                echo $file->getError();die;
+                echo $a_inde_img->getError();die;
             }
         }        
         //主页大图
@@ -77,7 +76,7 @@ class Activity extends Base
                 $data['a_img'] = $a_img->getSaveName();
             }else{
                 // 上传失败获取错误信息
-                echo $file->getError();die;
+                echo $a_img->getError();die;
             }
         }
         
@@ -612,6 +611,7 @@ class Activity extends Base
         $data['aid'] = input('post.aid');
         $data['t_content'] = input('post.content');
         $data['ticket_num'] = input('post.num');
+        $data['remark'] = input('post.remark');
         $data['head'] = input('post.head');
         $ActivityTime = model('ActivityTime');
         $ActivityTime->add($data);
