@@ -180,10 +180,24 @@ class User extends Base
         return $this->fetch();
     }
 
+    //签到分类
+    public function attendance_class($aid){
+        //获取数据
+        $actinfo = model('ActivityTime')->query("select t.*,a.a_title,
+                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.order_status<>2 and o.t_id=t.t_id) as join_num,
+                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
+                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
+                                    from mfw_activity_time t right join mfw_activity a on t.aid=a.aid where t.aid=".$aid);
+
+        $this->assign('actinfo',$actinfo);
+        return $this->fetch();
+    }
+
     //考勤详情
-    public function attendance_detail($aid=0){
+    public function attendance_detail($aid=0,$tid=0){
         $ActivityOrder = model('ActivityOrder');
         $map['aid'] = $aid;
+        $map['t_id'] = $tid;
         $map['order_status'] = array('neq',2);
         $actinfo = $ActivityOrder->getOrders($map);
         $this->assign('actinfo',$actinfo);

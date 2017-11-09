@@ -13,8 +13,7 @@ class Activity extends Base
     //活动列表
     public function index(){
         //获取活动信息
-        $Activity = model('Activity');
-        $ActivityInfo = $Activity->getActivityAll();
+        $ActivityInfo = db('Activity')->alias('a')->field('a.*,t.name')->join('mfw_activity_type t','a.a_type=t.id','left')->select();
         $this->assign('ActivityInfo',$ActivityInfo);
     	return $this->fetch();
     }

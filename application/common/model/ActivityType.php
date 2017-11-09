@@ -13,6 +13,7 @@ class ActivityType extends Model
      */
     public function getTitle(){
         $map['fid'] = 0;
+        $map['is_dis'] = 1;
         return $this->where($map)->order('sort asc')->select();
     }
     
