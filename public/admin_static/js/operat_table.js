@@ -35,21 +35,30 @@ $(document).ready(function() {
 						$(".birthday").html(obj.data.detail.birthday);
 						$(".email").html(obj.data.detail.email);
 						$(".hobby").html(obj.data.detail.hobby);
+						console.log(obj.data,0000000);
+					   	$(".uid").html(obj.data.detail.uid)
 						
 						var child_str='';
+						var add_str="<div class='add_child'><img src="+'/public/admin_static/img/'+'add.png'+" style='width: 18px;height: 18px;margin-right: 22%;margin-top: -2px;'/><a href='javascript:;'>新增</a></div>"
 //						孩子信息
                           for(var i=0;i<obj.data.child.length;i++){
-                          	child_str+="<ul>"
-                          	+"<li><span>孩子姓名</span><span>"+obj.data.child[i].name+"</span></li>"+
-                          	 "<li><span>孩子性别</span><span>"+obj.data.child[i].gender+"</span></li>"+
-                          	 "<li><span>孩子生日</span><span>"+obj.data.child[i].birthday+"</span></li>"+
-                          	 "<li><span>孩子学校</span><span>"+obj.data.child[i].school+"</span></li>"+
-                          	 "<li><span>可玩时间</span><span>"+obj.data.child[i].play_time+"</span></li>"+
-                          	 "<li><span>登记时间</span><span>"+obj.data.child[i].time+"</span></li>"+
+                          	child_str+="<div class='child_part'><ul>"
+                          	+"<li><span>孩子姓名:</span><span>"+obj.data.child[i].name+"</span></li>"+
+                          	 "<li><span>孩子性别:</span><span>"+obj.data.child[i].gender+"</span></li>"+
+                          	 "<li><span>孩子生日:</span><span>"+obj.data.child[i].birthday+"</span></li>"+
+                          	 "<li><span>孩子学校:</span><span>"+obj.data.child[i].school+"</span></li>"+
+                          	 "<li><span>可玩时间:</span><span>"+obj.data.child[i].play_time+"</span></li>"+
+                          	 "<li><span>登记时间:</span><span>"+obj.data.child[i].time+"</span></li>"+
                      
-                          	"</ul>"
+                          	"</ul><div class='operate'><span><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>编辑</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;'>删除</a></span></div></div>"
                           }
-                         $(".child_information").html(child_str);
+                         
+                          
+                         
+                          
+                          $(".child_information").html(add_str+child_str);
+                         
+                        
                          
 
 					} else {
@@ -58,7 +67,38 @@ $(document).ready(function() {
 				})
 			})
 			
+//			添加按钮
+			$(document).on("click",".add_child",function(){
+				
+				$(".modal_secondBox").show()
+			})
 			
+			$(".second_cancel").on("click",function(){
+					$(".modal_secondBox").hide()
+			})
+			
+//			保存按钮
+            $(".add_success").on("click",function(){
+            	var id=$(".uid").html();
+            	var childName=$(".child_name").val();
+            	var childSex=$("input:radio:checked").val();
+            	var childSch=$(".child_school").val();
+            	var play=$(".child_time").val();
+            	var childBi=$(".child_birthday").val();
+            	
+                 $.post("/abab.php/user/save_child", { uid:id,name:childName,gender:childSex,school:childSch,play_time:play,birthday:childBi},
+						function(obj) {
+							
+								if(obj.state_code == 200) {
+								   console.log(222222)
+								 
+								}
+								else{
+									
+								}
+					}, "json");
+            })
+          
 //			会员信息tab栏转换
            var liDetails=$(".member_title ul").children();
         

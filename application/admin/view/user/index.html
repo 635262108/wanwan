@@ -97,7 +97,7 @@
 		</div>
 		
 		<div class="memberContents">
-			  <div class="memeber_information">
+			  <div class="memeber_information" style="margin-top: 40px;">
 			  	   <ul>
 			  	   	   <li><span>会员姓名</span><span class="member_name"></span></li>
 			  	   	   <li><span>会员手机</span><span class="member_phone"></span></li>
@@ -112,7 +112,7 @@
 			  	   
 			  	  
 			  </div>
-			  <div class="detailContent_information" style="display: none;">
+			  <div class="detailContent_information" style="display: none;margin-top: 40px;">
 			  	  <ul>
 			  	   	   <li><span>会员姓名</span><span class="nickname"></span></li>
 			  	   	   <li><span>会员手机</span><span class="phone"></span></li>
@@ -129,18 +129,49 @@
 			  	   </ul>
 			  </div>
 			  <div class="child_information" style="display: none;">
-			  	<ul>
-			  	   	   <li><span>孩子姓名</span><span>薛茜</span></li>
-			  	   	   <li><span>孩子性别</span><span>男</span></li>
-			  	   	   <li><span>孩子生日</span><span>2012.2.4</span></li>
-			  	   	   <li><span>孩子学校</span><span>第一中学</span></li>
-			  	   	   <li><span>可玩时间</span><span>上午9点半</span></li>
-			  	   	   <li><span>等级时间</span><span>2014.78</span></li>
-			  	</ul>
+			  	<div class="add_child"><img src="__AIMG__/add.png" style="width: 18px;height: 18px;margin-right: 22%;margin-top: -2px;"/><a href="javascript:;" class="add_new">新增</a></div>
+			  	<div class="child_part">
+			  		<div class="uid" style="display: none;"></div>
+			  		<ul>
+			  	   	   <li><span>孩子姓名:</span><span>薛茜</span></li>
+			  	   	   <li><span>孩子性别:</span><span>男</span></li>
+			  	   	   <li><span>孩子生日:</span><span>2012.2.4</span></li>
+			  	   	   <li><span>孩子学校:</span><span>第一中学</span></li>
+			  	   	   <li><span>可玩时间:</span><span>上午9点半</span></li>
+			  	   	   <li><span>登记时间:</span><span>2014.78</span></li>
+			  		</ul>
+			  		<div class="operate">
+			  			    <span><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
+			  			     <span><img src="__AIMG__/delete.png"><a href="javascript:;">删除</a></span>
+			  		</div>
+			  	</div>
+			  	
 			  </div>
 		</div>
 
 	</div>
+
+	
 </div>
+
+<div class="modal_secondBox" style="display: none;">
+	<div class="second_modal">
+	   <div class="second_cancel">X</div>
+	   <div class="uid" style="display: none;"></div>
+	   <div class="add_information">
+	   <div><span>孩子姓名</span><input type="text" class="child_name" value=""></div>
+	   <div><span>孩子性别</span>
+	   	     <input type="radio" name="sex" value="1">男
+	   	     <input type="radio" name="sex" value="2"/>女
+	   </div>
+	   <div><span>孩子学校</span><input type="text" class="child_school" value=""></div>
+	   <div><span>玩耍时间</span><input type="text" class="child_time" value=""></div>
+	   <div><span>孩子生日</span><input type="text" onClick="new Calendar().show(this);" value="2017-09-17" style="cursor: pointer;" class="child_birthday"></div>
+	   </div>
+	   <div class="add_success">保存</div>
+	</div>
+</div>
+
+
 {include file="public/footer" /}
 </html>
