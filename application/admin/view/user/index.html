@@ -51,8 +51,10 @@
                   <td>
                     {if condition="$vo.sex eq 1"}
                       男
-                    {else/}
+                    {elseif condition="$vo.sex eq 2"/}
                       女
+                    {else/}
+                      未设置
                     {/if}
                   </td>
                   <td>

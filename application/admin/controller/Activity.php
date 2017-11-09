@@ -740,6 +740,36 @@ class Activity extends Base
             $add_data[$i]['source'] = $source;
             $add_data[$i]['t_id'] = $tid;
         }
+        //去除重复,用于添加到客户表
+        $result = array();
+        if(isset($add_data)){
+            foreach($add_data as $key=>$val){
+                $set = false;
+                foreach($result as $k=>$v){
+                    if($v['mobile'] == $val['mobile']){
+                        $set = true;
+                        break;
+                    }
+                }
+                if(!$set){
+                    $result[] = $val;
+                }
+            }
+        }
+        //导入进来的名单如果没有在客户表里，就添加到表中
+        $i = 0;
+        foreach($result as $k=>$v){
+            $isset_user = db('user')->where('mobile',$v['mobile'])->find();
+            if(!$isset_user){
+                $add_user[$i]['mobile'] = $v['mobile'];
+                $add_user[$i]['nickname'] = $v['name'];
+                $add_user[$i]['sex'] = 0;
+                $add_user[$i]['reg_time'] = time();
+                $add_user[$i]['source'] = $v['source'];
+                $i++;
+            }
+        }
+        db('user')->insertAll($add_user);
         /*$k_num = count($add_data);
         //减库存
         $Activity->where('aid',$aid)->setDec('a_num',$k_num);
