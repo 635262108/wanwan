@@ -678,8 +678,8 @@ class Activity extends Base
             $e = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，付款金额
             $f = $objPHPExcel->getActiveSheet()->getCell("F".$j)->getValue();//获取列的值，来源
 
-            //用户名，手机号，来源为必填项，任何一个为空就不记录
-            if(empty($a) || empty($b) || empty($f)){
+            //手机号，来源为必填项，任何一个为空就不记录
+            if(empty($b) || empty($f)){
                 continue;
             }
             //下单时间，支付时间为空时默认导入时间，付款金额为空是默认0
