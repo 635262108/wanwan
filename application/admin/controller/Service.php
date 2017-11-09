@@ -62,9 +62,14 @@ class Service extends Base
     //回访记录
     public function  return_visit($aid){
         //获取数据
-        $map['aid'] = $aid;
-        $map['t_id'] = array('gt',0);
-        $res = model('ActivityOrder')->getOrders($map);
+        $map['o.aid'] = $aid;
+        $map['o.sign_time'] = array('gt',0);
+        $res = model('ActivityOrder')
+                ->alias('o')
+                ->field('o.*,s.name source_name,t.t_content')
+                ->join('mfw_source s','o.source=s.id')
+                ->join('mfw_activity_time t','t.t_id=o.t_id')
+                ->where($map)->select();
         $this->assign('res',$res);
         return $this->fetch();
     }

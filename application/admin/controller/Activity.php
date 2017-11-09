@@ -13,8 +13,7 @@ class Activity extends Base
     //活动列表
     public function index(){
         //获取活动信息
-        $Activity = model('Activity');
-        $ActivityInfo = $Activity->getActivityAll();
+        $ActivityInfo = db('Activity')->alias('a')->field('a.*,t.name')->join('mfw_activity_type t','a.a_type=t.id','left')->select();
         $this->assign('ActivityInfo',$ActivityInfo);
     	return $this->fetch();
     }
@@ -22,10 +21,9 @@ class Activity extends Base
     //添加活动列表
     public function addActivityList(){
         //获取活动类型
-        $ActivityType = model('ActivityType');
-        $title = $ActivityType->getTitleSon(0);
+
         //获取标题父id
-        $fidInfo = $ActivityType->getTitle();
+        $fidInfo = db('activity_type')->where('fid',0)->select();
         
         $this->assign('fidInfo',$fidInfo);
         return $this->fetch();
@@ -67,7 +65,7 @@ class Activity extends Base
                 $data['a_index_img'] = $a_inde_img->getSaveName();
             }else{
                 // 上传失败获取错误信息
-                echo $file->getError();die;
+                echo $a_inde_img->getError();die;
             }
         }        
         //主页大图
@@ -78,7 +76,7 @@ class Activity extends Base
                 $data['a_img'] = $a_img->getSaveName();
             }else{
                 // 上传失败获取错误信息
-                echo $file->getError();die;
+                echo $a_img->getError();die;
             }
         }
         
@@ -613,6 +611,7 @@ class Activity extends Base
         $data['aid'] = input('post.aid');
         $data['t_content'] = input('post.content');
         $data['ticket_num'] = input('post.num');
+        $data['remark'] = input('post.remark');
         $data['head'] = input('post.head');
         $ActivityTime = model('ActivityTime');
         $ActivityTime->add($data);
@@ -679,8 +678,8 @@ class Activity extends Base
             $e = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，付款金额
             $f = $objPHPExcel->getActiveSheet()->getCell("F".$j)->getValue();//获取列的值，来源
 
-            //用户名，手机号，来源为必填项，任何一个为空就不记录
-            if(empty($a) || empty($b) || empty($f)){
+            //手机号，来源为必填项，任何一个为空就不记录
+            if(empty($b) || empty($f)){
                 continue;
             }
             //下单时间，支付时间为空时默认导入时间，付款金额为空是默认0
@@ -740,6 +739,36 @@ class Activity extends Base
             $add_data[$i]['source'] = $source;
             $add_data[$i]['t_id'] = $tid;
         }
+        //去除重复,用于添加到客户表
+        $result = array();
+        if(isset($add_data)){
+            foreach($add_data as $key=>$val){
+                $set = false;
+                foreach($result as $k=>$v){
+                    if($v['mobile'] == $val['mobile']){
+                        $set = true;
+                        break;
+                    }
+                }
+                if(!$set){
+                    $result[] = $val;
+                }
+            }
+        }
+        //导入进来的名单如果没有在客户表里，就添加到表中
+        $i = 0;
+        foreach($result as $k=>$v){
+            $isset_user = db('user')->where('mobile',$v['mobile'])->find();
+            if(!$isset_user){
+                $add_user[$i]['mobile'] = $v['mobile'];
+                $add_user[$i]['nickname'] = $v['name'];
+                $add_user[$i]['sex'] = 0;
+                $add_user[$i]['reg_time'] = time();
+                $add_user[$i]['source'] = $v['source'];
+                $i++;
+            }
+        }
+        db('user')->insertAll($add_user);
         /*$k_num = count($add_data);
         //减库存
         $Activity->where('aid',$aid)->setDec('a_num',$k_num);

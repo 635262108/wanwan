@@ -267,4 +267,28 @@ class UserLogic{
             return array('status'=>-1,'msg'=>'添加失败');
         }
     }
+
+    /**
+     * 更新小孩信息
+     * @param $data
+     * @return array
+     */
+    public function saveChild($data){
+        //修改
+        if(isset($data['id'])){
+            $res = db('user_child')->update($data);
+            if($res){
+                return array('status'=>200,'msg'=>'更新成功');
+            }else{
+                return array('status'=>-1,'msg'=>'更新失败');
+            }
+        }
+
+        $res = db('user_child')->insert($data);
+        if($res){
+            return array('status'=>200,'msg'=>'添加成功');
+        }else{
+            return array('status'=>-1,'msg'=>'添加失败');
+        }
+    }
 }

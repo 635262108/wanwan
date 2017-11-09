@@ -180,10 +180,24 @@ class User extends Base
         return $this->fetch();
     }
 
+    //签到分类
+    public function attendance_class($aid){
+        //获取数据
+        $actinfo = model('ActivityTime')->query("select t.*,a.a_title,
+                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.order_status<>2 and o.t_id=t.t_id) as join_num,
+                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
+                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
+                                    from mfw_activity_time t right join mfw_activity a on t.aid=a.aid where t.aid=".$aid);
+
+        $this->assign('actinfo',$actinfo);
+        return $this->fetch();
+    }
+
     //考勤详情
-    public function attendance_detail($aid=0){
+    public function attendance_detail($aid=0,$tid=0){
         $ActivityOrder = model('ActivityOrder');
         $map['aid'] = $aid;
+        $map['t_id'] = $tid;
         $map['order_status'] = array('neq',2);
         $actinfo = $ActivityOrder->getOrders($map);
         $this->assign('actinfo',$actinfo);
@@ -495,6 +509,52 @@ class User extends Base
             $this->assign('citys',$citys);
             $this->assign('districts',$districts);
             return $this->fetch();
+        }
+    }
+
+    //更新孩子
+    public function  save_child(){
+        //id,存在时为更新
+        $id = input('post.id');
+        if(!empty($id)){
+            $data['id'] = $id;
+        }
+
+        //用户id
+        $data['uid'] = input('post.uid');
+        if(empty($data['uid']) & empty($id)){
+            return_info(-1,'用户id不能为空');
+        }
+        //孩子姓名
+        $data['name'] = input('post.child_name');
+        if(empty($data['name'])){
+            return_info(-1,'姓名不能为空');
+        }
+        //孩子性别
+        $data['gender'] = input('post.child_gender');
+        //孩子生日
+        $data['birthday'] = input('post.child_birthday');
+        //孩子学校
+        $data['school'] = input('post.child_school');
+        //可以玩耍时间
+        $data['play_time'] = input('post.child_play_time');
+
+        $model = new UserLogic();
+        $res = $model->saveChild($data);
+        return_info($res['status'],$res['msg']);
+    }
+
+    //删除孩子
+    public function del_child(){
+        $id = input('post.id');
+        if(empty($id)){
+            return_info(-1,'参数不完整');
+        }
+        $res = db('user_child')->delete($id);
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
         }
     }
 

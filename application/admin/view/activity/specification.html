@@ -47,6 +47,7 @@
                   <th>时间/备注</th>
                   <th>数量</th>
                   <th>负责人</th>
+                  <th>备注</th>
                   <th>操作</th>
                </tr>
               </thead>
@@ -57,6 +58,7 @@
                   <td>{$vo.a_title}</td>  
                   <td>{$vo.t_content}</td>
                   <td>{$vo.ticket_num}</td>
+                  <td>{$vo.remark}</td>
                   <td class="title">{$vo.name}</td>
                   <td class="center">
                     <a href="{:url('admin/activity/dis_import_user',['aid'=>$vo.aid,'t_id'=>$vo.t_id])}"><i class="icon-plus" style="width:80px;">&nbsp;&nbsp;导入会员</i></a>
