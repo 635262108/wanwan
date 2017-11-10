@@ -545,7 +545,12 @@ class User extends Base
         }
         $model = new UserLogic();
         $res = $model->saveChild($data);
-        return_info($res['status'],$res['msg'],$res['data']);
+        if(isset($res['data'])){
+            return_info($res['status'],$res['msg'],$res['data']);
+        }else{
+            return_info($res['status'],$res['msg']);
+        }
+
     }
 
     //删除孩子
