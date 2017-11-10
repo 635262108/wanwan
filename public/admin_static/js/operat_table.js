@@ -1,14 +1,18 @@
 $(document).ready(function() {
 			var trs = $("#tbody_center tr");
 			var checks = $(".check");
+//			查看更新所有数据
 			checks.live("click", function(event) {
-
+				
 				event.stopPropagation();
 				$(".modal_box").show();
 
 				var userId = $(this).parent().parent().children("td:nth-child(1)").html();
 				$.post("/abab.php/user/getUserInfo", { "uid": userId }, function(obj) {
+					
+				
 					if(obj.state_code == 200) {
+						
 //						会员概要
                          $(".member_name").html(obj.data.probably.nickname);
                          $(".member_phone").html(obj.data.probably.mobile);
@@ -22,36 +26,59 @@ $(document).ready(function() {
 						$(".phone").html(obj.data.detail.mobile);
 						$(".nickname").html(obj.data.detail.nickname);
 						if(obj.data.detail.sex==1){
-							$(".sex").html("男");
+							$(".one_sex").html("男");
 						}
 						else{
-							$(".sex").html("女");
+							$(".one_sex").html("女");
 						}
 						$(".reg_time").html(obj.data.detail.reg_time)
 						$(".province").html(obj.data.detail.province)
 						$(".city").html(obj.data.detail.city)
 						$(".district").html(obj.data.detail.district);
-						$(".address").html(obj.data.detail.address)
-						$(".birthday").html(obj.data.detail.birthday);
+						$(".address").html(obj.data.detail.address);
+						if(obj.data.detail.birthday=='null'){
+							
+							$(".birthday").html('');
+						}
+						else{
+							$(".birthday").html(obj.data.detail.birthday);
+						}
+						
 						$(".email").html(obj.data.detail.email);
 						$(".hobby").html(obj.data.detail.hobby);
-						console.log(obj.data,0000000);
+//						给新增的赋值
 					   	$(".uid").html(obj.data.detail.uid)
 						
 						var child_str='';
 						var add_str="<div class='add_child'><img src="+'/public/admin_static/img/'+'add.png'+" style='width: 18px;height: 18px;margin-right: 22%;margin-top: -2px;'/><a href='javascript:;'>新增</a></div>"
 //						孩子信息
                           for(var i=0;i<obj.data.child.length;i++){
-                          	child_str+="<div class='child_part'><ul>"
-                          	+"<li><span>孩子姓名:</span><span>"+obj.data.child[i].name+"</span></li>"+
-                          	 "<li><span>孩子性别:</span><span>"+obj.data.child[i].gender+"</span></li>"+
-                          	 "<li><span>孩子生日:</span><span>"+obj.data.child[i].birthday+"</span></li>"+
-                          	 "<li><span>孩子学校:</span><span>"+obj.data.child[i].school+"</span></li>"+
-                          	 "<li><span>可玩时间:</span><span>"+obj.data.child[i].play_time+"</span></li>"+
+                         
+                          	 if(obj.data.child[i].birthday==null){
+                          	 	
+                          	 	child_str+="<div class='child_part' num="+obj.data.child[i].id+"><ul>"
+                          	+"<li><span>孩子姓名:</span><span class='one_name'>"+obj.data.child[i].name+"</span></li>"+
+                          	 "<li><span>孩子性别:</span><span class='one_sex'>"+obj.data.child[i].gender+"</span></li>"+
+                          	 "<li><span>孩子生日:</span><span class='one_birthday'>"+"</span></li>"+
+                          	 "<li><span>孩子学校:</span><span class='one_school'>"+obj.data.child[i].school+"</span></li>"+
+                          	 "<li><span>可玩时间:</span><span class='one_time'>"+obj.data.child[i].play_time+"</span></li>"+
                           	 "<li><span>登记时间:</span><span>"+obj.data.child[i].time+"</span></li>"+
                      
-                          	"</ul><div class='operate'><span><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>编辑</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;'>删除</a></span></div></div>"
-                          }
+                          	"</ul><div class='operate'><span class='emit'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>编辑</a></span><span class='delete'><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;'>删除</a></span></div></div>"
+                          	 }
+                          	 else{
+                          	
+                          	child_str+="<div class='child_part' num="+obj.data.child[i].id+"><ul>"
+                          	+"<li><span>孩子姓名:</span><span class='one_name'>"+obj.data.child[i].name+"</span></li>"+
+                          	 "<li><span>孩子性别:</span><span class='one_sex'>"+obj.data.child[i].gender+"</span></li>"+
+                          	 "<li><span>孩子生日:</span><span class='one_birthday'>"+obj.data.child[i].birthday+"</span></li>"+
+                          	 "<li><span>孩子学校:</span><span class='one_school'>"+obj.data.child[i].school+"</span></li>"+
+                          	 "<li><span>可玩时间:</span><span class='one_time'>"+obj.data.child[i].play_time+"</span></li>"+
+                          	 "<li><span>登记时间:</span><span>"+obj.data.child[i].time+"</span></li>"+
+                     
+                          	"</ul><div class='operate'><span class='emit'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>编辑</a></span><span class='delete'><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;'>删除</a></span></div></div>"
+                            }
+                          	 }
                          
                           
                          
@@ -67,37 +94,234 @@ $(document).ready(function() {
 				})
 			})
 			
-//			添加按钮
-			$(document).on("click",".add_child",function(){
-				
-				$(".modal_secondBox").show()
+//			添加按钮（动态生成的）
+			$(document).on("click",".add_child",function(){						
+				 $(".modal_addsecondBox").show()
 			})
-			
+//			添加保存（关闭窗口）
 			$(".second_cancel").on("click",function(){
-					$(".modal_secondBox").hide()
+					$(".modal_addsecondBox").hide()
 			})
+//			编辑保存（关闭窗口）
+            $(".emit_second_cancel").on("click",function(){
+            	   $(".modal_emitsecondBox").hide();
+            })
 			
-//			保存按钮
+//			新增保存按钮
             $(".add_success").on("click",function(){
+//          	新增的数据的id
             	var id=$(".uid").html();
             	var childName=$(".child_name").val();
             	var childSex=$("input:radio:checked").val();
+            	
+
+            	
             	var childSch=$(".child_school").val();
             	var play=$(".child_time").val();
             	var childBi=$(".child_birthday").val();
             	
-                 $.post("/abab.php/user/save_child", { uid:id,name:childName,gender:childSex,school:childSch,play_time:play,birthday:childBi},
+            	var trueOrfalse = confirm("是否确认添加");
+            	if(!trueOrfalse){
+            		return;
+            	}
+            	else{
+             $.post("/abab.php/user/save_child", { uid:id,
+                 	child_name:childName,
+                 	child_gender:childSex,
+                 	child_school:childSch,
+                 	child_play_time:play,
+                 	child_birthday:childBi},
 						function(obj) {
-							
-								if(obj.state_code == 200) {
-								   console.log(222222)
+						
+						if(obj.state_code == 200) {
+						$(".id").html(obj.data.id);
 								 
+						 $(".modal_addsecondBox").hide();
+								   
+								
+								    
+								   
+								  
+								   
+						var add_child="<div class='child_part' num="+obj.data.id+"><ul>"
+                          	+"<li><span>孩子姓名:</span><span class='one_name'>"+childName+"</span></li>"+
+                          	 "<li><span>孩子性别:</span><span class='one_sex'>"+"</span></li>"+
+                          	 "<li><span>孩子生日:</span><span class='one_birthday'>"+childBi+"</span></li>"+
+                          	 "<li><span>孩子学校:</span><span class='one_school'>"+childSch+"</span></li>"+
+                          	 "<li><span>可玩时间:</span><span class='one_time'>"+play+"</span></li>"+
+                          	 
+                     
+                          	"</ul><div class='operate'><span class='emit'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>编辑</a></span><span class='delete'><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;'>删除</a></span></div></div>"
+								  
+								   
+								  
+								  $(".child_information").append(add_child);
+								  
+								  if($("input:radio:checked").val()==="1"){
+								    
+            							$(".one_sex").html("男")
+            						}
+					            	else{
+					            		$(".one_sex").html("女");
+					            	}
+								  
+								   $(".child_name").val("");
+								   $("input:radio").attr("checked",false);
+								   $(".child_school").val("");
+								   $(".child_time").val("");
+								   $(".child_birthday").val("");
+
+								  
 								}
 								else{
 									
 								}
 					}, "json");
+            	}
+            	
+
             })
+//          编辑按钮
+            var childParts=$(".child_information").children(".child_part");
+          
+             $(".child_information").on("click",".emit",function(event){
+             	 
+             	 event.stopPropagation();
+            	
+            	$(".modal_emitsecondBox").show();
+            	var childParts=$(".child_information").children(".child_part");
+            	
+            	
+            	
+            	var index=$(this).parent().parent().index();
+            	
+//          	编辑的时候(每一个孩子的id)
+                $(".id").attr("num",index);
+//          	$(".num_index").attr("num",index);
+            	
+            	
+            	
+            	$(".new_name").val(childParts.eq(index-1).find(".one_name").html())
+            	if(childParts.eq(index-1).find(".one_sex").html()=="男"){
+            		 $(".man").attr("checked",true)
+            	}
+            	else{
+            		 $(".woman").attr("checked",true)
+            	}
+            	
+
+            	$(".new_school").val(childParts.eq(index-1).find(".one_school").html())
+            	$(".new_time").val(childParts.eq(index-1).find(".one_time").html())
+            	$(".new_birthday").val(childParts.eq(index-1).find(".one_birthday").html())
+            	$(".id").html(childParts.eq(index-1).attr("num"));
+            	
+                            
+ 
+            	
+            	
+            })
+             
+//           点击保存
+             
+         $(".emit_success").on("click",function(){
+            		
+                      var childParts=$(".child_information").children(".child_part");
+            		  var id=$(".id").html();
+            		  
+            		 
+            		  var name=$(".new_name").val();
+            		  var sex=$("input:radio:checked").val();
+            		  
+            		  var school=$(".new_school").val();
+            		  var time=$(".new_time").val();
+            		  var birthday=$(".new_birthday").val();
+            		  
+            		  var trueOrfalse = confirm("是否确认编辑");
+			            	if(!trueOrfalse){
+			            		return;
+			            	}
+			            	else{
+			            $.post("/abab.php/user/save_child", { 
+            		  	id:id,child_name:name,
+            		  	child_gender:sex,
+            		  	child_school:school,
+            		  	child_play_time:time,
+            		  	child_birthday:birthday},
+						function(obj) {
+							
+							   
+								if(obj.state_code == 200) {
+								 
+								   $(".modal_emitsecondBox").hide();
+								   
+								   
+						 var add_child="<ul>"
+                          	+"<li><span>孩子姓名:</span><span class='one_name'>"+name+"</span></li>"+
+                          	 "<li><span>孩子性别:</span><span class='one_sex'>"+"</span></li>"+
+                          	 "<li><span>孩子生日:</span><span class='one_birthday'>"+birthday+"</span></li>"+
+                          	 "<li><span>孩子学校:</span><span class='one_school'>"+school+"</span></li>"+
+                          	 "<li><span>可玩时间:</span><span class='one_time'>"+time+"</span></li>"+
+                          	 "</ul><div class='operate'><span class='emit'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>编辑</a></span><span class='delete'><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;'>删除</a></span></div>"
+//                           编辑当前的框
+                              var index_num=$(".id").attr("num");
+                               childParts.eq(index_num-1).attr("num");
+                          	 childParts.eq(index_num-1).html(add_child);
+                          	 
+                          	  if($("input:radio:checked").val()==="1"){
+								   
+            							$(".one_sex").html("男")
+            						}
+					            	else{
+					            		$(".one_sex").html("女");
+					        	}
+                          
+								  
+								}
+								else{
+									
+								}
+					}, "json");
+			            	}
+
+
+            		  
+            })
+         
+//       删除按钮
+        $(".child_information").on("click",".delete",function(){
+       
+        	var index=$(this).parent().parent().index();
+        	var childParts=$(".child_information").children(".child_part");
+        	var delete_id=$(this).parent().parent().attr("num");
+        	
+        	  var trueOrfalse = confirm("是否确认删除");
+			            	if(!trueOrfalse){
+			            		return;
+			            	}
+			            	else{
+			            			$.post("/abab.php/user/del_child", { id: delete_id },
+										function(obj) {
+							
+											if(obj.state_code == 200) {
+											
+												childParts.eq(index-1).hide()
+			
+											 
+											}
+											else{
+												
+											}
+					}, "json");
+			            	}
+        	
+        	
+        	
+        })
+
+             
+         
+                    
+            
           
 //			会员信息tab栏转换
            var liDetails=$(".member_title ul").children();

@@ -245,7 +245,7 @@ li{
 .add_order a:hover{
 	border: 1px solid rgb(40,183,121);
 }
-.modal_secondBox{
+.modal_addsecondBox,.modal_emitsecondBox{
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -265,7 +265,7 @@ li{
 	height: 400px;
 	background: #FFFFFF;
 }
-.second_modal .second_cancel{
+.second_modal .second_cancel,.second_modal .emit_second_cancel{
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -288,7 +288,7 @@ li{
 .add_information div input{
 	height: 25px;
 }
-.add_success{
+.add_success,.emit_success{
 	cursor: pointer;
 	font-size: 16px;
 	background: rgb(255,102,102);

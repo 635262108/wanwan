@@ -143,8 +143,8 @@
 			  	   	   <li><span>登记时间:</span><span>2014.78</span></li>
 			  		</ul>
 			  		<div class="operate">
-			  			    <span><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
-			  			     <span><img src="__AIMG__/delete.png"><a href="javascript:;">删除</a></span>
+			  			    <span class="emit"><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
+			  			    <span><img src="__AIMG__/delete.png"><a href="javascript:;" class="delete">删除</a></span>
 			  		</div>
 			  	</div>
 			  	
@@ -156,7 +156,7 @@
 	
 </div>
 
-<div class="modal_secondBox" style="display: none;">
+<div class="modal_addsecondBox" style="display: none;">
 	<div class="second_modal">
 	   <div class="second_cancel">X</div>
 	   <div class="uid" style="display: none;"></div>
@@ -168,9 +168,28 @@
 	   </div>
 	   <div><span>孩子学校</span><input type="text" class="child_school" value=""></div>
 	   <div><span>玩耍时间</span><input type="text" class="child_time" value=""></div>
-	   <div><span>孩子生日</span><input type="text" onClick="new Calendar().show(this);" value="2017-09-17" style="cursor: pointer;" class="child_birthday"></div>
+	   <div><span>孩子生日</span><input type="text" onClick="new Calendar().show(this);" value="" style="cursor: pointer;" class="child_birthday"></div>
 	   </div>
 	   <div class="add_success">保存</div>
+	</div>
+</div>
+
+
+<div class="modal_emitsecondBox" style="display: none;">
+	<div class="second_modal">
+	   <div class="emit_second_cancel">X</div>
+	   <div class="id" style="display: none;"></div>
+	   <div class="add_information">
+	   <div><span>孩子姓名</span><input type="text" class="new_name" value=""></div>
+	   <div><span>孩子性别</span>
+	   	     <input type="radio" name="sex" value="1" class="man">男
+	   	     <input type="radio" name="sex" value="2" class="woman"/>女
+	   </div>
+	   <div><span>孩子学校</span><input type="text" class="new_school" value=""></div>
+	   <div><span>玩耍时间</span><input type="text" class="new_time" value=""></div>
+	   <div><span>孩子生日</span><input type="text" onClick="new Calendar().show(this);" value="" style="cursor: pointer;" class="new_birthday"></div>
+	   </div>
+	   <div class="emit_success">保存</div>
 	</div>
 </div>
 
