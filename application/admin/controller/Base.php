@@ -6,7 +6,6 @@ use think\Session;
 class Base extends Controller
 {
     public function _initialize() {
-        /*//检查是否登录
         if(request()->action() != 'login'){
             if(!session('?adminInfo')){
                 $this->redirect("admin/login");
@@ -23,6 +22,6 @@ class Base extends Controller
             if(!strpos($my_auth['rule'],(string)$auth['id'])){
                 $this->error('没有权限');
             }
-        }*/
+        }
     }
 }
