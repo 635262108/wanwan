@@ -521,10 +521,13 @@ class User extends Base
         }
 
         //用户id
-        $data['uid'] = input('post.uid');
-        if(empty($data['uid']) & empty($id)){
-            return_info(-1,'用户id不能为空');
+        if(empty($id)){
+            $data['uid'] = input('post.uid');
+            if(empty($data['uid']) & empty($id)){
+                return_info(-1,'用户id不能为空');
+            }
         }
+
         //孩子姓名
         $data['name'] = input('post.child_name');
         if(empty($data['name'])){
