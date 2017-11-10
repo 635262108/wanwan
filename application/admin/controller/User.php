@@ -523,6 +523,7 @@ class User extends Base
         //用户id
         if(empty($id)){
             $data['uid'] = input('post.uid');
+            $data['time'] = date('Y-m-d H:i:s');
             if(empty($data['uid']) & empty($id)){
                 return_info(-1,'用户id不能为空');
             }
@@ -534,17 +535,30 @@ class User extends Base
             return_info(-1,'姓名不能为空');
         }
         //孩子性别
-        $data['gender'] = input('post.child_gender');
+        $gender = input('post.child_gender');
+        if(!empty($gender)){
+            $data['gender'] = input('post.child_gender');
+        }
         //孩子生日
-        $data['birthday'] = input('post.child_birthday');
+        $birthday = input('post.child_birthday');
+        if(!empty($birthday)){
+            $data['birthday'] = input('post.child_gender');
+        }
+
         //孩子学校
-        $data['school'] = input('post.child_school');
+        $school = input('post.child_school');
+        if(!empty($school)){
+            $data['school'] = input('post.child_school');
+        }
         //可以玩耍时间
-        $data['play_time'] = input('post.child_play_time');
+        $play_time = input('post.child_play_time');
+        if(!empty($play_time)){
+            $data['play_time'] = input('post.child_play_time');
+        }
 
         $model = new UserLogic();
         $res = $model->saveChild($data);
-        return_info($res['status'],$res['msg']);
+        return_info($res['status'],$res['msg'],$res['data']);
     }
 
     //删除孩子

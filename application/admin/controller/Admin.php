@@ -7,7 +7,7 @@
  */
 
 namespace app\admin\controller;
-use app\admin\Logic\AdminLogic;
+use app\admin\logic\AdminLogic;
 use app\common\model\AdminUser;
 
 class Admin extends Base
