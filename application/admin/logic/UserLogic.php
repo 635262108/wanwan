@@ -284,9 +284,9 @@ class UserLogic{
             }
         }
 
-        $res = db('user_child')->insert($data);
+        $res = db('user_child')->insertGetId($data);
         if($res){
-            return array('status'=>200,'msg'=>'添加成功');
+            return array('status'=>200,'msg'=>'添加成功','data'=>array('id'=>$res));
         }else{
             return array('status'=>-1,'msg'=>'添加失败');
         }
