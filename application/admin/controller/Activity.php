@@ -768,7 +768,9 @@ class Activity extends Base
                 $i++;
             }
         }
-        db('user')->insertAll($add_user);
+        if(isset($add_user)){
+            db('user')->insertAll($add_user);
+        }
         /*$k_num = count($add_data);
         //减库存
         $Activity->where('aid',$aid)->setDec('a_num',$k_num);
