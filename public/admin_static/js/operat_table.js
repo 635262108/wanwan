@@ -56,7 +56,7 @@ $(document).ready(function() {
                          
                           	 if(obj.data.child[i].birthday==null){
                           	 	
-                          	 	child_str+="<div class='child_part' num="+obj.data.child[i].id+"><ul>"
+                          	child_str+="<div class='child_part' num="+obj.data.child[i].id+"><ul>"
                           	+"<li><span>孩子姓名:</span><span class='one_name'>"+obj.data.child[i].name+"</span></li>"+
                           	 "<li><span>孩子性别:</span><span class='one_sex'>"+obj.data.child[i].gender+"</span></li>"+
                           	 "<li><span>孩子生日:</span><span class='one_birthday'>"+"</span></li>"+
@@ -80,16 +80,13 @@ $(document).ready(function() {
                             }
                           	 }
                          
-                          
-                         
-                          
-                          $(".child_information").html(add_str+child_str);
+                             $(".child_information").html(add_str+child_str);
                          
                         
                          
 
 					} else {
-						alert(obj.msg)
+					
 					}
 				})
 			})
@@ -107,7 +104,7 @@ $(document).ready(function() {
             	   $(".modal_emitsecondBox").hide();
             })
 			
-//			新增保存按钮
+//			新增之后保存按钮
             $(".add_success").on("click",function(){
 //          	新增的数据的id
             	var id=$(".uid").html();
@@ -182,7 +179,6 @@ $(document).ready(function() {
 
             })
 //          编辑按钮
-            var childParts=$(".child_information").children(".child_part");
           
              $(".child_information").on("click",".emit",function(event){
              	 
@@ -195,12 +191,8 @@ $(document).ready(function() {
             	
             	var index=$(this).parent().parent().index();
             	
-//          	编辑的时候(每一个孩子的id)
+				// 编辑的时候(每一个孩子的id)
                 $(".id").attr("num",index);
-//          	$(".num_index").attr("num",index);
-            	
-            	
-            	
             	$(".new_name").val(childParts.eq(index-1).find(".one_name").html())
             	if(childParts.eq(index-1).find(".one_sex").html()=="男"){
             		 $(".man").attr("checked",true)
@@ -221,7 +213,7 @@ $(document).ready(function() {
             	
             })
              
-//           点击保存
+//           点击编辑之后保存
              
          $(".emit_success").on("click",function(){
             		
@@ -265,7 +257,7 @@ $(document).ready(function() {
 //                           编辑当前的框
                               var index_num=$(".id").attr("num");
                                childParts.eq(index_num-1).attr("num");
-                          	 childParts.eq(index_num-1).html(add_child);
+                          	   childParts.eq(index_num-1).html(add_child);
                           	 
                           	  if($("input:radio:checked").val()==="1"){
 								   
@@ -299,24 +291,19 @@ $(document).ready(function() {
 			            		return;
 			            	}
 			            	else{
-			            			$.post("/abab.php/user/del_child", { id: delete_id },
-										function(obj) {
+			            		$.post("/abab.php/user/del_child", { id: delete_id },
+								function(obj) {
 							
-											if(obj.state_code == 200) {
+									if(obj.state_code == 200) {
 											
-												childParts.eq(index-1).hide()
-			
-											 
-											}
-											else{
+										childParts.eq(index-1).remove();
+									}
+									else{
 												
-											}
-					}, "json");
+									}
+								}, "json");
 			            	}
-        	
-        	
-        	
-        })
+         })
 
              
          
