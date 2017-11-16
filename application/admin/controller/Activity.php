@@ -52,7 +52,10 @@ class Activity extends Base
         //活动状态
         $a_status = input('post.activity_status');
         //活动类型
-        $a_type = input('post.activity_type');
+        $a_type = input('post.activity_type_son');
+        if(empty($a_type)){
+            $a_type = input('post.activity_type');
+        }
         //是否推荐
         $a_is_recommend = input('post.recommend');
         //活动内容
@@ -591,17 +594,12 @@ class Activity extends Base
         $this->assign('speInfo',$speInfo);
         return $this->fetch();
     }
-    
+
     //添加规格列表
     public function addSpeList(){
         //获取活动标题
         $Activity = model('Activity');
         $ActivityInfo = $Activity->getActivityAll();
-        //获取负责人
-        $map['role_id'] = 3;
-        $AdminUser = model('AdminUser');
-        $userInfo = $AdminUser->getUsers($map);
-        $this->assign('userInfo',$userInfo);
         $this->assign('ActivityInfo',$ActivityInfo);
         return $this->fetch();
     }
@@ -612,7 +610,8 @@ class Activity extends Base
         $data['t_content'] = input('post.content');
         $data['ticket_num'] = input('post.num');
         $data['remark'] = input('post.remark');
-        $data['head'] = input('post.head');
+        $data['price'] = input('post.price');
+        $data['is_display'] = input('post.is_display');
         $ActivityTime = model('ActivityTime');
         $ActivityTime->add($data);
         $this->success('添加成功','activity/specification');
@@ -682,6 +681,7 @@ class Activity extends Base
             $I = $objPHPExcel->getActiveSheet()->getCell("I".$j)->getValue();//获取I列的值，孩子生日
             $J = $objPHPExcel->getActiveSheet()->getCell("J".$j)->getValue();//获取J列的值，孩子可玩耍时间
             $K = $objPHPExcel->getActiveSheet()->getCell("K".$j)->getValue();//获取K列的值，孩子学校
+            $L = $objPHPExcel->getActiveSheet()->getCell("L".$j)->getValue();//获取L列的值，是否签到
 
             //手机号，来源为必填项，任何一个为空就不记录
             if(empty($B) || empty($F)){
@@ -708,9 +708,13 @@ class Activity extends Base
             $excel_data[$k]['child_birthday'] = $I?$I:'';
             $excel_data[$k]['child_play_time'] = $J?$J:'';
             $excel_data[$k]['child_school'] = $K?$K:'';
+            if($L == '是'){
+                $excel_data[$k]['sign_time'] = time();
+            }else{
+                $excel_data[$k]['sign_time'] = 0;
+            }
             $k++;
         }
-
         /*//获取时间段信息
         if($tid != 0){
             $timeInfo = model('ActivityTime')->getAnyTime($tid);
@@ -749,6 +753,7 @@ class Activity extends Base
             $add_data[$i]['addtime'] = $excel_data[$i]['addtime'];
             $add_data[$i]['source'] = $source;
             $add_data[$i]['t_id'] = $tid;
+            $add_data[$i]['sign_time'] = $excel_data[$i]['sign_time'];
 
             //孩子信息
             $child_data[$i]['mobile'] = $excel_data[$i]['mobile'];
