@@ -5,14 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/application/admin/view/service/dis_save_visit.html" line="10" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="更新左边栏">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/logic/ActivityLogic.php" afterPath="$PROJECT_DIR$/application/admin/logic/ActivityLogic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/addactivitylist.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addactivitylist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/specification.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/specification.html" />
-    </list>
+    <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="更新左边栏" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
@@ -35,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityLogic.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ActivityLogic.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/logic/ActivityLogic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+            <state relative-caret-position="220">
+              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -236,7 +229,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -426,15 +419,15 @@
       <workItem from="1510303443905" duration="5303000" />
       <workItem from="1510566410402" duration="1089000" />
       <workItem from="1510711800699" duration="19744000" />
-      <workItem from="1510794318342" duration="17831000" />
+      <workItem from="1510794318342" duration="18846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="504278000" />
+    <option name="totallyTimeSpent" value="505293000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.49628845" order="1" side_tool="false" content_ui="combo" />
@@ -878,14 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/logic/ActivityLogic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/tables.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
@@ -938,6 +923,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="828" column="13" lean-forward="true" selection-start-line="828" selection-start-column="13" selection-end-line="828" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/logic/ActivityLogic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding />
         </state>
       </provider>
