@@ -55,7 +55,7 @@ $(document).ready(function(){
                 alert(obj.msg);
                 return false;
             }else{
-                window.location.href = 'index'
+                window.location.href = '/abab.php'
             }
         }, "json");
     })
