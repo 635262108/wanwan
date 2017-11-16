@@ -655,6 +655,11 @@ class Activity extends Base
         if(empty($tid)){
             $tid = 0;
         }
+        //只支持.xls文件
+        $exten_name = substr(strrchr($_FILES['file']['name'], '.'), 1);
+        if($exten_name != 'xls'){
+            $this->error('支持支.xls文件格式');
+        }
         //获取文件
         $filename = $_FILES['file']['tmp_name'];
         require EXTEND_PATH.'excel/PHPExcel/IOFactory.php';
@@ -688,8 +693,8 @@ class Activity extends Base
                 continue;
             }
             //下单时间，支付时间为空时默认导入时间，付款金额为空是默认0
-            if(empty($c)){
-                $c = date('Y-m-d H:i:s');
+            if(empty($C)){
+                $C = date('Y-m-d H:i:s');
             }
             if(empty($D)){
                 $D = date('Y-m-d H:i:s');
@@ -697,7 +702,7 @@ class Activity extends Base
             if(empty($E)){
                 $E = 0;
             }
-            $excel_data[$k]['name'] = $A;
+            $excel_data[$k]['name'] = $A?$A:'';
             $excel_data[$k]['mobile'] = $B;
             $excel_data[$k]['addtime'] = strtotime($C);
             $excel_data[$k]['pay_time'] = strtotime($D);

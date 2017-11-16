@@ -5,7 +5,10 @@
     <bookmark url="file://$PROJECT_DIR$/application/admin/view/service/dis_save_visit.html" line="10" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="更新左边栏" />
+    <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="更新左边栏">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,21 +21,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="828" column="13" lean-forward="true" selection-start-line="828" selection-start-column="13" selection-end-line="828" selection-end-column="13" />
+            <state relative-caret-position="255">
+              <caret line="662" column="14" lean-forward="true" selection-start-line="662" selection-start-column="14" selection-end-line="662" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityLogic.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dis_import_user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/activity/dis_import_user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityLogic.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/logic/ActivityLogic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="528">
+              <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -63,7 +76,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="387">
               <caret line="21" column="71" lean-forward="false" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="71" />
-              <folding />
+              <folding>
+                <marker date="1510821022967" expanded="false" signature="2849:2859" ph="..." />
+                <marker date="1510821022967" expanded="true" signature="9013:9418" ph="..." />
+                <marker date="1510821022967" expanded="true" signature="9065:9400" ph="{...}" />
+                <marker date="1510821022967" expanded="true" signature="9217:9360" ph="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -229,7 +247,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -419,15 +437,15 @@
       <workItem from="1510303443905" duration="5303000" />
       <workItem from="1510566410402" duration="1089000" />
       <workItem from="1510711800699" duration="19744000" />
-      <workItem from="1510794318342" duration="18846000" />
+      <workItem from="1510794318342" duration="21948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="505293000" />
+    <option name="totallyTimeSpent" value="508395000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.49628845" order="1" side_tool="false" content_ui="combo" />
@@ -470,13 +488,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/public/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -867,7 +878,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="21" column="71" lean-forward="false" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="71" />
-          <folding />
+          <folding>
+            <marker date="1510821022967" expanded="false" signature="2849:2859" ph="..." />
+            <marker date="1510821022967" expanded="true" signature="9013:9418" ph="..." />
+            <marker date="1510821022967" expanded="true" signature="9065:9400" ph="{...}" />
+            <marker date="1510821022967" expanded="true" signature="9217:9360" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -919,18 +935,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
+    <entry file="file://$PROJECT_DIR$/application/admin/logic/ActivityLogic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="828" column="13" lean-forward="true" selection-start-line="828" selection-start-column="13" selection-end-line="828" selection-end-column="13" />
+        <state relative-caret-position="528">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/logic/ActivityLogic.php">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/dis_import_user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="396">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="662" column="14" lean-forward="true" selection-start-line="662" selection-start-column="14" selection-end-line="662" selection-end-column="14" />
           <folding />
         </state>
       </provider>
