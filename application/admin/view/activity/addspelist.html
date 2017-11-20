@@ -45,14 +45,18 @@
                                 <input class="span11" value="" placeholder="整数" name="num" type="text">
                             </div>
                         </div>
-
                         <div class="control-group">
-                            <label class="control-label">负责人:</label>
+                            <label class="control-label">价格：</label>
                             <div class="controls">
-                                <select name="head">
-                                    {foreach name="userInfo" item="vo"}
-                                    <option value="{$vo.id}">{$vo.name}</option>
-                                    {/foreach}
+                                <input class="span11" value="" name="price" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">是否显示：</label>
+                            <div class="controls">
+                                <select name="is_display">
+                                    <option value="0">否</option>
+                                    <option value="1">是</option>
                                 </select>
                             </div>
                         </div>

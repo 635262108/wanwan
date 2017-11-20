@@ -95,13 +95,13 @@
                             <div class="control-group">
                                 <label class="control-label">活动类型</label>
                                 <div class="controls">
-                                    <select style="width: 20%;" autocomplete = "off" onChange="changeActivityType($(this).val())">
+                                    <select style="width: 20%;" autocomplete = "off" name="activity_type" onChange="changeActivityType($(this).val())">
                                         <option>请选择...</option>
                                         {foreach name="fidInfo" item="vo"}
                                         <option value="{$vo.id}">{$vo.name}</option>
                                         {/foreach}
                                     </select>
-                                    <select id="sonType" style="width: 20%;" name="activity_type">
+                                    <select id="sonType" style="width: 20%;" name="activity_type_son">
                                         <option>请选择...</option>
                                     </select>
                                 </div>
