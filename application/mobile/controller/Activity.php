@@ -16,12 +16,10 @@ use wxpay\wechatAppPay;
 
 class Activity extends Base
 {
-    protected $Activity;
     public function _initialize() {
         parent::_initialize();
         $noLogin = array('activity_sure');
         $this->checkUserLogin($noLogin);
-        $this->Activity = model('Activity');
     }
     
     //活动界面
@@ -819,7 +817,7 @@ class Activity extends Base
     //最新活动
     public function new_activity(){
         //获取活动信息
-        $actInfo = $this->Activity->getActivityAll('*','0','10');
+        $actInfo = model('Activity')->getActivityAll('*','0','10');
         $this->assign('actInfo',$actInfo);
         return $this->fetch();
     }

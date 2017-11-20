@@ -39,13 +39,22 @@ class User extends Base
             if($mobileCode != $code){
                 return return_info(-1,'验证码输入有误');
             }
-            
+
+            //姓名
+            $name = input('post.name');
+            if(empty($name)){
+                return return_info(-1,'姓名不能为空');
+            }
+
             //密码
             $password = input('post.password');
+            if(empty($password)){
+                return return_info(-1,'密码不能为空');
+            }
 
             //注册
             $user = model('User');
-            $user->register($mobile,$password);
+            $user->register($name,$mobile,$password);
             //存储用户信息
             $userInfo = $user->getMobileUserInfo($mobile,'uid,headIcon,nickname,mobile');
             Session::set('userInfo',$userInfo);

@@ -32,14 +32,13 @@ class User extends Model
     /**
 	*注册
     */
-    public function register($mobile,$password){
+    public function register($name,$mobile,$password){
+        $data['nickname'] = $name;
     	$data['mobile'] = $mobile;
-    	$data['nickname'] = get_nick_name();
     	$data['password'] = md5($password);
     	$data['status'] = 1;
     	$data['reg_time'] = time();
         $data['last_time'] = time();
-        
     	$this->insert($data);
     }
     
