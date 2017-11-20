@@ -1517,7 +1517,7 @@ user_payhtml {
 }
 
 #theme_information .baby_detail .information_ul li span {
-	display: inline-block
+	display: inline-block;
 }
 
 #theme_information .baby_detail .information_ul li span:nth-child(1) {
@@ -1588,6 +1588,12 @@ user_payhtml {
 	line-height: 20px;
 	text-align: center;
 	font-size: 10px
+}
+#theme_information .baby_detail .information_ul li.select_time{
+	height: 35px;
+	line-height: 35px;
+	background: #FFFFFF;
+	cursor: pointer;
 }
 
 #theme_information .baby_detail .information_ul .last {
