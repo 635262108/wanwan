@@ -4,6 +4,24 @@ $(function(){
 //	})
 
     //大人的加
+    
+    var time_lis=$(".select_paytime").children();
+    time_lis.on("click",function(){
+    	$(this).addClass("time_special").siblings().removeClass("time_special");
+    	
+    	
+    })
+    
+    time_lis.each(function(){
+    	if($(this).children("span").html()==0){
+    		$(this).css({"background":"#CCCCCC","color":"#fff"});
+    		$(this).off("click");
+    		$(this).children("input").attr("readonly",true);
+    	}
+    })
+   
+
+
     var adult_price=$(".prompt_aldut_price").text();
     var child_price=$(".prompt_child_price").text();
 
@@ -74,12 +92,35 @@ $(function(){
 //我要报名操作
 
     $(".i_want").on("click",function(){
-        $(".themeDetail_bottom").attr("style","display: none;");
         $("#theme_modal_box").show();
         $(".moal_div").animate({"bottom":"0px"},200);
 
 
     })
+    
+    $(".select_time").on("click",function(){
+    	 $("#theme_modal_box").show();
+         $(".moal_div").animate({"bottom":"0px"},200);
+
+    })
+//  活动选择时间
+    var pay_details=$(".pay_ul ul").children();
+    var pay_Contents=$(".pay_content").children();
+    pay_details.on("click",function(){
+    	$(this).addClass("special").siblings().removeClass("special");
+    	pay_Contents.eq($(this).index()).show().siblings().hide();
+    })
+//  监听滚轮事件
+// $(window).scroll(function(event){
+// 	var distance=$(this).scrollTop();
+//   if(distance>=418){
+//   	console.log('到了');
+//   	$(".bottom_info").show();
+//   }
+//   else{
+//   	$(".bottom_info").hide();
+//   }
+// })
 
 //模态框的操作
     $("#theme_modal_box").on("click",function(){
@@ -118,6 +159,9 @@ $(".collect").on("click",function(){
             }, "json");
        }
   })
+
+//选择时间
+
   
   
     //会员中心(tab栏转换)
@@ -211,6 +255,21 @@ $(".quiz").on("blur",function(){
 $(".cancel").on("click",function(){
 	$(".modal_box").hide();
 })
+
+//二级页面tab栏的转换
+// 选中除了第一个子元素之外的所有子元素(隐藏)
+$(".total_content .five_organs:not(:first-child)").css("display","none");
+var second_lis=$(".second_title ul").children("li");
+second_lis.eq(0).addClass("special_title");
+var secondContents=$(".total_content").children();
+ second_lis.on("click",function(){
+ 	var index=$(this).index();
+ 	$(this).addClass("special_title").siblings().removeClass("special_title");
+ 	secondContents.eq(index).show().siblings().hide();
+ })
+
 //生日插件
 $(".birthdayContainer").selectDate();
 })
+
+

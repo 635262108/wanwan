@@ -37,6 +37,7 @@
                             <li><span>小孩:<b style="color: #656565;margin-left: 14%;">￥</b><b class="aldut_price" style="color: #656565;">0.00</b></span></li>
                         </ul>
                     </li>
+                     <li class="select_time" style="color: #656565;">选择&nbsp;&nbsp;&nbsp;活动时间</li>
                 </ul>
             </div>
             <div class="theme_info">
@@ -74,12 +75,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="activity_address activity_time">
+            <div class="activity_address">
                 <p>活动时间</p >
-                <ul class="select_time">
+                <ul class="select_paytime">
                     {volist name="$timeInfo" id="vo"}
                     <li>
-                    <input type="radio" name="time" value="{$vo.t_id}" {if condition="$vo.ticket_num eq 0"}disabled{/if} /><span class="sign_upTime">{$vo.t_content} 剩余 {$vo.ticket_num}</span>
+                    <input type="radio" name="time" value="{$vo.t_id}" {if condition="$vo.ticket_num eq 0"}disabled{/if} />{$vo.t_content} 剩余 {$vo.ticket_num}
                     </li>
                     {/volist}
                 </ul>
@@ -106,19 +107,23 @@
         </div>
     </form>
 </div>
+
+<div class="pay_ul">
+	 <ul>
+	 	<li class="special">活动详情</li>
+	 	<li>玩伴评论</li>
+	 </ul>
+</div>
+
         <!--活动详情-->
-        <div class="playBaby_content almost">
-            <div class="title title_img">
-                <img src="__MobileImg__/wan_whole.png"/>
-                <div class="playBady_word">活动详情</div>
-            </div>
-        </div>
+        <div class="pay_content">
+   
         <div class="freeActivity_content">
             {$activityInfo.a_content}
         </div>
 
         <!--玩伴评论-->
-        <div class="playBaby_content almost" id="free_discuss">
+        <div class="playBaby_content almost" id="free_discuss" style="display: none;">
             <h1>#评论</h1>
             <div class="discuss_content">
                 {empty name="commentInfo"}
@@ -140,7 +145,7 @@
             </div>
             <!--<div class="discuss_more free_more">查看更多</div>-->
         </div>
-
+	</div>
 
         <script src="__MobileJs__/jquery.min.js"></script>
         <script src="__MobileJs__/idangerous.swiper.min.js"></script>
