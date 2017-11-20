@@ -122,6 +122,14 @@ $(function() {
             $(".tel_warn").text("手机号码不能为空");
         }
     })
+//  注册页面姓名验证
+  $("#user_name").on("blur", function() {
+        var name = $("#user_name").val();
+        if(name==""){
+        	$(".name_warn").show();
+        }
+        
+    })
 
 //忘记密码手机号验证
     $("#forget_telphone").on("blur", function() {
@@ -302,10 +310,12 @@ $(function() {
 //验证账户名（登录）
     $("#login_userName").on("blur", function() {
         var Name_val = $("#login_userName").val();
-        if (Name_val !== "") {
-            $(".user").hide();
+        if (Name_val == "") {
+            $(".user").show();
+            
         }
-        if (!isMobilePhone(Name_val)) {
+        
+        else if (!isMobilePhone(Name_val)) {
             $(".user").show();
             $(".user").text("手机号格式不正确");
         }
@@ -349,7 +359,9 @@ $(function() {
         }
     })
 //注册页面
+
     $(".register_get_num").on("click", function() {
+    	console.log('获取验证码');
         if ($("#telphone").val() == "") {
             $(".tel_warn").show();
         }
@@ -391,6 +403,12 @@ $(function() {
         var pwd = $("#passward").val();
         var pwd_sure = $("#pwd_sure").val();
         var check_num = $("#check_num").val();
+        
+        var name=$("#user_name").val();
+        if(name==""){
+        	$(".name_warn").show();
+        	return false;
+        }
 
 
         if (tel == "") {
@@ -441,7 +459,7 @@ $(function() {
             $(".check_warn").text("验证码输入格式有误");
             return false;
         }
-        $.post('/mobile/user/register',{ mobile: tel,password:pwd,mobileCode:check_num},
+        $.post('/mobile/user/register',{ name:name,mobile:tel,password:pwd,mobileCode:check_num},
             function(obj){
                 if(obj.state_code != 200){
                     alert(obj.msg);

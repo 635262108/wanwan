@@ -4,13 +4,6 @@
     <span><a href="{:url('mobile/user/register')}">注册</a></span>
 </div>
 {/empty}
-<!--头部图片-->
-<div class="textAlign header">
-    <div class="header_img">
-        <img src="__MobileImg__/logo.png" />
-    </div>
-</div>
-<!--导航栏tab-->
 <div class="textAlign nav">
     <ul>
             <li {if condition="$Request.action eq 'new_activity' "}class="play_baby"{/if}><a href="{:url('mobile/Activity/new_activity')}">首页</a></li>

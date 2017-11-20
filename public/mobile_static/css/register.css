@@ -1,12 +1,33 @@
 .textAlign .information_content form div.textAlign {
 	width: 90%;
-	margin: 0px auto
+	margin: 0px auto;
+	
 }
+.information_content input{
+	color: #427893;
+}
+.login_bg{
+	background: url(../images/bg_resiger.png) no-repeat;
+	width: 375px;
+	height: 667px;
+	background-size:cover;
+
+}
+#register_content{
+	top: 143px;
+}
+.register_bg{
+	background: url(../images/bg_login.png) no-repeat;
+	width: 375px;
+	height: 667px;
+	background-size:cover;
+}
+
 
 .textAlign .wanTitle_img {
 	width: 37%;
 	height: 90px;
-	margin: 49px auto 116px
+	margin: 49px auto 116px;
 }
 
 .textAlign .wanTitle_img img {
@@ -15,88 +36,89 @@
 }
 
 .textAlign .information_content {
-	width: 100%
+	position: absolute;
+	width:304px;
+	background: rgba(245,245,245,.5);
+	top: 188px;
+	left: 8px;
+	padding-bottom: 34px;
 }
 
 .textAlign .information_content form {
-	width: 100%
+	width: 86%;
+	/*border: 1px solid black;*/
+	margin: 0px auto;
 }
 
 .textAlign .information_content form div {
 	width: 100%;
-	padding-left: 8%;
-	box-sizing: border-box;
-	height: 50px;
-	border-radius: 40px;
-	margin-bottom: 28px;
-	font-size: 15px;
-	line-height: 50px;
-	color: #FF4134;
-	box-shadow: 1px 1px 5px #FF4134;
-	position: relative
+	margin-top: -16px;
+	height: 22px;
+	border-bottom: 2px solid #FFFFFF;
+	
+}
+.textAlign .information_content form p.tel_namer{
+	font-size: 18px;
+	font-weight: 700;
+	color: #FFFFFF;
+	font-family: '苹方';
+	/*border: 1px solid red;*/
 }
 
 
 .textAlign .information_content form div input {
-	width: 67%;
-	height: 94%;
+	width: 100%;
 	border: none;
 	font-size: 15px;
 	position: absolute;
-	left: 27%;
-	outline: none
+	outline: none;
+	background: none;
+	padding-left: 5px;
 }
 
 .textAlign .information_content form .yanzhengma {
 	width: 100%;
-	
+	border-bottom:none ;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	box-shadow: none;
 	padding-left: 0px;
 	border: none;
-	margin-bottom: 20px;
+	margin-top: 25px;
 }
 
 .textAlign .information_content form .yanzhengma .prompt {
-	width: 52%
-}
-
-.textAlign .information_content form .yanzhengma .prompt input {
-	left: 14%
+	width: 50%;
+	border-bottom:2px solid #FFFFFF ;
+	margin-top: 0px;
 }
 
 .textAlign .information_content form .yanzhengma .get_num,
 .textAlign .information_content form .yanzhengma .register_get_num {
-	width: 35%;
-	height: 50px;
-	padding-left: 4%;
-	border-radius: 40px;
-	color: #FF4134;
-	box-shadow: 1px 1px 5px #FF4134;
-	outline: none;
-	background: none;
-	border: none;
-	left: 65%
+	width: 43%;
+	margin-left: 48%;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: 700;
+	font-family: '苹方';
 }
 
 .textAlign .information_content form .register,
 .textAlign .information_content form .login_register,
 .textAlign .information_content form .forget_register,
 .textAlign .information_content form .reset_register {
-	width: 50%;
-	height: 40px;
-	border-radius: 40px;
+	width: 61px;
+	height: 26px;
+	line-height: 13px;
 	text-align: center;
-	line-height: 40px;
-	color: #FFFFFF;
-	background: #FF4134;
-	font-size: 15px;
 	outline: none;
+	color: #FF4134;
+	background: #FFFFFF;
 	border: none;
-	position: absolute;
-	left: 24%
+	cursor: pointer;
+	margin-top: 30px;
+	
 }
 
 .textAlign .information_content form .register a,
@@ -104,32 +126,50 @@
 .textAlign .information_content form .forget_register a,
 .textAlign .information_content form .reset_register a {
 	text-decoration: none;
-	color: #FFFFFF
+	color: #FF4314;
+	 font-family: '苹方';
 }
 
 .textAlign .information_content form .login {
-	width: 89%;
-    margin: 0px auto 116px;
-    
-    box-shadow: none;
-    display: flex;
+	width: 99%;
+    margin: 5px auto 0px;
+   border-bottom: none;
+   display: flex;
     justify-content: space-between;
     border-radius: 0;
     padding-left: 0;
     line-height: 25px;
    
     height: auto;
+   
+    
 }
 
 .textAlign .information_content form .login a {
-	font-size: 15px;
-	text-decoration: none
+	font-size: 12px;
+	text-decoration: none;
+	color: #FFFFFF;
+	
 }
 
-.textAlign .information_content form .login .forget {
-	color: #FF4134
+/*返回按钮的样式*/
+.comeback_whole{
+	width:100%;
+	height: 36px;
 }
-
-.textAlign .information_content form .login .register_word {
-	color: #656565
+.comeback_whole .comeback_img{
+	width: 36px;
+	height: 36px;
+	
+}
+.comeback_whole .comeback_img a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.comeback_whole .comeback_img a img{
+	width: 18px;
+	height: 17px;
+	margin-top: 12px;
+	margin-left: 12px;
 }

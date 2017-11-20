@@ -2,35 +2,59 @@ user_payhtml {
 	font-size: 18px;
 }
 
+
+
 #whole {
 	background: #F6F6F6
 }
 
-.textAlign {
-	width: 90%;
-	margin: 0px auto;
-	display: flex
+.wanwan_logo{
+	width: 100%;
+	background: #FFFFFF;
+	height: 36px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	z-index: 66666;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
-
+.wanwan_logo span{
+	display: inline-block;
+}
+.wanwan_logo span img{
+	width: 62px;
+	height: 26px;
+}
 .into_page {
-	width: 90%;
-	margin: 20px auto 0px;
+	width: 20%;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
-	font-size: 12px
+	font-size: 12px;
+	position: fixed;
+	right: 5px;
+	top:20px;
+	z-index: 999999;
+	
+	
 }
 
 .into_page span:nth-child(1) {
-	margin-right: 2%
+	margin-right: 8%
 }
 
 .into_page span a {
-	color: #FF4134
+	color:#767676;
 }
 
 #second_page {
-	background: #EFEFEF
+	background: #EFEFEF;
+	width:100%;
 }
 
 #second_page .second_activity {
@@ -71,6 +95,8 @@ user_payhtml {
 	z-index: 999999999999;
 	
 }
+
+
 .comeback .stroggle_ul .singel_img{
 	width: 26px;
 	height: 13px;
@@ -123,7 +149,7 @@ user_payhtml {
 
 .almost {
 	width: 93%;
-	margin: 25px auto 0px
+	margin: 18px auto 0px
 }
 
 .three_img {
@@ -188,7 +214,19 @@ user_payhtml {
 	width: 100%;
 	height: 100%
 }
-
+.title_content{
+	width: 100%;
+	background: #FFFFFF;
+	/*border: 1px solid blue;*/
+	padding-top: 21px;
+	box-sizing: border-box;
+}
+.textAlign {
+	width: 90%;
+	margin: 0px auto;
+	display: flex;
+	/*border: 1px solid red;*/
+}
 .nav ul {
 	width: 100%;
 	display: flex;
@@ -196,16 +234,13 @@ user_payhtml {
 }
 
 .nav ul li {
+	
 	margin-right: 6.6%;
 	width: 20%;
-	height: 25px;
-	line-height: 22px;
-	text-align: center;
-	border-radius: 5px;
-	border: 1px solid #ff4134;
-	color: #ff4134;
 	font-size: 12px;
-	margin-bottom: 10px
+	margin-bottom: 21px;
+	
+	
 }
 .nav ul li:nth-child(4) {
 	margin-right: 0px
@@ -216,17 +251,24 @@ user_payhtml {
 }
 
 .nav ul li a {
-	display: block;
-	color: #ff4134;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-
-.nav ul .play_baby {
-	background: #FF4134;
-	color: #FFFFFF
+.nav ul li a span{
+	display: inline-block;
+}
+.nav ul li a span img{
+	width: 48px;
+	height: 48px;
 }
 
 .nav ul .play_baby a {
-	color: #FFFFFF
+	color: #505050;
+}
+.nav ul .play_baby a p{
+	margin-top: 10px;
 }
 
 .device {
@@ -234,7 +276,8 @@ user_payhtml {
 	height: 150px;
 	background: #111;
 	position: relative;
-	margin-bottom: 30px;
+	/*margin-bottom: 30px;*/
+	margin-top: 36px;
 }
 
 .device .swiper-container {
@@ -261,8 +304,9 @@ user_payhtml {
 	position: absolute;
 	left: 0;
 	text-align: center;
-	bottom: -40px;
-	width: 100%
+	bottom: -19px;
+	width: 100%;
+	z-index: 6666;
 }
 
 .device .pagination .swiper-pagination-switch {
@@ -336,6 +380,39 @@ user_payhtml {
 	position: relative;
 
 }
+.five_organs .play_baoContent .playBao_part .sign_num{
+	background: url(../images/sign_num.png) no-repeat;
+	position: absolute;
+	right: 6px;
+	top: -3px;
+	width: 25px;
+	height: 26px;
+	display: flex;
+	flex-direction: column;
+	justify-content:center ;
+	align-items: center;
+}
+
+.five_organs .play_baoContent .playBao_part .sign_num p{
+	font-size:12px; 
+   -webkit-transform: scale(0.66);
+	color: #FFFFFF;
+	width: 30px;
+	height: 14px;
+	margin-left: 4px;
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.five_organs .play_baoContent .playBao_part .sign_num p:nth-child(1){
+	padding-bottom: 3px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #FFFFFF;
+}
+/*.five_organs .play_baoContent .playBao_part .sign_num p:nth-child(3){
+	top: 13px;
+	text-align: center;
+}*/
 .five_organs .play_baoContent .playBao_part a{
 	display: block;
 	margin-right: 2%;
@@ -2775,3 +2852,131 @@ user_payhtml {
 	
 }
 
+/*二级页面的新增样式*/
+.second_title{
+	/*border: 1px solid red;*/
+	width: 93%;
+	margin: 0px auto;
+	background: #FFFFFF;
+	margin-top: 12px;
+	
+}
+.second_title ul{
+	
+	width: 100%;
+	overflow: hidden;
+	
+}
+.second_title ul li{
+	float: left;
+	font-size: 12px;
+	color: #8a8a8a;
+	letter-spacing: 1px;
+	width: 15%;
+	text-align: center;
+	height: 29px;
+	line-height: 29px;
+	cursor: pointer;
+	margin-right: 7%;
+}
+.second_title ul li.special_title{
+	color: #FF4134;
+	border-bottom: 1px solid #FF4314;
+}
+
+
+
+/*详情底部的样式*/
+.bottom_info{
+	width: 100%;
+	display: flex;
+	justify-content:space-between;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+.bottom_info span{
+	width: 50%;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 18px;
+}
+.bottom_info span:nth-child(1){
+	background: #FFFFFF;
+	color: #FF4134;
+}
+
+.bottom_info span:nth-child(2){
+	background: #FF4134;
+}
+.bottom_info span:nth-child(2) a{
+	color: #FFFFFF;
+}
+/*付费活动new_style*/
+.pay_ul{
+  width: 80%;
+  margin: 20px auto;
+ 
+  
+}
+.pay_ul ul{
+	width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.pay_ul ul li{
+	cursor: pointer;
+	width: 50%;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	border: 1px solid  #FF4134;
+	color: #656565;
+	font-size: 14px;
+}
+.pay_ul ul li:nth-child(1){
+	border-top-left-radius:3px;
+	border-bottom-left-radius:3px
+}
+.pay_ul ul li:nth-child(2){
+	border-top-right-radius:3px;
+	border-bottom-right-radius:3px
+}
+.pay_ul ul li.special{
+	background: #FF4134;
+	color: #FFFFFF;
+}
+.activity_address .select_paytime{
+	width: 100%;
+	margin: 8px auto 0px;
+	overflow: hidden;
+}
+.activity_address .select_paytime li{
+	float: left;
+	width: 45%;
+	height: 22px;
+	line-height: 22px;
+	color: #656565;
+	text-align: center;
+	font-size: 13px;
+	background: #e5e4e4;
+	margin-right: 5%;
+	border-radius:2px ;
+	margin-bottom: 10px;
+	position: relative;
+}
+.activity_address .select_paytime li input{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 156px;
+	opacity: 0;
+}
+.activity_address .select_paytime li.time_special{
+	color:#fff;
+	background:#ff4134;
+}

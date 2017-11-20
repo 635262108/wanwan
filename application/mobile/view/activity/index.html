@@ -11,12 +11,20 @@
     </div>
 </div>
 <!--五官-->
+
+    <div class="second_title">
+    	<ul>
+    		{foreach name="titleSon" item="vo"}
+    		 <li>{$vo.name}</li>
+    		 {/foreach}
+    	</ul>
+    </div>
+
+<div class="total_content">
 {foreach name="titleSon" item="vo"}
 <div class="five_organs almost">
-    <div class="five_title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-          <div class="playBady_word">{$vo.name}</div>
-    </div>
+
+  
 
         <div class="play_baoContent">
             {foreach $result as $v}
@@ -45,6 +53,7 @@
         </div>
    </div>
 {/foreach}
+</div>
 
 {include file="public/footer" /}
 

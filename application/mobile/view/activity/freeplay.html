@@ -16,11 +16,21 @@
     </div>
 </div>
 <!--最新活动-->
+   <div class="second_title">
+    	<ul>
+    		
+    		 <li>最新活动</li>
+    		 <li>往期回顾</li>
+    		
+    	</ul>
+    </div>
+    
+    <div class="total_content">
 <div class="five_organs almost">
-    <div class="five_title title_img">
+    <!--<div class="five_title title_img">
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">最新活动</div>
-    </div>
+    </div>-->
     <div class="play_baoContent">
         {foreach name="newest" item="v"}
         <a href="{:url('mobile/activity/free_detail',['aid'=>$v.aid])}">
@@ -46,11 +56,11 @@
 </div>
 
 <!--往期回顾-->
-<div class="five_organs almost">
-    <div class="five_title title_img">
+<div class="five_organs almost" style="display: none;">
+    <!--<div class="five_title title_img">
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">往期回顾</div>
-    </div>
+    </div>-->
     <div class="play_baoContent">
         {foreach name="review" item="v"}
         <a href="{:url('mobile/activity/free_detail',['aid'=>$v.aid])}">
@@ -73,6 +83,7 @@
         </a>
         {/foreach}
     </div>
+</div>
 </div>
 
 
