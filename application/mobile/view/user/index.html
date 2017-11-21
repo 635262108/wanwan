@@ -1,11 +1,22 @@
 {include file="public/header" /}
+<div class="comeback textAlign" id="second_page">
+    <div class="comeback_whole" >
+        <div class="comeback_img">
+     
+            {empty name="$url"}
+                <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a>
+            {else/}
+                <a href="{$url}"><img src="__MobileImg__/second_back.png"/></a>
+            {/empty}
+        </div>
+    </div>
 
+    <div class="title_word second_activity">会员中心</div>
+ 
+</div>
 <!--玩宝总体内容部分-->
 <div class="playBaby_content almost" id="personal_center">
-    <div class="title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">会员中心</div>
-    </div>
+
     <div class="content personal_content">
         <div class="baby_img center_img">
             <img src="__HEADICON__/{$userInfo.headIcon}" />
@@ -13,14 +24,14 @@
         <div class="baby_detail">
             <ul class="ul_first">
                 <li>{$userInfo.nickname}</li>
-                <li>
+                <!--<li>
                     <a href="{:url('mobile/user/my_info')}">
                         <img src="__MobileImg__/emit.png">
                     </a>
-                </li>
+                </li>-->
             </ul>
             
-            <ul class="ul_second">
+            <!--<ul class="ul_second">
                 <li>余额：{$userInfo.balance}</li>
                 <li>
                     <a href="{:url('mobile/user/recharge')}">
@@ -30,17 +41,13 @@
                         	<span>充值</span></div>
                     </a>
                 </li>
-            </ul>
+            </ul>-->
 
         </div>
     </div>
 </div>
 <!--五官-->
-<div class="five_organs almost">
-    <div class="five_title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">我的活动</div>
-    </div>
+<!--<div class="five_organs almost">
     <div class="activity_content textAlign">
         <ul class="lis_tab">
             <li class="play_baby li_first">我的活动</li>
@@ -51,7 +58,6 @@
         </ul>
     </div>
     <div class="all_activityContent">
-        <!--我的活动开始部分-->
         <div class="my_Activity_content">
             {volist name="myOrderData" id="vo" length='4'}
             <div class="my_Activity_big">
@@ -94,8 +100,7 @@
 
         </div>
 
-        <!--我的活动结束部分-->
-        <!--未付款开始部分-->
+     
         <div class="my_Activity_content display_none">
 
             {volist name="notPay" id="vo" length='4'}
@@ -134,9 +139,7 @@
 
         </div>
 
-        <!--未付款结束部分-->
-
-        <!--已付款部分-->
+     
         <div class="my_Activity_content display_none">
 
             {volist name="havePay" id="vo" length='4'}
@@ -178,8 +181,7 @@
 
 
         </div>
-        <!--已付款结束部分-->
-        <!--待评价开始部分-->
+       
 
         <div class="my_Activity_content display_none">
 
@@ -218,9 +220,7 @@
 
 
         </div>
-        <!--待评价结束部分-->
-
-        <!--退款售后开始部分-->
+      
         <div class="my_Activity_content display_none">
 
             {volist name="afterSale" id="vo" length='4'}
@@ -259,13 +259,11 @@
             </div>
             <div class="activity_more"><a href="{:url('/mobile/user/my_activity',['a'=>5])}">更多</a></div>
         </div>
-        <!--退款结束部分-->
     </div>
 
-</div>
+</div>-->
 
-<!--我的收藏-->
-<div class="five_organs almost">
+<!--<div class="five_organs almost">
     <div class="five_title title_img">
         <img src="__MobileImg__/wan_whole.png"/>
         <div class="playBady_word">我的收藏</div>
@@ -281,7 +279,6 @@
                     </li>
                     <li>
                         <p><span>{$vo.a_title}</span></p>
-                        <!--<p>2017.09.12--2017.09.16</p>-->
                         <p>{$vo.a_remark}</p>
                     </li>
                     <li>
@@ -301,36 +298,70 @@
 
     </div>
 
-</div>
-<div class="five_organs almost">
-<!--    <div class="five_title title_img">
-        <img src="__MobileImg__/wan_whole.png"/>
-        <div class="playBady_word">我的消息</div>
-    </div>
-    <div class="message_classfy">
-        <div class="order_message common"><a href="{:url('mobile/user/order_message')}">订单消息</a></div>
-        <div class="system_message common"><a href="{:url('mobile/user/systems_message')}">系统消息</a></div>
-    </div>-->
-</div>
+</div>-->
 
-{include file="public/footer" /}
+<!--我的活动-->
+<div class="myActivity_classfy">
+	<ul class="personal_center" style="width: 100%;">
+		<a href="{:url('/mobile/user/my_activity',['a'=>1])}">
+			<li style="border-bottom: 1px solid #dfdbdb;">
+				    <img src="__MobileImg__/activity_two.png"  class="circle_img" style="width: 23px;height: 23px;margin-left: -1.2%;">我的活动
+					<span style="color: #c5c5c5;margin-left: 55%;">全部活动</span>
+				    <img src="__MobileImg__/dayu.png"  style="width:6px;height:11px;margin-left:2%;">
+			</li>
+		</a>
+	</ul>
+	
+  <div class="textAlign nav" id="personal_href">
+	<ul>
+		<li class="play_baby">
+			<a href="{:url('/mobile/user/my_activity',['a'=>1])}"><span><img src="__MobileImg__/my_activity.png" style="width: 18px;height: 18px;"></span>
+				<p>我的活动</p>
+			</a>
+		</li>
+		<li class="play_baby">
+			<a href="{:url('/mobile/user/my_activity',['a'=>2])}"><span><img src="__MobileImg__/will_pay.png"  style="width: 18px;height: 18px;"></span>
+				<p>待付款</p>
+			</a>
+		</li>
+		<li class="play_baby">
+			<a href="{:url('/mobile/user/my_activity',['a'=>3])}"><span><img src="__MobileImg__/already_pay.png" style="width: 18px;height: 18px;"></span>
+				<p>已付款</p>
+			</a>
+		</li>
+		<li class="play_baby">
+			<a href="{:url('/mobile/user/my_activity',['a'=>4])}"><span><img src="__MobileImg__/will_educt.png" style="width: 18px;height: 18px;"></span>
+				<p>待评价</p>
+			</a>
+		</li>
+		<li class="play_baby">
+			<a href="{:url('/mobile/user/my_activity',['a'=>5])}"><span><img src="__MobileImg__/back_money.png" style="width: 18px;height: 18px;"></span>
+				<p>退款/售后</p>
+			</a>
+		</li>
+	</ul>
+</div>
+	
+</div>
+<ul class="personal_center">
+	<a href="{:url('mobile/user/my_info')}"><li><img src="__MobileImg__/emit.png" class="circle_img">编辑资料<img src="__MobileImg__/dayu.png" class="contect"></li></a>
+	<a href="{:url('mobile/user/recharge')}">
+	<li>
+		<img src="__MobileImg__/over_pay.png"  class="circle_img">余额 0.01
+			<span style="color: #c5c5c5;margin-left: 61%;">充值</span>
+		    <img src="__MobileImg__/dayu.png"  style="width:6px;height:11px;margin-left:2%;">
+	</li>
+	</a>
+	<a href="my_collect.html">
+	<li><img src="__MobileImg__/center_collect.png" class="circle_img">我的收藏<img src="__MobileImg__/dayu.png" class="contect"></li>
+	</a>
+	<li><img src="__MobileImg__/back_login.png" class="circle_img">退出登录<img src="__MobileImg__/dayu.png" class="contect"></li>
+</ul>
+
+
 <script src="__MobileJs__/jquery.min.js"></script>
-<script src="__MobileJs__/idangerous.swiper.min.js"></script>
-<script src="__MobileJs__/jquery.bxslider.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
-<script>
-    var mySwiper = new Swiper('.swiper-container',{
 
-        // 自动轮播
-        autoplay:2000,
-        autoHeight:true,
-        // 分页容器
-        pagination: '.pagination',
-        grabCursor: true,
-        paginationElement : 'li'
-    })
-
-</script>
 </body>
 </html>
 

@@ -1,24 +1,12 @@
 {include file="public/header" /}
 {include file="public/second_header" /}
-<!--头部导航-->
-<!--<div class="comeback textAlign" id="second_page">
-    <div class="comeback_whole" onclick="javascript:window.history.back(-1);" >
-        <div class="comeback_img">
-            <img src="__MobileImg__/second_back.png"/>
-        </div>
-
-    </div>
-
-    <div class="title_word second_activity">全部活动</div>
-
-</div>-->
 </div>
 <!--五官-->
 <div class="five_organs almost">
     <div class="activity_content textAlign">
         <ul class="lis_tab">
             <li {if condition="$Request.param.a eq 1"}class="play_baby"{/if}>我的活动</li>
-            <li {if condition="$Request.param.a eq 2"}class="play_baby"{/if}>未付款</li>
+            <li {if condition="$Request.param.a eq 2"}class="play_baby"{/if}>待付款</li>
             <li {if condition="$Request.param.a eq 3"}class="play_baby"{/if}>已付款</li>
             <li {if condition="$Request.param.a eq 4"}class="play_baby"{/if}>待评价</li>
             <li {if condition="$Request.param.a eq 5"}class="play_baby"{/if}>退款/售后</li>
