@@ -148,4 +148,16 @@ class Activity extends Model
     public function getActivityMap($map){
         return $this->where($map)->select();
     }
+
+    /**
+     * 报名
+     * @param $uid
+     * @param $aid
+     * @param $adult_num
+     * @param $child_num
+     * @param $time
+     */
+    public function enrol($uid,$aid,$adult_num,$child_num,$time){
+
+    }
 }

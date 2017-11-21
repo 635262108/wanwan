@@ -15,13 +15,13 @@
 </div>-->
 
     <div class="pay_stytle">
-        <a href="{:url('mobile/activity/payWay',['order_sn'=>$order_sn,'bank_type'=>2])}">
+        <a href="{:url('mobile/activity/payWay',['order_sn'=>$orderInfo.order_sn,'bank_type'=>2])}">
             <div class="style weixinS">
                 <div class="weixin_pic"><img src="__MobileImg__/weixin.png"></div>
                 <div>微信支付</div>
             </div>
         </a>
-        <a href="{:url('mobile/activity/payWay',['order_sn'=>$order_sn,'bank_type'=>1])}">
+        <a href="{:url('mobile/activity/payWay',['order_sn'=>$orderInfo.order_sn,'bank_type'=>1])}">
             <div class="style zhifubaoS">
                 <div class="zhifubao_pic"><img src="__MobileImg__/zhifubao.png"></div>
                 <div>支付宝支付</div>

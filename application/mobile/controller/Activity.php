@@ -18,10 +18,18 @@ class Activity extends Base
 {
     public function _initialize() {
         parent::_initialize();
-        $noLogin = array('activity_sure');
+        $noLogin = array();
         $this->checkUserLogin($noLogin);
     }
-    
+
+    //最新活动
+    public function new_activity(){
+        //获取活动信息
+        $actInfo = model('Activity')->getActivityAll('*','0','10');
+        $this->assign('actInfo',$actInfo);
+        return $this->fetch();
+    }
+
     //活动界面
     public function index($set = 26){
         
@@ -96,22 +104,7 @@ class Activity extends Base
     	$activityInfo = $Activity->getIdActivity($aid,$a_field);
     	//获取活动评论
     	$commentInfo = $ActivityComments->getActivityComment($aid);
-    	//获取活动玩翫答疑
-    	$questionCommentInfo = $ActivityComments->getActivityQuestionComment($aid);
-        //答疑问题和答案分开
-        $question = array();
-        $answer = array();
-        foreach($questionCommentInfo as $key=>$val){
-            if($val['reply_id'] == 0){
-                $question[] = $val;
-            }else{
-                $answer[] = $val;
-            }
-        }
-    	//获取推荐活动
-    	$recommendInfo = $Activity->getRecommendInfo();
-    	//获取相关活商品
-    	$goodsInfo = $Goods->getRelatedGoods($aid);
+
     	//获取活动扩展信息
     	$extensionInfo = $ActivityExtension->getExtensionInfo($aid);
         //查看是否收藏
@@ -119,13 +112,17 @@ class Activity extends Base
         $activityCollection = model('ActivityCollection');
         $isCollection = $activityCollection->isCollection($aid,$uid);
 
+        //时间信息
+        $map = [
+            'aid' => $aid,
+            'is_display'=> 1,
+        ];
+        $timeInfo = model('ActivityTime')->where($map)->select();
+
+        $this->assign('timeInfo',$timeInfo);
         $this->assign('activityInfo',$activityInfo);
         $this->assign('isCollection',$isCollection);
     	$this->assign('commentInfo',$commentInfo);
-    	$this->assign('question',$question);
-        $this->assign('answer',$answer);
-    	$this->assign('recommendInfo',$recommendInfo);
-    	$this->assign('goodsInfo',$goodsInfo);
     	$this->assign('extensionInfo',$extensionInfo);
     	return $this->fetch();
     }
@@ -152,53 +149,91 @@ class Activity extends Base
         return $this->fetch();
     }
 
-    //填写订单界面
-    public function activity_sure(){
+    //报名
+    public function add_order(){
         //用户id
         $uid = Session::get('userInfo.uid');
+        $userInfo = model('user')->get($uid);
+        if(empty($userInfo)){
+            $this->error('用户不存在');
+        }
         //活动id
-        $aid = input('get.aid');
+        $aid = input('post.aid');
         //大人数量
-        $adult_num = input('get.adult_num');
+        $adult_num = input('post.adult_num');
         //小孩数量
-        $child_num = input('get.child_num');
+        $child_num = input('post.child_num');
         //参加时间
-        $time = input('get.time');
-        if(isset($time)){
-            //检查参加时间是否还有票
-            $ActivityTime = model('ActivityTime');
-            $timeInfo = $ActivityTime->getAnyTime($time);
-            if($timeInfo['ticket_num'] <= 0){
-                $this->error('您选择的时间段已无名额');
-            }
-        }
-        //检查接收数据
-        $checkData['aid'] = $aid;
-        $checkData['adult_num'] = $adult_num;
-        $checkData['child_num'] = $child_num;
-        $check = $this->validate($checkData,'Activity');
-        if(true !== $check){
-            $this->error($check);
-        }
-        //检查活动名额
-        $Activity = model('Activity');
-        $ActivityInfo = $Activity->getIdActivity($aid);
-        //获取活动时间
+        $time = input('post.time');
+
+        //检查参加时间是否还有票
         $ActivityTime = model('ActivityTime');
         $timeInfo = $ActivityTime->getAnyTime($time);
-        
-        //票价
-        $price = $ActivityInfo['a_adult_price']*$adult_num+$ActivityInfo['a_child_price']*$child_num;
-        if($ActivityInfo->a_num > 0){
-            $this->assign('ActivityInfo',$ActivityInfo);
-            $this->assign('adult_num',$adult_num);
-            $this->assign('child_num',$child_num);
+        if($timeInfo['ticket_num'] <= 0) {
+            $this->error('您选择的时间段已无名额');
+        }
+
+        //检查活动名额
+        $ActivityInfo = model('Activity')->find($aid);
+        if($ActivityInfo->a_num <= 0){
+            $this->error('您选择的活动已报满');
+        }
+
+        //订单入库
+        $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
+        if(!empty(cookie('orderInfo'))){//存在
             $this->assign('price',$price);
-            $this->assign('timeInfo',$timeInfo);
-            $this->assign('title','订单填写');
-            return $this->fetch();
+            $this->assign('activityInfo',$ActivityInfo);
+            $this->assign('orderInfo',cookie('orderInfo'));
+            $this->assign('title','选择支付');
+            return $this->fetch('activity/select_pay');
+        }
+        $add_oreder_data = array();
+        $add_oreder_data['order_sn'] = getOrderSn($uid,$aid);
+        $add_oreder_data['aid'] = $aid;
+        $add_oreder_data['uid'] = $uid;
+        $add_oreder_data['mobile'] = $userInfo['mobile'];
+        $add_oreder_data['name'] = $userInfo['nickname'];
+        $add_oreder_data['adult_num'] = $adult_num;
+        $add_oreder_data['child_num'] = $child_num;
+        if($price > 0){//免费活动不需要支付,订单状态为已付款
+            $add_oreder_data['order_status'] = 2;
         }else{
-            $this->error("本活动报名已满");
+            $add_oreder_data['order_status'] = 3;
+        }
+
+        $add_oreder_data['addtime'] = time();
+        $add_oreder_data['t_id'] = $time;
+        $add_oreder_data['source'] = 1;
+        $add_oreder_data['order_price'] = $price;
+        model('ActivityOrder')->insert($add_oreder_data);
+
+        //存cookie,防止用户刷新重复提交
+        cookie('orderInfo',$add_oreder_data,60*60*5);
+
+        //免费活动不需要支付，直接报名成功，付费活动进入选择支付界面
+        if($price > 0){
+            //微信浏览器只支持js支付，单独一个界面
+            if(is_weixin()){
+                //session记录订单
+                session::set($uid,$add_oreder_data['order_sn']);
+                //跳转到wx_browser_pay
+                $this->redirect('activity/wx_browser_pay');
+            }
+            $this->assign('price',$price);
+            $this->assign('activityInfo',$ActivityInfo);
+            $this->assign('orderInfo',$add_oreder_data);
+            $this->assign('title','选择支付');
+            return $this->fetch('activity/select_pay');
+        }else{
+            //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
+            model('acticity')->where('aid', $aid)->setDec('a_num', $child_num);
+            model('acticity')->where('aid', $aid)->setInc('a_sold_num', $child_num);
+            $ActivityTime->where('t_id', $time)->setInc('ticket_num', $child_num);
+            $this->assign('price',$price);
+            $this->assign('activityInfo',$ActivityInfo);
+            $this->assign('orderInfo',$add_oreder_data);
+            return $this->fetch('activity/pay_success');
         }
         
     } 
@@ -426,6 +461,7 @@ class Activity extends Base
             $params['subject'] = '玩翫碗活动报名';
             //订单金额
             $params['total_amount'] = $order['order_price'];
+
             \alipay\Wappay::pay($params);
         }
         else if($bank_type == 2){
@@ -811,14 +847,6 @@ class Activity extends Base
     //关于我们
     public function about() {
         $this->assign('title','关于我们');
-        return $this->fetch();
-    }
-
-    //最新活动
-    public function new_activity(){
-        //获取活动信息
-        $actInfo = model('Activity')->getActivityAll('*','0','10');
-        $this->assign('actInfo',$actInfo);
         return $this->fetch();
     }
 

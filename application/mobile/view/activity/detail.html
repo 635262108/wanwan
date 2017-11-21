@@ -47,7 +47,7 @@
 
 <!--点击我要报名-->
 <div id="theme_modal_box">
-    <form method="get" action="{:url('mobile/activity/activity_sure')}">
+    <form method="post" action="{:url('activity/add_order')}">
         <input type="hidden" name="aid" value="{$activityInfo.aid}"/>
         <div class="moal_div">
             <div class="modal_detail">
@@ -67,14 +67,9 @@
             <div class="activity_address">
                 <p>活动时间</p >
                 <ul class="select_paytime">
-                  
-                   <li><input type="radio" name="time" value="1" >11.19上午余<span>0</span></li>
-                   <li><input type="radio" name="time" value="2">11.19下午余<span>2</span></li>
-                   <li><input type="radio" name="time" value="3">11.19中午余<span>3</span></li>
-                   <li><input type="radio" name="time" value="4">11.19上午余<span>4</span></li>
-                   <li><input type="radio" name="time" value="5">11.19下午余<span>5</span></li>
-                   <li><input type="radio" name="time" value="6">11.19中午余<span>6</span></li>
-                    
+                    {foreach name="timeInfo" item="vo"}
+                    <li><input type="radio" name="time" value="{$vo.t_id}" >{$vo.t_content}<span>{$vo.ticket_num}</span></li>
+                    {/foreach}
                 </ul>
             </div>
             
