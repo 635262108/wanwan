@@ -1682,14 +1682,23 @@ div.dataTables_wrapper .ui-widget-header {
 #sidebar .content{ display:none;}
 }
 .apply_details{
-	width: 91%;
+	width: 94%;
 	display: flex;
-	justify-content: space-around;
-	margin-top: 20px;
+	justify-content: flex-start;
+	
+	margin: 20px auto 0px;
+}
+.apply_details .detail_table{
+	
+	width: 49%;
+}
+.apply_details .detail_table:nth-child(2){
+	margin-left: 5%;
 }
 .detail_table tr td{
 	text-align: center;
 }
+
 .detail_table tr:nth-child(1) td{
 	font-size: 14px;
 }
