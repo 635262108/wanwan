@@ -264,7 +264,6 @@ class User extends Base
         $activityCollection = model('ActivityCollection');
         //获取我收藏的活动
         $collectionData = $activityCollection->myCollection($uid);
-        
         $this->assign('collectionData',$collectionData);
         $this->assign('title','我的收藏');
     	return $this->fetch();

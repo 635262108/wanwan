@@ -774,7 +774,8 @@ user_payhtml {
 
 .five_organs .activity_content ul {
 	display: flex;
-	width: 100%
+	width: 100%;
+	background: #FFFFFF;
 }
 
 .five_organs .activity_content ul li {
@@ -1209,10 +1210,12 @@ user_payhtml {
 .my_Activity_content .my_Activity_big .my_activity_part {
 	width: 100%;
 	margin-bottom: 10px;
-	box-shadow: 0px 0px 2px #FF4134;
 	width: 100%;
-	height: 120px;
-	position: relative
+	height: 110px;
+	position: relative;
+	background: #FFFFFF;
+	/*border: 1px solid blue;*/
+	
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul,
@@ -1220,21 +1223,21 @@ user_payhtml {
 	padding-top: 2%;
 	width: 100%;
 	display: flex;
-	height: 100%;
+	height: 68%;
 	justify-content: space-between;
-	padding-left: 2%
+	padding-left: 2%;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(1),
 .my_Activity_content .my_Activity_big .my_activity_part ul li:nth-child(1) {
-	width: 25%;
-	height: 70px
+	width: 60px;
+	height: 54px;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(1) img,
 .my_Activity_content .my_Activity_big .my_activity_part ul li:nth-child(1) img {
 	width: 100%;
-	height: 100%
+	height: 100%;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(2),
@@ -1251,38 +1254,39 @@ user_payhtml {
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(2) p:nth-child(1),
 .my_Activity_content .my_Activity_big .my_activity_part ul li:nth-child(2) p:nth-child(1) {
 	color: #FF4134;
-	font-size: 16px
+	font-size: 14px
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(2) p:nth-child(2),
 .my_Activity_content .my_Activity_big .my_activity_part ul li:nth-child(2) p:nth-child(2) {
-	color: #FF4134;
-	font-size: 14px
+	color: #656565;
+	font-size: 12px;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(2) p:nth-child(3),
 .my_Activity_content .my_Activity_big .my_activity_part ul li:nth-child(2) p:nth-child(3) {
 	color: #656565;
-	font-size: 14px
+	font-size: 12px
 }
 
 .myActivity_content .my_Activity_big .my_activity_part ul li:nth-child(3),
 .my_Activity_content .my_Activity_big .my_activity_part ul li:nth-child(3) {
 	font-size: 12px;
 	color: #FF4134;
-	width: 13%
+	width: 13%;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom,
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom {
 	right: 0;
 	position: absolute;
-	width: 70%;
-	bottom: 5px;
+	width: 98%;
+	bottom: -1px;
 	height: 35px;
 	display: flex;
 	justify-content: flex-end;
-	align-items: center
+	align-items: center;
+	/*border:1px solid black;*/
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p,
@@ -1293,31 +1297,50 @@ user_payhtml {
 	text-align: center;
 	font-size: 12px;
 	border-radius: 15px;
-	margin-right: 5%
+	margin-right: 1%
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(1),
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(1) {
-	background: #FF4134;
-	color: #FFFFFF;
-	width: 30%
+	width: 52px;
+	height: 20px;
+	line-height: 13px;
+	text-align: center;
+	color: #FF4134;
+	border-radius: 3px;
+	border: 1px solid #ff4134;
+	font-size: 12px;
+    -webkit-transform: scale(0.85);
+	
+    
+}
+.myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:last-child,
+.my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:last-child {
+	margin-right: 0px;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(1) a,
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(1) a {
-	color: #FFFFFF
+	color:#FF4134;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(2),
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(2) {
-	width: 30%;
-	border: 1px solid #FF4134;
-	color: #FF4134
+	width: 52px;
+    height: 20px;
+    line-height: 13px;
+    text-align: center;
+    color: #656565;
+    border-radius: 3px;
+    border: 1px solid #656565;
+    font-size: 12px;
+    -webkit-transform: scale(0.85)
+	
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(2) a,
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(2) a {
-	color: #FF4134
+	color: #656565;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(3),
@@ -1357,9 +1380,9 @@ user_payhtml {
 	line-height: 125px
 }
 
-.display_none {
-	display: none
-}
+/*.display_none {
+display: none  !important;
+}*/
 
 #leave_content form {
 	
@@ -2971,6 +2994,7 @@ user_payhtml {
 	border-radius:2px ;
 	margin-bottom: 10px;
 	position: relative;
+	box-sizing: border-box;
 }
 .activity_address .select_paytime li input{
 	position: absolute;
@@ -3109,4 +3133,43 @@ user_payhtml {
 	background: #FFFFFF;
 	width: 93%;
 	margin: 19px auto 11px;
+}
+.myActivity_classfy .line{
+	height: 1px;
+    border-bottom: 1px solid #dfdbdb;
+    width: 91%;
+    margin: 0px auto 10px;
+   
+}
+/*我的活动新的样式*/
+#new_no{
+	height: 180px;
+	margin-top: 117px;
+}
+#new_no div{
+	margin: 0px auto;
+	text-align: center;
+	
+	
+}
+#new_no div:nth-child(1){
+	width: 163px;
+	height: 160px;
+	line-height: 87px;
+}
+#new_no div:nth-child(1) img{
+	width: 100%;
+	height: 100%;
+}
+#new_no div:nth-child(2){
+	
+	line-height: 10px;
+	margin-top: -34px;
+	font-size: 14px;
+}
+#new_no div:nth-child(3){
+	
+	line-height: 17px;
+	margin-top: 10px;
+	font-size: 12px;
 }

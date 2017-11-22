@@ -173,8 +173,7 @@ $(".collect").on("click",function(){
         var index = $(this).index();
         $(this).addClass("play_baby").siblings("li").removeClass("play_baby");
         contents.eq(index).css("display", "block").siblings().css("display", "none");
-        
-        var activityParts = contents.eq(index).children().children(".my_activity_part");
+        var activityParts = contents.eq(index).children(".my_Activity_big");
 
 
         if (activityParts.length > 0) {
@@ -260,14 +259,34 @@ $(".cancel").on("click",function(){
 // 选中除了第一个子元素之外的所有子元素(隐藏)
 $(".total_content .five_organs:not(:first-child)").css("display","none");
 var second_lis=$(".second_title ul").children("li");
-second_lis.eq(0).addClass("special_title");
 var secondContents=$(".total_content").children();
  second_lis.on("click",function(){
  	var index=$(this).index();
  	$(this).addClass("special_title").siblings().removeClass("special_title");
  	secondContents.eq(index).show().siblings().hide();
+ 	var activity=secondContents.eq(index).children("#second_detail").find(".playBao_part");
+ 	console.log(activity.length,555);
+   	if(activity.length==0){
+		$(".no_style").show();
+	}
+   	else if(activity.length>=1){
+   		console.log(33333)
+       $(".no_style").attr("style","display: none;margin-top:88px ;");
+   	}
+ 	
  })
+ second_lis.eq(0).trigger("click");
+ 
+// 当我的收藏没有的时候
 
+var collectParts=$("#conllect_Content").find(".playBao_part");
+
+if(collectParts.length===0){
+	$(".nothing").show();
+}
+else{
+	$(".nothing").hide();
+}
 //生日插件
 $(".birthdayContainer").selectDate();
 })

@@ -2,7 +2,7 @@
 {include file="public/second_header" /}
 </div>
 <!--五官-->
-<div class="five_organs almost">
+<div class="five_organs almost" style="margin-top: 10px;">
     <div class="activity_content textAlign">
         <ul class="lis_tab">
             <li {if condition="$Request.param.a eq 1"}class="play_baby"{/if}>我的活动</li>
@@ -34,6 +34,7 @@
                             {/switch}
                         </li>
                     </ul>
+                    <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
                         {switch name="$vo.order_status"}
                         {case value="1"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">已完成</a></p>{/case}
@@ -48,8 +49,10 @@
                 </div>
             </div>
             {/foreach}
-             <div class="nothing display_none">
-                空空如也~
+              <div class="nothing display_none" id="new_no">
+                 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div>没有相关活动噢~</div>
+                 <div><a href="{:url('mobile/activity/new_activity')}" style="color: #FF4134;">快去看看吧</a></div>
             </div>
         </div>
 
@@ -85,8 +88,11 @@
             {/foreach}
 
 
-             <div class="nothing display_none">
-                空空如也~
+              <div class="nothing display_none" id="new_no">
+                <!--空空如也~-->
+                 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div>没有相关活动噢~</div>
+                 <div><a href="{:url('mobile/activity/new_activity')}" style="color: #FF4134;">快去看看吧</a></div>
             </div>
 
 
@@ -127,11 +133,12 @@
                 </div>
             </div>
             {/foreach}
-
-             <div class="nothing display_none">
-                空空如也~
+       		 <div class="nothing display_none" id="new_no">
+                <!--空空如也~-->
+                 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div>没有相关活动噢~</div>
+                 <div><a href="{:url('mobile/activity/new_activity')}" style="color: #FF4134;">快去看看吧</a></div>
             </div>
-
 
         </div>
         <!--已付款结束部分-->
@@ -166,8 +173,11 @@
             </div>
             {/foreach}
 
-             <div class="nothing display_none">
-                空空如也~
+               <div class="nothing display_none" id="new_no">
+                <!--空空如也~-->
+                 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div>没有相关活动噢~</div>
+                 <div><a href="{:url('mobile/activity/new_activity')}" style="color: #FF4134;">快去看看吧</a></div>
             </div>
 
 
@@ -207,8 +217,11 @@
                 </div>
             </div>
             {/foreach}
-             <div class="nothing display_none">
-                空空如也~
+             <div class="nothing display_none" id="new_no">
+                <!--空空如也~-->
+                 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div>没有相关活动噢~</div>
+                 <div><a href="{:url('mobile/activity/new_activity')}" style="color: #FF4134;">快去看看吧</a></div>
             </div>
         </div>
         <!--退款结束部分-->
