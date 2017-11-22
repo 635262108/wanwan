@@ -1,5 +1,11 @@
 {include file="public/header" /}
 {include file="public/left" /}
+<style>
+	  #s2id_autogen1{
+	  	width: 8%;
+	  	margin-left: 90%;
+	  }
+</style>
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
@@ -21,10 +27,13 @@
         </div>
      </a>
   </div>
-      <a href="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid])}">查看全部</a>
-    <a href="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>1])}">已参加</a>
-    <a href="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>2])}">未参加</a>
-<!--导出结束-->
+    <select onchange="window.location=this.value" >
+    	  	<option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid])}">查看全部</option>
+    	   	<option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>1])}" {if condition="$Request.param.is_sign eq 1"}selected="selected"{/if}>已参加</option>
+    	   	
+    	    <option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>2])}" {if condition="$Request.param.is_sign eq 2"}selected="selected"{/if}>未参加</option>
+    </select>
+
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">

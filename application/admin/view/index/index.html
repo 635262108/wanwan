@@ -17,17 +17,81 @@
                 <li class="bg_lh"><i class="icon-shopping-cart"></i> <strong>{$result.activity_order_num}</strong> <small>订单</small></li>
                 <li class="bg_lh"><i class="icon-tag"></i> <strong>{$result.activity_num}</strong> <small>活动</small></li>
               </ul>
-         上周报名人数：{$result.last_week_order}
-         本周报名人数：{$result.week_order}
-         上周成交金额：{$result.last_week_order_price}
-         本周成交金额：{$result.week_order_price}
-         上周充值金额：{$result.last_week_recharge}
-         本周充值金额：{$result.week_recharge}
+       
 
     </div>
-<!--End-Chart-box--> 
-    <hr>
-    <div class="row-fluid">
     </div>
-  </div>
+<!--End-Chart-box--> 
+    
+    <div class="apply_details">
+    	 <div class="detail_table">
+    	 	    <div class="title">报名人数</div>
+    	 	    <table style="width: 447px;height:80px;border: 1px solid #CCCCCC;" cellspacing="0" cellpadding="0" border="1px solid #ccc">
+    	 	    	  
+    	 	    	   	   <tr>
+    	 	    	   	   	   <td>上周</td>
+    	 	    	   	   	   <td>本周</td>
+    	 	    	   	   </tr>
+    	 	    	       <tr>
+    	 	    	       	   
+    	 	    	       	   <td>{$result.last_week_order}</td>
+    	 	    	       	   <td>{$result.week_order}</td>
+    	 	    	       </tr>
+    	 	    	   
+    	 	    </table>
+    	 </div>
+    	 
+    	<div class="detail_table" >
+    	 	     <div class="title">成交金额</div>
+    	 	    <table style="width: 447px;height:80px;border: 1px solid #CCCCCC;" cellspacing="0" cellpadding="0" border="1px solid #ccc">
+    	 	    	  
+    	 	    	   	   <tr>
+    	 	    	   	   	   <td>上周</td>
+    	 	    	   	   	   <td>本周</td>
+    	 	    	   	   </tr>
+    	 	    	       <tr>
+    	 	    	       	   {if $result.last_week_order_price eq null}
+    	 	    	       	     <td>0</td>
+    	 	    	       	     {else/}
+    	 	    	       	      <td>{$result.last_week_order_price}</td>
+    	 	    	       	   {/if}
+    	 	    	       	   
+    	 	    	       	   {if $result.week_order_price eq null}
+    	 	    	       	    <td>0</td>
+    	 	    	       	    {else/}
+    	 	    	       	     <td>{$result.week_order_price}</td>
+    	 	    	       	   {/if}
+    	 	    	       	   
+    	 	    	       	  
+    	 	    	       </tr>
+    	 	    	   
+    	 	    </table>
+    	 </div>
+    </div>
+    
+     <div class="detail_table" style="width: 93%;margin: 22px auto 0px;">
+    	 	    <div class="title">充值金额</div>
+    	 	    <table style="width: 447px;height:80px;border: 1px solid #CCCCCC;" cellspacing="0" cellpadding="0" border="1px solid #ccc">
+    	 	    	  
+    	 	    	   	   <tr>
+    	 	    	   	   	   <td>上周</td>
+    	 	    	   	   	   <td>本周</td>
+    	 	    	   	   </tr>
+    	 	    	       <tr>
+    	 	    	       	   {if $result.last_week_recharge eq null}
+    	 	    	       	    <td>0</td>
+    	 	    	       	    {else/}
+    	 	    	       	    <td>{$result.last_week_recharge}</td>
+    	 	    	       	   {/if}
+    	 	    	       	    {if $result.week_recharge eq null}
+    	 	    	       	    <td>0</td>
+    	 	    	       	    {else/}
+    	 	    	       	     <td>{$result.week_recharge}</td>
+    	 	    	       	    {/if}
+    	 	    	       	   
+    	 	    	       </tr>
+    	 	    	   
+    	 	    </table>
+    	 </div>
+
 {include file="public/footer" /}
