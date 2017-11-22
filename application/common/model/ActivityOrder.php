@@ -70,7 +70,7 @@ class ActivityOrder extends Model
      */
     public function getMyOrder($uid){
         $map['uid'] = $uid;
-        $field = 'o.order_sn,o.addtime,o.order_price,o.order_status,o.adult_num,o.child_num,a.aid,a.a_index_img,a.a_title,a.a_begin_time,a.a_end_time';
+        $field = 'o.*,a.aid,a.a_index_img,a.a_title,a.a_begin_time,a.a_end_time';
         $data = $this->alias('o')->field($field)->join('mfw_activity a','o.aid=a.aid ')->where($map)->order('o.order_id desc')->select();
         return $data;
     }

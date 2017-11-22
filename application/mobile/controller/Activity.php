@@ -237,7 +237,31 @@ class Activity extends Base
         }
     } 
 
-    //会员中心
+    //使用订单id付款
+    public function orderIdPay(){
+        $uid = Session::get('userInfo.uid');
+        $orderId = input('id');
+        $map['uid'] = $uid;
+        $map['order_id'] = $orderId;
+        $orderInfo = model('ActivityOrder')->where($map)->find();
+        if(empty($orderInfo)){
+            $this->error('订单错误');
+        }
+        $aid = $orderInfo['aid'];
+        $ActivityInfo = model('Activity')->find($aid);
+        //微信浏览器只支持js支付，单独一个界面
+        if(is_weixin()){
+            //session记录订单
+            session::set($uid,$orderInfo['order_sn']);
+            //跳转到wx_browser_pay
+            $this->redirect('activity/wx_browser_pay');
+        }
+        $this->assign('price',$orderInfo['order_price']);
+        $this->assign('activityInfo',$ActivityInfo);
+        $this->assign('orderInfo',$orderInfo);
+        $this->assign('title','选择支付');
+        return $this->fetch('activity/select_pay');
+    }
 
     /**
      * 订单提交

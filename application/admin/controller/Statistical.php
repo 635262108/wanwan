@@ -19,7 +19,7 @@ class Statistical extends Base
                             (select count(*) from mfw_activity_order where source=s.id and t_id>0) as enter_num,
                             (select count(*) from mfw_activity_order where source=s.id and t_id>0 and sign_time>0) as sign_num,
                             (select count(*) from mfw_user where source=s.id and balance>0) as user_num,
-                            (select sum(order_price) from mfw_activity_order where source=s.id) as order_sum_price
+                            (select sum(order_price) from mfw_activity_order where source=s.id and order_status<>2) as order_sum_price
                             from mfw_source as s");
         $this->assign('res',$res);
         return $this->fetch();

@@ -38,7 +38,7 @@
                     <div class="activity_bottom">
                         {switch name="$vo.order_status"}
                         {case value="1"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">已完成</a></p>{/case}
-                        {case value="2"}<p><a href="{:url('mobile/activity/creat_order',['order_sn'=>$vo.order_sn])}">去付款</a></p>{/case}
+                        {case value="2"}<p><a href="{:url('mobile/activity/orderIdPay',['id'=>$vo.order_id])}">去付款</a></p>{/case}
                         {case value="3"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">待参加</a></p>{/case}
                         {case value="4"}<p><a href="{:url('mobile/user/comments_list',['order_sn'=>$vo.order_sn])}">去评价</a></p>{/case}
                         {case value="5"}<p><a href="{:url('mobile/user/refund2',['order_sn'=>$vo.order_sn])}">退款中</a></p>{/case}
