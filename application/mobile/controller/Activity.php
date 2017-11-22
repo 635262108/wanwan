@@ -445,10 +445,10 @@ class Activity extends Base
         //用户id
         $uid = Session::get('userInfo.uid');
         //订单号
-        $order_sn = input('order_sn');
+        $order_sn = input('post.order_sn');
         //支付方式1：支付宝 2：微信 3：银联
-        $bank_type = input('bank_type');
-        
+        $bank_type = input('post.bank_type');
+
         $ActivityOrder = model('ActivityOrder');
         $order = $ActivityOrder->getSnOrderInfo($order_sn,'uid,order_price,pay_time');
         if($order['uid'] != $uid){

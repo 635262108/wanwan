@@ -1,33 +1,26 @@
 {include file="public/header" /}
 {include file="public/second_header"}
 <body style="background: #F6F6F6">
-<!--头部导航-->
-<!--<div class="comeback textAlign" id="second_page">
-    <div class="comeback_whole" onclick="window.location.href = document.referrer;" >
-        <div class="comeback_img">
-            <img src="__MobileImg__/second_back.png"/>
-        </div>
-
-    </div>
 
     <div class="title_word second_activity">选择支付</div>
 
-</div>-->
-
-    <div class="pay_stytle">
-        <a href="{:url('mobile/activity/payWay',['order_sn'=>$orderInfo.order_sn,'bank_type'=>2])}">
-            <div class="style weixinS">
-                <div class="weixin_pic"><img src="__MobileImg__/weixin.png"></div>
-                <div>微信支付</div>
-            </div>
-        </a>
-        <a href="{:url('mobile/activity/payWay',['order_sn'=>$orderInfo.order_sn,'bank_type'=>1])}">
-            <div class="style zhifubaoS">
-                <div class="zhifubao_pic"><img src="__MobileImg__/zhifubao.png"></div>
-                <div>支付宝支付</div>
-            </div>
-        </a>
+    <div class="product_detail">
+    	<div class="product_img"><img src="_MobileImg_/eye.png"></div>
+    	<ul>
+    		<li>￥{$price}</li>
+    		<li style="margin-left: -0.5%;">{$activityInfo.a_title}</li>
+    	</ul>
     </div>
+    
+    <form action="{:url('activity/payWay')}" method="post" class="pay_form">
+        <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
+    	<ul>
+    		<li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2" checked="checked"></li>
+    		<li><img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝支付<input type="radio" name="bank_type" value="1"></li>
+    	</ul>
+    	<button type="submit" class="Sure_pay">确认支付</button>
+    </form>
+    
 
 
     <script src="__MobileJs__/jquery.min.js"></script>

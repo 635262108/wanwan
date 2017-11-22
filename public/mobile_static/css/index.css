@@ -670,13 +670,14 @@ user_payhtml {
 	margin-top: 15px;
 }
 
-#personal_center .content,
+
 .playBaby_content .content {
 	height: auto;
 	padding-top: 10px;
 	padding-bottom: 10px;
 
 }
+
 
 
 #personal_center .content .center_img,
@@ -692,10 +693,11 @@ user_payhtml {
 }
 #personal_center .content .baby_detail{
 	padding-top: 8px;
+	margin-left: 0px;
 }
 #personal_center .content .baby_detail .ul_first,#personal_center .content .baby_detail .ul_second{
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	margin-bottom: 10px;
 }
@@ -780,9 +782,7 @@ user_payhtml {
 	height: 25px;
 	line-height: 23px;
 	text-align: center;
-	border-radius: 5px;
-	border: 1px solid #ff4134;
-	color: #FF4134;
+	color: #8A8A8A;
 	font-size: 12px;
 	margin-right: 2%
 }
@@ -792,8 +792,8 @@ user_payhtml {
 }
 
 .five_organs .activity_content ul .play_baby {
-	background: #FF4134;
-	color: white
+	border-bottom: 1px solid #FF4134;
+	color: #FF4134;
 }
 
 .five_organs .myActivity_content,
@@ -1151,15 +1151,15 @@ user_payhtml {
 
 .pay_stytle {
 	width: 90%;
-	margin: 147px auto 0px;
+	margin:0px auto;
 }
 
 .pay_stytle .style {
 	width: 100%;
 	height: 48px;
-	box-shadow: 1px 1px 5px #FF4134;
+	border: 1px solid black;
 	display: flex;
-	justify-content: center;
+	/*justify-content: center;*/
 	align-items: center;
 	margin-top: 30px;
 	background: #ffffff;
@@ -2985,4 +2985,128 @@ user_payhtml {
 .activity_address .select_paytime li.time_special{
 	color:#fff;
 	background:#ff4134;
+}
+/*选择支付新样式*/
+.product_detail{
+	width: 93%;
+	margin: 10px auto 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	padding-top: 11px;
+	padding-bottom: 11px;
+	background: #FFFFFF;
+}
+.product_detail .product_img{
+	width: 76px;
+	height: 56px;
+}
+.product_detail .product_img img{
+	width: 100%;
+	height: 100%;
+}
+.product_detail ul{
+	width: 65%;
+	margin-left: 3%;
+	
+}
+.product_detail ul li:nth-child(1){
+	font-size: 24px;
+}
+.product_detail ul li:nth-child(2){
+	font-size: 13px;
+}
+.product_detail ul li{
+	margin-bottom: 9px;
+}
+.pay_form{
+	width: 93%;
+	margin: 19px auto 0px;
+}
+.pay_form ul{
+	width: 100%;
+}
+.pay_form ul li{
+	height: 45px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 12px;
+	font-size: 12px;
+	padding-left: 16px;
+	box-sizing: border-box;
+	background: #FFFFFF;
+}
+.pay_form ul li img{
+	width: 21px;
+	height: 20px;
+}
+.pay_form ul li:nth-child(1) input{
+	margin-left: 71%;
+}
+.pay_form ul li:nth-child(2) input{
+	margin-left: 68%;
+}
+.Sure_pay{
+	width: 96px;
+	height: 25px;
+	border-radius: 12px;
+	background: #FF4134;
+	color: #FFFFFF;
+	font-size: 15px;
+	line-height: 21px;
+	border: none;
+	outline: none;
+}
+.Sure_pay{
+	margin-top: 156px;
+	margin-left: 37%;
+}
+.whole_bottom{
+	margin-top: 26px;
+}
+/*会员中心新改的样式*/
+#personal_center .content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.personal_center{
+	width: 93%;
+	margin: 0px auto;
+}
+.personal_center a{
+	display: block;
+	color: #3a3a3a;
+}
+.personal_center li{
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+	background: #FFFFFF;
+	padding-left: 16px;
+	box-sizing: border-box;
+	margin-bottom: 11px;
+}
+.personal_center li .circle_img{
+	width: 18px;
+	height: 18px;
+	margin-right: 8px;
+}
+.personal_center li  .contect{
+	width: 6px;
+	height: 11px;
+	margin-left: 72%;
+}
+#personal_href ul li{
+	margin-right: -0.4%;
+}
+.myActivity_classfy{
+	background: #FFFFFF;
+	width: 93%;
+	margin: 19px auto 11px;
 }
