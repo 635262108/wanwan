@@ -235,8 +235,9 @@ class Activity extends Base
             $this->assign('orderInfo',$add_oreder_data);
             return $this->fetch('activity/pay_success');
         }
-        
     } 
+
+    //会员中心
 
     /**
      * 订单提交
@@ -346,14 +347,14 @@ class Activity extends Base
                     $url = url('home/activity/free_detail',['aid'=>$aid]);
                     $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动付款成功,请您注意活动参与时间!";
                     $message = model('Message');
-                    $message->sendMessage($uid,$content,1);    
-                    
+                    $message->sendMessage($uid,$content,1);
+
                     $this->assign('order',$order);
                     $this->assign('activityInfo',$activityInfo);
                     $this->assign('title','报名成功');
                     return $this->fetch('activity/pay_success');
                 }
-                
+
                 //微信浏览器支付
                 if(is_weixin()){
                     //session记录订单
@@ -361,13 +362,13 @@ class Activity extends Base
                     //跳转到wx_browser_pay
                     $this->redirect('activity/wx_browser_pay');
                 }
-                                
+
                 //给用户发送一条消息
                 $url = url('activity/detail',['aid'=>$aid]);
                 $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动未付款,名额有限,请及时付款!";
                 $message = model('Message');
                 $message->sendMessage($uid,$content,1);
-                                
+
                 $this->assign('adult_num',$adult_num);
                 $this->assign('child_num',$child_num);
                 $this->assign('order_price',$order_price);
@@ -381,7 +382,7 @@ class Activity extends Base
             $uid = Session::get('userInfo.uid');
             //活动id
             $order_sn = input('order_sn');
-            
+
             //微信浏览器支付
             if(is_weixin()){
                 //session记录订单
