@@ -168,53 +168,8 @@ class User extends Base
             }
         }
     	//获取用户信息
-        $userInfo = Session::get('userInfo');
-    	$uid = $userInfo['uid'];
-    	$user = model('user');
-    	$activity = model('activity');
-    	$userInfo = $user->getIdUser($uid);
-        //获取消息数量
-        $message = model('message');
-        $messageCount = $message->getUnReadMessageCount($uid);
-        Session::set('messageCount',$messageCount);
-    	
-        $activityOrder = model('ActivityOrder');
-        $myOrderData = $activityOrder->getMyOrder($uid);
-        //订单分类:未付款2 已付款3 待评价4 退款/售后5 6
-        $notPay = array();
-        $havePay = array();
-        $notEvaluate = array();
-        $afterSale = array();
-        foreach($myOrderData as $k=>$v){
-            switch ($v['order_status']) {
-                case 2:
-                    $notPay[] = $v;
-                    break;
-                case 3:
-                    $havePay[] = $v;
-                    break;
-                case 4:
-                    $notEvaluate [] = $v;
-                    break;
-                case 5:
-                    $afterSale  [] = $v;
-                    break;
-                case 6:
-                    $afterSale  [] = $v;
-                    break;
-            }
-        }
-        
-        //获取我的收藏
-        $ActivityCollection = model('ActivityCollection');
-        $myCollection = $ActivityCollection->myCollection($uid);
-        
-        $this->assign('myCollection',$myCollection);
-        $this->assign('notPay',$notPay);
-        $this->assign('havePay',$havePay);
-        $this->assign('notEvaluate',$notEvaluate);
-        $this->assign('afterSale',$afterSale);
-        $this->assign('myOrderData',$myOrderData);
+        $uid = session('userInfo.uid');
+        $userInfo = model('user')->get($uid);
         $this->assign('userInfo',$userInfo);
     	return $this->fetch();
     }

@@ -194,7 +194,15 @@ class User extends Base
     }
 
     //考勤详情
-    public function attendance_detail($aid=0,$tid=0){
+    public function attendance_detail(){
+        $aid = input('aid');
+        $tid = input('tid');
+        $is_sign = input('is_sign');
+        if($is_sign == 1 ) {
+            $map['sign_time'] = ['>',0];
+        }elseif($is_sign == 2) {
+            $map['sign_time'] = ['=',0];
+        }
         $ActivityOrder = model('ActivityOrder');
         $map['aid'] = $aid;
         $map['t_id'] = $tid;
@@ -204,6 +212,7 @@ class User extends Base
         $this->assign('aid',$aid);
         return $this->fetch();
     }
+
 
     //导出签到
     public function conversions_attendance($aid=0){

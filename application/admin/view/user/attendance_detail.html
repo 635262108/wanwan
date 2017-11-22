@@ -21,6 +21,9 @@
         </div>
      </a>
   </div>
+      <a href="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid])}">查看全部</a>
+    <a href="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>1])}">已参加</a>
+    <a href="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>2])}">未参加</a>
 <!--导出结束-->
 <div class="container-fluid">
   <div class="row-fluid">
