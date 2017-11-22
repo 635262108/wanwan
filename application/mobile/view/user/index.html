@@ -24,24 +24,7 @@
         <div class="baby_detail">
             <ul class="ul_first">
                 <li>{$userInfo.nickname}</li>
-                <!--<li>
-                    <a href="{:url('mobile/user/my_info')}">
-                        <img src="__MobileImg__/emit.png">
-                    </a>
-                </li>-->
             </ul>
-            
-            <!--<ul class="ul_second">
-                <li>余额：{$userInfo.balance}</li>
-                <li>
-                    <a href="{:url('mobile/user/recharge')}">
-                    	
-                        <div class="pay_for">
-                        	<img src="__MobileImg__/pay_img.png" />
-                        	<span>充值</span></div>
-                    </a>
-                </li>
-            </ul>-->
 
         </div>
     </div>
@@ -52,11 +35,12 @@
 <div class="myActivity_classfy">
 	<ul class="personal_center" style="width: 100%;">
 		<a href="{:url('/mobile/user/my_activity',['a'=>1])}">
-			<li style="border-bottom: 1px solid #dfdbdb;">
+			<li style="margin-bottom: 0px;">
 				    <img src="__MobileImg__/activity_two.png"  class="circle_img" style="width: 23px;height: 23px;margin-left: -1.2%;">我的活动
 					<span style="color: #c5c5c5;margin-left: 55%;">全部活动</span>
 				    <img src="__MobileImg__/dayu.png"  style="width:6px;height:11px;margin-left:2%;">
 			</li>
+			<div class="line"></div>
 		</a>
 	</ul>
 	
@@ -106,6 +90,7 @@
 	<li><img src="__MobileImg__/back_login.png" class="circle_img">退出登录<img src="__MobileImg__/dayu.png" class="contect"></li>
 </ul>
 
+{include file="public/footer" /}
 
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>

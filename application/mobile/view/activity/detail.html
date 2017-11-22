@@ -34,14 +34,6 @@
                 <li class="select_time" style="color: #656565;">选择&nbsp;&nbsp;&nbsp;活动时间</li>
             </ul>
         </div>
-        <!--<div class="theme_info">
-            {empty name = "$isCollection"}
-            <span class="collect" aid="{$activityInfo.aid}">收藏</span>
-            {else/}
-            <span class="collect" aid="{$activityInfo.aid}">已收藏</span>
-            {/empty}
-            <span><a href="javascript:;" class="i_want">我要报名</a></span>
-        </div>-->
     </div>
 </div>
 
@@ -68,7 +60,7 @@
                 <p>活动时间</p >
                 <ul class="select_paytime">
                     {foreach name="timeInfo" item="vo"}
-                    <li><input type="radio" name="time" value="{$vo.t_id}" >{$vo.t_content}<span>{$vo.ticket_num}</span></li>
+                    <li><input type="radio" name="time" value="{$vo.t_id}" >{$vo.t_content}<span style="display: none;">{$vo.ticket_num}</span></li>
                     {/foreach}
                 </ul>
             </div>

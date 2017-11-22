@@ -26,11 +26,24 @@
 
   
 
-        <div class="play_baoContent">
+        <div class="play_baoContent" id="second_detail">
             {foreach $result as $v}
             {if condition="$v.a_type eq $vo.id"}
             <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">
                 <div class="playBao_part">
+                  {if condition="$v.a_end_time gt time()"/}
+					<div class="sign_num">
+						
+						 <p>{$v.a_sold_num}</p>
+						 <p>{$v.a_num}</p>
+					</div>
+					{else/}
+					<div class="sign_num" style="background:url(../../../../public/mobile_static/images/over_img.png) no-repeat";>
+						
+						 <p>{$v.a_sold_num}</p>
+						 <p>{$v.a_num}</p>
+					</div>
+				 {/if}
                     <div class="bao_img">
                         <img src="__AdminIMG__/{$v.a_index_img}"/>
                     </div>
@@ -44,15 +57,30 @@
                             <li>活动地点：{$v.a_address}</li>
        
                         </ul>
-                         <div class="content_bottom"><span>￥{$v.a_price}</span><a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">点我报名>></a></div>
+                         <div class="content_bottom">
+                         	<span>￥{$v.a_price}</span>
+                         	 {if condition="$v.a_end_time gt time()"/}
+                         	 <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">点我报名>></a>
+                         	 {else/}
+                         	 <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}" style="color: #767676;">活动结束>></a>
+                         	 {/if}
+                         	
+                         </div>
                     </div>
                 </div>
             </a>
             {/if}
             {/foreach}
+            <div class="no_style" style="display:none;margin-top:88px;" id="new_no">
+            	 <div><img src="__MobileImg__/no_activity.png"></div>
+                <div>活动暂时休息一会儿噢~</div>
+                 <!--<div><a href="javascript:;" style="color: #FF4134;">快去看看吧</a></div>-->
+            </div>
         </div>
+        
    </div>
 {/foreach}
+
 </div>
 
 
