@@ -81,7 +81,12 @@
                     </li>
                 </ul>
             </div>
-            <button type="submit" class="my_name">我要报名</button>
+             {if condition="$activityInfo.a_end_time gt time()"/}
+                  <button type="submit" class="my_name">我要报名</button>
+                  {else/}
+                    <button type="submit" class="my_name" style="color: #656565;background: #C0C0C0;">活动结束</button>
+             {/if}
+       
 
         </div>
     </form>
@@ -98,7 +103,7 @@
 	
 
 <div class="detailActivity">
-    <div class="activity_parts">
+    <!--<div class="activity_parts">
     	
         {foreach name="extensionInfo" item="vo" }
        <a href="{:url('mobile/activity/detail_list',['eid'=>$vo.extension_id])}">
@@ -118,7 +123,8 @@
           </a>
         {/foreach}
       
-    </div>
+    </div>-->
+    {$activityInfo.a_content}
 </div>
 
 <!--玩伴评论-->
@@ -193,14 +199,15 @@
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
  <script>
-//      $(".my_name").click(function(){
-//          var time = $("input[type='radio']:checked").val();
-//          if (time == undefined) {
-//              alert('请选择时间')
-//              return false;
-//          }
-//      });
-//      $(".freeActivity_content p img").attr("style","width:100%");
+        $(".my_name").click(function(){
+            var time = $("input[type='radio']:checked").val();
+            if (time == undefined) {
+                alert('请选择时间')
+                return false;
+            }
+        });
+        $(".detailActivity")
+        $(".detailActivity p img").attr("style","width:100%");
     </script>
 </body>
 </html>

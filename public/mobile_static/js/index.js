@@ -315,7 +315,7 @@ $(".select_opera .sure").on("click",function(){
 })
 
 //生日插件
-$(".birthdayContainer").selectDate();
+//$(".birthdayContainer").selectDate();
 })
 
 
