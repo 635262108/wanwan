@@ -8,7 +8,6 @@
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/public/error.html" afterPath="$PROJECT_DIR$/application/mobile/view/public/error.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +49,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="568" column="8" lean-forward="true" selection-start-line="568" selection-start-column="8" selection-end-line="568" selection-end-column="8" />
+            <state relative-caret-position="453">
+              <caret line="582" column="32" lean-forward="true" selection-start-line="582" selection-start-column="32" selection-end-line="582" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -408,12 +407,12 @@
       <workItem from="1511318158228" duration="39000" />
       <workItem from="1511318210559" duration="619000" />
       <workItem from="1511329640594" duration="19902000" />
-      <workItem from="1511399446137" duration="19983000" />
+      <workItem from="1511399446137" duration="20248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="615037000" />
+    <option name="totallyTimeSpent" value="615302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -851,8 +850,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="568" column="8" lean-forward="true" selection-start-line="568" selection-start-column="8" selection-end-line="568" selection-end-column="8" />
+        <state relative-caret-position="453">
+          <caret line="582" column="32" lean-forward="true" selection-start-line="582" selection-start-column="32" selection-end-line="582" selection-end-column="32" />
           <folding />
         </state>
       </provider>
