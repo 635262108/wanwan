@@ -18,14 +18,14 @@ class Activity extends Base
 {
     public function _initialize() {
         parent::_initialize();
-        $noLogin = array();
+        $noLogin = array('add_order');
         $this->checkUserLogin($noLogin);
     }
 
     //最新活动
     public function new_activity(){
         //获取活动信息
-        $actInfo = model('Activity')->getActivityAll('*','0','10');
+        $actInfo = model('Activity')->limit("0,10")->order("aid desc")->select();
         $this->assign('actInfo',$actInfo);
         return $this->fetch();
     }
@@ -43,7 +43,7 @@ class Activity extends Base
         $Activity = model('Activity');
         $ActivityInfo = array();
         foreach ($titleSon as $k=>$v){
-            $ActivityInfo[] = $Activity->getActivity($v['id'],3,$field);
+            $ActivityInfo[] = $Activity->getActivity($v['id'],'',$field);
         }
         
         //降维
@@ -56,26 +56,7 @@ class Activity extends Base
         
         //获取标题信息
         $titleInfo = $ActivityType->getTitleInfo($set);
-        //获取banner图
-        $map['type_id'] = $set;
-        $banner = Db::table('mfw_activity_type_banner')->where($map)->select();
-        
-        //获取我的收藏
-        $collections = array();
-        if(!empty(Session::get('userInfo'))){
-            $uid = Session::get('userInfo.uid');    //获取uid
-            $ActivityCollection = model('ActivityCollection');  
-            $myCollections = $ActivityCollection->myCollections($uid);  //获取我的收藏
-            //组合收藏aid
-            if(!empty($myCollections)){
-                $collections = array();
-                foreach($myCollections as $k=>$v){
-                    $collections[] = $v['aid'];
-                }
-            }
-        }
-        $this->assign('collections',$collections);
-        $this->assign('banner',$banner);
+
         $this->assign('titleInfo',$titleInfo);
         $this->assign('title',$titleInfo['name']);
         $this->assign('result',$result);

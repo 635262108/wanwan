@@ -60,7 +60,7 @@
                 <p>活动时间</p >
                 <ul class="select_paytime">
                     {foreach name="timeInfo" item="vo"}
-                    <li><input type="radio" name="time" value="{$vo.t_id}" >{$vo.t_content}<span style="display: none;">{$vo.ticket_num}</span></li>
+                    <li><input type="radio" name="time" value="{$vo.t_id}" >{$vo.begin_time|date='Y/m/d H:i',###}-{$vo.end_time|date='H:i',###}<span style="display: none;">{$vo.ticket_num}</span></li>
                     {/foreach}
                 </ul>
             </div>
