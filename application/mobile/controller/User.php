@@ -644,6 +644,12 @@ class User extends Base
             $this->error('支付失败,有疑问请联系客服');
         }
     }
+
+    //退出登录
+    public function login_out(){
+        session(null);
+        return_info(200,'登出成功');
+    }
     
     //忘记密码
     public function forget_pwd(){
