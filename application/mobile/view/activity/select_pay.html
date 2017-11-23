@@ -2,13 +2,13 @@
 {include file="public/second_header"}
 <body style="background: #F6F6F6">
 
-    <div class="title_word second_activity">选择支付</div>
+    <!--<div class="title_word second_activity">选择支付</div>-->
 
     <div class="product_detail">
     	<div class="product_img"><img src="_MobileImg_/eye.png"></div>
     	<ul>
     		<li>￥{$price}</li>
-    		<li style="margin-left: -0.5%;">{$activityInfo.a_title}</li>
+    		<li>&nbsp;&nbsp;{$activityInfo.a_title}</li>
     	</ul>
     </div>
     
@@ -16,7 +16,7 @@
         <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
     	<ul>
     		<li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2" checked="checked"></li>
-    		<li><img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝支付<input type="radio" name="bank_type" value="1"></li>
+    		<li><img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝<input type="radio" name="bank_type" value="1"></li>
     	</ul>
     	<button type="submit" class="Sure_pay">确认支付</button>
     </form>

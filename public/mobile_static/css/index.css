@@ -1,4 +1,4 @@
-user_payhtml {
+.almost .title_imguser_payhtml {
 	font-size: 18px;
 }
 
@@ -173,7 +173,7 @@ user_payhtml {
 .almost .title_img {
 	width: 172px;
 	margin: 0px auto;
-	height: 28px;
+	height: 30px;
 	position: relative
 }
 
@@ -191,7 +191,7 @@ user_payhtml {
 	bottom: 0;
 	margin: auto;
 	text-align: center;
-	line-height: 27px;
+	line-height: 30px;
 	color: #FFFFFF;
 	letter-spacing: 10px;
 	margin-left: 15px
@@ -1302,7 +1302,7 @@ user_payhtml {
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p a,
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p a{
 	display: block;
-	height: 18px;
+	height: 19px;
 	line-height: 18px;
 	text-align: center;
 }
@@ -3075,7 +3075,7 @@ display: none  !important;
 	margin-left: 71%;
 }
 .pay_form ul li:nth-child(2) input{
-	margin-left: 68%;
+	margin-left: 75%;
 }
 .Sure_pay{
 	width: 96px;
@@ -3178,4 +3178,49 @@ display: none  !important;
 	line-height: 17px;
 	margin-top: 10px;
 	font-size: 12px;
+}
+/*退出登录弹出框*/
+.sure_back{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.sure_back .sure_modal{
+	width: 240px;
+	height: 140px;
+	background: #FFFFFF;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.sure_back .sure_modal .select_opera{
+	width: 150px;
+	height: 46px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 10px auto;
+	/*border: 1px solid black;*/
+}
+.sure_back .sure_modal .select_opera div{
+	cursor: pointer;
+	width: 50%;
+	height: 46px;
+	line-height: 46px;
+	font-size: 13px;
+	color: #5c5c5c;
+	border-right: 1px solid #DFDBDB;
+	text-align: center;
+}
+.sure_back .sure_modal .select_opera div:nth-child(2){
+	border-right: 0px;
 }
