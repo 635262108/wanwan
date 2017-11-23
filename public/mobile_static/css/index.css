@@ -1767,20 +1767,25 @@ display: none  !important;
 }
 
 .discuss_content {
-	width: 95%;
-	margin: auto
+	width: 100%;
+	margin: auto;
+	margin-bottom: 40px;
 }
 
 .discuss_content .discuss_part {
 	margin-top: 20px;
 	width: 100%;
+	padding-top: 5px;
 	display: flex;
 	flex-direction: row;
-	justify-content: center
+	justify-content: flex-start;
+	
+	background: #FFFFFF;
+	
 }
 
 .discuss_content .discuss_part .discuss_img {
-	width: 25%;
+	width: 70px;
 	height: 70px;
 	margin-right: 5%
 }
@@ -1791,12 +1796,12 @@ display: none  !important;
 }
 
 .discuss_content .discuss_part ul {
-
+    width: 70%;
 	font-size: 14px
 }
 
 .discuss_content .discuss_part ul li {
-	margin-bottom: 10px;
+	margin-bottom: 6px;
 	line-height: 15px
 }
 

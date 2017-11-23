@@ -145,7 +145,7 @@
             </ul>
         </div>
         {/foreach}
-        <div class="discuss_more"><a href="{:url('mobile/activity/comments_list',['aid'=>$activityInfo.aid])}">查看全部</a></div>
+        <!--<div class="discuss_more"><a href="{:url('mobile/activity/comments_list',['aid'=>$activityInfo.aid])}">查看全部</a></div>-->
         {/empty}
     </div>
 </div>
@@ -206,7 +206,6 @@
                 return false;
             }
         });
-        $(".detailActivity")
         $(".detailActivity p img").attr("style","width:100%");
     </script>
 </body>
