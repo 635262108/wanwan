@@ -10,7 +10,7 @@ user_payhtml {
 
 .wanwan_logo{
 	width: 100%;
-	background: #FFFFFF;
+	background:#f9f9f9;
 	height: 36px;
 	position: fixed;
 	top: 0px;
@@ -368,7 +368,7 @@ user_payhtml {
 
 .five_organs .play_baoContent .playBao_part {
 	background: #FFFFFF;
-	box-shadow: 0px 1px 2px #CCCCCC;
+	box-shadow: 0px 1px 1px #CCCCCC;
 	width: 100%;
 	padding-top: 12px;
 	padding-left: 2%;
@@ -377,14 +377,16 @@ user_payhtml {
 	margin: 10px auto;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
 	position: relative;
+	/*border: 1px solid red;*/
 
 }
 .five_organs .play_baoContent .playBao_part .sign_num{
 	background: url(../images/sign_num.png) no-repeat;
 	position: absolute;
 	right: 6px;
-	top: -3px;
+	top: -4px;
 	width: 25px;
 	height: 26px;
 	display: flex;
@@ -409,20 +411,17 @@ user_payhtml {
 	box-sizing: border-box;
 	border-bottom: 1px solid #FFFFFF;
 }
-/*.five_organs .play_baoContent .playBao_part .sign_num p:nth-child(3){
-	top: 13px;
-	text-align: center;
-}*/
+
 .five_organs .play_baoContent .playBao_part a{
 	display: block;
-	margin-right: 2%;
+	
 }
 
 
 .five_organs .play_baoContent .playBao_part .bao_img {
 	width: 113px;
 	height: 116px;
-	margin-right: 2%;
+	
 }
 
 .five_organs .play_baoContent .playBao_part .bao_img img {
@@ -431,7 +430,8 @@ user_payhtml {
 }
 
 .five_organs .play_baoContent .playBao_part .bao_content {
-	width: 74%;
+	/*width: 64%;*/
+	/*margin-left: 2%;*/
 }
 .five_organs .play_baoContent .playBao_part .bao_content .content_bottom{
 	display: flex;
@@ -1298,6 +1298,13 @@ user_payhtml {
 	font-size: 12px;
 	border-radius: 15px;
 	margin-right: 1%
+}
+.myActivity_content .my_Activity_big .my_activity_part .activity_bottom p a,
+.my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p a{
+	display: block;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(1),
@@ -2883,7 +2890,6 @@ display: none  !important;
 
 /*二级页面的新增样式*/
 .second_title{
-	/*border: 1px solid red;*/
 	width: 93%;
 	margin: 0px auto;
 	background: #FFFFFF;
@@ -2901,7 +2907,7 @@ display: none  !important;
 	font-size: 12px;
 	color: #8a8a8a;
 	letter-spacing: 1px;
-	width: 15%;
+	width: 20%;
 	text-align: center;
 	height: 29px;
 	line-height: 29px;

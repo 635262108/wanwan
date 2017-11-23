@@ -9,7 +9,16 @@
     </head>
     <body>
         <div class="textAlign register_bg">
-
+              <div class="comeback_whole" >
+			        <div class="comeback_img">
+			     
+			            {empty name="$url"}
+			                <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/login_back.png"/></a>
+			            {else/}
+			                <a href="{$url}"><img src="__MobileImg__/login_back.png"/></a>
+			            {/empty}
+			        </div>
+    		</div>
             <div class="information_content">
                 <form action="" method="post">
                 	<p class="tel_namer">手机号</p>

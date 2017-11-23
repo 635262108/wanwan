@@ -3,6 +3,13 @@
 	margin: 0px auto;
 	
 }
+
+	
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
 .information_content input{
 	color: #427893;
 }
@@ -10,7 +17,8 @@
 	background: url(../images/bg_resiger.png) no-repeat;
 	width: 375px;
 	height: 667px;
-	background-size:cover;
+	background-size:contain;
+	
 
 }
 #register_content{
@@ -40,7 +48,7 @@
 	width:304px;
 	background: rgba(245,245,245,.5);
 	top: 188px;
-	left: 8px;
+	left: 0px;
 	padding-bottom: 34px;
 }
 

@@ -177,17 +177,18 @@ $(".collect").on("click",function(){
 
 
         if (activityParts.length > 0) {
+        	console.log(activityParts.length,00000)
 
             $(".activity_more").show();
-            $(".nothing").hide();
+            $(".no_style").hide();
         }
         else {
             $(".activity_more").hide();
-            $(".nothing").show();
+            $(".no_style").show();
         }
 
     })
-    $(".li_first").trigger("click");
+    lis.eq(0).trigger("click");
 
 
 
