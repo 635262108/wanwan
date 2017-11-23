@@ -24,13 +24,13 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="457" column="38" lean-forward="true" selection-start-line="457" selection-start-column="38" selection-end-line="458" selection-end-column="53" />
+            <state relative-caret-position="627">
+              <caret line="695" column="56" lean-forward="true" selection-start-line="695" selection-start-column="56" selection-end-line="695" selection-end-column="56" />
               <folding>
                 <element signature="e#8925#15454#0#PHP" expanded="false" />
-                <element signature="e#32090#32776#0#PHP" expanded="false" />
-                <element signature="e#32480#32770#0#PHP" expanded="false" />
-                <element signature="e#32563#32770#0#PHP" expanded="false" />
+                <element signature="e#32222#32908#0#PHP" expanded="false" />
+                <element signature="e#32612#32902#0#PHP" expanded="false" />
+                <element signature="e#32695#32902#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -360,12 +360,12 @@
       <workItem from="1511318158228" duration="39000" />
       <workItem from="1511318210559" duration="619000" />
       <workItem from="1511329640594" duration="19902000" />
-      <workItem from="1511399446137" duration="3237000" />
+      <workItem from="1511399446137" duration="3695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="598291000" />
+    <option name="totallyTimeSpent" value="598749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -779,13 +779,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="457" column="38" lean-forward="true" selection-start-line="457" selection-start-column="38" selection-end-line="458" selection-end-column="53" />
+        <state relative-caret-position="627">
+          <caret line="695" column="56" lean-forward="true" selection-start-line="695" selection-start-column="56" selection-end-line="695" selection-end-column="56" />
           <folding>
             <element signature="e#8925#15454#0#PHP" expanded="false" />
-            <element signature="e#32090#32776#0#PHP" expanded="false" />
-            <element signature="e#32480#32770#0#PHP" expanded="false" />
-            <element signature="e#32563#32770#0#PHP" expanded="false" />
+            <element signature="e#32222#32908#0#PHP" expanded="false" />
+            <element signature="e#32612#32902#0#PHP" expanded="false" />
+            <element signature="e#32695#32902#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

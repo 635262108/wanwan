@@ -456,9 +456,11 @@ class Activity extends Base
         $input->setNotifyUrl("http://www.baobaowaner.com/home/Activity/notify/order_sn/".$order_sn); //设置回调地址
         $orders = WxPayApi::unifiedOrder($input);
         //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
-        if($orders['err_code'] == 'INVALID_REQUEST'){
-            model('ActivityOrder')->where('order_sn',$order_sn)->delete();
-            $this->error('已过有效支付时间，请重新下单');
+        if(isset($orders['err_code'])){
+            if($orders['err_code'] == 'INVALID_REQUEST'){
+                model('ActivityOrder')->where('order_sn',$order_sn)->delete();
+                $this->error('已过有效支付时间，请重新下单');
+            }
         }
         $jsApiParameters = $tools->getJsApiParameters($orders);
         $this->assign('jsApiParameters', $jsApiParameters);
@@ -694,9 +696,11 @@ class Activity extends Base
         $params['scene_info'] = '{"h5_info": {"type":"Wap","wap_url": "https://api.lanhaitools.com/wap","wap_name": "玩翫碗活动报名"}}';
         $result = $wechatAppPay->unifiedOrder( $params );
         //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
-        if($result['err_code'] == 'INVALID_REQUEST'){
-            model('ActivityOrder')->where('order_sn',$order_sn)->delete();
-            $this->error('已过有效支付时间，请重新下单');
+        if(isset($orders['err_code'])){
+            if($result['err_code'] == 'INVALID_REQUEST'){
+                model('ActivityOrder')->where('order_sn',$order_sn)->delete();
+                $this->error('已过有效支付时间，请重新下单');
+            }
         }
         $url = $result['mweb_url'].'&redirect_url=http://www.baobaowaner.com/mobile/Activity/pay_success/order_sn/'.$order_sn;//redirect_url 是支付完成后返回的页面
         return $url;
