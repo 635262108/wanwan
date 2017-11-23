@@ -1666,7 +1666,8 @@ display: none  !important;
 
 .detailActivity {
 	position: relative;
-	width: 100%
+	width: 93%;
+	margin: 0px auto;
 }
 
 .detailActivity .dot {
