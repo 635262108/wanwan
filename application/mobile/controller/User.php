@@ -569,8 +569,7 @@ class User extends Base
     //充值
     public function recharge(){
         if(!is_weixin()){
-            $this->assign('msg','请在微信下进行充值哦');
-            return $this->fetch('public/prompt');
+            return $this->error('请在微信下进行充值哦');
         }
     	$this->assign('title','用户充值');
         return $this->fetch();
@@ -581,7 +580,7 @@ class User extends Base
         //金额
         $money = input('post.money');
         //检查金额
-        if(!is_numeric($money)){
+        if(intval($money) == 0){
             $this->error('金额输入不正确');
         }
 

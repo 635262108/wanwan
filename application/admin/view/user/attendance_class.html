@@ -23,7 +23,8 @@
                             <tr>
                                 <th>id</th>
                                 <th>活动标题</th>
-                                <th>活动时间段</th>
+                                <th>开始时间</th>
+                                <th>结束时间</th>
                                 <th>报名名额</th>
                                 <th>已预约人数</th>
                                 <th>签到人数</th>
@@ -37,7 +38,8 @@
                             <tr class="gradeX trs">
                                 <td>{$vo.t_id}</td>
                                 <td>{$vo.a_title}</td>
-                                <td>{$vo.t_content}</td>
+                                <td>{$vo.begin_time|date="y-m-d h:i",###}</td>
+                                <td>{$vo.end_time|date="y-m-d h:i",###}</td>
                                 <td>{$vo.join_num}</td>
                                 <td>{$vo.enter_num}</td>
                                 <td>{$vo.sign_num}</td>
