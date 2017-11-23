@@ -696,7 +696,7 @@ class Activity extends Base
         $params['scene_info'] = '{"h5_info": {"type":"Wap","wap_url": "https://api.lanhaitools.com/wap","wap_name": "玩翫碗活动报名"}}';
         $result = $wechatAppPay->unifiedOrder( $params );
         //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
-        if(isset($orders['err_code'])){
+        if(isset($result['err_code'])){
             if($result['err_code'] == 'INVALID_REQUEST'){
                 model('ActivityOrder')->where('order_sn',$order_sn)->delete();
                 $this->error('已过有效支付时间，请重新下单');
