@@ -6,12 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/specification.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/specification.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/Activity.php" afterPath="$PROJECT_DIR$/application/common/model/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/activity/detail.html" afterPath="$PROJECT_DIR$/application/mobile/view/activity/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/order.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" afterPath="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +23,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="675" column="38" lean-forward="false" selection-start-line="675" selection-start-column="38" selection-end-line="675" selection-end-column="38" />
+            <state relative-caret-position="1704">
+              <caret line="201" column="40" lean-forward="true" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="saveactivitylist.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="682">
+              <caret line="91" column="73" lean-forward="true" selection-start-line="91" selection-start-column="73" selection-end-line="91" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="183" column="36" lean-forward="false" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="36" />
+              <folding>
+                <marker date="1511342182937" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
+                <marker date="1511342182937" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
+                <marker date="1511342182937" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
+                <marker date="1511342182937" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
+                <marker date="1511342182937" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
+                <marker date="1511342182937" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
+                <marker date="1511342182937" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
+                <marker date="1511342182937" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="attendance_class.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance_class.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="704">
+              <caret line="41" column="49" lean-forward="false" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/activity/order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="682">
+              <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -39,17 +86,17 @@
         <entry file="file://$PROJECT_DIR$/application/admin/view/activity/specification.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
-              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+              <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addspelist.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addspelist.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addspelist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+            <state relative-caret-position="396">
+              <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -66,14 +113,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$a</find>
-      <find>$g</find>
       <find>login</find>
       <find>addActivity</find>
       <find>var</find>
       <find>speci</find>
-      <find>specification</find>
-      <find>addSpe</find>
       <find>new_</find>
       <find>$this-&gt;Activity</find>
       <find>select_pay</find>
@@ -96,6 +139,10 @@
       <find>getActivityAll</find>
       <find>getTitleSon</find>
       <find>getActivity</find>
+      <find>specification</find>
+      <find>addSpe</find>
+      <find>attendance_class</find>
+      <find>time</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -116,15 +163,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/view/public/dis_add_role.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/admin/dis_add_role.html" />
         <option value="$PROJECT_DIR$/application/admin/view/admin/role.html" />
         <option value="$PROJECT_DIR$/application/admin/view/admin/dis_save_user.html" />
         <option value="$PROJECT_DIR$/application/admin/view/admin/dis_save_role.html" />
         <option value="$PROJECT_DIR$/application/admin/logic/AdminLogic.php" />
         <option value="$PROJECT_DIR$/application/admin/view/public/header.html" />
         <option value="$PROJECT_DIR$/application/admin/view/user/index.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" />
         <option value="$PROJECT_DIR$/application/admin/view/user/attendance.html" />
         <option value="$PROJECT_DIR$/application/home/controller/Base.php" />
         <option value="$PROJECT_DIR$/application/common/model/ActivityType.php" />
@@ -151,7 +195,6 @@
         <option value="$PROJECT_DIR$/extend/alipay/Wappay.php" />
         <option value="$PROJECT_DIR$/application/mobile/view/activity/select_pay.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/user/index.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/view/index/index.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
@@ -167,6 +210,10 @@
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/specification.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/activity/order.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
       </list>
     </option>
   </component>
@@ -241,14 +288,6 @@
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="activity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
@@ -354,12 +393,12 @@
       <workItem from="1511318158228" duration="39000" />
       <workItem from="1511318210559" duration="619000" />
       <workItem from="1511329640594" duration="19902000" />
-      <workItem from="1511399446137" duration="14133000" />
+      <workItem from="1511399446137" duration="17944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="609187000" />
+    <option name="totallyTimeSpent" value="612998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -405,27 +444,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/thinkphp/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/Build.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/admin_static/js/matrix.login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/tables.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
@@ -437,13 +455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/common/model/ActivityTime.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -644,23 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="198" column="28" lean-forward="false" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
-          <folding>
-            <marker date="1511342182937" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
-            <marker date="1511342182937" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
-            <marker date="1511342182937" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
-            <marker date="1511342182937" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
-            <marker date="1511342182937" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1511342182937" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
-            <marker date="1511342182937" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
-            <marker date="1511342182937" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/home/view/user/my_activity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -761,22 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="675" column="38" lean-forward="false" selection-start-line="675" selection-start-column="38" selection-end-line="675" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/specification.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/user/add_member.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-361">
@@ -785,10 +763,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/specification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addspelist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+        <state relative-caret-position="396">
+          <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/ActivityTime.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="183" column="36" lean-forward="false" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="36" />
+          <folding>
+            <marker date="1511342182937" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
+            <marker date="1511342182937" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
+            <marker date="1511342182937" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
+            <marker date="1511342182937" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
+            <marker date="1511342182937" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1511342182937" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
+            <marker date="1511342182937" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
+            <marker date="1511342182937" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance_class.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="41" column="49" lean-forward="false" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="91" column="73" lean-forward="true" selection-start-line="91" selection-start-column="73" selection-end-line="91" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1704">
+          <caret line="201" column="40" lean-forward="true" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="40" />
           <folding />
         </state>
       </provider>

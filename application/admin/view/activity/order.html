@@ -31,6 +31,7 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
+                    <th>id</th>
                     <th>订单号</th>
                     <th style="width: 200px;">商品信息</th>
                     <th>提交人</th>
@@ -47,6 +48,7 @@
               <tbody id="tbody_center" style="font-size: 12px;">
                 {foreach name="orderInfo" item="vo"}
                 <tr class="gradeX trs">
+                  <td>{$vo.order_id}</td>
                   <td>{$vo.order_sn}</td>
                   <td>{$vo.a_title|subtext=17}</td>
                   <td>{$vo.name}</td>

@@ -86,8 +86,8 @@ class Activity extends Base
         //新增
         $data['a_title'] = $a_title;
         $data['a_remark'] = $a_remark;
-        $data['a_begin_time'] = time($a_begin_time);
-        $data['a_end_time'] = time($a_end_time);
+        $data['a_begin_time'] = strtotime($a_begin_time);
+        $data['a_end_time'] = strtotime($a_end_time);
         $data['a_num'] = $a_num;
         $data['a_adult_price'] = $a_adult_price;
         $data['a_child_price'] = $a_child_price;
@@ -154,6 +154,8 @@ class Activity extends Base
         $a_adult_price= input('post.adult_price');
         //活动小孩价格
         $a_child_price = input('post.child_price');
+        //活动价格
+        $price = input('post.price');
         //活动状态
         $a_status = input('post.activity_status');
         //活动类型
@@ -198,6 +200,7 @@ class Activity extends Base
         $data['a_type'] = $a_type;
         $data['a_is_recommend'] = $a_is_recommend;
         $data['a_content'] = $a_content;
+        $data['a_price'] = $price;
         $Activity = model('Activity');
         $Activity->saveActivity($data);
         $this->success('修改成功','activity/index');
@@ -607,14 +610,18 @@ class Activity extends Base
     //添加规格
     public function addSpe(){
         $data['aid'] = input('post.aid');
-        $data['t_content'] = input('post.content');
+        $data['begin_time'] = strtotime(input('post.begin_time'));
+        $data['end_time'] = strtotime(input('post.end_time'));
         $data['ticket_num'] = input('post.num');
         $data['remark'] = input('post.remark');
-        $data['price'] = input('post.price');
         $data['is_display'] = input('post.is_display');
-        $ActivityTime = model('ActivityTime');
-        $ActivityTime->add($data);
-        $this->success('添加成功','activity/specification');
+        $res = model('ActivityTime')->add($data);
+        if($res) {
+            $this->success('添加成功','activity/specification');
+        }else{
+            $this->success('添加失败','activity/specification');
+        }
+
     }
     
     //删除规格
