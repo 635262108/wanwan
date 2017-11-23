@@ -179,17 +179,29 @@
             {empty name = "$isCollection"}
             <span class="collect" aid="{$activityInfo.aid}">收藏</span>
             {else/}
-            <span class="collect" aid="{$activityInfo.aid}">已收藏</span>
+            <span class="collect" aid="{$activityInfo.aid}" style="border:1px solid #FF4134 ;">已收藏</span>
             {/empty}
-            <span><a href="javascript:;" class="i_want">我要报名</a></span>
+             {if condition="$activityInfo.a_end_time gt time()"/}
+              <span><a href="javascript:;" class="i_want">我要报名</a></span>
+              {else/}
+                <span style="color: #656565;background: #C0C0C0;"><a href="javascript:;" class="i_want" >活动结束</a></span>
+             {/if}
+            
     </div>
 
 
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
-<script>
-    $(".freeActivity_content p img").attr("style","width:100%");
-</script>
+ <script>
+//      $(".my_name").click(function(){
+//          var time = $("input[type='radio']:checked").val();
+//          if (time == undefined) {
+//              alert('请选择时间')
+//              return false;
+//          }
+//      });
+//      $(".freeActivity_content p img").attr("style","width:100%");
+    </script>
 </body>
 </html>
 

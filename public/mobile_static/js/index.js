@@ -1,7 +1,4 @@
 $(function(){
-//	$(".click_stroggle").on("click",function(){
-//		$(".stroggle_ul").slideToggle(100)
-//	})
 
     //大人的加
     
@@ -14,7 +11,7 @@ $(function(){
     
     time_lis.each(function(){
     	if($(this).children("span").html()==0){
-    		$(this).css({"background":"#CCCCCC","color":"#fff"});
+    		$(this).css({"background":"#f0f0f0","color":"#b7b5b5"});
     		$(this).off("click");
     		$(this).children("input").attr("readonly",true);
     	}
@@ -164,7 +161,7 @@ $(".collect").on("click",function(){
 
   
   
-    //会员中心(tab栏转换)
+    //会员中心(我的活动tab栏转换)
     var lis = $(".lis_tab").children();
     var contents = $(".all_activityContent").children();
 
@@ -177,7 +174,6 @@ $(".collect").on("click",function(){
 
 
         if (activityParts.length > 0) {
-        	console.log(activityParts.length,00000)
 
             $(".activity_more").show();
             $(".no_style").hide();
@@ -188,7 +184,12 @@ $(".collect").on("click",function(){
         }
 
     })
-    lis.eq(0).trigger("click");
+    lis.each(function(){
+    	if($(this).hasClass("play_baby")){
+    		$(this).trigger("click");
+    	}
+    })
+
 
 
 
@@ -258,6 +259,8 @@ $(".cancel").on("click",function(){
 
 //二级页面tab栏的转换
 // 选中除了第一个子元素之外的所有子元素(隐藏)
+
+//二级主题的点击
 $(".total_content .five_organs:not(:first-child)").css("display","none");
 var second_lis=$(".second_title ul").children("li");
 var secondContents=$(".total_content").children();
@@ -266,17 +269,16 @@ var secondContents=$(".total_content").children();
  	$(this).addClass("special_title").siblings().removeClass("special_title");
  	secondContents.eq(index).show().siblings().hide();
  	var activity=secondContents.eq(index).children("#second_detail").find(".playBao_part");
- 	console.log(activity.length,555);
    	if(activity.length==0){
 		$(".no_style").show();
 	}
    	else if(activity.length>=1){
-   		console.log(33333)
+   		
        $(".no_style").attr("style","display: none;margin-top:88px ;");
    	}
  	
  })
- second_lis.eq(0).trigger("click");
+   second_lis.eq(0).trigger("click");
  
 // 当我的收藏没有的时候
 
@@ -288,6 +290,30 @@ if(collectParts.length===0){
 else{
 	$(".nothing").hide();
 }
+
+//点击退出登录
+$(".back_login").on("click",function(){
+	$(".sure_back").show();
+})
+
+//点击取消
+$(".select_opera .cancel").on("click",function(){
+	$(".sure_back").hide();
+});
+
+//点击确认
+$(".select_opera .sure").on("click",function(){
+	     $.post("/mobile/user/login_out",
+            function(obj){
+                if(obj.state_code == 200){
+                   $(".sure_back").hide();
+                 location.href="/mobile/activity/new_activity.html"
+                }else{
+                    
+                }
+            }, "json");
+})
+
 //生日插件
 $(".birthdayContainer").selectDate();
 })

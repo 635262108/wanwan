@@ -17,7 +17,7 @@ body{
 	background: url(../images/bg_resiger.png) no-repeat;
 	width: 375px;
 	height: 667px;
-	background-size:contain;
+	background-size:cover;
 	
 
 }
@@ -54,7 +54,6 @@ body{
 
 .textAlign .information_content form {
 	width: 86%;
-	/*border: 1px solid black;*/
 	margin: 0px auto;
 }
 
@@ -70,7 +69,6 @@ body{
 	font-weight: 700;
 	color: #FFFFFF;
 	font-family: '苹方';
-	/*border: 1px solid red;*/
 }
 
 
