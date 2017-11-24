@@ -6,8 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html" afterPath="$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,16 +40,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-251">
-              <caret line="212" column="28" lean-forward="true" selection-start-line="212" selection-start-column="28" selection-end-line="212" selection-end-column="28" />
+            <state relative-caret-position="563">
+              <caret line="432" column="59" lean-forward="true" selection-start-line="432" selection-start-column="59" selection-end-line="432" selection-end-column="59" />
               <folding>
-                <element signature="e#8711#15240#0#PHP" expanded="false" />
-                <element signature="e#32008#32694#0#PHP" expanded="false" />
-                <element signature="e#32398#32688#0#PHP" expanded="false" />
-                <element signature="e#32481#32688#0#PHP" expanded="false" />
+                <element signature="e#8706#15235#0#PHP" expanded="false" />
+                <element signature="e#32137#32823#0#PHP" expanded="false" />
+                <element signature="e#32527#32817#0#PHP" expanded="false" />
+                <element signature="e#32610#32817#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,8 +58,8 @@
       <file leaf-file-name="wx_cli_pay.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+            <state relative-caret-position="462">
+              <caret line="33" column="129" lean-forward="false" selection-start-line="33" selection-start-column="129" selection-end-line="33" selection-end-column="129" />
               <folding />
             </state>
           </provider>
@@ -78,17 +79,17 @@
         <entry file="file://$PROJECT_DIR$/application/mobile/view/user/order_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
-              <caret line="41" column="103" lean-forward="false" selection-start-line="41" selection-start-column="103" selection-end-line="41" selection-end-column="103" />
+              <caret line="41" column="117" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="117" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="651" column="21" lean-forward="true" selection-start-line="651" selection-start-column="21" selection-end-line="651" selection-end-column="21" />
+            <state relative-caret-position="453">
+              <caret line="650" column="34" lean-forward="true" selection-start-line="650" selection-start-column="34" selection-end-line="650" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -185,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/view/user/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/user/attendance.html" />
         <option value="$PROJECT_DIR$/application/home/controller/Base.php" />
         <option value="$PROJECT_DIR$/application/common/model/ActivityType.php" />
@@ -234,6 +234,7 @@
         <option value="$PROJECT_DIR$/application/mobile/view/user/order_detail.html" />
         <option value="$PROJECT_DIR$/extend/wxpay/JsApiPay.php" />
         <option value="$PROJECT_DIR$/application/mobile/view/activity/detail.html" />
+        <option value="$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
       </list>
@@ -432,12 +433,12 @@
       <workItem from="1511318210559" duration="619000" />
       <workItem from="1511329640594" duration="19902000" />
       <workItem from="1511399446137" duration="20880000" />
-      <workItem from="1511484725749" duration="10841000" />
+      <workItem from="1511484725749" duration="13738000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="626775000" />
+    <option name="totallyTimeSpent" value="629672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -483,20 +484,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/public/left.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/common/model/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="49" column="45" lean-forward="true" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/logic/Avtivity.php" />
     <entry file="file://$PROJECT_DIR$/application/common/logic/ActivityLogic.php" />
     <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/new_activity.html">
@@ -659,14 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/common/model/ActivityTime.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance_class.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
@@ -749,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/order_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="41" column="103" lean-forward="false" selection-start-line="41" selection-start-column="103" selection-end-line="41" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/activity/order.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -813,14 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/user/recharge_success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -845,27 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-251">
-          <caret line="212" column="28" lean-forward="true" selection-start-line="212" selection-start-column="28" selection-end-line="212" selection-end-column="28" />
-          <folding>
-            <element signature="e#8711#15240#0#PHP" expanded="false" />
-            <element signature="e#32008#32694#0#PHP" expanded="false" />
-            <element signature="e#32398#32688#0#PHP" expanded="false" />
-            <element signature="e#32481#32688#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp/helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
@@ -874,11 +816,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/order_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="41" column="117" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/ActivityTime.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Error.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="651" column="21" lean-forward="true" selection-start-line="651" selection-start-column="21" selection-end-line="651" selection-end-column="21" />
+        <state relative-caret-position="453">
+          <caret line="650" column="34" lean-forward="true" selection-start-line="650" selection-start-column="34" selection-end-line="650" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="33" column="129" lean-forward="false" selection-start-line="33" selection-start-column="129" selection-end-line="33" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="432" column="59" lean-forward="true" selection-start-line="432" selection-start-column="59" selection-end-line="432" selection-end-column="59" />
+          <folding>
+            <element signature="e#8706#15235#0#PHP" expanded="false" />
+            <element signature="e#32137#32823#0#PHP" expanded="false" />
+            <element signature="e#32527#32817#0#PHP" expanded="false" />
+            <element signature="e#32610#32817#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
