@@ -647,8 +647,25 @@ class User extends Base
         }
     }
 
+    //检查用户登录，解决未登录时在微信浏览器下报名后自动跳转到支付界面，无法调js支付,暂时这样解决，待优化
+    public function check_login(){
+        if(!session('?userInfo')){
+            if (!empty(session::get('userurl'))){
+                //会话中有要跳转的页面
+                $url = session::get('userurl');
+            }else{
+                //没有要跳转的页面，则转到首页
+                $url = url('mobile/activity/index');
+            }
+            return_info(-1,'未登录',['url'=>$url]);
+        }else{
+            return_info(200,'已登录');
+        }
+    }
+
     //退出登录
     public function login_out(){
+        cookie(null);
         session(null);
         return_info(200,'登出成功');
     }

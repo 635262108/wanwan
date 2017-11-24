@@ -139,13 +139,13 @@ class Activity extends Base
             $this->error('用户不存在');
         }
         //活动id
-        $aid = input('post.aid');
+        $aid = input('get.aid');
         //大人数量
-        $adult_num = input('post.adult_num');
+        $adult_num = input('get.adult_num');
         //小孩数量
-        $child_num = input('post.child_num');
+        $child_num = input('get.child_num');
         //参加时间
-        $time = input('post.time');
+        $time = input('get.time');
 
         //检查参加时间是否还有票
         $ActivityTime = model('ActivityTime');
@@ -205,7 +205,7 @@ class Activity extends Base
         model('ActivityOrder')->insert($add_oreder_data);
 
         //存cookie,防止用户刷新重复提交
-        cookie('orderInfo',$add_oreder_data,60*60*5);
+        cookie('orderInfo',$add_oreder_data,60);
 
         //免费活动不需要支付，直接报名成功，付费活动进入选择支付界面
         if($price > 0){
@@ -436,6 +436,9 @@ class Activity extends Base
         $Activity = model('Activity');
         $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
 
+        //获取时间信息
+        $timeInfo = model('ActivityTime')->getAnyTime($order['t_id']);
+
         //获取用户openid
         $openId = session::get('openid');
 
@@ -462,6 +465,7 @@ class Activity extends Base
         $jsApiParameters = $tools->getJsApiParameters($orders);
         $this->assign('jsApiParameters', $jsApiParameters);
         $this->assign('order', $order);
+        $this->assign('timeInfo',$timeInfo);
         $this->assign('activityInfo', $activityInfo);
         $this->assign('title','微信支付');
         return $this->fetch('activity/wx_cli_pay');
