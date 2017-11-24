@@ -45,7 +45,7 @@
 }
 
 .into_page span:nth-child(1) {
-	margin-right: 8%
+	margin-right: 11%;
 }
 
 .into_page span a {
@@ -3259,4 +3259,7 @@ display: none  !important;
 }
 .sure_back .sure_modal .select_opera div:nth-child(2){
 	border-right: 0px;
+}
+#buzu{
+	margin-left: 55%;
 }

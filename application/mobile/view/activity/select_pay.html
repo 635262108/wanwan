@@ -16,8 +16,14 @@
         <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
     	<ul>
     		<li><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付
-    			<span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;&nbsp;{$userInfo.balance}</span>
-    			<input type="radio" name="bank_type" value="4" checked="checked" class="select_remaining"></li>
+    		     {if condition="$userInfo.balance lt $price"}
+    		     	 <span style="color:#c5c5c5;" class="remaining_money" style="margin-left: 54%;" id="buzu">余额不足</span>
+    		 
+    		     {else/}
+    		   
+    		     	  <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;&nbsp;{$userInfo.balance}</span>
+    		     {/if}
+    			<input type="radio" name="bank_type" value="4"  class="select_remaining"></li>
     		<li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2"></li>
     		<li><img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝<input type="radio" name="bank_type" value="1"></li>
     	</ul>
