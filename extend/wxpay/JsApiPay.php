@@ -47,7 +47,7 @@ class JsApiPay
         if (!isset($_GET['code'])) {
             //触发微信返回code码
 //            $baseUrl = urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . $_SERVER['QUERY_STRING']);
-            $baseUrl = urlencode('http://www.baobaowaner.com/mobile/user/index');
+            $baseUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ."?". $_SERVER['QUERY_STRING'];
             $url = $this->__createOauthUrlForCode($baseUrl);
             header("Location: $url");
             exit();
