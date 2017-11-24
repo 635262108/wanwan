@@ -3079,6 +3079,7 @@ display: none  !important;
 	height: 45px;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 12px;
 	font-size: 12px;
@@ -3090,14 +3091,24 @@ display: none  !important;
 	width: 21px;
 	height: 20px;
 }
-.pay_form ul li input{
+/*.pay_form ul li input{
 	margin-left: 71%;
+}*/
+.pay_form ul li:nth-child(1) .second_li{
+	width: 22%;
+	margin-top: -5px;
 }
-.pay_form ul li:nth-child(1) span{
+.pay_form ul li:nth-child(2) .second_li{
+	width: 6%;
+}
+.pay_form ul li:nth-child(3) .second_li{
+	width: 23%;
+}
+.pay_form ul li:nth-child(1) .second_li span{
 	display: inline-block;
-	margin-left: 52%;
 	font-size: 12px;
-	margin-top: 2px;
+	margin-top: -5px;
+	/*width: 43%;*/
 }
 .pay_form ul li:nth-child(1) input{
 	margin-left: 1.5%;

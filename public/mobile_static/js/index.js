@@ -364,9 +364,11 @@ $(".select_opera .sure").on("click",function(){
 var money_val=$(".remaining_money").html();
 if(money_val=="余额不足"){
 	$(".select_remaining").attr("disabled",true);
+	$(".weixin").attr("checked",true);
 }
 else{
 	$(".select_remaining").attr("disabled",false);
+	$(".select_remaining").attr("checked",true);
 }
 
 
