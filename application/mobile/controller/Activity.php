@@ -160,15 +160,30 @@ class Activity extends Base
             $this->error('您选择的活动已报满');
         }
 
-        //订单入库
         $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
-        if(!empty(cookie('orderInfo'))){//存在
+
+        //免费活动不能重复报名
+        if($price == 0){
+            $map = [
+                'uid' => $uid,
+                'aid' => $aid,
+            ];
+            $check_acticity = model('ActivityOrder')->where($map)->order('order_id desc')->find();
+            $check_time = $ActivityTime->getAnyTime($check_acticity['t_id']);
+            if(!empty($check_acticity) & $check_time['is_display'] == 1){
+                $this->error('名额有限，不能重复报名噢');
+            }
+        }
+
+        //防止重复提交
+        if(!empty(cookie('orderInfo')) & $price > 0){//存在
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',cookie('orderInfo'));
             $this->assign('title','选择支付');
             return $this->fetch('activity/select_pay');
         }
+        //订单入库
         $add_oreder_data = array();
         $add_oreder_data['order_sn'] = getOrderSn($uid,$aid);
         $add_oreder_data['aid'] = $aid;
@@ -208,12 +223,13 @@ class Activity extends Base
             return $this->fetch('activity/select_pay');
         }else{
             //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
-            model('acticity')->where('aid', $aid)->setDec('a_num', $child_num);
-            model('acticity')->where('aid', $aid)->setInc('a_sold_num', $child_num);
+            model('activity')->where('aid', $aid)->setDec('a_num', $child_num);
+            model('activity')->where('aid', $aid)->setInc('a_sold_num', $child_num);
             $ActivityTime->where('t_id', $time)->setInc('ticket_num', $child_num);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$add_oreder_data);
+            $this->assign('title','报名成功');
             return $this->fetch('activity/pay_success');
         }
     } 

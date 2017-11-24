@@ -33,7 +33,7 @@
     </div>-->
     <div class="play_baoContent">
         {foreach name="newest" item="v"}
-        <a href="{:url('mobile/activity/free_detail',['aid'=>$v.aid])}">
+        <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">
         <div class="playBao_part">
             <div class="bao_img">
                 <img src="__AdminIMG__/{$v.a_index_img}"/>
@@ -47,7 +47,7 @@
                     <li>活动时间：{$v.a_begin_time|date='Y.m.d',###}-{$v.a_end_time|date='Y.m.d',###}</li>
                     <li>活动地点：{$v.a_address}</li>
                 </ul>
-                <div class="content_bottom"><span>￥免费</span><a href="{:url('mobile/activity/free_detail',['aid'=>$v.aid])}">点我报名>></a></div>
+                <div class="content_bottom"><span>￥免费</span><a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">点我报名>></a></div>
             </div>
         </div>
         </a>
