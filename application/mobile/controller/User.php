@@ -559,7 +559,10 @@ class User extends Base
         if(empty($ActivityInfo)){
             $this->error('活动结束,订单已失效');
         }
-        
+        //参与时间
+        $timeInfo = model('ActivityTime')->getAnyTime($orderInfo['t_id']);
+
+        $this->assign('timeInfo',$timeInfo);
         $this->assign('orderInfo',$orderInfo);
         $this->assign('ActivityInfo',$ActivityInfo);
         $this->assign('title','订单详情');
