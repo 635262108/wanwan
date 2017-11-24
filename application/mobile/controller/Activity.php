@@ -209,19 +209,18 @@ class Activity extends Base
 
         //免费活动不需要支付，直接报名成功，付费活动进入选择支付界面
         if($price > 0){
-            //微信浏览器只支持js支付，单独一个界面
-            if(is_weixin()){
-                //session记录订单
-                session::set($uid,$add_oreder_data['order_sn']);
-                //跳转到wx_browser_pay
-                $this->redirect('activity/wx_browser_pay');
-            }
             $this->assign('userInfo',$userInfo);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$add_oreder_data);
             $this->assign('title','选择支付');
-            return $this->fetch('activity/select_pay');
+            //微信浏览器只支持js支付，单独一个界面
+            if(is_weixin()){
+                //跳转到wx_browser_pay
+                return $this->fetch('activity/wx_select_pay');
+            }else{
+                return $this->fetch('activity/select_pay');
+            }
         }else{
             //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
             model('activity')->where('aid', $aid)->setDec('a_num', $child_num);
@@ -249,18 +248,17 @@ class Activity extends Base
         $aid = $orderInfo['aid'];
         $ActivityInfo = model('Activity')->find($aid);
         //微信浏览器只支持js支付，单独一个界面
-        if(is_weixin()){
-            //session记录订单
-            session::set($uid,$orderInfo['order_sn']);
-            //跳转到wx_browser_pay
-            $this->redirect('activity/wx_browser_pay');
-        }
         $this->assign('userInfo',$userInfo);
         $this->assign('price',$orderInfo['order_price']);
         $this->assign('activityInfo',$ActivityInfo);
         $this->assign('orderInfo',$orderInfo);
         $this->assign('title','选择支付');
-        return $this->fetch('activity/select_pay');
+        if(is_weixin()){
+            //跳转到wx_browser_pay
+            return $this->fetch('activity/wx_select_pay');
+        }else{
+            return $this->fetch('activity/select_pay');
+        }
     }
        
     //微信浏览器支付
@@ -302,12 +300,9 @@ class Activity extends Base
             }
         }
         $jsApiParameters = $tools->getJsApiParameters($orders);
+        $this->assign('order_sn',$order_sn);
         $this->assign('jsApiParameters', $jsApiParameters);
-        $this->assign('order', $order);
-        $this->assign('timeInfo',$timeInfo);
-        $this->assign('activityInfo', $activityInfo);
-        $this->assign('title','微信支付');
-        return $this->fetch('activity/wx_cli_pay');
+        return $this->fetch('activity/enter_wx_pay');
     }
     
     /**
@@ -318,7 +313,7 @@ class Activity extends Base
         $uid = Session::get('userInfo.uid');
         //订单号
         $order_sn = input('post.order_sn');
-        //支付方式1：支付宝 2：微信 3：银联
+        //支付方式1：支付宝 2：微信 3：银联 4:余额
         $bank_type = input('post.bank_type');
 
         $ActivityOrder = model('ActivityOrder');
@@ -343,52 +338,76 @@ class Activity extends Base
             $this->redirect($code_url);
         }
         else if($bank_type == 4){
-            $userInfo = model('user')->find($uid);
-            $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
-            $ActivityInfo = model('Activity')->find($orderInfo['aid']);
-            if(empty($userInfo) || empty($orderInfo)){
-                $this->error('参数错误');
-            }
-            //检查订单是否匹配
-            if($userInfo['uid'] != $orderInfo['uid']){
-                $this->error('参数错误');
-            }
-            //检查余额够不够
-            if($orderInfo['order_price'] > $userInfo['balance']){
-                $this->error('余额不足，可以去会员中心进行充值哦');
-            }
-            //扣费
-            $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
-            $userInfo->save();
-            //记账
-            $add_detail = [
-                'uid' => $uid,
-                'type' => 3,
-                'money' => $orderInfo['order_price'],
-                'balance' => $userInfo->balance,
-                'addtime' => time(),
-                'remark'  => "参加".$ActivityInfo['a_title']."活动",
-            ];
-            model('UserDetail')->insert($add_detail);
-            //更改订单状态
-            $data = [
-                'order_status' => 3,
-                'pay_way'   => 4,
-                'pay_time'  => time(),
-            ];
-            $res = model('ActivityOrder')->where('order_sn',$order_sn)->update($data);
-            if($res) {
-                $this->assign('price',$orderInfo['order_price']);
-                $this->assign('activityInfo',$ActivityInfo);
-                $this->assign('orderInfo',$orderInfo);
-                $this->assign('title','报名成功');
-                return $this->fetch('activity/pay_success');
-            }else{
-                $this->error('支付失败，若发现余额已扣费请联系客服！');
-            }
+
+            return $this->balance_pay($uid,$order_sn);
         }
         else{
             $this->error("参数错误,请勿刷新页面");
+        }
+    }
+
+    //微信浏览器支付
+    public function wxPayWay(){
+        //用户id
+        $uid = Session::get('userInfo.uid');
+        //订单号
+        $order_sn = input('post.order_sn');
+        //支付方式 2：微信 4：余额
+        $bank_type = input('post.bank_type');
+        if($bank_type == 2){
+            //session记录订单
+            session::set($uid,$order_sn);
+            //跳转到wx_browser_pay
+            $this->redirect('activity/wx_browser_pay');
+        }elseif($bank_type = 4) {
+            return $this->balance_pay($uid,$order_sn);
+        }
+    }
+
+    //余额支付
+    public function balance_pay($uid,$order_sn){
+        $userInfo = model('user')->find($uid);
+        $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
+        $ActivityInfo = model('Activity')->find($orderInfo['aid']);
+        if(empty($userInfo) || empty($orderInfo)){
+            $this->error('参数错误');
+        }
+        //检查订单是否匹配
+        if($userInfo['uid'] != $orderInfo['uid']){
+            $this->error('参数错误');
+        }
+        //检查余额够不够
+        if($orderInfo['order_price'] > $userInfo['balance']){
+            $this->error('余额不足，可以去会员中心进行充值哦');
+        }
+        //扣费
+        $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
+        $userInfo->save();
+        //记账
+        $add_detail = [
+            'uid' => $uid,
+            'type' => 3,
+            'money' => $orderInfo['order_price'],
+            'balance' => $userInfo->balance,
+            'addtime' => time(),
+            'remark'  => "参加".$ActivityInfo['a_title']."活动",
+        ];
+        model('UserDetail')->insert($add_detail);
+        //更改订单状态
+        $data = [
+            'order_status' => 3,
+            'pay_way'   => 4,
+            'pay_time'  => time(),
+        ];
+        $res = model('ActivityOrder')->where('order_sn',$order_sn)->update($data);
+        if($res) {
+            $this->assign('price',$orderInfo['order_price']);
+            $this->assign('activityInfo',$ActivityInfo);
+            $this->assign('orderInfo',$orderInfo);
+            $this->assign('title','报名成功');
+            return $this->fetch('activity/pay_success');
+        }else{
+            $this->error('支付失败，若发现余额已扣费请联系客服！');
         }
     }
 

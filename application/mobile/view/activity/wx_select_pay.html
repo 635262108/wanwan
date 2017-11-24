@@ -1,0 +1,34 @@
+{include file="public/header" /}
+{include file="public/second_header"}
+<body style="background: #F6F6F6">
+
+<!--<div class="title_word second_activity">选择支付</div>-->
+
+<div class="product_detail">
+    <div class="product_img"><img src="_MobileImg_/eye.png"></div>
+    <ul>
+        <li>￥{$price}</li>
+        <li>&nbsp;&nbsp;{$activityInfo.a_title}</li>
+    </ul>
+</div>
+
+<form action="{:url('activity/wxPayWay')}" method="post" class="pay_form">
+    <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
+    <ul>
+        <li><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付
+            <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;&nbsp;{$userInfo.balance}</span>
+            <input type="radio" name="bank_type" value="4" checked="checked" class="select_remaining"></li>
+        <li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2"></li>
+    </ul>
+    <button type="submit" class="Sure_pay">确认支付</button>
+</form>
+
+
+
+<script src="__MobileJs__/jquery.min.js"></script>
+<script src="__MobileJs__/index.js"></script>
+<script src="__MobileJs__/idangerous.swiper.min.js"></script>
+
+</body>
+</html>
+
