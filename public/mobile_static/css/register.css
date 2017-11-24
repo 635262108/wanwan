@@ -53,7 +53,7 @@ body{
 }
 
 .textAlign .information_content form {
-	width: 86%;
+	width: 80%;
 	margin: 0px auto;
 }
 
@@ -61,12 +61,12 @@ body{
 	width: 100%;
 	margin-top: -16px;
 	height: 22px;
-	border-bottom: 2px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
 	
 }
 .textAlign .information_content form p.tel_namer{
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 600;
 	color: #FFFFFF;
 	font-family: '苹方';
 }
@@ -124,6 +124,8 @@ body{
 	border: none;
 	cursor: pointer;
 	margin-top: 30px;
+	font-family: '苹方';
+	font-size: 15px;
 	
 }
 
@@ -138,7 +140,7 @@ body{
 
 .textAlign .information_content form .login {
 	width: 99%;
-    margin: 5px auto 0px;
+    margin: -11px auto 0px;
    border-bottom: none;
    display: flex;
     justify-content: space-between;

@@ -91,11 +91,13 @@ $(function(){
     $(".i_want").on("click",function(){
     $.post("/mobile/user/check_login",
             function(obj){
+            	console.log(obj,000)
                 if(obj.state_code == 200){
                    $("#theme_modal_box").show();
         		   $(".moal_div").animate({"bottom":"0px"},200);
                 }else{
-                   
+                	
+                    location.href=obj.data.url;
                 }
             }, "json");
        
@@ -110,8 +112,17 @@ $(function(){
 		}
     
     $(".select_time").on("click",function(){
-    	 $("#theme_modal_box").show();
-         $(".moal_div").animate({"bottom":"0px"},200);
+    	    $.post("/mobile/user/check_login",
+            function(obj){
+                if(obj.state_code == 200){
+                   $("#theme_modal_box").show();
+        		   $(".moal_div").animate({"bottom":"0px"},200);
+                }else{
+                   location.href=obj.data.url;
+                }
+            }, "json");
+//  	 $("#theme_modal_box").show();
+//       $(".moal_div").animate({"bottom":"0px"},200);
 
     })
 //  活动选择时间

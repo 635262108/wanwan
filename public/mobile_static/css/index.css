@@ -543,13 +543,16 @@
 
 #system_content .system_part {
 	/*margin-left: 3%;*/
-	width: 98%;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	margin-bottom: 4%;
 	box-sizing: border-box;
-	background: #FFFFFF
+	background: #FFFFFF;
+	/*border: 1px solid blue;*/
+	padding-bottom: 8px;
+	padding-top: 8px;
 }
 
 #system_content .system_part .system_img {
@@ -565,7 +568,7 @@
 }
 
 #system_content .system_part ul {
-	width: 81%
+	width: 83%
 }
 
 #system_content .system_part ul li {
@@ -2945,8 +2948,8 @@ display: none  !important;
 }
 .bottom_info span{
 	width: 50%;
-	height: 38px;
-	line-height: 38px;
+	height: 40px;
+	line-height: 40px;
 	text-align: center;
 	font-size: 18px;
 }
@@ -2964,8 +2967,9 @@ display: none  !important;
 }
 /*付费活动new_style*/
 .pay_ul{
-  width: 80%;
+  width: 70%;
   margin: 20px auto;
+  /*border: 1px solid black;*/
  
   
 }
@@ -2981,8 +2985,9 @@ display: none  !important;
 	line-height: 26px;
 	text-align: center;
 	border: 1px solid  #FF4134;
-	color: #656565;
+	color: #FF4134;
 	font-size: 14px;
+	letter-spacing: 2px;
 }
 .pay_ul ul li:nth-child(1){
 	border-top-left-radius:3px;
@@ -3228,7 +3233,7 @@ display: none  !important;
 }
 .sure_back .sure_modal .select_opera{
 	width: 150px;
-	height: 46px;
+	height: 40px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -3238,12 +3243,19 @@ display: none  !important;
 .sure_back .sure_modal .select_opera div{
 	cursor: pointer;
 	width: 50%;
-	height: 46px;
-	line-height: 46px;
+	height: 40px;
+	line-height: 40px;
 	font-size: 13px;
 	color: #5c5c5c;
 	border-right: 1px solid #DFDBDB;
-	text-align: center;
+	box-sizing: border-box;
+	/*text-align: center;*/
+}
+.sure_back .sure_modal .select_opera div.cancel{
+	padding-left: 10px;
+}
+.sure_back .sure_modal .select_opera div.sure{
+	padding-left: 44px;
 }
 .sure_back .sure_modal .select_opera div:nth-child(2){
 	border-right: 0px;

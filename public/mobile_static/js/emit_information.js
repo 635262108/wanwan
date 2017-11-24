@@ -319,6 +319,10 @@ $(function() {
             $(".user").show();
             $(".user").text("手机号格式不正确");
         }
+        else{
+        	$(".user").hide();
+            
+        }
     })
 
 //	获取验证码的验证
