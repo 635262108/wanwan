@@ -586,7 +586,7 @@ class User extends Base
         //金额
         $money = input('post.money');
         //检查金额
-        if(intval($money) == 0){
+        if(floatval($money) == 0){
             $this->error('金额输入不正确');
         }
 
