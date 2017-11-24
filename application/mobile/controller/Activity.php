@@ -217,7 +217,7 @@ class Activity extends Base
             //微信浏览器只支持js支付，单独一个界面
             if(is_weixin()){
                 //跳转到wx_browser_pay
-                $this->redirect('activity/wx_browser_pay');
+                return $this->fetch('activity/wx_select_pay');
             }else{
                 return $this->fetch('activity/select_pay');
             }
