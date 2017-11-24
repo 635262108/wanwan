@@ -139,13 +139,13 @@ class Activity extends Base
             $this->error('用户不存在');
         }
         //活动id
-        $aid = input('post.aid');
+        $aid = input('get.aid');
         //大人数量
-        $adult_num = input('post.adult_num');
+        $adult_num = input('get.adult_num');
         //小孩数量
-        $child_num = input('post.child_num');
+        $child_num = input('get.child_num');
         //参加时间
-        $time = input('post.time');
+        $time = input('get.time');
 
         //检查参加时间是否还有票
         $ActivityTime = model('ActivityTime');
