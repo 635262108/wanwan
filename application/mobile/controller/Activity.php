@@ -300,12 +300,9 @@ class Activity extends Base
             }
         }
         $jsApiParameters = $tools->getJsApiParameters($orders);
+        $this->assign('order_sn',$order_sn);
         $this->assign('jsApiParameters', $jsApiParameters);
-        $this->assign('order', $order);
-        $this->assign('timeInfo',$timeInfo);
-        $this->assign('activityInfo', $activityInfo);
-        $this->assign('title','微信支付');
-        return $this->fetch('activity/wx_cli_pay');
+        return $this->fetch('activity/enter_wx_pay');
     }
     
     /**
