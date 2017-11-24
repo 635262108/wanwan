@@ -587,7 +587,7 @@ class User extends Base
         $money = input('post.money');
         $money = sprintf("%.2f",substr(sprintf("%.3f", $money), 0, -1));
         //检查金额
-        if(floatval($money) == 0){
+        if($money == 0 || $money > 10000000){
             $this->error('金额输入不正确');
         }
 
