@@ -175,8 +175,8 @@ class Activity extends Base
             }
         }
 
-        //防止重复提交
-        if(!empty(cookie('orderInfo')) & $price > 0){//存在
+        //防止重复提交,针对除微信之外的浏览器
+        if(!empty(cookie('orderInfo')) & $price > 0 & !is_weixin()){//存在
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',cookie('orderInfo'));
@@ -738,7 +738,7 @@ class Activity extends Base
         if($result){
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
-            $this->assign('order',$order);
+            $this->assign('orderInfo',$order);
             return $this->fetch();
         }else{
             $this->error('支付失败,有疑问请联系客服');
