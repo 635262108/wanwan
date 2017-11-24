@@ -649,6 +649,7 @@ class User extends Base
 
     //退出登录
     public function login_out(){
+        cookie(null);
         session(null);
         return_info(200,'登出成功');
     }
