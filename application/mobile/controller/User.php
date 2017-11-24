@@ -585,6 +585,7 @@ class User extends Base
     public function enter_recharge(){
         //金额
         $money = input('post.money');
+        $money = sprintf("%.2f",substr(sprintf("%.3f", $money), 0, -1));
         //检查金额
         if(floatval($money) == 0){
             $this->error('金额输入不正确');
