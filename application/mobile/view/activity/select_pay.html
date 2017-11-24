@@ -15,7 +15,10 @@
     <form action="{:url('activity/payWay')}" method="post" class="pay_form">
         <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
     	<ul>
-    		<li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2" checked="checked"></li>
+    		<li><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付
+    			<span style="color:#c5c5c5;">余额&nbsp;&nbsp;0.01</span>
+    			<input type="radio" name="bank_type" value="3" checked="checked"></li>
+    		<li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2"></li>
     		<li><img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝<input type="radio" name="bank_type" value="1"></li>
     	</ul>
     	<button type="submit" class="Sure_pay">确认支付</button>

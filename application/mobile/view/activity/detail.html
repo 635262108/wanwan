@@ -134,6 +134,9 @@
         <div class="nothing"> 暂无评论......</div>
         {else/}
         {foreach name="commentInfo" item="vo"}
+        <div class="line_bottom" style="background: #FFFFFF;">
+        	
+        
         <div class="discuss_part">
             <div class="discuss_img">
                 <img src="__HEADICON__/{$vo.headIcon}" />
@@ -143,6 +146,8 @@
                 <li>{$vo.content|htmlentities}</li>
                 <li>{$vo.time|date='Y.m.d H:i',###}</li>
             </ul>
+        </div>
+        <div class="line_border" style="border-bottom:1px solid #dfdbdb;height: 1px;width: 75%;margin-left: 25%;"></div>
         </div>
         {/foreach}
         <!--<div class="discuss_more"><a href="{:url('mobile/activity/comments_list',['aid'=>$activityInfo.aid])}">查看全部</a></div>-->

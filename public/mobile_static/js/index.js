@@ -268,17 +268,35 @@ var secondContents=$(".total_content").children();
  	var index=$(this).index();
  	$(this).addClass("special_title").siblings().removeClass("special_title");
  	secondContents.eq(index).show().siblings().hide();
- 	var activity=secondContents.eq(index).children("#second_detail").find(".playBao_part");
+ 	var activity=secondContents.eq(index).children().find(".playBao_part");
    	if(activity.length==0){
 		$(".no_style").show();
 	}
    	else if(activity.length>=1){
+   	
    		
        $(".no_style").attr("style","display: none;margin-top:88px ;");
    	}
  	
  })
    second_lis.eq(0).trigger("click");
+   
+   
+// 免费玩儿活动点击
+//console.log(secondContents,888888)
+//second_lis.on("click",function(){
+//	var index=$(this).index();
+//	var freeActivitys=secondContents.eq(index).children().find(".playBao_part");
+//	if(freeActivitys.length==0){
+//		$(".no_style").show();
+//	}
+// 	else if(freeActivitys.length>=1){
+// 		console.log(333333)
+// 		
+//     $(".no_style").attr("style","display: none;margin-top:88px ;");
+// 	}
+//})
+//second_lis.eq(0).trigger("click");
  
 // 当我的收藏没有的时候
 
