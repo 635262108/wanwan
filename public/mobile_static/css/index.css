@@ -2960,6 +2960,7 @@ display: none  !important;
 }
 .bottom_info span:nth-child(2) a{
 	color: #FFFFFF;
+	display: block;
 }
 /*付费活动new_style*/
 .pay_ul{

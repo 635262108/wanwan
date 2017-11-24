@@ -89,11 +89,25 @@ $(function(){
 //我要报名操作
 
     $(".i_want").on("click",function(){
-        $("#theme_modal_box").show();
-        $(".moal_div").animate({"bottom":"0px"},200);
+    $.post("/mobile/user/check_login",
+            function(obj){
+                if(obj.state_code == 200){
+                   $("#theme_modal_box").show();
+        		   $(".moal_div").animate({"bottom":"0px"},200);
+                }else{
+                   
+                }
+            }, "json");
+       
 
 
     })
+    
+    //如果显示活动结束则不能点击
+		var activityOver=$(".activity_over").text();
+		if(activityOver=="活动结束"){
+			$(".i_want").off("click");
+		}
     
     $(".select_time").on("click",function(){
     	 $("#theme_modal_box").show();
@@ -334,6 +348,18 @@ $(".select_opera .sure").on("click",function(){
 
 //生日插件
 //$(".birthdayContainer").selectDate();
+
+//判断余额来显示
+var money_val=$(".remaining_money").html();
+if(money_val=="余额不足"){
+	$(".select_remaining").attr("disabled",true);
+}
+else{
+	$(".select_remaining").attr("disabled",false);
+}
+
+
+
 })
 
 
