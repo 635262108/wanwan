@@ -79,6 +79,7 @@
                             {/switch}
                         </li>
                     </ul>
+                      <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
                         <p><a href="{:url('mobile/activity/orderIdPay',['id'=>$vo.order_id])}">去付款</a></p>
                         <p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">详情</a></p>
@@ -122,6 +123,7 @@
                             {/switch}
                         </li>
                     </ul>
+                      <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
                          {if condition="$vo.order_price eq 0"}
                            <p><a href="{:url('mobile/user/leave_list',['order_sn'=>$vo.order_sn])}">请假</a></p> 
@@ -165,6 +167,7 @@
                             {/switch}
                         </li>
                     </ul>
+                      <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
                         <p><a href="{:url('mobile/user/comments_list',['order_sn'=>$vo.order_sn])}">去评价</a></p>
                         <p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">详情</a></p>
@@ -206,6 +209,7 @@
                             {/switch}
                         </li>
                     </ul>
+                      <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
                         {if condition="$vo.order_status eq 6"}
                            <p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">已退款</a></p> 

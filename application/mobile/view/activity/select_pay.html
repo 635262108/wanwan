@@ -16,8 +16,8 @@
         <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
     	<ul>
     		<li><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付
-    			<span style="color:#c5c5c5;">余额&nbsp;&nbsp;0.01</span>
-    			<input type="radio" name="bank_type" value="3" checked="checked"></li>
+    			<span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;&nbsp;0.01</span>
+    			<input type="radio" name="bank_type" value="3" checked="checked" class="select_remaining"></li>
     		<li><img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付<input type="radio" name="bank_type" value="2"></li>
     		<li><img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝<input type="radio" name="bank_type" value="1"></li>
     	</ul>
@@ -27,6 +27,7 @@
 
 
     <script src="__MobileJs__/jquery.min.js"></script>
+    <script src="__MobileJs__/index.js"></script>
     <script src="__MobileJs__/idangerous.swiper.min.js"></script>
 
 </body>
