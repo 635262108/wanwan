@@ -216,6 +216,7 @@ class Activity extends Base
                 //跳转到wx_browser_pay
                 $this->redirect('activity/wx_browser_pay');
             }
+            $this->assign('userInfo',$userInfo);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$add_oreder_data);
@@ -237,6 +238,7 @@ class Activity extends Base
     //使用订单id付款
     public function orderIdPay(){
         $uid = Session::get('userInfo.uid');
+        $userInfo = model('user')->find($uid);
         $orderId = input('id');
         $map['uid'] = $uid;
         $map['order_id'] = $orderId;
@@ -253,173 +255,10 @@ class Activity extends Base
             //跳转到wx_browser_pay
             $this->redirect('activity/wx_browser_pay');
         }
+        $this->assign('userInfo',$userInfo);
         $this->assign('price',$orderInfo['order_price']);
         $this->assign('activityInfo',$ActivityInfo);
         $this->assign('orderInfo',$orderInfo);
-        $this->assign('title','选择支付');
-        return $this->fetch('activity/select_pay');
-    }
-
-    /**
-     * 订单提交
-     */
-    public function creat_order(){
-        if(request()->isPost()){
-            //用户id
-            $uid = Session::get('userInfo.uid');
-            //活动id
-            $aid = input('post.aid');
-            //联系人姓名
-            $realname = input('post.realname');
-            //联系人电话
-            $mobile = input('post.mobile');
-            if(!isMobile($mobile)){
-                $this->error("手机格式不正确");
-            }
-            //大人数量
-            $adult_num = input('post.adult_num');
-            //小孩数量
-            $child_num = input('post.child_num');
-            //小孩性别
-            $child_gender[] = input('post.child_gender1');
-            $child_gender[] = input('post.child_gender2');
-            //小孩姓名
-            $child_name = input('post.child_name/a');
-            //小孩生日
-            $year = input('post.year/a');
-            $month = input('post.month/a');
-            $day = input('post.day/a');
-            //订单备注
-            $remark = input('post.remark');
-            //参加时间
-            $time = input('post.time');
-            //token防止重复提交
-            $token = input("post.token");
-            if(Session::get('__token__') == $token){
-                Session::set('__token__',null);
-            }else{
-                $this->error("系统异常,请再试一次");
-            }
-            //检查提交信息
-            $checkData['aid'] = $aid;
-            $checkData['adult_num'] = $adult_num;
-            $checkData['child_num'] = $child_num;
-            $checkData['remark'] = $remark;
-            $check = $this->validate($checkData,'Activity');
-            if(true !== $check){
-                $this->error($check);
-            }
-            //获取活动信息
-            $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img,a_price');
-            //免费活动time字段必须传
-            if($activityInfo['a_price'] == 0){
-                if(!isset($time)){
-                    $this->error("参数不完整");
-                }
-            }else{
-                $time = 0;
-            }
-            //检查活动名额
-            if($activityInfo['a_num'] > 0){
-                //算订单价格
-                $order_price = $adult_num*$activityInfo['a_adult_price']+$child_num*$activityInfo['a_child_price'];
-
-//                //相同的活动中一个手机号只能报一次
-                $ActivityOrder = model('ActivityOrder');
-//                $map['aid'] = $aid;
-//                $map['mobile'] = $mobile;
-//                $map['order_status'] = array('or','2,3');
-//                $check_order = $ActivityOrder->getOrder($map);
-//                if(!empty($check_order)){
-//                    $this->error('相同的手机号不能重复报名哦,如果已报名请去会员中心进行下一步操作');
-//                }
-                //增加订单
-                $result = $ActivityOrder->addActivityOrder($uid,$aid,$realname,$mobile,$order_price,$adult_num,$child_num,$remark,$time);
-
-                //增加孩子
-                $ActivityOrderPersonnel = model('ActivityOrderPersonnel');
-                $personnelIds = '';
-                //如果填写的有孩子的信息就保存
-                for($i=0;$i<$child_num;$i++){
-                    if(!empty($child_name[$i])){
-                        $child_birthday = $year[$i]."/".$month[$i]."/".$day[$i];
-                        $personnelId = $ActivityOrderPersonnel->addChild($child_name[$i],$child_birthday,$child_gender[$i],$result['activityOrderId'],$uid);
-                        $personnelIds .= $personnelId.",";
-                    }
-                }
-
-                //免费活动直接条支付成功
-                if($order_price == 0){
-                    $order['aid'] =  $aid;
-                    $order['child_num'] = $child_num;
-                    $order['adult_num'] = $adult_num;
-                    $order['order_price'] = $order_price;
-                    $order['order_sn'] = $result['order_sn'];
-                    //库存-1
-                    $Activity->DecActivity($aid);
-                    //报名人员+1
-                    $Activity->IncActivity($aid);
-                    //时间库存票数-1
-                    $ActivityTime = model('ActivityTime');
-                    $ActivityTime->DecTicketNum($time);
-                    //给用户发送一条消息
-                    $aid = $order['aid'];
-                    $url = url('home/activity/free_detail',['aid'=>$aid]);
-                    $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动付款成功,请您注意活动参与时间!";
-                    $message = model('Message');
-                    $message->sendMessage($uid,$content,1);
-
-                    $this->assign('order',$order);
-                    $this->assign('activityInfo',$activityInfo);
-                    $this->assign('title','报名成功');
-                    return $this->fetch('activity/pay_success');
-                }
-
-                //微信浏览器支付
-                if(is_weixin()){
-                    //session记录订单
-                    session::set($uid,$result['order_sn']);
-                    //跳转到wx_browser_pay
-                    $this->redirect('activity/wx_browser_pay');
-                }
-
-                //给用户发送一条消息
-                $url = url('activity/detail',['aid'=>$aid]);
-                $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动未付款,名额有限,请及时付款!";
-                $message = model('Message');
-                $message->sendMessage($uid,$content,1);
-
-                $this->assign('adult_num',$adult_num);
-                $this->assign('child_num',$child_num);
-                $this->assign('order_price',$order_price);
-                $this->assign('activityInfo',$activityInfo);
-                $this->assign('order_sn',$result['order_sn']);
-            }else{
-                $this->error("本次活动已报满");
-            }
-        }else{
-            //用户id
-            $uid = Session::get('userInfo.uid');
-            //活动id
-            $order_sn = input('order_sn');
-
-            //微信浏览器支付
-            if(is_weixin()){
-                //session记录订单
-                session::set($uid,$order_sn);
-                //跳转到wx_browser_pay
-                $this->redirect('activity/wx_browser_pay');
-            }
-            //获取订单信息
-            $ActivityOrder = model('ActivityOrder');
-            $field = 'aid,uid,adult_num,child_num,order_price';
-            $order_info = $ActivityOrder->getSnOrderInfo($order_sn,$field);
-            if($order_info['uid'] != $uid){
-                $this->error("无效订单");
-            }
-            $this->assign('order_sn',$order_sn);
-        }
         $this->assign('title','选择支付');
         return $this->fetch('activity/select_pay');
     }
@@ -502,6 +341,51 @@ class Activity extends Base
             $code_url = $this->wxpayQRCode($order_sn);
 
             $this->redirect($code_url);
+        }
+        else if($bank_type == 4){
+            $userInfo = model('user')->find($uid);
+            $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
+            $ActivityInfo = model('Activity')->find($orderInfo['aid']);
+            if(empty($userInfo) || empty($orderInfo)){
+                $this->error('参数错误');
+            }
+            //检查订单是否匹配
+            if($userInfo['uid'] != $orderInfo['uid']){
+                $this->error('参数错误');
+            }
+            //检查余额够不够
+            if($orderInfo['order_price'] > $userInfo['balance']){
+                $this->error('余额不足，可以去会员中心进行充值哦');
+            }
+            //扣费
+            $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
+            $userInfo->save();
+            //记账
+            $add_detail = [
+                'uid' => $uid,
+                'type' => 3,
+                'money' => $orderInfo['order_price'],
+                'balance' => $userInfo->balance,
+                'addtime' => time(),
+                'remark'  => "参加".$ActivityInfo['a_title']."活动",
+            ];
+            model('UserDetail')->insert($add_detail);
+            //更改订单状态
+            $data = [
+                'order_status' => 3,
+                'pay_way'   => 4,
+                'pay_time'  => time(),
+            ];
+            $res = model('ActivityOrder')->where('order_sn',$order_sn)->update($data);
+            if($res) {
+                $this->assign('price',$orderInfo['order_price']);
+                $this->assign('activityInfo',$ActivityInfo);
+                $this->assign('orderInfo',$orderInfo);
+                $this->assign('title','报名成功');
+                return $this->fetch('activity/pay_success');
+            }else{
+                $this->error('支付失败，若发现余额已扣费请联系客服！');
+            }
         }
         else{
             $this->error("参数错误,请勿刷新页面");

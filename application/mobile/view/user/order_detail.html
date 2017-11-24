@@ -72,11 +72,7 @@
                             {if condition="$orderInfo.order_price eq 0"}
                                 免费活动,无需支付
                             {else/}
-                                {switch name="$orderInfo.pay_way"}
-                                {case value="0"}未支付{/case}
-                                {case value="1"}支付宝{/case}
-                                {case value="2"}微信{/case}
-                                {/switch}
+                                {$orderInfo.pay_way|payWay}
                             {/if}
                         </li>
                         <li>

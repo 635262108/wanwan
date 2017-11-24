@@ -171,6 +171,7 @@ class User extends Base
         $uid = session('userInfo.uid');
         $userInfo = model('user')->get($uid);
         $this->assign('userInfo',$userInfo);
+        $this->assign('url',url('activity/new_activity'));
     	return $this->fetch();
     }
 
@@ -209,6 +210,7 @@ class User extends Base
         $this->assign('notEvaluate',$notEvaluate);
         $this->assign('afterSale',$afterSale);
         $this->assign('myOrderData',$myOrderData);
+        $this->assign('url',url('user/index'));
         $this->assign('title','我的活动');
     	return $this->fetch();
     }
@@ -565,6 +567,7 @@ class User extends Base
         $this->assign('timeInfo',$timeInfo);
         $this->assign('orderInfo',$orderInfo);
         $this->assign('ActivityInfo',$ActivityInfo);
+        $this->assign('url',url('user/my_activity',['a'=>1]));
         $this->assign('title','订单详情');
         return $this->fetch();
     }
