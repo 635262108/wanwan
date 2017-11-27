@@ -146,6 +146,8 @@ class Activity extends Base
         $child_num = input('get.child_num');
         //参加时间
         $time = input('get.time');
+        //唯一标示
+        $code = input('get.code');
 
         //检查参加时间是否还有票
         $ActivityTime = model('ActivityTime');
@@ -174,14 +176,20 @@ class Activity extends Base
                 $this->error('名额有限，不能重复报名噢');
             }
         }
-
         //防止重复提交,针对除微信之外的浏览器
-        if(!empty(cookie('orderInfo')) & $price > 0 & !is_weixin()){//存在
+        if(empty(session('code')) & $price > 0){//存在
+            $this->assign('userInfo',$userInfo);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
-            $this->assign('orderInfo',cookie('orderInfo'));
+            $this->assign('orderInfo',session('orderInfo'));
             $this->assign('title','选择支付');
-            return $this->fetch('activity/select_pay');
+            //微信浏览器只支持js支付，单独一个界面
+            if(is_weixin()){
+                //跳转到wx_browser_pay
+                return $this->fetch('activity/wx_select_pay');
+            }else{
+                return $this->fetch('activity/select_pay');
+            }
         }
         //订单入库
         $add_oreder_data = array();
@@ -203,10 +211,9 @@ class Activity extends Base
         $add_oreder_data['source'] = 1;
         $add_oreder_data['order_price'] = $price;
         model('ActivityOrder')->insert($add_oreder_data);
-
-        //存cookie,防止用户刷新重复提交
-        cookie('orderInfo',$add_oreder_data,60);
-
+        //清空，防止重复插入
+        session('code',null);
+        session('orderInfo',$add_oreder_data);
         //免费活动不需要支付，直接报名成功，付费活动进入选择支付界面
         if($price > 0){
             $this->assign('userInfo',$userInfo);
