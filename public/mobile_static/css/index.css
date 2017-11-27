@@ -1435,7 +1435,7 @@ display: none  !important;
 
 #leave_content form button {
 	position: absolute;
-	left: 30%;
+	left: 40%;
 	bottom: -106px;
 	line-height: 23px;
 	width: 30%;
@@ -1677,7 +1677,7 @@ display: none  !important;
 .detailActivity {
 	position: relative;
 	width: 93%;
-	margin: 0px auto;
+	margin: 0px auto 50px;
 }
 
 .detailActivity .dot {
@@ -2067,7 +2067,8 @@ display: none  !important;
 	text-align: center;
 	border: none;
 	outline: none;
-	border-radius: 20px
+	border-radius: 20px;
+	margin-bottom: 10px;
 }
 
 .themeDetail_bottom {

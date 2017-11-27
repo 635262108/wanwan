@@ -1,3 +1,4 @@
+
 .textAlign .information_content form div.textAlign {
 	width: 90%;
 	margin: 0px auto;
@@ -96,13 +97,13 @@ body{
 
 .textAlign .information_content form .yanzhengma .prompt {
 	width: 50%;
-	border-bottom:2px solid #FFFFFF ;
+	border-bottom:1px solid #FFFFFF ;
 	margin-top: 0px;
 }
 
 .textAlign .information_content form .yanzhengma .get_num,
 .textAlign .information_content form .yanzhengma .register_get_num {
-	width: 43%;
+	width: 55%;
 	margin-left: 48%;
 	color: #FFFFFF;
 	font-size: 18px;

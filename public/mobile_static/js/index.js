@@ -89,17 +89,19 @@ $(function(){
 //我要报名操作
 
     $(".i_want").on("click",function(){
-    $.post("/mobile/user/check_login",
-            function(obj){
-            	console.log(obj,000)
-                if(obj.state_code == 200){
-                   $("#theme_modal_box").show();
-        		   $(".moal_div").animate({"bottom":"0px"},200);
-                }else{
-                	
-                    location.href=obj.data.url;
-                }
-            }, "json");
+    	 $("#theme_modal_box").show();
+         $(".moal_div").animate({"bottom":"0px"},200);
+//  $.post("/mobile/user/check_login",
+//          function(obj){
+//          	console.log(obj,000)
+//              if(obj.state_code == 200){
+//                 $("#theme_modal_box").show();
+//      		   $(".moal_div").animate({"bottom":"0px"},200);
+//              }else{
+//              	
+//                  location.href=obj.data.url;
+//              }
+//          }, "json");
        
 
 
@@ -112,17 +114,17 @@ $(function(){
 		}
     
     $(".select_time").on("click",function(){
-    	    $.post("/mobile/user/check_login",
-            function(obj){
-                if(obj.state_code == 200){
-                   $("#theme_modal_box").show();
-        		   $(".moal_div").animate({"bottom":"0px"},200);
-                }else{
-                   location.href=obj.data.url;
-                }
-            }, "json");
-//  	 $("#theme_modal_box").show();
-//       $(".moal_div").animate({"bottom":"0px"},200);
+//  	    $.post("/mobile/user/check_login",
+//          function(obj){
+//              if(obj.state_code == 200){
+//                 $("#theme_modal_box").show();
+//      		   $(".moal_div").animate({"bottom":"0px"},200);
+//              }else{
+//                 location.href=obj.data.url;
+//              }
+//          }, "json");
+    	 $("#theme_modal_box").show();
+         $(".moal_div").animate({"bottom":"0px"},200);
 
     })
 //  活动选择时间
@@ -239,7 +241,11 @@ $(".collect").on("click",function(){
     })
 
 //点击取消收藏
-    $(".cancel_collect").on("click", function() {
+// $(".cancel_collect").parent("a").on("click",function(){
+// 	return false;
+// })
+    $(".cancel_collect").on("click", function(event) {
+    	 event.preventDefault();
         var aid = $(this).attr('aid');
         var _this = $(this);
         $.post("/home/activity/collection",{ aid:aid,type:2},
@@ -248,7 +254,17 @@ $(".collect").on("click",function(){
                     alert(obj.msg);
                     return false;
                 }else{
-                    _this.parent().parent().parent().parent(".activity_part").css("display", "none");
+                    _this.parent().parent().parent().parent(".playBao_part").remove();
+                    
+                    var children_lg=$("#conllect_Content").children(".playBao_part").length;
+                    if(children_lg==0){
+                    	$(".display_none").show()
+                    }
+                    else{
+                    	$(".display_none").hide()
+                    }
+                    
+                
                 }
             }, "json");
           
