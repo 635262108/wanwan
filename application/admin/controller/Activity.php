@@ -8,6 +8,7 @@ use think\Request;
 use think\Cache;
 use wxpay\database\WxPayRefund;
 use wxpay\WxPayApi;
+use wxpay\WxPayConfig;
 use wxpay\database\WxPayRefundQuery;
 
 class Activity extends Base
@@ -486,9 +487,13 @@ class Activity extends Base
         $input->setOutTradeNo($order_sn);   //订单号
         $input->setOutRefundNo($order_sn); //退款订单号
         $input->setTotalFee(2);     //订单金额
-        $input->setRefundFee(2);  //退款金额
+        $input->setRefundFee(1);  //退款金额
         $input->setOpUserId(config('wxpay.mch_id'));
         $orders = WxPayApi::refund($input);
+        if($orders['err_code'] == 'NOTENOUGH'){
+            $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
+            $orders = WxPayApi::refund($input);
+        }
         var_dump($orders);
     }
     
