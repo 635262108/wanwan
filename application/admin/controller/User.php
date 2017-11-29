@@ -579,7 +579,7 @@ class User extends Base
     //成单记录
     public function deal(){
         //获取数据
-        $res = model('DealRecord')->field('d.*,u.nickname,u.mobile,t.t_content,a.a_title')
+        $res = model('DealRecord')->field('d.*,u.nickname,u.mobile,t.begin_time,t.end_time,a.a_title')
                     ->alias("d")
                     ->join('mfw_user u','d.uid=u.uid','LEFT')
                     ->join('mfw_activity a','d.aid=a.aid','LEFT')
