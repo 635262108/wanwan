@@ -6,7 +6,9 @@ use think\Controller;
 use think\Session;
 use think\Request;
 use think\Cache;
+use wxpay\database\WxPayRefund;
 use wxpay\WxPayApi;
+use wxpay\database\WxPayRefundQuery;
 
 class Activity extends Base
 {
@@ -479,7 +481,15 @@ class Activity extends Base
 
     //退款，原路返回
     public function refundOrder(){
-
+        $order_sn = '201711241842205111';
+        $input = new WxPayRefund();
+        $input->setOutTradeNo($order_sn);   //订单号
+        $input->setOutRefundNo($order_sn); //退款订单号
+        $input->setTotalFee(2);     //订单金额
+        $input->setRefundFee(2);  //退款金额
+        $input->setOpUserId(config('wxpay.mch_id'));
+        $orders = WxPayApi::refund($input);
+        var_dump($orders);
     }
     
     //修改退款状态
@@ -754,7 +764,7 @@ class Activity extends Base
             }
         }*/
         $num = count($excel_data);
-        
+
         //为空直接返回
         if(!isset($excel_data)){
             $this->error('导入失败，请检查姓名，手机号，来源是否已填');
