@@ -1,11 +1,12 @@
 <?php
 namespace app\admin\controller;
+use alipay\Refund;
 use app\admin\logic\ActivityLogic;
 use think\Controller;
 use think\Session;
 use think\Request;
 use think\Cache;
-
+use wxpay\WxPayApi;
 
 class Activity extends Base
 {
@@ -462,6 +463,10 @@ class Activity extends Base
         $this->assign('refundInfo',$refundInfo);
         return $this->fetch();
     }
+
+//    public function refundOrder(){
+////        Refund::exec($params);
+//    }
     
     //修改退款状态展示
     public function order_amend(){
@@ -470,6 +475,11 @@ class Activity extends Base
         $refundInfo = $ActivityRefund->getAnyRefund($rid);
         $this->assign('refundInfo',$refundInfo);
         return $this->fetch();
+    }
+
+    //退款，原路返回
+    public function refundOrder(){
+
     }
     
     //修改退款状态
@@ -710,7 +720,7 @@ class Activity extends Base
                 $E = 0;
             }
             $excel_data[$k]['name'] = $A?$A:'';
-            $excel_data[$k]['mobile'] = $B;
+            $excel_data[$k]['mobile'] = (string)$B;
             $excel_data[$k]['addtime'] = strtotime($C);
             $excel_data[$k]['pay_time'] = strtotime($D);
             $excel_data[$k]['order_price'] = $E;
