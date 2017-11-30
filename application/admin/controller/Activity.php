@@ -466,10 +466,6 @@ class Activity extends Base
         $this->assign('refundInfo',$refundInfo);
         return $this->fetch();
     }
-
-//    public function refundOrder(){
-////        Refund::exec($params);
-//    }
     
     //修改退款状态展示
     public function order_amend(){
@@ -481,20 +477,48 @@ class Activity extends Base
     }
 
     //退款，原路返回
-    public function refundOrder(){
-        $order_sn = '201711241842205111';
-        $input = new WxPayRefund();
-        $input->setOutTradeNo($order_sn);   //订单号
-        $input->setOutRefundNo($order_sn); //退款订单号
-        $input->setTotalFee(2);     //订单金额
-        $input->setRefundFee(1);  //退款金额
-        $input->setOpUserId(config('wxpay.mch_id'));
-        $orders = WxPayApi::refund($input);
-        if($orders['err_code'] == 'NOTENOUGH'){
-            $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
-            $orders = WxPayApi::refund($input);
+    public function refundOrder($order_sn){
+        $orderInfo = model('ActivityOrder')->getSnOrderInfo($order_sn);
+        if(empty($orderInfo)){
+            $this->error('订单错误');
         }
-        var_dump($orders);
+        if($orderInfo['pay_way'] == 1){     //支付宝
+            $this->error('支付宝请手工退款');
+        }elseif ($orderInfo['pay_way'] == 2){   //微信
+            $input = new WxPayRefund();
+            $input->setOutTradeNo($order_sn);   //订单号
+            $input->setOutRefundNo($order_sn); //退款订单号
+            $input->setTotalFee(2);     //订单金额
+            $input->setRefundFee(1);  //退款金额
+            $input->setOpUserId(config('wxpay.mch_id'));
+            $orders = WxPayApi::refund($input);
+            if($orders['err_code'] == 'NOTENOUGH'){
+                $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
+                $orders = WxPayApi::refund($input);
+            }
+            if(isset($orders['err_code'])){
+                $this->error($orders['err_code']);
+            }else{
+                model('ActivityOrder')->setOrderStatus($order_sn,6);
+                $this->success('金额已原路返回');
+            }
+        }elseif ($orderInfo['pay_way'] == 4){   //余额
+            $userInfo = model('user')->find($orderInfo['uid']);
+            if(empty($userInfo)) {
+                $this->error('用户不存在');
+            }
+
+            $userInfo->balance = $userInfo->balance+$orderInfo['order_price'];
+            $userInfo->save();
+
+            $res = model('ActivityOrder')->setOrderStatus($order_sn,6);
+            if($res){
+                $this->success('金额已原路返回');
+            }else{
+                $this->success('退款失败');
+            }
+
+        }
     }
     
     //修改退款状态
