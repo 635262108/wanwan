@@ -626,4 +626,15 @@ class User extends Base
             return_info(-1,'删除失败');
         }
     }
+
+    //记录签到
+    public function userSign(){
+        $data = [
+            'act' => 1,
+            'mobile' => '123123',
+            'content' => '哈哈',
+            'time'  => time(),
+        ];
+        db('sign_log')->insert($data);
+    }
 }
