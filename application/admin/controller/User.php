@@ -579,7 +579,7 @@ class User extends Base
     //成单记录
     public function deal(){
         //获取数据
-        $res = model('DealRecord')->field('d.*,u.nickname,u.mobile,t.t_content,a.a_title')
+        $res = model('DealRecord')->field('d.*,u.nickname,u.mobile,t.begin_time,t.end_time,a.a_title')
                     ->alias("d")
                     ->join('mfw_user u','d.uid=u.uid','LEFT')
                     ->join('mfw_activity a','d.aid=a.aid','LEFT')
@@ -625,5 +625,64 @@ class User extends Base
         }else{
             return_info(-1,'删除失败');
         }
+    }
+
+    //签到管理
+    public function sign(){
+        return $this->fetch();
+    }
+
+    //记录签到
+    public function rechargeSign(){
+        $uid = input('get.uid');
+        $userInfo = model('user')->find($uid);
+        if(empty($uid) || empty($userInfo)){
+            return_info(-1,'用户不存在');
+        }
+
+        $sn = input('get.sn');
+        $activityInfo = model('Activity')->find($sn);
+        if(empty($aid) || empty($activityInfo)){
+            return_info(-1,'活动不存在');
+        }
+
+        $time = input('get.time');
+        $timeInfo = model('ActivityTime')->find($time);
+        if(empty($time) || empty($timeInfo)){
+            return_info(-1,'报名时间有误');
+        }
+
+        $map = [
+            'uid' => $uid,
+            'order_sn' => $sn,
+            'time'  => $time
+        ];
+
+        $orderInfo = model('ActivityOrder')->where($map)->find();
+        if(empty($orderInfo)){
+            return_info(-1,'订单获取失败，请确认订单');
+        }
+
+        $orderInfo->sign_time = time();
+        $orderInfo->order_status = 4;
+        $res = $orderInfo->save();
+        if($res){
+            return_info(200,'签到成功',['name'=>$userInfo['name']]);
+        }else{
+            return_info(-1,'签到失败，请进行手动记录');
+        }
+//        header('Content-type: application/json');
+//        //获取回调函数名
+//        $jsoncallback = htmlspecialchars($_REQUEST ['callback']);//把预定义的字符转换为 HTML 实体。
+//
+//        $arr = [
+//            'code' => 200,
+//            'msg'  => '成功',
+//        ];
+//
+//        $json_data=json_encode($arr);//转换为json数据
+//
+//        //输出jsonp格式的数据
+//        echo $jsoncallback . "(" . $json_data . ")";
     }
 }

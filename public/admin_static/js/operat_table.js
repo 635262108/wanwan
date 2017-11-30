@@ -403,7 +403,7 @@ $(document).ready(function() {
 
 							for(var i = 0; i < obj.data.length; i++) {
 								var t_id = obj.data[i].t_id;
-								str += "<option value=" + t_id + ">" + obj.data[i].t_content + "</option>";
+								str += "<option value=" + t_id + ">" + obj.data[i].begin_time + "--" + obj.data[i].end_time  + "</option>";
 
 							}
 

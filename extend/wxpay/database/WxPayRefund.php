@@ -313,4 +313,14 @@ class WxPayRefund extends WxPayDataBase
     {
         return array_key_exists('op_user_id', $this->values);
     }
+
+    /**
+     * 设置操退款方式，REFUND_SOURCE_UNSETTLED_FUNDS---未结算资金退款（默认使用未结算资金退款）REFUND_SOURCE_RECHARGE_FUNDS---可用余额退款
+     * @param string $value
+     **/
+
+    public function setRefundAccount($value)
+    {
+        $this->values['refund_account'] = $value;
+    }
 }

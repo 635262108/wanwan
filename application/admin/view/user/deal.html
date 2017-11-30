@@ -36,7 +36,8 @@
                   <th>活动标题</th>
                   <th>会员姓名</th>
                   <th>手机号</th>
-                  <th>活动时间</th>
+                  <th>活动开始时间</th>
+                  <th>活动结束时间</th>
                   <th>成单金额</th>
                   <th>成单时间</th>
                   <th>操作</th>
@@ -49,7 +50,8 @@
                   <td>{$vo.a_title}</td>  
                   <td>{$vo.nickname}</td>
                   <td>{$vo.mobile}</td>
-                  <td>{$vo.t_content}</td>
+                  <td>{$vo.begin_time|date="Y-m-d H:i",###}</td>
+                  <td>{$vo.end_time|date="Y-m-d H:i",###}</td>
                   <td>
                      {$vo.money}
                   </td>

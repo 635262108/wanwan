@@ -22,7 +22,7 @@ class Service extends Base
     public function access($aid){
         //获取数据
         $map['is_enter'] = 0;
-        $res = model('ActivityOrder')->field('o.*,t.t_content')
+        $res = model('ActivityOrder')->field('o.*,t.begin_time,t.end_time')
                 ->alias('o')
                 ->join('mfw_activity_time t','o.t_id=t.t_id','left')
                 ->where('o.aid',$aid)
@@ -66,7 +66,7 @@ class Service extends Base
         $map['o.sign_time'] = array('gt',0);
         $res = model('ActivityOrder')
                 ->alias('o')
-                ->field('o.*,s.name source_name,t.t_content')
+                ->field('o.*,s.name source_name,t.end_time,t.begin_time')
                 ->join('mfw_source s','o.source=s.id')
                 ->join('mfw_activity_time t','t.t_id=o.t_id')
                 ->where($map)->select();

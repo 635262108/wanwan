@@ -1,11 +1,15 @@
 <?php
 namespace app\admin\controller;
+use alipay\Refund;
 use app\admin\logic\ActivityLogic;
 use think\Controller;
 use think\Session;
 use think\Request;
 use think\Cache;
-
+use wxpay\database\WxPayRefund;
+use wxpay\WxPayApi;
+use wxpay\WxPayConfig;
+use wxpay\database\WxPayRefundQuery;
 
 class Activity extends Base
 {
@@ -471,6 +475,51 @@ class Activity extends Base
         $this->assign('refundInfo',$refundInfo);
         return $this->fetch();
     }
+
+    //退款，原路返回
+    public function refundOrder($order_sn){
+        $orderInfo = model('ActivityOrder')->getSnOrderInfo($order_sn);
+        if(empty($orderInfo)){
+            $this->error('订单错误');
+        }
+        if($orderInfo['pay_way'] == 1){     //支付宝
+            $this->error('支付宝请手工退款');
+        }elseif ($orderInfo['pay_way'] == 2){   //微信
+            $input = new WxPayRefund();
+            $input->setOutTradeNo($order_sn);   //订单号
+            $input->setOutRefundNo($order_sn); //退款订单号
+            $input->setTotalFee(2);     //订单金额
+            $input->setRefundFee(1);  //退款金额
+            $input->setOpUserId(config('wxpay.mch_id'));
+            $orders = WxPayApi::refund($input);
+            if($orders['err_code'] == 'NOTENOUGH'){
+                $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
+                $orders = WxPayApi::refund($input);
+            }
+            if(isset($orders['err_code'])){
+                $this->error($orders['err_code']);
+            }else{
+                model('ActivityOrder')->setOrderStatus($order_sn,6);
+                $this->success('金额已原路返回');
+            }
+        }elseif ($orderInfo['pay_way'] == 4){   //余额
+            $userInfo = model('user')->find($orderInfo['uid']);
+            if(empty($userInfo)) {
+                $this->error('用户不存在');
+            }
+
+            $userInfo->balance = $userInfo->balance+$orderInfo['order_price'];
+            $userInfo->save();
+
+            $res = model('ActivityOrder')->setOrderStatus($order_sn,6);
+            if($res){
+                $this->success('金额已原路返回');
+            }else{
+                $this->success('退款失败');
+            }
+
+        }
+    }
     
     //修改退款状态
     public function save_refund(){
@@ -683,17 +732,24 @@ class Activity extends Base
         for($j=2;$j<=$highestRow;$j++)
         {
             $A = $objPHPExcel->getActiveSheet()->getCell("A".$j)->getValue();//获取A列的值，用户名
+            if(is_object($A))  $A= $A->__toString();    //转文本格式
             $B = $objPHPExcel->getActiveSheet()->getCell("B".$j)->getValue();//获取B列的值，手机号
+            if(is_object($A))  $A= $A->__toString();    //转文本格式
             $C = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取C列的值，下单时间
             $D = $objPHPExcel->getActiveSheet()->getCell("D".$j)->getValue();//获取D列的值，支付时间
             $E = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，付款金额
             $F = $objPHPExcel->getActiveSheet()->getCell("F".$j)->getValue();//获取F列的值，来源
             $G = $objPHPExcel->getActiveSheet()->getCell("G".$j)->getValue();//获取G列的值，孩子姓名
+            if(is_object($G))  $G= $G->__toString();    //转文本格式
             $H = $objPHPExcel->getActiveSheet()->getCell("H".$j)->getValue();//获取H列的值，孩子性别
+            if(is_object($H))  $H= $H->__toString();    //转文本格式
             $I = $objPHPExcel->getActiveSheet()->getCell("I".$j)->getValue();//获取I列的值，孩子生日
             $J = $objPHPExcel->getActiveSheet()->getCell("J".$j)->getValue();//获取J列的值，孩子可玩耍时间
+            if(is_object($J))  $J= $J->__toString();    //转文本格式
             $K = $objPHPExcel->getActiveSheet()->getCell("K".$j)->getValue();//获取K列的值，孩子学校
+            if(is_object($K))  $K= $K->__toString();    //转文本格式
             $L = $objPHPExcel->getActiveSheet()->getCell("L".$j)->getValue();//获取L列的值，是否签到
+            if(is_object($L))  $L= $L->__toString();    //转文本格式
 
             //手机号，来源为必填项，任何一个为空就不记录
             if(empty($B) || empty($F)){
@@ -710,7 +766,7 @@ class Activity extends Base
                 $E = 0;
             }
             $excel_data[$k]['name'] = $A?$A:'';
-            $excel_data[$k]['mobile'] = $B;
+            $excel_data[$k]['mobile'] = (string)$B;
             $excel_data[$k]['addtime'] = strtotime($C);
             $excel_data[$k]['pay_time'] = strtotime($D);
             $excel_data[$k]['order_price'] = $E;
@@ -806,6 +862,7 @@ class Activity extends Base
                 $i++;
             }
         }
+
         if(isset($add_user)){
             db('user')->insertAll($add_user);
         }

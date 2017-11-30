@@ -8,6 +8,12 @@ use think\Db;
 
 class ActivityTime extends Model
 {
+
+    protected $type = [
+        'begin_time' => 'timestamp:Y-m-d H:i',
+        'end_time'  =>  'timestamp:Y-m-d H:i'
+    ];
+
     /**
      * 获取某个活动的时间段
      * @param type $aid

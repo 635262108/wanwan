@@ -57,8 +57,8 @@
                 <tr class="gradeX trs">
                   <td class="td_id">{$vo.t_id}</td>
                   <td>{$vo.a_title}</td>  
-                  <td>{$vo.begin_time|date="Y-m-d H:i",###}</td>
-                  <td>{$vo.end_time||date="Y-m-d H:i",###}</td>
+                  <td>{$vo.begin_time}</td>
+                  <td>{$vo.end_time}</td>
                   <td>{$vo.ticket_num}</td>
                     <td>
                         {if condition="$vo.is_display eq 1"}
