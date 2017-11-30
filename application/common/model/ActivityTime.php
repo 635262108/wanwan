@@ -10,8 +10,8 @@ class ActivityTime extends Model
 {
 
     protected $type = [
-        'begin_time' => 'timestamp:m-d H:i',
-        'end_time'  =>  'timestamp:m-d H:i'
+        'begin_time' => 'timestamp:Y-m-d H:i',
+        'end_time'  =>  'timestamp:Y-m-d H:i'
     ];
 
     /**
