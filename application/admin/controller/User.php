@@ -629,6 +629,18 @@ class User extends Base
 
     //记录签到
     public function userSign(){
-        return_info(200,'成功');
+        header('Content-type: application/json');
+        //获取回调函数名
+        $jsoncallback = htmlspecialchars($_REQUEST ['callback']);//把预定义的字符转换为 HTML 实体。
+
+        $arr = [
+            'code' => 200,
+            'msg'  => '成功',
+        ];
+
+        $json_data=json_encode($arr);//转换为json数据
+
+        //输出jsonp格式的数据
+        echo $jsoncallback . "(" . $json_data . ")";
     }
 }
