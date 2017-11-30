@@ -5,7 +5,10 @@ $(document).ready(function(){
 	
 	// === Sidebar navigation === //
 	
-	
+	$("#index > a").click(function(e){
+		sessionStorage.setItem("href_name",$(this).attr("href"));
+		
+	})
 	
 	$('.submenu > a').click(function(e)
 	{
@@ -39,7 +42,6 @@ $(document).ready(function(){
 		var lis=$(this).children("ul").find("li");
 		lis.on("click",function(){
 			sessionStorage.setItem("href_name",$(this).children("a").attr("href"));
-			
 			
 		})
 	})

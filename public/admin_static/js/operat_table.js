@@ -567,10 +567,70 @@ var str_num="<div class='one'><div class='control-group'><label class='control-l
 		})
    
     
+//首页js
+var firstlis=$(".ul_classify ul").children("li");
+var firstContents=$(".classify_contents").children();
 
-   
-    
-    
+firstlis.on("click",function(){
+	
+	$(this).children("span").show()
+	$(this).siblings().children("span").hide();
+	firstContents.eq($(this).index()).show().siblings().hide();
+})
+
+//客户列表的点击事件
+var paixuli=$(".pai ul").children();
+paixuli.on("click",function(){
+	$(this).addClass("active").siblings().removeClass("active");
+})
+ 
+var checklis=$(".member_check ul li:not(:first-child)");
+var checkContens=$(".pai_contents").children();
+checklis.on("click",function(){
+	$(this).children("span").show();
+	$(this).siblings().children("span").hide();
+	checkContens.eq($(this).index()-1).show().siblings().hide()
+})
+
+//多选事件
+var checkMore=$(".playTimes ul").children("li");
+checkMore.on("click",function(){
+	if($(this).hasClass("active")){
+		$(this).removeClass("active");
+	}
+	else{
+		$(this).addClass("active");
+	}
+	
+})
+
+var activitys=$(".activityOperate").children();
+activitys.on("click",function(){
+	$(this).addClass("active").siblings().removeClass("active");
+})
+
+//点击重置
+//$(".reset").on("click",function(){
+//	
+//})
+
+
+//会员列表的筛选点击事件
+var onLis=$(".shai").children(".only_one");
+
+    onLis.each(function(){
+    	var lis=$(this).children("ul").children("li");
+ 
+    	lis.on("click",function(){
+    		if($(this).hasClass("active")){
+    			$(this).removeClass("active");
+    		}
+    		else{
+    			$(this).addClass("active").siblings().removeClass("active");
+    		}
+//  		  $(this).addClass("active").siblings().removeClass("active");
+    	})
+    })
     
 
 })

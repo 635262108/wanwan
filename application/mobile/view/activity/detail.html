@@ -193,11 +193,11 @@
             {else/}
             <span class="collect" aid="{$activityInfo.aid}" style="border:1px solid #FF4134 ;">已收藏</span>
             {/empty}
-             {if condition="$activityInfo.a_end_time gt time()"/}
-              <span><a href="javascript:;" class="i_want" class="activity_over">我要报名</a></span>
-              {else/}
+            {if condition="$activityInfo.a_end_time gt time()"/}
+             <span><a href="javascript:;" class="i_want" class="activity_over">我要报名</a></span>
+             {else/}
                 <span style="color: #656565;background: #C0C0C0;" class="activity_over"><a href="javascript:;" class="i_want" class="activity_over">活动结束</a></span>
-             {/if}
+            {/if}
             
     </div>
 
@@ -207,6 +207,7 @@
  <script>
         $(".my_name").click(function(){
             var time = $("input[type='radio']:checked").val();
+            console.log(time,'是否显示时间');
             if (time == undefined) {
                 alert('请选择时间')
                 return false;
