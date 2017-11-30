@@ -24,17 +24,17 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="633" column="33" lean-forward="true" selection-start-line="633" selection-start-column="33" selection-end-line="633" selection-end-column="33" />
+            <state relative-caret-position="651">
+              <caret line="629" column="10" lean-forward="true" selection-start-line="629" selection-start-column="10" selection-end-line="629" selection-end-column="10" />
               <folding>
-                <marker date="1512011566604" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
-                <marker date="1512011566604" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
-                <marker date="1512011566604" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
-                <marker date="1512011566604" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
-                <marker date="1512011566604" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
-                <marker date="1512011566604" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
-                <marker date="1512011566604" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
-                <marker date="1512011566604" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
+                <marker date="1512022916588" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
+                <marker date="1512022916588" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
+                <marker date="1512022916588" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
+                <marker date="1512022916588" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
+                <marker date="1512022916588" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
+                <marker date="1512022916588" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
+                <marker date="1512022916588" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
+                <marker date="1512022916588" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
               </folding>
             </state>
           </provider>
@@ -70,18 +70,8 @@
       <file leaf-file-name="return_visit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/service/return_visit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="41" column="41" lean-forward="true" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="access.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/service/access.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <state relative-caret-position="418">
+              <caret line="31" column="78" lean-forward="true" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -203,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/thinkphp/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/.gitignore" />
         <option value="$PROJECT_DIR$/application/common/model/User.php" />
@@ -253,6 +242,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/service/access.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Service.php" />
         <option value="$PROJECT_DIR$/application/admin/view/service/return_visit.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/public/a.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
       </list>
     </option>
@@ -321,6 +311,14 @@
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
@@ -462,12 +460,12 @@
       <workItem from="1511484725749" duration="31589000" />
       <workItem from="1511749840109" duration="9819000" />
       <workItem from="1511918398952" duration="24138000" />
-      <workItem from="1512003435786" duration="4164000" />
+      <workItem from="1512003435786" duration="8222000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="685644000" />
+    <option name="totallyTimeSpent" value="689702000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -513,21 +511,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/extend/wxpay/JsApiPay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/user/recharge_success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -546,6 +529,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -553,6 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -646,6 +631,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="59" column="45" lean-forward="false" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -668,6 +654,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -704,6 +691,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="747">
           <caret line="281" column="15" lean-forward="false" selection-start-line="281" selection-start-column="9" selection-end-line="281" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -757,7 +745,7 @@
         <state relative-caret-position="374">
           <caret line="290" column="39" lean-forward="false" selection-start-line="290" selection-start-column="39" selection-end-line="290" selection-end-column="39" />
           <folding>
-            <element signature="e#40#77#0#PHP" expanded="true" />
+            <element signature="e#40#77#0#PHP" expanded="false" />
             <element signature="e#28067#28753#0#PHP" expanded="false" />
             <element signature="e#28457#28747#0#PHP" expanded="false" />
             <element signature="e#28540#28747#0#PHP" expanded="false" />
@@ -785,6 +773,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -792,6 +781,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -860,20 +850,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="477" column="0" lean-forward="true" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
-          <folding>
-            <element signature="e#38#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/service/access.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <caret line="29" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/public/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/public/a.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/service/return_visit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="31" column="78" lean-forward="true" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
           <folding />
         </state>
       </provider>
@@ -891,27 +895,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/service/return_visit.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="41" column="41" lean-forward="true" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="274">
+          <caret line="477" column="0" lean-forward="true" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
+          <folding>
+            <element signature="e#38#56#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="633" column="33" lean-forward="true" selection-start-line="633" selection-start-column="33" selection-end-line="633" selection-end-column="33" />
+        <state relative-caret-position="651">
+          <caret line="629" column="10" lean-forward="true" selection-start-line="629" selection-start-column="10" selection-end-line="629" selection-end-column="10" />
           <folding>
-            <marker date="1512011566604" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
-            <marker date="1512011566604" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
-            <marker date="1512011566604" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
-            <marker date="1512011566604" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
-            <marker date="1512011566604" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1512011566604" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
-            <marker date="1512011566604" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
-            <marker date="1512011566604" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
+            <marker date="1512022916588" expanded="true" signature="5711:6141" ph="select a_tit... mfw_activity" />
+            <marker date="1512022916588" expanded="true" signature="5756:5842" ph="select count... mfw_activity_order" />
+            <marker date="1512022916588" expanded="true" signature="5882:5963" ph="select count... mfw_activity_order" />
+            <marker date="1512022916588" expanded="true" signature="6004:6086" ph="select count... mfw_activity_order" />
+            <marker date="1512022916588" expanded="true" signature="6346:6926" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1512022916588" expanded="true" signature="6405:6504" ph="select count... mfw_activity_order" />
+            <marker date="1512022916588" expanded="true" signature="6556:6650" ph="select count... mfw_activity_order" />
+            <marker date="1512022916588" expanded="true" signature="6703:6798" ph="select count... mfw_activity_order" />
           </folding>
         </state>
       </provider>
