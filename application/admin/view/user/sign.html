@@ -6,14 +6,16 @@
 		<title>Title</title>
 		<link rel="stylesheet" href="__ACSS__/sign.css" />
 		<link rel="stylesheet" href="__ACSS__/bootstrap.min.css" />
-	</head>
+		<link rel="stylesheet" href="__ACSS__/matrix-style.css" />
+
+</head>
 
 	<body>
 		<div class="signContent">
 			<div class="system">
 				<div class="title">签到管理系统</div>
 				<div class="sign_member">
-					<div class="prompt"><input type="text" class="urlPrompt"></div>
+					<div class="prompt"><input type="text" class="urlPrompt" value=""></div>
 					<table class="data-table" style="width: 632px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
 						<thead>
 							<tr>
@@ -23,13 +25,7 @@
 							</tr>
 						</thead>
 						<tbody id="tbody_center" style="font-size: 12px;">
-
-							<!--<tr>
-								<td>小花儿</td>
-								<td>签到成功!</td>
-
-							</tr>-->
-
+						
 						</tbody>
 					</table>
 				</div>
@@ -40,14 +36,19 @@
 
 		<script src="__AJS__/jquery.min.js"></script>
 		<script src="__AJS__/jquery.dataTables.min.js"></script>
+		<script src="__AJS__/bootstrap.min.js"></script> 
 		<script>
+			var url = $(".urlPrompt").val();
+			console.log(url,888888)
 			$(function() {
 				setTimeout('send_data()', 3000);
 			})
-
-			function send_data() {
+				
+		function send_data() {
 				var url = $(".urlPrompt").val();
-				//				var output = $("#output").val();
+				if($(".urlPrompt").val()==''){
+					return false;
+				}
 				$.ajax({
 					url: url,
 					type: "post",
@@ -72,14 +73,16 @@
 
 				setTimeout('send_data()', 1000);
 			}
-			//			$('.data-table').dataTable({
-			//					"bJQueryUI": true,
-			//					"sPaginationType": "full_numbers",
-			//					"sDom": '<""l>t<"F"fp>',
-			//					"bFilter":true,
-			//					"bLengthChange":true,
-			//					"aaSorting":[[0,"desc"]]
-			//			});
+		
+		$('.data-table').dataTable({
+								"bJQueryUI": true,
+								"sPaginationType": "full_numbers",
+								"sDom": '<""l>t<"F"fp>',
+								"bFilter":false,
+								"bLengthChange":false,
+								"bPaginage":true ,
+								"ordering":false
+		});
 		</script>
 	</body>
 
