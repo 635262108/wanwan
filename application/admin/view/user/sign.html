@@ -19,9 +19,10 @@
 					<table class="data-table" style="width: 632px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
 						<thead>
 							<tr>
+								<th>活动名称</th>
 								<th>姓名</th>
 								<th>签到结果</th>
-
+                                
 							</tr>
 						</thead>
 						<tbody id="tbody_center" style="font-size: 12px;">
@@ -55,14 +56,16 @@
 					dataType: "json", //指定服务器返回的数据类型
 					success: function(obj) {
 						if(obj.state_code == 200) {
-							$("#tbody_center").prepend("<tr>" +
-								"<td>" + obj.data.name + "</td>" +
-								"<td>" + obj.msg + "</td>" +
+							$("#tbody_center").prepend("<tr>"+ 
+							     "<td>"+obj.data.activity+"</td>"+
+								"<td>" + obj.data.name + "</td>"+ 
+								"<td>" + obj.msg + "</td>"+ 
 								"</tr>")
 
 						} else {
-							$("#tbody_center").prepend("<tr>" +
-								"<td>" + obj.data.name + "</td>" +
+							$("#tbody_center").prepend("<tr>"+
+							    "<td>"+obj.data.activity+"</td>"+
+								"<td>" + obj.data.name + "</td>"+ 
 								"<td style='color:#ff4134'>" + obj.msg + "</td>" +
 								"</tr>")
 						}
