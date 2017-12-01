@@ -518,7 +518,7 @@ class Activity extends Base
         $result = $notify->getPayUrl($input);  
         $url = $result["code_url"];
         //生成二维码
-        return "http://paysdk.weixin.qq.com/example/qrcode.php?data=".urlencode($url);
+        return "http://paysdk.weixin.qq.com/example/phpqrcode.php?data=".urlencode($url);
     }
 
     /**

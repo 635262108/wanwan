@@ -1,5 +1,6 @@
 <?php
 namespace app\mobile\controller;
+use qrcode\QRcode;
 use think\Controller;
 use think\Session;
 use think\Request;
@@ -12,7 +13,6 @@ use think\Log;
 use wxpay\WxPayApi;
 use wxpay\WxPayConfig;
 use wxpay\wechatAppPay;
-
 
 class User extends Base
 {
@@ -651,6 +651,25 @@ class User extends Base
         }
     }
 
+    public function create_qrcode(){
+
+        $text = input('get.text');
+
+        require EXTEND_PATH.'qrcode/phpqrcode.php';
+
+        $value = $text;                  //二维码内容
+
+        $errorCorrectionLevel = 'L';    //容错级别
+        $matrixPointSize = 5;           //生成图片大小
+
+        //生成二维码图片
+        $filename = '/public/static/img/qrcode/'.microtime().'.png';
+
+        QRcode::png($value,false , $errorCorrectionLevel, $matrixPointSize, 2);
+        echo $filename;die;
+
+    }
+
     //获取活动签到码
     public function getActivityQrCode(){
         if(!request()->isAjax()){
@@ -671,7 +690,7 @@ class User extends Base
         $u = str_encode($uid);
         $o = str_encode($oid);
 
-        $url = "http://qr.topscan.com/api.php?text=www.baobaowaner.com/abab.php/user/rechargeSign/u/$u/o/$o";
+        $url = "/mobile/user/create_qrcode?text="."rechargeSign/u/$u/o/$o";
         return_info(200,'成功',['url'=>$url]);
     }
 

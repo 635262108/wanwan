@@ -51,7 +51,7 @@
 				$.ajax({
 					url: url,
 					type: "post",
-					dataType: "jsonp", //指定服务器返回的数据类型
+					dataType: "json", //指定服务器返回的数据类型
 					success: function(obj) {
 						if(obj.state_code == 200) {
 							$("#tbody_center").prepend("<tr>" +
