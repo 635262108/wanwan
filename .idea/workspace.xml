@@ -6,11 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/sign.html" afterPath="$PROJECT_DIR$/application/admin/view/user/sign.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/Activity.php" afterPath="$PROJECT_DIR$/application/home/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,20 +20,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="639" column="32" lean-forward="true" selection-start-line="639" selection-start-column="32" selection-end-line="639" selection-end-column="32" />
+            <state relative-caret-position="57">
+              <caret line="648" column="0" lean-forward="true" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
               <folding>
-                <marker date="1512119570711" expanded="true" signature="5846:6276" ph="select a_tit... mfw_activity" />
-                <marker date="1512119570711" expanded="true" signature="5891:5977" ph="select count... mfw_activity_order" />
-                <marker date="1512119570711" expanded="true" signature="6017:6098" ph="select count... mfw_activity_order" />
-                <marker date="1512119570711" expanded="true" signature="6139:6221" ph="select count... mfw_activity_order" />
-                <marker date="1512119570711" expanded="true" signature="6481:7061" ph="select t.*,a... mfw_activity_time" />
-                <marker date="1512119570711" expanded="true" signature="6540:6639" ph="select count... mfw_activity_order" />
-                <marker date="1512119570711" expanded="true" signature="6691:6785" ph="select count... mfw_activity_order" />
-                <marker date="1512119570711" expanded="true" signature="6838:6933" ph="select count... mfw_activity_order" />
+                <marker date="1512120776371" expanded="true" signature="5846:6276" ph="select a_tit... mfw_activity" />
+                <marker date="1512120776371" expanded="true" signature="5891:5977" ph="select count... mfw_activity_order" />
+                <marker date="1512120776371" expanded="true" signature="6017:6098" ph="select count... mfw_activity_order" />
+                <marker date="1512120776371" expanded="true" signature="6139:6221" ph="select count... mfw_activity_order" />
+                <marker date="1512120776371" expanded="true" signature="6481:7061" ph="select t.*,a... mfw_activity_time" />
+                <marker date="1512120776371" expanded="true" signature="6540:6639" ph="select count... mfw_activity_order" />
+                <marker date="1512120776371" expanded="true" signature="6691:6785" ph="select count... mfw_activity_order" />
+                <marker date="1512120776371" expanded="true" signature="6838:6933" ph="select count... mfw_activity_order" />
               </folding>
             </state>
           </provider>
@@ -97,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="673" column="40" lean-forward="true" selection-start-line="673" selection-start-column="40" selection-end-line="673" selection-end-column="40" />
+            <state relative-caret-position="-31">
+              <caret line="674" column="33" lean-forward="true" selection-start-line="674" selection-start-column="33" selection-end-line="674" selection-end-column="33" />
               <folding>
                 <element signature="e#39#57#0#PHP" expanded="true" />
                 <marker date="1512119762079" expanded="true" signature="20421:20426" ph="..." />
@@ -272,8 +268,8 @@
         <option value="$PROJECT_DIR$/extend/qrcode/Qcode.php" />
         <option value="$PROJECT_DIR$/extend/qrcode/phpqrcode.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/sign.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
+        <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
       </list>
     </option>
   </component>
@@ -502,12 +498,12 @@
       <workItem from="1511749840109" duration="9819000" />
       <workItem from="1511918398952" duration="24138000" />
       <workItem from="1512003435786" duration="19646000" />
-      <workItem from="1512091183680" duration="20006000" />
+      <workItem from="1512091183680" duration="20939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="721132000" />
+    <option name="totallyTimeSpent" value="722065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -965,30 +961,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="639" column="32" lean-forward="true" selection-start-line="639" selection-start-column="32" selection-end-line="639" selection-end-column="32" />
+        <state relative-caret-position="-31">
+          <caret line="674" column="33" lean-forward="true" selection-start-line="674" selection-start-column="33" selection-end-line="674" selection-end-column="33" />
           <folding>
-            <marker date="1512119570711" expanded="true" signature="5846:6276" ph="select a_tit... mfw_activity" />
-            <marker date="1512119570711" expanded="true" signature="5891:5977" ph="select count... mfw_activity_order" />
-            <marker date="1512119570711" expanded="true" signature="6017:6098" ph="select count... mfw_activity_order" />
-            <marker date="1512119570711" expanded="true" signature="6139:6221" ph="select count... mfw_activity_order" />
-            <marker date="1512119570711" expanded="true" signature="6481:7061" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1512119570711" expanded="true" signature="6540:6639" ph="select count... mfw_activity_order" />
-            <marker date="1512119570711" expanded="true" signature="6691:6785" ph="select count... mfw_activity_order" />
-            <marker date="1512119570711" expanded="true" signature="6838:6933" ph="select count... mfw_activity_order" />
+            <element signature="e#39#57#0#PHP" expanded="true" />
+            <marker date="1512119762079" expanded="true" signature="20421:20426" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="673" column="40" lean-forward="true" selection-start-line="673" selection-start-column="40" selection-end-line="673" selection-end-column="40" />
+        <state relative-caret-position="57">
+          <caret line="648" column="0" lean-forward="true" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
           <folding>
-            <element signature="e#39#57#0#PHP" expanded="true" />
-            <marker date="1512119762079" expanded="true" signature="20421:20426" ph="..." />
+            <marker date="1512120776371" expanded="true" signature="5846:6276" ph="select a_tit... mfw_activity" />
+            <marker date="1512120776371" expanded="true" signature="5891:5977" ph="select count... mfw_activity_order" />
+            <marker date="1512120776371" expanded="true" signature="6017:6098" ph="select count... mfw_activity_order" />
+            <marker date="1512120776371" expanded="true" signature="6139:6221" ph="select count... mfw_activity_order" />
+            <marker date="1512120776371" expanded="true" signature="6481:7061" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1512120776371" expanded="true" signature="6540:6639" ph="select count... mfw_activity_order" />
+            <marker date="1512120776371" expanded="true" signature="6691:6785" ph="select count... mfw_activity_order" />
+            <marker date="1512120776371" expanded="true" signature="6838:6933" ph="select count... mfw_activity_order" />
           </folding>
         </state>
       </provider>

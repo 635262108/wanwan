@@ -649,25 +649,30 @@ class User extends Base
 
         $oid = str_decode($data['o']);
         $orderInfo = model('ActivityOrder')->find($oid);
+        $activityInfo = model('Activity')->find($orderInfo['aid']);
+        $data = [
+            'name' => $userInfo['nickname'],
+            'activity' => $activityInfo['a_title']
+        ];
         if(empty($orderInfo) || empty($oid)){
-            return_info(-1,'订单为空，请检查客户订单，如无误请手动记录',['name'=>$userInfo['nickname']]);
+            return_info(-1,'订单为空，请检查客户订单，如无误请手动记录',$data);
         }
 
         if($orderInfo['sign_time'] > 0){
-            return_info(-1,'此订单已签到，请检查客户订单是否有误',['name'=>$userInfo['nickname']]);
+            return_info(-1,'此订单已签到，请检查客户订单是否有误',$data);
         }
 
         if($orderInfo['uid'] != $uid){
-            return_info(-1,'订单号和用户不对称，请检查客户订单，如无误请手动记录',['name'=>$userInfo['nickname']]);
+            return_info(-1,'订单号和用户不对称，请检查客户订单，如无误请手动记录',$data);
         }
 
         $orderInfo->sign_time = time();
         $orderInfo->order_status = 4;
         $res = $orderInfo->save();
         if($res){
-            return_info(200,'签到成功',['name'=>$userInfo['nickname']]);
+            return_info(200,'签到成功',$data);
         }else{
-            return_info(-1,'签到失败，请进行手动记录',['name'=>$userInfo['nickname']]);
+            return_info(-1,'签到失败，请进行手动记录',$data);
         }
 //        header('Content-type: application/json');
 //        //获取回调函数名
