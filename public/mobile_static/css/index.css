@@ -1362,15 +1362,24 @@
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(3),
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(3) {
-	width: 50%;
+	/*width: 50%;
 	color: #FF4134;
-	border: 1px solid #FF4134;
-	margin-right: 0px
+	border: 1px solid #FF4134;*/
+	margin-right: 0px;
+	width: 52px;
+    height: 20px;
+    line-height: 13px;
+    text-align: center;
+    color: #656565;
+    border-radius: 3px;
+    border: 1px solid #656565;
+    font-size: 12px;
+    -webkit-transform: scale(0.85)
 }
 
 .myActivity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(3) a,
 .my_Activity_content .my_Activity_big .my_activity_part .activity_bottom p:nth-child(3) a {
-	color: #FF4134
+	color: #656565;
 }
 .nothing,.free_no{
 	color: #656565;
@@ -3275,3 +3284,47 @@ display: none  !important;
 #buzu{
 	margin-left: 55%;
 }
+
+
+/*签到样式*/
+.signUp_modox{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background: rgba(0,0,0,.5);
+	
+}
+.signUp_modal{
+	width: 252px;
+	height: 280px;
+	background: #FFFFFF;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.signUp_modal .cancel{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+.signUp_modal .sign_img{
+	margin: 35px auto 0px;
+}
+.sign_word{
+	color: #ff4134;
+	display: flex;
+	font-size: 14px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 26px;
+}
+

@@ -36,15 +36,20 @@
                     </ul>
                     <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
+                    	
                         {switch name="$vo.order_status"}
                         {case value="1"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">已完成</a></p>{/case}
                         {case value="2"}<p><a href="{:url('mobile/activity/orderIdPay',['id'=>$vo.order_id])}">去付款</a></p>{/case}
-                        {case value="3"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">详情</a></p>{/case}
+                        {case value="3"}
+                        <p class="signUp" id='{$vo.order_id}'><a href="javascript:;">签到码</a></p>
+                        <p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">详情</a></p>
+                        {/case}
                         {case value="4"}<p><a href="{:url('mobile/user/comments_list',['order_sn'=>$vo.order_sn])}">去评价</a></p>{/case}
                         {case value="5"}<p><a href="{:url('mobile/user/refund2',['order_sn'=>$vo.order_sn])}">退款中</a></p>{/case}
                         {case value="6"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">已退款</a></p>{/case}
                         {case value="7"}<p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">已请假</a></p>{/case}
                         {/switch}
+                        
                     </div>
                 </div>
             </div>
@@ -125,12 +130,14 @@
                     </ul>
                       <div class="line" style="width: 95%;margin: 0px auto;border-bottom:1px solid #ebebeb;"></div>
                     <div class="activity_bottom">
+                    	 <p class="signUp" id='{$vo.order_id}'><a href="javascript:;">签到码</a></p>
                          {if condition="$vo.order_price eq 0"}
                            <p><a href="{:url('mobile/user/leave_list',['order_sn'=>$vo.order_sn])}">请假</a></p> 
                         {else/}
                             <p><a href="{:url('mobile/user/refund',['order_sn'=>$vo.order_sn])}">退款</a></p>
                         {/if}
                         <p><a href="{:url('mobile/user/order_detail',['order_sn'=>$vo.order_sn])}">详情</a></p>
+                        
                     </div>
                 </div>
             </div>
@@ -231,6 +238,14 @@
         <!--退款结束部分-->
     </div>
 
+</div>
+
+<div class="signUp_modox" style="display: none;">
+	<div class="signUp_modal">
+		  <div class="cancel">X</div>
+		  <div style="width: 181px;height: 181px;" class="sign_img"><img src="__MobileImg__/signSuccess.png" style="width: 181px;height: 181px;"></div>
+		  <div class="sign_word" style="display: none;"><p>签到成功!</p>&nbsp;&nbsp;<img src="__MobileImg__/signyes.png" style="width: 20px;height: 20px;margin-top: -9px;"></div>
+	</div>
 </div>
 
 

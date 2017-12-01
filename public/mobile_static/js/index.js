@@ -387,8 +387,54 @@ else{
 	$(".select_remaining").attr("checked",true);
 }
 
+//点击验证码
+var timer;
+$(".signUp").on("click",function(){
+	  $.get("/mobile/user/getActivityQrCode",{ oid:$(this).attr("id")},
+            function(obj){
+                if(obj.state_code == 200){
+                  	 $(".signUp_modox").show();
+                     $(".sign_img").children("img").attr("src",obj.data.url)
+                }else{
+                   
+                }
+     }, "json");
+     var id=$(this).attr("id");
+     setInterval(function(){
+     	   $.get("/mobile/user/checkSign",{oid:id},
+            function(obj){
+                if(obj.state_code == 200){
+                	 $(".sign_word").show();
+                	 clearInterval();
+                   
+                }else{
+                    $(".sign_word").hide();
+                }
+     }, "json");
+     },1000)
+    
+})
+
+
+$(".signUp_modal .cancel").on("click",function(){
+	$(".signUp_modox").hide();
+	window.location.reload();
+})
 
 
 })
+//function signSuccess(my){
+//  $.get("/mobile/user/checkSign",{oid:my.attr("id")},
+//          function(obj){
+//              if(obj.state_code == 200){
+//              	 $(".sign_word").show();
+//              	 clearInterval(timer);
+//                 
+//              }else{
+//                  $(".sign_word").hide();
+//              }
+//   }, "json");
+//}
+
 
 
