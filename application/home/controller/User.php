@@ -64,9 +64,13 @@ class User extends Base
                 return return_info(-1,"手机号格式不正确！");
             }
             //检查是否存在
-            $userInfo = model('user')->getMobileUserInfo($mobile,'uid');
+            $map = [
+                'mobile' => $mobile,
+                'password' => array('neq',''),
+            ];
+            $userInfo = model('user')->where($map)->find();
             
-            if(!empty($userInfo) & $type == 0 & empty($userInfo['password'])){
+            if(!empty($userInfo) & $type == 0){
                 return return_info(201,"该手机号已注册,请直接登录！");
             }else{
                 $msg = getMobileVerify($mobile);

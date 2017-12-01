@@ -7,6 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/User.php" afterPath="$PROJECT_DIR$/application/common/model/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/User.php" afterPath="$PROJECT_DIR$/application/home/controller/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -95,8 +96,18 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/home/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="27" />
+            <state relative-caret-position="670">
+              <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emit_information.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/mobile_static/js/emit_information.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="341" column="58" lean-forward="false" selection-start-line="341" selection-start-column="58" selection-end-line="341" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -105,18 +116,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/common/model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pay_success.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/pay_success.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="516">
+              <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -486,12 +487,12 @@
       <workItem from="1511749840109" duration="9819000" />
       <workItem from="1511918398952" duration="24138000" />
       <workItem from="1512003435786" duration="19646000" />
-      <workItem from="1512091183680" duration="30104000" />
+      <workItem from="1512091183680" duration="30605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="731230000" />
+    <option name="totallyTimeSpent" value="731731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -951,14 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/mobile_static/js/emit_information.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="341" column="39" lean-forward="false" selection-start-line="341" selection-start-column="30" selection-end-line="341" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/user/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
@@ -967,18 +960,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/mobile_static/js/emit_information.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="341" column="58" lean-forward="false" selection-start-line="341" selection-start-column="58" selection-end-line="341" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/home/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="27" />
+        <state relative-caret-position="670">
+          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+        <state relative-caret-position="516">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
           <folding />
         </state>
       </provider>

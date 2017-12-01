@@ -43,10 +43,10 @@ class User extends Model
         $userInfo = $this->where('mobile',$mobile)->find();
 
         if(!empty($userInfo)){
-            $this->where('mobile',$mobile)->update($data);
+            return $this->where('mobile',$mobile)->update($data);
         }
 
-    	$this->insert($data);
+        return $this->insert($data);
     }
     
     /**
