@@ -2,8 +2,13 @@
 	padding: 0px;
 	margin: 0px;
 }
+#bg{
+	height: 3500px;
+	background: #FF4134;
+	
+}
 .signContent{
-	background:url("../img/signU_bg.jpg") no-repeat center;
+	background:url("../img/signU_bg.jpg") no-repeat top left;
 	width: 100%;
 	height: 1080px;
 	background-size:100% 100%;
@@ -31,11 +36,13 @@
 	font-family: '苹方';
 }
 .sign_member{
+	min-height: 800px;
 	width: 100%;
-	height: 800px;
+	height: auto;
 	background: #FFFFFF;
 	padding-top: 45px;
 	box-sizing: border-box;
+	padding-bottom: 40px;
 	
 }
 .prompt input{
