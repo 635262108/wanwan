@@ -671,7 +671,7 @@ class User extends Base
         $u = str_encode($uid);
         $o = str_encode($oid);
 
-        $url = "http://qr.topscan.com/api.php?text=www.baobaowaner.com/abab.php/user/rechargeSign?u=$u&o=$o";
+        $url = "http://qr.topscan.com/api.php?text=www.baobaowaner.com/abab.php/user/rechargeSign/u/$u/o/$o";
         return_info(200,'成功',['url'=>$url]);
     }
 

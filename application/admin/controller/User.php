@@ -637,7 +637,7 @@ class User extends Base
 
     //记录签到
     public function rechargeSign(){
-        $data = input('get.');
+        $data = input('param.');
         $uid = str_decode($data['u']);
         $userInfo = model('user')->find($uid);
         if(empty($uid) || empty($userInfo)){
@@ -652,6 +652,10 @@ class User extends Base
 
         if($orderInfo['sign_time'] > 0){
             return_info(-1,'此订单已签到，请检查客户订单是否有误',['name'=>$userInfo['name']]);
+        }
+
+        if($orderInfo['uid'] != $uid){
+            return_info(-1,'订单号和用户不对称，请检查客户订单，如无误请手动记录',['name'=>$userInfo['name']]);
         }
 
         $orderInfo->sign_time = time();
