@@ -9,9 +9,12 @@ class User extends Base
 
     //会员列表
     public function index(){
+//        $data = input('get.');
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
                     ->join('mfw_source s','u.source=s.id')
                     ->select();
+        $zhengZhou = model('Region')->getSonData(149);
+        $this->assign('zhengZhou',$zhengZhou);
         $this->assign('userInfo',$userInfo);
     	return $this->fetch();
     }
@@ -634,33 +637,21 @@ class User extends Base
 
     //记录签到
     public function rechargeSign(){
-        $uid = input('get.uid');
+        $data = input('get.');
+        $uid = str_decode($data['u']);
         $userInfo = model('user')->find($uid);
         if(empty($uid) || empty($userInfo)){
-            return_info(-1,'用户不存在');
+            return_info(-1,'用户不存在',['name'=>$userInfo['无效用户']]);
         }
 
-        $sn = input('get.sn');
-        $activityInfo = model('Activity')->find($sn);
-        if(empty($aid) || empty($activityInfo)){
-            return_info(-1,'活动不存在');
+        $oid = str_decode($data['o']);
+        $orderInfo = model('ActivityOrder')->find($oid);
+        if(empty($orderInfo) || empty($oid)){
+            return_info(-1,'订单为空，请检查客户订单，如无误请手动记录',['name'=>$userInfo['name']]);
         }
 
-        $time = input('get.time');
-        $timeInfo = model('ActivityTime')->find($time);
-        if(empty($time) || empty($timeInfo)){
-            return_info(-1,'报名时间有误');
-        }
-
-        $map = [
-            'uid' => $uid,
-            'order_sn' => $sn,
-            'time'  => $time
-        ];
-
-        $orderInfo = model('ActivityOrder')->where($map)->find();
-        if(empty($orderInfo)){
-            return_info(-1,'订单获取失败，请确认订单');
+        if($orderInfo['sign_time'] > 0){
+            return_info(-1,'此订单已签到，请检查客户订单是否有误',['name'=>$userInfo['name']]);
         }
 
         $orderInfo->sign_time = time();
@@ -669,7 +660,7 @@ class User extends Base
         if($res){
             return_info(200,'签到成功',['name'=>$userInfo['name']]);
         }else{
-            return_info(-1,'签到失败，请进行手动记录');
+            return_info(-1,'签到失败，请进行手动记录',['name'=>$userInfo['name']]);
         }
 //        header('Content-type: application/json');
 //        //获取回调函数名

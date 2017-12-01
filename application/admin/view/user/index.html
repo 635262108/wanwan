@@ -74,22 +74,9 @@
 			<div class="only_one">
 				<p>住址</p>
 				<ul>
-					<li>金水区</li>
-					<li>邙山区</li>
-					<li>二七区</li>
-					<li>管城区</li>
-					<li>中原区</li>
-					<li>上街区</li>
-					<li>惠济区</li>
-					<li>郑东新区</li>
-					<li>经济技术开发区</li>
-					<li>高新开发区</li>
-					<li>出口加工区</li>
-					<li>巩义市</li>
-					<li>荥阳市</li>
-					<li>新密市</li>
-					<li>登封市</li>
-					<li>中牟县</li>
+					{foreach name="zhengZhou" item="vo"}
+					<li>{$vo.name}</li>
+					{/foreach}
 				</ul>
 			</div>
 			<div style="margin-bottom: -3px;">

@@ -157,3 +157,13 @@ function user_detail_type($type){
     }
 }
 
+//加密函数
+function str_encode($str){
+    return base64_encode($str);
+}
+
+//解密函数
+function str_decode($str){
+    return base64_decode($str);
+}
+

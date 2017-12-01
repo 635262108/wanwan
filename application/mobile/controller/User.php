@@ -651,13 +651,51 @@ class User extends Base
         }
     }
 
-    //检查用户登录，解决未登录时在微信浏览器下报名后自动跳转到支付界面，无法调js支付,暂时这样解决，待优化
-    public function check_login(){
-        if(!session('?userInfo')){
-            $url = url('mobile/user/login');
-            return_info(-1,'未登录',['url'=>$url]);
+    //获取活动签到码
+    public function getActivityQrCode(){
+        if(!request()->isAjax()){
+            return_info(-1,'请求错误');
+        }
+        $uid = session('userInfo.uid');
+        $oid = input('get.oid');
+        $orderInfo = model('ActivityOrder')->find($oid);
+
+        if(empty($orderInfo)){
+            return_info(-1,'数据错误');
+        }
+
+        if($orderInfo['uid'] != $uid){
+            return_info(-1,'数据错误');
+        }
+
+        $u = str_encode($uid);
+        $o = str_encode($oid);
+
+        $url = "http://qr.topscan.com/api.php?text=www.baobaowaner.com/abab.php/user/rechargeSign?u=$u&o=$o";
+        return_info(200,'成功',['url'=>$url]);
+    }
+
+    //检查是否签到成功
+    public function checkSign(){
+        if(!request()->isAjax()){
+            return_info(-1,'请求错误');
+        }
+        $uid = session('userInfo.uid');
+        $oid = input('get.oid');
+        $orderInfo = model('ActivityOrder')->find($oid);
+
+        if(empty($orderInfo)){
+            return_info(-1,'数据错误');
+        }
+
+        if($orderInfo['uid'] != $uid){
+            return_info(-1,'数据错误');
+        }
+
+        if($orderInfo['sign_time'] > 0 & $orderInfo['order_status'] == 4){
+            return_info(200,'签到成功');
         }else{
-            return_info(200,'已登录');
+            return_info(-1,'还未签到');
         }
     }
 
