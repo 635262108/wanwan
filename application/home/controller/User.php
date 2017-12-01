@@ -66,7 +66,7 @@ class User extends Base
             //检查是否存在
             $userInfo = model('user')->getMobileUserInfo($mobile,'uid');
             
-            if(!empty($userInfo) & $type == 0){
+            if(!empty($userInfo) & $type == 0 & empty($userInfo['password'])){
                 return return_info(201,"该手机号已注册,请直接登录！");
             }else{
                 $msg = getMobileVerify($mobile);
