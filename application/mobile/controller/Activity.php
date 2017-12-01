@@ -408,6 +408,7 @@ class Activity extends Base
         ];
         $res = model('ActivityOrder')->where('order_sn',$order_sn)->update($data);
         if($res) {
+            $this->sendMobileMsg($orderInfo['order_sn']);
             $this->assign('price',$orderInfo['order_price']);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$orderInfo);
@@ -416,6 +417,15 @@ class Activity extends Base
         }else{
             $this->error('支付失败，若发现余额已扣费请联系客服！');
         }
+    }
+
+    //交易成功,给用户手机号发送一条短信
+    public function sendMobileMsg($order_sn){
+        $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
+        $activity = model('Activity')->find($orderInfo['aid']);
+        $timeInfo = model('ActivityTime')->find($orderInfo['t_id']);
+        $content = "恭喜您已成功报名".$activity['a_title'].",活动地点：".$activity['a_address'].",参加时间:".$timeInfo['begin_time']."到".$timeInfo['end_time']."请您准时参加，签到二维码在会员中心-我的活动-已付款中查看,感谢您的支持,有问题请联系客服：400-611-2731。";
+        sendSMS($orderInfo['mobile'],$content);
     }
 
     /**
@@ -636,7 +646,7 @@ class Activity extends Base
     public function pay_success($order_sn = ''){
         //获取活动信息
         $activityOrder = model('ActivityOrder');
-        $order = $activityOrder->getSnOrderInfo($order_sn,'order_sn,aid,child_num,adult_num,order_price,order_status');
+        $order = $activityOrder->getSnOrderInfo($order_sn,'order_sn,aid,child_num,adult_num,order_price,order_status,mobile');
         if(!isset($order)){
             $this->error('参数错误');
         }
@@ -646,6 +656,7 @@ class Activity extends Base
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
+            $this->sendMobileMsg($order['order_sn']);
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
@@ -670,6 +681,7 @@ class Activity extends Base
         }
         $result = \alipay\Query::exec($trade_no);
         if($result['trade_status'] == 'TRADE_SUCCESS'){
+            $this->sendMobileMsg($order['order_sn']);
             $this->assign('title','支付成功');
             $this->assign('order',$order);
             return $this->fetch('activity/pay_success');

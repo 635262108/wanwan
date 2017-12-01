@@ -68,6 +68,27 @@ function getMobileVerify($mobile){
 }
 
 /**
+ * 发送手机短信
+ * @param $mobile
+ * @param $text
+ */
+function sendSMS($mobile,$text){
+    $ch = curl_init();
+    // 必要参数
+    $apikey = "18e38978462c146b837c43e92eee92cc"; //修改为您的apikey(https://www.yunpian.com)登录官网后获取
+    $rand = rand(100000,999999);
+    $text="【玩宝小助手】".$text;
+    // 发送短信
+    $data=array('text'=>$text,'apikey'=>$apikey,'mobile'=>$mobile);
+    curl_setopt ($ch, CURLOPT_URL, 'http://sms.yunpian.com/v2/sms/single_send.json');
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+    $json_data = curl_exec($ch);
+    //解析返回结果（json格式字符串）
+    $array = json_decode($json_data,true);
+}
+
+/**
 *返回随机昵称
 *@$length 长度 arr 随即字符串
 */
