@@ -1,10 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-123123
-</body>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" href="__ACSS__/sign.css" />
+		<link rel="stylesheet" href="__ACSS__/bootstrap.min.css" />
+	</head>
+
+	<body>
+		<div class="signContent">
+			<div class="system">
+				<div class="title">签到管理系统</div>
+				<div class="sign_member">
+					<div class="prompt"><input type="text" class="urlPrompt"></div>
+					<table class="data-table" style="width: 632px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
+						<thead>
+							<tr>
+								<th>姓名</th>
+								<th>签到结果</th>
+
+							</tr>
+						</thead>
+						<tbody id="tbody_center" style="font-size: 12px;">
+
+							<!--<tr>
+								<td>小花儿</td>
+								<td>签到成功!</td>
+
+							</tr>-->
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="__AJS__/jquery.min.js"></script>
+		<script src="__AJS__/jquery.dataTables.min.js"></script>
+		<script>
+			$(function() {
+				setTimeout('send_data()', 3000);
+			})
+
+			function send_data() {
+				var url = $(".urlPrompt").val();
+				//				var output = $("#output").val();
+				$.ajax({
+					url: url,
+					type: "post",
+					dataType: "jsonp", //指定服务器返回的数据类型
+					success: function(obj) {
+						if(obj.state_code == 200) {
+							$("#tbody_center").prepend("<tr>" +
+								"<td>" + obj.data.name + "</td>" +
+								"<td>" + obj.msg + "</td>" +
+								"</tr>")
+
+						} else {
+							$("#tbody_center").prepend("<tr>" +
+								"<td>" + obj.data.name + "</td>" +
+								"<td style='color:#ff4134'>" + obj.msg + "</td>" +
+								"</tr>")
+						}
+						$(".urlPrompt").val('');
+
+					}
+				});
+
+				setTimeout('send_data()', 1000);
+			}
+			//			$('.data-table').dataTable({
+			//					"bJQueryUI": true,
+			//					"sPaginationType": "full_numbers",
+			//					"sDom": '<""l>t<"F"fp>',
+			//					"bFilter":true,
+			//					"bLengthChange":true,
+			//					"aaSorting":[[0,"desc"]]
+			//			});
+		</script>
+	</body>
+
 </html>

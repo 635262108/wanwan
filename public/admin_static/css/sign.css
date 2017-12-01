@@ -1,0 +1,55 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.signContent{
+	background:url("../img/signU_bg.jpg") no-repeat center;
+	width: 100%;
+	height: 1080px;
+	background-size:100% 100%;
+	position: relative;
+}
+.system{
+	position: absolute;
+	top: 25px;
+	left:25px;
+	width: 64%;
+	height: 800px;
+}
+.title{
+	width: 156px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background: #00A0E9;
+	color: #FFFFFF;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	font-size: 18px;
+	letter-spacing: 3px;
+	font-weight: 600;
+	font-family: '苹方';
+}
+.sign_member{
+	width: 100%;
+	height: 800px;
+	background: #FFFFFF;
+	padding-top: 45px;
+	box-sizing: border-box;
+	
+}
+.prompt input{
+	width: 80%;
+	height: 30px;
+	border: 1px solid black;
+	margin-left: 10%;
+}
+.data-table tr{
+	height: 40px;
+	line-height: 40px;
+}
+.data-table tr td{
+	text-align: center;
+	font-size: 15px;
+	/*border: 1px solid black;*/''
+}
