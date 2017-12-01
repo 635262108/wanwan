@@ -26,7 +26,7 @@
 							</tr>
 						</thead>
 						<tbody id="tbody_center" style="font-size: 12px;">
-						
+						    
 						</tbody>
 					</table>
 				</div>
@@ -39,16 +39,17 @@
 		<script src="__AJS__/jquery.dataTables.min.js"></script>
 		<script src="__AJS__/bootstrap.min.js"></script> 
 		<script>
-			var url = $(".urlPrompt").val();
-			console.log(url,888888)
+			
 			$(function() {
+				$("#tbody_center").html('');
 				setTimeout('send_data()', 3000);
 			})
 				
 		function send_data() {
 				var url = $(".urlPrompt").val();
-				if($(".urlPrompt").val()==''){
-					return false;
+				if(url==''){
+					setTimeout('send_data()', 1000);
+					return;
 				}
 				$.ajax({
 					url: url,
@@ -61,6 +62,8 @@
 								"<td>" + obj.data.name + "</td>"+ 
 								"<td>" + obj.msg + "</td>"+ 
 								"</tr>")
+							
+							
 
 						} else {
 							$("#tbody_center").prepend("<tr>"+
@@ -76,7 +79,6 @@
 
 				setTimeout('send_data()', 1000);
 			}
-		
 		$('.data-table').dataTable({
 								"bJQueryUI": true,
 								"sPaginationType": "full_numbers",
@@ -85,7 +87,8 @@
 								"bLengthChange":false,
 								"bPaginage":true ,
 								"ordering":false
-		});
+							});
+		
 		</script>
 	</body>
 
