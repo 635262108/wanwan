@@ -102,7 +102,7 @@ class Activity extends Base
         $data['a_is_recommend'] = $a_is_recommend;
         $data['a_content'] = $a_content;
         $Activity = model('Activity');
-        $Activity->addActivity($data);
+        $Activity->insert($data);
         $this->success('添加成功','activity/index');
     }
 

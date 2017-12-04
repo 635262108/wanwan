@@ -25,7 +25,7 @@ class Activity extends Base
     //最新活动
     public function new_activity(){
         //获取活动信息
-        $actInfo = model('Activity')->limit("0,10")->order("aid desc")->select();
+        $actInfo = model('Activity')->getNewActivity();
         $this->assign('actInfo',$actInfo);
         return $this->fetch();
     }
