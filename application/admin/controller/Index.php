@@ -12,9 +12,16 @@ class Index extends Base
         //获取本周开始和结束时间
         $beginweek=mktime(0,0,0,date('m'),date('d')-date('w')+1,date('Y'));
         $endweek=mktime(23,59,59,date('m'),date('d')-date('w')+7,date('Y'));
+        //获取本月
+        $beginThismonth=mktime(0,0,0,date('m'),1,date('Y'));
+        $endThismonth=mktime(23,59,59,date('m'),date('t'),date('Y'));
 
-        $result['member_num'] = db('user')->where('balance>0')->count();    //客户数量
-        $result['user_num'] = db('user')->count();  //会员数量
+        $result['member_num'] = db('user')->where('balance>0')->count();    //会员数量
+        $result['month_member'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->where('balance>0')->count();  //本月新增会员
+        $result['week_member'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->where('balance>0')->count();  //本周新增会员
+        $result['user_num'] = db('user')->count();  //客户数量
+        $result['month_user'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->count();  //本月新增客户
+        $result['week_user'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->count();  //本周新增客户
         $result['activity_order_num'] = db('activity_order')->count();      //订单总数
         $result['activity_num'] = db('activity')->count();      //活动总数
         $result['last_week_order'] = db('activity_order')->where("addtime",['>',$beginLastweek],['<',$endLastweek])->count(); //上周报名人数
