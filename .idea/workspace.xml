@@ -8,6 +8,7 @@
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/sign.html" afterPath="$PROJECT_DIR$/application/admin/view/user/sign.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/admin_static/css/sign.css" afterPath="$PROJECT_DIR$/public/admin_static/css/sign.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,10 +45,10 @@
       <file leaf-file-name="sign.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/user/sign.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="92" column="24" lean-forward="true" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+            <state relative-caret-position="321">
+              <caret line="76" column="51" lean-forward="true" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="51" />
               <folding>
-                <marker date="1512357277294" expanded="true" signature="3232:3245" ph="..." />
+                <marker date="1512357360698" expanded="true" signature="2661:2674" ph="..." />
               </folding>
             </state>
           </provider>
@@ -388,12 +389,12 @@
       <workItem from="1511918398952" duration="24138000" />
       <workItem from="1512003435786" duration="19646000" />
       <workItem from="1512091183680" duration="30818000" />
-      <workItem from="1512348503465" duration="7985000" />
+      <workItem from="1512348503465" duration="8839000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="739929000" />
+    <option name="totallyTimeSpent" value="740783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -823,10 +824,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/user/sign.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="92" column="24" lean-forward="true" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+        <state relative-caret-position="321">
+          <caret line="76" column="51" lean-forward="true" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="51" />
           <folding>
-            <marker date="1512357277294" expanded="true" signature="3232:3245" ph="..." />
+            <marker date="1512357360698" expanded="true" signature="2661:2674" ph="..." />
           </folding>
         </state>
       </provider>
