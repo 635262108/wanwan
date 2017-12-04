@@ -15,6 +15,7 @@
 			<div class="system">
 				<div class="title">签到管理系统</div>
 				<div class="sign_member">
+					<!--<button onclick="del()">点击</button>-->
 					<div class="prompt"><input type="text" class="urlPrompt" value=""></div>
 					<table class="data-table" style="width: 632px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
 						<thead>
@@ -25,7 +26,7 @@
                                 
 							</tr>
 						</thead>
-						<tbody id="tbody_center" style="font-size: 12px;">
+						<tbody class="tbody_center" style="font-size: 12px;">
 						    
 						</tbody>
 					</table>
@@ -39,25 +40,47 @@
 		<script src="__AJS__/jquery.dataTables.min.js"></script>
 		<script src="__AJS__/bootstrap.min.js"></script> 
 		<script>
-			
 			$(function() {
 				setTimeout('send_data()', 3000);
 						
 					
 			})
-		
 			
-			
-//			$('.data-table').dataTable({
-//					            "ajax":"load",
+			$('.data-table').dataTable({
+								"bJQueryUI": true,
+								"sPaginationType": "full_numbers",
+								"sDom": '<""l>t<"F"fp>',
+								"bFilter":false,
+								"bLengthChange":false,
+								"bPaginage":true ,
+							    "ordering":true,
+							    "bPaginate": true,
+							    "bRetrieve":true,
+							    "iDisplayLength":5
+							   
+			    });	
+//			function del(){
+//				$(".tbody_center").prepend("<tr>"+ 
+//							     "<td>"+'obj.data.activity'+"</td>"+
+//								"<td>" + 'obj.data.name' + "</td>"+ 
+//								"<td>" +' obj.msg '+ "</td>"+ 
+//								"</tr>")
+//			    $('.data-table').dataTable({
+//			    	            "bDestroy":true,
 //								"bJQueryUI": true,
 //								"sPaginationType": "full_numbers",
 //								"sDom": '<""l>t<"F"fp>',
 //								"bFilter":false,
 //								"bLengthChange":false,
 //								"bPaginage":true ,
-//								"ordering":false
-//			    });
+//							    "ordering":false,
+//							    "bPaginate": true,
+//							    "iDisplayLength":5
+//							   
+//			    });	
+//	
+//			}
+			
 		
 		
 											
@@ -78,7 +101,19 @@
 								"<td>" + obj.data.name + "</td>"+ 
 								"<td>" + obj.msg + "</td>"+ 
 								"</tr>")
-							
+							 $('.data-table').dataTable({
+			    	            "bDestroy":true,
+								"bJQueryUI": true,
+								"sPaginationType": "full_numbers",
+								"sDom": '<""l>t<"F"fp>',
+								"bFilter":false,
+								"bLengthChange":false,
+								"bPaginage":true ,
+							    "ordering":true,
+							    "bPaginate": true,
+							    "iDisplayLength":5
+							   
+			    			});	
 							
 
 						} else {
@@ -87,6 +122,20 @@
 								"<td>" + obj.data.name + "</td>"+ 
 								"<td style='color:#ff4134'>" + obj.msg + "</td>" +
 								"</tr>")
+							
+							 $('.data-table').dataTable({
+			    	            "bDestroy":true,
+								"bJQueryUI": true,
+								"sPaginationType": "full_numbers",
+								"sDom": '<""l>t<"F"fp>',
+								"bFilter":false,
+								"bLengthChange":false,
+								"bPaginage":true ,
+							    "ordering":true,
+							    "bPaginate": true,
+							    "iDisplayLength":5
+							   
+			    			});	
 						}
 						$(".urlPrompt").val('');
 
