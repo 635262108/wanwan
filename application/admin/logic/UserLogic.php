@@ -17,10 +17,6 @@ class UserLogic{
         if(empty($data['nickname'])){
             return array('status'=>-1,'msg'=>'昵称不能为空');
         }
-        //密码不能为空
-        if(empty($data['password'])){
-            return array('status'=>-1,'msg'=>'密码不能为空');
-        }
         //检查手机号
         if(!isMobile($data['mobile'])){
             return array('status'=>-1,'msg'=>'手机号格式错误');
@@ -56,6 +52,7 @@ class UserLogic{
             $set_data['giveaway'] = $data['giveaway'];
             $set_data['is_get'] = $data['is_get'];
             $set_data['remark'] = $data['remark'];
+            $set_data['pay_time'] = strtotime($data['pay_time']);
 
             $this->saveRecharge($set_data);
         }
@@ -113,18 +110,8 @@ class UserLogic{
         }
 
         //添加数据
-        $add_data = array(
-            'uid' => $data['uid'],
-            'amount' => $data['amount'],
-            'pay_way' => $data['pay_way'],
-            'status' => $data['status'],
-            'pay_time' => time(),
-            'giveaway' => $data['giveaway'],
-            'is_get' => $data['is_get'],
-            'remark' => $data['remark'],
-            'order_sn' => getOrderSn($data['uid'],000),
-        );
-        $res = $rechargeRecord->insert($add_data);
+        $data['order_sn'] = getOrderSn($data['uid'],000);
+        $res = $rechargeRecord->insert($data);
         if($res !== false){
             //增加用户余额
             $userInfo->uid = $userInfo['uid'];

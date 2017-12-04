@@ -21,7 +21,7 @@ class Activity extends Model
     	}else{
     		$map = array();
     	}
-        $map['a_price'] = array('gt',0);
+        $map['a_status'] = 1;
     	$data = $this->where($map)->field($field)->order('aid desc')->limit($limit)->select();
     	return objectArray($data);
     }
@@ -105,8 +105,14 @@ class Activity extends Model
      * @return type
      */
     public function getFreeActivity(){
-        $map['a_price'] = 0;
-        return $this->where($map)->order('aid desc')->select();
+        $map = [
+            'a_price' => 0,
+            'a_status'=>1
+        ];
+        $order = [
+            'aid'=>'desc'
+        ];
+        return $this->where($map)->order($order)->select();
     }
 
     /**获取所有活动
@@ -134,18 +140,17 @@ class Activity extends Model
     public function delActivity($aid){
         return $this->where('aid',$aid)->delete();
     }
-    
-    //添加活动
-    public function addActivity($data){
-        return $this->insert($data);
+
+    //获取最新活动
+    public function getNewActivity(){
+        $order = [
+            'aid' => 'desc'
+        ];
+        $map = [
+            'a_status'=> 1
+        ];
+        return $this->where($map)->limit("0,10")->order($order)->select();
     }
     
-    /**
-     * 获取活动（带条件）
-     * @param type $map 条件
-     * @return type
-     */
-    public function getActivityMap($map){
-        return $this->where($map)->select();
-    }
+
 }

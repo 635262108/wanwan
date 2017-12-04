@@ -34,12 +34,19 @@ class User extends Model
     */
     public function register($name,$mobile,$password){
         $data['nickname'] = $name;
-    	$data['mobile'] = $mobile;
-    	$data['password'] = md5($password);
-    	$data['status'] = 1;
-    	$data['reg_time'] = time();
+        $data['mobile'] = $mobile;
+        $data['password'] = md5($password);
+        $data['status'] = 1;
+        $data['reg_time'] = time();
         $data['last_time'] = time();
-    	$this->insert($data);
+
+        $userInfo = $this->where('mobile',$mobile)->find();
+
+        if(!empty($userInfo)){
+            return $this->where('mobile',$mobile)->update($data);
+        }
+
+        return $this->insert($data);
     }
     
     /**

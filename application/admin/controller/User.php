@@ -370,21 +370,8 @@ class User extends Base
 
     //添加充值
     public function add_recharge(){
-        //用户id
-        $data['uid'] = input('post.uid');
-        //金额
-        $data['amount'] = input('post.amount');
-        //支付方式
-        $data['pay_way'] = input('post.pay_way');
-        //支付状态.后台添加默认已收款
+        $data = input('post.');
         $data['status'] = 1;
-        //充值赠送
-        $data['giveaway'] = input('post.giveaway');
-        //是否全部领取
-        $data['is_get'] = input('post.is_get');
-        //备注
-        $data['remark'] = input('post.remark');
-
         //添加
         $model = new UserLogic();
         $res = $model->saveRecharge($data);
@@ -458,56 +445,7 @@ class User extends Base
 
     //添加会员
     public function add_member(){
-        if(request()->ispost()){
-            //昵称
-            $data['nickname'] = input('post.nickname');
-            //手机号
-            $data['mobile'] = input('post.mobile');
-            //密码
-            $data['password'] = input('post.password');
-            //性别
-            $data['sex'] = input('post.sex');
-            //省
-            $data['province'] = input('post.province');
-            //市
-            $data['city'] = input('post.city');
-            //区
-            $data['district'] = input('post.district');
-            //详细地址
-            $data['address'] = input('post.address');
-            //生日
-            $data['birthday'] = time(input('post.birthday'));
-            //余额
-            $data['balance'] = input('post.balance');
-            //来源
-            $data['source'] = input('post.source');
-            //支付方式
-            $data['pay_way'] = input('post.pay_way');
-            //赠品
-            $data['giveaway'] = input('post.giveaway');
-            //赠品是否领取
-            $data['is_get'] = input('post.is_get');
-            //赠品备注
-            $data['remark'] = input('post.remark');
-            //孩子姓名
-            $data['child_name'] = input('post.child_name/a');
-            //孩子性别
-            $data['child_gender'] = input('post.child_gender/a');
-            //孩子生日
-            $data['child_birthday'] = input('post.child_birthday/a');
-            //孩子学校
-            $data['child_school'] = input('post.child_school/a');
-            //可以玩耍时间
-            $data['child_play_time'] = input('post.child_play_time/a');
-
-            $model = new UserLogic();
-            $result = $model->addUser($data);
-            if($result['status'] == 200){
-                $this->success('添加成功','user/index');
-            }else{
-                $this->error($result['msg']);
-            }
-        }else{
+        if(!request()->ispost()){
             //获取所有的省市区
             $region = model('region');
             $provinces = $region->getAnyLevelData(1);
@@ -521,6 +459,14 @@ class User extends Base
             $this->assign('citys',$citys);
             $this->assign('districts',$districts);
             return $this->fetch();
+        }
+        $data = input('post.');
+        $model = new UserLogic();
+        $result = $model->addUser($data);
+        if($result['status'] == 200){
+            $this->success('添加成功','user/index');
+        }else{
+            $this->error($result['msg']);
         }
     }
 
