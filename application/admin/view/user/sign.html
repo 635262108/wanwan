@@ -45,7 +45,6 @@
 						
 					
 			})
-			
 			$('.data-table').dataTable({
 								"bJQueryUI": true,
 								"sPaginationType": "full_numbers",
@@ -56,30 +55,10 @@
 							    "ordering":true,
 							    "bPaginate": true,
 							    "bRetrieve":true,
-							    "iDisplayLength":5
+							    "iDisplayLength":5,
+							    "bAutoWidth":true
 							   
-			    });	
-//			function del(){
-//				$(".tbody_center").prepend("<tr>"+ 
-//							     "<td>"+'obj.data.activity'+"</td>"+
-//								"<td>" + 'obj.data.name' + "</td>"+ 
-//								"<td>" +' obj.msg '+ "</td>"+ 
-//								"</tr>")
-//			    $('.data-table').dataTable({
-//			    	            "bDestroy":true,
-//								"bJQueryUI": true,
-//								"sPaginationType": "full_numbers",
-//								"sDom": '<""l>t<"F"fp>',
-//								"bFilter":false,
-//								"bLengthChange":false,
-//								"bPaginage":true ,
-//							    "ordering":false,
-//							    "bPaginate": true,
-//							    "iDisplayLength":5
-//							   
-//			    });	
-//	
-//			}
+			   });	
 			
 		
 		
@@ -96,7 +75,7 @@
 					dataType: "json", //指定服务器返回的数据类型
 					success: function(obj) {
 						if(obj.state_code == 200) {
-							$("#tbody_center").prepend("<tr>"+ 
+							$(".tbody_center").prepend("<tr>"+ 
 							     "<td>"+obj.data.activity+"</td>"+
 								"<td>" + obj.data.name + "</td>"+ 
 								"<td>" + obj.msg + "</td>"+ 
@@ -111,13 +90,14 @@
 								"bPaginage":true ,
 							    "ordering":true,
 							    "bPaginate": true,
-							    "iDisplayLength":5
+							    "iDisplayLength":10,
+							    "bAutoWidth":true
 							   
 			    			});	
 							
 
 						} else {
-							$("#tbody_center").prepend("<tr>"+
+							$(".tbody_center").prepend("<tr>"+
 							    "<td>"+obj.data.activity+"</td>"+
 								"<td>" + obj.data.name + "</td>"+ 
 								"<td style='color:#ff4134'>" + obj.msg + "</td>" +
@@ -133,7 +113,8 @@
 								"bPaginage":true ,
 							    "ordering":true,
 							    "bPaginate": true,
-							    "iDisplayLength":5
+							    "iDisplayLength":10,
+							    "bAutoWidth":true
 							   
 			    			});	
 						}
