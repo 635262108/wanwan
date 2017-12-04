@@ -18,7 +18,7 @@
 	position: absolute;
 	top: 25px;
 	left:25px;
-	width: 68%;
+	width: 70%;
 	height: 800px;
 }
 .title{
@@ -34,6 +34,9 @@
 	letter-spacing: 3px;
 	font-weight: 600;
 	font-family: '苹方';
+}
+.dataTables_empty{
+	line-height: 40px;
 }
 .sign_member{
 	min-height: 800px;
@@ -53,9 +56,8 @@
 }
 .data-table tr{
 	height: 40px;
-	line-height: 40px;
 }
 .data-table tr td{
 	text-align: center;
-	font-size: 14px;
+	font-size: 13px;
 }
