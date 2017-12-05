@@ -58,16 +58,19 @@ class User extends Base
             //存储用户信息
             $userInfo = $user->getMobileUserInfo($mobile,'uid,headIcon,nickname,mobile');
             Session::set('userInfo',$userInfo);
-            
+
             if (!empty(session::get('userurl'))){
                 //会话中有要跳转的页面
                 $url = session::get('userurl');
             }else{
                 //没有要跳转的页面，则转到首页
-                $url = url('mobile/activity/index');
+                $url = url('mobile/activity/new_activity');
             }             
             return return_info(200,'注册成功',array('url'=>$url));
         }else{
+            if(isset($_SERVER['HTTP_REFERER'])){
+                session::set('userurl',$_SERVER['HTTP_REFERER']);
+            }
             return $this->fetch();
         }
     }
@@ -642,7 +645,6 @@ class User extends Base
         if($result){
             //增加余额
             $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
-            $userInfo->member_grade = 1;
             $userInfo->save();
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');
