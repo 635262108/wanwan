@@ -177,6 +177,31 @@ function user_detail_type($type){
             return '';
     }
 }
+//获取时间段
+function getTimePeriod($time = ''){
+    switch ($time){
+        case 'BeginThisWeek':
+            return mktime(0,0,0,date('m'),date('d')-date('w')+1,date('Y'));
+            break;
+        case 'EndThisWeek':
+            return mktime(23,59,59,date('m'),date('d')-date('w')+7,date('Y'));
+            break;
+        case 'BeginLastWeek':
+            return mktime(0,0,0,date('m'),date('d')-date('w')+1-7,date('Y'));
+            break;
+        case 'EndLastWeek':
+            return mktime(23,59,59,date('m'),date('d')-date('w')+7-7,date('Y'));
+            break;
+        case 'BeginThisMonth':
+            return mktime(0,0,0,date('m'),1,date('Y'));
+            break;
+        case 'EndThisMonth':
+            return mktime(23,59,59,date('m'),date('t'),date('Y'));
+            break;
+        default:
+            return '';
+    }
+}
 
 //加密函数
 function str_encode($str){

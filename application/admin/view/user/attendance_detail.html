@@ -45,18 +45,21 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
+                  <th>id</th>
                   <th>姓名</th>  
                   <th>电话</th>
                   <th>大人</th>
                   <th>小孩</th>
                   <th>签到时间</th>
                   <th>状态</th>
+                  <th>来源</th>
            </tr>
               </thead>
               <tbody id="tbody_center" style='font-size: 12px;'>
                 {foreach name="actinfo" item="vo"}
                 <tr class="gradeX trs">
-                  <td>{$vo.name}</td>
+                  <td>{$vo.order_id}</td>
+                  <td>{$vo.username}</td>
                   <td>{$vo.mobile}</td>  
                   <td>{$vo.adult_num}</td>
                   <td>{$vo.child_num}</td>
@@ -76,6 +79,7 @@
                         {case value="7"}已请假{/case}
                       {/switch}
                   </td>
+                  <td>{$vo.name}</td>
                 </tr>
                 {/foreach}
               </tbody>
