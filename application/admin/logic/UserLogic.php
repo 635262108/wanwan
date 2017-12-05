@@ -25,6 +25,10 @@ class UserLogic{
         if(!is_numeric($data['balance'])){
             return array('status'=>-1,'msg'=>'金额必须为整数');
         }
+        $userInfo = model('user')->where('mobile',$data['mobile'])->find();
+        if(!empty($userInfo)){
+            return array('status'=>-1,'msg'=>'此用户已存在客户表中，请勿重复添加');
+        }
         //添加数据
         $add_data = array(
             'nickname' => $data['nickname'],
