@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/activity/new_activity.html" afterPath="$PROJECT_DIR$/application/mobile/view/activity/new_activity.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +52,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="453">
               <caret line="424" column="63" lean-forward="true" selection-start-line="424" selection-start-column="63" selection-end-line="424" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new_activity.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/new_activity.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -233,7 +243,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/view/activity/order.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/saveactivitylist.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/public/error.html" />
         <option value="$PROJECT_DIR$/extend/wxpay/JsApiPay.php" />
@@ -284,6 +293,7 @@
         <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
         <option value="$PROJECT_DIR$/public/mobile_static/js/index.js" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
+        <option value="$PROJECT_DIR$/application/mobile/view/activity/new_activity.html" />
       </list>
     </option>
   </component>
@@ -497,12 +507,12 @@
       <workItem from="1512091183680" duration="30818000" />
       <workItem from="1512348503465" duration="18343000" />
       <workItem from="1512379846692" duration="2842000" />
-      <workItem from="1512436122868" duration="20552000" />
+      <workItem from="1512436122868" duration="20809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="773681000" />
+    <option name="totallyTimeSpent" value="773938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -548,13 +558,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/admin_static/js/operat_table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="408" column="0" lean-forward="true" selection-start-line="408" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/ActivityRefund.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -993,6 +996,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
           <caret line="424" column="63" lean-forward="true" selection-start-line="424" selection-start-column="63" selection-end-line="424" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/new_activity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
           <folding />
         </state>
       </provider>
