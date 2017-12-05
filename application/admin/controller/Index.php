@@ -16,9 +16,9 @@ class Index extends Base
         $beginThismonth=mktime(0,0,0,date('m'),1,date('Y'));
         $endThismonth=mktime(23,59,59,date('m'),date('t'),date('Y'));
 
-        $result['member_num'] = db('user')->where('balance>0')->count();    //会员数量
-        $result['month_member'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->where('balance>0')->count();  //本月新增会员
-        $result['week_member'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->where('balance>0')->count();  //本周新增会员
+        $result['member_num'] = db('user')->where('member_grade=1')->count();    //会员数量
+        $result['month_member'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->where('member_grade=1')->count();  //本月新增会员
+        $result['week_member'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->where('member_grade=1')->count();  //本周新增会员
         $result['user_num'] = db('user')->count();  //客户数量
         $result['month_user'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->count();  //本月新增客户
         $result['week_user'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->count();  //本周新增客户
