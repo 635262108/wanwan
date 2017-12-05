@@ -15,21 +15,23 @@
             <a href="#" class="current">考勤分类</a>
         </div>
     </div>
-    
+
     <div class="searchContent">
 		   <div class="search">
-		  	  <form action="" method="post">
-		  	  	   <input type="text" placeholder="11月26日" value="" onFocus="new Calendar().show(this);" style="cursor: pointer;"/><div class="contect"></div><input type="text" placeholder="11月30日" value="" style="cursor:pointer;" onFocus="new Calendar().show(this);" />
+		  	  <form action="{:url('user/attendance_class')}" method="get">
+                  <input type="hidden" value="{$Request.param.aid}" name="aid">
+		  	  	   <input type="text" name="begin_time" placeholder="11月26日" value="" onFocus="new Calendar().show(this);" style="cursor: pointer;"/><div class="contect"></div><input type="text" name="end_time" placeholder="11月30日" value="" style="cursor:pointer;" onFocus="new Calendar().show(this);" />
 		  	  	   <button type="submit">查找</button>
 		  	  </form>
 		  </div>
 		  <select onchange="window.location=this.value;" style="width: 7%;" class="select_time">
-				<option value="a.html">本周</option>
-				<option value="b.html">上一周</option>
+                <option value="{:url('/user/attendance_class',['aid'=>1])}">请选择时间段</option>
+				<option value="{:url('user/attendance_class',['aid'=>$Request.param.aid,'time'=>1])}" {if condition="$Request.param.time eq 1"}selected="selected"{/if}>本周</option>
+				<option value="{:url('user/attendance_class',['aid'=>$Request.param.aid,'time'=>2])}" {if condition="$Request.param.time eq 2"}selected="selected"{/if}>上一周</option>
 		  </select>
     </div>
-   
-    
+
+
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -98,10 +100,10 @@
         </div>
     </div>
 </div>
-    
+
     {include file="public/footer" /}
     <script>
-    	 
+
     	 if($(".select_time").val()=="其它"){
     	 	$(this).unbind("change");
     	 }

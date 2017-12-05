@@ -777,8 +777,10 @@ class Activity extends Base
             $excel_data[$k]['child_play_time'] = $J?$J:'';
             $excel_data[$k]['child_school'] = $K?$K:'';
             if($L == '是'){
+                $excel_data[$k]['order_status'] = 4;
                 $excel_data[$k]['sign_time'] = time();
             }else{
+                $excel_data[$k]['order_status'] = 3;
                 $excel_data[$k]['sign_time'] = 0;
             }
             $k++;
@@ -817,7 +819,7 @@ class Activity extends Base
             $add_data[$i]['order_price'] = $excel_data[$i]['order_price'];
             $add_data[$i]['pay_way'] = 5;
             $add_data[$i]['pay_time'] = $excel_data[$i]['pay_time'];
-            $add_data[$i]['order_status'] = 3;
+            $add_data[$i]['order_status'] = $excel_data[$i]['order_status'];
             $add_data[$i]['addtime'] = $excel_data[$i]['addtime'];
             $add_data[$i]['source'] = $source;
             $add_data[$i]['t_id'] = $tid;
@@ -831,6 +833,7 @@ class Activity extends Base
             $child_data[$i]['child_play_time'] = $excel_data[$i]['child_play_time'];
             $child_data[$i]['child_school'] = $excel_data[$i]['child_school'];
         }
+
         //去除重复,用于添加到客户表
         $result = array();
         if(isset($add_data)){

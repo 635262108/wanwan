@@ -42,7 +42,6 @@ class UserLogic{
             'sex' => $data['sex'],
             'birthday' => $data['birthday'],
             'address' => $data['address'],
-            'member_grade' => 1,
             'source' => $data['source'],
         );
         $uid = model('user')->insertGetId($add_data);
@@ -120,6 +119,7 @@ class UserLogic{
             //增加用户余额
             $userInfo->uid = $userInfo['uid'];
             $userInfo->balance = $userInfo['balance'] + $data['amount'];
+            $userInfo->member_grade = 1;
             $result = $userInfo->save();
             //记录到用户金额明细
             $add_detail = array(

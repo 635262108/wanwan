@@ -100,4 +100,13 @@ class ActivityOrder extends Model
     public function getOrders($map=array(),$field='*',$limit=''){
         return $this->field($field)->where($map)->limit($limit)->select();
     }
+
+    //获取考情详情数据
+    public function getOrderJoinSource($map=array(),$field='*'){
+        return $this->alias('o')
+            ->join('mfw_source s','o.source=s.id','left')
+            ->field($field)
+            ->where($map)
+            ->select();
+    }
 }

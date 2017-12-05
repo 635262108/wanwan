@@ -184,14 +184,45 @@ class User extends Base
     }
 
     //签到分类
-    public function attendance_class($aid){
+    public function attendance_class(){
+        $data = input('param.');
+        if(isset($data['time'])){
+            if($data['time'] == 1){
+                $begintime =getTimePeriod('BeginThisWeek');
+                $endtime = getTimePeriod('EndThisWeek');
+            }else{
+                $begintime = getTimePeriod('BeginLastWeek');
+                $endtime = getTimePeriod('EndLastWeek');
+            }
+        }
+
+        if(isset($data['begin_time']) & isset($data['end_time'])){
+            $begintime = strtotime($data['begin_time']);
+            $endtime = strtotime($data['end_time']);
+        }
+
+        if(isset($data['begin_time']) & !isset($data['end_time'])){
+            $begintime = strtotime($data['begin_time']);
+            $endtime = strtotime($data['begin_time'])+24*3600;
+        }
+
+        if(!isset($data['begin_time']) & isset($data['end_time'])){
+            $begintime = strtotime($data['end_time'])-24*3600;
+            $endtime = strtotime($data['end_time']);
+        }
+
+        if(!isset($data['begin_time']) & !isset($data['end_time']) & !isset($data['time'])){
+            $where = '';
+        }else{
+            $where = ' and t.begin_time > '.$begintime.' and t.end_time < '.$endtime;
+        }
+
         //获取数据
         $actinfo = model('ActivityTime')->query("select t.*,a.a_title,
                                     (select count(*) from mfw_activity_order o where o.aid=t.aid and o.order_status<>2 and o.t_id=t.t_id) as join_num,
                                     (select count(*) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
                                     (select count(*) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
-                                    from mfw_activity_time t right join mfw_activity a on t.aid=a.aid where t.aid=".$aid);
-
+                                    from mfw_activity_time t right join mfw_activity a on t.aid=a.aid where t.aid=".$data['aid'].$where);
         $this->assign('actinfo',$actinfo);
         return $this->fetch();
     }
@@ -210,7 +241,8 @@ class User extends Base
         $map['aid'] = $aid;
         $map['t_id'] = $tid;
         $map['order_status'] = array('neq',2);
-        $actinfo = $ActivityOrder->getOrders($map);
+        $field = 'order_id,o.name username,mobile,adult_num,child_num,sign_time,source,s.name,order_status';
+        $actinfo = $ActivityOrder->getOrderJoinSource($map,$field);
         $this->assign('actinfo',$actinfo);
         $this->assign('aid',$aid);
         return $this->fetch();
