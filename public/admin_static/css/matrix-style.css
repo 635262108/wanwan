@@ -1878,7 +1878,7 @@ div.dataTables_wrapper .ui-widget-header {
 	margin-top: 15px;
 }
 .search input{
-	width: 85px;
+	width: 101px;
 	height: 25px;
 	text-align: center;
 	border-radius: 5px;
@@ -2075,4 +2075,12 @@ div.dataTables_wrapper .ui-widget-header {
 	color: #FF4134;
 	font-size: 14px;
 	font-family: '苹方';
+}
+
+
+/*签到的样式显示时间*/
+.searchContent{
+	width: 98%;
+	display: flex;
+	justify-content: space-between;
 }

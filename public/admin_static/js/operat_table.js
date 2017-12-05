@@ -592,7 +592,7 @@ checklis.on("click",function(){
 	checkContens.eq($(this).index()-1).show().siblings().hide()
 })
 
-//多选事件
+//筛选条件多选事件
 var checkMore=$(".playTimes ul").children("li");
 checkMore.on("click",function(){
 	if($(this).hasClass("active")){
@@ -615,7 +615,7 @@ activitys.on("click",function(){
 //})
 
 
-//会员列表的筛选点击事件
+//会员列表的筛选单选点击事件
 var onLis=$(".shai").children(".only_one");
 
     onLis.each(function(){
@@ -628,7 +628,6 @@ var onLis=$(".shai").children(".only_one");
     		else{
     			$(this).addClass("active").siblings().removeClass("active");
     		}
-//  		  $(this).addClass("active").siblings().removeClass("active");
     	})
     })
     

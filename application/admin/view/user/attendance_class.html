@@ -1,5 +1,11 @@
 {include file="public/header" /}
 {include file="public/left" /}
+<style>
+	#s2id_autogen1{
+		height: 30px;
+		margin-top: 14px;
+	}
+</style>
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
@@ -9,6 +15,21 @@
             <a href="#" class="current">考勤分类</a>
         </div>
     </div>
+    
+    <div class="searchContent">
+		   <div class="search">
+		  	  <form action="" method="post">
+		  	  	   <input type="text" placeholder="11月26日" value="" onFocus="new Calendar().show(this);" style="cursor: pointer;"/><div class="contect"></div><input type="text" placeholder="11月30日" value="" style="cursor:pointer;" onFocus="new Calendar().show(this);" />
+		  	  	   <button type="submit">查找</button>
+		  	  </form>
+		  </div>
+		  <select onchange="window.location=this.value;" style="width: 7%;" class="select_time">
+				<option value="a.html">本周</option>
+				<option value="b.html">上一周</option>
+		  </select>
+    </div>
+   
+    
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -77,7 +98,14 @@
         </div>
     </div>
 </div>
-{include file="public/footer" /}
+    
+    {include file="public/footer" /}
+    <script>
+    	 
+    	 if($(".select_time").val()=="其它"){
+    	 	$(this).unbind("change");
+    	 }
+    </script>
 </body>
 </html>
 
