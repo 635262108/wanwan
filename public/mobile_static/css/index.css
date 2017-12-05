@@ -437,7 +437,8 @@
 }
 
 .five_organs .play_baoContent .playBao_part .bao_content {
-	/*width: 64%;*/
+	width: 62%;
+	/*border: 1px solid red;*/
 	/*margin-left: 2%;*/
 }
 .five_organs .play_baoContent .playBao_part .bao_content .content_bottom{
@@ -476,7 +477,8 @@
 	margin-bottom: 7px
 }
 .five_organs .play_baoContent .playBao_part .bao_content ul li:last-child {
-	margin-bottom: 12px
+	margin-bottom: 12px;
+	line-height: 18px;
 }
 
 .five_organs .play_baoContent .playBao_part .bao_content ul li:nth-child(4) {
@@ -1582,7 +1584,7 @@ display: none  !important;
 
 #theme_information .baby_detail .information_ul li:nth-child(2) .max_width {
 	white-space: initial;
-	line-height: 13px
+	line-height: 18px;
 }
 
 #theme_information .baby_detail .information_ul li:nth-child(3) {
@@ -3018,18 +3020,20 @@ display: none  !important;
 }
 .activity_address .select_paytime li{
 	float: left;
-	width: 45%;
+	width: 47%;
 	height: 22px;
 	line-height: 22px;
 	color: #656565;
 	text-align: center;
 	font-size: 13px;
 	background: #e5e4e4;
-	margin-right: 5%;
+	margin-right: 3%;
 	border-radius:2px ;
 	margin-bottom: 10px;
 	position: relative;
 	box-sizing: border-box;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 .activity_address .select_paytime li input{
 	position: absolute;
@@ -3096,6 +3100,7 @@ display: none  !important;
 	padding-left: 16px;
 	box-sizing: border-box;
 	background: #FFFFFF;
+	padding-right: 10px;
 }
 .pay_form ul li img{
 	width: 21px;
