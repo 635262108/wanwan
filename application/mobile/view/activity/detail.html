@@ -208,7 +208,13 @@
  <script>
         $(".my_name").click(function(){
             var time = $("input[type='radio']:checked").val();
-            console.log(time,'是否显示时间');
+            var adult_num = $(".prompt_adult_val").val();
+            var child_num = $(".prompt_child_val").val();
+            var sum = adult_num + child_num;
+            if(sum == 0){
+                alert('数量不能为0')
+                return false;
+            }
             if (time == undefined) {
                 alert('请选择时间')
                 return false;
