@@ -10,6 +10,7 @@ class User extends Base
     //会员列表
     public function index(){
 //        $data = input('get.');
+        
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
                     ->join('mfw_source s','u.source=s.id')
                     ->select();
