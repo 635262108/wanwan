@@ -642,6 +642,7 @@ class User extends Base
         if($result){
             //增加余额
             $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
+            $userInfo->member_grade = 1;
             $userInfo->save();
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');

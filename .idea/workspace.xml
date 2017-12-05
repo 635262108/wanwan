@@ -6,13 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" afterPath="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" afterPath="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common.php" afterPath="$PROJECT_DIR$/application/common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" afterPath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/logic/UserLogic.php" afterPath="$PROJECT_DIR$/application/admin/logic/UserLogic.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attendance_class.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="attendance_class.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance_class.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
@@ -85,21 +80,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityOrder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/common/model/ActivityOrder.php">
+      <file leaf-file-name="UserLogic.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2266">
-              <caret line="104" column="64" lean-forward="true" selection-start-line="104" selection-start-column="64" selection-end-line="104" selection-end-column="64" />
+            <state relative-caret-position="484">
+              <caret line="123" column="23" lean-forward="true" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserLogic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="516">
+              <caret line="640" column="54" lean-forward="true" selection-start-line="640" selection-start-column="54" selection-end-line="640" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -156,8 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>增加订单</find>
-      <find>支付成功</find>
       <find>succ</find>
       <find>begin_time</find>
       <find>deta</find>
@@ -186,6 +179,8 @@
       <find>url_common_param</find>
       <find>attendance_class</find>
       <find>param</find>
+      <find>member_grade</find>
+      <find>充值</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -200,8 +195,9 @@
       <dir>D:\chuangzhixing\wanwan\public</dir>
       <dir>D:\chuangzhixing\wanwan\application\admin\view\activity</dir>
       <dir>D:\chuangzhixing\wanwan\application\mobile\view</dir>
-      <dir>D:\chuangzhixing\wanwan\application</dir>
       <dir>D:\chuangzhixing\wanwan\application\admin\view</dir>
+      <dir>D:\chuangzhixing\wanwan\application\admin\controller</dir>
+      <dir>D:\chuangzhixing\wanwan\application</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -243,7 +239,6 @@
         <option value="$PROJECT_DIR$/extend/qrcode/phpqrcode.php" />
         <option value="$PROJECT_DIR$/application/common/model/ActivityTime.php" />
         <option value="$PROJECT_DIR$/application/mobile/view/activity/pay_success.html" />
-        <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
         <option value="$PROJECT_DIR$/application/home/controller/User.php" />
         <option value="$PROJECT_DIR$/application/common/model/User.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
@@ -253,7 +248,6 @@
         <option value="$PROJECT_DIR$/application/admin/view/index/index.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/sign.html" />
-        <option value="$PROJECT_DIR$/application/admin/logic/UserLogic.php" />
         <option value="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
@@ -261,6 +255,8 @@
         <option value="$PROJECT_DIR$/application/common.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
         <option value="$PROJECT_DIR$/application/admin/view/user/attendance_class.html" />
+        <option value="$PROJECT_DIR$/application/admin/logic/UserLogic.php" />
+        <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
       </list>
     </option>
   </component>
@@ -271,7 +267,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -464,15 +460,15 @@
       <workItem from="1512091183680" duration="30818000" />
       <workItem from="1512348503465" duration="18343000" />
       <workItem from="1512379846692" duration="2842000" />
-      <workItem from="1512436122868" duration="6126000" />
+      <workItem from="1512436122868" duration="7087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="759255000" />
+    <option name="totallyTimeSpent" value="760216000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.49628845" order="1" side_tool="false" content_ui="combo" />
@@ -717,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/user/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
@@ -784,14 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="108" column="27" lean-forward="false" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -892,6 +873,22 @@
             <element signature="e#4444#4450#0" expanded="true" />
             <element signature="e#4450#4456#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/logic/UserLogic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="123" column="23" lean-forward="true" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="640" column="54" lean-forward="true" selection-start-line="640" selection-start-column="54" selection-end-line="640" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
