@@ -36,11 +36,10 @@ $(function(){
         event.stopPropagation();
 
         adult_num++;
-        $(".prompt_adult_val").val(adult_num);
         $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         if(adult_num>=2){
             adult_num=2;
-          
+            $(".prompt_adult_val").val(adult_num);
             var aldutPrice=adult_num*adult_price;
             var childPrice=child_num*child_price;
            	var Total=(aldutPrice+childPrice).toFixed(2)
@@ -56,8 +55,8 @@ $(function(){
         adult_num--;
         $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
 
-        if(adult_num<=1){
-            adult_num=1;
+        if(adult_num<=0){
+            adult_num=0;
             $(".prompt_adult_val").val(adult_num);
              var aldutPrice=adult_num*adult_price;
              var childPrice=child_num*child_price;
@@ -85,11 +84,10 @@ $(function(){
     $(".prompt_child_reduce").on("click",function(event){
         event.stopPropagation();
         child_num--;
-        $(".prompt_child_val").val(child_num);
-
         $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
-        if(child_num<=1){
-            child_num=1;
+        if(child_num<=0){
+            child_num=0;
+            $(".prompt_child_val").val(child_num);
             $(".prompt_child_val").val(child_num);
             $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         }
