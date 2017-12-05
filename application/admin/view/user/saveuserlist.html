@@ -3,7 +3,7 @@
 <head>
 {include file="public/header" /}
 {include file="public/left" /}
-<div id="content">
+	<div id="content">
 	<div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="{:url('admin/user/index')}" class="tip-bottom">会员管理</a> 
@@ -44,7 +44,7 @@
               	</select>
               </div>
             </div>-->
-<div class="control-group">
+			<div class="control-group">
               <label class="control-label">状态</label>
               <div class="controls">
                 <select name="status" autocomplete = "off">
@@ -55,8 +55,8 @@
             </div>
             <div class="control-group">
               <label class="control-label">注册时间:</label>
-              <div class="controls">
-                <input type="text" value="{$userInfo.reg_time}" readonly class="span11" name="startTime"/>
+               <div class="controls">
+                	<input type="text" value="{$userInfo.reg_time}" readonly class="span11" name="startTime"/>
                </div>
             </div>
             <div class="control-group">

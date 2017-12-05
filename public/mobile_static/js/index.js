@@ -19,14 +19,17 @@ $(function(){
    
 
 
-    var adult_price=$(".prompt_aldut_price").text();
-    var child_price=$(".prompt_child_price").text();
-
-    var adult_num=$(".prompt_adult_val").val();
-    var child_num=$(".prompt_child_val").val();
+    var adult_price=parseFloat($(".prompt_aldut_price").text());
+  
+    var child_price=parseFloat($(".prompt_child_price").text());
+	
+    var adult_num=parseFloat($(".prompt_adult_val").val());
+   
+    var child_num=parseFloat($(".prompt_child_val").val());
+   
     
 //  初始化总计
- $(".total").text(adult_num*adult_price+child_num*child_price)
+ $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
 
 //大人的加法
     $(".prompt_adult_plus").on("click",function(event){
@@ -34,11 +37,15 @@ $(function(){
 
         adult_num++;
         $(".prompt_adult_val").val(adult_num);
-        $(".total").text(adult_num*adult_price+child_num*child_price);
+        $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         if(adult_num>=2){
             adult_num=2;
-            $(".prompt_adult_val").val(adult_num);
-            $(".total").text(adult_num*adult_price+child_num*child_price);
+          
+            var aldutPrice=adult_num*adult_price;
+            var childPrice=child_num*child_price;
+           	var Total=(aldutPrice+childPrice).toFixed(2)
+         
+            $(".total").text(Total);
         }
 
     })
@@ -47,13 +54,16 @@ $(function(){
     $(".prompt_adult_reduce").on("click",function(event){
         event.stopPropagation();
         adult_num--;
-        $(".prompt_adult_val").val(adult_num);
+        $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
 
-        $(".total").text(adult_num*adult_price+child_num*child_price);
         if(adult_num<=1){
             adult_num=1;
             $(".prompt_adult_val").val(adult_num);
-            $(".total").text(adult_num*adult_price+child_num*child_price);
+             var aldutPrice=adult_num*adult_price;
+             var childPrice=child_num*child_price;
+           	 var Total=(aldutPrice+childPrice).toFixed(2)
+         	 $(".total").text(Total);
+         
         }
     })
 
@@ -63,11 +73,11 @@ $(function(){
         child_num++;
         $(".prompt_child_val").val(child_num);
 
-        $(".total").text(adult_num*adult_price+child_num*child_price);
+        $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         if(child_num>=2){
             child_num=2;
             $(".prompt_child_val").val(child_num);
-            $(".total").text(adult_num*adult_price+child_num*child_price);
+            $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         }
     })
 
@@ -77,11 +87,11 @@ $(function(){
         child_num--;
         $(".prompt_child_val").val(child_num);
 
-        $(".total").text(adult_num*adult_price+child_num*child_price);
+        $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         if(child_num<=1){
             child_num=1;
             $(".prompt_child_val").val(child_num);
-            $(".total").text(adult_num*adult_price+child_num*child_price);
+            $(".total").text((adult_num*adult_price+child_num*child_price).toFixed(2));
         }
     })
 
