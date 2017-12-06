@@ -15,26 +15,26 @@
 <form action="{:url('activity/wxPayWay')}" method="post" class="pay_form">
     <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
     <ul>
-        <li>
-    			<div class="first_li"><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付</div>
-    		     {if condition="$userInfo.balance lt $price"}
-    		    <div class="second_li" >
-    		    	   <span style="color:#c5c5c5;" class="remaining_money">余额不足</span>
-    		    	 
-    		          <input type="radio" name="bank_type" value="4"  class="select_remaining">
-    		   
-    		    </div>	
-    		    {else/}
-    		     
-    		     <div class="second_li" style="width: 23.5%;">
-    		    	 <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;{$userInfo.balance}</span>
-    		    	
-    		          <input type="radio" name="bank_type" value="4"  class="select_remaining">
-    		   
-    		    </div>	
-    		   
-    		 {/if}
-    		 </li>
+        <!--<li>-->
+    			<!--<div class="first_li"><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付</div>-->
+    		     <!--{if condition="$userInfo.balance lt $price"}-->
+    		    <!--<div class="second_li" >-->
+    		    	   <!--<span style="color:#c5c5c5;" class="remaining_money">余额不足</span>-->
+    		    	 <!---->
+    		          <!--<input type="radio" name="bank_type" value="4"  class="select_remaining">-->
+    		   <!---->
+    		    <!--</div>	-->
+    		    <!--{else/}-->
+    		     <!---->
+    		     <!--<div class="second_li" style="width: 23.5%;">-->
+    		    	 <!--<span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;{$userInfo.balance}</span>-->
+    		    	<!---->
+    		          <!--<input type="radio" name="bank_type" value="4"  class="select_remaining">-->
+    		   <!---->
+    		    <!--</div>	-->
+    		   <!---->
+    		 <!--{/if}-->
+    		 <!--</li>-->
     		   
     			
     		<li>
