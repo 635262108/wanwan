@@ -220,10 +220,13 @@ class User extends Base
 
         //获取数据
         $actinfo = model('ActivityTime')->query("select t.*,a.a_title,
-                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.order_status<>2 and o.t_id=t.t_id) as join_num,
-                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
-                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
+                                    (select sum(o.child_num) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
+                                    (select sum(o.child_num) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
                                     from mfw_activity_time t right join mfw_activity a on t.aid=a.aid where t.aid=".$data['aid'].$where);
+        foreach($actinfo as $k=>$v){
+            $actinfo[$k]['enter_num'] = (int)$v['enter_num'];
+            $actinfo[$k]['sign_num'] = (int)$v['sign_num'];
+        }
         $this->assign('actinfo',$actinfo);
         return $this->fetch();
     }

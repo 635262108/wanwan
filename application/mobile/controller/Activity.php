@@ -230,9 +230,8 @@ class Activity extends Base
             }
         }else{
             //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
-            model('activity')->where('aid', $aid)->setDec('a_num', $child_num);
-            model('activity')->where('aid', $aid)->setInc('a_sold_num', $child_num);
-            $ActivityTime->where('t_id', $time)->setInc('ticket_num', $child_num);
+            $this->sendMobileMsg($add_oreder_data['order_sn']);
+            $this->setActivityNum($add_oreder_data['order_sn']);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$add_oreder_data);
@@ -409,6 +408,7 @@ class Activity extends Base
         $res = model('ActivityOrder')->where('order_sn',$order_sn)->update($data);
         if($res) {
             $this->sendMobileMsg($orderInfo['order_sn']);
+            $this->setActivityNum($orderInfo['order_sn']);
             $this->assign('price',$orderInfo['order_price']);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$orderInfo);
@@ -426,6 +426,16 @@ class Activity extends Base
         $timeInfo = model('ActivityTime')->find($orderInfo['t_id']);
         $content = "恭喜您已成功报名".$activity['a_title'].",签到二维码在会员中心-我的活动-已付款中查看".",活动地点：".$activity['a_address'].",参加时间:".$timeInfo['begin_time']."到".$timeInfo['end_time']."，大人".$orderInfo['adult_num']."个,小孩".$orderInfo['child_num']."个,请您准时参加,有问题请联系客服：400-611-2731,感谢您的支持。";
         sendSMS($orderInfo['mobile'],$content);
+    }
+
+    //交易成功，减少报名名额
+    public function setActivityNum($order_sn){
+        $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
+        //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
+        model('activity')->where('aid', $orderInfo['aid'])->setDec('a_num', $orderInfo['child_num']);
+        model('activity')->where('aid', $orderInfo['aid'])->setInc('a_sold_num', $orderInfo['child_num']);
+        model('ActivityTime')->where('t_id', $orderInfo['t_id'])->setDec('ticket_num', $orderInfo['child_num']);
+        model('ActivityTime')->where('t_id', $orderInfo['t_id'])->setInc('sold_num', $orderInfo['child_num']);
     }
 
     /**
@@ -476,11 +486,6 @@ class Activity extends Base
             $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动付款成功,请您注意活动参与时间!";
             $message = model('Message');
             $message->sendMessage($order['uid'],$content,1);
-            
-            //库存-1
-            $Activity->DecActivity($aid);
-            //报名人员+1
-            $Activity->IncActivity($aid);            
         } else {
             $data['act'] = 2;
             $data['order_sn'] = $order_sn;
@@ -542,7 +547,7 @@ class Activity extends Base
                     $Activity->DecActivity($aid);
                     //报名人员+1
                     $Activity->IncActivity($aid);
-                    
+
                     exit('success');
                 }else{
                     $data['act'] = 2;
@@ -657,6 +662,7 @@ class Activity extends Base
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
             $this->sendMobileMsg($order['order_sn']);
+            $this->setActivityNum($order['order_sn']);
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
@@ -681,6 +687,7 @@ class Activity extends Base
         }
         $result = \alipay\Query::exec($trade_no);
         if($result['trade_status'] == 'TRADE_SUCCESS'){
+            $this->setActivityNum($order['order_sn']);
             $this->sendMobileMsg($order['order_sn']);
             $this->assign('title','支付成功');
             $this->assign('order',$order);

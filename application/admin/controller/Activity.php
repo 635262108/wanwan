@@ -488,17 +488,19 @@ class Activity extends Base
             $input = new WxPayRefund();
             $input->setOutTradeNo($order_sn);   //订单号
             $input->setOutRefundNo($order_sn); //退款订单号
-            $input->setTotalFee(2);     //订单金额
-            $input->setRefundFee(1);  //退款金额
+            $input->setTotalFee($orderInfo['order_price']*100);     //订单金额
+            $input->setRefundFee($orderInfo['order_price']*100);  //退款金额
             $input->setOpUserId(config('wxpay.mch_id'));
             $orders = WxPayApi::refund($input);
-            if($orders['err_code'] == 'NOTENOUGH'){
+
+            if($orders['err_code'] == 'NOTENOUGH'){//尝试用余额退费
                 $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
                 $orders = WxPayApi::refund($input);
             }
             if(isset($orders['err_code'])){
                 $this->error($orders['err_code']);
-            }else{
+            }
+            if($orders['return_code'] == 'SUCCESS'){
                 model('ActivityOrder')->setOrderStatus($order_sn,6);
                 $this->success('金额已原路返回');
             }
