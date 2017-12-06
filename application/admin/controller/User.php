@@ -671,7 +671,7 @@ class User extends Base
     }
 
     //手机号签到管理
-    public function mobileSign(){
+    public function mobile_sign(){
         return $this->fetch();
     }
 
