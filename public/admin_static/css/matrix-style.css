@@ -2104,3 +2104,24 @@ div.dataTables_wrapper .ui-widget-header {
 	display: flex;
 	justify-content: space-between;
 }
+/*手机签到样式*/
+.promptContent{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.promptContent .phonePrompt{
+	margin-bottom: 0px;
+}
+.promptContent button{
+	width: 68px;
+	background: #00A0E9;
+	color: #FFFFFF;
+	font-family: '苹方';
+	border: none;
+	outline: none;
+	height: 25px;
+	font-size: 16px;
+	border-radius: 8px;
+}
