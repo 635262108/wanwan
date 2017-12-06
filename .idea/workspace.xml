@@ -6,8 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" afterPath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,17 +89,17 @@
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
-              <caret line="696" column="8" lean-forward="false" selection-start-line="696" selection-start-column="8" selection-end-line="696" selection-end-column="8" />
+              <caret line="693" column="0" lean-forward="true" selection-start-line="693" selection-start-column="0" selection-end-line="693" selection-end-column="0" />
               <folding>
-                <marker date="1512525892270" expanded="true" signature="5855:6285" ph="select a_tit... mfw_activity" />
-                <marker date="1512525892270" expanded="true" signature="5900:5986" ph="select count... mfw_activity_order" />
-                <marker date="1512525892270" expanded="true" signature="6026:6107" ph="select count... mfw_activity_order" />
-                <marker date="1512525892270" expanded="true" signature="6148:6230" ph="select count... mfw_activity_order" />
-                <marker date="1512525892270" expanded="true" signature="7680:8260" ph="select t.*,a... mfw_activity_time" />
-                <marker date="1512525892270" expanded="true" signature="7680:8274" ph="select t.*,a... mfw_activity_time" />
-                <marker date="1512525892270" expanded="true" signature="7739:7838" ph="select count... mfw_activity_order" />
-                <marker date="1512525892270" expanded="true" signature="7890:7984" ph="select count... mfw_activity_order" />
-                <marker date="1512525892270" expanded="true" signature="8037:8132" ph="select count... mfw_activity_order" />
+                <marker date="1512526226092" expanded="true" signature="5855:6285" ph="select a_tit... mfw_activity" />
+                <marker date="1512526226092" expanded="true" signature="5900:5986" ph="select count... mfw_activity_order" />
+                <marker date="1512526226092" expanded="true" signature="6026:6107" ph="select count... mfw_activity_order" />
+                <marker date="1512526226092" expanded="true" signature="6148:6230" ph="select count... mfw_activity_order" />
+                <marker date="1512526226092" expanded="true" signature="7680:8260" ph="select t.*,a... mfw_activity_time" />
+                <marker date="1512526226092" expanded="true" signature="7680:8274" ph="select t.*,a... mfw_activity_time" />
+                <marker date="1512526226092" expanded="true" signature="7739:7838" ph="select count... mfw_activity_order" />
+                <marker date="1512526226092" expanded="true" signature="7890:7984" ph="select count... mfw_activity_order" />
+                <marker date="1512526226092" expanded="true" signature="8037:8132" ph="select count... mfw_activity_order" />
               </folding>
             </state>
           </provider>
@@ -477,12 +477,12 @@
       <workItem from="1512348503465" duration="18343000" />
       <workItem from="1512379846692" duration="2842000" />
       <workItem from="1512436122868" duration="21600000" />
-      <workItem from="1512523532364" duration="2450000" />
+      <workItem from="1512523532364" duration="2735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="777179000" />
+    <option name="totallyTimeSpent" value="777464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -931,17 +931,17 @@
     <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
-          <caret line="696" column="8" lean-forward="false" selection-start-line="696" selection-start-column="8" selection-end-line="696" selection-end-column="8" />
+          <caret line="693" column="0" lean-forward="true" selection-start-line="693" selection-start-column="0" selection-end-line="693" selection-end-column="0" />
           <folding>
-            <marker date="1512525892270" expanded="true" signature="5855:6285" ph="select a_tit... mfw_activity" />
-            <marker date="1512525892270" expanded="true" signature="5900:5986" ph="select count... mfw_activity_order" />
-            <marker date="1512525892270" expanded="true" signature="6026:6107" ph="select count... mfw_activity_order" />
-            <marker date="1512525892270" expanded="true" signature="6148:6230" ph="select count... mfw_activity_order" />
-            <marker date="1512525892270" expanded="true" signature="7680:8260" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1512525892270" expanded="true" signature="7680:8274" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1512525892270" expanded="true" signature="7739:7838" ph="select count... mfw_activity_order" />
-            <marker date="1512525892270" expanded="true" signature="7890:7984" ph="select count... mfw_activity_order" />
-            <marker date="1512525892270" expanded="true" signature="8037:8132" ph="select count... mfw_activity_order" />
+            <marker date="1512526226092" expanded="true" signature="5855:6285" ph="select a_tit... mfw_activity" />
+            <marker date="1512526226092" expanded="true" signature="5900:5986" ph="select count... mfw_activity_order" />
+            <marker date="1512526226092" expanded="true" signature="6026:6107" ph="select count... mfw_activity_order" />
+            <marker date="1512526226092" expanded="true" signature="6148:6230" ph="select count... mfw_activity_order" />
+            <marker date="1512526226092" expanded="true" signature="7680:8260" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1512526226092" expanded="true" signature="7680:8274" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1512526226092" expanded="true" signature="7739:7838" ph="select count... mfw_activity_order" />
+            <marker date="1512526226092" expanded="true" signature="7890:7984" ph="select count... mfw_activity_order" />
+            <marker date="1512526226092" expanded="true" signature="8037:8132" ph="select count... mfw_activity_order" />
           </folding>
         </state>
       </provider>

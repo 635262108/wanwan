@@ -693,6 +693,7 @@ class User extends Base
         }
 
         foreach ($orderInfo as $k => $v){
+            $orderInfo[$k]['pay_way'] = payWay($v['pay_way']);
             $orderInfo[$k]['pay_time'] = date('Y-m-d H:i',$v['pay_time']);
         }
 
