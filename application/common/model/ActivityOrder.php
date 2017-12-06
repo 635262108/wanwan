@@ -109,4 +109,13 @@ class ActivityOrder extends Model
             ->where($map)
             ->select();
     }
+
+    //根据手机号获取未签到的数据
+    public function getMobileNoSignOrders($mobile){
+        $map = [
+            'mobile'    => $mobile,
+            'order_status' => 3,
+        ];
+        return $this->where($map)->select();
+    }
 }
