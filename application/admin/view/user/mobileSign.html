@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>玩翫碗签到管理系统</title>
+		<link rel="stylesheet" href="__ACSS__/sign.css" />
+		<link rel="stylesheet" href="__ACSS__/bootstrap.min.css" />
+		<link rel="stylesheet" href="__ACSS__/matrix-style.css" />
+
+</head>
+
+	<body id="bg">
+		<div class="signContent">
+			<div class="system">
+				<div class="title">签到管理系统</div>
+				<div class="sign_member">
+					<!--<button onclick="del()">点击</button>-->
+					<div class="promptContent">
+						<input type="text" class="phonePrompt" value="" style="width: 25%;">
+						<button>查询</button>
+					</div>
+					<table class="data-table" style="width: 632px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
+						<thead>
+							<tr>
+								<th>id</th>
+								<th>活动名称</th>
+								<th>手机号</th>
+								<th>大人数量</th>
+								<th>小孩数量</th>
+								<th>支付方式</th>
+								<th>支付时间</th>
+								<th>操作</th>
+                                
+							</tr>
+						</thead>
+						<tbody class="tbody_center" style="font-size: 12px;">
+						    
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="__AJS__/jquery.min.js"></script>
+		<script src="__AJS__/jquery.dataTables.min.js"></script>
+		<script src="__AJS__/bootstrap.min.js"></script> 
+		
+	</body>
+
 </html>
