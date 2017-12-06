@@ -24261,3 +24261,198 @@
 [ info ] [ PARAM ] array (
 )
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-12-06T21:05:26+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/user/index.html
+[ info ] www.chuangzhixing.com/mobile/user/index.html [运行时间：0.477000s][吞吐率：2.10req/s] [内存消耗：2,048.07kb] [文件加载：46]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=0o5l9gq2u6rn5vegv68pv0jap2',
+  'referer' => 'http://www.chuangzhixing.com/mobile/user/my_activity/a/1.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mobile\controller\User->index[ D:\chuangzhixing\wanwan\application\mobile\controller\User.php ]
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/mobile\view\user\index.html [ array (
+  0 => 'title',
+  1 => 'userInfo',
+  2 => 'url',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.126000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.074000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0  AND `is_dis` = 1 ORDER BY sort asc [ RunTime:0.077000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_user` [ RunTime:0.081000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_user` WHERE  `uid` = 111 LIMIT 1 [ RunTime:0.080000s ]
+---------------------------------------------------------------
+[ 2017-12-06T21:05:26+08:00 ] 127.0.0.1 127.0.0.1 GET /public/mobile_static/js/jquery.min.map
+[ info ] www.chuangzhixing.com/public/mobile_static/js/jquery.min.map [运行时间：0.022000s][吞吐率：45.45req/s] [内存消耗：816.80kb] [文件加载：28]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile_static',
+    1 => 'js',
+    2 => 'jquery.min.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'origin' => 'null',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-12-06T21:05:28+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/activity/new_activity.html
+[ info ] www.chuangzhixing.com/mobile/activity/new_activity.html [运行时间：0.255000s][吞吐率：3.92req/s] [内存消耗：2,081.93kb] [文件加载：46]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'activity',
+    2 => 'new_activity',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=0o5l9gq2u6rn5vegv68pv0jap2',
+  'referer' => 'http://www.chuangzhixing.com/mobile/user/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\mobile\controller\Activity->new_activity[ D:\chuangzhixing\wanwan\application\mobile\controller\Activity.php ]
+[ info ] [ VIEW ] D:\chuangzhixing\wanwan/application/mobile\view\activity\new_activity.html [ array (
+  0 => 'title',
+  1 => 'actInfo',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.051000s ] mysql:dbname=mianfeiwan;host=47.94.233.30;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity_type` [ RunTime:0.041000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity_type` WHERE  `fid` = 0  AND `is_dis` = 1 ORDER BY sort asc [ RunTime:0.039000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mfw_activity` [ RunTime:0.039000s ]
+[ sql ] [ SQL ] SELECT * FROM `mfw_activity` WHERE  `a_status` = 1 ORDER BY `aid`  desc LIMIT 0,10 [ RunTime:0.043000s ]
+---------------------------------------------------------------
+[ 2017-12-06T21:05:28+08:00 ] 127.0.0.1 127.0.0.1 GET /public/uploads/admin_img/20171205/33730c4667906716fa56e87070502e0b.jpg
+[ info ] www.chuangzhixing.com/public/uploads/admin_img/20171205/33730c4667906716fa56e87070502e0b.jpg [运行时间：0.013000s][吞吐率：76.92req/s] [内存消耗：817.45kb] [文件加载：28]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'admin_img',
+    2 => '20171205',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=0o5l9gq2u6rn5vegv68pv0jap2',
+  'referer' => 'http://www.chuangzhixing.com/mobile/activity/new_activity.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-12-06T21:05:28+08:00 ] 127.0.0.1 127.0.0.1 GET /public/mobile_static/js/jquery.min.map
+[ info ] www.chuangzhixing.com/public/mobile_static/js/jquery.min.map [运行时间：0.015000s][吞吐率：66.67req/s] [内存消耗：816.80kb] [文件加载：28]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile_static',
+    1 => 'js',
+    2 => 'jquery.min.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'origin' => 'null',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-12-06T21:05:29+08:00 ] 127.0.0.1 127.0.0.1 GET /public/uploads/admin_img/20171205/f7c84b304e3a1f9d4632eb6cd4b1d202.jpg
+[ info ] www.chuangzhixing.com/public/uploads/admin_img/20171205/f7c84b304e3a1f9d4632eb6cd4b1d202.jpg [运行时间：0.039000s][吞吐率：25.64req/s] [内存消耗：817.45kb] [文件加载：28]
+[ info ] [ LANG ] D:\chuangzhixing\wanwan\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'admin_img',
+    2 => '20171205',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=0o5l9gq2u6rn5vegv68pv0jap2',
+  'referer' => 'http://www.chuangzhixing.com/mobile/activity/new_activity.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1',
+  'host' => 'www.chuangzhixing.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
