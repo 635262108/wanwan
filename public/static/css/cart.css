@@ -1,0 +1,464 @@
+.user_text {
+	border: 1px #E6E6E6 solid;
+	border-bottom: 0px;
+	height: 35px;
+	line-height: 45px;
+	background-color: #FF4134;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+}
+
+.contact_form {
+	border: 1px #e6e6e6 solid;
+	font-size: 12px;
+	color: #404040;
+	padding: 15px 0;
+}
+
+#form_project {
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.user_p {
+	font-size: 18px;
+	color: white;
+	margin-top: -0.5em;
+	position: relative;
+	top: 50%;
+	margin-left: 12px;
+	padding-left: 8px;
+	height: 1em;
+	line-height: 1em;
+	float: left;
+}
+
+.box {
+	padding: 20px 49px;
+	width: 900px;
+	border: 1px #E6E6E6 solid;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+.px {
+	height: 23px;
+	border: 1px solid #d0d0d0;
+}
+
+.up {
+	background: url(/public/static/img/up.png) center center no-repeat;
+}
+
+.down {
+	background: url(/public/static/img/down.png) center center no-repeat;
+}
+
+.up,
+.down {
+	width: 18px;
+	height: 12px;
+	display: block;
+	border: 1px solid #c9c9c9;
+	margin: 2px 0;
+}
+
+.input-text {
+	border: 1px solid #c9c9c9;
+	width: 2em;
+	padding: 2px;
+	text-align: center;
+	width: 42px;
+	/*float: left;*/
+	margin: 2px 2px 2px 0;
+	border: 1px solid #c9c9c9;
+	height: 26px;
+	line-height: 26px;
+	text-indent: 2px;
+}
+
+.box,
+.float {
+	float: left;
+}
+
+.person1 {
+	width: 100px;
+	height: 24px;
+	line-height: 32px;
+	font-size: 12px;
+	color: #404040;
+	margin-left: 5px;
+}
+
+input,
+button,
+select,
+textarea {
+	font-size: 15px !important;
+}
+
+.input-text-2 {
+	height: 20px;
+	line-height: 20px;
+	/*padding: 2px;*/
+	margin-left: 20px;
+}
+
+.settle_table {
+	width: 980px;
+	border-bottom: 1px #e6e6e6 solid;
+	color: #999999;
+	font-size: 14px;
+	margin-left: 20px;
+	padding-bottom: 15px;
+}
+
+.settle_name {
+	color: #333;
+	font-size: 14px;
+}
+
+.goods_List_td {
+	line-height: 35px;
+}
+
+.goods_List_n {
+	line-height: 25px;
+	vertical-align: center;
+}
+
+.settle_Time {
+	font-size: 12px;
+}
+
+.cart_shop_name {
+	padding-left: 10px;
+	display: block;
+	position: relative;
+	height: 95px;
+	width: 400px;
+}
+
+.cl {
+	zoom: 1;
+}
+
+.z {
+	float: left;
+}
+
+td,
+th {
+	display: table-cell;
+	vertical-align: inherit;
+}
+
+.goods_List_n {
+	line-height: 25px;
+	vertical-align: center;
+}
+
+.beizhu_text {
+	float: left;
+	margin: 0px 20px;
+	padding-left: 10px;
+	border: 1px #e6e6e6 solid;
+	text-align: left;
+	width: 617px;
+	height: 39px;
+	font-size: 12px;
+	color: #bbb;
+}
+
+.beizhu_ p {
+	margin-top: 11px;
+}
+
+.beizhu_ p input {
+	width: 300px;
+	height: 20px;
+	border: 0px;
+	color: #7B7B7B;
+	margin-top: -2px;
+}
+
+.settle_heji {
+	margin-top: 14px;
+	margin-right: 65px;
+	height: 30px;
+	text-align: right;
+	color: #7B7B7B;
+}
+
+.settle_heji span {
+	color: #ff4134;
+	font-size: 24px;
+}
+
+.settle_zongjie {
+	border: 2px #ff4134 solid;
+	width: 300px;
+	height: 74px;
+	line-height: 74px;
+	float: right;
+	margin-top: 35px;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.settle_zongjie_p {
+	text-align: right;
+	margin-right: 20px
+}
+
+.sumbitSign {
+	height: 40px;
+	width: 114px;
+	line-height: 20px;
+	/*padding: 10px 27px;*/
+	display: inline-block;
+	background-color: #ff4134;
+	color: #fff;
+	position: absolute;
+	right: -2px;
+	top: 76px;
+	z-index: 10;
+	/* Old Firefox */
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+}
+
+.settle_payment {
+	color: #ff4134;
+	font-size: 15px;
+	font-size: 24px;
+}
+
+.settle_heji i,
+.settle_payment i {
+	font-size: 16px
+}
+
+.settle_submit {}
+
+.submit_button {
+	width: 120px;
+	height: 40px;
+	color: #ffffff;
+	background-color: #FF8000;
+	border: 0px;
+	margin-top: 113px;
+	margin-left: 305%;
+}
+
+
+/*pay流程*/
+
+.top_tip a,
+.top_tip {
+	font-size: 15px;
+	color: #666666;
+	overflow: hidden;
+}
+
+.nvhm {
+	width: 30px;
+	line-height: 70px;
+	overflow: hidden;
+	margin-top: -5px;
+}
+
+.payStatus {
+	width: 712px;
+	margin: 20px auto;
+}
+
+.payStatus .payStatusD {
+	width: 50px;
+	text-align: center;
+	position: relative;
+}
+
+.payStatus .payStatus-1 {
+	padding-left: 30px;
+}
+
+.payStatus .payStatus-2 {
+	padding-left: 160px;
+}
+
+.payStatus .payStatus-3 {
+	padding-left: 160px;
+}
+
+.payStatusHr_1,
+.payStatusHr_2 {
+	height: 3px;
+	line-height: 3px;
+	border: none;
+	border-bottom: 3px solid #FF4134;
+	position: absolute;
+	top: 18px;
+	z-index: 1;
+	width: 160px;
+}
+
+.payStatusHrGray {
+	border-bottom: 3px solid #d0d0d0;
+}
+
+.payStatusHrGo {
+	border-bottom: 3px solid #ffc1bd;
+}
+
+.payStatusHr_1 {
+	left: 80px;
+}
+
+.payStatusHr_2 {
+	left: 210px;
+}
+
+.payStatus .payStatus_Bg {
+	border-radius: 18px;
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+	font-size: 16px;
+	font-family: Verdana;
+	color: #fff;
+	border: 6px solid rgb(249, 249, 249);
+	border-radius: 50%;
+}
+
+.payStatus .payStatus_name {
+	display: inline-block;
+	line-height: 25px;
+	margin-left: -10px;
+}
+
+.StatusGo {
+	background-color: #ffc1bd;
+}
+
+.StatusIng {
+	background-color: #FF4134;
+}
+
+.payStatus .StatusNext {
+	background-color: #d0d0d0;
+	color: #fff;
+}
+
+.StatusGoF {
+	color: #ffc1bd;
+}
+
+.StatusIngF {
+	color: #FF4134;
+}
+
+.StatusNextF {
+	color: #b2b2b2;
+}
+
+.StatusNextF,
+.StatusIngF,
+.StatusGoF {
+	width: 70px;
+}
+
+.children {
+	margin-bottom: 10px;
+}
+
+
+/*pay*/
+
+.pay li {
+	border: 2px solid #fff;
+	margin-bottom: 2px;
+	padding: 12px 26px;
+	cursor: pointer;
+	position: relative;
+}
+
+.pay li:hover {
+	border: 2px solid #FF4134;
+}
+
+.pay .set {
+	border: 2px solid #FF4134;
+}
+
+.pay .h1 {
+	height: 40px;
+	line-height: 40px;
+}
+
+.pay .label-1 {
+	position: relative;
+	top: -2px;
+	color: #333333;
+}
+
+.pay .label-2 {
+	position: relative;
+	top: 8px;
+}
+
+.pay .label-3 {
+	position: relative;
+	top: 8px;
+}
+
+.pay .col-1 {
+	color: #f5862c;
+}
+
+.pay .col-2 {
+	color: #afafaf;
+}
+
+.pay .col-3 {
+	color: #ff1414;
+}
+
+.pay .label-2 img {
+	width: 90px;
+}
+
+.pay b {
+	color: #333333;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	display: none;
+}
+
+
+/*微信支付*/
+
+.pay_active_div {
+	width: 250px;
+	margin: 0 auto;
+	padding: 0 20px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.pay_active_div img {
+	width: 170px;
+	
+}
+#ac_erweima{
+	width: 170px;
+	height: 170px;
+}

@@ -1,0 +1,220 @@
+				* {
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				font-family: "微软雅黑";
+			}
+			.login_bg {
+				background: url(img/login_bg.png) 50% 0 no-repeat;
+				width: 100%;
+				height: 750px;
+				position: relative;
+			}	
+			.login_wrap {
+				position: absolute;
+				top: 100px;
+				/*left: 150px;*/
+				width: 450px;
+				height: 580px;
+				background-color: white;
+			}
+			.wx_title{
+				text-align: center;
+				height:100px;
+				line-height: 100px;
+			}
+			.wx_title p{
+				font-size: 28px;
+				color:#404040;
+			}
+			.wx_phone{
+				width: 300px;
+				height: 300px;
+				margin: 0 auto;
+				/*border: 1px solid green;*/
+				
+			}
+			.wx_phone1{
+				width: 300px;
+				height: 200px;
+				margin: 0 auto;
+			}
+			.wx_error{
+				font-size: 12px;
+			}
+			.wx_input_box {
+    border: 1px solid #c4c6ca;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    
+            }
+            .wx_input_box input{
+            	margin-left: 10px;
+            	height:25px;
+            	font-size:18px;
+            	border: none;
+            	font-family: "微软雅黑";
+            	outline:none
+            }
+            .wx_confirm {
+    display: inline-block;
+    float: right;
+    margin-top: 6px;
+}
+.code_main {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+.wx_auth {
+    margin-top: inherit;
+}
+.wx_auth{   
+    color: #56abee;
+    float: right;
+    background: #fff;
+   /*margin-top: -3px;*/
+    font-size: 12px;
+}
+
+.wx_auth:link {
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #56abee;
+}
+.wx_auth:visited {
+  color: #56abee;
+}
+.wx_auth:hover {
+  color: #4297da;
+}
+ .wx_terms{
+    margin: 0 auto;
+    width: 60%;
+    font-size: 14px;
+    line-height: 14px;
+    margin-top: 10px;
+}
+.wx_continue_n,.wx_landing {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.wx_continue_a {
+    width: 60%;
+    display: inline-block;
+    background: #FF4134;
+    color: #fff;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 0;
+    font-family: "微软雅黑";
+}
+.wx_disembark_a {
+	font-size: 14px;
+    color: #FF4134;
+}
+.passed{
+	display: none;
+}
+/*.wx_error{
+	display: none;
+}*/
+/*.wx_message{
+	display: none;
+}*/
+
+/*验证码*/
+.code_main {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+.code_main .lyby_tip {
+  display: none;
+}
+.code_main .lyby_tip .inputbox .u-input {
+  border: 1px solid #c5cddb;
+  width: 120px;
+  line-height: 42px;
+  border-radius: 3px;
+  padding: 0 0 0 15px;
+}
+.code_main .lyby_tip .inputbox .u-input input {
+  width: 80px;
+  padding-left: 0;
+  font-size: 16px;
+  height: 22px;
+}
+.code_main.active .lyby_tip {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 10px;
+  color: #05080d;
+  border: 1px solid #d4d4d4;
+  background-color: #FFF;
+  bottom: 0;
+  position: absolute;
+  width: 140px;
+  left: 0;
+  display: block;
+}
+.code_main.active .lyby_tip:before,
+.code_main.active .lyby_tip:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+}
+.code_main.active .lyby_tip:after {
+  border-width: 11px;
+}
+.code_main.active .lyby_tip:before {
+  border-width: 12px;
+}
+.code_main.active .lyby_tip:after,
+.code_main.active .lyby_tip:before {
+  left: 50%;
+  bottom: 100%;
+}
+.code_main.active .lyby_tip:after {
+  border-bottom-color: #FFF;
+  margin-left: -11px;
+}
+.code_main.active .lyby_tip:before {
+  border-bottom-color: #d4d4d4;
+  margin-left: -12px;
+}
+.code_main.active .lyby_tip .tipBody {
+  font-size: 12px;
+}
+.code_main.active .lyby_tip .timeBootom {
+  padding-top: 10px;
+}
+.code_main.active .lyby_tip .timeBootom .left {
+  max-width: 270px;
+}
+.code_main.active .lyby_tip .timeBootom a {
+  display: block;
+  float: right;
+  color: #f36679;
+}
+.code_main.active .lyby_tip .timeBootom a:active {
+  color: #f36679;
+}
+.code_main.active .lyby_tip .timeBootom a:hover {
+  color: #df5265;
+}
