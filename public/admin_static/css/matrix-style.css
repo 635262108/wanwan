@@ -1816,9 +1816,8 @@ div.dataTables_wrapper .ui-widget-header {
 .ul_classify #signSelect{
 	display: block;
 	position: absolute;
-	/*border: 1px solid red;*/
 	width: auto;
-	right: -2px;
+	right: 0px;
 	top: 51px;
 }
 .ul_classify #signSelect li{
@@ -1828,6 +1827,7 @@ div.dataTables_wrapper .ui-widget-header {
 	margin-bottom: 8px;
 	height: 30px;
 	line-height: 30px;
+	margin-right: 0px;
 }
 .ul_classify #signSelect li a{
 	background:#3553c0;
