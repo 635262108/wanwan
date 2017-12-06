@@ -477,7 +477,9 @@ class Activity extends Base
     }
 
     //退款，原路返回
-    public function refundOrder($order_sn){
+    public function refundOrder(){
+        $rid = input('post.rid');
+        $order_sn = input('post.order_sn');
         $orderInfo = model('ActivityOrder')->getSnOrderInfo($order_sn);
         if(empty($orderInfo)){
             $this->error('订单错误');
@@ -492,17 +494,17 @@ class Activity extends Base
             $input->setRefundFee($orderInfo['order_price']*100);  //退款金额
             $input->setOpUserId(config('wxpay.mch_id'));
             $orders = WxPayApi::refund($input);
-
-            if($orders['err_code'] == 'NOTENOUGH'){//尝试用余额退费
-                $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
-                $orders = WxPayApi::refund($input);
-            }
             if(isset($orders['err_code'])){
+                if($orders['err_code'] == 'NOTENOUGH'){//尝试用余额退费
+                    $input->setRefundAccount('REFUND_SOURCE_RECHARGE_FUNDS');
+                    $orders = WxPayApi::refund($input);
+                }
                 $this->error($orders['err_code']);
             }
             if($orders['return_code'] == 'SUCCESS'){
                 model('ActivityOrder')->setOrderStatus($order_sn,6);
-                $this->success('金额已原路返回');
+                model('ActivityRefund')->setStatus($rid,3);
+                $this->success('金额已原路返回',url('activity/refund'));
             }
         }elseif ($orderInfo['pay_way'] == 4){   //余额
             $userInfo = model('user')->find($orderInfo['uid']);
@@ -515,7 +517,7 @@ class Activity extends Base
 
             $res = model('ActivityOrder')->setOrderStatus($order_sn,6);
             if($res){
-                $this->success('金额已原路返回');
+                $this->success('金额已原路返回',url('activity/refund'));
             }else{
                 $this->success('退款失败');
             }
