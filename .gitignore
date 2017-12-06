@@ -1,4 +1,2 @@
-﻿/runtime/    # 忽略 runtime/ 目录下的所有文件
-/extend/    # 忽略 extend/ 目录下的所有文件
-application/config.php
+﻿application/config.php
 application/database.php
