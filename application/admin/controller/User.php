@@ -614,6 +614,30 @@ class User extends Base
         return $this->fetch();
     }
 
+    //手机号签到管理
+    public function mobileSign(){
+        return $this->fetch();
+    }
+
+    //根据手机号获取订单，签到界面用
+    public function getMobileOrders(){
+        $mobile = input('get.mobile');
+        if(!isMobile($mobile)){
+            return_info(-1,'手机号错误');
+        }
+
+        $orderInfo = model('ActivityOrder')->getMobileNoSignOrders($mobile);
+
+        if(empty($orderInfo)){
+            return_info(-1,'暂无未签到数据');
+        }
+        $result = array();
+        foreach ($orderInfo as $k=>$v){
+            $result[]['order_id'] = $v['order_id'];
+        }
+        return_info(200,'成功');
+    }
+
     //记录签到
     public function rechargeSign(){
         $data = input('param.');
@@ -631,7 +655,9 @@ class User extends Base
         $activityInfo = model('Activity')->find($orderInfo['aid']);
         $data = [
             'name' => $userInfo['nickname'],
-            'activity' => $activityInfo['a_title']
+            'activity' => $activityInfo['a_title'],
+            'adult_num' => $activityInfo['adult_num'],
+            'child_num' => $activityInfo['child_num']
         ];
         if(empty($orderInfo) || empty($oid)){
             return_info(-1,'订单为空，请检查客户订单，如无误请手动记录',$data);
