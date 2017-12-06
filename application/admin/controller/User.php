@@ -689,7 +689,7 @@ class User extends Base
         $orderInfo = model('ActivityOrder')->getOrderJoinActivity($map,$field);
 
         if(empty($orderInfo)){
-            return_info(-1,'数据错误');
+            return_info(-1,'没有已付款的订单');
         }
 
         foreach ($orderInfo as $k => $v){
@@ -705,7 +705,7 @@ class User extends Base
         $id = input('get.id');
         $orderInfo = model('ActivityOrder')->find($id);
         if(empty($orderInfo)){
-            return_info(-1,'数据错误');
+            return_info(-1,'订单不存在');
         }
         $orderInfo->sign_time = time();
         $orderInfo->order_status = 4;
