@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	
+//	首页签到下拉
+$(".sign").on("click",function(){
+	$("#signSelect").slideToggle();
+})
 			var trs = $("#tbody_center tr");
 			var checks = $(".check");
 //			查看更新所有数据
@@ -568,8 +573,10 @@ var str_num="<div class='one'><div class='control-group'><label class='control-l
    
     
 //首页js
-var firstlis=$(".ul_classify ul").children("li");
+var firstlis=$(".ul_classify .first li:not(:last-child)");
+
 var firstContents=$(".classify_contents").children();
+
 
 firstlis.on("click",function(){
 	
