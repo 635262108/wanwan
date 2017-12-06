@@ -101,7 +101,7 @@ class ActivityOrder extends Model
         return $this->field($field)->where($map)->limit($limit)->select();
     }
 
-    //获取考情详情数据
+    //关联表Source
     public function getOrderJoinSource($map=array(),$field='*'){
         return $this->alias('o')
             ->join('mfw_source s','o.source=s.id','left')
@@ -110,12 +110,13 @@ class ActivityOrder extends Model
             ->select();
     }
 
-    //根据手机号获取未签到的数据
-    public function getMobileNoSignOrders($mobile){
-        $map = [
-            'mobile'    => $mobile,
-            'order_status' => 3,
-        ];
-        return $this->where($map)->select();
+    //关联表Activity
+    public function getOrderJoinActivity($map=array(),$field='*'){
+        return $this->alias('o')
+            ->join('mfw_activity a','o.aid=a.aid','left')
+            ->field($field)
+            ->where($map)
+            ->select();
     }
+
 }

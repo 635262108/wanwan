@@ -614,30 +614,6 @@ class User extends Base
         return $this->fetch();
     }
 
-    //手机号签到管理
-    public function mobileSign(){
-        return $this->fetch();
-    }
-
-    //根据手机号获取订单，签到界面用
-    public function getMobileOrders(){
-        $mobile = input('get.mobile');
-        if(!isMobile($mobile)){
-            return_info(-1,'手机号错误');
-        }
-
-        $orderInfo = model('ActivityOrder')->getMobileNoSignOrders($mobile);
-
-        if(empty($orderInfo)){
-            return_info(-1,'暂无未签到数据');
-        }
-        $result = array();
-        foreach ($orderInfo as $k=>$v){
-            $result[]['order_id'] = $v['order_id'];
-        }
-        return_info(200,'成功');
-    }
-
     //记录签到
     public function rechargeSign(){
         $data = input('param.');
@@ -692,5 +668,52 @@ class User extends Base
 //
 //        //输出jsonp格式的数据
 //        echo $jsoncallback . "(" . $json_data . ")";
+    }
+
+    //手机号签到管理
+    public function mobileSign(){
+        return $this->fetch();
+    }
+
+    //根据手机号获取订单，签到界面用
+    public function getMobileOrders(){
+        $mobile = input('get.mobile');
+        if(!isMobile($mobile)){
+            return_info(-1,'手机号错误');
+        }
+        $map = [
+            'mobile' => $mobile,
+            'order_status' => 3
+        ];
+        $field = 'order_id,a_title,mobile,name,adult_num,child_num,pay_way,pay_time';
+        $orderInfo = model('ActivityOrder')->getOrderJoinActivity($map,$field);
+
+        if(empty($orderInfo)){
+            return_info(-1,'数据错误');
+        }
+
+        foreach ($orderInfo as $k => $v){
+            $orderInfo[$k]['pay_way'] = payWay($v['pay_way']);
+            $orderInfo[$k]['pay_time'] = date('Y-m-d H:i',$v['pay_time']);
+        }
+
+        return_info(200,'成功',$orderInfo);
+    }
+
+    //根据订单id签到
+    public function orderIdSign(){
+        $id = input('get.id');
+        $orderInfo = model('ActivityOrder')->find($id);
+        if(empty($orderInfo)){
+            return_info(-1,'数据错误');
+        }
+        $orderInfo->sign_time = time();
+        $orderInfo->order_status = 4;
+        $res = $orderInfo->save();
+        if($res){
+            return_info(200,'签到成功');
+        }else{
+            return_info(-1,'签到失败，请进行手动记录');
+        }
     }
 }
