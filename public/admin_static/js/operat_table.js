@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	
 //	首页签到下拉
-$(".sign").on("click",function(){
-	$("#signSelect").slideToggle();
-})
+		$(".sign").on("click",function(){
+			$("#signSelect").slideToggle();
+		})
 			var trs = $("#tbody_center tr");
 			var checks = $(".check");
 //			查看更新所有数据

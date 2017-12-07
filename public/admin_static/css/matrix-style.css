@@ -2044,7 +2044,6 @@ div.dataTables_wrapper .ui-widget-header {
 }
 .pai_contents .shai div ul li{
 	cursor: pointer;
-	/*border: 1px solid blue;*/
 	height: 17px;
 	line-height: 17px;
 	margin-right: 25px;
@@ -2108,8 +2107,10 @@ div.dataTables_wrapper .ui-widget-header {
 .promptContent{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: space-between;
+	align-items:center;
+	width: 680px;
+	margin: 0px auto;
 }
 .promptContent .phonePrompt{
 	margin-bottom: 0px;

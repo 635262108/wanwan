@@ -22,9 +22,8 @@
 			<div class="system">
 				<div class="title">签到管理系统</div>
 				<div class="sign_member">
-					<!--<button onclick="del()">点击</button>-->
 					<div class="promptContent">
-						<input type="text" class="phonePrompt" value="" style="width: 25%;">
+						<input type="text" class="phonePrompt" value="" style="width: 76%;">
 						<button class="search_order">查询</button>
 					</div>
 					<table class="data-table" style="width: 680px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
@@ -68,7 +67,7 @@
 							for(var i=0;i<obj.data.length;i++){
 								
 								str+="<tr>"+ 
-							     "<td class='td_first'>"+obj.data[i].order_id+"</td>"+
+							    "<td class='td_first'>"+obj.data[i].order_id+"</td>"+
 								"<td>" + obj.data[i].a_title + "</td>"+ 
 								"<td>" + obj.data[i].mobile + "</td>"+ 
 								"<td>" + obj.data[i].name + "</td>"+ 
@@ -95,7 +94,6 @@
             $(document).on("click",'.qian',function(el){
             	var qianId=$(this).parent().siblings(".td_first").html();
                    el=$(this);
-                   console.log($(this),9999)
             	
                $.get("/abab.php/user/orderIdSign", {id:qianId},
 					function(obj) {
@@ -103,6 +101,7 @@
 						if(obj.state_code == 200) {
 							
 							el.html(obj.msg)
+							
 							
 								
 						} 

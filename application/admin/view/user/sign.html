@@ -8,20 +8,21 @@
 		<link rel="stylesheet" href="__ACSS__/bootstrap.min.css" />
 		<link rel="stylesheet" href="__ACSS__/matrix-style.css" />
 
-</head>
+	</head>
 
 	<body id="bg">
 		<div class="signContent">
 			<div class="system">
 				<div class="title">签到管理系统</div>
 				<div class="sign_member">
-					<!--<button onclick="del()">点击</button>-->
 					<div class="prompt"><input type="text" class="urlPrompt" value=""></div>
 					<table class="data-table" style="width: 632px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
 						<thead>
 							<tr>
 								<th>活动名称</th>
 								<th>姓名</th>
+								<th>大人数量</th>
+								<th>小孩数量</th>
 								<th>签到结果</th>
                                 
 							</tr>
@@ -57,7 +58,7 @@
 							    "iDisplayLength":5,
 							    "bAutoWidth":true
 							   
-			   });	
+			});	
 			
 		
 		
@@ -77,6 +78,8 @@
 							$(".tbody_center").prepend("<tr>"+ 
 							     "<td>"+obj.data.activity+"</td>"+
 								"<td>" + obj.data.name + "</td>"+ 
+								"<td>" +obj.data.adult_num+"</td>"+
+								"<td>" +obj.data.child_num+"</td>"+
 								"<td>" + obj.msg + "</td>"+ 
 								"</tr>")
 							 $('.data-table').dataTable({
@@ -99,6 +102,8 @@
 							$(".tbody_center").prepend("<tr>"+
 							    "<td>"+obj.data.activity+"</td>"+
 								"<td>" + obj.data.name + "</td>"+ 
+								"<td>" +obj.data.adult_num+"</td>"+
+								"<td>" +obj.data.child_num+"</td>"+
 								"<td style='color:#ff4134'>" + obj.msg + "</td>" +
 								"</tr>")
 							

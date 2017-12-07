@@ -1,9 +1,6 @@
 .almost .title_imguser_payhtml {
 	font-size: 18px;
 }
-
-
-
 #whole {
 	background: #F6F6F6
 }
@@ -93,7 +90,6 @@
 	right: 4px;
 	top: 42px;
 	z-index: 999999999999;
-	
 }
 
 
@@ -121,22 +117,22 @@
 .comeback .comeback_whole {
 	width: 18%;
 	height: 35px;
-	position: relative
+	position: relative;
 }
 
 .comeback .comeback_whole .comeback_img {
 	position: absolute;
-	top: 0;
+	top:0;
 	bottom: 0;
 	margin: auto;
 	left: 12px;
 	width: 18px;
-	height: 17px
+	height: 17px;
 }
 
 .comeback .comeback_whole .comeback_img img {
 	width: 100%;
-	height: 100%
+	height: 100%;
 }
 
 .comeback .title_word {
@@ -158,7 +154,7 @@
 	position: absolute;
 	top: 7px;
 	left: 2%;
-	z-index: 6666666
+	z-index: 6666666;
 }
 
 .three_img a {
@@ -194,7 +190,7 @@
 	line-height: 30px;
 	color: #FFFFFF;
 	letter-spacing: 10px;
-	margin-left: 15px
+	margin-left: 15px;
 }
 
 .header {
@@ -212,12 +208,11 @@
 
 .header .header_img img {
 	width: 100%;
-	height: 100%
+	height: 100%;
 }
 .title_content{
 	width: 100%;
 	background: #FFFFFF;
-	/*border: 1px solid blue;*/
 	padding-top: 21px;
 	box-sizing: border-box;
 }
@@ -225,12 +220,11 @@
 	width: 90%;
 	margin: 0px auto;
 	display: flex;
-	/*border: 1px solid red;*/
 }
 .nav ul {
 	width: 100%;
 	display: flex;
-	flex-wrap: wrap
+	flex-wrap: wrap;
 }
 
 .nav ul li {
@@ -276,7 +270,6 @@
 	height: 150px;
 	background: #111;
 	position: relative;
-	/*margin-bottom: 30px;*/
 	margin-top: 36px;
 }
 
@@ -3099,15 +3092,12 @@ display: none  !important;
 	padding-left: 16px;
 	box-sizing: border-box;
 	background: #FFFFFF;
-	padding-right: 10px;
+	padding-right: 4px;
 }
 .pay_form ul li img{
 	width: 21px;
 	height: 20px;
 }
-/*.pay_form ul li input{
-	margin-left: 71%;
-}*/
 .pay_form ul li:nth-child(1) .second_li{
 	width: 22%;
 	margin-top: -5px;
