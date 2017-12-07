@@ -381,6 +381,17 @@ class Activity extends Base
         $this->assign('comInfo',$comInfo);
         return $this->fetch();
     }
+
+    //修改评论状态
+    public function saveCommonsStatus(){
+        $data = input();
+        $res = model('ActivityComments')->save(['status'=>$data['status']],['comment_id'=>$data['id']]);
+        if($res){
+            $this->success('修改成功');
+        }else{
+            $this->success('修改失败');
+        }
+    }
     
     //请假列表
     public function leave_for(){

@@ -15,8 +15,11 @@ class ActivityComments extends Model
 	*@field 需要字段，默认全查
     */
     public function getActivityComment($aid = 0,$field = '*'){
-    	$map['aid'] = $aid;
-        $map['type'] = 1;
+        $map = [
+            'aid' => $aid,
+            'type'=> 1,
+            'status' =>1
+        ];
     	$data = $this->field($field)->where($map)->select();
     	return $data;
     }

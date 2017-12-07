@@ -25,6 +25,7 @@
                   <th>活动名称</th>
                   <th>内容</th>
                   <th>评论时间</th>
+                  <th>状态</th>
                   <th>操作</th>
            </tr>
               </thead>
@@ -35,7 +36,8 @@
                   <td>{$vo.nickname}</td>
                   <td>{$vo.a_title}</td>
                   <td>{$vo.content|htmlentities}</td>
-                  <td>{$vo.time|date='Y-m-d H:i:s',###}</td>   
+                  <td>{$vo.time|date='Y-m-d H:i:s',###}</td>
+                  <td><a href="{:url('activity/saveCommonsStatus',['id'=>$vo.comment_id,'status'=>$vo.status==0?1:0])}" title="点击修改状态">{$vo.status|getStatus}</td>
                   <td class="center">
                         <i class="delete icon-pencil com_delete">&nbsp;&nbsp;删除</i>	
                   </td>
