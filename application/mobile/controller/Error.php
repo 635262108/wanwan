@@ -1,12 +1,11 @@
 <?php
-namespace app\home\controller;
+namespace app\mobile\controller;
 
-class Error
+class Error extends Base
 {
     public function _empty()
     {
-    	echo request()->url()."<br/>"; //当前地址
-    	echo request()->module()."-".request()->controller()."-".request()->action(); //模型、控制器、方法
+    	return $this->error('页面错误');
     }
 
 }

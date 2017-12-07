@@ -177,6 +177,24 @@ function user_detail_type($type){
             return '';
     }
 }
+
+//状态转义
+function getStatus($status){
+    switch ($status){
+        case 0:
+            return '待审核';
+            break;
+        case 1:
+            return '审核通过';
+            break;
+        case -1:
+            return '已删除';
+            break;
+        default:
+            return '';
+    }
+}
+
 //获取时间段
 function getTimePeriod($time = ''){
     switch ($time){

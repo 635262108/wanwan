@@ -75,4 +75,13 @@ class ActivityRefund extends Model
     public function saveRefund($data){
         return $this->update($data);
     }
+
+    //修改状态
+    public function setStatus($rid,$status){
+        $data = [
+            'id' => $rid,
+            'type'=>$status
+        ];
+        return $this->update($data);
+    }
 }

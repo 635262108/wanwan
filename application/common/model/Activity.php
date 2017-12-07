@@ -87,8 +87,8 @@ class Activity extends Model
      * 减少库存
      * @param type $aid
      */
-    public function DecActivity($aid){
-        $this->where('aid',$aid)->setDec('a_num');
+    public function DecActivity($aid,$num=1){
+        $this->where('aid',$aid)->setDec('a_num',$num);
     }
     
     
@@ -96,8 +96,8 @@ class Activity extends Model
      * 增加报名数量
      * @param type $aid
      */
-    public function IncActivity($aid){
-        $this->where('aid',$aid)->setInc('a_sold_num');
+    public function IncActivity($aid,$num=1){
+        $this->where('aid',$aid)->setInc('a_sold_num',$num);
     }
     
     /**

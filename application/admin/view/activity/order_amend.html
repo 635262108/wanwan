@@ -16,8 +16,8 @@
 							<h5>退款信息</h5>
 						</div>
 						<div class="widget-content nopadding">
-							<form action="{:url('admin/activity/save_refund')}" method="post" class="form-horizontal" name="quitPay_form">
-								<input type='hidden' name='rid' value="{$refundInfo.id}"/>
+							<form action="{:url('admin/activity/refundOrder')}" method="post" class="form-horizontal" name="quitPay_form">
+								<input type='hidden' name='rid' value="{$Request.param.rid}"/>
 								<input type='hidden' name='order_sn' value="{$refundInfo.order_sn}"/>
 								<div class="control-group">
 									<label class="control-label">状态 :</label>

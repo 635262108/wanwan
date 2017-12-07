@@ -220,10 +220,13 @@ class User extends Base
 
         //获取数据
         $actinfo = model('ActivityTime')->query("select t.*,a.a_title,
-                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.order_status<>2 and o.t_id=t.t_id) as join_num,
-                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
-                                    (select count(*) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
+                                    (select sum(o.child_num) from mfw_activity_order o where o.aid=t.aid and o.is_enter>0 and o.t_id=t.t_id) as enter_num,
+                                    (select sum(o.child_num) from mfw_activity_order o where o.aid=t.aid and o.sign_time>0 and o.t_id=t.t_id) as sign_num
                                     from mfw_activity_time t right join mfw_activity a on t.aid=a.aid where t.aid=".$data['aid'].$where);
+        foreach($actinfo as $k=>$v){
+            $actinfo[$k]['enter_num'] = (int)$v['enter_num'];
+            $actinfo[$k]['sign_num'] = (int)$v['sign_num'];
+        }
         $this->assign('actinfo',$actinfo);
         return $this->fetch();
     }
@@ -629,12 +632,14 @@ class User extends Base
         $oid = str_decode($data['o']);
         $orderInfo = model('ActivityOrder')->find($oid);
         $activityInfo = model('Activity')->find($orderInfo['aid']);
+
         $data = [
             'name' => $userInfo['nickname'],
             'activity' => $activityInfo['a_title'],
-            'adult_num' => $activityInfo['adult_num'],
-            'child_num' => $activityInfo['child_num']
+            'adult_num' => $orderInfo['adult_num'],
+            'child_num' => $orderInfo['child_num']
         ];
+
         if(empty($orderInfo) || empty($oid)){
             return_info(-1,'订单为空，请检查客户订单，如无误请手动记录',$data);
         }
@@ -671,19 +676,18 @@ class User extends Base
     }
 
     //手机号签到管理
-    public function mobileSign(){
+    public function mobile_sign(){
         return $this->fetch();
     }
 
     //根据手机号获取订单，签到界面用
     public function getMobileOrders(){
         $mobile = input('get.mobile');
-        if(!isMobile($mobile)){
-            return_info(-1,'手机号错误');
-        }
+
         $map = [
-            'mobile' => $mobile,
-            'order_status' => 3
+            'mobile' => ['like',"%$mobile"],
+            'order_status' => 3,
+            'uid' => ['neq',-1]
         ];
         $field = 'order_id,a_title,mobile,name,adult_num,child_num,pay_way,pay_time';
         $orderInfo = model('ActivityOrder')->getOrderJoinActivity($map,$field);

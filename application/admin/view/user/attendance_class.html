@@ -61,14 +61,20 @@
                             <tr class="gradeX trs">
                                 <td>{$vo.t_id}</td>
                                 <td>{$vo.a_title}</td>
-                                <td>{$vo.begin_time|date="y-m-d h:i",###}</td>
-                                <td>{$vo.end_time|date="y-m-d h:i",###}</td>
-                                <td>{$vo.join_num}</td>
-                                <td>{$vo.enter_num}</td>
-                                <td>{$vo.sign_num}</td>
+                                <td>{$vo.begin_time|date="Y-m-d H:i",###}</td>
+                                <td>{$vo.end_time|date="Y-m-d H:i",###}</td>
+                                <td>
+                                    {$vo.sold_num}
+                                </td>
+                                <td>
+                                    {$vo.enter_num}
+                                </td>
+                                <td>
+                                    {$vo.sign_num}
+                                </td>
                                 <td>
                                     <?php
-                            if($vo['enter_num'] == 0 || $vo['sign_num'] == 0){
+                            if($vo['enter_num'] == 0){
                                 echo '0%';
                             }else{
                                 $result = floor(($vo['sign_num']/$vo['enter_num'])*10000)/10000*100;
@@ -78,10 +84,10 @@
                                 </td>
                                 <td>
                                     <?php
-                            if($vo['join_num'] == 0 || $vo['sign_num'] == 0){
+                            if($vo['sold_num'] == 0){
                                 echo '0%';
                             }else{
-                                $result = floor(($vo['sign_num']/$vo['join_num'])*10000)/10000*100;
+                                $result = floor(($vo['sign_num']/$vo['sold_num'])*10000)/10000*100;
                                 echo $result."%";
                             }
                       ?>
