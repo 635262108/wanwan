@@ -543,11 +543,6 @@ class Activity extends Base
                     $message = model('Message');
                     $message->sendMessage($order['uid'],$content,1);
 
-                    //库存-1
-                    $Activity->DecActivity($aid);
-                    //报名人员+1
-                    $Activity->IncActivity($aid);
-
                     exit('success');
                 }else{
                     $data['act'] = 2;
