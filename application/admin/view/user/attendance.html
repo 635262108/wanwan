@@ -1,13 +1,12 @@
 {include file="public/header" /}
 {include file="public/left" /}
 <div id="content">
-<!--breadcrumbs-->
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="{:url('admin/user/attendance')}" class="tip-bottom">客户中心</a>
       	<a href="#" class="current">签到概况</a> 
-  </div>
+  		</div>
   </div>
   
   <div class="search">
@@ -36,7 +35,7 @@
                   <th>预约到场率</th>
                   <th>报名到场率</th>
                   <th>操作</th>
-           </tr>
+           			</tr>
               </thead>
               <tbody id="tbody_center" style='font-size: 12px;'>
                 {foreach name="actinfo" item="vo"}
@@ -80,7 +79,7 @@
   </div>
 </div>
 </div>
-{include file="public/footer" /}
+{include file="public/footer"/}
 </body>
 </html>
 

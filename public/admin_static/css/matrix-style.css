@@ -2126,3 +2126,35 @@ div.dataTables_wrapper .ui-widget-header {
 	font-size: 16px;
 	border-radius: 8px;
 }
+/*订单详情的样式*/
+.select_activity{
+	width: 97%;
+	margin: 10px auto 0px;
+}
+.select_activity .activity_select{
+	margin-right: 20px;
+}
+.select_activity form{
+	display: flex;
+	flex-direction:row;
+	justify-content: flex-start;
+}
+.select_activity form .activityTime{
+	display: flex;
+	flex-direction: row;
+	width: 360px;
+	justify-content: space-between;
+}
+.select_activity form button{
+	width: 60px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	border: none;
+	background: #ff4134;
+	color: #FFFFFF;
+	border-radius: 5px;
+	margin-left: 20px;
+}
+
+

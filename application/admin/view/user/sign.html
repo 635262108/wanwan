@@ -57,7 +57,6 @@
 							    "bPaginate": true,
 							    "iDisplayLength":5,
 							    "bAutoWidth":true
-							   
 			});	
 			
 		
@@ -77,7 +76,7 @@
 						if(obj.state_code == 200) {
 							$(".tbody_center").prepend("<tr>"+ 
 							     "<td>"+obj.data.activity+"</td>"+
-								"<td>" + obj.data.name + "</td>"+ 
+								"<td>" +obj.data.name + "</td>"+ 
 								"<td>" +obj.data.adult_num+"</td>"+
 								"<td>" +obj.data.child_num+"</td>"+
 								"<td>" + obj.msg + "</td>"+ 
@@ -89,13 +88,12 @@
 								"sDom": '<""l>t<"F"fp>',
 								"bFilter":false,
 								"bLengthChange":false,
-								"bPaginage":true ,
+								"bPaginage":true,
 							    "ordering":true,
-							    "bPaginate": true,
+							    "bPaginate":true,
 							    "iDisplayLength":10,
 							    "bAutoWidth":true
-							   
-			    			});	
+							});	
 							
 
 						} else {
