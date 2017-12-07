@@ -683,12 +683,11 @@ class User extends Base
     //根据手机号获取订单，签到界面用
     public function getMobileOrders(){
         $mobile = input('get.mobile');
-        if(!isMobile($mobile)){
-            return_info(-1,'手机号错误');
-        }
+
         $map = [
-            'mobile' => $mobile,
-            'order_status' => 3
+            'mobile' => ['like',"%$mobile"],
+            'order_status' => 3,
+            'uid' => ['neq',-1]
         ];
         $field = 'order_id,a_title,mobile,name,adult_num,child_num,pay_way,pay_time';
         $orderInfo = model('ActivityOrder')->getOrderJoinActivity($map,$field);
