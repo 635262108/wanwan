@@ -686,8 +686,7 @@ class User extends Base
 
         $map = [
             'mobile' => ['like',"%$mobile"],
-            'order_status' => 3,
-            'uid' => ['neq',-1]
+            'order_status' => 3
         ];
         $field = 'order_id,a_title,mobile,name,adult_num,child_num,pay_way,pay_time';
         $orderInfo = model('ActivityOrder')->getOrderJoinActivity($map,$field);
