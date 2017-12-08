@@ -8,8 +8,7 @@
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/dis_add_order.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/dis_add_order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/ActivityTime.php" afterPath="$PROJECT_DIR$/application/common/model/ActivityTime.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/order.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/order.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,6 +39,17 @@
               <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#head#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1512712148037" expanded="false" signature="1369:1380" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="1614:1625" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="1893:1904" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="2357:2368" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="2471:2516" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="2746:2757" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="2823:2856" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="3074:3085" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="3335:3346" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="3629:3640" ph="..." />
+                <marker date="1512712148037" expanded="false" signature="4405:4416" ph="..." />
               </folding>
             </state>
           </provider>
@@ -49,7 +59,17 @@
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="437" column="34" lean-forward="true" selection-start-line="437" selection-start-column="34" selection-end-line="437" selection-end-column="34" />
+              <caret line="422" column="9" lean-forward="true" selection-start-line="422" selection-start-column="9" selection-end-line="422" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/activity/order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -88,8 +108,8 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/common/model/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="143" column="12" lean-forward="true" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="12" />
+            <state relative-caret-position="528">
+              <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -100,16 +120,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="792">
               <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/database.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -145,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setOrderStatus</find>
       <find>ActivityOrder</find>
       <find>refund</find>
       <find>rechargeSign</find>
@@ -175,6 +184,7 @@
       <find>uid</find>
       <find>getActivityTime</find>
       <find>dis_add_order</find>
+      <find>order</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -204,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/admin_static/js/operat_table.js" />
         <option value="$PROJECT_DIR$/application/admin/view/service/access.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Service.php" />
         <option value="$PROJECT_DIR$/application/admin/view/service/return_visit.html" />
@@ -254,6 +263,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/activity/dis_add_order.html" />
         <option value="$PROJECT_DIR$/application/common/model/Source.php" />
         <option value="$PROJECT_DIR$/application/common/model/ActivityTime.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/activity/order.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
       </list>
     </option>
@@ -480,12 +490,12 @@
       <workItem from="1512608236076" duration="20550000" />
       <workItem from="1512638045283" duration="1963000" />
       <workItem from="1512693993071" duration="746000" />
-      <workItem from="1512698812530" duration="3707000" />
+      <workItem from="1512698812530" duration="9110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="834916000" />
+    <option name="totallyTimeSpent" value="840319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -531,13 +541,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/new_activity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="69" column="49" lean-forward="true" selection-start-line="69" selection-start-column="49" selection-end-line="69" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/mobile_static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1584">
@@ -868,14 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/common/model/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="143" column="12" lean-forward="true" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/Source.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -900,20 +895,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/activity/dis_add_order.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512712148037" expanded="false" signature="1369:1380" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="1614:1625" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="1893:1904" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="2357:2368" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="2471:2516" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="2746:2757" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="2823:2856" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="3074:3085" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="3335:3346" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="3629:3640" ph="..." />
+            <marker date="1512712148037" expanded="false" signature="4405:4416" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="437" column="34" lean-forward="true" selection-start-line="437" selection-start-column="34" selection-end-line="437" selection-end-column="34" />
+          <caret line="422" column="9" lean-forward="true" selection-start-line="422" selection-start-column="9" selection-end-line="422" selection-end-column="9" />
           <folding />
         </state>
       </provider>

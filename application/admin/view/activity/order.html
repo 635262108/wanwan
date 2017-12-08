@@ -21,16 +21,17 @@
 	</div>
 
 	<div class="select_activity">
-		<form action="" method="post">
-			<select style="width: 100px;" class="activity_select">
-				<option>丝绸之路</option>
-				<option>四大文明</option>
-				<option>四大文明古国</option>
+		<form action="{:url('activity/order')}" method="get">
+			<select style="width: 100px;" class="activity_select" name="aid">
+				<option value="0">全部</option>
+				{foreach name="activityInfo" item="vo"}
+					<option value="{$vo.aid}">{$vo.a_title}</option>
+				{/foreach}
 			</select>
 			<div class="activityTime">
-				 <input type="text" placeholder="11月26日" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);"/>
+				 <input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);"/>
 				 <div class="contect"></div>
-				 <input type="text" placeholder="11月30日" value="" onFocus="new Calendar().show(this);" style="cursor:pointer;"/>
+				 <input type="text" placeholder="11月30日" name="end_time" value="" onFocus="new Calendar().show(this);" style="cursor:pointer;"/>
 				<!--<select name="year" style="width:90px">
 					<option value=""></option>
 				</select><span style="display:inline-block;line-height: 28px;margin-left: -22px;">年</span>

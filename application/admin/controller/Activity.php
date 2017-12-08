@@ -403,11 +403,34 @@ class Activity extends Base
     
     //订单列表
     public function order(){
+        $data = input('get.');
+
+        $where1 = array();
+        if($data['aid'] == 0 ){
+            $where1['o.aid'] = array('>',0);
+        }else{
+            $where1['o.aid'] = $data['aid'];
+        }
+
+        $where2 = array();
+        if(!empty($data['begin_time'])){
+            $where2['o.addtime'] = array('>=',strtotime($data['begin_time']));
+        }
+
+        $where3 = array();
+        if(!empty($data['end_time'])){
+            $where3['o.addtime'] = array('<=',strtotime($data['end_time'])+3600*12);
+        }
+
         $orderInfo = model('ActivityOrder')
                             ->alias('o')->field('o.*,a.a_title,s.name as source_name')
                             ->join('mfw_activity a','o.aid=a.aid')
                             ->join('mfw_source s','o.source=s.id','LEFT')
+                            ->where($where1)->where($where2)->where($where3)
                             ->select();
+        $activityInfo = model('Activity')->getActivityAll('aid,a_title');
+
+        $this->assign('activityInfo',$activityInfo);
         $this->assign('orderInfo',$orderInfo);
         return $this->fetch();
     }
