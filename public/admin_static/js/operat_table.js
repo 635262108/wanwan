@@ -431,8 +431,9 @@ $(document).ready(function() {
 						function(obj) {
 							
 								if(obj.state_code == 200) {
-								    $(".get_name").val(obj.data.nickname)
+								    $(".get_name").val(obj.data.nickname);
 								    $(".uid").val(obj.data.uid);
+
 								 
 								}
 								else{

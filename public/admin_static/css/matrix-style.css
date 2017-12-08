@@ -48,7 +48,6 @@
 }
 .pay_recordContent .record_title ul li{
 	float: left;
-	
 	font-size: 16px;
 	line-height: 36px;
 	height: 36px;
@@ -75,7 +74,7 @@
     padding: 4px 5px;
     font-size: 14px;
     font-weight: normal;
-    line-height: 20px;
+    line-height:20px;
     text-align: center;
     text-shadow: 0 1px 0 #fff;
     background-color: #eee;
@@ -101,7 +100,8 @@ body {
 }
 a{color:#666;}
 a:hover, a:focus {
-	text-decoration: none; color:#28b779;
+	text-decoration: none; 
+	color:#28b779;
 }
 .dropdown-menu .divider{ margin:4px 0px;}
 .dropdown-menu{ min-width:180px;}
@@ -1897,7 +1897,7 @@ div.dataTables_wrapper .ui-widget-header {
 	margin-left: 3.3%;
 	margin-top: 15px;
 }
-.search input{
+.search input,.activityTime input{
 	width: 101px;
 	height: 25px;
 	text-align: center;
@@ -1912,6 +1912,16 @@ div.dataTables_wrapper .ui-widget-header {
 	margin-left: 8px;
 	margin-right: 8px;
 }
+.activityTime .contect{
+	display: inline-block;
+	width: 10px;
+	height: 1px;
+	border-top: 1px solid rgb(181,181,181);
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-top: 7px;
+}
+
 .search button{
 	width: 60px;
 	height: 25px;
@@ -2129,7 +2139,7 @@ div.dataTables_wrapper .ui-widget-header {
 /*订单详情的样式*/
 .select_activity{
 	width: 97%;
-	margin: 10px auto 0px;
+	margin: 20px auto 0px;
 }
 .select_activity .activity_select{
 	margin-right: 20px;
@@ -2142,8 +2152,9 @@ div.dataTables_wrapper .ui-widget-header {
 .select_activity form .activityTime{
 	display: flex;
 	flex-direction: row;
-	width: 360px;
+	/*width: 360px;*/
 	justify-content: space-between;
+	align-items: center;
 }
 .select_activity form button{
 	width: 60px;
