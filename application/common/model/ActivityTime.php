@@ -21,6 +21,16 @@ class ActivityTime extends Model
     public function getActivityTime($aid){
         return $this->where('aid',$aid)->select();
     }
+
+    //只获取显示的活动时间
+    public function  getDisAidTime($aid){
+        $map = [
+            'aid' => $aid,
+            'is_display'=>1
+        ];
+        return $this->where($map)->select();
+    }
+
     /**
      *获取某个时间 
      * @param type $tid

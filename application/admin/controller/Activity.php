@@ -415,49 +415,34 @@ class Activity extends Base
     //显示添加订单
     public function dis_add_order(){
         //活动信息
-        $activity = db('activity')->select();
+        $activity = model('Activity')->getNewActivity();
         //来源信息
-        $source = db('source')->select();
+        $source = model('source')->select();
         $this->assign('source',$source);
         $this->assign('activity',$activity);
         return $this->fetch();
     }
 
-    //添加订单
+    //添加订单,余额扣款待添加
     public function add_order(){
-        //活动id
-        $data['aid'] = input('post.aid');
+        $data = input('post.');
+
         //手机号
         $data['mobile'] = input('post.mobile');
         if(!isMobile($data['mobile'])){
             $this->error('手机号错误');
         }
-        //用户uid
-        $data['uid'] = input('post.uid');
-        //姓名
-        $data['name'] = input('post.name');
-        //小孩数量
-        $data['child_num'] = input('post.child_num');
-        //支付方式
-        $data['pay_way'] = input('post.pay_way');
-        //支付时间
+
         $data['pay_time'] = time();
-        //状态，管理员添加默认为已付款
         $data['order_status'] = 3;
-        //下单时间
         $data['addtime'] = time();
-        //活动时间
-        $data['t_id'] = input('post.t_id');
-        //订单备注
-        $data['record'] = input('post.record');
-        //来源
-        $data['source'] = input('post.source');
-        //价格
-        $data['order_price'] = input('post.order_price') * $data['child_num'];
+        $data['order_price'] = $data['order_price'] * $data['child_num'];
+
         //订单号
-        if($data['uid'] > 0){
+        if(!empty($data['uid'])){
             $data['order_sn'] = getOrderSn($data['uid'],$data['aid']);
         }else{
+            $data['uid'] = -1;
             $data['order_sn'] = getOrderSn(000,$data['aid']);
         }
         //添加订单
@@ -932,7 +917,7 @@ class Activity extends Base
     public function getActivityTime(){
         if(request()->isAjax()){
             $aid = input('post.aid');
-            $res = model('ActivityTime')->getActivityTime($aid);
+            $res = model('ActivityTime')->getDisAidTime($aid);
             if(!empty($res)){
                 return_info(200,'成功',$res);
             }else{
