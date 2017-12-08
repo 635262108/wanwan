@@ -406,10 +406,12 @@ class Activity extends Base
         $data = input('get.');
 
         $where1 = array();
-        if($data['aid'] == 0 ){
-            $where1['o.aid'] = array('>',0);
-        }else{
-            $where1['o.aid'] = $data['aid'];
+        if(!empty($data['aid'])){
+            if($data['aid'] == 0 ){
+                $where1['o.aid'] = array('>',0);
+            }else{
+                $where1['o.aid'] = $data['aid'];
+            }
         }
 
         $where2 = array();

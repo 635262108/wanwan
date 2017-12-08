@@ -195,6 +195,20 @@ function getStatus($status){
     }
 }
 
+//会员等级转义
+function getUserGrade($code){
+    switch ($code){
+        case 0:
+            return '否';
+            break;
+        case 1:
+            return '是';
+            break;
+        default:
+            return '';
+    }
+}
+
 //获取时间段
 function getTimePeriod($time = ''){
     switch ($time){
