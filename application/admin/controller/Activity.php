@@ -670,6 +670,17 @@ class Activity extends Base
         return $this->fetch();
     }
 
+    //修改活动安排是否显示
+    public function saveAvtivityTimeDis(){
+        $data = input('param.');
+        $res = model('ActivityTime')->save(['is_display'=>$data['dis']],['t_id'=>$data['t_id']]);
+        if($res){
+            $this->success('修改成功');
+        }else{
+            $this->error('修改失败');
+        }
+    }
+
     //添加规格列表
     public function addSpeList(){
         //获取活动标题
