@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        {include file="public/header" /}
+        {include file="public/left" /}
+        <div id="content">
+            <div id="content-header">
+                <div id="breadcrumb">
+                    <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+                    <a href="{:url('admin/activity/specification')}" class="tip-bottom">活动安排</a>
+                    <a href="#" class="current">添加安排</a>
+                </div>
+            </div>
+
+            <div class="row-fluid" id="emit_information">
+                <div class="span6" style="margin-left: 0">
+                    <div class="widget-box" style="width: 180%;">
+                        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>添加</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <form action="{:url('admin/activity/addSpe')}" enctype="multipart/form-data" method="post" class="form-horizontal" name="quitPay_form">
+                                <input type="hidden" name="t_id" value="{$timeInfo.t_id}">
+                                <div class="control-group">
+                                    <label class="control-label">活动标题：</label>
+                                    <div class="controls">
+                                        <select name="aid">
+                                            {foreach name="ActivityInfo" item="vo"}
+                                            <option value="{$vo.aid}" {if condition="$timeInfo.aid eq $vo.aid"} selected="selected" {/if}>{$vo.a_title}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">开始时间：</label>
+                                    <div class="controls">
+                                        <input type="text" value="{$timeInfo.begin_time|date='Y-m-d H:i:s',###}" name="begin_time" placeholder="{$timeInfo.begin_time}" onfocus="$(this).calendar()" style="cursor: pointer;">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">结束时间：</label>
+                                    <div class="controls">
+                                        <input type="text" value="{$timeInfo.end_time|date='Y-m-d H:i:s',###}" name="end_time" placeholder="{$timeInfo.end_time}" onfocus="$(this).calendar()" style="cursor: pointer;">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">备注：</label>
+                                    <div class="controls">
+                                        <input class="span11" value="{$timeInfo.remark}" name="remark" type="text">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">名额：</label>
+                                    <div class="controls">
+                                        <input class="span11" value="{$timeInfo.ticket_num}" placeholder="整数" name="ticket_num" type="text">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">是否显示：</label>
+                                    <div class="controls">
+                                        <select name="is_display">
+                                            {if condition="$timeInfo.is_display eq 1"}
+                                            <option value="0" >否</option>
+                                            <option value="1" selected="selected">是</option>
+                                            {else/}
+                                            <option value="0" selected="selected">否</option>
+                                            <option value="1">是</option>
+                                            {/if}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions" style="text-align: center">
+                                    <button type="submit" class="btn btn-success info_sure">保存</button>
+                                    <a href="javascript:history.back(-1)" class="btn-warning">取消</a>
+                                </div>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="__AJS__/jquery.min.js"></script>
+        <script src="__AJS__/jquery.ui.custom.js"></script>
+        <script src="__AJS__/bootstrap.min.js"></script>
+        <script src="__AJS__/jquery.uniform.js"></script>
+        <script src="__AJS__/select2.min.js"></script>
+        <script src="__AJS__/jquery.dataTables.min.js"></script>
+        <script src="__AJS__/matrix.js"></script>
+
+        <script src="__AJS__/operat_table.js"></script>
+        <script type="text/javascript" src="__AJS__/jquery-calendar.js"></script>
+        <script src="__AJS__/Calendar.js"></script>
+
+        </body>
+
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

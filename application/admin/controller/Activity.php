@@ -672,6 +672,19 @@ class Activity extends Base
         return $this->fetch();
     }
 
+    //修改列表
+    public function save_spe(){
+        $data = input('param.');
+        //获取活动标题
+        $Activity = model('Activity');
+        $ActivityInfo = $Activity->getActivityAll();
+        $timeInfo = db('ActivityTime')->find($data['t_id']);
+        return $this->fetch('',[
+            'ActivityInfo' => $ActivityInfo,
+            'timeInfo'  => $timeInfo
+        ]);
+    }
+
     //修改活动安排是否显示
     public function saveAvtivityTimeDis(){
         $data = input('param.');
@@ -694,17 +707,20 @@ class Activity extends Base
     
     //添加规格
     public function addSpe(){
-        $data['aid'] = input('post.aid');
-        $data['begin_time'] = strtotime(input('post.begin_time'));
-        $data['end_time'] = strtotime(input('post.end_time'));
-        $data['ticket_num'] = input('post.num');
-        $data['remark'] = input('post.remark');
-        $data['is_display'] = input('post.is_display');
-        $res = model('ActivityTime')->add($data);
-        if($res) {
-            $this->success('添加成功','activity/specification');
+        $data = input('post.');
+        $data['begin_time'] = strtotime($data['begin_time']);
+        $data['end_time'] = strtotime($data['end_time']);
+
+        if(!empty($data['t_id'])){
+            $res = model('ActivityTime')->save($data,$data['t_id']);
         }else{
-            $this->success('添加失败','activity/specification');
+            $res = model('ActivityTime')->add($data);
+        }
+
+        if($res) {
+            $this->success('成功','activity/specification');
+        }else{
+            $this->success('失败','activity/specification');
         }
 
     }
