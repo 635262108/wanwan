@@ -21,7 +21,22 @@ class Activity extends Base
         $this->assign('ActivityInfo',$ActivityInfo);
     	return $this->fetch();
     }
-    
+
+    //修改活动字段
+    public function saveActivityField(){
+        $data = input('post.');
+        if(empty($data['aid'])){
+            return_info(-1,'活动id不能为空');
+        }
+        $res = model('Activity')->save($data,$data['aid']);
+
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
     //添加活动列表
     public function addActivityList(){
         //获取活动类型

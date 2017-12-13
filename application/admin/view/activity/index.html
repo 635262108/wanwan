@@ -42,6 +42,8 @@
                   <th>小孩价格</th>
                   <th>活动价格</th>
                   <th>活动分类</th>
+                  <th>是否推荐</th>
+                  <th>是否上架</th>
                   <th>操作</th>
                 </tr>
               </thead>
@@ -58,11 +60,23 @@
                   <td>{$vo.a_child_price}</td>
                   <td>{$vo.a_price}</td>
                   <td>{$vo.name}</td>
-                  
+                  <td>
+                    {if condition="$vo.a_is_recommend eq 1"}
+                      推荐
+                    {else/}
+                      不推荐
+                    {/if}
+                  </td>
+                  <td>
+                    {if condition="$vo.a_status eq 1"}
+                      上架
+                    {else/}
+                      下架
+                    {/if}
+                  </td>
                   <td class="center">
                   	<a href="{:url('admin/activity/saveActivityList','aid='.$vo.aid)}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
                     <i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>	
-                    <a target="view_window" href="http://qr.topscan.com/api.php?text=http://www.baobaowaner.com/mobile/activity/sign?a={:base64_encode($vo.aid)}"><i class="check icon-reorder">&nbsp;&nbsp;二维码</i></a>
                   </td>
                 </tr>
                 {/foreach}
