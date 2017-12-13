@@ -425,8 +425,9 @@ class Activity extends Base
         }
 
         $orderInfo = model('ActivityOrder')
-                            ->alias('o')->field('o.*,a.a_title,s.name as source_name')
+                            ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
                             ->join('mfw_activity a','o.aid=a.aid')
+                            ->join('mfw_activity_time t','t.t_id=o.t_id')
                             ->join('mfw_source s','o.source=s.id','LEFT')
                             ->where($where1)->where($where2)->where($where3)
                             ->select();
