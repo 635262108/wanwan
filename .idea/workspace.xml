@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/view/activity/save_spe.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Activity.php" afterPath="$PROJECT_DIR$/application/admin/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/specification.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/specification.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,18 +50,28 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="582">
               <caret line="709" column="31" lean-forward="false" selection-start-line="709" selection-start-column="31" selection-end-line="709" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addspelist.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="645" column="31" lean-forward="false" selection-start-line="645" selection-start-column="20" selection-end-line="645" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addspelist.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addspelist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+            <state relative-caret-position="242">
+              <caret line="14" column="54" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -120,16 +127,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="94" lean-forward="false" selection-start-line="19" selection-start-column="94" selection-end-line="19" selection-end-column="94" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -141,7 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>adult_num</find>
       <find>微信</find>
       <find>exception_handle</find>
       <find>评论</find>
@@ -155,7 +151,6 @@
       <find>ticket_num</find>
       <find>a_num</find>
       <find>wx_select_pay</find>
-      <find>pay_success</find>
       <find>a_sold_num</find>
       <find>setActivityNum</find>
       <find>IncActivity</find>
@@ -168,9 +163,11 @@
       <find>attendance_class</find>
       <find>order</find>
       <find>order(</find>
-      <find>notify</find>
       <find>specification</find>
       <find>begin_time</find>
+      <find>sendMobileMsg</find>
+      <find>notify</find>
+      <find>pay_success</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -230,7 +227,6 @@
         <option value="$PROJECT_DIR$/application/mobile/view/activity/freeplay.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/activity_comment.html" />
         <option value="$PROJECT_DIR$/application/common/model/ActivityComments.php" />
-        <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/database.php" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/dis_add_order.html" />
         <option value="$PROJECT_DIR$/application/common/model/Source.php" />
@@ -251,6 +247,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/activity/save_spe.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/addspelist.html" />
+        <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
       </list>
     </option>
   </component>
@@ -261,7 +258,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -322,14 +319,6 @@
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="activity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="common" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -338,6 +327,19 @@
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="common" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="model" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
@@ -450,15 +452,15 @@
       <workItem from="1512693993071" duration="746000" />
       <workItem from="1512698812530" duration="14478000" />
       <workItem from="1513047400178" duration="16193000" />
-      <workItem from="1513127548544" duration="8692000" />
+      <workItem from="1513127548544" duration="13038000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="870572000" />
+    <option name="totallyTimeSpent" value="874918000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1484375" sideWeight="0.49628845" order="1" side_tool="false" content_ui="combo" />
@@ -802,14 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="437" column="110" lean-forward="true" selection-start-line="437" selection-start-column="8" selection-end-line="437" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -888,18 +882,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addspelist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="54" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="582">
           <caret line="709" column="31" lean-forward="false" selection-start-line="709" selection-start-column="31" selection-end-line="709" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/activity/addspelist.html">
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        <state relative-caret-position="120">
+          <caret line="645" column="31" lean-forward="false" selection-start-line="645" selection-start-column="20" selection-end-line="645" selection-end-column="31" />
           <folding />
         </state>
       </provider>
