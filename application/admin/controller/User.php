@@ -9,15 +9,51 @@ class User extends Base
 
     //会员列表
     public function index(){
-//        $data = input('get.');
-        
+        $data = input('get.');
+        //按新增时间筛选用户，1本月，其他本周
+        $where1 = array();
+        $where2 = array();
+        if(isset($data['add'])){
+            if($data['add'] == 1){
+                $begin_time = getTimePeriod('BeginThisMonth');
+                $end_time = getTimePeriod('EndThisMonth');
+            }else{
+                $begin_time = getTimePeriod('BeginThisWeek');
+                $end_time = getTimePeriod('EndThisWeek');
+            }
+            $where1['u.reg_time'] = ['>=',$begin_time];
+            $where2['u.reg_time'] = ['<=',$end_time];
+        }
+
+        //住址
+        $where3 = array();
+        if(isset($data['address'])){
+            $where3['u.district'] = $data['address'];
+        }
+
+        //是否为会员 1是会员，其他不是会员
+        $where4 = array();
+        if(isset($data['is_member'])){
+            if($data['is_member'] == 1){
+                $where4['u.member_grade'] = 1;
+            }else{
+                $where4['u.member_grade'] = 0;
+            }
+        }
+
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
                     ->join('mfw_source s','u.source=s.id')
+                    ->where($where1)->where($where2)->where($where3)->where($where4)
                     ->select();
+
+
+        if(count($data) > 0){
+            return_info(200,'成功',$userInfo);
+        }
+        $this->assign('userInfo',$userInfo);
         $zhengZhou = model('Region')->getSonData(149);
         $this->assign('zhengZhou',$zhengZhou);
-        $this->assign('userInfo',$userInfo);
-    	return $this->fetch();
+        return $this->fetch();
     }
     
     //获取个人用户信息

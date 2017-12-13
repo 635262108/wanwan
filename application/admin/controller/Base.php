@@ -6,11 +6,11 @@ use think\Session;
 class Base extends Controller
 {
     public function _initialize() {
-        if(request()->action() != 'login'){
-            if(!session('?adminInfo')){
-                $this->redirect("admin/login");
-            }
-        }
+//        if(request()->action() != 'login'){
+//            if(!session('?adminInfo')){
+//                $this->redirect("admin/login");
+//            }
+//        }
         //检查权限
         $map['control_name'] = request()->controller();
         $map['action_name'] = request()->action();
