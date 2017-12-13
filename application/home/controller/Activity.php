@@ -373,11 +373,6 @@ class Activity extends Base
             $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动付款成功,请您注意活动参与时间!";
             $message = model('Message');
             $message->sendMessage($order['uid'],$content,1);
-            
-            //库存-1
-            $Activity->DecActivity($aid);
-            //报名人员+1
-            $Activity->IncActivity($aid);            
         } else {
             $data['act'] = 2;
             $data['order_sn'] = $order_sn;
