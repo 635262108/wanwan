@@ -933,13 +933,14 @@ class Activity extends Base
             db('user_child')->insertAll($add_child_data);
         }
 
-        /*$k_num = count($add_data);
+        $k_num = count($add_data);
         //减库存
         $Activity->where('aid',$aid)->setDec('a_num',$k_num);
         //增加报名人员
         $Activity->where('aid',$aid)->setInc('a_sold_num',$k_num);
         //减时间库存
-        $ActivityTime->where('t_id',$tid)->setDec('ticket_num',$k_num);*/
+        $ActivityTime->where('t_id',$tid)->setDec('ticket_num',$k_num);
+        $ActivityTime->where('t_id', $tid)->setInc('sold_num', $k_num);
 
         $order = model('ActivityOrder')->insertAll($add_data);
         if($order){
