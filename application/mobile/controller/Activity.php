@@ -653,7 +653,7 @@ class Activity extends Base
         }
 
         //防止用户返回，重新加载，名额和短信会重复操作
-        if(session('pay_success'.$uid) == $order_sn) {
+        if(!empty(cookie($order_sn))) {
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
@@ -667,7 +667,7 @@ class Activity extends Base
         if($result){
             $this->sendMobileMsg($order['order_sn']);
             $this->setActivityNum($order['order_sn']);
-            session('pay_success'.$uid,$order_sn);
+            cookie($order_sn,$order_sn,300);
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
