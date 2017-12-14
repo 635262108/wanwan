@@ -24,10 +24,11 @@ class Index extends Base
         $result['week_user'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->count();  //本周新增客户
         $result['activity_order_num'] = db('activity_order')->count();      //订单总数
         $result['activity_num'] = db('activity')->count();      //活动总数
-        $result['last_week_order'] = db('activity_order')->where("addtime",['>',$beginLastweek],['<',$endLastweek])->count(); //上周报名人数
-        $result['week_order'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->count();        //这周报名人数
+        $result['last_week_order'] = db('activity_order')->where("addtime",['>',$beginLastweek],['<',$endLastweek])->where('order_status','<>',2)->sum('child_num'); //上周报名人数
+        $result['week_order'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->where('order_status','<>',2)->sum('child_num');        //这周报名人数
         $result['last_week_order_price'] = db('activity_order')->where("addtime",['>',$beginLastweek],['<',$endLastweek])->where('order_status','<>',2)->sum('order_price');//上周成交金额
         $result['week_order_price'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->where('order_status','<>',2)->sum('order_price');//这周成交金额
+        $result['month_order_price'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->where('order_status','<>',2)->sum('order_price');//这周成交金额
         $result['last_week_recharge'] = db('recharge_record')->where("pay_time",['>',$beginLastweek],['<',$endLastweek])->where('status',1)->sum('amount');//上周充值金额
         $result['week_recharge'] = db('recharge_record')->where("pay_time",['>',$beginweek],['<',$endweek])->where('status',1)->sum('amount');//本周充值金额
 

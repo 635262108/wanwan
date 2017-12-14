@@ -46,8 +46,7 @@
                             <tr>
                                 <th>id</th>
                                 <th>活动标题</th>
-                                <th>开始时间</th>
-                                <th>结束时间</th>
+                                <th>体验时间</th>
                                 <th>报名名额</th>
                                 <th>已预约人数</th>
                                 <th>签到人数</th>
@@ -61,8 +60,7 @@
                             <tr class="gradeX trs">
                                 <td>{$vo.t_id}</td>
                                 <td>{$vo.a_title}</td>
-                                <td>{$vo.begin_time|date="Y-m-d H:i",###}</td>
-                                <td>{$vo.end_time|date="Y-m-d H:i",###}</td>
+                                <td>{$vo.begin_time|date="Y-m-d H:i",###}到{$vo.end_time|date="H:i",###}</td>
                                 <td>
                                     {$vo.sold_num}
                                 </td>

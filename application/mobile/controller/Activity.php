@@ -650,6 +650,14 @@ class Activity extends Base
         if(!isset($order)){
             $this->error('参数错误');
         }
+
+        //防止用户返回，重新加载，名额和短信会重复操作
+        if(session('pay_success') == $order_sn) {
+            $this->assign('url',url('mobile/user/index'));
+            $this->assign('title','支付成功');
+            $this->assign('orderInfo',$order);
+            return $this->fetch();
+        }
         
         //查询订单
         $notify = new PayNotifyCallBack();
@@ -658,6 +666,7 @@ class Activity extends Base
         if($result){
             $this->sendMobileMsg($order['order_sn']);
             $this->setActivityNum($order['order_sn']);
+            session('pay_success',$order_sn);
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);

@@ -119,4 +119,9 @@ class ActivityOrder extends Model
             ->select();
     }
 
+    //获取用户最新的一条订单
+    public function getNewUserOrder($uid){
+        return $this->where('uid',$uid)->find();
+    }
+
 }

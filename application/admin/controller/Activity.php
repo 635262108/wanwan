@@ -21,7 +21,22 @@ class Activity extends Base
         $this->assign('ActivityInfo',$ActivityInfo);
     	return $this->fetch();
     }
-    
+
+    //修改活动字段
+    public function saveActivityField(){
+        $data = input('post.');
+        if(empty($data['aid'])){
+            return_info(-1,'活动id不能为空');
+        }
+        $res = model('Activity')->save($data,$data['aid']);
+
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
     //添加活动列表
     public function addActivityList(){
         //获取活动类型
@@ -403,11 +418,37 @@ class Activity extends Base
     
     //订单列表
     public function order(){
+        $data = input('get.');
+
+        $where1 = array();
+        if(!empty($data['aid'])){
+            if($data['aid'] == 0 ){
+                $where1['o.aid'] = array('>',0);
+            }else{
+                $where1['o.aid'] = $data['aid'];
+            }
+        }
+
+        $where2 = array();
+        if(!empty($data['begin_time'])){
+            $where2['o.addtime'] = array('>=',strtotime($data['begin_time']));
+        }
+
+        $where3 = array();
+        if(!empty($data['end_time'])){
+            $where3['o.addtime'] = array('<=',strtotime($data['end_time'])+3600*12);
+        }
+
         $orderInfo = model('ActivityOrder')
-                            ->alias('o')->field('o.*,a.a_title,s.name as source_name')
+                            ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
                             ->join('mfw_activity a','o.aid=a.aid')
+                            ->join('mfw_activity_time t','t.t_id=o.t_id')
                             ->join('mfw_source s','o.source=s.id','LEFT')
+                            ->where($where1)->where($where2)->where($where3)
                             ->select();
+        $activityInfo = model('Activity')->getActivityAll('aid,a_title');
+
+        $this->assign('activityInfo',$activityInfo);
         $this->assign('orderInfo',$orderInfo);
         return $this->fetch();
     }
@@ -647,6 +688,30 @@ class Activity extends Base
         return $this->fetch();
     }
 
+    //修改列表
+    public function save_spe(){
+        $data = input('param.');
+        //获取活动标题
+        $Activity = model('Activity');
+        $ActivityInfo = $Activity->getActivityAll();
+        $timeInfo = db('ActivityTime')->find($data['t_id']);
+        return $this->fetch('',[
+            'ActivityInfo' => $ActivityInfo,
+            'timeInfo'  => $timeInfo
+        ]);
+    }
+
+    //修改活动安排是否显示
+    public function saveAvtivityTimeDis(){
+        $data = input('param.');
+        $res = model('ActivityTime')->save(['is_display'=>$data['dis']],['t_id'=>$data['t_id']]);
+        if($res){
+            $this->success('修改成功');
+        }else{
+            $this->error('修改失败');
+        }
+    }
+
     //添加规格列表
     public function addSpeList(){
         //获取活动标题
@@ -658,17 +723,20 @@ class Activity extends Base
     
     //添加规格
     public function addSpe(){
-        $data['aid'] = input('post.aid');
-        $data['begin_time'] = strtotime(input('post.begin_time'));
-        $data['end_time'] = strtotime(input('post.end_time'));
-        $data['ticket_num'] = input('post.num');
-        $data['remark'] = input('post.remark');
-        $data['is_display'] = input('post.is_display');
-        $res = model('ActivityTime')->add($data);
-        if($res) {
-            $this->success('添加成功','activity/specification');
+        $data = input('post.');
+        $data['begin_time'] = strtotime($data['begin_time']);
+        $data['end_time'] = strtotime($data['end_time']);
+
+        if(!empty($data['t_id'])){
+            $res = model('ActivityTime')->save($data,$data['t_id']);
         }else{
-            $this->success('添加失败','activity/specification');
+            $res = model('ActivityTime')->add($data);
+        }
+
+        if($res) {
+            $this->success('成功','activity/specification');
+        }else{
+            $this->success('失败','activity/specification');
         }
 
     }
@@ -897,13 +965,14 @@ class Activity extends Base
             db('user_child')->insertAll($add_child_data);
         }
 
-        /*$k_num = count($add_data);
+        $k_num = count($add_data);
         //减库存
         $Activity->where('aid',$aid)->setDec('a_num',$k_num);
         //增加报名人员
         $Activity->where('aid',$aid)->setInc('a_sold_num',$k_num);
         //减时间库存
-        $ActivityTime->where('t_id',$tid)->setDec('ticket_num',$k_num);*/
+        $ActivityTime->where('t_id',$tid)->setDec('ticket_num',$k_num);
+        $ActivityTime->where('t_id', $tid)->setInc('sold_num', $k_num);
 
         $order = model('ActivityOrder')->insertAll($add_data);
         if($order){
