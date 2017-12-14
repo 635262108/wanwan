@@ -46,10 +46,6 @@ class User extends Base
                     ->where($where1)->where($where2)->where($where3)->where($where4)
                     ->select();
 
-
-        if(count($data) > 0){
-            return_info(200,'成功',$userInfo);
-        }
         $this->assign('userInfo',$userInfo);
         $zhengZhou = model('Region')->getSonData(149);
         $this->assign('zhengZhou',$zhengZhou);
