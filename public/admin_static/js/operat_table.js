@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 //	首页签到下拉
 		$(".sign").on("click",function(){
 			$("#signSelect").slideToggle();
@@ -628,16 +628,58 @@ var onLis=$(".shai").children(".only_one");
 
     onLis.each(function(){
     	var lis=$(this).children("ul").children("li");
- 
-    	lis.on("click",function(){
+        lis.on("click",function(){
     		if($(this).hasClass("active")){
     			$(this).removeClass("active");
     		}
     		else{
     			$(this).addClass("active").siblings().removeClass("active");
+    			console.log($(this).children("input").val(),999)
+    			
     		}
     	})
     })
+    
+//  点击完成
+   $(".success").on("click",function(){
+       
+   	  
+   })
+    
+    	//  点击是否推荐
+$(".recommend td:nth-child(11)").live("click",function(){
+   if($(this).hasClass("yes")){
+   	ClickRecommend("/abab.php/activity/saveActivityField",
+   	          {aid:$(this).siblings(".sorting_1").html(),a_is_recommend:0},
+   	          $(this),"不推荐","推荐"
+   	)
+	}
+   else{
+		ClickRecommend("/abab.php/activity/saveActivityField",
+   	          {aid:$(this).siblings(".sorting_1").html(),a_is_recommend:1},
+   	          $(this),"不推荐","推荐"
+   	)
+   }
+	
+})
+//点击是否上架
+$(".recommend td:nth-child(12)").live("click",function(){
+   if($(this).hasClass("yes")){
+   	ClickRecommend("/abab.php/activity/saveActivityField",
+   	          {aid:$(this).siblings(".sorting_1").html(),a_status:0},
+   	          $(this),"下架","上架"
+   	)
+	}
+   else{
+		ClickRecommend("/abab.php/activity/saveActivityField",
+   	          {aid:$(this).siblings(".sorting_1").html(),a_status:1},
+   	          $(this),"下架","上架"
+   	)
+   }
+	
+})
+    
+
     
 
 })
@@ -730,3 +772,24 @@ function tabChange(my,brother){
 	 my.addClass("active").siblings().removeClass("active");
      brother.eq(my.index()).show().siblings().hide();
 }
+
+//活动列表(点击事件)
+function ClickRecommend(url,option, my,wordNo,wordYes) {
+
+	$.post(url, option, function(obj) {
+		if(obj.state_code == 200) {
+			if(my.hasClass("yes")) {
+				
+				my.html(wordNo);
+				my.attr("class","no")
+
+			} else {
+				my.html(wordYes);
+				my.attr("class","yes")
+			}
+		}
+
+	})
+
+}
+

@@ -28,40 +28,30 @@
 			<a href="#" class="current">客户列表</a>
 		</div>
 	</div>
-
-	<!--<div class="add_order">
-  	 <a href="{:url('admin/user/add_member')}">
-        <div class="add" title="添加会员">
-          <span style="font-size: 14px;">
-              <i class="icon-plus"></i>
-                		 添加会员
-          </span>
-        </div>
-     </a>
-  </div>-->
 	<div class="member_check">
 		<ul>
 			<li><img src="__AIMG__/add_member.png" style="margin-right: 6px;">
 				<a href="{:url('admin/user/add_member')}">添加</a>
 			</li>
-			<li><img src="__AIMG__/pai.png" style="margin-right: 6px;">排序<span></span></li>
-			<li><img src="__AIMG__/shai.png" style="margin-right: 6px;">筛选<span style="display: none;"></span></li>
+			<!--<li><img src="__AIMG__/pai.png" style="margin-right: 6px;">排序<span></span></li>-->
+			<li><img src="__AIMG__/pai.png" style="margin-right: 6px;">筛选<span></span></li>
 		</ul>
 	</div>
 	<div class="pai_contents">
-		<div class="pai">
+		<!--<div class="pai">
 			<ul>
 				<li class="active">充值金额</li>
 				<li>参与活动次数</li>
 				<li>最新发生时间</li>
 			</ul>
-		</div>
-		<div class="shai" style="display: none;">
+		</div>-->
+		<form action="{:url('user/index')}" method="get">
+		<div class="shai">
 			<div class="only_one">
 				<p>新增</p>
 				<ul>
-					<li>本月</li>
-					<li>本周</li>
+					<li><input  type="radio" name="add" value="1"/>本月</li>
+					<li><input 	type="radio" name="add" value="2"/>本周</li>
 				</ul>
 			</div>
 			<!--<div class="only_one">-->
@@ -75,7 +65,7 @@
 				<p>住址</p>
 				<ul>
 					{foreach name="zhengZhou" item="vo"}
-					<li>{$vo.name}</li>
+					<li><input  type="radio" name="address" value="{$vo.id}"/>{$vo.name}</li>
 					{/foreach}
 				</ul>
 			</div>
@@ -145,17 +135,16 @@
 		<div style="margin-bottom: 8px;" class="only_one">
 				<p style="width: 90px;">客户类型</p>
 				<ul>
-				   <li>会员</li>
-				   <li>非会员</li> 
+				   <li><input  type="radio" name="is_member" value="1"/>会员</li>
+				   <li><input  type="radio" name="is_member" value="2"/>非会员</li> 
 				</ul>
 		</div>
-		<div class="button">
-			    <ul class="button_ul">
-			    	  <li class="operate reset">重置</li>
-			    	  <li class="operate success">完成</li>
-			    </ul>
+		<div class="commit">
+			 <button type="reset">重置</button>  
+			 <button type="submit">完成</button>
 		</div>
 		</div>
+		</form>
 	</div>
 	<div class="container-fluid">
 		<div class="row-fluid">
