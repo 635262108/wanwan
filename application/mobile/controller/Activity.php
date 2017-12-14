@@ -645,6 +645,7 @@ class Activity extends Base
     //微信支付跳转
     public function pay_success($order_sn = ''){
         //获取活动信息
+        $uid = session('userInfo.uid');
         $activityOrder = model('ActivityOrder');
         $order = $activityOrder->getSnOrderInfo($order_sn,'order_sn,aid,child_num,adult_num,order_price,order_status,mobile');
         if(!isset($order)){
@@ -652,7 +653,7 @@ class Activity extends Base
         }
 
         //防止用户返回，重新加载，名额和短信会重复操作
-        if(session('pay_success') == $order_sn) {
+        if(!empty(cookie($order_sn))) {
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
@@ -666,7 +667,7 @@ class Activity extends Base
         if($result){
             $this->sendMobileMsg($order['order_sn']);
             $this->setActivityNum($order['order_sn']);
-            session('pay_success',$order_sn);
+            cookie($order_sn,$order_sn,300);
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
