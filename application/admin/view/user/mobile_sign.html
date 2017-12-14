@@ -26,7 +26,7 @@
 						<input type="text" class="phonePrompt" value="" style="width: 76%;">
 						<button class="search_order">查询</button>
 					</div>
-					<table class="data-table" style="width: 680px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
+					<table class="data-table" style="width:680px;margin: 20px auto;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
 						<thead>
 							<tr>
 								<th>id</th>
@@ -55,11 +55,13 @@
 		<script src="__AJS__/jquery.dataTables.min.js"></script>
 		<script src="__AJS__/bootstrap.min.js"></script> 
 		<script>
-		
+	         //		 点击查询
 			 $(".search_order").on("click",function(){
 			 	var phoneVal=$(".phonePrompt").val();
 			 	var str='';
-			   $.get("/abab.php/user/getMobileOrders", {mobile:phoneVal },
+			   $.get("/abab.php/user/getMobileOrders", 
+			          {mobile:phoneVal,async:false},
+			          
 					function(obj) {
 						
 						if(obj.state_code == 200) {
@@ -80,12 +82,11 @@
 								
 							}
 							
-							$(".tbody_center").html(str);
+							$(".tbody_center").append(str);
 							
 								
 						} 
 						else{
-								alert(obj.msg);
 						}
 				}, "json");
 			 })
@@ -93,15 +94,15 @@
 //			 点击签到
             $(document).on("click",'.qian',function(el){
             	var qianId=$(this).parent().siblings(".td_first").html();
-                   el=$(this);
-            	
+                el=$(this);
+            	var current=$(this).parent().parent();
                $.get("/abab.php/user/orderIdSign", {id:qianId},
 					function(obj) {
 						
 						if(obj.state_code == 200) {
 							
 							el.html(obj.msg)
-							
+							$(".tbody_center").append(current);
 							
 								
 						} 

@@ -5,8 +5,6 @@ $(function(){
     var time_lis=$(".select_paytime").children();
     time_lis.on("click",function(){
     	$(this).addClass("time_special").siblings().removeClass("time_special");
-    	
-    	
     })
     
     time_lis.each(function(){
@@ -97,19 +95,17 @@ $(function(){
 //我要报名操作
 
     $(".i_want").on("click",function(){
-    	 $("#theme_modal_box").show();
-         $(".moal_div").animate({"bottom":"0px"},200);
-//  $.post("/mobile/user/check_login",
-//          function(obj){
-//          	console.log(obj,000)
-//              if(obj.state_code == 200){
-//                 $("#theme_modal_box").show();
-//      		   $(".moal_div").animate({"bottom":"0px"},200);
-//              }else{
-//              	
-//                  location.href=obj.data.url;
-//              }
-//          }, "json");
+    $.post("/mobile/user/check_login",
+            function(obj){
+            	console.log(obj,000)
+                if(obj.state_code == 200){
+                   $("#theme_modal_box").show();
+        		   $(".moal_div").animate({"bottom":"0px"},200);
+                }else{
+                	
+                    location.href=obj.data.url;
+                }
+            }, "json");
        
 
 
@@ -122,17 +118,20 @@ $(function(){
 		}
     
     $(".select_time").on("click",function(){
-//  	    $.post("/mobile/user/check_login",
-//          function(obj){
-//              if(obj.state_code == 200){
-//                 $("#theme_modal_box").show();
-//      		   $(".moal_div").animate({"bottom":"0px"},200);
-//              }else{
-//                 location.href=obj.data.url;
-//              }
-//          }, "json");
-    	 $("#theme_modal_box").show();
-         $(".moal_div").animate({"bottom":"0px"},200);
+    	if($(".my_name").text()=="活动结束"){
+    		$(this).off("click");
+    	}
+    	else{
+    		$.post("/mobile/user/check_login",
+            function(obj){
+                if(obj.state_code == 200){
+                   $("#theme_modal_box").show();
+        		   $(".moal_div").animate({"bottom":"0px"},200);
+                }else{
+                   location.href=obj.data.url;
+                }
+            }, "json");
+    	}
 
     })
 //  活动选择时间
@@ -329,23 +328,6 @@ var secondContents=$(".total_content").children();
  	
  })
    second_lis.eq(0).trigger("click");
-   
-   
-// 免费玩儿活动点击
-//console.log(secondContents,888888)
-//second_lis.on("click",function(){
-//	var index=$(this).index();
-//	var freeActivitys=secondContents.eq(index).children().find(".playBao_part");
-//	if(freeActivitys.length==0){
-//		$(".no_style").show();
-//	}
-// 	else if(freeActivitys.length>=1){
-// 		console.log(333333)
-// 		
-//     $(".no_style").attr("style","display: none;margin-top:88px ;");
-// 	}
-//})
-//second_lis.eq(0).trigger("click");
  
 // 当我的收藏没有的时候
 
@@ -374,7 +356,7 @@ $(".select_opera .sure").on("click",function(){
             function(obj){
                 if(obj.state_code == 200){
                    $(".sure_back").hide();
-                 location.href="/mobile/activity/new_activity.html"
+                   location.href="/mobile/activity/new_activity.html"
                 }else{
                     
                 }

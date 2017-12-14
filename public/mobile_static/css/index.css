@@ -1557,6 +1557,10 @@ display: none  !important;
 	margin-bottom: 8px;
 	font-size: 14px
 }
+#theme_information .baby_detail .information_ul .address_style{
+	display: flex;
+	justify-content: flex-start;
+}
 
 #theme_information .baby_detail .information_ul li span {
 	display: inline-block;
@@ -1577,6 +1581,7 @@ display: none  !important;
 #theme_information .baby_detail .information_ul li:nth-child(2) .max_width {
 	white-space: initial;
 	line-height: 18px;
+	margin-top: -2px;
 }
 
 #theme_information .baby_detail .information_ul li:nth-child(3) {

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 		<link rel="stylesheet" href="__MobileCss__/register.css"/>
 	</head>
 	<body>
@@ -27,12 +27,7 @@
 							 <p class="tel_namer">确认密码</p>
 							<div class="pwd_sure"><input type="password" id="reset_pwd_sure"></div>
 							<p class="pwd_Surewarn" style="color: #FFFFFF;font-size: 12px;text-align: center;display: none;">密码输入与上次不一致</p>
-							
-							
-							
-							
-						   <button type="submit" class="reset_register">确认</button>
-							
+							<button type="submit" class="reset_register">确认</button>
 							
 					</form>
 					
@@ -41,6 +36,9 @@
 		<script src="__MobileJs__/jquery.min.js"></script>
 		<script src="__MobileJs__/idangerous.swiper.min.js"></script>
 		<script type="text/javascript" src="__MobileJs__/emit_information.js"></script>
+		<script>
+        	 $(".register_bg").css({"width":$(window).width(),"height":$(window).height()})
+        </script>
 		
 	</body>
 </html>

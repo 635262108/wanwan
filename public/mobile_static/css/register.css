@@ -16,8 +16,8 @@ body{
 }
 .login_bg{
 	background: url(../images/bg_resiger.png) no-repeat;
-	width: 375px;
-	height: 667px;
+	/*width: 375px;
+	height: 667px;*/
 	background-size:cover;
 	
 
@@ -27,8 +27,8 @@ body{
 }
 .register_bg{
 	background: url(../images/bg_login.png) no-repeat;
-	width: 375px;
-	height: 667px;
+	/*width: 375px;
+	height: 667px;*/
 	background-size:cover;
 }
 
