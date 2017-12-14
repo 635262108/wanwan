@@ -296,7 +296,7 @@ class Activity extends Base
         $input->setTimeStart(date("YmdHis"));   //生成时间
         $input->setTradeType("JSAPI");
         $input->setOpenid($openId);
-        $input->setNotifyUrl("http://www.baobaowaner.com/home/Activity/notify/order_sn/".$order_sn); //设置回调地址
+        $input->setNotifyUrl("http://www.baobaowaner.com/mobile/Activity/notify/order_sn/".$order_sn); //设置回调地址
         $orders = WxPayApi::unifiedOrder($input);
         //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
         if(isset($orders['err_code'])){
@@ -477,15 +477,10 @@ class Activity extends Base
             $data['pay_time'] = time();
             $map['order_sn'] = $order_sn;
             $activityOrder->where($map)->update($data);
-            
-            //给用户发送一条消息
-            $aid = $order['aid'];
-            $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_title');
-            $url = url('activity/detail',['aid'=>$aid]);
-            $content = "您报名的<a href='".$url."'>".$activityInfo['a_title']."</a>活动付款成功,请您注意活动参与时间!";
-            $message = model('Message');
-            $message->sendMessage($order['uid'],$content,1);
+
+            //发短信，减名额
+            $this->sendMobileMsg($order['order_sn']);
+            $this->setActivityNum($order['order_sn']);
         } else {
             $data['act'] = 2;
             $data['order_sn'] = $order_sn;
@@ -651,23 +646,12 @@ class Activity extends Base
         if(!isset($order)){
             $this->error('参数错误');
         }
-
-        //防止用户返回，重新加载，名额和短信会重复操作
-        if(!empty(cookie($order_sn))) {
-            $this->assign('url',url('mobile/user/index'));
-            $this->assign('title','支付成功');
-            $this->assign('orderInfo',$order);
-            return $this->fetch();
-        }
         
         //查询订单
         $notify = new PayNotifyCallBack();
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
-            $this->sendMobileMsg($order['order_sn']);
-            $this->setActivityNum($order['order_sn']);
-            cookie($order_sn,$order_sn,300);
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','支付成功');
             $this->assign('orderInfo',$order);
