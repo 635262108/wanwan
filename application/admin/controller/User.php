@@ -308,7 +308,7 @@ class User extends Base
             $result[$key]['name'] = $v['name']; //报名姓名
             $result[$key]['mobile'] = $v['mobile']; //完整电话
             $result[$key]['mobile2'] = substr($v['mobile'],0,3)."玩翫碗".substr($v['mobile'],7);    //报名电话
-            $result[$key]['time'] = $time['t_content']; //报名时间
+            $result[$key]['time'] = $time['begin_time']."--".$time['end_time']; //报名时间
             switch ($v['order_status']) {
                 case 1:
                     $result[$key]['sign'] = '已参加';

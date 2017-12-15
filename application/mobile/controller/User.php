@@ -141,7 +141,7 @@ class User extends Base
                     $url = session::get('userurl');
                 }else{
                     //没有要跳转的页面，则转到首页
-                    $url = url('mobile/activity/index');
+                    $url = url('mobile/activity/new_activity');
                 } 
                 return return_info(200,'登录成功',array('url'=>$url));
             }else{
