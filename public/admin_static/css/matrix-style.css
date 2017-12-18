@@ -1892,6 +1892,43 @@ div.dataTables_wrapper .ui-widget-header {
 	color: #4c4c4c;
 	margin-top: 50px;
 }
+.unfold{
+	position: absolute;
+    bottom: 10px;
+    right: 30px;
+    color:#2843a8;
+    cursor: pointer;
+}
+.brokenLineContent{
+	background: #FFFFFF;
+	margin-left: 2%;
+	margin-top: 20px;
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+.brokenLineContent .lineContainer{
+	display: flex;
+	flex-direction: row;
+	
+}
+.brokenLineContent .lineContainer div:nth-child(2){
+	margin-left: 18%;
+}
+.brokenLineContent .lineContainer div{
+	position: relative;
+}
+.brokenLineContent .lineContainer div p{
+	position: absolute;
+	bottom: 0px;
+	left: 43%;
+	font-size:16px;
+	color: #000000;
+	font-weight: 600;
+	font-family: '苹方';
+}
+.brokenLineContent .lineContainer div:nth-child(2) p{
+	left: 35%;
+}
 /*签到概况的样式*/
 .search{
 	margin-left: 3.3%;
@@ -2184,4 +2221,181 @@ div.dataTables_wrapper .ui-widget-header {
 	margin-left: 20px;
 }
 
+/*首页统计的样式*/
+.sta{
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 2%;
+	margin-top: 30px;
+}
+.sta_total{
+	background: #FFFFFF;
+	width: 340px;
+	display: flex;
+	justify-content: flex-start;
+	position: relative;
+	margin-right: 50px;
+}
+.sta_total .show_num{
+	position: absolute;
+	right: 20px;
+	bottom: 60px;
+}
+.sta_total .show_num li span:nth-child(1){
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+.sta_total .show_num li span:nth-child(2){
+	font-size: 13px;
+	margin-left: 2px;
+}
+.sta_total .show_num li:nth-child(1) span:nth-child(1){
+	background: #ff4134;
+}
+.sta_total .show_num li:nth-child(2) span:nth-child(1){
+	background:#50cfc8
+}
+.sta_total .title{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sta_total .title span{
+	display: inline-block;
+	height: 16px;
+	margin-left: 5px;
+	color: #FF4134;
+	font-size: 13px;
+}
+.sta_total .show_num li:nth-child(3) span:nth-child(1){
+	background: #dfc822
+}
+.sta .sign{
+	width: 345px;
+	height: 300px;
+	background: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+.sta .sign a{
+	width: 345px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.sta .sign .word{
+	font-size: 25px;
+	color:#2843a8;
+	letter-spacing: 2px;
+	margin-top: 100px;
+}
+.sta .sign .circle{
+	margin-top: 40px;
+}
+.sta .sign .circle span{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	margin-right: 16px;
+	background: #FF4134;
+}
 
+/*圆形统计图样式*/
+.indContainerContent{
+	padding-top: 60px;
+	/*border: 1px solid blueviolet;*/
+	background: #FFFFFF;
+	box-sizing: border-box;
+	margin-left: 1.5%;
+	padding-left: 50px;
+	overflow: hidden;
+	padding-bottom: 60px;
+	margin-top: 30px;
+	position: relative;
+}
+.indContainerContent .search{
+	width: 96%;
+	position: absolute;
+	top: 0px;
+	left: -8px;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+.indContainerContent .search form{
+	display: flex;
+    width: 100%;
+	justify-content: flex-end;
+	align-items: center;
+	
+}
+.indContainerContent .search form .timeSearch{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.indContainerContent .search form .timeSearch .line{
+	height: 1px;
+	border-bottom: 1px solid #C0C0C0;
+	width: 10px;
+	margin: 0 5px 0px 5px;
+	}
+.indContainerContent .search form .timeSearch input{
+	margin-bottom: 0px;
+}
+.indContainerContent .search form .timeSearch button{
+	margin-top: 0px;
+}
+.indContainerContent .search form .anySearch input{
+	margin-bottom: 0px;
+	width: 120px;
+}
+.indContainerContent .indContainer{
+	width: 330px;
+	height: 240px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #f7f6f6;
+	box-shadow: -1px 0px 2px #f7f6f6;
+	float: left;
+	margin-right: 74px;
+	margin-bottom: 20px;
+}
+.indContainerContent .indContainer:nth-child(4){
+	margin-right: 0px;
+}
+.indContainerContent .indContainer p:nth-child(1){
+	font-size: 17px;
+	color: #000000;
+	font-weight: 600;
+}
+.indContainerContent .indContainer .total{
+	color: #FF4134;
+}
+.indContainerContent .indContainer .circleContents{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 79%;
+	margin-top: 10px;
+	
+}
+.indContainerContent .indContainer .circleContents .circleone{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.indContainerContent .indContainer .circleContents .circleone p{
+	font-size: 13px;
+	margin-top: 5px;
+}

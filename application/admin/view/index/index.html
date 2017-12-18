@@ -1,5 +1,5 @@
 {include file="public/header" /} {include file="public/left" /}
-<div id="content" style="background:#F6F6F6;height: 726px;">
+<div id="content" style="background:#F6F6F6;">
 	<!--breadcrumbs-->
 	<div id="content-header">
 		<div id="breadcrumb">
@@ -354,49 +354,364 @@
 			</div>
 		</div>
 	</div>-->
-	<div id="main" style="width: 300px;height: 300px;border: 1px solid red;"></div>
+	
+	<div class="sta">
+	<div class="sta_total">
+		<div class="title">
+			 <img  src="__AIMG__/user.png" style="width: 14px;height: 16px;"/><span>用户</span>
+		</div>
+		<div id="main" style="width:180px;height: 300px;">
+			
+		</div>
+		 <div class="show_num">
+			 	 <li><span></span><span>总用户{$result.user_num}</span></li>
+			 	 <li><span></span><span>本月新增{$result.month_user}</span></li>
+			 	 <li><span></span><span>本周新增{$result.week_user}</span></li>
+			 	 
+	     </div>
+	     <div class="userunfold unfold">展开</div>
+     </div>
+     <div class="sta_total">
+		<div class="title">
+			 <img  src="__AIMG__/member.png" style="width: 14px;height: 16px;"/><span style="color:#dfc822;">会员</span>
+		</div>
+		<div id="main1" style="width:180px;height: 300px;">
+			
+		</div>
+		 <div class="show_num">
+			 	 <li><span></span><span>总会员{$result.member_num}</span></li>
+			 	 <li><span></span><span>本月新增{$result.month_member}</span></li>
+			 	 <li><span></span><span>本周新增{$result.week_member}</span></li>
+			 	 
+	     </div>
+	     <div class="memberunfold unfold">展开</div>
+     </div>
+     <div class="sta_total">
+		<div class="title">
+			 <img  src="__AIMG__/pocket.png" style="width: 14px;height: 16px;"/><span style="color:#50cfc8 ;">收入</span>
+		</div>
+		<div id="main2" style="width:180px;height: 300px;">
+			
+		</div>
+		 <div class="show_num">
+			 	 <li><span></span><span>本月{$result.member_num}</span></li>
+			 	 <li><span></span><span>本周{$result.month_member}</span></li>
+			 	 <li><span></span><span>今日{$result.week_member}</span></li>
+			 	 
+	     </div>
+	     <div class="incomeunfold unfold">展开</div>
+     </div>
+     
+     <div class="sign">
+     	<a href="{:url('admin/user/mobile_sign')}">
+     		<div class="word">签到管理系统</div>
+     	  	<div class="circle"><span></span><span></span><span></span></div>
+     	</a>
+     	  
+     </div>
+     </div>
+     
+     <!--折线图-->
+     <div class="brokenLineContent">
+     	 <div class="UserContainer LineContainer" style="display: none;">
+     	 	<div>
+     	 		<div id="monthLine" style="width:800px;height: 400px;">
+     	 	   	     
+     	 	   </div>
+     	 	   <p>每月用户走势表</p>
+     	 	</div>
+     	 	<div>
+     	 	   <div id="weekLine" style="width: 400px;height: 400px;">
+     	 	   	   
+     	 	   </div>
+     	 	    <p>每周用户走势表</p>
+     	 	</div>
+     	 	 
+     	 </div>
+     	 
+     	  <div class="memberContainer LineContainer" style="display: none;">
+     	 	<div>
+     	 		<div id="monthLine1" style="width:800px;height: 400px;">
+     	 	   	     
+     	 	   </div>
+     	 	   <p>每月用户走势表</p>
+     	 	</div>
+     	 	<div>
+     	 	   <div id="weekLine1" style="width: 400px;height: 400px;">
+     	 	   	   
+     	 	   </div>
+     	 	    <p>每周用户走势表</p>
+     	 	</div>
+     	 	 
+     	 </div>
+     	  <div class="incomeContainer LineContainer" style="display: none;">
+     	 	<div>
+     	 		<div id="monthLine2" style="width:800px;height: 400px;">
+     	 	   	     
+     	 	   </div>
+     	 	   <p>每月用户走势表</p>
+     	 	</div>
+     	 	<div>
+     	 	   <div id="weekLine2" style="width: 400px;height: 400px;">
+     	 	   	   
+     	 	   </div>
+     	 	    <p>每周用户走势表</p>
+     	 	</div>
+     	 	 
+     	 </div>
+     </div>
+     
+     <div class="indContainerContent">
+     	 <div class="search">
+     	 	 <form>
+     	 	 	  <!--<div class="timeSearch">
+     	 	 	  	   <input type="text" value="2017-12-5" style="cursor: pointer;" onFocus="new Calendar().show(this);"><div class="line"></div><input type="text" value="2017-12-7" style="cursor: pointer;" onFocus="new Calendar().show(this);"> <button type="submit">查找</button>
+     	 	 	  </div>-->
+     	 	 	  <div class="anySearch">
+     	 	 	  	   <span>Srearch:</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" />
+     	 	 	  </div>
+     	 	 </form>
+     	 </div>
+     	  <div class="indContainer">
+     	  	     <p>13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
+     	  	     <p class="total">报名名额：365</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum"></div>
+     	  	     	  		<p>预约人数：62</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum"></div>
+     	  	     	  		<p>签到人数：62</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+     	  
+     	    <div class="indContainer">
+     	  	     <p>16&nbsp;&nbsp;&nbsp;&nbsp;丝绸之路</p>
+     	  	     <p class="total">报名名额：365</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum1"></div>
+     	  	     	  		<p>预约人数：62</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum1"></div>
+     	  	     	  		<p>签到人数：62</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+     	  
+     	    <div class="indContainer">
+     	  	     <p>17&nbsp;&nbsp;&nbsp;&nbsp;24节气之霜降</p>
+     	  	     <p class="total">报名名额：365</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum2"></div>
+     	  	     	  		<p>预约人数：62</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum2"></div>
+     	  	     	  		<p>签到人数：62</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+     	  
+     	    <div class="indContainer">
+     	  	     <p>19&nbsp;&nbsp;&nbsp;&nbsp;优雅宝贝生长记</p>
+     	  	     <p class="total">报名名额：365</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum3"></div>
+     	  	     	  		<p>预约人数：62</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum3"></div>
+     	  	     	  		<p>签到人数：62</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+     	  
+     	  <div class="indContainer">
+     	  	     <p>22&nbsp;&nbsp;&nbsp;&nbsp;社交与团队协作</p>
+     	  	     <p class="total">报名名额：365</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum4"></div>
+     	  	     	  		<p>预约人数：62</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum4"></div>
+     	  	     	  		<p>签到人数：62</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+     	  
+     	   <div class="indContainer">
+     	  	     <p>24&nbsp;&nbsp;&nbsp;&nbsp;眼睛的秘密</p>
+     	  	     <p class="total">报名名额：365</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum5"></div>
+     	  	     	  		<p>预约人数：62</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum5"></div>
+     	  	     	  		<p>签到人数：62</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+     	  <div class="pagination"></div>
+     </div>
+     
+     
 	{include file="public/footer" /}
 	<script>
-		var mychart=echarts.init(document.getElementById('main'));
-		
-		var option={
+
+         var mychart=echarts.init(document.getElementById('main'));
+         TreeViewer(mychart,{$result.user_num},{$result.month_user},{$result.week_user});
+         var mychart1=echarts.init(document.getElementById('main1'));
+         TreeViewer(mychart1,{$result.member_num},{$result.month_member},{$result.week_member});
+         var mychart2=echarts.init(document.getElementById('main2'));
+         TreeViewer(mychart2,{$result.member_num},{$result.month_member},{$result.week_member});
+         //		树状统计图封装
+         function TreeViewer(chart,firstNum,secondNum,thirdNum){
+             var option={
 			title: {
                show:false
-            },
-            tooltip: {},
+           },
             legend: {
-            	data:['总用户','本月新增','本周新增'],
-                orient:'vertical',
+            	orient:'vertical',
                 right:80,
                 bottom:60,
                 icon:'circle'
             },
             xAxis: {
-                data: ['{$result.user_num}','{$result.month_user}','{$result.week_user}']
+                data: ['总用户','当月新增用户','当周新增用户'],
+                show:false
             },
             yAxis: {show:false},
+            
             series: [
                
             {
-                name: '总用户',
+                name: '数量',
                 type: 'bar',
-                data: [{$result.user_num}]
+                data: [firstNum,secondNum,thirdNum],
+                barWidth:25,
+                itemStyle:{
+                	normal:{
+                		color:function (params){
+                        var colorList = ['#ff4134','#50cfc8','#dfc822'];
+                        return colorList[params.dataIndex];
+                		}
+                	}
                
-            },
-            {
-                name: '本月新增',
-                type: 'bar',
-                data: [{$result.month_user}]
-            },
-            {
-                name: '本周新增',
-                type: 'bar',
-                data: [{$result.week_user}]
-            }
+            	}
            
-            ]
-		}
-		mychart.setOption(option);
+            }]
+        }
+	        chart.setOption(option);
+         }
+         
+		
+//		圆形统计图
+        function circletotal(circle,num,Color){
+		           circle.radialIndicator({
+				        	radius:40,
+							barColor:Color,
+							barBgColor:'#d2d2d2',
+							barWidth:5,
+							initValue:num,
+							roundCorner:true,
+							percentage:true
+				    })
+        }
+        
+        
+        
+        circletotal($("#orderNum"),33,'#2843a8');
+        circletotal($("#signNum"),40,'#2843a8');
+        circletotal($("#orderNum1"),20,'#dfc822');
+        circletotal($("#signNum1"),20,'#dfc822');
+        circletotal($("#orderNum2"),22,'#ff4134');
+        circletotal($("#signNum2"),22,'#ff4134');
+        circletotal($("#orderNum3"),22,'#4abe35');
+        circletotal($("#signNum3"),22,'#4abe35');
+        circletotal($("#orderNum4"),22,'#440062');
+        circletotal($("#signNum4"),22,'#440062');
+        circletotal($("#orderNum5"),22,'#50cfc8');
+        circletotal($("#signNum5"),22,'#50cfc8');
+
+    
+  //      折线图函数封装   
+     function LineTotal(id,data,num){
+     	var optionLine={
+        tooltip: {},
+        legend: {
+            data:['用户量']
+        },
+         xAxis: {
+            data:data,
+            axisLine:{lineStyle:{color:'#cfcfcf'}},
+            axisLabel:{show:true,textStyle:{color:'#6e6e6e'}}
+           
+        },
+        yAxis: {show:false},
+        series: [{
+            name:'用户量',
+            type:'line',
+            data:num,
+            itemStyle:{normal:{label:{show:true}}}
+        }]
+     }
+     	id.setOption(optionLine);
+     }
+      var MonthL=echarts.init(document.getElementById('monthLine'));
+      LineTotal(MonthL, ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],[30,20,36,10,10,20,90,30,20,15,30,60])
+     
+      var WeekL=echarts.init(document.getElementById('weekLine'));
+      LineTotal(WeekL,["周一","周二","周三","周四","周五","周六","周日"],[30,20,36,10,10,20,90])
+      
+      var MonthL1=echarts.init(document.getElementById('monthLine1'));
+      LineTotal(MonthL1, ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],[30,20,36,10,10,20,90,30,20,15,30,60])
+      var WeekL1=echarts.init(document.getElementById('weekLine1'))
+      LineTotal(WeekL1, ["周一","周二","周三","周四","周五","周六","周日"],[30,20,36,10,10,20,90])
+      
+      var MonthL2=echarts.init(document.getElementById('monthLine2'));
+      LineTotal(MonthL2, ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],[30,20,36,10,10,20,90,30,20,15,30,60])
+      var WeekL2=echarts.init(document.getElementById('weekLine2'))
+      LineTotal(WeekL2, ["周一","周二","周三","周四","周五","周六","周日"],[30,20,36,10,10,20,90])
+
+//点击展开收缩
+function unfoldLine(my,parent){
+	 if(my.html()=='展开'){
+      	    	parent.show();
+      	    	my.html('收缩')
+      	    }
+    else{
+      	    	parent.hide();
+      	    	my.html('展开')
+     }
+}
+
+var staTotal=$(".sta_total");
+var lineContents=$(".brokenLineContent").children();
+
+staTotal.each(function(){
+	var index=$(this).index();
+	$(this).find(".unfold").on("click",function(){
+		unfoldLine($(this),lineContents.eq(index)); 
+	})
+})
+      
+       
 	</script>
 </div>
 
