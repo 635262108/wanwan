@@ -1,5 +1,6 @@
 <?php
 namespace app\admin\controller;
+use function PHPSTORM_META\map;
 use think\Controller;
 use think\Session;
 use app\admin\logic\UserLogic;
@@ -591,6 +592,22 @@ class User extends Base
         }else{
             return_info(-1,'失败');
         }
+    }
+
+    //充值政策
+    public function recharge_policy(){
+        $data = model('Recharge')->select();
+
+        return $this->fetch('',[
+            'data' => $data
+        ]);
+    }
+
+    //获取政策内容
+    public function getPolicyCon(){
+        $data = input('get.');
+        $res = model('RechargePolicy')->getRechargeIdData($data['id'],'id,content');
+        return_info(200,'成功',$res);
     }
 
     //成单记录

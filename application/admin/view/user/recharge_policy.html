@@ -1,0 +1,75 @@
+{include file="public/header" /}
+{include file="public/left" /}
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a href="{:url('admin/user/recharge_policy')}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+            <a href="{:url('admin/user/recharge_policy')}" class="tip-bottom">充值政策</a>
+        </div>
+    </div>
+
+    <div class="add_order">
+        <a href="{:url('admin/user/dis_add_deal')}">
+            <div class="add" title="添加政策">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                		 添加政策
+          </span>
+            </div>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                        <h5>Data table</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>金额</th>
+                                <th>会员折扣</th>
+                                <th>内容</th>
+                                <th>添加时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody_center" style='font-size: 12px;'>
+                            {foreach name="data" item="vo"}
+                            <tr class="gradeX trs">
+                                <td>{$vo.id}</td>
+                                <td>{$vo.money}</td>
+                                <td>{$vo.discount}</td>
+                                <td>点击查看</td>
+                                <td>{$vo.addtime|date='Y-m-d H:i',###}</td>
+                                <td class="center">
+                                    <a href=""><i class="delete icon-pencil">&nbsp;&nbsp;编辑</i></a>
+                                    <a href=""><i class="delete icon-pencil">&nbsp;&nbsp;删除</i></a>
+                                </td>
+
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{include file="public/footer" /}
+<script>
+
+    if($(".select_time").val()=="其它"){
+        $(this).unbind("change");
+    }
+</script>
+</body>
+</html>
+
