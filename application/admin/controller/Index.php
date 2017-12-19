@@ -57,7 +57,7 @@ class Index extends Base
         $activityInfo = $activity->getActivityAll('aid,a_title');
         foreach ($activityInfo as $k=>$v){
             $activityInfo[$k]['order_num'] = $activityOrder->anyActivityOrder($v['aid'])->count();
-            $activityInfo[$k]['order_success_num'] = $activityOrder->anyActivitySuccessOrder($v['aid'])->count();
+            $activityInfo[$k]['order_success_num'] = $activityOrder->anyActivityJoinOrder($v['aid'])->count();
             $activityInfo[$k]['order_sign_num'] = $activityOrder->anyActivitySuccessSign($v['aid'])->count();
         }
 
