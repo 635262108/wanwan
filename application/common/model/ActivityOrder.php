@@ -47,6 +47,15 @@ class ActivityOrder extends Model
         return $this->field($field)->where($map);
     }
 
+    //某个活动报名订单
+    public function anyActivityJoinOrder($aid = 0,$field = '*'){
+        $map = [
+            'aid' => $aid,
+            'order_status' => array('<>',2)
+        ];
+        return $this->field($field)->where($map);
+    }
+
     //某个活动已签到订单
     public function anyActivitySuccessSign($aid = 0,$field = '*'){
         $map = [

@@ -618,6 +618,26 @@ class User extends Base
     public function addPolicy(){
         $data = input('post.');
 
+        $recharge['money'] = $data['money'];
+        $recharge['addtime'] = time();
+        $id = model('Recharge')->insertGetId($recharge);
+        if(!$id){
+            $this->error('政策添加失败');
+        }
+        //添加政策内容
+        $num = count($data['content']);
+        $add_data = array();
+        for($i=0;$i<$num;$i++){
+            $add_data[$i]['recharge_id'] = $id;
+            $add_data[$i]['content'] = $data['content'][$i];
+            $add_data[$i]['addtime'] = time();
+        }
+        $res = model('RechargePolicy')->insertAll($add_data);
+        if ($res){
+            $this->success('添加成功');
+        }else{
+            $this->error('政策内容添加失败');
+        }
     }
 
     //成单记录
