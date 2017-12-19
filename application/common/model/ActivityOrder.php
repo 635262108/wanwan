@@ -6,7 +6,57 @@ use think\Model;
 use think\Db;
 
 class ActivityOrder extends Model
-{	
+{
+
+
+    //上周已成交订单
+    protected function scopeLastWeekSuccessOrder($query){
+        $query->whereTime('addtime','last week')->where('pay_time','>',0)->where('order_status','<',5);
+    }
+
+    //本周已成交订单
+    protected function scopeWeekSuccessOrder($query){
+        $query->whereTime('addtime','week')->where('pay_time','>',0)->where('order_status','<',5);
+    }
+
+    //本月已成交订单
+    protected function scopeMonthSuccessOrder($query){
+        $query->whereTime('addtime','month')->where('pay_time','>',0)->where('order_status','<',5);
+    }
+
+    //当天已成交订单
+    protected function scopeToDaySuccessOrder($query){
+        $query->whereTime('addtime','today')->where('pay_time','>',0)->where('order_status','<',5);
+    }
+
+    //某个活动的订单
+    public function anyActivityOrder($aid = 0,$field = '*'){
+        $map = [
+            'aid' => $aid,
+        ];
+        return $this->field($field)->where($map);
+    }
+
+    //某个活动已成交订单
+    public function anyActivitySuccessOrder($aid = 0,$field = '*'){
+        $map = [
+            'aid' => $aid,
+            'pay_time' => array('>',0),
+            'order_status' => array('<',5)
+        ];
+        return $this->field($field)->where($map);
+    }
+
+    //某个活动已签到订单
+    public function anyActivitySuccessSign($aid = 0,$field = '*'){
+        $map = [
+            'aid' => $aid,
+            'sign_time' => array('>',0),
+        ];
+        return $this->field($field)->where($map);
+    }
+
+
 	/**
 	*增加活动订单
 	*uid 用户id

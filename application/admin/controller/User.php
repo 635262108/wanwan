@@ -610,6 +610,12 @@ class User extends Base
         return_info(200,'成功',$res);
     }
 
+    //添加政策
+    public function addPolicy(){
+        $data = input('post.');
+
+    }
+
     //成单记录
     public function deal(){
         //获取数据

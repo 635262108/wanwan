@@ -1,39 +1,70 @@
 <?php
 namespace app\admin\controller;
-use think\Session;
 
 class Index extends Base
 {
+
     public function index()
     {
-        //获取上周开始和结束时间
-        $beginLastweek=mktime(0,0,0,date('m'),date('d')-date('w')+1-7,date('Y'));
-        $endLastweek=mktime(23,59,59,date('m'),date('d')-date('w')+7-7,date('Y'));
-        //获取本周开始和结束时间
-        $beginweek=mktime(0,0,0,date('m'),date('d')-date('w')+1,date('Y'));
-        $endweek=mktime(23,59,59,date('m'),date('d')-date('w')+7,date('Y'));
-        //获取本月
-        $beginThismonth=mktime(0,0,0,date('m'),1,date('Y'));
-        $endThismonth=mktime(23,59,59,date('m'),date('t'),date('Y'));
 
-        $result['member_num'] = db('user')->where('member_grade=1')->count();    //会员数量
-        $result['month_member'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->where('member_grade=1')->count();  //本月新增会员
-        $result['week_member'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->where('member_grade=1')->count();  //本周新增会员
-        $result['user_num'] = db('user')->count();  //客户数量
-        $result['month_user'] = db('user')->where("reg_time",['>',$beginThismonth],['<',$endThismonth])->count();  //本月新增客户
-        $result['week_user'] = db('user')->where("reg_time",['>',$beginweek],['<',$endweek])->count();  //本周新增客户
-        $result['activity_order_num'] = db('activity_order')->count();      //订单总数
-        $result['activity_num'] = db('activity')->count();      //活动总数
-        $result['last_week_order'] = db('activity_order')->where("addtime",['>',$beginLastweek],['<',$endLastweek])->where('order_status','<>',2)->sum('child_num'); //上周报名人数
-        $result['week_order'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->where('order_status','<>',2)->sum('child_num');        //这周报名人数
-        $result['last_week_order_price'] = db('activity_order')->where("addtime",['>',$beginLastweek],['<',$endLastweek])->where('order_status','<>',2)->sum('order_price');//上周成交金额
-        $result['week_order_price'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->where('order_status','<>',2)->sum('order_price');//这周成交金额
-        $result['month_order_price'] = db('activity_order')->where("addtime",['>',$beginweek],['<',$endweek])->where('order_status','<>',2)->sum('order_price');//这周成交金额
-        $result['last_week_recharge'] = db('recharge_record')->where("pay_time",['>',$beginLastweek],['<',$endLastweek])->where('status',1)->sum('amount');//上周充值金额
-        $result['week_recharge'] = db('recharge_record')->where("pay_time",['>',$beginweek],['<',$endweek])->where('status',1)->sum('amount');//本周充值金额
+        $user = model('user');
+        $activityOrder = model('ActivityOrder');
+        $activity = model('Activity');
+        $rechargeRecord = model('RechargeRecord');
 
-        $this->assign('result',$result);
-        return $this->fetch();
+
+        $result['user'] = [
+            'member_num' => $user::scope('MemberNum')->count(),    //会员数量
+            'month_member' => $user::scope('MemberMonth')->count(),  //本月新增会员
+            'week_member' => $user::scope('MemberWeek')->count(),  //本周新增会员
+            'today_member' => $user::scope('MemberToday')->count(),  //当天新增会员
+            'user_num' => $user->count(),             //客户数量
+            'month_user' => $user::scope('UserMonth')->count(),     //本月新增客户
+            'week_user' => $user::scope('UserWeek')->count(),     //本周新增客户
+            'today_user' => $user::scope('UserToday')->count(),     //当天新增客户
+        ];
+
+        $result['order'] = [
+            'activity_order_num' => $activityOrder->count(),    //订单总数
+            'last_week_order' => $activityOrder::scope('LastWeekSuccessOrder')->sum('child_num'),  //上周报名人数
+            'week_order'    => $activityOrder::scope('WeekSuccessOrder')->sum('child_num'),  //这周报名人数
+            'last_week_order_price' => $activityOrder::scope('LastWeekSuccessOrder')->sum('order_price'),  //上周成交金额
+            'week_order_price'  => $activityOrder::scope('WeekSuccessOrder')->sum('order_price'),  //这周成交金额
+            'today_order_price'   => $activityOrder::scope('ToDaySuccessOrder')->sum('order_price'),  //这天成交金额
+            'month_order_price' => $activityOrder::scope('MonthSuccessOrder')->sum('order_price'),  //这月成交金额
+        ];
+
+        $result['activity'] = [
+            'activity_num' => $activity->count(),   //活动总数
+        ];
+
+        $result['recharge'] = [
+            'last_week_recharge' => $rechargeRecord::scope('LastWeek')->sum('amount'),  //上周充值金额
+            'week_recharge' => $rechargeRecord::scope('Week')->sum('amount'),  //本周充值金额
+        ];
+
+        foreach($result as $k=>$v){
+            if(empty($v['week_order_price'])){
+                $result['order']['week_order_price'] = 0;
+            }
+
+            if(empty($v['today_order_price'])){
+                $result['order']['today_order_price'] = 0;
+            }
+        }
+
+        //获取活动统计信息
+        $activityInfo = $activity->getActivityAll('aid,a_title');
+        foreach ($activityInfo as $k=>$v){
+            $activityInfo[$k]['order_num'] = $activityOrder->anyActivityOrder($v['aid'])->count();
+            $activityInfo[$k]['order_success_num'] = $activityOrder->anyActivitySuccessOrder($v['aid'])->count();
+            $activityInfo[$k]['order_sign_num'] = $activityOrder->anyActivitySuccessSign($v['aid'])->count();
+        }
+
+        return $this->fetch('',[
+            'result' => $result,
+            'activityInfo' => $activityInfo,
+        ]);
     }
     
     public function about() {

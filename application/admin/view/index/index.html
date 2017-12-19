@@ -6,354 +6,6 @@
 			<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i> Home</a>
 		</div>
 	</div>
-
-	<!--<div class="ul_classify">
-		<ul class="first">
-			<li>用&nbsp;户<span></span></li>
-			<li>会&nbsp;员<span style="display: none;"></span></li>
-			<li>收&nbsp;入<span style="display: none;"></span></li>
-			<!--<li>消&nbsp;费<span style="display: none;"></span></li>-->
-			<!--<li class="sign">签&nbsp;到</span></li>-->
-		<!--</ul>-->
-		<!--<ul id="signSelect" style="display: none;">
-			<li><a href="{:url('admin/user/mobile_sign')}">手机号签到</a></li>
-			<li><a href="{:url('admin/user/sign')}">二维码签到</a></li>
-		</ul>
-	</div>-->
-	<!--<div class="classify_contents">
-		<div>
-			<ul>
-				<li>
-					<p>总用户</p>
-					<p>{$result.user_num}</p>
-				</li>
-				<li>
-					<p>当月新增用户</p>
-					<p>{$result.month_user}</p>
-				</li>
-				<li>
-					<p>当周新增用户</p>
-					<p>{$result.week_user}</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-		<div style="display:none;">
-			<ul>
-				<li>
-					<p>总会员</p>
-					<p>{$result.member_num}</p>
-				</li>
-				<li>
-					<p>当月新增会员</p>
-					<p>{$result.month_member}</p>
-				</li>
-				<li>
-					<p>当周新增会员</p>
-					<p>{$result.week_member}</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-		<div style="display:none;">
-			<ul>
-				<li>
-					<p>本月收入</p>
-					<p>1860</p>
-				</li>
-				<li>
-					<p>本周收入</p>
-					<p>862</p>
-				</li>
-				<li>
-					<p>本日收入</p>
-					<p>86</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-		<div style="display: none;">
-			<ul>
-				<li>
-					<p>本月消费</p>
-					<p>1860</p>
-				</li>
-				<li>
-					<p>本周消费</p>
-					<p>862</p>
-				</li>
-				<li>
-					<p>当日消费</p>
-					<p>86</p>
-				</li>
-				<li>
-					<p>复购率</p>
-					<p>20%</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>-->
 	
 	<div class="sta">
 	<div class="sta_total">
@@ -364,10 +16,10 @@
 			
 		</div>
 		 <div class="show_num">
-			 	 <li><span></span><span>总用户{$result.user_num}</span></li>
-			 	 <li><span></span><span>本月新增{$result.month_user}</span></li>
-			 	 <li><span></span><span>本周新增{$result.week_user}</span></li>
-			 	 
+			 	 <li><span></span><span>总用户{$result.user.user_num}</span></li>
+			 	 <li><span></span><span>本月新增{$result.user.month_user}</span></li>
+			 	 <li><span></span><span>本周新增{$result.user.week_user}</span></li>
+
 	     </div>
 	     <div class="userunfold unfold">展开</div>
      </div>
@@ -379,9 +31,9 @@
 			
 		</div>
 		 <div class="show_num">
-			 	 <li><span></span><span>总会员{$result.member_num}</span></li>
-			 	 <li><span></span><span>本月新增{$result.month_member}</span></li>
-			 	 <li><span></span><span>本周新增{$result.week_member}</span></li>
+			 	 <li><span></span><span>总会员{$result.user.member_num}</span></li>
+			 	 <li><span></span><span>本月新增{$result.user.month_member}</span></li>
+			 	 <li><span></span><span>本周新增{$result.user.week_member}</span></li>
 			 	 
 	     </div>
 	     <div class="memberunfold unfold">展开</div>
@@ -394,9 +46,9 @@
 			
 		</div>
 		 <div class="show_num">
-			 	 <li><span></span><span>本月{$result.member_num}</span></li>
-			 	 <li><span></span><span>本周{$result.month_member}</span></li>
-			 	 <li><span></span><span>今日{$result.week_member}</span></li>
+			 	 <li><span></span><span>本月{$result.order.month_order_price}</span></li>
+			 	 <li><span></span><span>本周{$result.order.week_order_price}</span></li>
+			 	 <li><span></span><span>今日{$result.order.today_order_price}</span></li>
 			 	 
 	     </div>
 	     <div class="incomeunfold unfold">展开</div>
@@ -472,101 +124,23 @@
      	 	 	  </div>
      	 	 </form>
      	 </div>
+		 {foreach name="activityInfo" item="vo"}
      	  <div class="indContainer">
-     	  	     <p>13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
-     	  	     <p class="total">报名名额：365</p>
+     	  	     <p>{$vo.aid}&nbsp;&nbsp;&nbsp;&nbsp;{$vo.a_title}</p>
+     	  	     <p class="total">订单数：{$vo.order_num}</p>
      	  	     <div class="circleContents">
      	  	     	   <div class="circleone">
      	  	     	   	    <div id="orderNum"></div>
-     	  	     	  		<p>预约人数：62</p>
+     	  	     	  		<p>报名数：{$vo.order_success_num}</p>
      	  	     	   </div>
      	  	     	   <div class="circleone">
      	  	     	   	    <div id="signNum"></div>
-     	  	     	  		<p>签到人数：62</p>
+     	  	     	  		<p>签到人数：{$vo.order_sign_num}</p>
      	  	     	   </div>
      	  	     	  
      	  	     </div>
      	  </div>
-     	  
-     	    <div class="indContainer">
-     	  	     <p>16&nbsp;&nbsp;&nbsp;&nbsp;丝绸之路</p>
-     	  	     <p class="total">报名名额：365</p>
-     	  	     <div class="circleContents">
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="orderNum1"></div>
-     	  	     	  		<p>预约人数：62</p>
-     	  	     	   </div>
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="signNum1"></div>
-     	  	     	  		<p>签到人数：62</p>
-     	  	     	   </div>
-     	  	     	  
-     	  	     </div>
-     	  </div>
-     	  
-     	    <div class="indContainer">
-     	  	     <p>17&nbsp;&nbsp;&nbsp;&nbsp;24节气之霜降</p>
-     	  	     <p class="total">报名名额：365</p>
-     	  	     <div class="circleContents">
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="orderNum2"></div>
-     	  	     	  		<p>预约人数：62</p>
-     	  	     	   </div>
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="signNum2"></div>
-     	  	     	  		<p>签到人数：62</p>
-     	  	     	   </div>
-     	  	     	  
-     	  	     </div>
-     	  </div>
-     	  
-     	    <div class="indContainer">
-     	  	     <p>19&nbsp;&nbsp;&nbsp;&nbsp;优雅宝贝生长记</p>
-     	  	     <p class="total">报名名额：365</p>
-     	  	     <div class="circleContents">
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="orderNum3"></div>
-     	  	     	  		<p>预约人数：62</p>
-     	  	     	   </div>
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="signNum3"></div>
-     	  	     	  		<p>签到人数：62</p>
-     	  	     	   </div>
-     	  	     	  
-     	  	     </div>
-     	  </div>
-     	  
-     	  <div class="indContainer">
-     	  	     <p>22&nbsp;&nbsp;&nbsp;&nbsp;社交与团队协作</p>
-     	  	     <p class="total">报名名额：365</p>
-     	  	     <div class="circleContents">
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="orderNum4"></div>
-     	  	     	  		<p>预约人数：62</p>
-     	  	     	   </div>
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="signNum4"></div>
-     	  	     	  		<p>签到人数：62</p>
-     	  	     	   </div>
-     	  	     	  
-     	  	     </div>
-     	  </div>
-     	  
-     	   <div class="indContainer">
-     	  	     <p>24&nbsp;&nbsp;&nbsp;&nbsp;眼睛的秘密</p>
-     	  	     <p class="total">报名名额：365</p>
-     	  	     <div class="circleContents">
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="orderNum5"></div>
-     	  	     	  		<p>预约人数：62</p>
-     	  	     	   </div>
-     	  	     	   <div class="circleone">
-     	  	     	   	    <div id="signNum5"></div>
-     	  	     	  		<p>签到人数：62</p>
-     	  	     	   </div>
-     	  	     	  
-     	  	     </div>
-     	  </div>
+		 {/foreach}
      	  <div class="pagination"></div>
      </div>
      
@@ -575,11 +149,11 @@
 	<script>
 
          var mychart=echarts.init(document.getElementById('main'));
-         TreeViewer(mychart,{$result.user_num},{$result.month_user},{$result.week_user});
+         TreeViewer(mychart,{$result.user.user_num},{$result.user.month_user},{$result.user.week_user});
          var mychart1=echarts.init(document.getElementById('main1'));
-         TreeViewer(mychart1,{$result.member_num},{$result.month_member},{$result.week_member});
+         TreeViewer(mychart1,{$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
          var mychart2=echarts.init(document.getElementById('main2'));
-         TreeViewer(mychart2,{$result.member_num},{$result.month_member},{$result.week_member});
+         TreeViewer(mychart2,{$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
          //		树状统计图封装
          function TreeViewer(chart,firstNum,secondNum,thirdNum){
              var option={
