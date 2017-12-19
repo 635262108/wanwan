@@ -703,7 +703,7 @@ $(".rechargeDiv .cancel").on("click",function(){
 
 //点击添加
 $("#policyContainer .add").on("click",function(){
-	$(".policyContent").append("<input type='text' style='width: 77%;'/>")
+	$(".policyContent").append("<input type='text'  name='content[]' style='width: 77%;'/>")
 })
 
 
