@@ -8,6 +8,42 @@ use think\Db;
 
 class User extends Model
 {
+
+    //会员数量
+    protected function scopeMemberNum($query){
+        $query->where('member_grade',1);
+    }
+
+    //本月会员
+    protected function scopeMemberMonth($query){
+        $query->whereTime('reg_time','month')->where('member_grade',1);
+    }
+
+    //本周会员
+    protected function scopeMemberWeek($query){
+        $query->whereTime('reg_time','week')->where('member_grade',1);
+    }
+
+    //当天会员
+    protected function scopeMemberToday($query){
+        $query->whereTime('reg_time','today')->where('member_grade',1);
+    }
+
+    //本月用户
+    protected function scopeUserMonth($query){
+        $query->whereTime('reg_time','month');
+    }
+
+    //本周用户
+    protected function scopeUserWeek($query){
+        $query->whereTime('reg_time','week');
+    }
+
+    //当天用户
+    protected function scopeUserToday($query){
+        $query->whereTime('reg_time','today');
+    }
+
 	/**
     * 根据uid获取某条用户信息
     *@uid 用户id

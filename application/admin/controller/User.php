@@ -614,6 +614,12 @@ class User extends Base
     	return $this->fetch();
     }
 
+    //添加政策
+    public function addPolicy(){
+        $data = input('post.');
+
+    }
+
     //成单记录
     public function deal(){
         //获取数据

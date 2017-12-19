@@ -11,5 +11,13 @@ use think\Model;
 
 class Recharge extends Model
 {
+    //上周充值
+    protected function scopeLastWeek($query){
+        $query->whereTime('pay_time','last week')->where('status',1);
+    }
 
+    //本周充值
+    protected function scopeWeek($query){
+        $query->whereTime('pay_time','week')->where('status',1);
+    }
 }

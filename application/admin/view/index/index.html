@@ -7,354 +7,6 @@
 		</div>
 	</div>
 
-	<!--<div class="ul_classify">
-		<ul class="first">
-			<li>用&nbsp;户<span></span></li>
-			<li>会&nbsp;员<span style="display: none;"></span></li>
-			<li>收&nbsp;入<span style="display: none;"></span></li>
-			<!--<li>消&nbsp;费<span style="display: none;"></span></li>-->
-	<!--<li class="sign">签&nbsp;到</span></li>-->
-	<!--</ul>-->
-	<!--<ul id="signSelect" style="display: none;">
-			<li><a href="{:url('admin/user/mobile_sign')}">手机号签到</a></li>
-			<li><a href="{:url('admin/user/sign')}">二维码签到</a></li>
-		</ul>
-	</div>-->
-	<!--<div class="classify_contents">
-		<div>
-			<ul>
-				<li>
-					<p>总用户</p>
-					<p>{$result.user_num}</p>
-				</li>
-				<li>
-					<p>当月新增用户</p>
-					<p>{$result.month_user}</p>
-				</li>
-				<li>
-					<p>当周新增用户</p>
-					<p>{$result.week_user}</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-		<div style="display:none;">
-			<ul>
-				<li>
-					<p>总会员</p>
-					<p>{$result.member_num}</p>
-				</li>
-				<li>
-					<p>当月新增会员</p>
-					<p>{$result.month_member}</p>
-				</li>
-				<li>
-					<p>当周新增会员</p>
-					<p>{$result.week_member}</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-		<div style="display:none;">
-			<ul>
-				<li>
-					<p>本月收入</p>
-					<p>1860</p>
-				</li>
-				<li>
-					<p>本周收入</p>
-					<p>862</p>
-				</li>
-				<li>
-					<p>本日收入</p>
-					<p>86</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-		<div style="display: none;">
-			<ul>
-				<li>
-					<p>本月消费</p>
-					<p>1860</p>
-				</li>
-				<li>
-					<p>本周消费</p>
-					<p>862</p>
-				</li>
-				<li>
-					<p>当日消费</p>
-					<p>86</p>
-				</li>
-				<li>
-					<p>复购率</p>
-					<p>20%</p>
-				</li>
-			</ul>
-			<div class="apply_details">
-				<div class="detail_table">
-					<div class="title">报名人数</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-
-							<td>{$result.last_week_order}</td>
-							<td>{$result.week_order}</td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">成交金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_order_price}</td>
-							{/if} {if $result.week_order_price eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_order_price}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-
-				<div class="detail_table">
-					<div class="title">充值金额</div>
-					<table style="width: 687px;height:80px;" cellspacing="0" cellpadding="0" border="1" bordercolor="#ccc">
-
-						<tr>
-							<td>上周</td>
-							<td>本周</td>
-						</tr>
-						<tr>
-							{if $result.last_week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.last_week_recharge}</td>
-							{/if} {if $result.week_recharge eq null}
-							<td>0</td>
-							{else/}
-							<td>{$result.week_recharge}</td>
-							{/if}
-
-						</tr>
-
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>-->
-
 	<div class="sta">
 		<div class="sta_total">
 			<div class="title">
@@ -386,20 +38,17 @@
 			</div>
 			<div class="memberunfold unfold">展开</div>
 		</div>
-		<div class="sta_total">
-			<div class="title">
-				<img src="__AIMG__/pocket.png" style="width: 14px;height: 16px;" /><span style="color:#50cfc8 ;">收入</span>
-			</div>
-			<div id="main2" style="width:180px;height: 300px;">
+		 <div class="show_num">
+			 	 <li><span></span><span>总用户{$result.user.user_num}</span></li>
+			 	 <li><span></span><span>本月新增{$result.user.month_user}</span></li>
+			 	 <li><span></span><span>本周新增{$result.user.week_user}</span></li>
 
-			</div>
-			<div class="show_num">
-				<li><span></span><span>本月{$result.member_num}</span></li>
-				<li><span></span><span>本周{$result.month_member}</span></li>
-				<li><span></span><span>今日{$result.week_member}</span></li>
-
-			</div>
-			<div class="incomeunfold unfold">展开</div>
+	     </div>
+	     <div class="userunfold unfold">展开</div>
+     </div>
+     <div class="sta_total">
+		<div class="title">
+			 <img  src="__AIMG__/member.png" style="width: 14px;height: 16px;"/><span style="color:#dfc822;">会员</span>
 		</div>
 
 		<div class="sign">
@@ -409,24 +58,17 @@
 			</a>
 
 		</div>
-	</div>
-
-	<!--折线图-->
-	<div class="brokenLineContent">
-		<div class="UserContainer LineContainer" style="display: none;">
-			<div>
-				<div id="monthLine" style="width:800px;height: 400px;">
-
-				</div>
-				<p>每月用户走势表</p>
-			</div>
-			<div>
-				<div id="weekLine" style="width: 400px;height: 400px;">
-
-				</div>
-				<p>每周用户走势表</p>
-			</div>
-
+		 <div class="show_num">
+			 	 <li><span></span><span>总会员{$result.user.member_num}</span></li>
+			 	 <li><span></span><span>本月新增{$result.user.month_member}</span></li>
+			 	 <li><span></span><span>本周新增{$result.user.week_member}</span></li>
+			 	 
+	     </div>
+	     <div class="memberunfold unfold">展开</div>
+     </div>
+     <div class="sta_total">
+		<div class="title">
+			 <img  src="__AIMG__/pocket.png" style="width: 14px;height: 16px;"/><span style="color:#50cfc8 ;">收入</span>
 		</div>
 
 		<div class="memberContainer LineContainer" style="display: none;">
@@ -444,176 +86,185 @@
 			</div>
 
 		</div>
-		<div class="incomeContainer LineContainer" style="display: none;">
-			<div>
-				<div id="monthLine2" style="width:800px;height: 400px;">
-
-				</div>
-				<p>每月用户走势表</p>
-			</div>
-			<div>
-				<div id="weekLine2" style="width: 400px;height: 400px;">
-
-				</div>
-				<p>每周用户走势表</p>
-			</div>
-
-		</div>
-	</div>
-
-	<div class="indContainerContent">
-		<div class="search">
-			<form>
-				<div class="anySearch">
-					<span>Srearch:</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" />
-				</div>
-			</form>
-		</div>
-		<div class="indContainer" style="display: flex;">
-			<p>13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
-			<p class="total">报名名额：<span class="tatal_num">365</span></p>
-			<div class="circleContents">
-				<div class="circleone">
-					<div class="orderNum"></div>
-					<p>预约人数：<span class="first_num">62</span></p>
-				</div>
-				<div class="circleone">
-					<div class="signNum"></div>
-					<p>签到人数：<span class="second_num">100</span></p>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="indContainer">
-			<p>16&nbsp;&nbsp;&nbsp;&nbsp;丝绸之路</p>
-			<p class="total">报名名额：<span class="tatal_num">365</span></p>
-			<div class="circleContents">
-				<div class="circleone">
-					<div class="orderNum"></div>
-					<p>预约人数：<span class="first_num">62</span></p>
-				</div>
-				<div class="circleone">
-					<div class="signNum"></div>
-					<p>签到人数：<span class="second_num">50</span></p>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="indContainer">
-			<p>17&nbsp;&nbsp;&nbsp;&nbsp;24节气之霜降</p>
-			<p class="total">报名名额：<span class="tatal_num">365</span></p>
-			<div class="circleContents">
-				<div class="circleone">
-					<div class="orderNum"></div>
-					<p>预约人数：<span class="first_num">62</span></p>
-				</div>
-				<div class="circleone">
-					<div class="signNum"></div>
-					<p>签到人数：<span class="second_num">100</span></p>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="indContainer">
-			<p>19&nbsp;&nbsp;&nbsp;&nbsp;优雅宝贝生长记</p>
-			<p class="total">报名名额：<span class="tatal_num">365</span></p>
-			<div class="circleContents">
-				<div class="circleone">
-					<div class="orderNum"></div>
-					<p>预约人数：<span class="first_num">62</span></p>
-				</div>
-				<div class="circleone">
-					<div class="signNum"></div>
-					<p>签到人数：<span class="second_num">100</span></p>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="indContainer">
-			<p>22&nbsp;&nbsp;&nbsp;&nbsp;社交与团队协作</p>
-			<p class="total">报名名额：<span class="tatal_num">365</span></p>
-			<div class="circleContents">
-				<div class="circleone">
-					<div class="orderNum"></div>
-					<p>预约人数：<span class="first_num">62</span></p>
-				</div>
-				<div class="circleone">
-					<div class="signNum"></div>
-					<p>签到人数：<span class="second_num">100</span></p>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="indContainer">
-			<p>24&nbsp;&nbsp;&nbsp;&nbsp;眼睛的秘密</p>
-			<p class="total">报名名额：<span class="tatal_num">365</span></p>
-			<div class="circleContents">
-				<div class="circleone">
-					<div class="orderNum"></div>
-					<p>预约人数：<span class="first_num">62</span></p>
-				</div>
-				<div class="circleone">
-					<div class="signNum"></div>
-					<p>签到人数：<span class="second_num">100</span></p>
-				</div>
-
-			</div>
-		</div>
-
-		<input type="hidden" id="start_page">
-		<input type="hidden" id="current_page" />
-		<input type="hidden" id="show_per_page" />
-		<input type="hidden" id="end_page">
-		<!--分页-->
-		<div id="pageGro" class="cb">
-			<div class="pagestart">首页</div>
-			<div class="pageUp">上一页</div>
-			<div class="pageList">
-				<ul>
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-				</ul>
-			</div>
-			<div class="pageDown">下一页</div>
-			<div class="pageend">尾页</div>
-		</div>
-
-	</div>
-
+		 <div class="show_num">
+			 	 <li><span></span><span>本月{$result.order.month_order_price}</span></li>
+			 	 <li><span></span><span>本周{$result.order.week_order_price}</span></li>
+			 	 <li><span></span><span>今日{$result.order.today_order_price}</span></li>
+			 	 
+	     </div>
+	     <div class="incomeunfold unfold">展开</div>
+     </div>
+     
+     <div class="sign">
+     	<a href="{:url('admin/user/mobile_sign')}">
+     		<div class="word">签到管理系统</div>
+     	  	<div class="circle"><span></span><span></span><span></span></div>
+     	</a>
+     	  
+     </div>
+     </div>
+     
+     <!--折线图-->
+     <div class="brokenLineContent">
+     	 <div class="UserContainer LineContainer" style="display: none;">
+     	 	<div>
+     	 		<div id="monthLine" style="width:800px;height: 400px;">
+     	 	   	     
+     	 	   </div>
+     	 	   <p>每月用户走势表</p>
+     	 	</div>
+     	 	<div>
+     	 	   <div id="weekLine" style="width: 400px;height: 400px;">
+     	 	   	   
+     	 	   </div>
+     	 	    <p>每周用户走势表</p>
+     	 	</div>
+     	 	 
+     	 </div>
+     	 
+     	  <div class="memberContainer LineContainer" style="display: none;">
+     	 	<div>
+     	 		<div id="monthLine1" style="width:800px;height: 400px;">
+     	 	   	     
+     	 	   </div>
+     	 	   <p>每月用户走势表</p>
+     	 	</div>
+     	 	<div>
+     	 	   <div id="weekLine1" style="width: 400px;height: 400px;">
+     	 	   	   
+     	 	   </div>
+     	 	    <p>每周用户走势表</p>
+     	 	</div>
+     	 	 
+     	 </div>
+     	  <div class="incomeContainer LineContainer" style="display: none;">
+     	 	<div>
+     	 		<div id="monthLine2" style="width:800px;height: 400px;">
+     	 	   	     
+     	 	   </div>
+     	 	   <p>每月用户走势表</p>
+     	 	</div>
+     	 	<div>
+     	 	   <div id="weekLine2" style="width: 400px;height: 400px;">
+     	 	   	   
+     	 	   </div>
+     	 	    <p>每周用户走势表</p>
+     	 	</div>
+     	 	 
+     	 </div>
+     </div>
+     
+     <div class="indContainerContent">
+     	 <div class="search">
+     	 	 <form>
+     	 	 	  <!--<div class="timeSearch">
+     	 	 	  	   <input type="text" value="2017-12-5" style="cursor: pointer;" onFocus="new Calendar().show(this);"><div class="line"></div><input type="text" value="2017-12-7" style="cursor: pointer;" onFocus="new Calendar().show(this);"> <button type="submit">查找</button>
+     	 	 	  </div>-->
+     	 	 	  <div class="anySearch">
+     	 	 	  	   <span>Srearch:</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" />
+     	 	 	  </div>
+     	 	 </form>
+     	 </div>
+		 {foreach name="activityInfo" item="vo"}
+     	  <div class="indContainer">
+     	  	     <p>{$vo.aid}&nbsp;&nbsp;&nbsp;&nbsp;{$vo.a_title}</p>
+     	  	     <p class="total">订单数：{$vo.order_num}</p>
+     	  	     <div class="circleContents">
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="orderNum"></div>
+     	  	     	  		<p>报名数：{$vo.order_success_num}</p>
+     	  	     	   </div>
+     	  	     	   <div class="circleone">
+     	  	     	   	    <div id="signNum"></div>
+     	  	     	  		<p>签到人数：{$vo.order_sign_num}</p>
+     	  	     	   </div>
+     	  	     	  
+     	  	     </div>
+     	  </div>
+		 {/foreach}
+     	  <div class="pagination"></div>
+     </div>
+     
+     
 	{include file="public/footer" /}
 	<script>
 		var mychart = echarts.init(document.getElementById('main'));
 		TreeViewer(mychart,{$result.user_num },{$result.month_user },{$result.week_user});
 
-		var mychart1 = echarts.init(document.getElementById('main1'));
-		TreeViewer(mychart1,{$result.member_num },{$result.month_member},{$result.week_member});
-		var mychart2 = echarts.init(document.getElementById('main2'));
-		TreeViewer(mychart2,{$result.member_num },{$result.month_member},{$result.week_member});
-		//		树状统计图封装
-		function TreeViewer(chart, firstNum, secondNum, thirdNum) {
-			var option = {
-				title: {
-					show: false
-				},
-				legend: {
-					orient: 'vertical',
-					right: 80,
-					bottom: 60,
-					icon: 'circle'
-				},
-				xAxis: {
-					data: ['总用户', '当月新增用户', '当周新增用户'],
-					show: false
-				},
-				yAxis: { show: false },
+         var mychart=echarts.init(document.getElementById('main'));
+         TreeViewer(mychart,{$result.user.user_num},{$result.user.month_user},{$result.user.week_user});
+         var mychart1=echarts.init(document.getElementById('main1'));
+         TreeViewer(mychart1,{$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
+         var mychart2=echarts.init(document.getElementById('main2'));
+         TreeViewer(mychart2,{$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
+         //		树状统计图封装
+         function TreeViewer(chart,firstNum,secondNum,thirdNum){
+             var option={
+			title: {
+               show:false
+           },
+            legend: {
+            	orient:'vertical',
+                right:80,
+                bottom:60,
+                icon:'circle'
+            },
+            xAxis: {
+                data: ['总用户','当月新增用户','当周新增用户'],
+                show:false
+            },
+            yAxis: {show:false},
+            
+            series: [
+               
+            {
+                name: '数量',
+                type: 'bar',
+                data: [firstNum,secondNum,thirdNum],
+                barWidth:25,
+                itemStyle:{
+                	normal:{
+                		color:function (params){
+                        var colorList = ['#ff4134','#50cfc8','#dfc822'];
+                        return colorList[params.dataIndex];
+                		}
+                	}
+               
+            	}
+           
+            }]
+        }
+	        chart.setOption(option);
+         }
+         
+		
+//		圆形统计图
+        function circletotal(circle,num,Color){
+		           circle.radialIndicator({
+				        	radius:40,
+							barColor:Color,
+							barBgColor:'#d2d2d2',
+							barWidth:5,
+							initValue:num,
+							roundCorner:true,
+							percentage:true
+				    })
+        }
+        
+        
+        
+        circletotal($("#orderNum"),33,'#2843a8');
+        circletotal($("#signNum"),40,'#2843a8');
+        circletotal($("#orderNum1"),20,'#dfc822');
+        circletotal($("#signNum1"),20,'#dfc822');
+        circletotal($("#orderNum2"),22,'#ff4134');
+        circletotal($("#signNum2"),22,'#ff4134');
+        circletotal($("#orderNum3"),22,'#4abe35');
+        circletotal($("#signNum3"),22,'#4abe35');
+        circletotal($("#orderNum4"),22,'#440062');
+        circletotal($("#signNum4"),22,'#440062');
+        circletotal($("#orderNum5"),22,'#50cfc8');
+        circletotal($("#signNum5"),22,'#50cfc8');
 
 				series: [
 
