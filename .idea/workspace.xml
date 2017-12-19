@@ -8,12 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Index.php" afterPath="$PROJECT_DIR$/application/admin/controller/Index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/index.html" afterPath="$PROJECT_DIR$/application/admin/view/index/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" afterPath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/Recharge.php" afterPath="$PROJECT_DIR$/application/common/model/Recharge.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/User.php" afterPath="$PROJECT_DIR$/application/common/model/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/recharge_policy.html" afterPath="$PROJECT_DIR$/application/admin/view/user/recharge_policy.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +45,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1286">
-              <caret line="613" column="32" lean-forward="true" selection-start-line="613" selection-start-column="32" selection-end-line="613" selection-end-column="32" />
+            <state relative-caret-position="164">
+              <caret line="529" column="34" lean-forward="true" selection-start-line="529" selection-start-column="34" selection-end-line="529" selection-end-column="34" />
               <folding>
                 <element signature="e#38#69#0#PHP" expanded="true" />
                 <marker date="1513584682806" expanded="true" signature="6927:7357" ph="select a_tit... mfw_activity" />
@@ -89,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityOrder.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActivityOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/common/model/ActivityOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+            <state relative-caret-position="66">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -119,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recharge_policy.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="recharge_policy.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_policy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+            <state relative-caret-position="308">
+              <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -242,7 +237,6 @@
         <option value="$PROJECT_DIR$/application/mobile/view/public/select_login.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/public/second_header.html" />
         <option value="$PROJECT_DIR$/application/admin/view/public/left.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/user/recharge_policy.html" />
         <option value="$PROJECT_DIR$/application/common/model/RechargePolicy.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
         <option value="$PROJECT_DIR$/application/common/model/Recharge.php" />
@@ -250,6 +244,7 @@
         <option value="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/view/index/index.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/user/recharge_policy.html" />
       </list>
     </option>
   </component>
@@ -504,12 +499,12 @@
       <workItem from="1513212241849" duration="17000000" />
       <workItem from="1513299277679" duration="19172000" />
       <workItem from="1513562931303" duration="21659000" />
-      <workItem from="1513645059666" duration="18656000" />
+      <workItem from="1513645059666" duration="19401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="960583000" />
+    <option name="totallyTimeSpent" value="961328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -862,14 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_policy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/validate/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -902,24 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1286">
-          <caret line="613" column="32" lean-forward="true" selection-start-line="613" selection-start-column="32" selection-end-line="613" selection-end-column="32" />
-          <folding>
-            <element signature="e#38#69#0#PHP" expanded="true" />
-            <marker date="1513584682806" expanded="true" signature="6927:7357" ph="select a_tit... mfw_activity" />
-            <marker date="1513584682806" expanded="true" signature="6972:7058" ph="select count... mfw_activity_order" />
-            <marker date="1513584682806" expanded="true" signature="7098:7179" ph="select count... mfw_activity_order" />
-            <marker date="1513584682806" expanded="true" signature="7220:7302" ph="select count... mfw_activity_order" />
-            <marker date="1513584682806" expanded="true" signature="8752:9197" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1513584682806" expanded="true" signature="8752:9211" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1513584682806" expanded="true" signature="8811:8913" ph="select count... mfw_activity_order" />
-            <marker date="1513584682806" expanded="true" signature="8966:9069" ph="select count... mfw_activity_order" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -936,16 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="137" column="55" lean-forward="false" selection-start-line="137" selection-start-column="55" selection-end-line="137" selection-end-column="55" />
-          <folding>
-            <element signature="e#4228#4234#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -956,8 +915,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/ActivityOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="137" column="55" lean-forward="false" selection-start-line="137" selection-start-column="55" selection-end-line="137" selection-end-column="55" />
+          <folding>
+            <element signature="e#4228#4234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="529" column="34" lean-forward="true" selection-start-line="529" selection-start-column="34" selection-end-line="529" selection-end-column="34" />
+          <folding>
+            <element signature="e#38#69#0#PHP" expanded="true" />
+            <marker date="1513584682806" expanded="true" signature="6927:7357" ph="select a_tit... mfw_activity" />
+            <marker date="1513584682806" expanded="true" signature="6972:7058" ph="select count... mfw_activity_order" />
+            <marker date="1513584682806" expanded="true" signature="7098:7179" ph="select count... mfw_activity_order" />
+            <marker date="1513584682806" expanded="true" signature="7220:7302" ph="select count... mfw_activity_order" />
+            <marker date="1513584682806" expanded="true" signature="8752:9197" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1513584682806" expanded="true" signature="8752:9211" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1513584682806" expanded="true" signature="8811:8913" ph="select count... mfw_activity_order" />
+            <marker date="1513584682806" expanded="true" signature="8966:9069" ph="select count... mfw_activity_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_policy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
           <folding />
         </state>
       </provider>
