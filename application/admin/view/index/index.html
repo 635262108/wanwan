@@ -16,9 +16,9 @@
 
 			</div>
 			<div class="show_num">
-				<li><span></span><span>总用户{$result.user_num}</span></li>
-				<li><span></span><span>本月新增{$result.month_user}</span></li>
-				<li><span></span><span>本周新增{$result.week_user}</span></li>
+				<li><span></span><span>总用户{$result.user.user_num}</span></li>
+				<li><span></span><span>本月新增{$result.user.month_user}</span></li>
+				<li><span></span><span>本周新增{$result.user.week_user}</span></li>
 
 			</div>
 			<div class="userunfold unfold">展开</div>
@@ -31,78 +31,39 @@
 
 			</div>
 			<div class="show_num">
-				<li><span></span><span>总会员{$result.member_num}</span></li>
-				<li><span></span><span>本月新增{$result.month_member}</span></li>
-				<li><span></span><span>本周新增{$result.week_member}</span></li>
+				<li><span></span><span>总会员{$result.user.member_num}</span></li>
+				<li><span></span><span>本月新增{$result.user.month_member}</span></li>
+				<li><span></span><span>本周新增{$result.user.week_member}</span></li>
 
 			</div>
 			<div class="memberunfold unfold">展开</div>
 		</div>
-		<div class="show_num">
-			<li><span></span><span>总用户{$result.user.user_num}</span></li>
-			<li><span></span><span>本月新增{$result.user.month_user}</span></li>
-			<li><span></span><span>本周新增{$result.user.week_user}</span></li>
-
-		</div>
-		<div class="userunfold unfold">展开</div>
-	</div>
-	<div class="sta_total">
-		<div class="title">
-			<img src="__AIMG__/member.png" style="width: 14px;height: 16px;" /><span style="color:#dfc822;">会员</span>
-		</div>
-
-		<div class="sign">
-			<a href="{:url('admin/user/mobile_sign')}">
-				<div class="word">签到管理系统</div>
-				<div class="circle"><span></span><span></span><span></span></div>
-			</a>
-
-		</div>
-		<div class="show_num">
-			<li><span></span><span>总会员{$result.user.member_num}</span></li>
-			<li><span></span><span>本月新增{$result.user.month_member}</span></li>
-			<li><span></span><span>本周新增{$result.user.week_member}</span></li>
-
-		</div>
-		<div class="memberunfold unfold">展开</div>
-	</div>
-	<div class="sta_total">
-		<div class="title">
-			<img src="__AIMG__/pocket.png" style="width: 14px;height: 16px;" /><span style="color:#50cfc8 ;">收入</span>
-		</div>
-
-		<div class="memberContainer LineContainer" style="display: none;">
-			<div>
-				<div id="monthLine1" style="width:800px;height: 400px;">
-
-				</div>
-				<p>每月用户走势表</p>
+	    <div class="sta_total">
+			<div class="title">
+				<img src="__AIMG__/member.png" style="width: 14px;height: 16px;" /><span style="color:#dfc822;">收入</span>
 			</div>
-			<div>
-				<div id="weekLine1" style="width: 400px;height: 400px;">
+			<div id="main2" style="width:180px;height: 300px;">
 
-				</div>
-				<p>每周用户走势表</p>
 			</div>
+			<div class="show_num">
+				<li><span></span><span>总会员{$result.user.member_num}</span></li>
+				<li><span></span><span>本月新增{$result.user.month_member}</span></li>
+				<li><span></span><span>本周新增{$result.user.week_member}</span></li>
 
+			</div>
+			<div class="memberunfold unfold">展开</div>
 		</div>
-		<div class="show_num">
-			<li><span></span><span>本月{$result.order.month_order_price}</span></li>
-			<li><span></span><span>本周{$result.order.week_order_price}</span></li>
-			<li><span></span><span>今日{$result.order.today_order_price}</span></li>
-
-		</div>
-		<div class="incomeunfold unfold">展开</div>
+		
+		
+			<div class="sign">
+				<a href="{:url('admin/user/mobile_sign')}">
+					<div class="word">签到管理系统</div>
+					<div class="circle"><span></span><span></span><span></span></div>
+				</a>
+		
+			</div>
 	</div>
-
-	<div class="sign">
-		<a href="{:url('admin/user/mobile_sign')}">
-			<div class="word">签到管理系统</div>
-			<div class="circle"><span></span><span></span><span></span></div>
-		</a>
-
-	</div>
-</div>
+	
 
 <!--折线图-->
 <div class="brokenLineContent">
@@ -168,15 +129,15 @@
 	{foreach name="activityInfo" item="vo"}
 	<div class="indContainer">
 		<p>{$vo.aid}&nbsp;&nbsp;&nbsp;&nbsp;{$vo.a_title}</p>
-		<p class="total">订单数：{$vo.order_num}</p>
+		<p class="total">订单数：<span class="tatal_num">{$vo.order_num}</span></p>
 		<div class="circleContents">
 			<div class="circleone">
-				<div id="orderNum"></div>
-				<p>报名数：{$vo.order_success_num}</p>
+				<div class="orderNum"></div>
+				<p>报名数：<span class="first_num">{$vo.order_success_num}</span></p>
 			</div>
 			<div class="circleone">
-				<div id="signNum"></div>
-				<p>签到人数：{$vo.order_sign_num}</p>
+				<div class="signNum"></div>
+				<p>签到人数：<span class="second_num">{$vo.order_sign_num}</span></p>
 			</div>
 
 		</div>
@@ -186,7 +147,6 @@
 	<input type="hidden" id="current_page" />
 	<input type="hidden" id="show_per_page" />
 	<input type="hidden" id="end_page">
-	<!-------------------------------------------分页----------------------------------------------------------------->
 	<div id="pageGro" class="cb">
 		<div class="pagestart">首页</div>
 		<div class="pageUp">上一页</div>
@@ -206,15 +166,13 @@
 
 {include file="public/footer" /}
 <script>
-	var mychart = echarts.init(document.getElementById('main'));
-	TreeViewer(mychart, { $result.user_num }, { $result.month_user }, { $result.week_user });
 
 	var mychart = echarts.init(document.getElementById('main'));
-	TreeViewer(mychart, { $result.user.user_num }, { $result.user.month_user }, { $result.user.week_user });
+	TreeViewer(mychart,{$result.user.user_num},{$result.user.month_user},{$result.user.week_user});
 	var mychart1 = echarts.init(document.getElementById('main1'));
-	TreeViewer(mychart1, { $result.user.member_num }, { $result.user.month_member }, { $result.user.week_member });
+	TreeViewer(mychart1,{$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
 	var mychart2 = echarts.init(document.getElementById('main2'));
-	TreeViewer(mychart2, { $result.user.member_num }, { $result.user.month_member }, { $result.user.week_member });
+	TreeViewer(mychart2,{$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
 	//		树状统计图封装
 	function TreeViewer(chart, firstNum, secondNum, thirdNum) {
 		var option = {
@@ -272,15 +230,24 @@
 	}
 
 	var circleTotals = $(".indContainer");
-	var colors = ['#2843a8', '#dfc822', '#ff4134', '#9d27ac', '#4abe35', '#440062', '#50cfc8', '#f08827']
-
+	var colors = ['#2843a8','#dfc822','#ff4134','#9d27ac','#4abe35','#440062','#50cfc8','#f08827']
+ 	var $i=0;
 	$(".indContainer").each(function() {
 		var index = $(this).index();
 		var totalNum = $(this).find(".tatal_num").html();
+		
 		var first = $(this).find(".first_num").html();
 		var second = $(this).find(".second_num").html();
-		circletotal($(this).find(".orderNum"), first / totalNum * 100, colors[index - 1])
-		circletotal($(this).find(".signNum"), second / totalNum * 100, colors[index - 1])
+		
+//		报名数
+		circletotal($(this).find(".orderNum"), first/totalNum * 100, colors[$i])
+//		签到数
+		circletotal($(this).find(".signNum"), second/first * 100, colors[$i])
+		$i++;
+		if($i%7==0){
+			$i=0;
+		}
+		
 
 	})
 

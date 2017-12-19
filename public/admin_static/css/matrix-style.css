@@ -2317,10 +2317,12 @@ div.dataTables_wrapper .ui-widget-header {
 	box-sizing: border-box;
 	margin-left: 1.5%;
 	padding-left: 50px;
-	overflow: hidden;
 	padding-bottom: 60px;
 	margin-top: 30px;
 	position: relative;
+	width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 .indContainerContent .search{
 	width: 96%;
@@ -2367,13 +2369,10 @@ div.dataTables_wrapper .ui-widget-header {
 	justify-content: center;
 	background: #f7f6f6;
 	box-shadow: -1px 0px 2px #f7f6f6;
-	float: left;
-	margin-right: 74px;
 	margin-bottom: 20px;
+	margin-right: 75px;
 }
-.indContainerContent .indContainer:nth-child(4){
-	margin-right: 0px;
-}
+
 .indContainerContent .indContainer p:nth-child(1){
 	font-size: 17px;
 	color: #000000;
