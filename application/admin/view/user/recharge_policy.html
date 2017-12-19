@@ -10,7 +10,7 @@
     </div>
 
     <div class="add_order">
-        <a href="{:url('admin/user/dis_add_deal')}">
+        <a href="{:url('admin/user/dis_add_Policy')}">
             <div class="add" title="添加政策">
           <span style="font-size: 14px;">
               <i class="icon-plus"></i>
@@ -42,10 +42,10 @@
                             <tbody id="tbody_center" style='font-size: 12px;'>
                             {foreach name="data" item="vo"}
                             <tr class="gradeX trs">
-                                <td>{$vo.id}</td>
+                                <td class="firstSib">{$vo.id}</td>
                                 <td>{$vo.money}</td>
                                 <td>{$vo.discount}</td>
-                                <td>点击查看</td>
+                                <td class="content" style="cursor: pointer;">点击查看</td>
                                 <td>{$vo.addtime|date='Y-m-d H:i',###}</td>
                                 <td class="center">
                                     <a href=""><i class="delete icon-pencil">&nbsp;&nbsp;编辑</i></a>
@@ -61,6 +61,15 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="rechargeModalbox" style="display: none;">
+	 <div class="rechargeDiv">
+	 	 <div class="cancel">X</div>
+	 	 <ul>
+	 	 	  
+	 	 </ul>
+	 </div>
 </div>
 
 {include file="public/footer" /}

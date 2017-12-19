@@ -1,6 +1,5 @@
 <?php
 namespace app\admin\controller;
-use function PHPSTORM_META\map;
 use think\Controller;
 use think\Session;
 use app\admin\logic\UserLogic;
@@ -142,7 +141,7 @@ class User extends Base
 
     }
     
-    //修改个人信息展示
+    //修改个人信息展示 
     public function saveUserList($uid){
         //获取用户信息
         $user = model('user');
@@ -608,6 +607,11 @@ class User extends Base
         $data = input('get.');
         $res = model('RechargePolicy')->getRechargeIdData($data['id'],'id,content');
         return_info(200,'成功',$res);
+    }
+    
+    //添加充值政策
+    public function dis_add_Policy(){
+    	return $this->fetch();
     }
 
     //成单记录

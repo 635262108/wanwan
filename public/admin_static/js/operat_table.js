@@ -678,6 +678,47 @@ $(".recommend td:nth-child(12)").live("click",function(){
    }
 	
 })
+
+//充值政策的功能
+//点击查看内容
+$(".content").live("click",function(){
+	
+		$.get("/abab.php/user/getPolicyCon", { id: $(this).siblings(".firstSib").html() },
+		function(obj) {
+			if(obj.state_code == 200) {
+				var str=''
+				for(var i=0;i<obj.data.length;i++){
+					str+="<li>"+obj.data[i].content+"</li>"
+				}
+				$(".rechargeDiv ul").html(str)
+				$(".rechargeModalbox").show()
+			}
+		}, "json");
+	
+})
+
+$(".rechargeDiv .cancel").on("click",function(){
+	 $(".rechargeModalbox").hide()
+})
+
+//点击添加
+$("#policyContainer .add").on("click",function(){
+	$(".policyContent").append("<input type='text' style='width: 77%;'/>")
+})
+
+
+//活动安排的添加按钮
+$(".add_arrange").on("click",function(){
+	var str='<div class="arrangePart"><div class="control-group"><label class="control-label">活动时间：</label><div class="controls timeControl"><input type="text" value="" name="begin_time" placeholder="格式：2017-09-07 15:30" onfocus="$(this).calendar()" style="cursor: pointer;"><div class="line"></div><input type="text" value="" name="end_time" placeholder="格式：2017-09-07 15:30" onfocus="$(this).calendar()" style="cursor: pointer;"></div></div><div class="control-group"><label class="control-label">备注：</label><div class="controls"><input class="span11" value="" name="remark" type="text" style="width:20%"></div></div><div class="control-group"><label class="control-label">名额：</label><div class="controls"><input class="span11" value="" placeholder="整数" name="ticket_num" type="text" style="width:20%"></div></div><div class="control-group"><label class="control-label">是否显示：</label><div class="controls"><select name="is_display" style="width:20%"><option value="0">否</option><option value="1">是</option></select></div></div><div class="arrange_delete" style="margin-left: 20%;">删除</div></div>'
+	
+	$(".arrangeContents").append(str);
+})
+
+//点击删除操作
+$(document).on("click",".arrange_delete",function(){
+	$(this).parent().remove();
+})
+
     
 
     
