@@ -245,3 +245,13 @@ function str_decode($str){
     return base64_decode($str);
 }
 
+//检查token
+function checkToken($token){
+    if ($token == session('TOKEN')) {
+        session('TOKEN', NULL);
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+

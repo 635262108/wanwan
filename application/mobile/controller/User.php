@@ -594,6 +594,11 @@ class User extends Base
             $this->error('金额输入不正确');
         }
 
+        $token = input('post.token');
+        if(!checkToken($token)){
+            $this->redirect('user/index');
+        }
+
         $uid = Session::get('userInfo.uid');
         //获取openid
         $openId = session::get('openid');
