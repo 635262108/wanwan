@@ -147,7 +147,8 @@ class Activity extends Model
             'aid' => 'desc'
         ];
         $map = [
-            'a_status'=> 1
+            'a_status'=> 1,
+            'a_is_recommend' => 1
         ];
         return $this->where($map)->limit("0,10")->order($order)->select();
     }
