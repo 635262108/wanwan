@@ -29,6 +29,11 @@ class ActivityOrder extends Model
         $query->whereTime('addtime','today')->where('pay_time','>',0)->where('order_status','<',5);
     }
 
+    //所有已成单
+    protected function scopeSuccessOrder($query){
+        $query->where('pay_time','>',0)->where('order_status','<',5);
+    }
+
     //某个活动的订单
     public function anyActivityOrder($aid = 0,$field = '*'){
         $map = [

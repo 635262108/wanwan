@@ -25,13 +25,13 @@ class Index extends Base
         ];
 
         $result['order'] = [
-            'activity_order_num' => $activityOrder->count(),    //订单总数
-            'last_week_order' => $activityOrder::scope('LastWeekSuccessOrder')->sum('child_num'),  //上周报名人数
-            'week_order'    => $activityOrder::scope('WeekSuccessOrder')->sum('child_num'),  //这周报名人数
-            'last_week_order_price' => $activityOrder::scope('LastWeekSuccessOrder')->sum('order_price'),  //上周成交金额
-            'week_order_price'  => $activityOrder::scope('WeekSuccessOrder')->sum('order_price'),  //这周成交金额
-            'today_order_price'   => $activityOrder::scope('ToDaySuccessOrder')->sum('order_price'),  //这天成交金额
-            'month_order_price' => $activityOrder::scope('MonthSuccessOrder')->sum('order_price'),  //这月成交金额
+//            'activity_order_num' => $activityOrder->count(),    //订单总数
+//            'last_week_order' => $activityOrder::scope('LastWeekSuccessOrder')->sum('child_num'),  //上周报名人数
+//            'week_order'    => $activityOrder::scope('WeekSuccessOrder')->sum('child_num'),  //这周报名人数
+            'order_price'   => $activityOrder::scope('SuccessOrder')->sum('order_price'),       //订单总成交
+            'month_order_price' => $activityOrder::scope('MonthSuccessOrder')->sum('order_price'),  //本月订单成交金额
+            'week_order_price'  => $activityOrder::scope('WeekSuccessOrder')->sum('order_price'),  //本周订单成交金额
+            'today_order_price'   => $activityOrder::scope('ToDaySuccessOrder')->sum('order_price'),  //当天成交金额
         ];
 
         $result['activity'] = [
@@ -39,19 +39,12 @@ class Index extends Base
         ];
 
         $result['recharge'] = [
-            'last_week_recharge' => $rechargeRecord::scope('LastWeek')->sum('amount'),  //上周充值金额
-            'week_recharge' => $rechargeRecord::scope('Week')->sum('amount'),  //本周充值金额
+//            'last_week_recharge' => $rechargeRecord::scope('LastWeek')->sum('amount'),  //上周充值金额
+            'recharge_price'    => $rechargeRecord::scope('Success')->sum('amount'),  //所有充值金额
+            'month_recharge' => $rechargeRecord::scope('SuccessMonth')->sum('amount'),  //本月充值金额
+            'week_recharge' => $rechargeRecord::scope('SuccessWeek')->sum('amount'),  //本周充值金额
+            'today_recharge' => $rechargeRecord::scope('SuccessToday')->sum('amount'),  //当天充值金额
         ];
-
-        foreach($result as $k=>$v){
-            if(empty($v['week_order_price'])){
-                $result['order']['week_order_price'] = 0;
-            }
-
-            if(empty($v['today_order_price'])){
-                $result['order']['today_order_price'] = 0;
-            }
-        }
 
         //获取活动统计信息
         $activityInfo = $activity->getActivityAll('aid,a_title');
