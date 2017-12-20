@@ -640,6 +640,63 @@ class User extends Base
         }
     }
 
+    //修改充值政策
+    public function dis_save_policy($id){
+        $policyInfo = model('Recharge')->get($id);
+        $policyInfo->policy;
+        return $this->fetch('',[
+            'policyInfo'=>$policyInfo,
+        ]);
+    }
+
+    //修改政策
+    public function save_policy(){
+        $data = input('post.');
+
+        $rechargeData = [
+            'money' => $data['money'],
+        ];
+        model('Recharge')->save($rechargeData,['id'=>$data['rechargeId']]);
+
+        $num = count($data['policyId']);
+        for ($i=0;$i<$num;$i++){
+            $list[] = [
+                'id' => $data['policyId'][$i],
+                'content' => $data['content'][$i],
+            ];
+        }
+        $check = model('RechargePolicy')->saveAll($list);
+        if($check){
+            $this->success('更新成功','user/recharge_policy');
+        }else{
+            $this->error('内容更新失败');
+        }
+    }
+
+    //删除充值政策
+    public function delRecharge(){
+        $data = input('post.');
+        $rechargeData = model('Recharge')->get($data['id']);
+        if(empty($rechargeData)){
+            $this->error('参数错误');
+        }
+
+        $rechargeData->delete();
+        $rechargeData->policy()->delete();
+        return_info('200','成功');
+    }
+
+    //删除政策内容
+    public function delPolicy(){
+        $data = input('get.');
+        $res = model('RechargePolicy')->where('id',$data['id'])->delete();
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
     //成单记录
     public function deal(){
         //获取数据

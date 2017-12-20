@@ -20,4 +20,9 @@ class Recharge extends Model
     protected function scopeWeek($query){
         $query->whereTime('pay_time','week')->where('status',1);
     }
+
+    //关联政策内容表
+    public function policy(){
+        return $this->hasMany('RechargePolicy','recharge_id');
+    }
 }
