@@ -701,9 +701,13 @@ $(".rechargeDiv .cancel").on("click",function(){
 	 $(".rechargeModalbox").hide()
 })
 
-//点击添加
-$("#policyContainer .add").on("click",function(){
-	$(".policyContent").append("<input type='text'  name='content[]' style='width: 77%;'/>")
+//点击添加政策内容
+$(".add_policy").on("click",function(){
+	$(".policyContent").append("<div class='policy_part'><input class='span11' style='width: 80%;' value='' name='content[]' type='text'><span class='cancel'>删除</span></div>")
+})
+
+$(document).on("click",".policy_part .cancel",function(){
+	$(this).parent().remove();
 })
 
 
