@@ -11,14 +11,15 @@
 		<div class="sta_total">
 			<div class="title">
 				<img src="__AIMG__/user.png" style="width: 14px;height: 16px;" /><span>用户</span>
+				<span style="color:#2843a8;">440</span>
 			</div>
 			<div id="main" style="width:180px;height: 300px;">
 
 			</div>
 			<div class="show_num">
-				<li><span></span><span>总用户{$result.user.user_num}</span></li>
-				<li><span></span><span>本月新增{$result.user.month_user}</span></li>
-				<li><span></span><span>本周新增{$result.user.week_user}</span></li>
+				<li><span></span><span>本月新增</span></li>
+				<li><span></span><span>本周新增</span></li>
+				<li><span></span><span>本日新增</span></li>
 
 			</div>
 			<!--<div class="userunfold unfold">展开</div>-->
@@ -26,31 +27,49 @@
 		<div class="sta_total">
 			<div class="title">
 				<img src="__AIMG__/member.png" style="width: 14px;height: 16px;" /><span style="color:#dfc822;">会员</span>
+				<span style="color:#2843a8;">440</span>
 			</div>
 			<div id="main1" style="width:180px;height: 300px;">
 
 			</div>
 			<div class="show_num">
-				<li><span></span><span>总会员{$result.user.member_num}</span></li>
-				<li><span></span><span>本月新增{$result.user.month_member}</span></li>
-				<li><span></span><span>本周新增{$result.user.week_member}</span></li>
+				<li><span></span><span>本月新增</span></li>
+				<li><span></span><span>本周新增</span></li>
+				<li><span></span><span>本日新增</span></li>
 
 			</div>
 			<!--<div class="memberunfold unfold">展开</div>-->
 		</div>
-		<div class="sta_total">
+		<div class="sta_total" id="incomeTotal">
 			<div class="title">
 				<img src="__AIMG__/pocket.png" style="width: 14px;height: 16px;" /><span style="color:#50cfc8 ;">收入</span>
+				<span style="color:#2843a8;margin-top: -2px;">220</span>
 			</div>
-			<div id="main2" style="width:180px;height: 300px;">
+			
+			<div class="totalContents">
+			
+			<div class="order_income">
+				<div id="main2" style="width:110px;height: 300px;">
 
+			   </div>
+				<div class="order_total">订单：236</div>
 			</div>
-			<div class="show_num">
-				<li><span></span><span>本月{$result.order.month_order_price}</span></li>
-				<li><span></span><span>本周{$result.order.week_order_price}</span></li>
-				<li><span></span><span>今日{$result.order.today_order_price}</span></li>
+			
+			<div class="recharge_incom">
+				 <div id="main3" style="width:100px;height: 300px;">
 
+			    </div>
+			
+				<div class="show_num">
+					<li><span></span><span>本月</span></li>
+					<li><span></span><span>本周</span></li>
+					<li><span></span><span>今日</span></li>
+	
+				</div>
+				<div class="recharge_total">充值：150</div>
 			</div>
+			</div>
+			
 			<!--<div class="incomeunfold unfold">展开</div>-->
 		</div>
 
@@ -170,6 +189,8 @@
 		TreeViewer(mychart1, {$result.user.member_num},{$result.user.month_member},{$result.user.week_member});
 		var mychart2 = echarts.init(document.getElementById('main2'));
 		TreeViewer(mychart2, {$result.order.month_order_price}, {$result.order.week_order_price},{$result.order.today_order_price});
+		var mychart3 = echarts.init(document.getElementById('main3'));
+		TreeViewer(mychart3, {$result.order.month_order_price}, {$result.order.week_order_price},{$result.order.today_order_price});
 		//		树状统计图封装
 		function TreeViewer(chart, firstNum, secondNum, thirdNum) {
 			var option = {
@@ -200,7 +221,8 @@
 								color: function(params) {
 									var colorList = ['#ff4134', '#50cfc8', '#dfc822'];
 									return colorList[params.dataIndex];
-								}
+								},
+								label:{show:true,position:'top'}
 							}
 
 						}

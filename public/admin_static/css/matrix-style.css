@@ -1971,6 +1971,35 @@ div.dataTables_wrapper .ui-widget-header {
 	margin-top: -10px;
 	margin-left: 20px;
 }
+
+#incomeTotal .totalContents{
+	display: flex;
+	flex-direction: row;
+}
+#incomeTotal .totalContents .order_income{
+	position: relative;
+	margin-left: 10px;
+}
+#incomeTotal .totalContents .order_income .order_total,#incomeTotal .totalContents .recharge_incom .recharge_total{
+	position: absolute;
+	bottom: 20px;
+	left: 25px;
+	width: 100px;
+}
+#incomeTotal .totalContents .order_income .show_num{
+	position: absolute;
+	bottom: 60px;
+	right: -45px;
+}
+#incomeTotal .totalContents .recharge_incom{
+	margin-left: 55px;
+	position: relative;
+}
+#incomeTotal .totalContents .recharge_incom .show_num{
+	position: absolute;
+	bottom: 60px;
+	right: -50px;
+}
 /*客户列表的样式*/
 .member_check{
 	height:40px;
@@ -2476,6 +2505,34 @@ div.dataTables_wrapper .ui-widget-header {
 .arrangePart  .arrange_delete{
 	cursor: pointer;
 }
+.addContnet{
+	/*border: 1px solid blue;*/
+	width: 40%;
+	margin-left: 7.5%;
+	display: flex;
+	justify-content: flex-end;
+}
 .add_arrange{
-	border: 1px solid blue;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #C2CCD1;
+	cursor: pointer;
+}
+.arrangeContents .arrangePart{
+	background: #FFFFFF;
+	margin-bottom: 10px;
+	position: relative;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+.arrange_delete{
+	position: absolute;
+	top: 10px;
+	left: 46%;
+}
+.arrangePart .control-group{
+	border-bottom: none;
 }
