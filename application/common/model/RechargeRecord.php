@@ -12,6 +12,25 @@ use think\Model;
 class RechargeRecord extends Model
 {
 
+    //所有已成功的订单
+    protected function scopeSuccess($query){
+        $query->where('status',1);
+    }
+
+    //当月已成功的订单
+    protected function scopeSuccessMonth($query){
+        $query->whereTime('pay_time','month')->where('status',1);
+    }
+
+    //当周已成功订单
+    protected function scopeSuccessWeek($query){
+        $query->whereTime('pay_time','week')->where('status',1);
+    }
+
+    //当天已成功订单
+    protected function scopeSuccessToday($query){
+        $query->whereTime('pay_time','today')->where('status',1);
+    }
     /**
      * 添加或更新数据
      * @param $data

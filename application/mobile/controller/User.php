@@ -646,6 +646,9 @@ class User extends Base
             //增加余额
             $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
             $userInfo->save();
+            //修改订单状态
+            $rechargeInfo->status = 1;
+            $rechargeInfo->save();
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');
             return $this->fetch();
