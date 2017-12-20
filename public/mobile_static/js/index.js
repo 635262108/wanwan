@@ -1,4 +1,6 @@
 $(function(){
+	
+	
 
     //大人的加
     
@@ -361,6 +363,10 @@ $(".select_opera .sure").on("click",function(){
                     
                 }
             }, "json");
+})
+//充值政策的关闭
+$(".rechargeModal_div .cancel").on("click",function(){
+	$(".rechargeModal_box").hide()
 })
 
 //生日插件
