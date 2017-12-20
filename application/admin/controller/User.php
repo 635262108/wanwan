@@ -658,19 +658,35 @@ class User extends Base
         ];
         model('Recharge')->save($rechargeData,['id'=>$data['rechargeId']]);
 
-        $num = count($data['policyId']);
+        if(empty($data['policyId'])){
+            $num = 0;
+        }else{
+            $num = count($data['policyId']);
+        }
+
+        $list = array();
         for ($i=0;$i<$num;$i++){
             $list[] = [
                 'id' => $data['policyId'][$i],
                 'content' => $data['content'][$i],
             ];
         }
-        $check = model('RechargePolicy')->saveAll($list);
-        if($check){
-            $this->success('更新成功','user/recharge_policy');
-        }else{
-            $this->error('内容更新失败');
+
+        $con_num = count($data['content']);
+        //内容比id多，代表有添加
+        if($con_num > $num){
+            for ($i=$num;$i<$con_num;$i++){
+                $add_list[] = [
+                    'recharge_id' => $data['rechargeId'],
+                    'content' => $data['content'][$i],
+                    'addtime' => time()
+                ];
+            }
+            model('RechargePolicy')->insertAll($add_list);
         }
+
+        model('RechargePolicy')->saveAll($list);
+        $this->success('更新成功','user/recharge_policy');
     }
 
     //删除充值政策
