@@ -13,7 +13,7 @@ $(document).ready(function() {
 				$(".modal_box").show();
 
 				var userId = $(this).parent().parent().children("td:nth-child(1)").html();
-				$.post("/abab.php/user/getUserInfo", { "uid": userId }, function(obj) {
+				$.post("/abab.php/user/getUserInfo", {"uid":userId }, function(obj) {
 					
 				
 					if(obj.state_code == 200) {
@@ -165,15 +165,12 @@ $(document).ready(function() {
             						}
 					            	else{
 					            		$(".one_sex").html("女");
-					            	}
-								  
+					            	}								  
 								   $(".child_name").val("");
 								   $("input:radio").attr("checked",false);
 								   $(".child_school").val("");
 								   $(".child_time").val("");
-								   $(".child_birthday").val("");
-
-								  
+								   $(".child_birthday").val("");								  
 								}
 								else{
 									
@@ -386,6 +383,12 @@ $(document).ready(function() {
 				deleteData("/abab.php/admin/del_role", { "id": parseInt($(this).parent().siblings(".td_id").html()) },
 					$(this).parent().parent())
 
+			})
+			
+			//充值政策的删除
+			$(".policyDelete").live("click",function(){
+					deleteData("/abab.php/user/delRecharge", { "id": parseInt($(this).parent().parent().siblings(".firstSib").html()) },
+					$(this).parent().parent().parent())
 			})
 			$(".select_activity").on("change", function() {
 				var str = '';
@@ -710,6 +713,17 @@ $(document).on("click",".policy_part .cancel",function(){
 	$(this).parent().remove();
 })
 
+//点击编辑的删除
+$(".emit_cancel").on("click",function(){
+var parent=$(this).parent(".policy_part");
+		$.get("/abab.php/user/delPolicy", { id: $(this).siblings(".cancel_id").val() },
+		function(obj) {
+			if(obj.state_code == 200) {
+				parent.remove();
+			}
+		}, "json");
+})
+
 
 //活动安排的添加按钮
 $(".add_arrange").on("click",function(){
@@ -802,6 +816,7 @@ function deleteData(url, option, parent) {
 			$.post(url, option, function(data) {
 
 				if(data.state_code == 200) {
+					console.log('删除充值')
 					parent.hide();
 				} else {
 					alert(data.msg)

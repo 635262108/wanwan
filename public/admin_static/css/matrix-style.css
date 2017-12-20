@@ -2265,6 +2265,7 @@ div.dataTables_wrapper .ui-widget-header {
 	position: relative;
 	margin-right: 50px;
 }
+
 .sta_total .show_num{
 	position: absolute;
 	right: 20px;
@@ -2492,7 +2493,7 @@ div.dataTables_wrapper .ui-widget-header {
 #policyContainer .policyContent .policy_part{
    position: relative;
 }
-#policyContainer .policyContent .policy_part .cancel{
+#policyContainer .policyContent .policy_part .cancel,.emit_cancel{
 	position: absolute;
 	left: 84%;
 	cursor: pointer;
@@ -2533,7 +2534,7 @@ div.dataTables_wrapper .ui-widget-header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #C2CCD1;
+	background: #EFEFEF;
 	cursor: pointer;
 }
 .arrangeContents .arrangePart{
