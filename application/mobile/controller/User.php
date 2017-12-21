@@ -19,7 +19,7 @@ class User extends Base
     
     public function _initialize() {
         parent::_initialize();
-        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail','login');
+        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail');
         $this->checkUserLogin($noLogin);
     }
     
@@ -148,14 +148,14 @@ class User extends Base
                 return return_info(-1,'帐号或密码错误');
             }
         }else{
-//            if(session('?userInfo')){
-//                $this->redirect("user/index");
-//            }else{
+            if(session('?userInfo')){
+                $this->redirect("user/index");
+            }else{
                 if(isset($_SERVER['HTTP_REFERER'])){
                     session::set('userurl',$_SERVER['HTTP_REFERER']);
                 }
                 return $this->fetch();
-//            }
+            }
         }
     }
 
