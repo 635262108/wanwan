@@ -148,14 +148,14 @@ class User extends Base
                 return return_info(-1,'帐号或密码错误');
             }
         }else{
-//            if(session('?userInfo')){
-//                $this->redirect("user/index");
-//            }else{
+            if(session('?userInfo')){
+                $this->redirect("user/index");
+            }else{
                 if(isset($_SERVER['HTTP_REFERER'])){
                     session::set('userurl',$_SERVER['HTTP_REFERER']);
                 }
                 return $this->fetch();
-//            }
+            }
         }
     }
 
