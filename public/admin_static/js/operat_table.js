@@ -4,8 +4,8 @@ $(document).ready(function() {
 		$(".sign").on("click",function(){
 			$("#signSelect").slideToggle();
 		})
-			var trs = $("#tbody_center tr");
-			var checks = $(".check");
+		var trs = $("#tbody_center tr");
+		var checks = $(".check");
 //			查看更新所有数据
 			checks.live("click", function(event) {
 				

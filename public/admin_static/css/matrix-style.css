@@ -2123,6 +2123,7 @@ div.dataTables_wrapper .ui-widget-header {
 	line-height: 17px;
 	margin-right: 25px;
 	position: relative;
+	/*border: 1px solid red;*/
 }
 .pai_contents .shai div ul li input{
 	position: absolute;
@@ -2131,6 +2132,8 @@ div.dataTables_wrapper .ui-widget-header {
 	left: 0;
 	right: 0;
 	margin: auto;
+	width: 100%;
+	height: 100%;
 	opacity: 0;
 }
 .pai_contents .shai div ul li.active{

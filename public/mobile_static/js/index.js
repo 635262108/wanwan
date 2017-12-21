@@ -233,32 +233,29 @@ $(".collect").on("click",function(){
     })
 
 //点击取消收藏
-// $(".cancel_collect").parent("a").on("click",function(){
-// 	return false;
-// })
     $(".cancel_collect").on("click", function(event) {
     	 event.preventDefault();
-        var aid = $(this).attr('aid');
-        var _this = $(this);
-        $.post("/home/activity/collection",{ aid:aid,type:2},
-            function(obj){
-                if(obj.state_code != 200){
-                    alert(obj.msg);
-                    return false;
-                }else{
-                    _this.parent().parent().parent().parent(".playBao_part").remove();
-                    
-                    var children_lg=$("#conllect_Content").children(".playBao_part").length;
-                    if(children_lg==0){
-                    	$(".display_none").show()
-                    }
-                    else{
-                    	$(".display_none").hide()
-                    }
-                    
-                
-                }
-            }, "json");
+         var aid = $(this).attr('aid');
+         var _this = $(this);
+	     $.post("/home/activity/collection",{ aid:aid,type:2},
+	            function(obj){
+	                if(obj.state_code != 200){
+	                    alert(obj.msg);
+	                    return false;
+	                }else{
+	                    _this.parent().parent().parent().parent(".playBao_part").remove();
+	                    
+	                    var children_lg=$("#conllect_Content").children(".playBao_part").length;
+	                    if(children_lg==0){
+	                    	$(".display_none").show()
+	                    }
+	                    else{
+	                    	$(".display_none").hide()
+	                    }
+	                    
+	                
+	                }
+	     }, "json");
           
     })
     
@@ -402,18 +399,6 @@ $(".signUp_modal .cancel").on("click",function(){
 
 
 })
-//function signSuccess(my){
-//  $.get("/mobile/user/checkSign",{oid:my.attr("id")},
-//          function(obj){
-//              if(obj.state_code == 200){
-//              	 $(".sign_word").show();
-//              	 clearInterval(timer);
-//                 
-//              }else{
-//                  $(".sign_word").hide();
-//              }
-//   }, "json");
-//}
 
 
 
