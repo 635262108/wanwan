@@ -580,8 +580,14 @@ class User extends Base
         if(!is_weixin()){
             return $this->error('请在微信下进行充值哦');
         }
-    	$this->assign('title','用户充值');
-        return $this->fetch();
+        $rechargeInfo = model('recharge')->select();
+        $policyInfo = model('RechargePolicy')->select();
+
+        return $this->fetch('',[
+            'title' => '用户充值',
+            'rechargeInfo' => $rechargeInfo,
+            'policyInfo' => $policyInfo
+        ]);
     }
 
     //充值确认

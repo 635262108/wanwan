@@ -16,35 +16,18 @@
 	 	  <div class="title"><img src="__MobileImg__/welfare_img.png" style="width: 97px;height: 26px;"></div>
 	 	  <div class="overBox">
 	 	  	    <div class="policyContents">
-	 	  	    	 <div class="policyPart">
-	 	  	    	 	  <div class="policy_title"><span></span>&nbsp;充1000元</div>
-	 	  	    	 	  <ul>
-	 	  	    	 	  	  <li>1.所有主题享受</li>
-	 	  	    	 	  	  <li>2.赠送价值100</li>
-	 	  	    	 	  	  <li>3.赠送玩具一个</li>
-	 	  	    	 	  	  <li>4.免费参加玩翫碗活动</li>
-	 	  	    	 	  </ul>
-	 	  	    	 </div>
-	 	  	    	 
-	 	  	    	  <div class="policyPart">
-	 	  	    	 	  <div class="policy_title"><span></span>&nbsp;充10000元</div>
-	 	  	    	 	  <ul>
-	 	  	    	 	  	  <li>1.所有主题享受</li>
-	 	  	    	 	  	  <li>2.赠送价值100</li>
-	 	  	    	 	  	  <li>3.赠送玩具一个</li>
-	 	  	    	 	  	  <li>4.免费参加玩翫碗活动</li>
-	 	  	    	 	  </ul>
-	 	  	    	 </div>
-	 	  	    	 
-	 	  	    	 <div class="policyPart">
-	 	  	    	 	  <div class="policy_title"><span></span>&nbsp;充10000元</div>
-	 	  	    	 	  <ul>
-	 	  	    	 	  	  <li>1.所有主题享受</li>
-	 	  	    	 	  	  <li>2.赠送价值100</li>
-	 	  	    	 	  	  <li>3.赠送玩具一个</li>
-	 	  	    	 	  	  <li>4.免费参加玩翫碗活动</li>
-	 	  	    	 	  </ul>
-	 	  	    	 </div>
+					{foreach name="rechargeInfo" item="vo"}
+						 <div class="policyPart">
+							  <div class="policy_title">充{$vo.money}元</div>
+							  <ul style="list-style: decimal">
+								  {foreach name="policyInfo" item="v"}
+								  	{if condition="$vo.id eq $v.recharge_id"}
+								  		<li>{$v.content}</li>
+								  	{/if}
+								  {/foreach}
+							  </ul>
+						 </div>
+	 	  	    	 {/foreach}
 	 	  	    </div>
 	 	  </div>
 	 </div>

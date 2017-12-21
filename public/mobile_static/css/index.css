@@ -3365,7 +3365,7 @@ display: none  !important;
 	height: 250px;
 	overflow: auto;
 	/*border: 1px solid blue;*/
-	padding-left: 20px;
+	padding-left: 26px;
 	box-sizing: border-box;
 	margin-top: 15px;
 }
@@ -3385,6 +3385,7 @@ display: none  !important;
 	font-size: 14px;
 	margin-bottom: 10px;
 	font-weight: 600;
+	margin-left: -14px;
 }
 .rechargeModal_box .rechargeModal_div .overBox .policyPart ul li{
 	font-size: 12px;

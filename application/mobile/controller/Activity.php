@@ -176,7 +176,7 @@ class Activity extends Base
                 $this->error('名额有限，不能重复报名噢');
             }
         }
-        //防止重复提交,针对除微信之外的浏览器
+        //防止重复提交
         if(empty(session('code')) & $price > 0){//存在
             $this->assign('userInfo',$userInfo);
             $this->assign('price',$price);
@@ -424,7 +424,7 @@ class Activity extends Base
         $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
         $activity = model('Activity')->find($orderInfo['aid']);
         $timeInfo = model('ActivityTime')->find($orderInfo['t_id']);
-        $content = "恭喜您已成功报名".$activity['a_title'].",签到二维码在会员中心-我的活动-已付款中查看".",活动地点：".$activity['a_address'].",参加时间:".$timeInfo['begin_time']."到".$timeInfo['end_time']."，大人".$orderInfo['adult_num']."个,小孩".$orderInfo['child_num']."个,请您准时参加,有问题请联系客服：400-611-2731,感谢您的支持。";
+        $content = "恭喜您已成功报名".$activity['a_title'].",活动地点：".$activity['a_address'].",参加时间:".$timeInfo['begin_time']."到".$timeInfo['end_time']."，大人".$orderInfo['adult_num']."个,小孩".$orderInfo['child_num']."个,请您准时参加,有问题请联系客服：400-611-2731,感谢您的支持。";
         sendSMS($orderInfo['mobile'],$content);
     }
 
