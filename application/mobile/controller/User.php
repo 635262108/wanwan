@@ -19,7 +19,7 @@ class User extends Base
     
     public function _initialize() {
         parent::_initialize();
-        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail');
+        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail','login');
         $this->checkUserLogin($noLogin);
     }
     
