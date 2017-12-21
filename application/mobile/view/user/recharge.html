@@ -1,4 +1,5 @@
 {include file="public/second_header" /}
+<div class="rechargeContent">
 <form action="{:url('mobile/user/enter_recharge')}" method="post">
 	{:token('token')}
 	<div class="pay_num">
@@ -10,6 +11,7 @@
 	    <p class="warn">提示：账户金额可以用于玩翫碗的所有活动</p>
 		<button type="submit" class="user_pay">充值</button>
 </form>
+</div>
 <div class="rechargeModal_box" style="display: none;">
 	 <div class="rechargeModal_div">
 	 	  <div class="cancel"><img src="__MobileImg__/pay_cancel.png" style="width: 10px;height: 10px;"></div>
