@@ -610,7 +610,7 @@ class User extends Base
     }
     
     //添加充值政策
-    public function dis_add_Policy(){
+    public function dis_add_policy(){
     	return $this->fetch();
     }
 
