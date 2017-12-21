@@ -247,8 +247,8 @@ function str_decode($str){
 
 //检查token
 function checkToken($token){
-    if ($token == session('TOKEN')) {
-        session('TOKEN', NULL);
+    if ($token == session('token')) {
+        session('token', NULL);
         return TRUE;
     } else {
         return FALSE;
