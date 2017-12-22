@@ -736,11 +736,6 @@ $(".add_arrange").on("click",function(){
 $(document).on("click",".arrange_delete",function(){
 	$(this).parent().remove();
 })
-
-    
-
-    
-
 })
 
 //省改变事件
