@@ -286,14 +286,13 @@ class User extends Base
 
 
     //导出签到
-    public function conversions_attendance($aid=0){
+    public function conversions_attendance($tid=0){
         //活动信息
         $Activity = model('Activity');
-        $actinfo = $Activity->getIdActivity($aid,'a_title');
+        $actinfo = $Activity->getIdActivity($tid,'a_title');
 
         $ActivityOrder = model('ActivityOrder');
-        $map['aid'] = $aid;
-        $map['order_status'] = array('neq',2);
+        $map['t_id'] = $tid;
         $order = $ActivityOrder->getOrders($map);
         //整理数据
         $ActivityTime = model('ActivityTime');
@@ -308,6 +307,8 @@ class User extends Base
             $result[$key]['name'] = $v['name']; //报名姓名
             $result[$key]['mobile'] = $v['mobile']; //完整电话
             $result[$key]['mobile2'] = substr($v['mobile'],0,3)."玩翫碗".substr($v['mobile'],7);    //报名电话
+            $result[$key]['child_num'] = $v['child_num']; //小孩数量
+            $result[$key]['adult_num'] = $v['adult_num']; //大人数量
             $result[$key]['time'] = $time['begin_time']."--".$time['end_time']; //报名时间
             switch ($v['order_status']) {
                 case 1:
@@ -336,7 +337,7 @@ class User extends Base
         //导出excel
         $filename = "玩翫碗".$actinfo['a_title']."活动签到表";
         $title = '玩翫碗-'.$actinfo['a_title']."活动签到表";
-        $key = array('id','name','mobile','mobile2','time','sign');
+        $key = array('id','name','mobile','mobile2','adult_num','child_num','time','sign');
         $this->exportExcel($result,$filename,$key,$title);
     }
 
@@ -377,6 +378,8 @@ class User extends Base
         $objPHPExcel->getActiveSheet()->getStyle('E2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('F2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('G2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
+        $objPHPExcel->getActiveSheet()->getStyle('H2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
+        $objPHPExcel->getActiveSheet()->getStyle('I2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         //居中
         $objPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $objActSheet->setCellValue('A1',  $title);
@@ -384,9 +387,11 @@ class User extends Base
         $objActSheet->setCellValue('B2',  '姓名');
         $objActSheet->setCellValue('C2',  '联系方式');
         $objActSheet->setCellValue('D2',  '联系方式');
-        $objActSheet->setCellValue('E2',  '活动时间');
-        $objActSheet->setCellValue('F2',  '签到');
-        $objActSheet->setCellValue('G2',  '备注');
+        $objActSheet->setCellValue('E2',  '大人数量');
+        $objActSheet->setCellValue('F2',  '小孩数量');
+        $objActSheet->setCellValue('G2',  '活动时间');
+        $objActSheet->setCellValue('H2',  '签到');
+        $objActSheet->setCellValue('I2',  '备注');
         $i = 3;
         foreach ($list as $row) {
             foreach ($indexKey as $key => $value){
@@ -870,5 +875,10 @@ class User extends Base
         }else{
             return_info(-1,'签到失败，请进行手动记录');
         }
+    }
+
+    //用户详情
+    public function user_detail(){
+        return $this->fetch();
     }
 }
