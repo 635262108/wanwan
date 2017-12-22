@@ -876,4 +876,9 @@ class User extends Base
             return_info(-1,'签到失败，请进行手动记录');
         }
     }
+
+    //用户详情
+    public function user_detail(){
+        return $this->fetch();
+    }
 }
