@@ -43,7 +43,6 @@
 }
 .pay_recordContent .record_title ul{
 	overflow: hidden;
-	
 	margin-left: 1px;
 }
 .pay_recordContent .record_title ul li{
@@ -2123,7 +2122,6 @@ div.dataTables_wrapper .ui-widget-header {
 	line-height: 17px;
 	margin-right: 25px;
 	position: relative;
-	/*border: 1px solid red;*/
 }
 .pai_contents .shai div ul li input{
 	position: absolute;
