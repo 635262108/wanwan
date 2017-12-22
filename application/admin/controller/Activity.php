@@ -724,14 +724,27 @@ class Activity extends Base
     //添加规格
     public function addSpe(){
         $data = input('post.');
-        $data['begin_time'] = strtotime($data['begin_time']);
-        $data['end_time'] = strtotime($data['end_time']);
 
         if(!empty($data['t_id'])){
-            $res = model('ActivityTime')->save($data,$data['t_id']);
-        }else{
-            $res = model('ActivityTime')->add($data);
+            $res = model('ActivityTime')->save($data,['t_id'=>$data['t_id']]);
+            if($res) {
+                $this->success('成功','activity/specification');
+            }else{
+                $this->success('失败','activity/specification');
+            }
         }
+
+        $num = count($data['begin_time']);
+
+        for ($i=0;$i<$num;$i++){
+            $add_data[]['begin_time'] = strtotime($data[$i]['begin_time']);
+            $add_data[]['end_time'] = strtotime($data[$i]['end_time']);
+            $add_data[]['ticket_num'] = $data[$i]['ticket_num'];
+            $add_data[]['remark'] = $data[$i]['remark'];
+            $add_data[]['is_display'] = $data[$i]['is_display'];
+        }
+
+        $res = model('ActivityTime')->insertAll($data);
 
         if($res) {
             $this->success('成功','activity/specification');
@@ -740,6 +753,7 @@ class Activity extends Base
         }
 
     }
+
     
     //删除规格
     public function delAnySpe(){
