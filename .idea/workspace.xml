@@ -44,8 +44,8 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="720" column="30" lean-forward="true" selection-start-line="720" selection-start-column="30" selection-end-line="720" selection-end-column="30" />
+            <state relative-caret-position="384">
+              <caret line="732" column="13" lean-forward="true" selection-start-line="732" selection-start-column="13" selection-end-line="732" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -66,7 +66,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
               <caret line="38" column="84" lean-forward="false" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
-              <folding />
+              <folding>
+                <marker date="1513913530143" expanded="true" signature="2528:2665" ph="..." />
+                <marker date="1513913530143" expanded="true" signature="2528:2680" ph="..." />
+                <marker date="1513913530143" expanded="true" signature="2549:2649" ph="..." />
+                <marker date="1513913530143" expanded="false" signature="2750:2768" ph="..." />
+                <marker date="1513913530143" expanded="true" signature="2769:2929" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -548,12 +554,12 @@
       <workItem from="1513645059666" duration="25777000" />
       <workItem from="1513732403321" duration="23596000" />
       <workItem from="1513817456269" duration="25647000" />
-      <workItem from="1513904450840" duration="5347000" />
+      <workItem from="1513904450840" duration="6870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1022294000" />
+    <option name="totallyTimeSpent" value="1023817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -981,7 +987,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="38" column="84" lean-forward="false" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
-          <folding />
+          <folding>
+            <marker date="1513913530143" expanded="true" signature="2528:2665" ph="..." />
+            <marker date="1513913530143" expanded="true" signature="2528:2680" ph="..." />
+            <marker date="1513913530143" expanded="true" signature="2549:2649" ph="..." />
+            <marker date="1513913530143" expanded="false" signature="2750:2768" ph="..." />
+            <marker date="1513913530143" expanded="true" signature="2769:2929" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -995,8 +1007,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="720" column="30" lean-forward="true" selection-start-line="720" selection-start-column="30" selection-end-line="720" selection-end-column="30" />
+        <state relative-caret-position="384">
+          <caret line="732" column="13" lean-forward="true" selection-start-line="732" selection-start-column="13" selection-end-line="732" selection-end-column="13" />
           <folding />
         </state>
       </provider>

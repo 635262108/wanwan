@@ -724,7 +724,6 @@ class Activity extends Base
     //添加规格
     public function addSpe(){
         $data = input('post.');
-
         if(!empty($data['t_id'])){
             $res = model('ActivityTime')->save($data,['t_id'=>$data['t_id']]);
             if($res) {
@@ -735,16 +734,17 @@ class Activity extends Base
         }
 
         $num = count($data['begin_time']);
-
+        $add_data = array();
         for ($i=0;$i<$num;$i++){
-            $add_data[]['begin_time'] = strtotime($data[$i]['begin_time']);
-            $add_data[]['end_time'] = strtotime($data[$i]['end_time']);
-            $add_data[]['ticket_num'] = $data[$i]['ticket_num'];
-            $add_data[]['remark'] = $data[$i]['remark'];
-            $add_data[]['is_display'] = $data[$i]['is_display'];
+            $add_data[$i]['aid'] = $data['aid'];
+            $add_data[$i]['begin_time'] = strtotime($data['begin_time'][$i]);
+            $add_data[$i]['end_time'] = strtotime($data['end_time'][$i]);
+            $add_data[$i]['ticket_num'] = $data['ticket_num'][$i];
+            $add_data[$i]['remark'] = $data['remark'][$i];
+            $add_data[$i]['is_display'] = $data['is_display'][$i];
         }
 
-        $res = model('ActivityTime')->insertAll($data);
+        $res = model('ActivityTime')->insertAll($add_data);
 
         if($res) {
             $this->success('成功','activity/specification');
