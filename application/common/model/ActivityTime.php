@@ -43,8 +43,13 @@ class ActivityTime extends Model
      * 减少库存
      * @param type $t_id
      */
-    public function DecTicketNum($t_id){
-        $this->where('t_id',$t_id)->setDec('ticket_num');
+    public function DecTicketNum($t_id,$num = 1){
+        return $this->where('t_id',$t_id)->setDec('ticket_num',$num);
+    }
+
+    //增加库存
+    public function IncTicketNum($t_id,$num = 1){
+        return $this->where('t_id',$t_id)->setInc('ticket_num',$num);
     }
     
     //获取所有时间段(带活动信息）

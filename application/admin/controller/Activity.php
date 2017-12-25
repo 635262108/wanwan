@@ -1024,6 +1024,9 @@ class Activity extends Base
         $orderInfo->order_status = 7;
         $orderInfo->save();
 
+        //恢复名额
+        model('ActivityTime')->IncTicketNum($orderInfo->t_id);
+
         $add_data = [
             'aid' => $orderInfo->aid,
             'uid' => $orderInfo->uid,
