@@ -46,6 +46,19 @@ class Index extends Base
             'today_recharge' => $rechargeRecord::scope('SuccessToday')->sum('amount'),  //当天充值金额
         ];
 
+        //sum返回为空时赋值为0，前段用于显示
+        foreach ($result['order'] as $k=>&$v){
+            if(empty($v)){
+                $v = 0;
+            }
+        }
+
+        foreach ($result['recharge'] as $k=>&$v){
+            if(empty($v)){
+                $v = 0;
+            }
+        }
+
         //获取活动统计信息
         $activityInfo = $activity->getActivityAll('aid,a_title');
         foreach ($activityInfo as $k=>$v){

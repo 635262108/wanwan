@@ -998,18 +998,48 @@ class Activity extends Base
 
     //得到活动时间
     public function getActivityTime(){
-        if(request()->isAjax()){
-            $aid = input('post.aid');
-            $res = model('ActivityTime')->getDisAidTime($aid);
-            if(!empty($res)){
-                return_info(200,'成功',$res);
-            }else{
-                return_info(-1,'没有安排时间');
-            }
-
-        }else{
+        if(request()->isAjax()) {
             return_info(-1,'请求错误');
         }
 
+        $aid = input('post.aid');
+        $res = model('ActivityTime')->getDisAidTime($aid);
+        if(!empty($res)){
+            return_info(200,'成功',$res);
+        }else{
+            return_info(-1,'没有安排时间');
+        }
+    }
+
+    //请假
+    public function askForLeave(){
+        if(request()->isAjax()) {
+            return_info(-1,'请求错误');
+        }
+        $data = input('post.');
+        $orderInfo = model('ActivityOrder')->get($data['id']);
+        if(empty($orderInfo) || $orderInfo->uid < 0){
+            return_info(-1,'无效id');
+        }
+        $orderInfo->order_status = 7;
+        $orderInfo->save();
+
+        //恢复名额
+        model('ActivityTime')->IncTicketNum($orderInfo->t_id);
+
+        $add_data = [
+            'aid' => $orderInfo->aid,
+            'uid' => $orderInfo->uid,
+            'order_sn' => $orderInfo->order_sn,
+            'reason' => $data['reason'],
+            'time' => time(),
+            'type' => 2
+        ];
+        $res = model('ActivityRefund')->insert($add_data);
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
     }
 }
