@@ -127,7 +127,7 @@ $(document).ready(function() {
             		return;
             	}
             	else{
-             $.post("/abab.php/user/save_child", { uid:id,
+             $.post("/abab.php/user/save_child", {uid:id,
                  	child_name:childName,
                  	child_gender:childSex,
                  	child_school:childSch,
@@ -137,8 +137,7 @@ $(document).ready(function() {
 						
 						if(obj.state_code == 200) {
 						$(".id").html(obj.data.id);
-								 
-						 $(".modal_addsecondBox").hide();
+					    $(".modal_addsecondBox").hide();
 								   
 								
 								    
@@ -192,8 +191,6 @@ $(document).ready(function() {
             	
             	
             	var index=$(this).parent().parent().index();
-            	
-				// 编辑的时候(每一个孩子的id)
                 $(".id").attr("num",index);
             	$(".new_name").val(childParts.eq(index-1).find(".one_name").html())
             	if(childParts.eq(index-1).find(".one_sex").html()=="男"){
@@ -210,7 +207,7 @@ $(document).ready(function() {
             	$(".id").html(childParts.eq(index-1).attr("num"));
             	
                             
- 
+   
             	
             	
             })
@@ -637,7 +634,6 @@ var onLis=$(".shai").children(".only_one");
     		}
     		else{
     			$(this).addClass("active").siblings().removeClass("active");
-    			console.log($(this).children("input").val(),999)
     			
     		}
     	})
@@ -736,6 +732,47 @@ $(".add_arrange").on("click",function(){
 $(document).on("click",".arrange_delete",function(){
 	$(this).parent().remove();
 })
+
+//客户列表详细信息(不重要信息的收缩展开)
+$(".slideDown").on("click",function(){
+	$(".hiddenInfo").show();
+	$(this).hide()
+})
+$(".slideUp").on("click",function(){
+	$(".hiddenInfo").hide();
+	$(".slideDown").show()
+})
+
+var infoLis=$(".click_ulContent ul").children("li");
+var DetaiContents=$(".detail_Container").children();
+infoLis.on("click",function(){
+	$(this).addClass("active").siblings().removeClass("active")
+	DetaiContents.eq($(this).index()).show().siblings().hide()
+})
+
+//客户列表新增孩子信息(新增)
+$(".add_order").on("click",function(){
+var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input type='text'/ class='childName'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='childBirthday'></li><li>孩子学校：<input type='text' class='childSchool'></li><li>登记时间：<input type='text' class='signTime'></li><li>可玩时间：<input type='text' class='playTime'></li></ul><div class='operate'><span class='add_save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>"
+$(".childInforContent").append(str);
+})
+
+//点击新增的保存
+
+$(document).on("click",".add_save",function(){
+	var childName =$(".childName").val();
+})
+
+//点击编辑
+$(document).on("click",".emit",function(){
+	var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input type='text'/></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text'></li><li>孩子学校：<input type='text'></li><li>登记时间：<input type='text'></li><li>可玩时间：<input type='text'></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>";
+	$(this).parent().parent(".childInforPart").html(str)
+});
+
+//编辑之后保存
+
+
+
+
 })
 
 //省改变事件

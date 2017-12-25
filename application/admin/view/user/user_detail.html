@@ -1,10 +1,269 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-qqweqwew
-</body>
+{include file="public/header"/} {include file="public/left"}
+<style>
+	 #DataTables_Table_0_filter{
+	 	  top: 12px;
+	 }
+	 #DataTables_Table_1_filter{
+	 	top: 13px;
+	 }
+</style>
+<div id="content" style="background: #F6F6F6;">
+	<div id="content-header">
+		<div id="breadcrumb">
+			<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+			<a href="{:url('admin/user/index')}" class="tip-bottom">客户中心</a>
+			<a href="#" class="current">客户列表</a>
+		</div>
+	</div>
+	<!--头部会员信息-->
+	<div class="headerInfo">
+		<img src="__AIMG__/person_img.png" />
+		<ul>
+			<li>会员姓名：<span>王小二</span></li>
+			<li>联系方式：<span>18437976116</span></li>
+			<li>当前充值次数：<span>34</span></li>
+			<li>会员来源：<span>玩翫碗公众号</span></li>
+		</ul>
+		<img src="__AIMG__/stoggle_img.png" style="width: 16px;height: 14px;" class="stroggle slideDown" />
+	</div>
+	<div class="hiddenInfo" style="display: none;">
+		<ul>
+			<li>会员生日：<span>2017.12.20</span></li>
+			<li>会员住址：<span>郑州市金水区某某街道250号</span></li>
+			<li>会员邮箱：<span>30258579@qq.com</span></li>
+			<li>会员爱好：<span>吃着零食，躺着</span></li>
+		</ul>
+		<img src="__AIMG__/stoggleDom.png" style="width: 16px;height: 14px;" class="stroggle slideUp" />
+	</div>
+
+	<div class="detailInfoContent">
+		<div class="totalInfoContent">
+			<div class="click_ulContent">
+				<ul>
+					<li class="active">孩子信息</li>
+					<li>明细记录</li>
+					<li>金额变动</li>
+					<li>活动记录</li>
+				</ul>
+			</div>
+			
+			<div class="detail_Container">
+				<div class="childContent">
+					<div class="add_order">
+
+						<div class="add" title="添加政策">
+							<span style="font-size: 14px;">
+						          <i class="icon-plus"></i>新增
+						    </span>
+						</div>
+
+					</div>
+
+					<div class="childInforContent">
+						<div class="childInforPart">
+							<ul>
+								<li>孩子姓名：王小二</li>
+								<li>孩子性别：女</li>
+								<li>孩子生日：2014.7.8</li>
+								<li>孩子学校：郑州市某某学校</li>
+								<li>登记时间：2015.4.5</li>
+								<li>可玩时间：周六</li>
+							</ul>
+							<div class="operate">
+								<span class="emit"><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
+								<span><img src="__AIMG__/delete.png"><a href="javascript:;" class="delete">删除</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="particulars" style="display: none;padding-top: 15px;position: relative;">
+					<table class="table table-bordered data-table">
+						<thead>
+							<tr>
+								<th>id</th>
+								<th>金额</th>
+								<th>余额</th>
+								<th>动作</th>
+								<th>备注</th>
+								<th>添加时间</th>
+							</tr>
+						</thead>
+						<tbody id="tbody_center" style="font-size: 12px;">
+
+							<tr>
+								<td>1</td>
+								<td>20.00</td>
+								<td>220.00</td>
+								<td>买了个丝绸之路</td>
+								<td>是的</td>
+								<td>20.15.2.3</td>
+
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="moneyChange" style="display: none;">
+					<div class="row-fluid" id="emit_information">
+					<div class="span6" style="margin-left: 0px;width: 95%;">
+						<div class="widget-box" style="width: 100%;">
+							<div class="widget-title"> 
+								<span class="icon"> <i class="icon-align-justify"></i> </span>
+								<h5>操作信息</h5>
+							</div>
+
+							<div class="pay_recordContent">
+								<div class="record_title">
+									<ul>
+										<li class="active">充值</li>
+										<li>扣费</li>
+									</ul>
+								</div>
+
+								<div class="detail_record">
+
+									<div class="widget-content nopadding" style="">
+										<form action="{:url('admin/user/add_recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
+											
+											<div class="control-group">
+												<label class="control-label">会员名称</label>
+												<div class="controls">
+													<input class="span11"  type="text" style="width: 32%;" readonly>
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">充值金额</label>
+												<div class="controls">
+													<input class="span11" style="width: 30%;" value='' name="amount" type="text" onkeyup="value=value.replace(/[^\-?\d.]/g,'')">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">充值赠送</label>
+												<div class="controls">
+													<textarea name="giveaway"></textarea>
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">充值时间</label>
+												<div class="controls">
+													<input type="text" value="" name="pay_time" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">是否全部领取</label>
+												<div class="controls">
+													<input type="radio" name="is_get" value="1">是
+													<input type="radio" name="is_get" value="0">否
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">支付方式</label>
+												<div class="controls">
+													<select name="pay_way">
+														<option value=1 " selected='selected' >支付宝</option>
+														<option value="2 " >微信</option>
+														<option value="3 ">现金</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-actions ">
+												<button type="submit " class="btn btn-success info_sure ">保存</button>
+												<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
+											</div>
+			
+										</form>
+									</div>
+							      <div class="widget-content " style="display: none; ">
+			                        <form action="{:url( 'admin/user/add_deduction')} " method="post " class="form-horizontal " name="Alist_form " style="m-horizontal ">
+										
+										<div class="control-group ">
+											<label class="control-label ">会员名称</label>
+											<div class="controls ">
+												<input class="span11 " value='' type="text " style="width: 33%; " readonly>
+											</div>
+										</div>
+										<div class="control-group ">
+											<label class="control-label ">扣除金额</label>
+											<div class="controls ">
+												<input class="span11 " style="width: 30%; " value='' name="money " type="text " onkeyup="value=value.replace(/[^\-?\d.]/g, '') ">
+											</div>
+										</div>
+										<div class="control-group ">
+											<label class="control-label ">备注</label>
+											<div class="controls ">
+												<textarea name="remark "></textarea>
+											</div>
+										</div>
+									
+									<div class="form-actions ">
+												<button type="submit " class="btn btn-success info_sure ">保存</button>
+												<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
+									</div>
+								    </form>
+								</div>
+							</div>
+						   </div>
+						</div>
+				    </div>
+           			</div>
+		        </div>
+		        <div class="activityRecord " style="display: none;position: relative;padding-top: 15px;">
+		        	  <table class="table table-bordered data-table">
+						<thead>
+							<tr>
+								<th>id</th>
+								<th>活动名称</th>
+								<th>场次</th>
+								<th>金额</th>
+								<th>支付方式</th>
+								<th>订单来源</th>
+								<th>签到时间</th>
+								<th>备注</th>
+							</tr>
+						</thead>
+						<tbody id="tbody_center" style="font-size: 12px;">
+
+							<tr>
+								<td>1</td>
+								<td>丝绸之路</td>
+								<td>12月24日5:00-12:20</td>
+								<td>20.89</td>
+								<td>微信</td>
+								<td>玩翫碗网站</td>
+								<td>0.4.3.25</td>
+								<td>盛开的时刻</td>
+
+							</tr>
+
+						</tbody>
+					</table>
+		        </div>
+		    </div>
+	    </div>
+	    
+	    <div class="userInfoContent ">
+			<div class="Usertitle "><img src="__AIMG__/user_img.png ">会员信息</div>
+			<div class="balanceContent ">
+				<div>
+					<p>账户余额</p>
+					<p>168.00</p>
+				</div>
+				<div>
+					<p>消费金额</p>
+					<p>37.00</p>
+				</div>
+			</div>
+			<ul>
+				<li>报名次数：<span>32</span></li>
+				<li>参加次数：<span>2</span></li>
+				<li>加入时间：<span>2017.12.23</span></li>
+			</ul>
+		</div>
+  
+    </div>
+
+</div>
+
+{include file="public/footer"}
+
 </html>

@@ -197,10 +197,9 @@
 		
 		TreeViewer(mychart1, {$result.user.month_member},{$result.user.week_member},{$result.user.today_member});
 		var mychart2 = echarts.init(document.getElementById('main2'));
-		TreeViewer(mychart2, {$result.order.month_order_price}, {$result.order.week_order_price},{$result.order.today_order_price});
+		TreeViewer(mychart2,{$result.order.month_order_price},{$result.order.week_order_price},{$result.order.today_order_price});
 		var mychart3 = echarts.init(document.getElementById('main3'));
-		
-		TreeViewer(mychart3, {$result.recharge.month_recharge}, {$result.recharge.week_recharge},{$result.recharge.today_recharge});
+		TreeViewer(mychart3,{$result.recharge.month_recharge},{$result.recharge.week_recharge},{$result.recharge.today_recharge});
 		//		树状统计图封装
 		function TreeViewer(chart, firstNum, secondNum, thirdNum) {
 			var option = {
