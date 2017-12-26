@@ -973,7 +973,7 @@ class Activity extends Base
                 $add_child_data[$i]['birthday'] = $v['child_birthday'];
                 $add_child_data[$i]['school'] = $v['child_school'];
                 $add_child_data[$i]['play_time'] = $v['child_play_time'];
-                $add_child_data[$i]['time'] = date('Y-m-d H:i:s');
+                $add_child_data[$i]['addtime'] = time();
                 $i++;
             }
         }
@@ -1000,7 +1000,7 @@ class Activity extends Base
 
     //得到活动时间
     public function getActivityTime(){
-        if(request()->isAjax()) {
+        if(!request()->isAjax()) {
             return_info(-1,'请求错误');
         }
 

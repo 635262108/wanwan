@@ -157,6 +157,9 @@ class User extends Controller
         $data = input('post.');
         if(empty($data['id'])){
             $data['addtime'] = time();
+            if(!empty($data['birthday'])){
+                $data['birthday'] = strtotime($data['birthday']);
+            }
             $res = model('UserChild')->insert($data);
         }else{
             if(!empty($data['birthday'])){
@@ -179,9 +182,9 @@ class User extends Controller
         }
         $res = model('UserChild')->destroy($id);
         if($res){
-            return_info(200,'成功');
+            return_info(200,'success');
         }else{
-            return_info(-1,'失败');
+            return_info(-1,'fail');
         }
     }
 }
