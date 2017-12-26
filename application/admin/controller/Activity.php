@@ -1000,7 +1000,7 @@ class Activity extends Base
 
     //得到活动时间
     public function getActivityTime(){
-        if(request()->isAjax()) {
+        if(!request()->isAjax()) {
             return_info(-1,'请求错误');
         }
 
