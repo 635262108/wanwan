@@ -750,6 +750,10 @@ $(".add_order").on("click",function(){
 var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input type='text'/ class='Name'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='Birthday' onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='School'></li><li>可玩时间：<input type='text' class='play'></li></ul><div class='operate'><span class='add_save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>"
 $(".childInforContent").append(str);
 })
+
+$(document).on("click",".delete",function(){
+	$(this).parent().parent().parent().remove();
+})
 //封装的网址
 var SpitUrl={
 	"add_url":"/api/user/saveChild",
@@ -815,7 +819,11 @@ $(document).on("click",".save",function(){
 	var birthday=$(".birthday").val();
 	var school=$(".school").val();
 	var playTime=$(".play").val();
-	operateUrl("/api/user/saveChild",{uid:uid,id:id,name:childName,gender:sex,birthday:birthday,school:school,play_time:playTime});
+	$.post(SpitUrl.add_url,{uid:uid,id:id,name:childName,gender:sex,birthday:birthday,school:school,play_time:playTime},function(obj){
+		if(obj.state_code == 200){
+			window.location.reload();
+		}
+	})
 })
 
 

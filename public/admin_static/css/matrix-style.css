@@ -2639,7 +2639,8 @@ div.dataTables_wrapper .ui-widget-header {
 	cursor: pointer;
 	background:#e7e6e6;
 	font-size: 14px;
-	letter-spacing: 1px;
+	letter-spacing:2px;
+	margin-right: 4px;
 }
 .detailInfoContent .totalInfoContent .click_ulContent li.active{
 	background: #FF4134;
@@ -2732,6 +2733,11 @@ div.dataTables_wrapper .ui-widget-header {
 	width: 274px;
 	margin-right: 15px;
 	margin-bottom: 15px;
+	/*border: 1px solid #CCCCCC;*/
+}
+.detailInfoContent .totalInfoContent .detail_Container .childContent .childInforContent .childInforPart input{
+	color: #666;
+	font-size: 12px;
 }
 .detailInfoContent .totalInfoContent .detail_Container .childContent .childInforContent .childInforPart li:nth-child(2){
 	display: flex;
@@ -2744,11 +2750,14 @@ div.dataTables_wrapper .ui-widget-header {
 	
 }
 .detailInfoContent .totalInfoContent .detail_Container .childContent .partInput li{
-	margin-bottom: 8px;
-	/*margin-bottom: 1.6px;*/
+	display: flex;
+	align-items: center;
+	margin-bottom: 15.8px;
+	
 }
 .detailInfoContent .totalInfoContent .detail_Container .childContent .partInput li input{
 	width: 150px;
+	margin-bottom: 0px;
 }
  .childInforContent .childInforPart ul{
  	margin: 0px;

@@ -126,8 +126,8 @@
 								<div class="detail_record">
 
 									<div class="widget-content nopadding" style="">
-										<form action="{:url('admin/user/add_recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
-											
+										<form action="{:url('/api/user/recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
+											<input type="hidden" name="uid" value="{$userInfo.uid}">
 											<div class="control-group">
 												<label class="control-label">会员名称</label>
 												<div class="controls">
@@ -177,9 +177,9 @@
 										</form>
 									</div>
 							      <div class="widget-content" style="display: none;">
-			                        <form action="{:url( 'admin/user/add_deduction')} " method="post" class="form-horizontal" name="Alist_form " style="m-horizontal ">
+			                        <form action="{:url('/api/user/deductionFee')} " method="post" class="form-horizontal" name="Alist_form " style="m-horizontal ">
 										
-							
+							             <input type="hidden" name="uid" value="{$userInfo.uid}">
 										<div class="control-group ">
 											<label class="control-label ">会员名称</label>
 											<div class="controls ">
