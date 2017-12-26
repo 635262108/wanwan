@@ -205,11 +205,6 @@ $(document).ready(function() {
             	$(".new_time").val(childParts.eq(index-1).find(".one_time").html())
             	$(".new_birthday").val(childParts.eq(index-1).find(".one_birthday").html())
             	$(".id").html(childParts.eq(index-1).attr("num"));
-            	
-                            
-   
-            	
-            	
             })
              
 //           点击编辑之后保存
