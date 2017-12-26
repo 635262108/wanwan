@@ -541,6 +541,8 @@ class Activity extends Base
             if($orders['return_code'] == 'SUCCESS'){
                 model('ActivityOrder')->setOrderStatus($order_sn,6);
                 model('ActivityRefund')->setStatus($rid,3);
+                //恢复名额
+                model('ActivityTime')->IncTicketNum($orderInfo->t_id);
                 $this->success('金额已原路返回',url('activity/refund'));
             }
         }elseif ($orderInfo['pay_way'] == 4){   //余额
@@ -1008,38 +1010,6 @@ class Activity extends Base
             return_info(200,'成功',$res);
         }else{
             return_info(-1,'没有安排时间');
-        }
-    }
-
-    //请假
-    public function askForLeave(){
-        if(request()->isAjax()) {
-            return_info(-1,'请求错误');
-        }
-        $data = input('post.');
-        $orderInfo = model('ActivityOrder')->get($data['id']);
-        if(empty($orderInfo) || $orderInfo->uid < 0){
-            return_info(-1,'无效id');
-        }
-        $orderInfo->order_status = 7;
-        $orderInfo->save();
-
-        //恢复名额
-        model('ActivityTime')->IncTicketNum($orderInfo->t_id);
-
-        $add_data = [
-            'aid' => $orderInfo->aid,
-            'uid' => $orderInfo->uid,
-            'order_sn' => $orderInfo->order_sn,
-            'reason' => $data['reason'],
-            'time' => time(),
-            'type' => 2
-        ];
-        $res = model('ActivityRefund')->insert($add_data);
-        if($res){
-            return_info(200,'成功');
-        }else{
-            return_info(-1,'失败');
         }
     }
 }

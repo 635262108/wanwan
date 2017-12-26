@@ -66,4 +66,12 @@ class RechargeRecord extends Model
     public function getRechargeAll($map = array(),$limit = '',$field = '*'){
         return $this->field($field)->where($map)->order('id desc')->limit($limit)->select();
     }
+
+    //获取某个用户已成功的充值
+    public function getUserRecharge($uid=0){
+        $map = [
+            'uid' => $uid,
+        ];
+        return $this->where($map);
+    }
 }

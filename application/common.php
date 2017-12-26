@@ -130,7 +130,13 @@ function is_weixin() {
  *uid 用户id
  *aid 活动id
  */
-function getOrderSn($uid,$aid){
+function getOrderSn($uid=0,$aid=0){
+    if($uid == 0){
+        $uid = rand(1, 99999);
+    }
+    if($aid == 0){
+        $aid = rand(1, 99999);
+    }
     $time = date('YmdHis');
     return $time.$aid.$uid;
 }
@@ -206,6 +212,15 @@ function getUserGrade($code){
             break;
         default:
             return '';
+    }
+}
+
+//返回男女
+function getGender($gender){
+    if($gender == '1'){
+        return '男';
+    }else{
+        return '女';
     }
 }
 
