@@ -2731,7 +2731,7 @@ div.dataTables_wrapper .ui-widget-header {
 	flex-direction: column;
 	width: 274px;
 	margin-right: 15px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 .detailInfoContent .totalInfoContent .detail_Container .childContent .childInforContent .childInforPart li:nth-child(2){
 	display: flex;
@@ -2744,7 +2744,8 @@ div.dataTables_wrapper .ui-widget-header {
 	
 }
 .detailInfoContent .totalInfoContent .detail_Container .childContent .partInput li{
-	margin-bottom: 1.6px;
+	margin-bottom: 8px;
+	/*margin-bottom: 1.6px;*/
 }
 .detailInfoContent .totalInfoContent .detail_Container .childContent .partInput li input{
 	width: 150px;

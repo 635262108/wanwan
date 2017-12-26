@@ -60,15 +60,16 @@
 					</div>
 
 					<div class="childInforContent">
+						<input type="hidden" value="{$userInfo.uid}" class="hidden_val"/>
 						{foreach name="childInfo" item="vo"}
-						<div class="childInforPart">
+						<div class="childInforPart" num='{$vo.id}'>
 							<ul>
-								<li>孩子姓名：{$vo.name}</li>
-								<li>孩子性别：{$vo.gender|getGender}</li>
-								<li>孩子生日：{$vo.birthday|date='Y-m-d',###}</li>
-								<li>孩子学校：{$vo.school}</li>
-								<li>登记时间：{$vo.addtime|date='Y-m-d',###}</li>
-								<li>可玩时间：{$vo.play_time}</li>
+								<li>孩子姓名：<span class="childName">{$vo.name}</span></li>
+								<li>孩子性别：<span class="childSex">{$vo.gender|getGender}</span></li>
+								<li>孩子生日：<span class="childBirthday">{$vo.birthday|date='Y-m-d',###}</span></li>
+								<li>孩子学校：<span class="childSchool">{$vo.school}</span></li>
+								<li>登记时间：<span>{$vo.addtime|date='Y-m-d',###}</span></li>
+								<li>可玩时间：<span class="childPlay">{$vo.play_time}</span></li>
 							</ul>
 							<div class="operate">
 								<span class="emit"><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
@@ -91,6 +92,7 @@
 							</tr>
 						</thead>
 						<tbody id="tbody_center" style="font-size: 12px;">
+							
 						{foreach name="detaiInfo" item="vo"}
 							<tr>
 								<td>{$vo.id}</td>
