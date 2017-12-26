@@ -126,7 +126,7 @@
 								<div class="detail_record">
 
 									<div class="widget-content nopadding" style="">
-										<form action="{:url('/api/user/recharge')}" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
+										<form action="" method="post" class="form-horizontal" name="Alist_form" style="m-horizontal">
 											<input type="hidden" name="uid" value="{$userInfo.uid}">
 											<div class="control-group">
 												<label class="control-label">会员名称</label>
@@ -137,24 +137,24 @@
 											<div class="control-group">
 												<label class="control-label">充值金额</label>
 												<div class="controls">
-													<input class="span11" style="width: 30%;" value='' name="amount" type="text" onkeyup="value=value.replace(/[^\-?\d.]/g,'')">
+													<input class="span11 amountMoney" style="width: 30%;" value='' name="amount" type="text" onkeyup="value=value.replace(/[^\-?\d.]/g,'')">
 												</div>
 											</div>
 											<div class="control-group">
 												<label class="control-label">充值赠送</label>
 												<div class="controls">
-													<textarea name="giveaway"></textarea>
+													<textarea name="giveaway" class="giveVal"></textarea>
 												</div>
 											</div>
 											<div class="control-group">
 												<label class="control-label">充值时间</label>
 												<div class="controls">
-													<input type="text" value="" name="pay_time" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
+													<input type="text" class="pay_time" value="" name="pay_time" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
 												</div>
 											</div>
 											<div class="control-group">
 												<label class="control-label">是否全部领取</label>
-												<div class="controls">
+												<div class="controls is_get">
 													<input type="radio" name="is_get" value="1">是
 													<input type="radio" name="is_get" value="0">否
 												</div>
@@ -162,7 +162,7 @@
 											<div class="control-group">
 												<label class="control-label">支付方式</label>
 												<div class="controls">
-													<select name="pay_way">
+													<select name="pay_way" class="pay_way">
 														<option value="1" selected='selected' >支付宝</option>
 														<option value="2" >微信</option>
 														<option value="3">现金</option>
@@ -170,14 +170,14 @@
 												</div>
 											</div>
 											<div class="form-actions ">
-												<button type="submit " class="btn btn-success info_sure">保存</button>
+												<button  class="btn btn-success info_sure recharge_for">保存</button>
 												<a href="{:url( 'admin/user/index')} " class="btn-warning">取消</a>
 											</div>
 			
 										</form>
 									</div>
 							      <div class="widget-content" style="display: none;">
-			                        <form action="{:url('/api/user/deductionFee')} " method="post" class="form-horizontal" name="Alist_form " style="m-horizontal ">
+			                        <form action="" method="post" class="form-horizontal" name="Alist_form " style="m-horizontal ">
 										
 							             <input type="hidden" name="uid" value="{$userInfo.uid}">
 										<div class="control-group ">
@@ -190,7 +190,7 @@
 										<div class="control-group">
 											<label class="control-label">扣除金额</label>
 											<div class="controls">
-												<input class="span11" style="width: 30%; " value='' name="money " type="text " onkeyup="value=value.replace(/[^\-?\d.]/g, '') ">
+												<input class="span11 money" style="width: 30%; " value='' name="money " type="text " onkeyup="value=value.replace(/[^\-?\d.]/g, '') ">
 											</div>
 										</div>
 										
@@ -198,14 +198,14 @@
 											<label class="control-label">备注</label>
 											<div class="controls ">
 												
-												<textarea name="remark"></textarea>
+												<textarea name="remark" class="remark"></textarea>
 											</div>
 										</div>
 									
 								
 										<div class="form-actions">
-													<button type="submit" class="btn btn-success info_sure ">保存</button>
-													<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
+											<button  class="btn btn-success info_sure lose_money">保存</button>
+											<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
 										</div>
 								    </form>
 								</div>

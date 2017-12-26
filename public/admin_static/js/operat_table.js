@@ -757,7 +757,9 @@ $(document).on("click",".delete",function(){
 //封装的网址
 var SpitUrl={
 	"add_url":"/api/user/saveChild",
-	"delete_url":"/api/user/delChild"
+	"delete_url":"/api/user/delChild",
+	"recharge_url":"/api/user/recharge",
+	"deMoney_url":"/api/user/deductionFee"
 	
 	}
 //点击新增的保存
@@ -813,7 +815,6 @@ $(document).on("click",".emit",function(){
 $(document).on("click",".save",function(){
 	var id=$(this).parent().parent().attr("num");
 	var uid=$(".hidden_val").val();
-	console.log(id,'单个孩子')
 	var childName=$(".Name").val();
 	var sex=$("input:radio:checked").val();
 	var birthday=$(".birthday").val();
@@ -824,6 +825,39 @@ $(document).on("click",".save",function(){
 			window.location.reload();
 		}
 	})
+})
+
+
+//充值ajax
+$(".recharge_for").on("click",function(event){
+	event.preventDefault();
+	
+	var uid=$(".hidden_val").val();
+	var amount=$(".amountMoney").val();
+	var giveaway= $(".giveVal").val();
+	var payTime=$(".pay_time").val();
+	var isGet=$(".is_get input:radio:checked").val();
+	var payWay=$(".pay_way option:selected").val();
+    $.post(SpitUrl.recharge_url,{uid:uid,amount:amount,giveaway:giveaway,pay_time:payTime,is_get:isGet,pay_way:payWay},function(obj){
+		if(obj.state_code == 200){
+            window.location.reload()
+		}
+	})
+	
+})
+
+$(".lose_money").on("click",function(event){
+	event.preventDefault();
+	
+	var uid=$(".hidden_val").val();
+	var money=$(".money").val();
+	var remark=$(".remark").val()
+    $.post(SpitUrl.deMoney_url,{uid:uid,money:money,remark:remark},function(obj){
+		if(obj.state_code == 200){
+            window.location.reload();
+		}
+	})
+	
 })
 
 
