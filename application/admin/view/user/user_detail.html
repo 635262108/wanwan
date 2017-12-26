@@ -19,19 +19,19 @@
 	<div class="headerInfo">
 		<img src="__AIMG__/person_img.png" />
 		<ul>
-			<li>会员姓名：<span>王小二</span></li>
-			<li>联系方式：<span>18437976116</span></li>
-			<li>当前充值次数：<span>34</span></li>
-			<li>会员来源：<span>玩翫碗公众号</span></li>
+			<li>会员姓名：<span>{$userInfo.nickname}</span></li>
+			<li>联系方式：<span>{$userInfo.mobile}</span></li>
+			<li>当前充值次数：<span>{$result.recharge_num}</span></li>
+			<li>会员来源：<span>{$sourceInfo.name}</span></li>
 		</ul>
 		<img src="__AIMG__/stoggle_img.png" style="width:16px;height:14px;" class="stroggle slideDown" />
 	</div>
 	<div class="hiddenInfo" style="display: none;">
 		<ul>
-			<li>会员生日：<span>2017.12.20</span></li>
-			<li>会员住址：<span>郑州市金水区某某街道250号</span></li>
-			<li>会员邮箱：<span>30258579@qq.com</span></li>
-			<li>会员爱好：<span>吃着零食，躺着</span></li>
+			<li>会员生日：<span>{$userInfo.birthday|date='Y-m-d',###}</span></li>
+			<li>会员住址：<span>{$userInfo.address}</span></li>
+			<li>会员邮箱：<span>{$userInfo.email}</span></li>
+			<li>会员爱好：<span>{$userInfo.hobby}</span></li>
 		</ul>
 		<img src="__AIMG__/stoggleDom.png" style="width:16px;height:14px;" class="stroggle slideUp" />
 	</div>
@@ -60,20 +60,22 @@
 					</div>
 
 					<div class="childInforContent">
+						{foreach name="childInfo" item="vo"}
 						<div class="childInforPart">
 							<ul>
-								<li>孩子姓名：王小二</li>
-								<li>孩子性别：女</li>
-								<li>孩子生日：2014.7.8</li>
-								<li>孩子学校：郑州市某某学校</li>
-								<li>登记时间：2015.4.5</li>
-								<li>可玩时间：周六</li>
+								<li>孩子姓名：{$vo.name}</li>
+								<li>孩子性别：{$vo.gender|getGender}</li>
+								<li>孩子生日：{$vo.birthday|date='Y-m-d',###}</li>
+								<li>孩子学校：{$vo.school}</li>
+								<li>登记时间：{$vo.addtime|date='Y-m-d',###}</li>
+								<li>可玩时间：{$vo.play_time}</li>
 							</ul>
 							<div class="operate">
 								<span class="emit"><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
 								<span><img src="__AIMG__/delete.png"><a href="javascript:;" class="delete">删除</a></span>
 							</div>
 						</div>
+						{/foreach}
 					</div>
 				</div>
 				<div class="particulars" style="display: none;padding-top: 15px;position: relative;">
@@ -89,17 +91,16 @@
 							</tr>
 						</thead>
 						<tbody id="tbody_center" style="font-size: 12px;">
-
+						{foreach name="detaiInfo" item="vo"}
 							<tr>
-								<td>1</td>
-								<td>20.00</td>
-								<td>220.00</td>
-								<td>买了个丝绸之路</td>
-								<td>是的</td>
-								<td>20.15.2.3</td>
-
+								<td>{$vo.id}</td>
+								<td>{$vo.money}</td>
+								<td>{$vo.balance}</td>
+								<td>{$vo.type|user_detail_type}</td>
+								<td>{$vo.remark}</td>
+								<td>{$vo.addtime|date='Y-m-d H:i',###}</td>
 							</tr>
-
+						{/foreach}
 						</tbody>
 					</table>
 				</div>
@@ -128,7 +129,7 @@
 											<div class="control-group">
 												<label class="control-label">会员名称</label>
 												<div class="controls">
-													<input class="span11"  type="text" style="width: 32%;" readonly>
+													<input class="span11"  value="{$userInfo.nickname}" type="text" style="width: 32%;" readonly>
 												</div>
 											</div>
 											<div class="control-group">
@@ -176,25 +177,30 @@
 							      <div class="widget-content" style="display: none;">
 			                        <form action="{:url( 'admin/user/add_deduction')} " method="post" class="form-horizontal" name="Alist_form " style="m-horizontal ">
 										
-										<div class="control-group">
-											<label class="control-label">会员名称</label>
-											<div class="controls">
-												<input class="span11" value='' type="text" style="width:33%;" readonly>
+							
+										<div class="control-group ">
+											<label class="control-label ">会员名称</label>
+											<div class="controls ">
+												<input class="span11 " value='{$userInfo.nickname}' type="text " style="width: 33%; " readonly>
 											</div>
 										</div>
+										
 										<div class="control-group">
 											<label class="control-label">扣除金额</label>
 											<div class="controls">
 												<input class="span11" style="width: 30%; " value='' name="money " type="text " onkeyup="value=value.replace(/[^\-?\d.]/g, '') ">
 											</div>
 										</div>
+										
 										<div class="control-group">
 											<label class="control-label">备注</label>
 											<div class="controls ">
+												
 												<textarea name="remark"></textarea>
 											</div>
 										</div>
 									
+								
 										<div class="form-actions">
 													<button type="submit" class="btn btn-success info_sure ">保存</button>
 													<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
@@ -207,6 +213,7 @@
 				    </div>
            			</div>
 		        </div>
+		    
 		        <div class="activityRecord " style="display:none;position:relative;padding-top:15px;">
 		        	  <table class="table table-bordered data-table">
 						<thead>
@@ -221,20 +228,21 @@
 								<th>备注</th>
 							</tr>
 						</thead>
+						
 						<tbody id="tbody_center" style="font-size:12px;">
-
+						{foreach name="orderInfo" item="vo"}
 							<tr>
-								<td>1</td>
-								<td>丝绸之路</td>
-								<td>12月24日5:00-12:20</td>
-								<td>20.89</td>
-								<td>微信</td>
-								<td>玩翫碗网站</td>
-								<td>0.4.3.25</td>
-								<td>盛开的时刻</td>
-                               
+								
+								<td>{$vo.order_id}</td>
+								<td>{$vo.a_title}</td>
+								<td>{$vo.begin_time|date="Y-m-d H:i",###}--{$vo.end_time|date="H:i",###}</td>
+								<td>{$vo.order_price}</td>
+								<td>{$vo.pay_way|payWay}</td>
+								<td>{$vo.source_name}</td>
+								<td>{$vo.sign_time|date="Y-m-d H:i",###}</td>
+								<td>{$vo.remark}</td>
 							</tr>
-
+						{/foreach}
 						</tbody>
 					</table>
 		        </div>
@@ -246,17 +254,20 @@
 			<div class="balanceContent ">
 				<div>
 					<p>账户余额</p>
-					<p>168.00</p>
+					
+					<p>{$userInfo.balance}</p>
 				</div>
 				<div>
 					<p>消费金额</p>
-					<p>37.00</p>
+					
+					<p>{$result.order_price}</p>
 				</div>
 			</div>
 			<ul>
-				<li>报名次数：<span>32</span></li>
-				<li>参加次数：<span>2</span></li>
-				<li>加入时间：<span>2017.12.23</span></li>
+				
+				<li>报名次数：<span>{$result.enrol}</span></li>
+				<li>参加次数：<span>{$result.join_num}</span></li>
+				<li>加入时间：<span>{$userInfo.reg_time|date='Y-m-d H:i',###}</span></li>
 			</ul>
 		</div>
   

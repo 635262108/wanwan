@@ -543,61 +543,6 @@ class User extends Base
         }
     }
 
-    //更新孩子
-    public function  save_child(){
-        //id,存在时为更新
-        $id = input('post.id');
-        if(!empty($id)){
-            $data['id'] = $id;
-        }
-
-        //用户id,更新时不做修改
-        $uid = input('post.uid');
-        if(empty($id)){
-            $data['uid'] = $uid;
-        }
-
-        //孩子姓名
-        $data['name'] = input('post.child_name');
-        if(empty($data['name'])){
-            return_info(-1,'姓名不能为空');
-        }
-        //孩子性别
-        $data['gender'] = input('post.child_gender');
-        //孩子生日
-        $data['birthday'] = input('post.child_birthday');
-        //孩子学校
-        $data['school'] = input('post.child_school');
-        //可以玩耍时间
-        $data['play_time'] = input('post.child_play_time');
-        //添加时记录时间
-        if(empty($id)){
-            $data['time'] = date('Y-m-d H:i:s');
-        }
-        $model = new UserLogic();
-        $res = $model->saveChild($data);
-        if(isset($res['data'])){
-            return_info($res['status'],$res['msg'],$res['data']);
-        }else{
-            return_info($res['status'],$res['msg']);
-        }
-
-    }
-
-    //删除孩子
-    public function del_child(){
-        $id = input('post.id');
-        if(empty($id)){
-            return_info(-1,'参数不完整');
-        }
-        $res = db('user_child')->delete($id);
-        if($res){
-            return_info(200,'成功');
-        }else{
-            return_info(-1,'失败');
-        }
-    }
-
     //充值政策
     public function recharge_policy(){
         $data = model('Recharge')->select();
@@ -879,6 +824,33 @@ class User extends Base
 
     //用户详情
     public function user_detail(){
-        return $this->fetch();
+        $uid = input('param.uid');
+        $userInfo = model('user')->get($uid);
+        $childInfo = model('UserChild')->getAnyUserChilds($uid);
+        $detaiInfo = model('UserDetail')->getAnyUserDetail($uid);
+        $orderInfo = model('ActivityOrder')
+            ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
+            ->join('mfw_activity a','o.aid=a.aid')
+            ->join('mfw_activity_time t','t.t_id=o.t_id')
+            ->join('mfw_source s','o.source=s.id','LEFT')
+            ->where('o.uid',$uid)
+            ->select();
+        $sourceInfo = model('Source')->get($userInfo->source);
+        //获取报名次数，消费金额，参加次数,充值次数
+        $result = [
+            'enrol' => model('ActivityOrder')->getUserOrder($uid)->count(),
+            'order_price' => model('ActivityOrder')->getUserOrder($uid)->sum('order_price'),
+            'join_num' => model('ActivityOrder')->getUserSuccessJoinOrder($uid)->count(),
+            'recharge_num' => model('RechargeRecord')->getUserRecharge($uid)->count(),
+        ];
+//        print_r($result);die;
+        return $this->fetch('',[
+            'userInfo' => $userInfo,
+            'childInfo' => $childInfo,
+            'detaiInfo' => $detaiInfo,
+            'orderInfo' => $orderInfo,
+            'sourceInfo' => $sourceInfo,
+            'result' => $result
+        ]);
     }
 }

@@ -2,21 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2017/11/1 0001
- * Time: 下午 4:09
+ * Date: 2017/10/30 0030
+ * Time: 下午 2:50
  */
 
 namespace app\common\model;
-
-
 use think\Model;
 
-class UserDetail extends Model
+class UserChild extends Model
 {
-    //获取某个用户明细
-    public function getAnyUserDetail($uid=0){
+   //获取某个用户的孩子信息
+    public function getAnyUserChilds($uid=0){
         $map = [
-            'uid'=>$uid,
+            'uid' => $uid,
         ];
         return $this->where($map)->select();
     }
