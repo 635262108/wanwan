@@ -188,12 +188,11 @@ class ActivityOrder extends Model
         return $this->where('uid',$uid)->find();
     }
 
-    //用户的已支付订单
+    //用户的已报名订单
     public function getUserOrder($uid=0){
         $map = [
             'uid'=>$uid,
-            'pay_time' => array('>',0),
-            'order_status' => array('<',5),
+            'order_status' => ['neq',2],
         ];
         return $this->where($map);
     }

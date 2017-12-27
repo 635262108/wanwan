@@ -59,9 +59,11 @@
               <tbody id="tbody_center" style='font-size: 12px;'>
                 {foreach name="actinfo" item="vo"}
                 <tr class="gradeX trs">
+                
                   <td class="leave_id">{$vo.order_id}</td>
-                  <td>{$vo.username}</td>
-                  <td>{$vo.mobile}</td>  
+                 
+                  <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.username}</a></td>
+                  <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.mobile}</a></td>
                   <td>{$vo.adult_num}</td>
                   <td>{$vo.child_num}</td>
                   <td>
@@ -92,6 +94,7 @@
   </div>
 </div>
 </div>
+
 <div class="leaveModal" style="display: none;">
   	  <div class="modal_div">
   	  	  <input type="hidden" value="" class="hidden_id"/>

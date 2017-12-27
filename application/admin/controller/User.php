@@ -157,50 +157,30 @@ class User extends Base
         $userInfo['reg_time'] = date("Y-m-d H:i:s",$userInfo['reg_time']);
         $userInfo['last_time'] = date("Y-m-d H:i:s",$userInfo['last_time']);
         $userInfo['birthday'] = date("Y-m-d",$userInfo['birthday']);
+        //获取来源数据
+        $source = model('Source')->getSources();
   
         $this->assign('provinces',$provinces);
         $this->assign('citys',$citys);
         $this->assign('districts',$districts);
         $this->assign('userInfo',$userInfo);
+        $this->assign('source',$source);
         return $this->fetch();
     }
     
     //修改个人信息
     public function saveUser(){
-        //uid
-        $uid = input('post.userId');
-        //手机号
-        $mobile = input('post.userTel');
-        //昵称
-        $nickname = input('post.userName');
-        //状态
-        $status = input('post.status');
-        //生日
-        $birthday = input('post.userBirthday');
-        //爱好
-        $hobby = input('post.userLike');
-        //省
-        $province = input('post.userProvince');
-        //市
-        $city = input('post.userCountry');
-        //区
-        $district = input('post.userArea');
-        //详细地址
-        $province = input('post.detailAddress');
-        
-        //修改
-        $data['mobile'] = $mobile;
-        $data['nickname'] = $nickname;
-        $data['status'] = $status;
-        $data['birthday'] = time($birthday);
-        $data['hobby'] = $hobby;
-        $data['city'] = $city;
-        $data['district'] = $district;
-        $data['address'] = $province;
+        $data = input('post.');
+        $data['birthday'] = strtotime($data['birthday']);
         
         $user = model('user');
-        $user->saveUserInfo($uid,$data);
-        $this->success('修改成功',"user/index");
+        $res = $user->save($data,['uid'=>$data['uid']]);
+        if($res){
+            $this->success('修改成功',$_SERVER['HTTP_REFERER']);
+        }else{
+            $this->success('修改失败');
+        }
+
     }
 
     //签到概况
@@ -825,7 +805,16 @@ class User extends Base
     //用户详情
     public function user_detail(){
         $uid = input('param.uid');
-        $userInfo = model('user')->get($uid);
+        //uid为手机号时用手机号查，导入的订单没有uid
+        if(isMobile($uid)){
+            $userInfo = model('user')->getMobileUserInfo($uid);
+            $uid = $userInfo->uid;
+        }else{
+            $userInfo = model('user')->get($uid);
+        }
+        if(empty($userInfo)){
+            $this->error('这条数据没有对应的用户');
+        }
         $childInfo = model('UserChild')->getAnyUserChilds($uid);
         $detaiInfo = model('UserDetail')->getAnyUserDetail($uid);
         $orderInfo = model('ActivityOrder')

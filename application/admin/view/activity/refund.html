@@ -34,8 +34,8 @@
                 {foreach name="refundInfo" item="vo"}
                 <tr class="gradeX trs">
                   <td>{$vo.id}</td>
-                  <td>{$vo.nickname}</td>
-                  <td>{$vo.mobile}</td>
+                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
+                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
                   <td>{$vo.a_title}</td>
                   <td>{$vo.reason}</td>
                   <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
