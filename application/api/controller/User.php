@@ -47,14 +47,20 @@ class User extends Controller
         }
         $data = input('post.');
         $orderInfo = model('ActivityOrder')->get($data['id']);
-        if(empty($orderInfo) || $orderInfo->uid < 0){
+        if($orderInfo->uid < 1){
+            $userInfo = model('user')->getMobileUserInfo($orderInfo->mobile);
+        }else{
+            $userInfo = model('user')->get($orderInfo->uid);
+        }
+
+        if(empty($orderInfo) || empty($userInfo)){
             return_info(-1,'无效id');
         }
         $orderInfo->order_status = 7;
         $orderInfo->save();
 
         //恢复名额
-        model('ActivityTime')->IncTicketNum($orderInfo->t_id);
+        $inc = model('ActivityTime')->IncTicketNum($orderInfo->t_id);
 
         $add_data = [
             'aid' => $orderInfo->aid,
@@ -65,7 +71,7 @@ class User extends Controller
             'type' => 2
         ];
         $res = model('ActivityRefund')->insert($add_data);
-        if($res){
+        if($res & $inc){
             return_info(200,'success');
         }else{
             return_info(-1,'fail');
