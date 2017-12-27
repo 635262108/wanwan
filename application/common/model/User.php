@@ -84,9 +84,9 @@ class User extends Model
 
         return $this->insert($data);
     }
-    
+
     /**
-     *修改用户信息 
+     *修改用户信息
      * @param type $uid
      * @param type $data
      */

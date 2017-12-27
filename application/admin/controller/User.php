@@ -167,40 +167,17 @@ class User extends Base
     
     //修改个人信息
     public function saveUser(){
-        //uid
-        $uid = input('post.userId');
-        //手机号
-        $mobile = input('post.userTel');
-        //昵称
-        $nickname = input('post.userName');
-        //状态
-        $status = input('post.status');
-        //生日
-        $birthday = input('post.userBirthday');
-        //爱好
-        $hobby = input('post.userLike');
-        //省
-        $province = input('post.userProvince');
-        //市
-        $city = input('post.userCountry');
-        //区
-        $district = input('post.userArea');
-        //详细地址
-        $province = input('post.detailAddress');
-        
-        //修改
-        $data['mobile'] = $mobile;
-        $data['nickname'] = $nickname;
-        $data['status'] = $status;
-        $data['birthday'] = time($birthday);
-        $data['hobby'] = $hobby;
-        $data['city'] = $city;
-        $data['district'] = $district;
-        $data['address'] = $province;
+        $data = input('post.');
+        $data['birthday'] = strtotime($data['birthday']);
         
         $user = model('user');
-        $user->saveUserInfo($uid,$data);
-        $this->success('修改成功',"user/index");
+        $res = $user->save($data,['uid'=>$data['uid']]);
+        if($res){
+            $this->success('修改成功',$_SERVER['HTTP_REFERER']);
+        }else{
+            $this->success('修改失败');
+        }
+
     }
 
     //签到概况

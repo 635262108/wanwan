@@ -59,8 +59,8 @@
                 {foreach name="actinfo" item="vo"}
                 <tr class="gradeX trs">
                   <td>{$vo.order_id}</td>
-                  <td>{$vo.username}</td>
-                  <td>{$vo.mobile}</td>  
+                    <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.username}</a></td>
+                    <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.mobile}</a></td>
                   <td>{$vo.adult_num}</td>
                   <td>{$vo.child_num}</td>
                   <td>
