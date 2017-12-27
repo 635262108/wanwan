@@ -99,8 +99,8 @@
 								{foreach name="$userInfo" item="vo"}
 								<tr>
 									<td>{$vo.uid}</td>
-									<td>{$vo.nickname}</td>
-									<td>{$vo.mobile}</td>
+									<td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
+									<td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
 									<td>
 										{if condition="$vo.status eq 1"} 正常 {else/} 被禁 {/if}
 									</td>

@@ -825,7 +825,16 @@ class User extends Base
     //用户详情
     public function user_detail(){
         $uid = input('param.uid');
-        $userInfo = model('user')->get($uid);
+        //uid为手机号时用手机号查，导入的订单没有uid
+        if(isMobile($uid)){
+            $userInfo = model('user')->getMobileUserInfo($uid);
+            $uid = $userInfo->uid;
+        }else{
+            $userInfo = model('user')->get($uid);
+        }
+        if(empty($userInfo)){
+            $this->error('这条数据没有对应的用户');
+        }
         $childInfo = model('UserChild')->getAnyUserChilds($uid);
         $detaiInfo = model('UserDetail')->getAnyUserDetail($uid);
         $orderInfo = model('ActivityOrder')

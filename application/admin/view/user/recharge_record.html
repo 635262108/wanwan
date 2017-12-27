@@ -43,8 +43,8 @@
                {foreach name="res" item="vo"}
                 <tr>
                 	<td class="td_id">{$vo.id}</td>
-                  <td>{$vo.nickname}</td>
-                  <td>{$vo.mobile}</td>
+                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
+                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
                   <td>{$vo.amount}</td>
                   <td>{$vo.pay_way|payWay}</td>
                   <td>
