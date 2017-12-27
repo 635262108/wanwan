@@ -157,11 +157,14 @@ class User extends Base
         $userInfo['reg_time'] = date("Y-m-d H:i:s",$userInfo['reg_time']);
         $userInfo['last_time'] = date("Y-m-d H:i:s",$userInfo['last_time']);
         $userInfo['birthday'] = date("Y-m-d",$userInfo['birthday']);
+        //获取来源数据
+        $source = model('Source')->getSources();
   
         $this->assign('provinces',$provinces);
         $this->assign('citys',$citys);
         $this->assign('districts',$districts);
         $this->assign('userInfo',$userInfo);
+        $this->assign('source',$source);
         return $this->fetch();
     }
     

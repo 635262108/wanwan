@@ -9,9 +9,7 @@
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" afterPath="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" afterPath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/User.php" afterPath="$PROJECT_DIR$/application/common/model/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/saveuserlist.html" afterPath="$PROJECT_DIR$/application/admin/view/user/saveuserlist.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,21 +23,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="168" column="31" lean-forward="true" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
+            <state relative-caret-position="120">
+              <caret line="144" column="32" lean-forward="false" selection-start-line="144" selection-start-column="20" selection-end-line="144" selection-end-column="32" />
               <folding>
                 <element signature="e#38#59#0#PHP" expanded="true" />
-                <marker date="1514355497810" expanded="true" signature="6215:6645" ph="select a_tit... mfw_activity" />
-                <marker date="1514355497810" expanded="true" signature="6260:6346" ph="select count... mfw_activity_order" />
-                <marker date="1514355497810" expanded="true" signature="6386:6467" ph="select count... mfw_activity_order" />
-                <marker date="1514355497810" expanded="true" signature="6508:6590" ph="select count... mfw_activity_order" />
-                <marker date="1514355497810" expanded="true" signature="8040:8485" ph="select t.*,a... mfw_activity_time" />
-                <marker date="1514355497810" expanded="true" signature="8099:8201" ph="select sum(o... mfw_activity_order" />
-                <marker date="1514355497810" expanded="true" signature="8254:8357" ph="select sum(o... mfw_activity_order" />
+                <marker date="1514356480589" expanded="true" signature="6322:6752" ph="select a_tit... mfw_activity" />
+                <marker date="1514356480589" expanded="true" signature="6367:6453" ph="select count... mfw_activity_order" />
+                <marker date="1514356480589" expanded="true" signature="6493:6574" ph="select count... mfw_activity_order" />
+                <marker date="1514356480589" expanded="true" signature="6615:6697" ph="select count... mfw_activity_order" />
+                <marker date="1514356480589" expanded="true" signature="8147:8592" ph="select t.*,a... mfw_activity_time" />
+                <marker date="1514356480589" expanded="true" signature="8206:8308" ph="select sum(o... mfw_activity_order" />
+                <marker date="1514356480589" expanded="true" signature="8361:8464" ph="select sum(o... mfw_activity_order" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="saveuserlist.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/user/saveuserlist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="107" column="48" lean-forward="true" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -47,8 +55,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/common/model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+            <state relative-caret-position="321">
+              <caret line="74" column="28" lean-forward="true" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -59,16 +67,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="563">
               <caret line="197" column="5" lean-forward="true" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recharge_record.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_record.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="45" column="78" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -108,12 +106,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="refund.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/activity/refund.html">
+      <file leaf-file-name="user_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/user/user_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="396">
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+              <folding>
+                <marker date="1514283506904" expanded="true" signature="97:108" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,16 +123,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="867" column="27" lean-forward="false" selection-start-line="867" selection-start-column="27" selection-end-line="867" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/user/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -149,7 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>微信</find>
       <find>.rechargeModal_box .rechargeModal_div .overBox .policyPart .policy_title</find>
       <find>overBox</find>
       <find>rechargeModal_box</find>
@@ -177,8 +166,9 @@
       <find>user_detail</find>
       <find>getUserOrder</find>
       <find>导入</find>
-      <find>修改</find>
       <find>saveUserInfo</find>
+      <find>add_member</find>
+      <find>修改</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -208,7 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/mobile/view/public/header.html" />
         <option value="$PROJECT_DIR$/application/home/view/public/header.html" />
         <option value="$PROJECT_DIR$/application/home/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/save_spe.html" />
@@ -259,6 +248,7 @@
         <option value="$PROJECT_DIR$/application/admin/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/common/model/User.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/User.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/user/saveuserlist.html" />
       </list>
     </option>
   </component>
@@ -323,14 +313,16 @@
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
@@ -474,12 +466,12 @@
       <workItem from="1514162839623" duration="3954000" />
       <workItem from="1514166886021" duration="23037000" />
       <workItem from="1514255372386" duration="21391000" />
-      <workItem from="1514336517405" duration="14263000" />
+      <workItem from="1514336517405" duration="19378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1099856000" />
+    <option name="totallyTimeSpent" value="1104971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -548,14 +540,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/common/validate/Recharge.php" />
-    <entry file="file://$PROJECT_DIR$/application/admin/view/user/dis_save_policy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="90" lean-forward="false" selection-start-line="22" selection-start-column="90" selection-end-line="22" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/RechargePolicy.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -811,16 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/user/user_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-          <folding>
-            <marker date="1514283506904" expanded="true" signature="97:108" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/validate/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -929,28 +903,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/user_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <marker date="1514283506904" expanded="true" signature="97:108" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+        <state relative-caret-position="321">
+          <caret line="74" column="28" lean-forward="true" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="168" column="31" lean-forward="true" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
+        <state relative-caret-position="120">
+          <caret line="144" column="32" lean-forward="false" selection-start-line="144" selection-start-column="20" selection-end-line="144" selection-end-column="32" />
           <folding>
             <element signature="e#38#59#0#PHP" expanded="true" />
-            <marker date="1514355497810" expanded="true" signature="6215:6645" ph="select a_tit... mfw_activity" />
-            <marker date="1514355497810" expanded="true" signature="6260:6346" ph="select count... mfw_activity_order" />
-            <marker date="1514355497810" expanded="true" signature="6386:6467" ph="select count... mfw_activity_order" />
-            <marker date="1514355497810" expanded="true" signature="6508:6590" ph="select count... mfw_activity_order" />
-            <marker date="1514355497810" expanded="true" signature="8040:8485" ph="select t.*,a... mfw_activity_time" />
-            <marker date="1514355497810" expanded="true" signature="8099:8201" ph="select sum(o... mfw_activity_order" />
-            <marker date="1514355497810" expanded="true" signature="8254:8357" ph="select sum(o... mfw_activity_order" />
+            <marker date="1514356480589" expanded="true" signature="6322:6752" ph="select a_tit... mfw_activity" />
+            <marker date="1514356480589" expanded="true" signature="6367:6453" ph="select count... mfw_activity_order" />
+            <marker date="1514356480589" expanded="true" signature="6493:6574" ph="select count... mfw_activity_order" />
+            <marker date="1514356480589" expanded="true" signature="6615:6697" ph="select count... mfw_activity_order" />
+            <marker date="1514356480589" expanded="true" signature="8147:8592" ph="select t.*,a... mfw_activity_time" />
+            <marker date="1514356480589" expanded="true" signature="8206:8308" ph="select sum(o... mfw_activity_order" />
+            <marker date="1514356480589" expanded="true" signature="8361:8464" ph="select sum(o... mfw_activity_order" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/add_member.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="144" column="32" lean-forward="true" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/saveuserlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="107" column="48" lean-forward="true" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

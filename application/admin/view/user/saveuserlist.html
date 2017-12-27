@@ -119,6 +119,17 @@
                 <textarea class="span11" name="detailAddress">{$userInfo.address}</textarea>
               </div>
             </div>
+
+              <div class="control-group">
+                  <label class="control-label">报名来源</label>
+                  <div class="controls">
+                      <select name="source">
+                          {foreach name="source" item="vo"}
+                          <option value="{$vo.id}" {if condition="$vo.id eq $userInfo.source"}selected='selected'{/if}>{$vo.name}</option>
+                          {/foreach}
+                      </select>
+                  </div>
+              </div>
             
             <div class="form-actions">
             <button class="btn btn-success info_sure" type="submit">确定</button>
