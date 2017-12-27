@@ -751,15 +751,23 @@ var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input typ
 $(".childInforContent").append(str);
 })
 
-$(document).on("click",".delete",function(){
-	$(this).parent().parent().parent().remove();
-})
+//$(document).on("click",".delete",function(){
+//	var trueOrfalse = confirm("是否确认删除");
+//	if(!trueOrfalse){
+//        return;
+//	}
+//	else{
+//		$(this).parent().parent().parent().remove();
+//	}
+//	
+//})
 //封装的网址
 var SpitUrl={
 	"add_url":"/api/user/saveChild",
 	"delete_url":"/api/user/delChild",
 	"recharge_url":"/api/user/recharge",
-	"deMoney_url":"/api/user/deductionFee"
+	"deMoney_url":"/api/user/deductionFee",
+	"leave_url":"/api/user/askForLeave"
 	
 	}
 //点击新增的保存
@@ -780,12 +788,20 @@ $(document).on("click",".add_save",function(){
 //孩子信息删除
 $(document).on("click",".delete",function(){
 	var id=$(this).parent().parent().parent().attr("num");
-	$.post(SpitUrl.delete_url,{id:id},function(obj){
-		if(obj.state_code == 200){
-			$(this).parent().parent().parent().remove();
-			window.location.reload();
-		}
-	})
+	var trueOrfalse = confirm("是否确认删除");
+	var el=$(this);
+	if(!trueOrfalse){
+          return;
+	}
+	else{
+			$.post(SpitUrl.delete_url,{id:id},function(obj){
+			if(obj.state_code == 200){
+				
+				el.parent().parent().parent().remove();
+			}
+			})
+	}
+
 })
 
 //点击编辑
@@ -800,7 +816,7 @@ $(document).on("click",".emit",function(){
 	
 	var play=$(this).parent().siblings("ul").find(".childPlay").html();
 	
-	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ value="+Name+" class='Name'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' value="+Birthday+" class='birthday' onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='school' value="+School+" ></li><li>可玩时间：<input type='text' class='play'  value="+play+" ></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>";
+	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ class='Name' value="+Name+"></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='birthday' value="+Birthday+" onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='school' value="+School+" ></li><li>可玩时间：<input type='text' class='play'  value="+play+" ></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>";
 	
 	$(this).parent().parent(".childInforPart").html(str);
 	if(Sex=="女"){
@@ -858,6 +874,29 @@ $(".lose_money").on("click",function(event){
 		}
 	})
 	
+})
+
+//请假弹出层
+$(".leaveModal .cancel").on("click",function(){
+	$(this).parent().parent().hide()
+})
+//点击查看
+
+$(".activity_leave").live("click",function(){
+	$(".leaveModal").show()
+	var id=$(this).parent().siblings(".leave_id").html();
+	$(".hidden_id").val(id);
+})
+
+//点击保存
+$(".leaveSave").on("click",function(){
+	var id= $(".hidden_id").val();
+	var reason=$(".leaveCause textarea").val();
+	  $.post(SpitUrl.leave_url,{id:id,reason:reason},function(obj){
+		if(obj.state_code == 200){
+            window.location.reload();
+		}
+	})
 })
 
 

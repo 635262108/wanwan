@@ -53,12 +53,13 @@
                   <th>签到时间</th>
                   <th>状态</th>
                   <th>来源</th>
+                  <th>操作</th>
            </tr>
               </thead>
               <tbody id="tbody_center" style='font-size: 12px;'>
                 {foreach name="actinfo" item="vo"}
                 <tr class="gradeX trs">
-                  <td>{$vo.order_id}</td>
+                  <td class="leave_id">{$vo.order_id}</td>
                   <td>{$vo.username}</td>
                   <td>{$vo.mobile}</td>  
                   <td>{$vo.adult_num}</td>
@@ -80,6 +81,7 @@
                       {/switch}
                   </td>
                   <td>{$vo.name}</td>
+                  <td><span class="activity_leave">请假</span></td>
                 </tr>
                 {/foreach}
               </tbody>
@@ -90,7 +92,18 @@
   </div>
 </div>
 </div>
-{include file="public/footer" /}
+<div class="leaveModal" style="display: none;">
+  	  <div class="modal_div">
+  	  	  <input type="hidden" value="" class="hidden_id"/>
+  	  	  <div class="cancel">X</div>
+  	  	  <div class="leaveCause">
+  	  	  	  <span>请假原因：</span>
+  	  	  	  <textarea></textarea>
+  	  	  </div>
+  	  	  <div class="leaveSave">保存</div>
+  	  </div>
+</div>
+{include file="public/footer"/}
 </body>
 </html>
 

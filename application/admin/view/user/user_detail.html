@@ -17,9 +17,14 @@
 	</div>
 	<!--头部会员信息-->
 	<div class="headerInfo">
-		<img src="__AIMG__/person_img.png" />
+		{if condition="$userInfo.member_grade eq 1"}
+		  <img src="__AIMG__/userImg.png" />
+		{else/}
+		  <img src="__AIMG__/person_img.png" />
+		{/if}
+		
 		<ul>
-			<li>会员姓名：<span>{$userInfo.nickname}</span></li>
+			<li>会员姓名：<span>{$userInfo.nickname}</span><a href="javascript:;"><img src="__AIMG__/edit.png" style="width:22px;height:22px;margin-left:8px;cursor: pointer;"></a></li>
 			<li>联系方式：<span>{$userInfo.mobile}</span></li>
 			<li>当前充值次数：<span>{$result.recharge_num}</span></li>
 			<li>会员来源：<span>{$sourceInfo.name}</span></li>
