@@ -777,7 +777,7 @@ $(document).on("click",".add_save",function(){
 		}
 	})
 })
-
+//孩子信息删除
 $(document).on("click",".delete",function(){
 	var id=$(this).parent().parent().parent().attr("num");
 	$.post(SpitUrl.delete_url,{id:id},function(obj){
@@ -800,7 +800,7 @@ $(document).on("click",".emit",function(){
 	
 	var play=$(this).parent().siblings("ul").find(".childPlay").html();
 	
-	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ value="+Name+" class='Name'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' value="+Birthday+" class='birthday' onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' value="+School+" class='school'></li><li>可玩时间：<input type='text' value="+play+" class='play'></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>";
+	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ value="+Name+" class='Name'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' value="+Birthday+" class='birthday' onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='school' value="+School+" ></li><li>可玩时间：<input type='text' class='play'  value="+play+" ></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>";
 	
 	$(this).parent().parent(".childInforPart").html(str);
 	if(Sex=="女"){
@@ -845,7 +845,7 @@ $(".recharge_for").on("click",function(event){
 	})
 	
 })
-
+//扣费ajax
 $(".lose_money").on("click",function(event){
 	event.preventDefault();
 	
