@@ -1,4 +1,14 @@
 $(document).ready(function() {
+	
+//封装的网址
+var SpitUrl={
+	"add_url":"/api/user/saveChild",
+	"delete_url":"/api/user/delChild",
+	"recharge_url":"/api/user/recharge",
+	"deMoney_url":"/api/user/deductionFee",
+	"leave_url":"/api/user/askForLeave",
+	"sign_url":"/api/order/saveOrderStatus"
+}
 
 //	首页签到下拉
 		$(".sign").on("click",function(){
@@ -115,10 +125,7 @@ $(document).ready(function() {
             	var id=$(".uid").html();
             	var childName=$(".child_name").val();
             	var childSex=$("input:radio:checked").val();
-            	
-
-            	
-            	var childSch=$(".child_school").val();
+                var childSch=$(".child_school").val();
             	var play=$(".child_time").val();
             	var childBi=$(".child_birthday").val();
             	
@@ -612,10 +619,7 @@ activitys.on("click",function(){
 	$(this).addClass("active").siblings().removeClass("active");
 })
 
-//点击重置
-//$(".reset").on("click",function(){
-//	
-//})
+
 
 
 //会员列表的筛选单选点击事件
@@ -751,26 +755,6 @@ var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input typ
 $(".childInforContent").append(str);
 })
 
-//$(document).on("click",".delete",function(){
-//	var trueOrfalse = confirm("是否确认删除");
-//	if(!trueOrfalse){
-//        return;
-//	}
-//	else{
-//		$(this).parent().parent().parent().remove();
-//	}
-//	
-//})
-//封装的网址
-var SpitUrl={
-	"add_url":"/api/user/saveChild",
-	"delete_url":"/api/user/delChild",
-	"recharge_url":"/api/user/recharge",
-	"deMoney_url":"/api/user/deductionFee",
-	"leave_url":"/api/user/askForLeave",
-	"sign_url":"/api/order/saveOrderStatus"
-	
-	}
 //点击新增的保存
 
 $(document).on("click",".add_save",function(){
@@ -918,7 +902,6 @@ $(".quit").live("click",function(){
 	}
 	else{
 		var id=$(this).parent().siblings(".leave_id").html();
-	
 	    $.post(SpitUrl.sign_url,{id:id,order_status:8},function(obj){
 		if(obj.state_code == 200){
 			 window.location.reload();
@@ -938,14 +921,6 @@ $(".leaveSave").on("click",function(){
 	})
 })
 
-//if($(".activity_leave").html()=="已请假"){
-//	console.log(11111)
-//	$(this).off("click");
-//}
-//else{
-//	$(this).trigger("click");
-//}
-
 
 
 })
@@ -962,11 +937,11 @@ function seachcitys(province) {
 //市改变事件
 function seachdistricts(city) {
 	$.get("/home/user/getRegion", { id: city },
-		function(obj) {
+		function(obj){
 			if(obj.state_code == 200) {
 				$("#seachdistrict").html(obj.data);
 			}
-		}, "json");
+	}, "json");
 }
 //活动类型改变事件
 function changeActivityType(tid) {
@@ -975,7 +950,7 @@ function changeActivityType(tid) {
 			if(obj.state_code == 200) {
 				$("#sonType").html(obj.data);
 			}
-		}, "json");
+	}, "json");
 }
 
 
@@ -1020,15 +995,15 @@ function deleteData(url, option, parent) {
 			return;
 		} else {
 
-			$.post(url, option, function(data) {
+		$.post(url, option, function(data) {
 
 				if(data.state_code == 200) {
-					console.log('删除充值')
+					
 					parent.hide();
 				} else {
 					alert(data.msg)
 				}
-			})
+		})
 		}
 
 	}

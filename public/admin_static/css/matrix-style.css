@@ -2833,7 +2833,6 @@ div.dataTables_wrapper .ui-widget-header {
 .leaveModal .modal_div .leaveCause{
 	margin: 178px auto 0px;
 	text-align: center;
-	/*border: 1px solid red;*/
 }
 .leaveModal .modal_div .leaveCause span{
 	font-size: 15px;
@@ -2853,7 +2852,6 @@ div.dataTables_wrapper .ui-widget-header {
 	background: #FF4134;
 	color: #FFFFFF;
 	cursor: pointer;
-	
 }
 .leaveModal .modal_div{
 	width: 656px;
