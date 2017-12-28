@@ -7,6 +7,7 @@
  */
 namespace app\api\controller;
 use think\Controller;
+use think\Exception;
 use think\Validate;
 
 class User extends Controller
@@ -192,5 +193,31 @@ class User extends Controller
         }else{
             return_info(-1,'fail');
         }
+    }
+
+    //根据手机号获取用户信息
+    public function getUserInfo(){
+        $data = input('post.');
+
+        if(!empty($data['field'])){
+            $field = $data['field'];
+        }else{
+            $field = '*';
+        }
+        //接口与手机号也兼容，try...catch防止客户端调用不存在的字段报错
+        if(isMobile($data['uid'])){
+            try{
+                $userInfo = model('User')->getMobileUserInfo($data['uid'],$field);
+            }catch (Exception $e){
+                return_info(-1,'字段不存在');
+            }
+        }else{
+            try{
+                $userInfo = model('User')->field($field)->get($data['uid']);
+            }catch (Exception $e){
+                return_info(-1,'字段不存在');
+            }
+        }
+        return_info(200,'success',$userInfo);
     }
 }

@@ -842,4 +842,19 @@ class User extends Base
             'result' => $result
         ]);
     }
+
+    //显示添加现场购票
+    public function dis_add_ticket($tid = 0){
+        $tInfo = model('ActivityTime')->get($tid);
+        if(empty($tInfo)){
+            $this->error('场次不正确');
+        }
+        $activityInfo = model('Activity')->get($tInfo->aid);
+        $source = model('Source')->select();
+        return $this->fetch('',[
+            'source' => $source,
+            'activityInfo' => $activityInfo,
+            'tInfo' => $tInfo,
+        ]);
+    }
 }
