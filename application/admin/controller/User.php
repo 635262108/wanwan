@@ -180,7 +180,6 @@ class User extends Base
         }else{
             $this->success('修改失败');
         }
-
     }
 
     //签到概况

@@ -12,6 +12,21 @@ use think\Validate;
 
 class User extends Controller
 {
+
+    //修改个人信息
+    public function saveUser(){
+        $data = input('post.');
+        $data['birthday'] = strtotime($data['birthday']);
+
+        $user = model('user');
+        $res = $user->save($data,['uid'=>$data['uid']]);
+        if($res){
+            return_info(200,'success');
+        }else{
+            return_info(-1,'fail');
+        }
+    }
+
     //获取某个用户的孩子信息
     public function getAnyUserChilds(){
         $uid = input('post.uid/d');
