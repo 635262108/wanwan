@@ -7,7 +7,9 @@ var SpitUrl={
 	"recharge_url":"/api/user/recharge",
 	"deMoney_url":"/api/user/deductionFee",
 	"leave_url":"/api/user/askForLeave",
-	"sign_url":"/api/order/saveOrderStatus"
+	"sign_url":"/api/order/saveOrderStatus",
+	"getPhone_url":"/api/user/getUserInfo",
+	"addMember_url":"/api/order/addOrder"
 }
 
 //	首页签到下拉
@@ -429,21 +431,50 @@ var SpitUrl={
 
                 $(".get_phone").on("blur",function(){
                 	var phoneVal=$(this).val();
-                	$.post("/abab.php/user/getUserMobile", { mobile: phoneVal },
-						function(obj) {
+                	$.post(SpitUrl.getPhone_url, {uid:phoneVal,field:'nickname'},
+					function(obj) {
 							
 								if(obj.state_code == 200) {
-								    $(".get_name").val(obj.data.nickname);
-								    $(".uid").val(obj.data.uid);
-
-								 
+									 $(".get_name").val(obj.data.nickname);
 								}
 								else{
-									$(".uid").val(-1);
+//								
 								}
 					}, "json");
                 })
-            
+//          点击新增成员保存信息
+
+$(".save_member").on("click",function(event){
+	event.preventDefault()
+	var mobile=$(".get_phone").val();
+	var aid=$(".aId").val();
+	var tid=$(".tId").val();
+	var adultNum=$(".adult_num").val();
+	var childNum=$(".child_num").val();
+	var payWay=$(".pay_way option:selected").val();
+	var reMark=$(".remark").val();
+	var signT=$(".singTime").val();
+	var Name=$(".get_name").val();
+	var Source=$(".source option:selected").val();
+	$.post(SpitUrl.addMember_url,{mobile:mobile,
+		aid:aid,
+		t_id:tid,
+		adult_num:adultNum,
+		child_num:childNum,
+		pay_way:payWay,
+		source:Source,
+		name:Name,
+		sign_time:signT,
+		remark:reMark
+	},function(obj) {
+					if(obj.state_code == 200){
+						window.history.go(-1);
+					}
+					else{
+					     alert(obj.msg)
+					}
+					}, "json");
+    })
 
 			//	点击赠品输入框
 

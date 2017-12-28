@@ -2857,3 +2857,9 @@ div.dataTables_wrapper .ui-widget-header {
 	width: 656px;
 	height: 509px;
 }
+
+
+/*签到概况新样式*/
+.add_operate{
+	display: flex;
+}

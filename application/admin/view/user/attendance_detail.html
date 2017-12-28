@@ -17,6 +17,7 @@
   </div>
   </div>
 <!--导出开始-->
+<div class="add_operate">
  <div class="add_order">
      <a href="{:url('admin/user/conversions_attendance',['tid'=>$Request.param.tid])}">
         <div class="add" title="导出">
@@ -27,6 +28,18 @@
         </div>
      </a>
   </div>
+  
+   <div class="add_order">
+     <a href="{:url('admin/user/dis_add_ticket',['tid'=>$Request.param.tid])}">
+        <div class="add" title="新增成员">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                                      新增成员
+          </span>
+        </div>
+     </a>
+  </div>
+ </div>
     <select onchange="window.location=this.value" >
     	  	<option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid])}">查看全部</option>
     	   	<option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>1])}" {if condition="$Request.param.is_sign eq 1"}selected="selected"{/if}>已参加</option>
