@@ -864,7 +864,6 @@ $(".recharge_for").on("click",function(event){
 //扣费ajax
 $(".lose_money").on("click",function(event){
 	event.preventDefault();
-	
 	var uid=$(".hidden_val").val();
 	var money=$(".money").val();
 	var remark=$(".remark").val()
