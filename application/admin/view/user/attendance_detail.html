@@ -77,7 +77,7 @@
                       {$vo.order_status|getOrderStatus}
                   </td>
                   <td>{$vo.name}</td>
-                  <td>
+                  <td class="orderStatus">
                       {if condition='$vo.order_status eq 7'}
                       <span class="activity_leave">已请假</span>
                       {else/}
@@ -91,9 +91,9 @@
                       {/if}
 
                       {if condition='$vo.order_status eq 8'}
-                      <span class="activity_leave">已早退</span>
+                      <span class="quit">已早退</span>
                       {else/}
-                      <span class="activity_leave">早退</span>
+                      <span class="quit">早退</span>
                       {/if}
                   </td>
                 </tr>

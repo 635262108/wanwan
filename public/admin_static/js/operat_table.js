@@ -767,7 +767,8 @@ var SpitUrl={
 	"delete_url":"/api/user/delChild",
 	"recharge_url":"/api/user/recharge",
 	"deMoney_url":"/api/user/deductionFee",
-	"leave_url":"/api/user/askForLeave"
+	"leave_url":"/api/user/askForLeave",
+	"sign_url":"/api/order/saveOrderStatus"
 	
 	}
 //点击新增的保存
@@ -880,11 +881,50 @@ $(".leaveModal .cancel").on("click",function(){
 	$(this).parent().parent().hide();
 })
 //点击查看
-
+//点击请假
 $(".activity_leave").live("click",function(){
-	$(".leaveModal").show()
-	var id=$(this).parent().siblings(".leave_id").html();
-	$(".hidden_id").val(id);
+	if($(this).html()=="已请假"){
+		$(this).off("click");
+	}
+	else{
+		$(".leaveModal").show()
+		var id=$(this).parent().siblings(".leave_id").html();
+		$(".hidden_id").val(id);
+	}
+
+})
+
+//点击签到
+$(".sign").live("click",function(){
+	if($(this).html()=="已签到"){
+		$(this).off("click");
+	}
+	else{
+		var id=$(this).parent().siblings(".leave_id").html();
+
+	    $.post(SpitUrl.sign_url,{id:id,order_status:4},function(obj){
+		if(obj.state_code == 200){
+
+            window.location.reload();
+		}
+	    })
+	}
+})
+
+//点击早退
+$(".quit").live("click",function(){
+	if($(this).html()=="已早退"){
+		$(this).off("click");
+	}
+	else{
+		var id=$(this).parent().siblings(".leave_id").html();
+	
+	    $.post(SpitUrl.sign_url,{id:id,order_status:8},function(obj){
+		if(obj.state_code == 200){
+			 window.location.reload();
+		}
+	    })
+	}
 })
 
 //点击保存
@@ -897,6 +937,14 @@ $(".leaveSave").on("click",function(){
 		}
 	})
 })
+
+//if($(".activity_leave").html()=="已请假"){
+//	console.log(11111)
+//	$(this).off("click");
+//}
+//else{
+//	$(this).trigger("click");
+//}
 
 
 
