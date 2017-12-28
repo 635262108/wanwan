@@ -74,19 +74,27 @@
                       {/if}
                       </td>
                   <td>
-                      {switch name="vo.order_status"}
-                        {case value="1|4"}已参加{/case}
-                        {case value="3"}未参加{/case}
-                        {case value="5"}正在退款{/case}
-                        {case value="6"}已退款{/case}
-                        {case value="7"}已请假{/case}
-                      {/switch}
+                      {$vo.order_status|getOrderStatus}
                   </td>
                   <td>{$vo.name}</td>
                   <td>
-                  	<span class="activity_leave">请假</span>
-                  	<span class="sign">签到</span>
-                  	<span class="quit">早退</span>
+                      {if condition='$vo.order_status eq 7'}
+                      <span class="activity_leave">已请假</span>
+                      {else/}
+                      <span class="activity_leave">请假</span>
+                      {/if}
+
+                      {if condition='$vo.sign_time eq 0'}
+                        <span class="sign">签到</span>
+                      {else/}
+                        <span class="sign">已签到</span>
+                      {/if}
+
+                      {if condition='$vo.order_status eq 8'}
+                      <span class="activity_leave">已早退</span>
+                      {else/}
+                      <span class="activity_leave">早退</span>
+                      {/if}
                   </td>
                 </tr>
                 {/foreach}
