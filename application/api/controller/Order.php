@@ -13,7 +13,7 @@ class Order extends Controller
     //修改订单状态
     public function saveOrderStatus(){
         $data = input('post.');
-        $orderInfo = model('ActivityOrder')->get($data);
+        $orderInfo = model('ActivityOrder')->get($data['id']);
         if(empty($orderInfo)){
             return_info(-1,'订单号错误');
         }
