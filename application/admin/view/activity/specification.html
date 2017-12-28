@@ -58,8 +58,8 @@
                   <td class="td_id">{$vo.t_id}</td>
                   <td>{$vo.a_title}</td>  
                   <td>{$vo.begin_time}--{$vo.end_time}</td>
-                  <td>{$vo.ticket_num}</td>
-                  <td>{$vo.sold_num}</td>
+                  <td> {$vo.ticket_num}</td>
+                    <td><a href="{:url('user/attendance_detail',['tid'=>$vo.t_id,'aid'=>$vo.aid])}" title="点击查看名单">{$vo.sold_num}</a></td>
                     <td>
                         {if condition="$vo.is_display eq 1"}
                             <a href="{:url('activity/saveAvtivityTimeDis',['t_id'=>$vo.t_id,'dis'=>$vo.is_display==1?0:1])}" title="点击修改">是</a>
