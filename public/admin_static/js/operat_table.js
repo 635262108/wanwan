@@ -877,7 +877,7 @@ $(".lose_money").on("click",function(event){
 
 //请假弹出层
 $(".leaveModal .cancel").on("click",function(){
-	$(this).parent().parent().hide()
+	$(this).parent().parent().hide();
 })
 //点击查看
 
@@ -891,7 +891,7 @@ $(".activity_leave").live("click",function(){
 $(".leaveSave").on("click",function(){
 	var id= $(".hidden_id").val();
 	var reason=$(".leaveCause textarea").val();
-	  $.post(SpitUrl.leave_url,{id:id,reason:reason},function(obj){
+    $.post(SpitUrl.leave_url,{id:id,reason:reason},function(obj){
 		if(obj.state_code == 200){
             window.location.reload();
 		}
