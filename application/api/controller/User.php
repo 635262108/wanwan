@@ -16,7 +16,9 @@ class User extends Controller
     //修改个人信息
     public function saveUser(){
         $data = input('post.');
-        $data['birthday'] = strtotime($data['birthday']);
+        if(!empty($data['birthday'])){
+            $data['birthday'] = strtotime($data['birthday']);
+        }
 
         $user = model('user');
         $res = $user->save($data,['uid'=>$data['uid']]);
