@@ -9,7 +9,8 @@ var SpitUrl={
 	"leave_url":"/api/user/askForLeave",
 	"sign_url":"/api/order/saveOrderStatus",
 	"getPhone_url":"/api/user/getUserInfo",
-	"addMember_url":"/api/order/addOrder"
+	"addMember_url":"/api/order/addOrder",
+	"Amend_infoUrl":"/api/user/saveUser"
 }
 
 //	首页签到下拉
@@ -694,16 +695,17 @@ $(".recommend td:nth-child(11)").live("click",function(){
 //点击是否上架
 $(".recommend td:nth-child(12)").live("click",function(){
    if($(this).hasClass("yes")){
-   	ClickRecommend("/abab.php/activity/saveActivityField",
-   	          {aid:$(this).siblings(".sorting_1").html(),a_status:0},
-   	          $(this),"下架","上架"
-   	)
+	   	ClickRecommend("/abab.php/activity/saveActivityField",
+	   	    {aid:$(this).siblings(".sorting_1").html(),
+	   	     a_status:0},
+	   	          $(this),"下架","上架"
+	   	)
 	}
    else{
 		ClickRecommend("/abab.php/activity/saveActivityField",
    	          {aid:$(this).siblings(".sorting_1").html(),a_status:1},
    	          $(this),"下架","上架"
-   	)
+   		)
    }
 	
 })
@@ -950,6 +952,45 @@ $(".leaveSave").on("click",function(){
             window.location.reload();
 		}
 	})
+})
+
+//修改客户信息点击保存
+$(".amendSave").on("click",function(event){
+	event.preventDefault()
+	
+	var uId=$(".uid").val();
+	var Mobile=$(".mobile").val();
+	var Nickname=$(".nickname").val();
+	var Member_grade=$(".isGet input:radio:checked").val();
+	var Status=$(".status option:selected").val();
+	var Birthday=$(".birthday").val();
+	var Hobby=$(".hobby").val();
+	var Province=$(".province option:selected").val();
+	var City=$(".city option:selected").val();
+	var District=$(".district option:selected").val();
+	var Address=$(".address").val();
+	var Source=$(".source option:selected").val();
+	
+	$.post(SpitUrl.Amend_infoUrl,{uid:uId,
+		mobile:Mobile,
+		nickname:Nickname,
+		member_grade:Member_grade,
+		status:Status,
+		birthday:Birthday,
+		hobby:Hobby,
+		province:Province,
+		city:City,
+		district:District,
+		address:Address,
+		source:Source
+	},function(obj){
+		if(obj.state_code == 200){
+             window.history.go(-1);
+		}
+	})
+	
+
+
 })
 
 
