@@ -94,7 +94,11 @@ class Order extends Controller
         $data['pay_time'] = time();
         $data['addtime'] = time();
         $addOrder = model('ActivityOrder')->insert($data);
-        if($addOrder){
+        //增减库存
+        $dec = model('ActivityTime')->DecTicketNum($data['t_id']);
+        $inc =  model('ActivityTime')->DecSoldNum($data['t_id']);
+
+        if($addOrder & $dec & $inc){
             return_info(200,'success');
         }else{
             return_info(-1,'记录订单失败');
