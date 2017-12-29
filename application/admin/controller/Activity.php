@@ -477,6 +477,7 @@ class Activity extends Base
         $data['pay_time'] = time();
         $data['order_status'] = 3;
         $data['addtime'] = time();
+        
         $data['order_price'] = $data['order_price'] * $data['child_num'];
 
         //订单号
@@ -484,7 +485,7 @@ class Activity extends Base
             $data['order_sn'] = getOrderSn($data['uid'],$data['aid']);
         }else{
             $data['uid'] = -1;
-            $data['order_sn'] = getOrderSn(000,$data['aid']);
+            $data['order_sn'] = getOrderSn($data['uid'],$data['aid']);
         }
         //添加订单
         $model = new ActivityLogic();

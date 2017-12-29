@@ -39,10 +39,7 @@ class ActivityTime extends Model
         return $this->where('t_id',$tid)->find();
     }
     
-    /**
-     * 减少库存
-     * @param type $t_id
-     */
+    //减少库存
     public function DecTicketNum($t_id,$num = 1){
         return $this->where('t_id',$t_id)->setDec('ticket_num',$num);
     }
@@ -51,7 +48,17 @@ class ActivityTime extends Model
     public function IncTicketNum($t_id,$num = 1){
         return $this->where('t_id',$t_id)->setInc('ticket_num',$num);
     }
-    
+
+    //增加报名名额
+    public function DecSoldNum($t_id,$num = 1){
+        return $this->where('t_id',$t_id)->setInc('sold_num',$num);
+    }
+
+    //减少报名名额
+    public function IncSoldNum($t_id,$num = 1){
+        return $this->where('t_id',$t_id)->setInc('sold_num',$num);
+    }
+
     //获取所有时间段(带活动信息）
     public function getAllTime(){
         $field = 't.*,a.a_title';

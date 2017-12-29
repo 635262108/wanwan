@@ -131,10 +131,10 @@ function is_weixin() {
  *aid 活动id
  */
 function getOrderSn($uid=0,$aid=0){
-    if($uid == 0){
+    if($uid < 1){
         $uid = rand(1, 99999);
     }
-    if($aid == 0){
+    if($aid < 1){
         $aid = rand(1, 99999);
     }
     $time = date('YmdHis');
