@@ -441,9 +441,9 @@ class Activity extends Base
 
         $orderInfo = model('ActivityOrder')
                             ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
-                            ->join('mfw_activity a','o.aid=a.aid')
-                            ->join('mfw_activity_time t','t.t_id=o.t_id')
-                            ->join('mfw_source s','o.source=s.id','LEFT')
+                            ->join('mfw_activity a','o.aid=a.aid','left')
+                            ->join('mfw_activity_time t','t.t_id=o.t_id','left')
+                            ->join('mfw_source s','o.source=s.id','left')
                             ->where($where1)->where($where2)->where($where3)
                             ->select();
         $activityInfo = model('Activity')->getActivityAll('aid,a_title');
@@ -896,7 +896,6 @@ class Activity extends Base
             $mob = substr($excel_data[$i]['mobile'],7,4);
             $add_data[$i]['order_sn'] = getOrderSn($mob,$aid);
             $add_data[$i]['aid'] = $aid;
-            $add_data[$i]['uid'] = -1;
             $add_data[$i]['mobile'] = $excel_data[$i]['mobile'];
             $add_data[$i]['name'] = $excel_data[$i]['name'];
             $add_data[$i]['adult_num'] = 1;
@@ -919,21 +918,24 @@ class Activity extends Base
             $child_data[$i]['child_school'] = $excel_data[$i]['child_school'];
         }
 
+
+        if(!isset($add_data)){
+            $this->error('导入失败，请检查数据是否正确');
+        }
+
         //去除重复,用于添加到客户表
         $result = array();
-        if(isset($add_data)){
-            foreach($add_data as $key=>$val){
-                $set = false;
-                foreach($result as $k=>$v){
-                    if($v['mobile'] == $val['mobile']){
-                        $set = true;
-                        break;
-                    }
+        foreach($add_data as $key=>$val){
+            $set = false;
+            foreach($result as $k=>$v){
+                if($v['mobile'] == $val['mobile']){
+                    $set = true;
+                    break;
                 }
-                if(!$set){
-                    $result[] = $val;
-                    $result_child[] = $child_data[$key];
-                }
+            }
+            if(!$set){
+                $result[] = $val;
+                $result_child[] = $child_data[$key];
             }
         }
 
@@ -953,6 +955,14 @@ class Activity extends Base
 
         if(isset($add_user)){
             db('user')->insertAll($add_user);
+        }
+
+        //找uid，添加订单
+        $i = 0;
+        foreach ($add_data as $k=>$v){
+            $uid = db('user')->where('mobile',$v['mobile'])->value('uid');
+            $add_data[$i]['uid'] = $uid;
+            $i++;
         }
 
         //添加孩子

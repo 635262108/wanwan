@@ -577,9 +577,9 @@ class User extends Base
 
     //充值
     public function recharge(){
-//        if(!is_weixin()){
-//            return $this->error('请在微信下进行充值哦');
-//        }
+        if(!is_weixin()){
+            return $this->error('请在微信下进行充值哦');
+        }
         $rechargeInfo = model('recharge')->select();
         $policyInfo = model('RechargePolicy')->select();
 
