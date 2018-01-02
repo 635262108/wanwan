@@ -656,7 +656,7 @@ class User extends Base
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
             //订单状态不为1时在增加，防止重复增加
-            if($rechargeInfo->satats != 1){
+            if($rechargeInfo->status != 1){
                 //增加余额
                 $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
                 $userInfo->save();

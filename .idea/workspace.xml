@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,8 +76,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="636" column="5" lean-forward="true" selection-start-line="636" selection-start-column="5" selection-end-line="636" selection-end-column="5" />
+            <state relative-caret-position="538">
+              <caret line="659" column="22" lean-forward="true" selection-start-line="659" selection-start-column="22" selection-end-line="659" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -468,12 +467,12 @@
       <workItem from="1514336517405" duration="21642000" />
       <workItem from="1514422812693" duration="25277000" />
       <workItem from="1514508973261" duration="15314000" />
-      <workItem from="1514855142119" duration="1568000" />
+      <workItem from="1514855142119" duration="1899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1149394000" />
+    <option name="totallyTimeSpent" value="1149725000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -934,8 +933,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="636" column="5" lean-forward="true" selection-start-line="636" selection-start-column="5" selection-end-line="636" selection-end-column="5" />
+        <state relative-caret-position="538">
+          <caret line="659" column="22" lean-forward="true" selection-start-line="659" selection-start-column="22" selection-end-line="659" selection-end-column="22" />
           <folding />
         </state>
       </provider>
