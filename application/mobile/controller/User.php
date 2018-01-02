@@ -577,9 +577,9 @@ class User extends Base
 
     //充值
     public function recharge(){
-        if(!is_weixin()){
-            return $this->error('请在微信下进行充值哦');
-        }
+//        if(!is_weixin()){
+//            return $this->error('请在微信下进行充值哦');
+//        }
         $rechargeInfo = model('recharge')->select();
         $policyInfo = model('RechargePolicy')->select();
 
@@ -625,7 +625,7 @@ class User extends Base
             $input->setOutTradeNo($add_data['order_sn']);   //订单号
             $input->setTotalFee($money * 100);  //价格
             $input->setTimeStart(date("YmdHis"));   //生成时间
-            $input->setNotifyUrl("http://www.baobaowaner.com"); //设置回调地址
+            $input->setNotifyUrl("http://www.baobaowaner.com/mobile/Activity/notify/order_sn/".$add_data['order_sn']); //设置回调地址
             $input->setTradeType("JSAPI");
             $input->setOpenid($openId);
             $orders = WxPayApi::unifiedOrder($input);
@@ -643,10 +643,11 @@ class User extends Base
         $rechargeInfo = model('RechargeRecord')->getRecharge($map);
 
         //检查用户
-        $userInfo = model('user')->getIdUser($rechargeInfo['uid']);
+        $uid = session('userInfo.uid');
+        $userInfo = model('user')->getIdUser($uid);
 
-        if(empty($rechargeInfo) || empty($userInfo)){
-            $this->error('参数错误');
+        if(empty($rechargeInfo) || $rechargeInfo['uid'] != $uid){
+            $this->error('系统异常');
         }
 
         //查询订单
@@ -654,12 +655,15 @@ class User extends Base
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
-            //增加余额
-            $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
-            $userInfo->save();
-            //修改订单状态
-            $rechargeInfo->status = 1;
-            $rechargeInfo->save();
+            //订单状态不为1时在增加，防止重复增加
+            if($rechargeInfo->satats != 1){
+                //增加余额
+                $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
+                $userInfo->save();
+                //修改订单状态
+                $rechargeInfo->status = 1;
+                $rechargeInfo->save();
+            }
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');
             return $this->fetch();
