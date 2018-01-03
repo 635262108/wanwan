@@ -78,11 +78,10 @@ class Activity extends Base
     	$aid = input('aid');
     	$Activity = model('Activity');
     	$ActivityComments = model('ActivityComments');
-    	$Goods = model('Goods');
+
     	$ActivityExtension = model('ActivityExtension');
     	//获取活动信息
-    	$a_field = 'aid,a_title,a_index_img,a_remark,a_price,a_img,a_address,a_begin_time,a_end_time,a_adult_price,a_child_price,a_status,a_content';
-    	$activityInfo = $Activity->getIdActivity($aid,$a_field);
+    	$activityInfo = $Activity->getIdActivity($aid);
     	//获取活动评论
     	$commentInfo = $ActivityComments->getActivityComment($aid);
 
@@ -90,6 +89,7 @@ class Activity extends Base
     	$extensionInfo = $ActivityExtension->getExtensionInfo($aid);
         //查看是否收藏
         $uid = Session::get("userInfo.uid");
+        $userInfo = model('user')->get($uid);
         $activityCollection = model('ActivityCollection');
         $isCollection = $activityCollection->isCollection($aid,$uid);
 
@@ -100,6 +100,7 @@ class Activity extends Base
         ];
         $timeInfo = model('ActivityTime')->where($map)->select();
 
+        $this->assign('userInfo',$userInfo);
         $this->assign('timeInfo',$timeInfo);
         $this->assign('activityInfo',$activityInfo);
         $this->assign('isCollection',$isCollection);
