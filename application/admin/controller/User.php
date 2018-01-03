@@ -140,7 +140,7 @@ class User extends Base
         }
 
     }
-    
+
     //修改个人信息展示 
     public function saveUserList($uid){
         //获取用户信息

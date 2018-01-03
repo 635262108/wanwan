@@ -123,18 +123,14 @@ class User extends Base
 
             //检查手机号是否注册
             $user = model('user');
-            $userInfo = $user->getMobileUserInfo($mobile,'uid,mobile,headIcon,nickname,password');
+            $userInfo = $user->getMobileUserInfo($mobile);
             if(empty($userInfo)){
                 return return_info(-1,'帐号或密码错误');
             }
             //登录验证
             if(md5($password) == $userInfo['password']){
                 //存储用户信息
-                $data['uid'] = $userInfo['uid'];
-                $data['headIcon'] = $userInfo['headIcon'];
-                $data['nickname'] = $userInfo['nickname'];
-                $data['mobile'] = $userInfo['mobile'];
-                Session::set('userInfo',$data);
+                session('userInfo',$userInfo,'mobile');
                 
                 if (!empty(session::get('userurl'))){
                     //会话中有要跳转的页面
@@ -625,7 +621,7 @@ class User extends Base
             $input->setOutTradeNo($add_data['order_sn']);   //订单号
             $input->setTotalFee($money * 100);  //价格
             $input->setTimeStart(date("YmdHis"));   //生成时间
-            $input->setNotifyUrl("http://www.baobaowaner.com"); //设置回调地址
+            $input->setNotifyUrl("http://www.baobaowaner.com/mobile/Activity/notify/order_sn/".$add_data['order_sn']); //设置回调地址
             $input->setTradeType("JSAPI");
             $input->setOpenid($openId);
             $orders = WxPayApi::unifiedOrder($input);
@@ -643,10 +639,11 @@ class User extends Base
         $rechargeInfo = model('RechargeRecord')->getRecharge($map);
 
         //检查用户
-        $userInfo = model('user')->getIdUser($rechargeInfo['uid']);
+        $uid = session('userInfo.uid');
+        $userInfo = model('user')->getIdUser($uid);
 
-        if(empty($rechargeInfo) || empty($userInfo)){
-            $this->error('参数错误');
+        if(empty($rechargeInfo) || $rechargeInfo['uid'] != $uid){
+            $this->error('系统异常');
         }
 
         //查询订单
@@ -654,12 +651,16 @@ class User extends Base
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
-            //增加余额
-            $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
-            $userInfo->save();
-            //修改订单状态
-            $rechargeInfo->status = 1;
-            $rechargeInfo->save();
+            //订单状态不为1时在增加，防止重复增加
+            if($rechargeInfo->status != 1){
+                //增加余额
+                $userInfo->member_grade = 1;
+                $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
+                $userInfo->save();
+                //修改订单状态
+                $rechargeInfo->status = 1;
+                $rechargeInfo->save();
+            }
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');
             return $this->fetch();
@@ -738,7 +739,7 @@ class User extends Base
     //退出登录
     public function login_out(){
         cookie(null);
-        session(null);
+        session(null,'mobile');
         return_info(200,'登出成功');
     }
     

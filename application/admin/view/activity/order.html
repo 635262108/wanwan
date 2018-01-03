@@ -91,7 +91,13 @@
 									<td>
 										{$vo.addtime|date="Y-m-d H:i",###}
 									</td>
-									<td>{$vo.begin_time|date="Y-m-d H:i",###}--{$vo.end_time|date="H:i",###}</td>
+									<td>
+										{if condition="$vo.t_id eq 0"}
+											未选择
+										{else/}
+											{$vo.begin_time|date="Y-m-d H:i",###}--{$vo.end_time|date="H:i",###}
+										{/if}
+									</td>
 									<td>{$vo.source_name}</td>
 								</tr>
 								{/foreach}
