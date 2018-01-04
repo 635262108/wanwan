@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-//封装的网址
+//封装的api接口
 var SpitUrl={
 	"add_url":"/api/user/saveChild",
 	"delete_url":"/api/user/delChild",
@@ -14,9 +14,9 @@ var SpitUrl={
 }
 
 //	首页签到下拉
-		$(".sign").on("click",function(){
-			$("#signSelect").slideToggle();
-		})
+//		$(".sign").on("click",function(){
+//			$("#signSelect").slideToggle();
+//		})
 		var trs = $("#tbody_center tr");
 		var checks = $(".check");
 //			查看更新所有数据
@@ -443,7 +443,7 @@ var SpitUrl={
 								}
 					}, "json");
                 })
-//          点击新增成员保存信息
+//点击新增成员保存信息
 
 $(".save_member").on("click",function(event){
 	event.preventDefault()
@@ -476,8 +476,7 @@ $(".save_member").on("click",function(event){
 					}
 					}, "json");
     })
-
-			//	点击赠品输入框
+//	点击赠品输入框
 
 			$(".recharge_record tr td:nth-child(8)").live("click", function() {
 				$(this).children(".show_word").hide();
@@ -671,10 +670,10 @@ var onLis=$(".shai").children(".only_one");
     })
     
 //  点击完成
-   $(".success").on("click",function(){
-       
-   	  
-   })
+// $(".success").on("click",function(){
+//     
+// 	  
+// })
     
     	//  点击是否推荐
 $(".recommend td:nth-child(11)").live("click",function(){
@@ -778,8 +777,8 @@ $(".slideUp").on("click",function(){
 var infoLis=$(".click_ulContent ul").children("li");
 var DetaiContents=$(".detail_Container").children();
 infoLis.on("click",function(){
-	$(this).addClass("active").siblings().removeClass("active")
-	DetaiContents.eq($(this).index()).show().siblings().hide()
+	$(this).addClass("active").siblings().removeClass("active");
+	DetaiContents.eq($(this).index()).show().siblings().hide();
 })
 
 //客户列表新增孩子信息(新增)
@@ -954,10 +953,19 @@ $(".leaveSave").on("click",function(){
 	})
 })
 
+//点击意向客户
+$(".WantUser").on("click",function(){
+	var id=$(this).parent().siblings(".leave_id").html();
+	 $.post(SpitUrl.Amend_infoUrl,{uid:id,label:1},function(obj){
+		if(obj.state_code == 200){
+            window.location.reload();
+		}
+	})
+})
+
 //修改客户信息点击保存
 $(".amendSave").on("click",function(event){
-	event.preventDefault()
-	
+	event.preventDefault();
 	var uId=$(".uid").val();
 	var Mobile=$(".mobile").val();
 	var Nickname=$(".nickname").val();
@@ -970,7 +978,6 @@ $(".amendSave").on("click",function(event){
 	var District=$(".district option:selected").val();
 	var Address=$(".address").val();
 	var Source=$(".source option:selected").val();
-	
 	$.post(SpitUrl.Amend_infoUrl,{uid:uId,
 		mobile:Mobile,
 		nickname:Nickname,
@@ -1007,7 +1014,7 @@ function seachcitys(province) {
 		}, "json");
 }
 //市改变事件
-function seachdistricts(city) {
+function seachdistricts(city){
 	$.get("/home/user/getRegion", { id: city },
 		function(obj){
 			if(obj.state_code == 200) {
@@ -1017,7 +1024,7 @@ function seachdistricts(city) {
 }
 //活动类型改变事件
 function changeActivityType(tid) {
-	$.get("/abab.php/activity/getSonType", { id: tid },
+	$.get("/abab.php/activity/getSonType", {id:tid},
 		function(obj) {
 			if(obj.state_code == 200) {
 				$("#sonType").html(obj.data);
@@ -1068,17 +1075,16 @@ function deleteData(url, option, parent) {
 		} else {
 
 		$.post(url, option, function(data) {
-
-				if(data.state_code == 200) {
+            if(data.state_code == 200) {
 					
-					parent.hide();
-				} else {
-					alert(data.msg)
-				}
+				 parent.hide();
+			} else {
+				alert(data.msg)
+			}
 		})
-		}
-
 	}
+
+}
 
 
 //tba栏转换
@@ -1088,17 +1094,16 @@ function tabChange(my,brother){
 }
 
 //活动列表(点击事件)
-function ClickRecommend(url,option, my,wordNo,wordYes) {
+function ClickRecommend(url,option,my,wordNo,wordYes) {
 
 	$.post(url, option, function(obj) {
 		if(obj.state_code == 200) {
 			if(my.hasClass("yes")) {
-				
-				my.html(wordNo);
+				my.html(wordNo)
 				my.attr("class","no")
-
-			} else {
-				my.html(wordYes);
+			} 
+			else{
+				my.html(wordYes)
 				my.attr("class","yes")
 			}
 		}
@@ -1106,12 +1111,3 @@ function ClickRecommend(url,option, my,wordNo,wordYes) {
 	})
 
 }
-
-function  operateUrl(url,option){
-	$.post(url,option,function(obj){
-		if(obj.state_code == 200){
-			window.location.reload();
-		}
-	})
-}
-

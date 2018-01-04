@@ -2810,7 +2810,7 @@ div.dataTables_wrapper .ui-widget-header {
 	color: #FF4134;
 }
 /*活动请假样式*/
-.activity_leave,.sign,.quit{
+.activity_leave,.sign,.quit,.WantUser{
 	display: inline-block;
 	cursor: pointer;
 	width: 50px;

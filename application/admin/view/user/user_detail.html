@@ -201,8 +201,7 @@
 										
 										<div class="control-group">
 											<label class="control-label">备注</label>
-											<div class="controls ">
-												
+											<div class="controls">
 												<textarea name="remark" class="remark"></textarea>
 											</div>
 										</div>
@@ -210,7 +209,7 @@
 								
 										<div class="form-actions">
 											<button  class="btn btn-success info_sure lose_money">保存</button>
-											<a href="{:url( 'admin/user/index')} " class="btn-warning ">取消</a>
+											<a href="{:url('admin/user/index')} " class="btn-warning ">取消</a>
 										</div>
 								    </form>
 								</div>
@@ -239,7 +238,6 @@
 						<tbody id="tbody_center" style="font-size:12px;">
 						{foreach name="orderInfo" item="vo"}
 							<tr>
-								
 								<td>{$vo.order_id}</td>
 								<td>{$vo.a_title}</td>
 								<td>{$vo.begin_time|date="Y-m-d H:i",###}--{$vo.end_time|date="H:i",###}</td>
@@ -268,17 +266,14 @@
 			<div class="balanceContent ">
 				<div>
 					<p>账户余额</p>
-					
 					<p>{$userInfo.balance}</p>
 				</div>
 				<div>
 					<p>消费金额</p>
-					
 					<p>{$result.order_price}</p>
 				</div>
 			</div>
 			<ul>
-				
 				<li>报名次数：<span>{$result.enrol}</span></li>
 				<li>参加次数：<span>{$result.join_num}</span></li>
 				<li>加入时间：<span>{$userInfo.reg_time|date='Y-m-d H:i',###}</span></li>
