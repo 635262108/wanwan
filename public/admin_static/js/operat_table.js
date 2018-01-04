@@ -783,7 +783,7 @@ infoLis.on("click",function(){
 
 //客户列表新增孩子信息(新增)
 $(".add_order").on("click",function(){
-var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input type='text'/ class='Name'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='Birthday' onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='School'></li><li>可玩时间：<input type='text' class='play'></li></ul><div class='operate'><span class='add_save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>"
+var str="<div class='childInforPart partInput'><ul><li>孩子姓名：<input type='text'/ class='Name'></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='Birthday' onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='School'></li><li>可玩时间：<input type='text' class='play'></li></ul><div class='operate'><span class='add_save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='childDelete'>删除</a></span></div></div>"
 $(".childInforContent").append(str);
 })
 
@@ -803,7 +803,7 @@ $(document).on("click",".add_save",function(){
 	})
 })
 //孩子信息删除
-$(document).on("click",".delete",function(){
+$(document).on("click",".childDelete",function(){
 	var id=$(this).parent().parent().parent().attr("num");
 	var trueOrfalse = confirm("是否确认删除");
 	var el=$(this);
@@ -833,7 +833,7 @@ $(document).on("click",".emit",function(){
 	
 	var play=$(this).parent().siblings("ul").find(".childPlay").html();
 	
-	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ class='Name' value="+Name+"></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='birthday' value="+Birthday+" onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='school' value="+School+" ></li><li>可玩时间：<input type='text' class='play'  value="+play+" ></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='delete'>删除</a></span></div></div>";
+	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ class='Name' value="+Name+"></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='birthday' value="+Birthday+" onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='school' value="+School+" ></li><li>可玩时间：<input type='text' class='play'  value="+play+" ></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='childDelete'>删除</a></span></div></div>";
 	
 	$(this).parent().parent(".childInforPart").html(str);
 	if(Sex=="女"){
