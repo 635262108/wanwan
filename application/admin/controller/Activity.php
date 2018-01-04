@@ -790,6 +790,12 @@ class Activity extends Base
         if(empty($tid)){
             $tid = 0;
         }
+
+        //获取时间段信息
+        if($tid != 0){
+            $timeInfo = db('ActivityTime')->where('t_id',$tid)->find();
+        }
+
         //只支持.xls文件
         $exten_name = substr(strrchr($_FILES['file']['name'], '.'), 1);
         if($exten_name != 'xls'){
@@ -857,22 +863,14 @@ class Activity extends Base
             $excel_data[$k]['child_school'] = $K?$K:'';
             if($L == '是'){
                 $excel_data[$k]['order_status'] = 4;
-                $excel_data[$k]['sign_time'] = time();
+                $excel_data[$k]['sign_time'] = $timeInfo['begin_time'];
             }else{
                 $excel_data[$k]['order_status'] = 3;
                 $excel_data[$k]['sign_time'] = 0;
             }
             $k++;
         }
-        /*//获取时间段信息
-        if($tid != 0){
-            $timeInfo = model('ActivityTime')->getAnyTime($tid);
-            //定义最多报名数
-            $num = $timeInfo['ticket_num'];
-            if($num == 0){
-                $this->error('活动已报满啦');
-            }
-        }*/
+
         $num = count($excel_data);
 
         //为空直接返回
