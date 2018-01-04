@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/activity/detail.html" afterPath="$PROJECT_DIR$/application/mobile/view/activity/detail.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,25 +21,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="67" column="10" lean-forward="true" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
+            <state relative-caret-position="308">
+              <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#span#1;n#li#0;n#ul#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#3436#3442#0" expanded="true" />
-                <element signature="e#3443#3449#0" expanded="true" />
-                <element signature="e#3449#3455#0" expanded="true" />
-                <element signature="e#3457#3463#0" expanded="true" />
-                <element signature="e#3464#3470#0" expanded="true" />
-                <element signature="e#3470#3476#0" expanded="true" />
+                <element signature="e#3112#3118#0" expanded="true" />
+                <element signature="e#3119#3125#0" expanded="true" />
+                <element signature="e#3125#3131#0" expanded="true" />
+                <element signature="e#3133#3139#0" expanded="true" />
+                <element signature="e#3140#3146#0" expanded="true" />
+                <element signature="e#3146#3152#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -62,19 +60,6 @@
             <state relative-caret-position="264">
               <caret line="124" column="6" lean-forward="true" selection-start-line="124" selection-start-column="6" selection-end-line="124" selection-end-column="6" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/home/view/activity/detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
-              <folding>
-                <marker date="1515032503030" expanded="true" signature="11870:11882" ph="..." />
-                <marker date="1515032503030" expanded="true" signature="11986:12017" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -261,7 +246,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="45" />
     <option name="width" value="1346" />
@@ -462,15 +447,15 @@
       <workItem from="1514508973261" duration="15314000" />
       <workItem from="1514855142119" duration="24692000" />
       <workItem from="1514942438295" duration="20795000" />
-      <workItem from="1515031676411" duration="9055000" />
+      <workItem from="1515031676411" duration="10356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1202368000" />
+    <option name="totallyTimeSpent" value="1203669000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1484375" sideWeight="0.49628845" order="1" side_tool="false" content_ui="combo" />
@@ -870,25 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/common/model/ActivityOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="124" column="6" lean-forward="true" selection-start-line="124" selection-start-column="6" selection-end-line="124" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/home/view/activity/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
-          <folding>
-            <marker date="1515032503030" expanded="true" signature="11870:11882" ph="..." />
-            <marker date="1515032503030" expanded="true" signature="11986:12017" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/wx_select_pay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -905,22 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="67" column="10" lean-forward="true" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#span#1;n#li#0;n#ul#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#3436#3442#0" expanded="true" />
-            <element signature="e#3443#3449#0" expanded="true" />
-            <element signature="e#3449#3455#0" expanded="true" />
-            <element signature="e#3457#3463#0" expanded="true" />
-            <element signature="e#3464#3470#0" expanded="true" />
-            <element signature="e#3470#3476#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -930,6 +880,41 @@
             <element signature="e#7658#8581#0#PHP" expanded="false" />
             <element signature="e#8608#10330#0#PHP" expanded="false" />
             <element signature="e#10363#11426#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/home/view/activity/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+          <folding>
+            <marker date="1515032503030" expanded="true" signature="11870:11882" ph="..." />
+            <marker date="1515032503030" expanded="true" signature="11986:12017" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/ActivityOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="124" column="6" lean-forward="true" selection-start-line="124" selection-start-column="6" selection-end-line="124" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/activity/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#li#0;n#ul#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3112#3118#0" expanded="true" />
+            <element signature="e#3119#3125#0" expanded="true" />
+            <element signature="e#3125#3131#0" expanded="true" />
+            <element signature="e#3133#3139#0" expanded="true" />
+            <element signature="e#3140#3146#0" expanded="true" />
+            <element signature="e#3146#3152#0" expanded="true" />
           </folding>
         </state>
       </provider>

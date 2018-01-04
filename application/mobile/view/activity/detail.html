@@ -26,20 +26,18 @@
                 <li style="display: none;"><span>活动时间:</span><span>{$activityInfo.a_begin_time|date='Y.m.d',###}-{$activityInfo.a_end_time|date='Y.m.d',###}</span></li>
                 <li class="address_style"><span>活动地点:</span><span class="max_width">{$activityInfo.a_address}</span></li>
                 {if condition="$userInfo.member_grade eq 1"}
+                <!--会员价-->
                  <li class="last"><span>活动金额:</span>
                     <ul class="time_ul">
                         <li>
                         	<span>大人:<b style="color:#656565;margin-left: 14%;">￥</b>
                         		
-                        		<b class="aldut_price" style="color: #656565;">免费</b>
+                        		<b class="aldut_price" style="color: #656565;">{$activityInfo.member_adult_price}</b>
                         		
                         	</span>
-                        	{if condition="$activityInfo.a_adult_price eq 0"}
-                        		<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">原价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;{$activityInfo.member_adult_price}</span>
-                        	{else/}
-                        		<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">原价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;{$activityInfo.a_adult_price} </span>
-                        	{/if}
-                        
+
+                            <span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">原价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;{$activityInfo.a_adult_price} </span>
+
                         </li>
                         <li>
                         	<span>小孩:<b style="color:#656565;margin-left: 14%;">￥</b><b class="child_price" style="color: #656565;">{$activityInfo.member_child_price}</b></span>
@@ -48,7 +46,7 @@
                     </ul>
                 </li>
                 {else/}
-                 <!--非会员价-->
+                <!--非会员价-->
                 <li class="last"><span>活动金额:</span>
                     <ul class="time_ul">
                         <li>
@@ -63,8 +61,7 @@
                 </li>
                 {/if}
                
-                <!--会员价-->
-                
+
           
                 
                 <li class="select_time" style="color: #656565;margin-left: -8px;padding-left: 10px;">选择&nbsp;&nbsp;&nbsp;活动时间
@@ -107,13 +104,26 @@
             <div class="pay_total">
                 <p>总计：<b>￥</b><b class="total">0.02</b></p>
                 <ul class="time_ul">
-                    <li><span>大人:<b>￥</b><b class="prompt_aldut_price">{$activityInfo.a_adult_price}</b></span>
+                    <li><span>大人:<b>￥</b><b class="prompt_aldut_price">
+                        {if condition="$userInfo.member_grade eq 1"}
+                            {$activityInfo.member_adult_price}
+                        {else/}
+                            {$activityInfo.a_adult_price}
+                        {/if}
+
+                    </b></span>
                         <div class="reduce_plus">
                             <span class="prompt_adult_reduce">-</span><input name="adult_num" type="text"  value="1" class="prompt_adult_val"><span class="plus prompt_adult_plus">+</span>
                         </div>
 
                     </li>
-                    <li><span>小孩:<b>￥</b><b class="prompt_child_price">{$activityInfo.a_child_price}</b></span>
+                    <li><span>小孩:<b>￥</b><b class="prompt_child_price">
+                        {if condition="$userInfo.member_grade eq 1"}
+                            {$activityInfo.member_child_price}
+                        {else/}
+                            {$activityInfo.a_child_price}
+                        {/if}
+                    </b></span>
                         <div class="reduce_plus">
                             <span class="prompt_child_reduce">-</span><input type="text" name="child_num" value="1" class="prompt_child_val"><span  class="plus prompt_child_plus">+</span>
                         </div>
