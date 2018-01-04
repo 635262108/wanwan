@@ -66,8 +66,6 @@ class Activity extends Base
         $a_child_price = input('post.child_price');
         //活动地址
         $a_address = input('post.address');
-        //总价格
-        $a_price = $a_adult_price+$a_child_price;
         //活动状态
         $a_status = input('post.activity_status');
         //活动类型
@@ -110,7 +108,6 @@ class Activity extends Base
         $data['a_num'] = $a_num;
         $data['a_adult_price'] = $a_adult_price;
         $data['a_child_price'] = $a_child_price;
-        $data['a_price'] = $a_price;
         $data['a_status'] = $a_status;
         $data['a_address'] = $a_address;
         $data['a_type'] = $a_type;
@@ -173,8 +170,6 @@ class Activity extends Base
         $a_adult_price= input('post.adult_price');
         //活动小孩价格
         $a_child_price = input('post.child_price');
-        //活动价格
-        $price = input('post.price');
         //活动状态
         $a_status = input('post.activity_status');
         //活动类型
@@ -219,7 +214,6 @@ class Activity extends Base
         $data['a_type'] = $a_type;
         $data['a_is_recommend'] = $a_is_recommend;
         $data['a_content'] = $a_content;
-        $data['a_price'] = $price;
         $Activity = model('Activity');
         $Activity->saveActivity($data);
         $this->success('修改成功','activity/index');

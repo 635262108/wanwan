@@ -38,7 +38,7 @@ class Activity extends Base
         $titleSon = $ActivityType->getTitleSon($set);
         
         //获取字段
-    	$field = 'aid,a_index_img,a_title,a_remark,a_type,a_begin_time,a_end_time,a_address,a_price,a_sold_num,a_num';
+    	$field = 'aid,a_index_img,a_title,a_remark,a_type,a_begin_time,a_end_time,a_address,a_child_price,a_adult_price,a_sold_num,a_num';
         //获取活动信息
         $Activity = model('Activity');
         $ActivityInfo = array();
@@ -147,8 +147,7 @@ class Activity extends Base
         $child_num = input('get.child_num');
         //参加时间
         $time = input('get.time');
-        //唯一标示
-        $code = input('get.code');
+        $token = input('get.token');
 
         //检查参加时间是否还有票
         $ActivityTime = model('ActivityTime');
@@ -163,7 +162,11 @@ class Activity extends Base
             $this->error('您选择的活动已报满');
         }
 
-        $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
+        if($userInfo->member_grade == 1){
+            $price = $child_num*$ActivityInfo['a_member_price'];
+        }else{
+            $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
+        }
 
         //免费活动不能重复报名
         if($price == 0){
@@ -178,7 +181,7 @@ class Activity extends Base
             }
         }
         //防止重复提交
-        if(empty(session('code')) & $price > 0){//存在
+        if(!checkToken($token) & $price>0){
             $this->assign('userInfo',$userInfo);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
@@ -192,6 +195,7 @@ class Activity extends Base
                 return $this->fetch('activity/select_pay');
             }
         }
+
         //订单入库
         $add_oreder_data = array();
         $add_oreder_data['order_sn'] = getOrderSn($uid,$aid);
@@ -212,8 +216,7 @@ class Activity extends Base
         $add_oreder_data['source'] = 1;
         $add_oreder_data['order_price'] = $price;
         model('ActivityOrder')->insert($add_oreder_data);
-        //清空，防止重复插入
-        session('code',null);
+
         session('orderInfo',$add_oreder_data);
         //免费活动不需要支付，直接报名成功，付费活动进入选择支付界面
         if($price > 0){

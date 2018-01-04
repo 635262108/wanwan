@@ -60,7 +60,7 @@ class Activity extends Model
 	* 获取推荐活动
     */
     public function getRecommendInfo(){
-    	$field = 'aid,a_index_img,a_price,a_title';
+    	$field = 'aid,a_index_img,a_child_price,a_adult_price,a_title';
     	$map['a_is_recommend'] = 1;
     	$data = $this->where($map)->field($field)->select();
     	return $data;
@@ -106,7 +106,8 @@ class Activity extends Model
      */
     public function getFreeActivity(){
         $map = [
-            'a_price' => 0,
+            'a_adult_price' => 0,
+            'a_child_price' => 0,
             'a_status'=>1
         ];
         $order = [

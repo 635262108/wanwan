@@ -96,7 +96,7 @@
                     <a href="{:url('home/Activity/detail',['aid'=>$vo.aid])}"><img src="__AdminIMG__/{$vo.a_index_img}" title="" /></a>
                 </div>
                 <h4><a href="{:url('home/Activity/detail',['aid'=>$vo.aid])}" title = "">{$vo.a_title} ...</a></h4>
-                <p class="activeFList-2 fav_height" style="top:30px;">{$vo.a_price}<i class="col7 f">已报名{$vo.a_sold_num}人</i></p>
+                <p class="activeFList-2 fav_height" style="top:30px;">{$vo.a_adult_price+$vo.a_child_price}<i class="col7 f">已报名{$vo.a_sold_num}人</i></p>
             </li>
             {/foreach}
         </ul>

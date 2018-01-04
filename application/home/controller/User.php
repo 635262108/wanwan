@@ -196,7 +196,7 @@ class User extends Base
         $mfData = array();
         $sfData = array();
         foreach($collectionData as $k=>$v){
-            if($v['a_price'] == 0){
+            if($v['a_child_price']+$v['a_adult_price'] == 0){
                 $mfData[] = $v;
             }else {
                 $sfData[] = $v;

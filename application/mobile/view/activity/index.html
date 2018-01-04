@@ -60,7 +60,7 @@
        
                         </ul>
                          <div class="content_bottom">
-                         	<span>￥{$v.a_price}</span>
+                         	<span>￥{$v.a_adult_price+$v.a_child_price}</span>
                          	 {if condition="$v.a_end_time gt time()"/}
                          	 <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">点我报名>></a>
                          	 {else/}

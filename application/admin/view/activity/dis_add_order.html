@@ -46,7 +46,7 @@
 										<select name="aid" class="select_activity" style="width: 42%;">
 											<option value="0">请选择...</option>
 											{foreach name="activity" item="vo"}
-											<option value="{$vo.aid}" price="{$vo.a_price}">{$vo.a_title}</option>
+											<option value="{$vo.aid}" price="{$vo.a_adult_price+$vo.a_child_price}">{$vo.a_title}</option>
 								            
 											{/foreach}
 										</select>

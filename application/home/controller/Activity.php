@@ -200,9 +200,9 @@ class Activity extends Base
             }
             //获取活动信息
             $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img,a_price');
+            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img');
             //免费活动time字段必须传
-            if($activityInfo['a_price'] == 0){
+            if($activityInfo['a_adult_price']+$activityInfo['a_child_price'] == 0){
                 if(!isset($time)){
                     $this->error("参数不完整");
                 }
