@@ -162,11 +162,9 @@ class Activity extends Base
             $this->error('您选择的活动已报满');
         }
 
-        if($userInfo->member_grade == 1){
-            $price = $child_num*$ActivityInfo['a_member_price'];
-        }else{
-            $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
-        }
+        //价格
+        $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
+
 
         //免费活动不能重复报名
         if($price == 0){
@@ -197,33 +195,35 @@ class Activity extends Base
         }
 
         //订单入库
-        $add_oreder_data = array();
-        $add_oreder_data['order_sn'] = getOrderSn($uid,$aid);
-        $add_oreder_data['aid'] = $aid;
-        $add_oreder_data['uid'] = $uid;
-        $add_oreder_data['mobile'] = $userInfo['mobile'];
-        $add_oreder_data['name'] = $userInfo['nickname'];
-        $add_oreder_data['adult_num'] = $adult_num;
-        $add_oreder_data['child_num'] = $child_num;
         if($price > 0){//免费活动不需要支付,订单状态为已付款
-            $add_oreder_data['order_status'] = 2;
+            $order_status = 2;
         }else{
-            $add_oreder_data['order_status'] = 3;
+            $order_status = 3;
         }
+        $add_order_data = [
+            'order_sn' => getOrderSn($uid,$aid),
+            'aid' => $aid,
+            'uid' => $uid,
+            'mobile' => $userInfo['mobile'],
+            'name' => $userInfo['nickname'],
+            'adult_num' => $adult_num,
+            'child_num' => $child_num,
+            'order_status' => $order_status,
+            'addtime' => time(),
+            't_id' => $time,
+            'source' => 1,
+            'order_price' => $price,
+        ];
 
-        $add_oreder_data['addtime'] = time();
-        $add_oreder_data['t_id'] = $time;
-        $add_oreder_data['source'] = 1;
-        $add_oreder_data['order_price'] = $price;
-        model('ActivityOrder')->insert($add_oreder_data);
+        model('ActivityOrder')->insert($add_order_data);
 
-        session('orderInfo',$add_oreder_data);
+        session('orderInfo',$add_order_data);
         //免费活动不需要支付，直接报名成功，付费活动进入选择支付界面
         if($price > 0){
             $this->assign('userInfo',$userInfo);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
-            $this->assign('orderInfo',$add_oreder_data);
+            $this->assign('orderInfo',$add_order_data);
             $this->assign('title','选择支付');
             //微信浏览器只支持js支付，单独一个界面
             if(is_weixin()){
@@ -234,11 +234,11 @@ class Activity extends Base
             }
         }else{
             //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
-            $this->sendMobileMsg($add_oreder_data['order_sn']);
-            $this->setActivityNum($add_oreder_data['order_sn']);
+            $this->sendMobileMsg($add_order_data['order_sn']);
+            $this->setActivityNum($add_order_data['order_sn']);
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
-            $this->assign('orderInfo',$add_oreder_data);
+            $this->assign('orderInfo',$add_order_data);
             $this->assign('title','报名成功');
             return $this->fetch('activity/pay_success');
         }
@@ -279,12 +279,12 @@ class Activity extends Base
         $ActivityOrder = model('ActivityOrder');
         $order = $ActivityOrder->getSnOrderInfo($order_sn);
 
-        //获取活动信息
-        $Activity = model('Activity');
-        $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
-
-        //获取时间信息
-        $timeInfo = model('ActivityTime')->getAnyTime($order['t_id']);
+//        //获取活动信息
+//        $Activity = model('Activity');
+//        $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
+//
+//        //获取时间信息
+//        $timeInfo = model('ActivityTime')->getAnyTime($order['t_id']);
 
         //获取用户openid
         $openId = session::get('openid');
@@ -362,8 +362,24 @@ class Activity extends Base
         $uid = Session::get('userInfo.uid');
         //订单号
         $order_sn = input('post.order_sn');
+        //金额
+        $price = input('post.price');
         //支付方式 2：微信 4：余额
         $bank_type = input('post.bank_type');
+
+        //检查订单
+        $orderInfo = model('ActivityOrder')->getSnOrderInfo($order_sn);
+        if(empty($orderInfo)){
+            $this->error('订单错误');
+        }
+
+        //判断会员有没有使用余额支付，使用其他支付方式没有会员价
+        $userInfo = model('user')->get($uid);
+        if($userInfo->member_grade == 1 && $bank_type==4){
+            $orderInfo->order_price = $price;
+            $orderInfo->save();
+        }
+
         if($bank_type == 2){
             //session记录订单
             session::set($uid,$order_sn);

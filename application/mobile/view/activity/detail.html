@@ -35,14 +35,14 @@
                         		
                         	</span>
                         	{if condition="$activityInfo.a_adult_price eq 0"}
-                        		<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">原价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;免费</span>
+                        		<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">原价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;{$activityInfo.member_adult_price}</span>
                         	{else/}
                         		<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">原价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;{$activityInfo.a_adult_price} </span>
                         	{/if}
                         
                         </li>
                         <li>
-                        	<span>小孩:<b style="color:#656565;margin-left: 14%;">￥</b><b class="child_price" style="color: #656565;">{$activityInfo.a_member_price}</b></span>
+                        	<span>小孩:<b style="color:#656565;margin-left: 14%;">￥</b><b class="child_price" style="color: #656565;">{$activityInfo.member_child_price}</b></span>
                         	<span style="background: none;line-height:14px;margin-left: 67px;text-decoration:line-through;font-size: 12px;">小孩&nbsp;:&nbsp;&nbsp;{$activityInfo.a_child_price}</span>
                         </li>
                     </ul>
@@ -53,11 +53,11 @@
                     <ul class="time_ul">
                         <li>
                         	<span>大人:<b style="color:#656565;margin-left: 14%;">￥</b><b class="aldut_price" style="color: #656565;">{$activityInfo.a_adult_price}</b></span>
-                        	<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">会员价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;免费</span>
+                        	<span style="background: none;line-height:16px;margin-left: 28px;text-decoration:line-through;font-size: 12px;">会员价&nbsp;:&nbsp;&nbsp;大人&nbsp;:&nbsp;&nbsp;{$activityInfo.member_adult_price}</span>
                         </li>
                         <li>
                         	<span>小孩:<b style="color:#656565;margin-left: 14%;">￥</b><b class="child_price" style="color: #656565;">{$activityInfo.a_child_price}</b></span>
-                        	<span style="background:none;line-height:14px;margin-left: 67px;text-decoration:line-through;font-size: 12px;">小孩&nbsp;:&nbsp;&nbsp;{$activityInfo.a_member_price}</span>
+                        	<span style="background:none;line-height:14px;margin-left: 67px;text-decoration:line-through;font-size: 12px;">小孩&nbsp;:&nbsp;&nbsp;{$activityInfo.member_child_price}</span>
                         </li>
                     </ul>
                 </li>
@@ -78,7 +78,7 @@
 <!--点击我要报名-->
 <div id="theme_modal_box">
     <form method="get" action="{:url('activity/add_order')}">
-        {:token()}
+        {:token('token')}
         <input type="hidden" name="aid" value="{$activityInfo.aid}"/>
         <div class="moal_div">
             <div class="modal_detail">
