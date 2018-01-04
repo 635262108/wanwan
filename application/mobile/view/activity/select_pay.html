@@ -3,21 +3,35 @@
 <body style="background: #F6F6F6">
 
     <!--<div class="title_word second_activity">选择支付</div>-->
-
+   
+    
+    
+    <form action="{:url('activity/payWay')}" method="post" class="pay_form">
+    	
     <div class="product_detail">
     	<div class="product_img"><img src="__AdminIMG__/{$activityInfo.a_index_img}"></div>
-    	<ul>
-    		<li>￥{$price}</li>
+    	<ul class="totalPrice">
+    		{if condition="$userInfo.member_grade eq 1"}
+    		<li>
+    			￥
+    			<input type="text" value="{$activityInfo.member_adult_price+$activityInfo.member_child_price}"  name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
+    			</li>
+    		{else/}
+    		<li>
+    			￥
+    			<input type="text" value="{$activityInfo.a_adult_price+$activityInfo.a_child_price}" name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
+    		</li>
+    		{/if}
+    		
     		<li>&nbsp;&nbsp;{$activityInfo.a_title}</li>
     	</ul>
     </div>
-    
-    <form action="{:url('activity/payWay')}" method="post" class="pay_form">
+    	
         <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
     	<ul>
     		<li>
     			<div class="first_li"><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付</div>
-    		     {if condition="$userInfo.balance lt $price"}
+    		    {if condition="$userInfo.balance lt $price"}
     		    <div class="second_li" >
     		    	   <span style="color:#c5c5c5;" class="remaining_money">余额不足</span>
     		    	 
@@ -26,10 +40,10 @@
     		    </div>	
     		    {else/}
     		     
-    		     <div class="second_li" style="width: 23.5%;">
+    		     <div class="second_li" style="width: 28%;">
     		    	 <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;{$userInfo.balance}</span>
     		    	
-    		          <input type="radio" name="bank_type" value="4"  class="select_remaining">
+    		          <input type="radio" name="bank_type" value="4"  class="select_remaining" checked="checked">
     		   
     		    </div>	
     		   
@@ -42,7 +56,7 @@
     				<img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付
     			</div>
     			<div class="second_li">
-    				<input type="radio" name="bank_type" value="2" class="weixin">
+    				<input type="radio" name="bank_type" value="2" class="weixin otherPay">
     		    </div>
     		</li>
     			
@@ -52,7 +66,7 @@
     				<img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝
     			</div>
     			<div class="second_li">
-    				<input type="radio" name="bank_type" value="1">
+    				<input type="radio" name="bank_type" value="1" class="otherPay">
     			</div>
     		</li>
     	</ul>
@@ -64,6 +78,43 @@
     <script src="__MobileJs__/jquery.min.js"></script>
     <script src="__MobileJs__/index.js"></script>
     <script src="__MobileJs__/idangerous.swiper.min.js"></script>
+    <script>
+    	//判断余额来显示
+       var money_val=$(".remaining_money").html();
+//     原价
+       var oriPrice={$activityInfo.a_adult_price+$activityInfo.a_child_price};
+       var memberPrice={$activityInfo.member_adult_price+$activityInfo.member_child_price};
+       
+	    if(money_val=="余额不足"){
+			$(".select_remaining").attr("disabled",true);
+			$(".weixin").attr("checked",true);
+			$(".totalPrice li input").val(oriPrice);
+            
+		}
+		else{
+			$(".select_remaining").attr("disabled",false);
+			$(".select_remaining").attr("checked",true);
+			$(".totalPrice li input").val(memberPrice);
+		}
+
+		$(".otherPay").on("click",function(){
+			if($(this).is(":checked")){
+				$(".totalPrice li input").val(oriPrice);
+			}
+		})
+		
+		$(".select_remaining").on("click",function(){
+			if($(this).siblings("span").html()=="余额不足"){
+				$(this).attr("disabled",false);
+				$(this).attr("checked",true);
+			}
+			else{
+				$(".totalPrice li input").val(memberPrice);
+			}
+		})
+		
+		
+    </script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 {include file="public/header" /}
-{include file="public/second_header" /}
+{include file="public/second_header"/}
 <body>
 </div>
     <div class="five_organs almost">
@@ -40,9 +40,9 @@
 				
 						<span  aid="{$vo.aid}" class="cancel_collect">取消收藏</span>
 						 {if condition="$vo.a_end_time gt time()"/}
-						 <a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}">点我报名>></a>
+						  <a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}">点我报名>></a>
 						 {else/}
-						 <a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}" style="color: #767676;">活动结束>></a>
+						  <a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}" style="color:#767676;">活动结束>></a>
 						 {/if}
 						
 					</div>
@@ -50,18 +50,16 @@
 			</div>
 		</a>
 		{/foreach}
-		 <div class="nothing display_none" id="new_no" style="display: none;">
+		 <div class="nothing display_none" id="new_no" style="display:none;">
                  <div><img src="__MobileImg__/no_activity.png"></div>
                  <div>没有相关活动噢~</div>
-                 <div><a href="{:url('mobile/activity/new_activity')}" style="color: #FF4134;">快去看看吧>></a></div>
+                 <div><a href="{:url('mobile/activity/new_activity')}" style="color:#FF4134;">快去看看吧>></a></div>
          </div>
 	</div>
 </div>
-
     <script src="__MobileJs__/jquery.min.js"></script>
     <script src="__MobileJs__/idangerous.swiper.min.js"></script>
     <script src="__MobileJs__/jquery.bxslider.js"></script>
     <script type="text/javascript" src="__MobileJs__/index.js" ></script>
 </body>
 </html>
-

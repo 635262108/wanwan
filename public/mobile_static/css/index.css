@@ -3047,7 +3047,7 @@ display: none  !important;
 	background:#ff4134;
 }
 /*选择支付新样式*/
-.product_detail{
+.pay_form .product_detail{
 	width: 93%;
 	margin: 10px auto 0px;
 	display: flex;
@@ -3056,28 +3056,32 @@ display: none  !important;
 	padding-top: 11px;
 	padding-bottom: 11px;
 	background: #FFFFFF;
+	margin-bottom: 15px;
 }
-.product_detail .product_img{
+ .pay_form  .product_detail .product_img{
 	width: 76px;
 	height: 56px;
 }
-.product_detail .product_img img{
+.pay_form  .product_detail .product_img img{
 	width: 100%;
 	height: 100%;
 }
-.product_detail ul{
+.pay_form  .product_detail ul{
 	width: 65%;
 	margin-left: 3%;
 	
 }
-.product_detail ul li:nth-child(1){
+.pay_form  .product_detail ul li:nth-child(1){
 	font-size: 24px;
 }
-.product_detail ul li:nth-child(2){
+.pay_form  .product_detail ul li:nth-child(2){
 	font-size: 13px;
 }
-.product_detail ul li{
+.pay_form  .product_detail ul li{
 	margin-bottom: 9px;
+	height: auto;
+	display: block;
+	padding-left: 0px;
 }
 .pay_form{
 	width: 93%;

@@ -352,16 +352,7 @@ $(".rechargeModal_div .cancel").on("click",function(){
 //生日插件
 //$(".birthdayContainer").selectDate();
 
-//判断余额来显示
-var money_val=$(".remaining_money").html();
-if(money_val=="余额不足"){
-	$(".select_remaining").attr("disabled",true);
-	$(".weixin").attr("checked",true);
-}
-else{
-	$(".select_remaining").attr("disabled",false);
-	$(".select_remaining").attr("checked",true);
-}
+
 
 //点击验证码
 var timer;
