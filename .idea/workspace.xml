@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,11 +44,11 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="282" column="9" lean-forward="true" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
+            <state relative-caret-position="428">
+              <caret line="371" column="9" lean-forward="true" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
               <folding>
                 <element signature="e#5320#5873#0#PHP" expanded="false" />
-                <element signature="e#10483#11546#0#PHP" expanded="false" />
+                <element signature="e#10353#11416#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -115,7 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>活动记录</find>
       <find>sign_time</find>
       <find>getOrderJoinSource</find>
       <find>getOrderJoinActivity</find>
@@ -142,9 +141,10 @@
       <find>attendance_detail</find>
       <find>in</find>
       <find>orderidpay</find>
-      <find>wx_browser_pay</find>
-      <find>wx_browser_pay(</find>
       <find>redirect</find>
+      <find>wx_browser_pay</find>
+      <find>wxpayway</find>
+      <find>wx_browser_pay(</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -466,12 +466,12 @@
       <workItem from="1514855142119" duration="24692000" />
       <workItem from="1514942438295" duration="20795000" />
       <workItem from="1515031676411" duration="17377000" />
-      <workItem from="1515113762632" duration="125000" />
+      <workItem from="1515113762632" duration="1840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1210815000" />
+    <option name="totallyTimeSpent" value="1212530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -921,11 +921,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="282" column="9" lean-forward="true" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
+        <state relative-caret-position="428">
+          <caret line="371" column="9" lean-forward="true" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
           <folding>
             <element signature="e#5320#5873#0#PHP" expanded="false" />
-            <element signature="e#10483#11546#0#PHP" expanded="false" />
+            <element signature="e#10353#11416#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
