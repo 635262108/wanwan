@@ -34,13 +34,12 @@
     		    {if condition="$userInfo.balance lt $price"}
     		    <div class="second_li" >
     		    	   <span style="color:#c5c5c5;" class="remaining_money">余额不足</span>
-    		    	 
-    		          <input type="radio" name="bank_type" value="4"  class="select_remaining">
+    		    	   <input type="radio" name="bank_type" value="4"  class="select_remaining">
     		   
     		    </div>	
     		    {else/}
     		     
-    		     <div class="second_li" style="width: 28%;">
+    		    <div class="second_li" style="width: 28%;">
     		    	 <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;{$userInfo.balance}</span>
     		    	 <input type="radio" name="bank_type" value="4"  class="select_remaining" checked="checked">
     		   
@@ -71,9 +70,6 @@
     	</ul>
     	<button type="submit" class="Sure_pay">确认支付</button>
     </form>
-    
-
-
     <script src="__MobileJs__/jquery.min.js"></script>
     <script src="__MobileJs__/index.js"></script>
     <script src="__MobileJs__/idangerous.swiper.min.js"></script>
