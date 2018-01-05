@@ -29,7 +29,7 @@
             window.setInterval(function(){
                 count--;
                 $(".count").html(count)
-                if(count<=1){
+                if(count==1){
                     location.href="{:url('mobile/user/order_detail',['order_sn'=>$orderInfo.order_sn])}";
                 }else{
                     clearInterval();

@@ -371,9 +371,9 @@ class Activity extends Base
             $this->error('订单错误');
         }
 
-        //支付过的订单直接到订单详情
+        //支付过的订单直接跳我的订单
         if($orderInfo->order_status != 2){
-            $this->redirect('user/order_detail',['order_sn'=>$order_sn]);
+            $this->redirect('user/my_activity',['a'=>1]);
         }
 
         //判断会员有没有使用余额支付，使用其他支付方式没有会员价
