@@ -13,12 +13,12 @@
     	<ul class="totalPrice">
     		{if condition="$userInfo.member_grade eq 1"}
     		<li>
-    			￥
+    			<span>￥</span>
     			<input type="text" value="{$activityInfo.member_adult_price+$activityInfo.member_child_price}"  name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
-    			</li>
+    		</li>
     		{else/}
     		<li>
-    			￥
+    			<span>￥</span>
     			<input type="text" value="{$activityInfo.a_adult_price+$activityInfo.a_child_price}" name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
     		</li>
     		{/if}
@@ -42,8 +42,7 @@
     		     
     		     <div class="second_li" style="width: 28%;">
     		    	 <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;{$userInfo.balance}</span>
-    		    	
-    		          <input type="radio" name="bank_type" value="4"  class="select_remaining" checked="checked">
+    		    	 <input type="radio" name="bank_type" value="4"  class="select_remaining" checked="checked">
     		   
     		    </div>	
     		   

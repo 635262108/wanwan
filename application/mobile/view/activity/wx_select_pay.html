@@ -13,12 +13,12 @@
     	<ul class="totalPrice">
     		{if condition="$userInfo.member_grade eq 1"}
     		<li>
-    			￥
+    			 <span>￥</span>
     			<input type="text" value="{$activityInfo.member_adult_price+$activityInfo.member_child_price}"  name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
     			</li>
     		{else/}
     		<li>
-    			￥
+    			<span>￥</span>
     			<input type="text" value="{$activityInfo.a_adult_price+$activityInfo.a_child_price}" name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
     		</li>
     		{/if}
@@ -29,7 +29,7 @@
     <ul>
         <li>
     			<div class="first_li"><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付</div>
-    		     {if condition="$userInfo.balance lt $price"}
+    		    {if condition="$userInfo.balance lt $price"}
     		    <div class="second_li" >
     		    	   <span style="color:#c5c5c5;" class="remaining_money">余额不足</span>
     		    	

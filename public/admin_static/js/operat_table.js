@@ -769,9 +769,10 @@ $(".slideDown").on("click",function(){
 	$(".hiddenInfo").show();
 	$(this).hide()
 })
+
 $(".slideUp").on("click",function(){
 	$(".hiddenInfo").hide();
-	$(".slideDown").show()
+	$(".slideDown").show();
 })
 
 var infoLis=$(".click_ulContent ul").children("li");
@@ -920,8 +921,7 @@ $(".sign").live("click",function(){
 
 	    $.post(SpitUrl.sign_url,{id:id,order_status:4},function(obj){
 		if(obj.state_code == 200){
-
-            window.location.reload();
+			 window.location.reload();
 		}
 	    })
 	}
