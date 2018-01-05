@@ -278,7 +278,9 @@ class Activity extends Base
         $order_sn = Session::get($uid);
         $ActivityOrder = model('ActivityOrder');
         $order = $ActivityOrder->getSnOrderInfo($order_sn);
-
+        if($order->order_status != 2){
+            $this->redirect('activity/detail', ['aid' => $order->aid]);
+        }
 //        //获取活动信息
 //        $Activity = model('Activity');
 //        $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
