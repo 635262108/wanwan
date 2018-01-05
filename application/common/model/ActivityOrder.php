@@ -165,10 +165,11 @@ class ActivityOrder extends Model
         return $this->field($field)->where($map)->limit($limit)->select();
     }
 
-    //关联表Source
-    public function getOrderJoinSource($map=array(),$field='*'){
-        return $this->alias('o')
-            ->join('mfw_source s','o.source=s.id','left')
+    //获取签到详情
+    public function getSignDetail($map=array(),$field='*'){
+         return $this->alias('o')
+            ->join('__SOURCE__ s','o.source=s.id','left')
+            ->join('__USER__ u','o.uid=u.uid','left')
             ->field($field)
             ->where($map)
             ->select();

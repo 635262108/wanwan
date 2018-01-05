@@ -256,8 +256,8 @@ class User extends Base
         $map['aid'] = $aid;
         $map['t_id'] = $tid;
         $map['order_status'] = array('neq',2);
-        $field = 'order_id,o.name username,mobile,adult_num,child_num,sign_time,source,s.name,order_status';
-        $actinfo = $ActivityOrder->getOrderJoinSource($map,$field);
+        $field = 'order_id,o.name username,o.mobile,adult_num,child_num,sign_time,o.source,s.name,order_status,u.label';
+        $actinfo = $ActivityOrder->getSignDetail($map,$field);
         $this->assign('actinfo',$actinfo);
         $this->assign('aid',$aid);
         return $this->fetch();

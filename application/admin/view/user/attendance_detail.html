@@ -110,11 +110,11 @@
                       {/if}
 
 
-                      {if condition='$vo.order_status eq 8'}
-                      <span class="WantUser">有意向</span>
+                      {in name="$vo.label" value="1"}
+                      <span class="quit">已标记</span>
                       {else/}
-                      <span class="WantUser">有意向</span>
-                      {/if}
+                      <span class="quit">有意向</span>
+                      {/in}
 
                   </td>
                 </tr>
