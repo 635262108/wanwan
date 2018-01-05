@@ -315,9 +315,7 @@ class Activity extends Base
         return $this->fetch('activity/enter_wx_pay');
     }
     
-    /**
-    *支付
-    */
+    //选择支付方式
     public function payWay(){
         //用户id
         $uid = Session::get('userInfo.uid');
@@ -356,7 +354,7 @@ class Activity extends Base
         }
     }
 
-    //微信浏览器支付
+    //微信浏览器选择支付
     public function wxPayWay(){
         //用户id
         $uid = Session::get('userInfo.uid');
@@ -369,8 +367,13 @@ class Activity extends Base
 
         //检查订单
         $orderInfo = model('ActivityOrder')->getSnOrderInfo($order_sn);
-        if(empty($orderInfo)){
+        if(empty($orderInfo) || $uid != $orderInfo['uid']){
             $this->error('订单错误');
+        }
+
+        //支付过的订单直接跳我的订单
+        if($orderInfo->order_status != 2){
+            $this->redirect('user/my_activity',['a'=>1]);
         }
 
         //判断会员有没有使用余额支付，使用其他支付方式没有会员价
@@ -398,10 +401,7 @@ class Activity extends Base
         if(empty($userInfo) || empty($orderInfo)){
             $this->error('参数错误');
         }
-        //检查订单是否匹配
-        if($userInfo['uid'] != $orderInfo['uid']){
-            $this->error('参数错误');
-        }
+
         //检查余额够不够
         if($orderInfo['order_price'] > $userInfo['balance']){
             $this->error('余额不足，可以去会员中心进行充值哦');
