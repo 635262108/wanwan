@@ -59,22 +59,22 @@
                   <td>{$vo.a_child_price}</td>
                   <td>{$vo.name}</td>
                    {if condition="$vo.a_is_recommend eq 1"}
-                      <td class="yes" style="cursor: pointer;"> 
+                      <td class="yes push" style="cursor: pointer;"> 
                       	 推荐
                       </td>
                       
                    {else/}
-                    <td class="no" style="cursor: pointer;"> 
+                    <td class="no push" style="cursor: pointer;"> 
                       	 不推荐
                     </td>
                     {/if}
                 
                     {if condition="$vo.a_status eq 1"}
                                    
-                      	<td class="yes" style="cursor: pointer;"> 上架  </td>  
+                      	<td class="yes present" style="cursor: pointer;"> 上架  </td>  
                       
                     {else/}
-                         <td class="no" style="cursor: pointer;"> 下架  </td>     
+                         <td class="no present" style="cursor: pointer;"> 下架  </td>     
                       	
                     {/if}
                   </td>

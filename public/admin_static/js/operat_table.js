@@ -676,34 +676,34 @@ var onLis=$(".shai").children(".only_one");
 // })
     
     	//  点击是否推荐
-$(".recommend td:nth-child(11)").live("click",function(){
+$(".recommend .push").live("click",function(){
    if($(this).hasClass("yes")){
-   	ClickRecommend("/abab.php/activity/saveActivityField",
-   	          {aid:$(this).siblings(".sorting_1").html(),a_is_recommend:0},
-   	          $(this),"不推荐","推荐"
-   	)
+	   	ClickRecommend("/abab.php/activity/saveActivityField",
+	   	          {aid:$(this).siblings(".sorting_1").html(),a_is_recommend:0},
+	   	          $(this),"不推荐","推荐","push"
+	   	)
 	}
    else{
 		ClickRecommend("/abab.php/activity/saveActivityField",
    	          {aid:$(this).siblings(".sorting_1").html(),a_is_recommend:1},
-   	          $(this),"不推荐","推荐"
+   	          $(this),"不推荐","推荐","push"
    	)
    }
 	
 })
 //点击是否上架
-$(".recommend td:nth-child(12)").live("click",function(){
+$(".recommend .present").live("click",function(){
    if($(this).hasClass("yes")){
 	   	ClickRecommend("/abab.php/activity/saveActivityField",
 	   	    {aid:$(this).siblings(".sorting_1").html(),
 	   	     a_status:0},
-	   	          $(this),"下架","上架"
+	   	          $(this),"下架","上架","present"
 	   	)
 	}
    else{
 		ClickRecommend("/abab.php/activity/saveActivityField",
    	          {aid:$(this).siblings(".sorting_1").html(),a_status:1},
-   	          $(this),"下架","上架"
+   	          $(this),"下架","上架","present"
    		)
    }
 	
@@ -1094,17 +1094,20 @@ function tabChange(my,brother){
 }
 
 //活动列表(点击事件)
-function ClickRecommend(url,option,my,wordNo,wordYes) {
+function ClickRecommend(url,option,my,wordNo,wordYes,addClass) {
 
 	$.post(url, option, function(obj) {
 		if(obj.state_code == 200) {
 			if(my.hasClass("yes")) {
 				my.html(wordNo)
 				my.attr("class","no")
+				my.addClass(addClass);
 			} 
 			else{
-				my.html(wordYes)
+				my.html(wordYes);
+				
 				my.attr("class","yes")
+				my.addClass(addClass);
 			}
 		}
 
