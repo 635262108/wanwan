@@ -70,9 +70,11 @@
            </tr>
               </thead>
               <tbody id="tbody_center" style='font-size: 12px;'>
+              	
                 {foreach name="actinfo" item="vo"}
+                 
                 <tr class="gradeX trs">
-                
+                  <input  type="hidden" value=""/>
                   <td class="leave_id">{$vo.order_id}</td>
                  
                   <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.username}</a></td>
@@ -111,9 +113,9 @@
 
 
                       {in name="$vo.label" value="1"}
-                      <span class="quit">已标记</span>
+                      <span class="Wantuser">已标记</span>
                       {else/}
-                      <span class="quit">有意向</span>
+                      <span class="Wantuser">有意向</span>
                       {/in}
 
                   </td>

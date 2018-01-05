@@ -956,13 +956,22 @@ $(".leaveSave").on("click",function(){
 })
 
 //点击意向客户
-$(".WantUser").on("click",function(){
-	var id=$(this).parent().siblings(".leave_id").html();
-	 $.post(SpitUrl.Amend_infoUrl,{uid:id,label:1},function(obj){
-		if(obj.state_code == 200){
-            window.location.reload();
-		}
-	})
+$(".Wantuser").on("click",function(){
+	console.log('点击')
+	if($(this).html()=="已标记"){
+		$(this).off("click");
+	}
+	else{
+		
+				 var id=$(this).parent().siblings(".leave_id").html();
+				 $.post(SpitUrl.Amend_infoUrl,{uid:id,label:1},function(obj){
+					if(obj.state_code == 200){
+			            window.location.reload();
+					}
+				})
+		
+	}
+
 })
 
 //修改客户信息点击保存
