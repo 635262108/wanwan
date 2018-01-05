@@ -963,8 +963,8 @@ $(".Wantuser").on("click",function(){
 	}
 	else{
 		
-				 var id=$(this).parent().siblings(".leave_id").html();
-				 $.post(SpitUrl.Amend_infoUrl,{uid:id,label:1},function(obj){
+				 var uid=$(this).parent().siblings(".uid").val();
+				 $.post(SpitUrl.Amend_infoUrl,{uid:uid,label:1},function(obj){
 					if(obj.state_code == 200){
 			            window.location.reload();
 					}

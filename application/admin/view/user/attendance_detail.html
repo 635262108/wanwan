@@ -44,7 +44,9 @@
     	  	<option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid])}">查看全部</option>
     	   	<option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>1])}" {if condition="$Request.param.is_sign eq 1"}selected="selected"{/if}>已参加</option>
     	   	
+    	    
     	    <option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'is_sign'=>2])}" {if condition="$Request.param.is_sign eq 2"}selected="selected"{/if}>未参加</option>
+    	    <option value="{:url('user/attendance_detail',['aid'=>$Request.param.aid,'tid'=>$Request.param.tid,'intent'=>1])}" {if condition="$Request.param.intent eq 1"}selected="selected"{/if}>意向客户</option>
     </select>
 
 <div class="container-fluid">
@@ -74,11 +76,11 @@
                 {foreach name="actinfo" item="vo"}
                  
                 <tr class="gradeX trs">
-                  <input  type="hidden" value=""/>
+                  <input  type="hidden" value="{$vo.uid}" class="uid"/>
                   <td class="leave_id">{$vo.order_id}</td>
                  
-                  <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.username}</a></td>
-                  <td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.mobile}</a></td>
+                  <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.username}</a></td>
+                  <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
                   <td>{$vo.adult_num}</td>
                   <td>{$vo.child_num}</td>
                   <td>
