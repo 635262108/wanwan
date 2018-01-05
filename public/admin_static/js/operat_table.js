@@ -454,9 +454,11 @@ $(".save_member").on("click",function(event){
 	var childNum=$(".child_num").val();
 	var payWay=$(".pay_way option:selected").val();
 	var reMark=$(".remark").val();
-	var signT=$(".singTime").val();
+//	var signT=$(".singTime").val();
 	var Name=$(".get_name").val();
 	var Source=$(".source option:selected").val();
+	var signT=$(".alreadySign option:selected").val();
+	console.log(signT,0000)
 	$.post(SpitUrl.addMember_url,{mobile:mobile,
 		aid:aid,
 		t_id:tid,
