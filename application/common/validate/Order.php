@@ -11,12 +11,9 @@ use think\Validate;
 
 class Order extends Validate
 {
-    protected $regex = [
-        'mobile' => '#^13[\d]{9}$|^14[5,7]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0,6,7,8]{1}\d{8}$|^18[\d]{9}$#'
-    ];
 
     protected $rule = [
-        'mobile' => 'require|mobile',
+        'mobile' => 'require|max:11',
         'name'  =>  'require|max:25',
         'aid' => 'require|integer',
         't_id' => 'integer',

@@ -109,7 +109,13 @@
                       <span class="quit">早退</span>
                       {/if}
 
-                      <!--<span class="WantUser">有意向</span>-->
+
+                      {if condition='$vo.order_status eq 8'}
+                      <span class="WantUser">有意向</span>
+                      {else/}
+                      <span class="WantUser">有意向</span>
+                      {/if}
+
                   </td>
                 </tr>
                 {/foreach}
