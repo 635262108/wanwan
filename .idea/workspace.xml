@@ -8,11 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/User.php" afterPath="$PROJECT_DIR$/application/admin/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/activity/order.html" afterPath="$PROJECT_DIR$/application/admin/view/activity/order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" afterPath="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/user_detail.html" afterPath="$PROJECT_DIR$/application/admin/view/user/user_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/RechargeRecord.php" afterPath="$PROJECT_DIR$/application/common/model/RechargeRecord.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" afterPath="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,16 +40,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
               <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/api/controller/Order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -117,13 +103,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attendance_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="attendance_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+            <state relative-caret-position="186">
+              <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
               <folding>
-                <marker date="1515377472019" expanded="true" signature="4719:4783" ph="..." />
+                <marker date="1515377829301" expanded="false" signature="2812:2828" ph="..." />
+                <marker date="1515377829301" expanded="true" signature="4699:4763" ph="..." />
+                <marker date="1515377829301" expanded="false" signature="4957:4971" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recharge_record.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_record.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#input#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -221,7 +221,6 @@
         <option value="$PROJECT_DIR$/application/common/model/UserChild.php" />
         <option value="$PROJECT_DIR$/application/common/model/UserDetail.php" />
         <option value="$PROJECT_DIR$/application/common/validate/User.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/refund.html" />
         <option value="$PROJECT_DIR$/application/admin/view/user/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/leave_for.html" />
@@ -263,6 +262,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/user/user_detail.html" />
         <option value="$PROJECT_DIR$/application/admin/view/activity/order.html" />
         <option value="$PROJECT_DIR$/application/admin/view/user/attendance_detail.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/user/recharge_record.html" />
       </list>
     </option>
   </component>
@@ -487,12 +487,12 @@
       <workItem from="1514942438295" duration="20795000" />
       <workItem from="1515031676411" duration="17377000" />
       <workItem from="1515113762632" duration="24942000" />
-      <workItem from="1515374781912" duration="2991000" />
+      <workItem from="1515374781912" duration="3699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1238623000" />
+    <option name="totallyTimeSpent" value="1239331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -816,20 +816,20 @@
         <state relative-caret-position="10318">
           <caret line="469" column="20" lean-forward="false" selection-start-line="469" selection-start-column="20" selection-end-line="469" selection-end-column="20" />
           <folding>
-            <marker date="1515146633551" expanded="true" signature="2461:2521" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="19163:19174" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="19656:19700" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="19853:19863" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="20042:20052" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="25450:25461" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="26213:26229" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="26371:26387" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="26556:26565" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="26755:26764" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="26904:26913" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="27085:27110" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="28096:28110" ph="..." />
-            <marker date="1515146633551" expanded="true" signature="33679:33681" ph="{...}" />
+            <marker date="1515377829286" expanded="true" signature="2461:2521" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="19163:19174" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="19656:19700" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="19853:19863" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="20042:20052" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="25450:25461" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="26213:26229" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="26371:26387" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="26556:26565" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="26755:26764" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="26904:26913" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="27085:27110" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="28096:28110" ph="..." />
+            <marker date="1515377829286" expanded="true" signature="33679:33681" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -891,14 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
           <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_record.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="45" column="78" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="78" />
           <folding />
         </state>
       </provider>
@@ -969,10 +961,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/user/attendance_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+        <state relative-caret-position="186">
+          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
           <folding>
-            <marker date="1515377472019" expanded="true" signature="4719:4783" ph="..." />
+            <marker date="1515377829301" expanded="false" signature="2812:2828" ph="..." />
+            <marker date="1515377829301" expanded="true" signature="4699:4763" ph="..." />
+            <marker date="1515377829301" expanded="false" signature="4957:4971" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/recharge_record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
