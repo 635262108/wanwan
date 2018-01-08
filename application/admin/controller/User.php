@@ -247,11 +247,22 @@ class User extends Base
         $aid = input('aid');
         $tid = input('tid');
         $is_sign = input('is_sign');
+        $intent = input('intent');
+
+        //条件：已参加或者未参加 1已参加,2未参加
         if($is_sign == 1 ) {
             $map['sign_time'] = ['>',0];
         }elseif($is_sign == 2) {
             $map['sign_time'] = ['=',0];
         }
+
+        //条件：意向客户
+        if($intent == 1){
+            $map = [
+                'label' => 1
+            ];
+        }
+
         $ActivityOrder = model('ActivityOrder');
         $map['aid'] = $aid;
         $map['t_id'] = $tid;
@@ -398,8 +409,20 @@ class User extends Base
 
     //充值记录
     public function recharge_record(){
-        $model = new UserLogic();
-        $res = $model->getUseRechargeRecord();
+        $data = input('get.');
+
+        if(isset($data['beginTime']) && isset($data['endTime'])){
+            $beginTime = $data['beginTime'];
+            $endTime = $data['endTime'];
+        }else{
+            $beginTime = 0;
+            $endTime = time();
+        }
+
+        $model = model('RechargeRecord');
+
+        $field = 'r.*,u.nickname,u.mobile,u.balance';
+        $res = $model->getUserBetweenTimeRechargeRecord($field,$beginTime,$endTime);
         $this->assign('res',$res);
         return $this->fetch();
     }
