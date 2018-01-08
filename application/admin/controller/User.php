@@ -841,8 +841,8 @@ class User extends Base
         $detaiInfo = model('UserDetail')->getAnyUserDetail($uid);
         $orderInfo = model('ActivityOrder')
             ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
-            ->join('mfw_activity a','o.aid=a.aid')
-            ->join('mfw_activity_time t','t.t_id=o.t_id')
+            ->join('mfw_activity a','o.aid=a.aid','LEFT')
+            ->join('mfw_activity_time t','t.t_id=o.t_id','LEFT')
             ->join('mfw_source s','o.source=s.id','LEFT')
             ->where('o.uid',$uid)
             ->select();
