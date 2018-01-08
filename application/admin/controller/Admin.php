@@ -171,4 +171,38 @@ class Admin extends Base
         }
     }
 
+    //来源显示
+    public function source_list(){
+        $model = model('Source');
+        $source = $model->all();
+        return $this->fetch('',[
+            'source' => $source
+        ]);
+    }
+
+    public function dis_add_source(){
+        return $this->fetch();
+    }
+
+    public function dis_save_source(){
+        return $this->fetch();
+    }
+
+    //来源更新
+    public function saveSource(){
+        $data = input('post.');
+        if(isset($data['id'])){
+            $res = model('Source')->allowField(true)->save($data,['id'=>$data['id']]);
+        }else{
+            $res = model('Source')->save($data);
+        }
+
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+
+    }
+
 }

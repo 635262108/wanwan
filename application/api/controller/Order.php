@@ -10,26 +10,6 @@ use think\Controller;
 
 class Order extends Controller
 {
-    //修改订单状态
-    public function saveOrderStatus(){
-        $data = input('post.');
-        $orderInfo = model('ActivityOrder')->get($data['id']);
-        if(empty($orderInfo)){
-            return_info(-1,'订单号错误');
-        }
-        //修改状态为签到时，记录签到时间
-        if($data['order_status'] == 4){
-            $orderInfo->sign_time = time();
-        }
-
-        $orderInfo->order_status = $data['order_status'];
-        $res = $orderInfo->save();
-        if($res){
-            return_info(200,'success');
-        }else{
-            return_info(-1,'fail');
-        }
-    }
 
     //添加订单
     public function addOrder(){
@@ -102,6 +82,43 @@ class Order extends Controller
             return_info(200,'success');
         }else{
             return_info(-1,'记录订单失败');
+        }
+    }
+
+    //修改订单
+    public function saveOrder(){
+        $data = input('post.');
+        $orderInfo = model('ActivityOrder')->get($data['id']);
+        if(empty($orderInfo)){
+            return_info(-1,'订单号错误');
+        }
+
+        $res = model('ActivityOrder')->allowField(true)->save($data,['order_id'=>$data['id']]);
+        if($res){
+            return_info(200,'success');
+        }else{
+            return_info(-1,'fail');
+        }
+    }
+
+    //修改订单状态
+    public function saveOrderStatus(){
+        $data = input('post.');
+        $orderInfo = model('ActivityOrder')->get($data['id']);
+        if(empty($orderInfo)){
+            return_info(-1,'订单号错误');
+        }
+        //修改状态为签到时，记录签到时间
+        if($data['order_status'] == 4){
+            $orderInfo->sign_time = time();
+        }
+
+        $orderInfo->order_status = $data['order_status'];
+        $res = $orderInfo->save();
+        if($res){
+            return_info(200,'success');
+        }else{
+            return_info(-1,'fail');
         }
     }
 }
