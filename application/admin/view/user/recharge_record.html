@@ -7,12 +7,12 @@
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="{:url('admin/user/index')}" class="tip-bottom">客户中心</a>
       	<a href="#" class="current">充值记录</a> 
-  </div>
+      </div>
   </div>
   
    <div class="search">
   	  <form action="" method="post">
-  	  	   <input type="text" placeholder="11月26日" value=""/><div class="contect"></div><input type="text" placeholder="11月30日" value=""/>
+  	  	   <input type="text"  value="2018-01-15 15:30" style="cursor: pointer;width: 8%;" onfocus="$(this).calendar()"/><div class="contect"></div><input type="text"  value="2018-01-15 15:30" onfocus="$(this).calendar()" style="cursor: pointer;width: 8%;"/>
   	  	   <button type="submit">查找</button>
   	  </form>
   </div>
@@ -90,4 +90,6 @@
 </div>
 </div>
 {include file="public/footer" /}
+<script type="text/javascript" src="__AJS__/jquery-calendar.js"></script>
+<script src="__AJS__/Calendar.js"></script>
 </html>
