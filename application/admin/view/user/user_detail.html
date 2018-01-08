@@ -18,9 +18,9 @@
 	<!--头部会员信息-->
 	<div class="headerInfo">
 		{if condition="$userInfo.member_grade eq 1"}
-		  <img src="__AIMG__/userImg.png" />
+		<img src="__AIMG__/userImg.png"/>
 		{else/}
-		  <img src="__AIMG__/person_img.png" />
+		<img src="__AIMG__/person_img.png"/>
 		{/if}
 		
 		<ul>
@@ -40,7 +40,6 @@
 		</ul>
 		<img src="__AIMG__/stoggleDom.png" style="width:16px;height:14px;" class="stroggle slideUp" />
 	</div>
-
 	<div class="detailInfoContent">
 		<div class="totalInfoContent">
 			<div class="click_ulContent">
@@ -98,23 +97,23 @@
 						</thead>
 						<tbody id="tbody_center" style="font-size: 12px;">
 							
-						{foreach name="detaiInfo" item="vo"}
-							<tr>
-								<td>{$vo.id}</td>
-								<td>{$vo.money}</td>
-								<td>{$vo.balance}</td>
-								<td>{$vo.type|user_detail_type}</td>
-								<td>{$vo.remark}</td>
-								<td>{$vo.addtime|date='Y-m-d H:i',###}</td>
-							</tr>
-						{/foreach}
+							{foreach name="detaiInfo" item="vo"}
+								<tr>
+									<td>{$vo.id}</td>
+									<td>{$vo.money}</td>
+									<td>{$vo.balance}</td>
+									<td>{$vo.type|user_detail_type}</td>
+									<td>{$vo.remark}</td>
+									<td>{$vo.addtime|date='Y-m-d H:i',###}</td>
+								</tr>
+							{/foreach}
 						</tbody>
 					</table>
 				</div>
 				<div class="moneyChange" style="display: none;">
 					<div class="row-fluid" id="emit_information">
 					<div class="span6" style="margin-left:0px;width: 95%;">
-						<div class="widget-box" style="width: 100%;">
+						<div class="widget-box" style="width:100%;">
 							<div class="widget-title"> 
 								<span class="icon"> <i class="icon-align-justify"></i> </span>
 								<h5>操作信息</h5>
@@ -184,7 +183,7 @@
 							      <div class="widget-content" style="display: none;">
 			                        <form action="" method="post" class="form-horizontal" name="Alist_form " style="m-horizontal ">
 										
-							             <input type="hidden" name="uid" value="{$userInfo.uid}">
+							            <input type="hidden" name="uid" value="{$userInfo.uid}">
 										<div class="control-group ">
 											<label class="control-label ">会员名称</label>
 											<div class="controls ">
@@ -281,7 +280,6 @@
 		</div>
   
     </div>
-
 </div>
 {include file="public/footer"}
 </html>

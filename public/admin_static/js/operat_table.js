@@ -796,7 +796,6 @@ $(document).on("keyup",".age",function(){
 	var mydate=new Date();
 	var currentYear= mydate.getFullYear();
 	var birthday=(currentYear-age)+'-'+01+'-'+01;
-//	console.log(birthday,'当前生日')
 	$(".Birthday").val(birthday);
 	
 })
@@ -824,7 +823,7 @@ $(document).on("click",".childDelete",function(){
           return;
 	}
 	else{
-			$.post(SpitUrl.delete_url,{id:id},function(obj){
+		$.post(SpitUrl.delete_url,{id:id},function(obj){
 			if(obj.state_code == 200){
 				
 				el.parent().parent().parent().remove();
@@ -845,15 +844,14 @@ $(document).on("click",".emit",function(){
 	var School=$(this).parent().siblings("ul").find(".childSchool").html();
 	
 	var play=$(this).parent().siblings("ul").find(".childPlay").html();
-	
 	var str="<div class='childInforPart partInput' num="+id+"><ul><li>孩子姓名：<input type='text'/ class='Name' value="+Name+"></li><li>孩子性别：<input type='radio' name='sex' value='1' class='man'>男<input type='radio' name='sex' value='2' class='woman' />女</li><li>孩子生日：<input type='text' class='birthday' value="+Birthday+" onClick='new Calendar().show(this);' style='cursor:pointer'></li><li>孩子学校：<input type='text' class='school' value="+School+" ></li><li>可玩时间：<input type='text' class='play'  value="+play+" ></li></ul><div class='operate'><span class='save'><img src="+'/public/admin_static/img/'+'edit.png'+"><a href='javascript:;'>保存</a></span><span><img src="+'/public/admin_static/img/'+'delete.png'+"><a href='javascript:;' class='childDelete'>删除</a></span></div></div>";
 	
 	$(this).parent().parent(".childInforPart").html(str);
 	if(Sex=="女"){
-		$(".woman").attr("checked",true)
+		$(".woman").attr("checked",true);
 	}
 	else{
-		$(".man").attr("checked",true)
+		$(".man").attr("checked",true);
 	}
 });
 
