@@ -11,10 +11,10 @@
   </div>
   
    <div class="search">
-  	  <form action="" method="post">
-  	  	   <input type="text"  value="2018-01-15 15:30" style="cursor: pointer;width: 8%;" onfocus="$(this).calendar()"/><div class="contect"></div><input type="text"  value="2018-01-15 15:30" onfocus="$(this).calendar()" style="cursor: pointer;width: 8%;"/>
+  	   <form action="{:url('admin/user/recharge_record')}" method="get">
+  	  	   <input type="text"  value="2018-01-15" style="cursor: pointer;width: 8%;" onFocus="new Calendar().show(this);" name="beginTime"/><div class="contect"></div><input type="text"  value="2018-01-15" onFocus="new Calendar().show(this);" style="cursor: pointer;width: 8%;" name="endTime"/>
   	  	   <button type="submit">查找</button>
-  	  </form>
+  	   </form>
   </div>
 <div class="container-fluid">
   <div class="row-fluid">
@@ -90,6 +90,4 @@
 </div>
 </div>
 {include file="public/footer" /}
-<script type="text/javascript" src="__AJS__/jquery-calendar.js"></script>
-<script src="__AJS__/Calendar.js"></script>
 </html>
