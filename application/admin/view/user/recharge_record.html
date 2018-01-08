@@ -20,9 +20,9 @@
   <div class="row-fluid">
   	  <div class="span12">
   	  	        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>充值记录</h5>
-          </div>
+					          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+					            <h5>充值记录</h5>
+					          </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
@@ -42,40 +42,38 @@
               <tbody id="tbody_center" style="font-size: 12px;" class="recharge_record">
                {foreach name="res" item="vo"}
                 <tr>
-                	<td class="td_id">{$vo.id}</td>
+                		<td class="td_id">{$vo.id}</td>
                     <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
                     <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
-                  <td>{$vo.amount}</td>
-                  <td>{$vo.pay_way|payWay}</td>
-                  <td>
-                      {if condition="$vo.status eq 0"}
-                      未支付
-                      {else/}
-                      已支付
-                      {/if}
-                  </td>
-                  <td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
-                  <td>   
-                  	
-                  	<div class="show_word">{$vo.giveaway|subtext=25}</div>
-                  	
-           
-                  	<textarea class="good_prompt">{$vo.giveaway}</textarea>
-                  </td>
-                  <td>
-                      {if condition='$vo.is_get eq 0'}
-                        <p class="no" style="color: rgb(158,163,167);">
-                        	<i class="icon-ban-circle" style="margin-right: 3%;"></i>
-                        	<span class="no_text">否</i>
-                       </span>
-                      {else/}
-                        <p class="yes" style="color:rgb(27,188,157);">
-                        	<i class="icon-ok"  style="margin-right: 3%;color: rgb(27,188,157);"></i>
-                        	<span class="no_text">是</span>
-                        </span>
-                      {/if}
-                  </td>
-                  <td>
+                  	<td>{$vo.amount}</td>
+                  	<td>{$vo.pay_way|payWay}</td>
+	                  <td>
+	                      {if condition="$vo.status eq 0"}
+	                      未支付
+	                      {else/}
+	                      已支付
+	                      {/if}
+	                  </td>
+                  	<td>{$vo.pay_time|date='Y.m.d H:i',###}</td>
+	                  <td>   
+	                  	
+	                  	<div class="show_word">{$vo.giveaway|subtext=25}</div>
+	                  	<textarea class="good_prompt">{$vo.giveaway}</textarea>
+	                  </td>
+	                  <td>
+	                      {if condition='$vo.is_get eq 0'}
+	                        <p class="no" style="color: rgb(158,163,167);">
+	                        	<i class="icon-ban-circle" style="margin-right: 3%;"></i>
+	                        	<span class="no_text">否</i>
+	                          </span>
+	                      {else/}
+	                        <p class="yes" style="color:rgb(27,188,157);">
+	                        	<i class="icon-ok"  style="margin-right: 3%;color: rgb(27,188,157);"></i>
+	                        	<span class="no_text">是</span>
+	                        </span>
+	                      {/if}
+	                  </td>
+                  	<td>
                      <div class="beizhu_word">{$vo.remark|subtext=25}</div> 
                   	<textarea  class="beizhu"/>{$vo.remark}</textarea>
                   	</td>
