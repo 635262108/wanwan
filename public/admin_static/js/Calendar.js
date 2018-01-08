@@ -14,9 +14,8 @@
  * IMPORTANT:you must include this script file inner html body elment 
  */
 
-
 function Calendar(beginYear, endYear, language, patternDelimiter, date2StringPattern, string2DatePattern) {
-	this.beginYear = beginYear || 1789;
+	this.beginYear = beginYear || 2000;
 	this.endYear   = endYear   || 2030;
 	this.language  = language  || 0;
 	this.patternDelimiter = patternDelimiter     || "-";
