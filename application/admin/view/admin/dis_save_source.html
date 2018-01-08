@@ -20,11 +20,11 @@
                     </div>
                     <div class="widget-content nopadding" style="">
                         <form action="{:url(admin/saveSource')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
-                            <input name="rechargeId" value="" type="hidden">
+                            <input name="id" value="{$source.id}" type="hidden">
                             <div class="control-group">
                                 <label class="control-label">名称</label>
                                 <div class="controls">
-                                    <input class="span11" style="width: 30%;" value='' name="money" type="text">
+                                    <input class="span11" style="width: 30%;" value='{$source.name}' name="name" type="text">
                                 </div>
                             </div>
                             
