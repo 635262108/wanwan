@@ -185,7 +185,11 @@ class Admin extends Base
     }
 
     public function dis_save_source(){
-        return $this->fetch();
+        $id = input('param.id');
+        $source = model('Source')->get($id);
+        return $this->fetch('',[
+            'source' => $source
+        ]);
     }
 
     //来源更新
@@ -198,9 +202,9 @@ class Admin extends Base
         }
 
         if($res){
-            return_info(200,'成功');
+            $this->success('成功','admin/source_list');
         }else{
-            return_info(-1,'失败');
+            $this->error('失败','admin/source_list');
         }
 
     }
