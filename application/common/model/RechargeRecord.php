@@ -71,6 +71,7 @@ class RechargeRecord extends Model
     public function getUserRecharge($uid=0){
         $map = [
             'uid' => $uid,
+            'status' => 1
         ];
         return $this->where($map);
     }
