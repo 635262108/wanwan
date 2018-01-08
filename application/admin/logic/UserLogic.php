@@ -153,20 +153,6 @@ class UserLogic{
     }
 
     /**
-     * 获取充值记录
-     * @return mixed
-     */
-    public function getUseRechargeRecord(){
-        //获取记录
-        $RechargeRecord = model('RechargeRecord');
-        $res = $RechargeRecord->alias('r')
-            ->field('r.*,u.nickname,u.mobile,u.balance')
-            ->join('mfw_user u','r.uid=u.uid','left')
-            ->select();
-        return $res;
-    }
-
-    /**
      * 增加或修改成单记录
      * @param $data
      */

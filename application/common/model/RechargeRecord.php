@@ -74,4 +74,24 @@ class RechargeRecord extends Model
         ];
         return $this->where($map);
     }
+
+    //获取用户的充值记录
+    public function getUserRechargeRecord($field='*',$map=array()){
+        $res = $this->alias('r')
+            ->field($field)
+            ->join('mfw_user u','r.uid=u.uid','left')
+            ->where($map)
+            ->select();
+        return $res;
+    }
+
+    //获取用户某个时间段充值记录
+    public function getUserBetweenTimeRechargeRecord($field='*',$beginTime = 0,$endTime = 0){
+        $res = $this->alias('r')
+            ->field($field)
+            ->join('mfw_user u','r.uid=u.uid','left')
+            ->whereTime('pay_time','between', [$beginTime,$endTime])
+            ->select();
+        return $res;
+    }
 }
