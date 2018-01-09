@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {include file="public/header"/}
-    {include file="public/left" /}
-    <div id="content" style="">
-        <div id="content-header">
-            <div id="breadcrumb">
-                <a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
-                <a href="{:url('admin/admin/source_list')}" class="tip-bottom" data-original-title="">来源管理</a>
-                <a href="#" class="current">修改来源</a>
-            </div>
-        </div>
 
-        <div class="row-fluid" id="emit_information" style="width: 1300px;">
-            <div class="span6" style="margin-left: 12%;">
-                <div class="widget-box" style="width: 100%;">
-                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                        <h5>来源信息</h5>
-                    </div>
-                    <div class="widget-content nopadding" style="">
-                        <form action="{:url(admin/saveSource')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
-                            <input name="id" value="{$source.id}" type="hidden">
-                            <div class="control-group">
-                                <label class="control-label">名称</label>
-                                <div class="controls">
-                                    <input class="span11" style="width: 30%;" value='{$source.name}' name="name" type="text">
-                                </div>
-                            </div>
-                            
-                           
+	<head>
+		{include file="public/header"/} {include file="public/left" /}
+		<div id="content">
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
+					<a href="{:url('admin/admin/source_list')}" class="tip-bottom" data-original-title="">来源管理</a>
+					<a href="#" class="current">修改来源</a>
+				</div>
+			</div>
 
-      
+			<div class="row-fluid" id="emit_information" style="width: 1300px;">
+				<div class="span6" style="margin-left: 12%;">
+					<div class="widget-box" style="width:100%;">
+						<div class="widget-title"> 
+							<span class="icon"> 
+							     <i class="icon-align-justify"></i> 
+							</span>
+							<h5>来源信息</h5>
+						</div>
+						<div class="widget-content nopadding">
+							<form action="{:url(admin/saveSource')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+								<input name="id" value="{$source.id}" type="hidden">
+								<div class="control-group">
+									<label class="control-label">名称</label>
+									<div class="controls">
+										<input class="span11" style="width:30%;" value='{$source.name}' name="name" type="text">
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn btn-success info_sure">保存</button>
+									<a href="{:url('admin/admin/source_list')}" class="btn-warning">取消</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-success info_sure">保存</button>
-                                <a href="{:url('admin/admin/source_list')}" class="btn-warning">取消</a>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    </body>
-    <script src="__AJS__/jquery.min.js"></script>
-    <script src="__AJS__/jquery.ui.custom.js"></script>
-    <script src="__AJS__/bootstrap.min.js"></script>
-    <script src="__AJS__/jquery.uniform.js"></script>
-    <script src="__AJS__/select2.min.js"></script>
-    <script src="__AJS__/jquery.dataTables.min.js"></script>
-    <script src="__AJS__/matrix.js"></script>
-    <script src="__AJS__/operat_table.js"></script>
-    <script type="text/javascript" src="__AJS__/jquery-calendar.js"></script>
-    <script src="__AJS__/Calendar.js"></script>
-
+		</body>
+		<script src="__AJS__/jquery.min.js"></script>
+		<script src="__AJS__/jquery.ui.custom.js"></script>
+		<script src="__AJS__/bootstrap.min.js"></script>
+		<script src="__AJS__/jquery.uniform.js"></script>
+		<script src="__AJS__/select2.min.js"></script>
+		<script src="__AJS__/jquery.dataTables.min.js"></script>
+		<script src="__AJS__/matrix.js"></script>
+		<script src="__AJS__/operat_table.js"></script>
 </html>
