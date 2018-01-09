@@ -276,10 +276,10 @@ class User extends Base
 
 
     //导出签到
-    public function conversions_attendance($tid=0){
+    public function conversions_attendance($aid=0,$tid=0){
         //活动信息
         $Activity = model('Activity');
-        $actinfo = $Activity->getIdActivity($tid,'a_title');
+        $actinfo = $Activity->getIdActivity($aid,'a_title');
 
         $ActivityOrder = model('ActivityOrder');
         $map = [
