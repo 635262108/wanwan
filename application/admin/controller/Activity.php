@@ -822,22 +822,24 @@ class Activity extends Base
             if(is_object($A))  $A= $A->__toString();    //转文本格式
             $C = $objPHPExcel->getActiveSheet()->getCell("C".$j)->getValue();//获取C列的值，下单时间
             $D = $objPHPExcel->getActiveSheet()->getCell("D".$j)->getValue();//获取D列的值，支付时间
-            $E = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，付款金额
-            $F = $objPHPExcel->getActiveSheet()->getCell("F".$j)->getValue();//获取F列的值，来源
-            $G = $objPHPExcel->getActiveSheet()->getCell("G".$j)->getValue();//获取G列的值，孩子姓名
+            $E = $objPHPExcel->getActiveSheet()->getCell("E".$j)->getValue();//获取E列的值，大人数量
+            $F = $objPHPExcel->getActiveSheet()->getCell("F".$j)->getValue();//获取F列的值，小孩数量
+            $G = $objPHPExcel->getActiveSheet()->getCell("G".$j)->getValue();//获取G列的值，付款金额
+            $H = $objPHPExcel->getActiveSheet()->getCell("H".$j)->getValue();//获取H列的值，来源
+            $I = $objPHPExcel->getActiveSheet()->getCell("I".$j)->getValue();//获取I列的值，孩子姓名
             if(is_object($G))  $G= $G->__toString();    //转文本格式
-            $H = $objPHPExcel->getActiveSheet()->getCell("H".$j)->getValue();//获取H列的值，孩子性别
+            $J = $objPHPExcel->getActiveSheet()->getCell("J".$j)->getValue();//获取J列的值，孩子性别
             if(is_object($H))  $H= $H->__toString();    //转文本格式
-            $I = $objPHPExcel->getActiveSheet()->getCell("I".$j)->getValue();//获取I列的值，孩子生日
-            $J = $objPHPExcel->getActiveSheet()->getCell("J".$j)->getValue();//获取J列的值，孩子可玩耍时间
+            $K = $objPHPExcel->getActiveSheet()->getCell("K".$j)->getValue();//获取K列的值，孩子生日
+            $L = $objPHPExcel->getActiveSheet()->getCell("L".$j)->getValue();//获取L列的值，孩子可玩耍时间
             if(is_object($J))  $J= $J->__toString();    //转文本格式
-            $K = $objPHPExcel->getActiveSheet()->getCell("K".$j)->getValue();//获取K列的值，孩子学校
+            $M = $objPHPExcel->getActiveSheet()->getCell("M".$j)->getValue();//获取M列的值，孩子学校
             if(is_object($K))  $K= $K->__toString();    //转文本格式
-            $L = $objPHPExcel->getActiveSheet()->getCell("L".$j)->getValue();//获取L列的值，是否签到
+            $N = $objPHPExcel->getActiveSheet()->getCell("N".$j)->getValue();//获取N列的值，是否签到
             if(is_object($L))  $L= $L->__toString();    //转文本格式
 
             //手机号，来源为必填项，任何一个为空就不记录
-            if(empty($B) || empty($F)){
+            if(empty($B) || empty($H)){
                 continue;
             }
             //下单时间，支付时间为空时默认导入时间，付款金额为空是默认0
@@ -847,21 +849,24 @@ class Activity extends Base
             if(empty($D)){
                 $D = date('Y-m-d H:i:s');
             }
-            if(empty($E)){
-                $E = 0;
+            if(empty($G)){
+                $G = 0;
             }
             $excel_data[$k]['name'] = $A?$A:'';
             $excel_data[$k]['mobile'] = (string)$B;
             $excel_data[$k]['addtime'] = strtotime($C);
             $excel_data[$k]['pay_time'] = strtotime($D);
-            $excel_data[$k]['order_price'] = $E;
-            $excel_data[$k]['source'] = $F;
-            $excel_data[$k]['child_name'] = $G?$G:'';
-            $excel_data[$k]['child_gender'] = $H?$H:'';
-            $excel_data[$k]['child_birthday'] = $I?$I:'';
-            $excel_data[$k]['child_play_time'] = $J?$J:'';
-            $excel_data[$k]['child_school'] = $K?$K:'';
-            if($L == '是'){
+            $excel_data[$k]['adult_num'] = intval($E);
+            $excel_data[$k]['child_num'] = intval($F);
+            $excel_data[$k]['pay_time'] = strtotime($D);
+            $excel_data[$k]['order_price'] = $G;
+            $excel_data[$k]['source'] = $H;
+            $excel_data[$k]['child_name'] = $I?$I:'';
+            $excel_data[$k]['child_gender'] = $J?$J:'';
+            $excel_data[$k]['child_birthday'] = $K?$K:'';
+            $excel_data[$k]['child_play_time'] = $L?$L:'';
+            $excel_data[$k]['child_school'] = $M?$M:'';
+            if($N == '是'){
                 $excel_data[$k]['order_status'] = 4;
                 $excel_data[$k]['sign_time'] = $timeInfo['begin_time'];
             }else{
@@ -870,7 +875,6 @@ class Activity extends Base
             }
             $k++;
         }
-
         $num = count($excel_data);
 
         //为空直接返回
@@ -890,8 +894,8 @@ class Activity extends Base
             $add_data[$i]['aid'] = $aid;
             $add_data[$i]['mobile'] = $excel_data[$i]['mobile'];
             $add_data[$i]['name'] = $excel_data[$i]['name'];
-            $add_data[$i]['adult_num'] = 1;
-            $add_data[$i]['child_num'] = 1;
+            $add_data[$i]['adult_num'] = $excel_data[$i]['adult_num'];
+            $add_data[$i]['child_num'] = $excel_data[$i]['child_num'];
             $add_data[$i]['order_price'] = $excel_data[$i]['order_price'];
             $add_data[$i]['pay_way'] = 5;
             $add_data[$i]['pay_time'] = $excel_data[$i]['pay_time'];
