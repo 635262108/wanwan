@@ -22,12 +22,6 @@
 
 	<div class="select_activity">
 		<form action="{:url('activity/order')}" method="get">
-			<select style="width: 100px;" class="activity_select" name="aid">
-				<option value="0">全部</option>
-				{foreach name="activityInfo" item="vo"}
-					<option value="{$vo.aid}">{$vo.a_title}</option>
-				{/foreach}
-			</select>
 			<div class="activityTime">
 				 <input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);"/>
 				 <div class="contect"></div>
@@ -42,6 +36,41 @@
 					<option value=""></option>
 				</select><span style="display: inline-block;line-height: 28px;margin-left: -22px;">日</span> -->
 			</div>
+			<select style="width: 100px;" class="activity_select" name="aid">
+				<option value="0">按活动查询</option>
+				<option value="0">全部</option>
+				{foreach name="activityInfo" item="vo"}
+				<option value="{$vo.aid}">{$vo.a_title}</option>
+				{/foreach}
+			</select>
+
+			<select name="pay_way">
+				<option value="" selected="selected">支付方式</option>
+				<option value="1">支付宝</option>
+				<option value="2">微信</option>
+				<option value="3">现金</option>
+				<option value="4">余额</option>
+				<option value="5">机构</option>
+			</select>
+
+			<select name="order_status">
+				<option value="">订单状态</option>
+				<option value="1">已完成</option>
+				<option value="2">未付款</option>
+				<option value="3">已付款未参加</option>
+				<option value="4">已付款待评价</option>
+				<option value="5">正在退款</option>
+				<option value="6">已退款</option>
+				<option value="7">已请假</option>
+				<option value="8">早退</option>
+			</select>
+
+			<select name="source">
+				<option value="">报名渠道</option>
+				{foreach name="source" item="vo"}
+					<option value="{$vo.id}">{$vo.name}</option>
+				{/foreach}
+			</select>
 			<button type="submit">查找</button>
 		</form>
 	</div>

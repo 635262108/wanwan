@@ -276,14 +276,18 @@ class User extends Base
 
 
     //导出签到
-    public function conversions_attendance($tid=0){
+    public function conversions_attendance($aid=0,$tid=0){
         //活动信息
         $Activity = model('Activity');
-        $actinfo = $Activity->getIdActivity($tid,'a_title');
+        $actinfo = $Activity->getIdActivity($aid,'a_title');
 
         $ActivityOrder = model('ActivityOrder');
-        $map['t_id'] = $tid;
+        $map = [
+            't_id' => $tid,
+            'order_status' => array('neq',2)
+        ];
         $order = $ActivityOrder->getOrders($map);
+
         //整理数据
         $ActivityTime = model('ActivityTime');
         $i = 1;
@@ -300,28 +304,7 @@ class User extends Base
             $result[$key]['child_num'] = $v['child_num']; //小孩数量
             $result[$key]['adult_num'] = $v['adult_num']; //大人数量
             $result[$key]['time'] = $time['begin_time']."--".$time['end_time']; //报名时间
-            switch ($v['order_status']) {
-                case 1:
-                    $result[$key]['sign'] = '已参加';
-                    break;
-                case 4:
-                    $result[$key]['sign'] = '已参加';
-                    break;
-                case 3:
-                    $result[$key]['sign'] = '未参加';
-                        break;
-                case 5:
-                    $result[$key]['sign'] = '正在退款';
-                    break;
-                case 6:
-                    $result[$key]['sign'] = '已退款';
-                    break;
-                case 7:
-                    $result[$key]['sign'] = '已请假';
-                    break;
-                default:
-                    break;
-            }
+            $result[$key]['sign'] = getOrderStatus($v['order_status']);
         }
 
         //导出excel
