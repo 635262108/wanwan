@@ -45,8 +45,14 @@ class User extends Controller
         if(!$uid){
             return_info(-1,'error');
         }
-        $detaiInfo = model('UserDetail')->getAnyUserDetail($uid);
-        foreach($detaiInfo as $k=>$v){
+        $type = input('post.type/d');
+        $where = array();
+        $where['uid'] = $uid;
+        $type != '' ? $where['type'] = $type : false;
+
+        $detailInfo = model('UserDetail')->where($where)->select();
+
+        foreach($detailInfo as $k=>$v){
             if($v['type'] == 1){
                 $v['type'] = '充值';
             }elseif ($v['type'] == 2){
@@ -55,7 +61,7 @@ class User extends Controller
                 $v['type'] = '付费';
             }
         }
-        return_info(200,'success',$detaiInfo);
+        return_info(200,'success',$detailInfo);
     }
 
     //请假
