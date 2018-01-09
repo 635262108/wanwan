@@ -414,23 +414,13 @@ class Activity extends Base
     public function order(){
         $data = input('get.');
 
-        $where1 = array();
-        if(!empty($data['aid'])){
-            if($data['aid'] == 0 ){
-                $where1['o.aid'] = array('>',0);
-            }else{
-                $where1['o.aid'] = $data['aid'];
-            }
-        }
-
-        $where2 = array();
-        if(!empty($data['begin_time'])){
-            $where2['o.addtime'] = array('>=',strtotime($data['begin_time']));
-        }
-
-        $where3 = array();
-        if(!empty($data['end_time'])){
-            $where3['o.addtime'] = array('<=',strtotime($data['end_time'])+3600*12);
+        $where = array();
+        if(isset($data['aid'])){
+            $data['aid'] == 0 ? $where['o.aid'] = array('>',0) : $where['o.aid'] = $data['aid'];
+            $data['begin_time'] != '' ? $where['o.addtime'] = array('between',[strtotime($data['begin_time']),strtotime($data['end_time'])+3600*12]) : false;
+            $data['pay_way'] != '' ? $where['o.pay_way'] = $data['pay_way'] : false;
+            $data['order_status'] != '' ? $where['o.order_status'] = $data['order_status'] : false;
+            $data['source'] != '' ? $where['o.source'] = $data['source'] : false;
         }
 
         $orderInfo = model('ActivityOrder')
@@ -438,10 +428,13 @@ class Activity extends Base
                             ->join('mfw_activity a','o.aid=a.aid','left')
                             ->join('mfw_activity_time t','t.t_id=o.t_id','left')
                             ->join('mfw_source s','o.source=s.id','left')
-                            ->where($where1)->where($where2)->where($where3)
+                            ->where($where)
                             ->select();
         $activityInfo = model('Activity')->getActivityAll('aid,a_title');
 
+        $source = model('Source')->all();
+
+        $this->assign('source',$source);
         $this->assign('activityInfo',$activityInfo);
         $this->assign('orderInfo',$orderInfo);
         return $this->fetch();
