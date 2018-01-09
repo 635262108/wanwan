@@ -1,4 +1,9 @@
 {include file="public/header" /} {include file="public/left" /}
+<style type="text/css">
+	 .select2-choice{
+	 	margin-right: 10px;
+	 }
+</style>
 <div id="content">
 	<!--breadcrumbs-->
 	<div id="content-header">
@@ -22,21 +27,13 @@
 
 	<div class="select_activity">
 		<form action="{:url('activity/order')}" method="get">
-			<div class="activityTime">
+			<div class="activityTime" style="margin-right: 15px;">
 				 <input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);"/>
 				 <div class="contect"></div>
 				 <input type="text" placeholder="11月30日" name="end_time" value="" onFocus="new Calendar().show(this);" style="cursor:pointer;"/>
-				<!--<select name="year" style="width:90px">
-					<option value=""></option>
-				</select><span style="display:inline-block;line-height: 28px;margin-left: -22px;">年</span>
-				<select name="month" style="width: 90px;">
-					<option value=""></option>
-				</select> <span style="display: inline-block;line-height: 28px;margin-left: -22px;">月</span>
-				<select name="day" style="width:90px;">
-					<option value=""></option>
-				</select><span style="display: inline-block;line-height: 28px;margin-left: -22px;">日</span> -->
+				 
 			</div>
-			<select style="width: 100px;" class="activity_select" name="aid">
+			<select style="width:7%" class="activity_select" name="aid">
 				<option value="0">按活动查询</option>
 				<option value="0">全部</option>
 				{foreach name="activityInfo" item="vo"}
@@ -44,8 +41,8 @@
 				{/foreach}
 			</select>
 
-			<select name="pay_way">
-				<option value="" selected="selected">支付方式</option>
+			<select name="pay_way" style="width:7%">
+				<option selected="selected">支付方式</option>
 				<option value="1">支付宝</option>
 				<option value="2">微信</option>
 				<option value="3">现金</option>
@@ -53,8 +50,8 @@
 				<option value="5">机构</option>
 			</select>
 
-			<select name="order_status">
-				<option value="">订单状态</option>
+			<select name="order_status" style="width:7%">
+				<option selected="selected">订单状态</option>
 				<option value="1">已完成</option>
 				<option value="2">未付款</option>
 				<option value="3">已付款未参加</option>
@@ -65,8 +62,8 @@
 				<option value="8">早退</option>
 			</select>
 
-			<select name="source">
-				<option value="">报名渠道</option>
+			<select name="source" style="width:7%">
+				<option selected="selected">报名渠道</option>
 				{foreach name="source" item="vo"}
 					<option value="{$vo.id}">{$vo.name}</option>
 				{/foreach}

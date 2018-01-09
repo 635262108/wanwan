@@ -2235,7 +2235,10 @@ div.dataTables_wrapper .ui-widget-header {
 .select_activity form{
 	display: flex;
 	flex-direction:row;
-	justify-content: flex-start;
+	justify-content: flex-end;
+}
+.select_activity form select{
+	/*margin-right: 15px;*/
 }
 .select_activity form .activityTime{
 	display: flex;
