@@ -827,7 +827,7 @@ class User extends Base
             ->join('mfw_activity a','o.aid=a.aid','LEFT')
             ->join('mfw_activity_time t','t.t_id=o.t_id','LEFT')
             ->join('mfw_source s','o.source=s.id','LEFT')
-            ->where('o.uid',$uid)
+            ->where(['o.uid'=>$uid,'o.order_status'=>['<>',2]])
             ->select();
         $sourceInfo = model('Source')->get($userInfo->source);
         //获取报名次数，消费金额，参加次数,充值次数

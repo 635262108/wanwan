@@ -20,4 +20,13 @@ class UserDetail extends Model
         ];
         return $this->where($map)->select();
     }
+
+    //根据操作获取用户明细
+    public function getTypeUserDetail($uid = 0, $type = 0){
+        $map = [
+            'uid' => $uid,
+            'type' => $type,
+        ];
+        return $this->where($map)->select();
+    }
 }
