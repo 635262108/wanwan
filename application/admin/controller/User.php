@@ -269,6 +269,10 @@ class User extends Base
         $map['order_status'] = array('neq',2);
         $field = 'order_id,o.name username,o.mobile,u.uid,adult_num,child_num,sign_time,o.source,s.name,order_status,u.label';
         $actinfo = $ActivityOrder->getSignDetail($map,$field);
+        $activityInfo = model('Activity')->get($aid);
+        $timeInfo = model('ActivityTime')->get($tid);
+        $this->assign('activityInfo',$activityInfo);
+        $this->assign('timeInfo',$timeInfo);
         $this->assign('actinfo',$actinfo);
         $this->assign('aid',$aid);
         return $this->fetch();
