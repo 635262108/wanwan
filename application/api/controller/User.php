@@ -53,13 +53,8 @@ class User extends Controller
         $detailInfo = model('UserDetail')->where($where)->select();
 
         foreach($detailInfo as $k=>$v){
-            if($v['type'] == 1){
-                $v['type'] = '充值';
-            }elseif ($v['type'] == 2){
-                $v['type'] = '扣费';
-            }else{
-                $v['type'] = '付费';
-            }
+            $v['type'] = user_detail_type($v['type']);
+            $v['addtime'] = date('Y-m-d H:i');
         }
         return_info(200,'success',$detailInfo);
     }
