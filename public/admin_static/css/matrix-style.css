@@ -2866,3 +2866,20 @@ div.dataTables_wrapper .ui-widget-header {
 .add_operate{
 	display: flex;
 }
+
+/*明细记录样式*/
+.particulars  .particularsUl{
+	display: flex;
+	margin-bottom: 25px;
+	
+}
+.particulars  .particularsUl li{
+	font-size: 14px;
+	margin-right: 25px;
+	cursor: pointer;
+	/*border: 1px solid blue;*/
+}
+.particulars  .particularsUl li.active{
+	color: #FF4134;
+	border-bottom: 1px solid #FF4134;
+}

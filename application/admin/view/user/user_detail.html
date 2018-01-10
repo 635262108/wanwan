@@ -1,7 +1,7 @@
 {include file="public/header"/} {include file="public/left"}
 <style>
 	 #DataTables_Table_0_filter{
-	 	  top:12px;
+	 	  top:52px;
 	 }
 	 #DataTables_Table_1_filter{
 	 	  top:13px;
@@ -84,7 +84,12 @@
 					</div>
 				</div>
 				<div class="particulars" style="display: none;padding-top: 15px;position: relative;">
-					<table class="table table-bordered data-table">
+					<ul class="particularsUl">
+						<li>充值</li>
+						<li>扣费</li>
+						<li>付费</li>
+					</ul>
+					<table class="table table-bordered data-table" style="width: 900px;">
 						<thead>
 							<tr>
 								<th>id</th>
@@ -95,7 +100,7 @@
 								<th>添加时间</th>
 							</tr>
 						</thead>
-						<tbody id="tbody_center" style="font-size: 12px;">
+						<tbody id="tbody_center" style="font-size: 12px;" class="detailTable">
 							
 							{foreach name="detaiInfo" item="vo"}
 								<tr>

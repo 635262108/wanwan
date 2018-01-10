@@ -1,5 +1,16 @@
 $(document).ready(function() {
 	
+var Table=$('.data-table').dataTable({
+		"bJQueryUI": true,
+		"sPaginationType": "full_numbers",
+		"sDom": '<""l>t<"F"fp>',
+		"bFilter":true,
+		"bLengthChange":true,
+		"aaSorting":[[0,"desc"]],
+		"retrieve":true,
+		"bDestroy":true
+	});
+	
 //封装的api接口
 var SpitUrl={
 	"add_url":"/api/user/saveChild",
@@ -1018,7 +1029,58 @@ $(".amendSave").on("click",function(event){
 
 
 })
-//点击查找（通过时间）
+//点击筛选条件（会员列表）
+
+var particularslis=$(".particularsUl").children();
+
+console.log($(".detailTable"),6666)
+
+particularslis.on("click",function(){
+    var index=$(this).index();
+    var typeNum=index+1;
+    var uId=$(".hidden_val").val();
+    var str=''
+    $(this).addClass("active").siblings().removeClass("active");
+    console.log(typeNum,0000)
+    $.post('/api/user/getAnyUserConsumption',{uid:uId,type:typeNum
+		
+	},function(obj){
+		if(obj.state_code == 200){
+			console.log(obj.data,'数据');
+			for(var i=0;i<obj.data.length;i++){
+				
+				str+="<tr>"+"<td>"+obj.data[i].id+"</td>"
+				           +"<td>"+obj.data[i].money+"</td>"
+						   +"<td>"+obj.data[i].balance+"</td>"
+						   +"<td>"+obj.data[i].type+"</td>"
+						   +"<td>"+obj.data[i].remark+"</td>"
+						   +"<td>"+obj.data[i].addtime+"</td>"
+					  "</tr>"
+				
+				
+			}
+			
+			Table.fnClearTable();
+			Table.fnDestroy();
+			$(".detailTable").html(str);
+		    Table=$('.data-table').dataTable({
+			    "bDestroy":true,
+				"bJQueryUI": true,
+				"retrieve":true,
+				"sPaginationType": "full_numbers",
+				"sDom": '<""l>t<"F"fp>',
+				"bFilter":true,
+				"bLengthChange":true,
+				"aaSorting":[[0,"desc"]],
+				"bAutoWidth":true
+			});
+			
+
+			
+			
+		}
+	})
+})
 
 
 

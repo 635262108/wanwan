@@ -1,14 +1,16 @@
 
 $(document).ready(function(){
 	
-	$('.data-table').dataTable({
-		"bJQueryUI": true,
-		"sPaginationType": "full_numbers",
-		"sDom": '<""l>t<"F"fp>',
-		"bFilter":true,
-		"bLengthChange":true,
-		"aaSorting":[[0,"desc"]]
-	});
+//	$('.data-table').dataTable({
+//		"bJQueryUI": true,
+//		"sPaginationType": "full_numbers",
+//		"sDom": '<""l>t<"F"fp>',
+//		"bFilter":true,
+//		"bLengthChange":true,
+//		"aaSorting":[[0,"desc"]],
+//		"retrieve":true,
+//		"bDestroy":true
+//	});
 	
 	
 	$('select').select2();
