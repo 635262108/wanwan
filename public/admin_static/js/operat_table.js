@@ -11,6 +11,22 @@ var Table=$('.data-table').dataTable({
 		"bDestroy":true
 	});
 	
+	
+	
+	$("span.icon input:checkbox, th input:checkbox").click(function() {
+		var checkedStatus = this.checked;
+		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
+		checkbox.each(function() {
+			this.checked = checkedStatus;
+			if (checkedStatus == this.checked) {
+				$(this).closest('.checker > span').removeClass('checked');
+			}
+			if (this.checked) {
+				$(this).closest('.checker > span').addClass('checked');
+			}
+		});
+	});	
+	
 //封装的api接口
 var SpitUrl={
 	"add_url":"/api/user/saveChild",
@@ -1046,7 +1062,7 @@ particularslis.on("click",function(){
 		
 	},function(obj){
 		if(obj.state_code == 200){
-			console.log(obj.data,'数据');
+			
 			for(var i=0;i<obj.data.length;i++){
 				
 				str+="<tr>"+"<td>"+obj.data[i].id+"</td>"

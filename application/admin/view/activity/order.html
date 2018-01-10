@@ -1,8 +1,8 @@
 {include file="public/header" /} {include file="public/left" /}
 <style type="text/css">
-	 .select2-choice{
-	 	margin-right: 10px;
-	 }
+	#DataTables_Table_0_length label:nth-child(1) select{
+		width: 55px;
+	}
 </style>
 <div id="content">
 	<!--breadcrumbs-->
@@ -41,8 +41,8 @@
 				{/foreach}
 			</select>
 
-			<select name="pay_way" style="width:7%">
-				<option selected="selected">支付方式</option>
+			<select name="pay_way" style="width:6%" class="pay_way">
+				<option selected="selected" value="">支付方式</option>
 				<option value="1">支付宝</option>
 				<option value="2">微信</option>
 				<option value="3">现金</option>
@@ -50,8 +50,8 @@
 				<option value="5">机构</option>
 			</select>
 
-			<select name="order_status" style="width:7%">
-				<option selected="selected">订单状态</option>
+			<select name="order_status" style="width:6%">
+				<option selected="selected" value="">订单状态</option>
 				<option value="1">已完成</option>
 				<option value="2">未付款</option>
 				<option value="3">已付款未参加</option>
@@ -62,8 +62,8 @@
 				<option value="8">早退</option>
 			</select>
 
-			<select name="source" style="width:7%">
-				<option selected="selected">报名渠道</option>
+			<select name="source" style="width:6%">
+				<option selected="selected" value="">报名渠道</option>
 				{foreach name="source" item="vo"}
 					<option value="{$vo.id}">{$vo.name}</option>
 				{/foreach}
@@ -135,7 +135,20 @@
 		</div>
 	</div>
 </div>
-{include file="public/footer" /}
+
+<script src="__AJS__/jquery.min.js"></script> 
+<script src="__AJS__/jquery.ui.custom.js"></script> 
+<script src="__AJS__/bootstrap.min.js"></script> 
+<script src="__AJS__/jquery.uniform.js"></script> 
+<script src="__AJS__/select2.min.js"></script> 
+<script src="__AJS__/jquery.dataTables.min.js"></script> 
+<script src="__AJS__/matrix.js"></script> 
+<script src="__AJS__/operat_table.js"></script>
+<script src="__AJS__/Calendar.js"></script>
+<script src="__AJS__/birthday.js"></script>
+<script src="__AJS__/echarts.common.min.js"></script>
+<script src="__AJS__/radialIndicator.js"></script>
+<script src="__AJS__/pageGroup.js"></script>
 </body>
 
 </html>

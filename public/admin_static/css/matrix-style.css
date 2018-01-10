@@ -2238,7 +2238,7 @@ div.dataTables_wrapper .ui-widget-header {
 	justify-content: flex-end;
 }
 .select_activity form select{
-	/*margin-right: 15px;*/
+	margin-right: 15px;
 }
 .select_activity form .activityTime{
 	display: flex;
