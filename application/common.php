@@ -168,7 +168,7 @@ function payWay($code){
 //订单状态转换
 function getOrderStatus($status){
     $result = [
-        '已完成','未付款','已付款','已参加','正在退款','已退款','已请假','早退',
+        '已完成','未付款','已付款，未参加','已参加','正在退款','已退款','已请假','早退',
     ];
     return isset($result[$status-1])?$result[$status-1]:'';
 }
