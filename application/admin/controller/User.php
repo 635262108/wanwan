@@ -44,7 +44,8 @@ class User extends Base
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
                     ->join('mfw_source s','u.source=s.id')
                     ->where($where1)->where($where2)->where($where3)->where($where4)
-                    ->select();
+                    ->order('uid desc')
+                    ->paginate(10);
 
         $this->assign('userInfo',$userInfo);
         $zhengZhou = model('Region')->getSonData(149);
@@ -269,6 +270,10 @@ class User extends Base
         $map['order_status'] = array('neq',2);
         $field = 'order_id,o.name username,o.mobile,u.uid,adult_num,child_num,sign_time,o.source,s.name,order_status,u.label';
         $actinfo = $ActivityOrder->getSignDetail($map,$field);
+        $activityInfo = model('Activity')->get($aid);
+        $timeInfo = model('ActivityTime')->get($tid);
+        $this->assign('activityInfo',$activityInfo);
+        $this->assign('timeInfo',$timeInfo);
         $this->assign('actinfo',$actinfo);
         $this->assign('aid',$aid);
         return $this->fetch();
@@ -290,12 +295,15 @@ class User extends Base
 
         //整理数据
         $ActivityTime = model('ActivityTime');
+        $source = model('Source');
         $i = 1;
         $key = 0;
         $result = array();
         foreach($order as $k=>$v){
             //获取参加时间
             $time = $ActivityTime->getAnyTime($v['t_id']);
+            //来源
+            $sourceName = $source->where('id',$v['source'])->value('name');
             $key++;
             $result[$key]['id'] = $i++;     //序列号
             $result[$key]['name'] = $v['name']; //报名姓名
@@ -305,12 +313,13 @@ class User extends Base
             $result[$key]['adult_num'] = $v['adult_num']; //大人数量
             $result[$key]['time'] = $time['begin_time']."--".$time['end_time']; //报名时间
             $result[$key]['sign'] = getOrderStatus($v['order_status']);
+            $result[$key]['source'] = $sourceName;
         }
 
         //导出excel
         $filename = "玩翫碗".$actinfo['a_title']."活动签到表";
         $title = '玩翫碗-'.$actinfo['a_title']."活动签到表";
-        $key = array('id','name','mobile','mobile2','adult_num','child_num','time','sign');
+        $key = array('id','name','mobile','mobile2','adult_num','child_num','time','sign','source');
         $this->exportExcel($result,$filename,$key,$title);
     }
 
@@ -353,6 +362,7 @@ class User extends Base
         $objPHPExcel->getActiveSheet()->getStyle('G2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('H2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('I2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
+        $objPHPExcel->getActiveSheet()->getStyle('J2')->getFont()->setName("微软雅黑")->setSize(14)->setBold(true);
         //居中
         $objPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $objActSheet->setCellValue('A1',  $title);
@@ -364,7 +374,8 @@ class User extends Base
         $objActSheet->setCellValue('F2',  '小孩数量');
         $objActSheet->setCellValue('G2',  '活动时间');
         $objActSheet->setCellValue('H2',  '签到');
-        $objActSheet->setCellValue('I2',  '备注');
+        $objActSheet->setCellValue('I2',  '报名渠道');
+        $objActSheet->setCellValue('J2',  '备注');
         $i = 3;
         foreach ($list as $row) {
             foreach ($indexKey as $key => $value){
@@ -519,6 +530,7 @@ class User extends Base
             return $this->fetch();
         }
         $data = input('post.');
+
         $model = new UserLogic();
         $result = $model->addUser($data);
         if($result['status'] == 200){

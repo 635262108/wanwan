@@ -1,4 +1,4 @@
-{include file="public/header"/} 
+{include file="public/header"/}
 <style>
 	  #s2id_autogen1{
 	  	width: 100%;
@@ -63,11 +63,11 @@
 				<p style="width: 90px;">客户类型</p>
 				<ul>
 				   <li><input  type="radio" name="is_member" value="1"/>会员</li>
-				   <li><input  type="radio" name="is_member" value="2"/>非会员</li> 
+				   <li><input  type="radio" name="is_member" value="2"/>非会员</li>
 				</ul>
 		</div>
 		<div class="commit">
-			 <button type="reset">重置</button>  
+			 <button type="reset">重置</button>
 			 <button type="submit">完成</button>
 		</div>
 		</div>
@@ -119,13 +119,13 @@
 								{/foreach}
 							</tbody>
 						</table>
+						{$userInfo->render()}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <!--查看模态框-->
 <div class="modal_box hide">
 	<div class="modal_div" style="background: #F0F0F0;">
