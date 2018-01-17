@@ -10,13 +10,10 @@ var Table=$('.data-table').dataTable({
 		"retrieve":true,
 		"bDestroy":true
 	});
-	
-	
-	
 	$("span.icon input:checkbox, th input:checkbox").click(function() {
 		var checkedStatus = this.checked;
 		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
-		checkbox.each(function() {
+		checkbox.each(function(){
 			this.checked = checkedStatus;
 			if (checkedStatus == this.checked) {
 				$(this).closest('.checker > span').removeClass('checked');
@@ -137,7 +134,7 @@ var SpitUrl={
 			})
 			
 //			添加按钮（动态生成的）
-			$(document).on("click",".add_child",function(){						
+			$(document).on("click",".add_child",function(){					
 				 $(".modal_addsecondBox").show()
 			})
 //			添加保存（关闭窗口）
@@ -481,11 +478,9 @@ $(".save_member").on("click",function(event){
 	var childNum=$(".child_num").val();
 	var payWay=$(".pay_way option:selected").val();
 	var reMark=$(".remark").val();
-//	var signT=$(".singTime").val();
 	var Name=$(".get_name").val();
 	var Source=$(".source option:selected").val();
 	var signT=$(".alreadySign option:selected").val();
-	console.log(signT,0000)
 	$.post(SpitUrl.addMember_url,{mobile:mobile,
 		aid:aid,
 		t_id:tid,
@@ -1049,15 +1044,12 @@ $(".amendSave").on("click",function(event){
 
 var particularslis=$(".particularsUl").children();
 
-console.log($(".detailTable"),6666)
-
 particularslis.on("click",function(){
     var index=$(this).index();
     var typeNum=index+1;
     var uId=$(".hidden_val").val();
     var str=''
     $(this).addClass("active").siblings().removeClass("active");
-    console.log(typeNum,0000)
     $.post('/api/user/getAnyUserConsumption',{uid:uId,type:typeNum
 		
 	},function(obj){
@@ -1098,6 +1090,8 @@ particularslis.on("click",function(){
 	})
 })
 
+
+  
 
 
 

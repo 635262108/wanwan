@@ -142,9 +142,6 @@
 	<div class="indContainerContent">
 		<div class="search">
 			<form>
-				<!--<div class="timeSearch">
-     	 	 	  	   <input type="text" value="2017-12-5" style="cursor: pointer;" onFocus="new Calendar().show(this);"><div class="line"></div><input type="text" value="2017-12-7" style="cursor: pointer;" onFocus="new Calendar().show(this);"> <button type="submit">查找</button>
-     	 	 	  </div>-->
 				<div class="anySearch">
 					<span>Srearch:</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" />
 				</div>
@@ -190,7 +187,9 @@
 
 	{include file="public/footer" /}
 	<script>
-		var mychart = echarts.init(document.getElementById('main'));
+		
+		$(function(){
+			var mychart = echarts.init(document.getElementById('main'));
 		
 		TreeViewer(mychart, {$result.user.month_user},{$result.user.week_user},{$result.user.today_user});
 		var mychart1 = echarts.init(document.getElementById('main1'));
@@ -200,7 +199,7 @@
 		TreeViewer(mychart2,{$result.order.month_order_price},{$result.order.week_order_price},{$result.order.today_order_price});
 		var mychart3 = echarts.init(document.getElementById('main3'));
 		TreeViewer(mychart3,{$result.recharge.month_recharge},{$result.recharge.week_recharge},{$result.recharge.today_recharge});
-		//		树状统计图封装
+		
 		function TreeViewer(chart, firstNum, secondNum, thirdNum) {
 			var option = {
 				title: {
@@ -243,7 +242,7 @@
 			chart.setOption(option);
 		}
 
-		//		圆形统计图
+	
 		function circletotal(circle, num, color) {
 			circle.radialIndicator({
 				radius: 40,
@@ -262,15 +261,16 @@
 		var colors = ['#2843a8', '#dfc822', '#ff4134', '#9d27ac', '#4abe35', '#440062', '#50cfc8', '#f08827']
 		var $i = 0;
 		$(".indContainer").each(function() {
+	
 			var index = $(this).index();
 			var totalNum = $(this).find(".tatal_num").html();
 
 			var first = $(this).find(".first_num").html();
 			var second = $(this).find(".second_num").html();
 
-			//		报名数
+			
 			circletotal($(this).find(".orderNum"), first / totalNum * 100, colors[$i])
-			//		签到数
+			
 			circletotal($(this).find(".signNum"), second / first * 100, colors[$i])
 			$i++;
 		
@@ -279,8 +279,6 @@
 			}
 
 		})
-
-		//      折线图函数封装   
 		function LineTotal(id, data, num) {
 			var optionLine = {
 				tooltip: {},
@@ -318,8 +316,6 @@
 		LineTotal(MonthL2, ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"], [30, 20, 36, 10, 10, 20, 90, 30, 20, 15, 30, 60])
 		var WeekL2 = echarts.init(document.getElementById('weekLine2'))
 		LineTotal(WeekL2, ["周一", "周二", "周三", "周四", "周五", "周六", "周日"], [30, 20, 36, 10, 10, 20, 90])
-
-		//点击展开收缩
 		function unfoldLine(my, parent) {
 			if(my.html() == '展开') {
 				parent.show();
@@ -338,5 +334,8 @@
 				unfoldLine($(this), lineContents.eq(index));
 			})
 		})
+		
+		})
+		
 	</script>
 </div>

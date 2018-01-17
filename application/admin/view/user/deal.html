@@ -1,30 +1,29 @@
 {include file="public/header" /}
 {include file="public/left" /}
 <div id="content">
-<!--breadcrumbs-->
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="{:url('admin/user/attendance')}" class="tip-bottom">客户中心</a>
       	<a href="#" class="current">成单记录</a> 
-  </div>
+  		</div>
   </div>
   
-  <div class="add_order">
-  	 <a href="{:url('admin/user/dis_add_deal')}">
-        <div class="add" title="添加成单">
-          <span style="font-size: 14px;">
-              <i class="icon-plus"></i>
-                		 添加成单
-          </span>
-        </div>
-     </a>
-  </div>
+	  <div class="add_order">
+	  	 <a href="{:url('admin/user/dis_add_deal')}">
+	        <div class="add" title="添加成单">
+	          <span style="font-size:14px;">
+	              <i class="icon-plus"></i>
+	                		 添加成单
+	          </span>
+	        </div>
+	     </a>
+	  </div>
 
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
-  	  	        <div class="widget-box">
+  	  	<div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
             <h5>Data table</h5>
           </div>
@@ -43,7 +42,7 @@
                   <th>操作</th>
            </tr>
               </thead>
-              <tbody id="tbody_center" style='font-size: 12px;'>
+              <tbody id="tbody_center" style='font-size:12px;'>
                 {foreach name="res" item="vo"}
                 <tr class="gradeX trs">
                   <td class="td_id">{$vo.id}</td>
@@ -59,7 +58,7 @@
                      {$vo.time|date='Y.m.d H:i',###}
                   </td>
                   
-                 <td class="center">
+                  <td class="center">
                        <i class="delete icon-pencil deal_delete">&nbsp;&nbsp;删除</i>	
                   </td>
                   

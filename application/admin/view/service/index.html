@@ -6,48 +6,187 @@
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="{:url('admin/service/index')}" class="tip-bottom">客服中心</a>
-      	<a href="#" class="current">报名情况</a> 
+      	<a href="#" class="current">回访记录</a> 
+  		</div>
   </div>
-  </div>
-<div class="container-fluid">
-  <div class="row-fluid">
-  	  <div class="span12">
-  	  	        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>报名情况</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>活动id</th>
-                  <th>活动名称</th>
-                  <th>报名人数</th>
-                  <th>未确定人数</th>
-                  <th>待回访人数</th>
-                  <th>操作</th>
-               </tr>
-              </thead>
-              <tbody id="tbody_center" style="font-size: 12px;">
-               {foreach name="res" item="vo"}
-                <tr>
-                  <td>{$vo.aid}</td>
-                  <td>{$vo.a_title}</td>
-                  <td>{$vo.enrol_num}</td>
-                  <td>{$vo.access_num}</td>
-                  <td>{$vo.visit_num}</td>
-                  <td class="center"> <a href="{:url('admin/service/access',['aid'=>$vo.aid])}"><i class="check icon-edit" style="width: 100px;";>&nbsp;&nbsp;邀约</i></a>
-                      <a href="{:url('admin/service/return_visit',['aid'=>$vo.aid])}"><i class="change icon-phone" style="width: 100px;">&nbsp;&nbsp;回访</i></a>
-                  </td>
-                </tr>
-                {/foreach}
-              </tbody>
-            </table>
-          </div>
-        </div>
-  	  </div>
-  </div>
-</div>
+  
+  <!--回访详情-->
+  
+  <div class="indContainerContent" style="padding-left: 10px;">
+		<div class="search">
+			<form>
+				<div class="anySearch">
+					<span>Srearch:</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" />
+				</div>
+			</form>
+		</div>
+	
+		<div class="indContainer" style="padding: 10 0px 10px 0px;width: 342px;">
+			<p class="text">13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
+			<div class="presentNum">
+				 <span style="color: #FF4134;">签到：<span style="color:#666;">65</span></span>
+				 <span style="color: #FF4134;">回访：<span style="color: #666;">66</span></span>
+			</div>
+			
+			<!--扇形图-->
+			<div class="circleContents" style="width: 97%;">
+				<div class="circleone">
+					<div class="goodYes" style="width:170px;height:170px;"></div>
+					<p class="pleased">满意度</p>
+				</div>
+				<div class="circleone">
+					<div class="ageTotal" style="width:170px;height:170px;"></div>
+						<p class="pleased">年龄分布</p>
+				</div>
+
+			</div>
+			
+			<div class="links">
+				<a href="javascript:;"><span><img src="__AIMG__/Playphone.png" style="width: 16px;height: 16px;margin-right: 3px;">回访</span></a>
+				<a href="javascript:;"><span>有效反馈>></span></a>  
+				  
+			</div>
+		</div>
+		
+		<div class="indContainer" style="padding: 10 0px 10px 0px;width: 342px;">
+			<p class="text">13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
+			<div class="presentNum">
+				 <span style="color: #FF4134;">签到：<span style="color:#666;">65</span></span>
+				 <span style="color: #FF4134;">回访：<span style="color: #666;">66</span></span>
+			</div>
+			
+			<!--扇形图-->
+			<div class="circleContents" style="width: 97%;">
+				<div class="circleone">
+					<div class="goodYes" style="width:170px;height:170px;"></div>
+					<p class="pleased">满意度</p>
+				</div>
+				<div class="circleone">
+					<div class="ageTotal" style="width:170px;height:170px;"></div>
+						<p class="pleased">年龄分布</p>
+				</div>
+
+			</div>
+			
+			<div class="links">
+				<a href="javascript:;"><span><img src="__AIMG__/Playphone.png" style="width: 16px;height: 16px;margin-right: 3px;">回访</span></a>
+				<a href="javascript:;"><span>有效反馈>></span></a>  
+				  
+			</div>
+		</div>
+		
+		<div class="indContainer" style="padding: 10 0px 10px 0px;width: 342px;">
+			<p class="text">13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
+			<div class="presentNum">
+				 <span style="color: #FF4134;">签到：<span style="color:#666;">65</span></span>
+				 <span style="color: #FF4134;">回访：<span style="color: #666;">66</span></span>
+			</div>
+			
+			<!--扇形图-->
+			<div class="circleContents" style="width: 97%;">
+				<div class="circleone">
+					<div class="goodYes" style="width:170px;height:170px;"></div>
+					<p class="pleased">满意度</p>
+				</div>
+				<div class="circleone">
+					<div class="ageTotal" style="width:170px;height:170px;"></div>
+						<p class="pleased">年龄分布</p>
+				</div>
+
+			</div>
+			
+			<div class="links">
+				<a href="javascript:;"><span><img src="__AIMG__/Playphone.png" style="width: 16px;height: 16px;margin-right: 3px;">回访</span></a>
+				<a href="javascript:;"><span>有效反馈>></span></a>  
+				  
+			</div>
+		</div>
+		
+		<div class="indContainer" style="padding: 10 0px 10px 0px;width: 342px;">
+			<p class="text">13&nbsp;&nbsp;&nbsp;&nbsp;财商</p>
+			<div class="presentNum">
+				 <span style="color: #FF4134;">签到：<span style="color:#666;">65</span></span>
+				 <span style="color: #FF4134;">回访：<span style="color: #666;">66</span></span>
+			</div>
+			
+			<!--扇形图-->
+			<div class="circleContents" style="width: 97%;">
+				<div class="circleone">
+					<div class="goodYes" style="width:180px;height:180px;"></div>
+					<p class="pleased">满意度</p>
+				</div>
+				<div class="circleone">
+					<div class="ageTotal" style="width:180px;height:180px;"></div>
+						<p class="pleased">年龄分布</p>
+				</div>
+
+			</div>
+			
+			<div class="links">
+				<a href="javascript:;"><span><img src="__AIMG__/Playphone.png" style="width: 16px;height: 16px;margin-right: 3px;">回访</span></a>
+				<a href="javascript:;"><span>有效反馈>></span></a>  
+				  
+			</div>
+		</div>
+			
+
+		<input type="hidden" id="start_page">
+		<input type="hidden" id="current_page" />
+		<input type="hidden" id="show_per_page" />
+		<input type="hidden" id="end_page">
+		<div id="pageGro" class="cb">
+			<div class="pagestart">首页</div>
+			<div class="pageUp">上一页</div>
+			<div class="pageList">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>
+			<div class="pageDown">下一页</div>
+			<div class="pageend">尾页</div>
+		</div>
+	</div>
+
 </div>
 {include file="public/footer" /}
+ <script src="../../../../public/admin_static/js/jquery.flot.min.js"></script>
+ <script src="../../../../public/admin_static/js/jquery.flot.pie.min.js"></script>
+<script>
+    function ringlike(el,data){
+    	 $.plot(el, data, {
+               series: {    
+                            pie: {     
+                                       show: true ,
+                                       color:"#333"
+                                      
+                            }    
+               },    
+               legend: {    
+                        show: false 
+               }    
+    		});  
+    }
+    
+    $(".indContainer").each(function(){
+    	ringlike($(this).find(".goodYes"),[    
+               { label: "满意",  data: 10},    
+               { label: "一般",  data: 30},    
+               { label: "不满意", data: 60}   
+              
+           ])
+    	
+    	ringlike($(this).find(".ageTotal"),[    
+               { label: "4-6岁",  data: 10},    
+               { label: "7-8岁",  data: 35},    
+               { label: "9-12岁", data: 50},
+               {label:  "其他",    data: 5}
+              
+           ])
+    })
+    
+</script>
 </html>
