@@ -44,7 +44,8 @@ class User extends Base
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
                     ->join('mfw_source s','u.source=s.id')
                     ->where($where1)->where($where2)->where($where3)->where($where4)
-                    ->select();
+                    ->order('uid desc')
+                    ->paginate(10);
 
         $this->assign('userInfo',$userInfo);
         $zhengZhou = model('Region')->getSonData(149);
@@ -529,6 +530,7 @@ class User extends Base
             return $this->fetch();
         }
         $data = input('post.');
+
         $model = new UserLogic();
         $result = $model->addUser($data);
         if($result['status'] == 200){
