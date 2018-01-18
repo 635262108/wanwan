@@ -80,47 +80,7 @@
 					<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
 						<h5>会员列表</h5>
 					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>用户id</th>
-									<th>昵称</th>
-									<th>手机号</th>
-									<th>状态</th>
-									<th>是否为会员</th>
-									<th>加入时间</th>
-									<th>余额</th>
-									<th>来源</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody id="tbody_center" style="font-size: 12px;">
-								{foreach name="$userInfo" item="vo"}
-								<tr>
-									<td>{$vo.uid}</td>
-									<td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
-									<td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
-									<td>
-										{if condition="$vo.status eq 1"} 正常 {else/} 被禁 {/if}
-									</td>
-									<td>{$vo.member_grade|getUserGrade}</td>
-									<td>{$vo.reg_time|date='Y-m-d H:i:s',###}</td>
-									<td>{$vo.balance}</td>
-									<td>{$vo.source_name}</td>
-									<td class="center">
-										<i class="check icon-reorder">&nbsp;&nbsp;查看</i>
-										<a href="{:url('admin/user/saveUserList','uid='.$vo.uid)}"><i class="change icon-pencil">&nbsp;&nbsp;修改</i></a>
-										<a href="{:url('admin/user/Consumption_details','uid='.$vo.uid)}"><i class="icon-edit">&nbsp;&nbsp;明细</i></a>
-										<a href="{:url('admin/user/recharge','uid='.$vo.uid)}"><i class="icon-credit-card" style="width:80px;">&nbsp;&nbsp;金额变动</i></a>
-									</td>
 
-								</tr>
-								{/foreach}
-							</tbody>
-						</table>
-						{$userInfo->render()}
-					</div>
 				</div>
 			</div>
 		</div>
@@ -235,3 +195,22 @@
 {include file="public/footer" /}
 
 </html>
+
+<script>
+
+    $(document).ready(function() {
+        $.get("/abab.php/user/ajax_user_index", {"page":1},
+            function(data){
+                $("#content").html(data);
+            });
+    });
+
+    // 点击分页触发的事件
+    $(".pagination  a").click(function(){
+        cur_page = $(this).data('p');
+        $.get("/abab.php/user/ajax_user_index", {"page":cur_page},
+            function(data){
+				$("#content").html(data);
+		});
+    });
+</script>

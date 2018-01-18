@@ -9,6 +9,13 @@ class User extends Base
 
     //会员列表
     public function index(){
+        $zhengZhou = model('Region')->getSonData(149);
+        return $this->fetch('',[
+            'zhengZhou' => $zhengZhou,
+        ]);
+    }
+
+    public function ajax_user_index(){
         $data = input('get.');
         //按新增时间筛选用户，1本月，其他本周
         $where1 = array();
@@ -42,15 +49,20 @@ class User extends Base
         }
 
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
-                    ->join('mfw_source s','u.source=s.id')
-                    ->where($where1)->where($where2)->where($where3)->where($where4)
-                    ->order('uid desc')
-                    ->paginate(10);
+            ->join('mfw_source s','u.source=s.id')
+            ->where($where1)->where($where2)->where($where3)->where($where4)
+            ->order('uid desc')
+            ->paginate(10);
 
-        $this->assign('userInfo',$userInfo);
+        $page = $userInfo->render();
+
         $zhengZhou = model('Region')->getSonData(149);
-        $this->assign('zhengZhou',$zhengZhou);
-        return $this->fetch();
+
+        return $this->fetch('',[
+            'userInfo' => $userInfo,
+            'zhengZhou' => $zhengZhou,
+            'page'  => $page
+        ]);
     }
     
     //获取个人用户信息
