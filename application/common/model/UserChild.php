@@ -18,4 +18,15 @@ class UserChild extends Model
         ];
         return $this->where($map)->select();
     }
+
+    //根据孩子姓名模糊查询数据
+    public function getChildNameData($name = ''){
+        if($name == ''){
+            return '';
+        }
+        $map = [
+            'name' => ['like',"%".$name."%"]
+        ];
+        return $this->where($map)->select();
+    }
 }
