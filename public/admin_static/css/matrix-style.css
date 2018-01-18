@@ -2904,27 +2904,24 @@ div.dataTables_wrapper .ui-widget-header {
 	color: #FF4134;
 	border-bottom: 1px solid #FF4134;
 }
+/*客户列表新样式*/
 
-/*新增的分页样式*/
-#addPagation .pagination{
+.memberSearch{
 	display: flex;
 	justify-content: flex-end;
-	margin-top: 10px;
-	border: 1px solid #CCCCCC;
-	border-left: none;
-	border-right: none;
 }
-#addPagation .pagination li{
-	width: 29px;
-	height: 26px;
-	font-size: 13px;
-	line-height: 26px;
-	text-align: center;
+.memberSearch select{
+	width: 6%;
 }
-#addPagation .pagination li:nth-child(1){
-	font-size: 14px;
+.memberSearch input{
+	width: 7%;
+	height: 30px;
+	border-left: 0px;
+	border-right: 0px;
+	outline: none;
 }
-#addPagation .pagination li.active{
-	background: #41BEDD;
-	color: #FFFFFF;
+.memberSearch button{
+	height: 30px;
+	width: 80px;
+	border: 1px solid #ccc;
 }
