@@ -199,7 +199,13 @@
 <script>
 
     $(document).ready(function() {
-        $.get("/abab.php/user/ajax_user_index", {"page":1},
+        var data = {
+            "page" : 1,
+			"add" : '',
+			"address" : '',
+			'is_member' : '',
+		}
+        $.get("/abab.php/user/ajax_user_index", data,
             function(data){
                 $("#content").html(data);
             });

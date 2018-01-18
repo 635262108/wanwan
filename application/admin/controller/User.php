@@ -17,40 +17,38 @@ class User extends Base
 
     public function ajax_user_index(){
         $data = input('get.');
+
         //按新增时间筛选用户，1本月，其他本周
-        $where1 = array();
-        $where2 = array();
-        if(isset($data['add'])){
-            if($data['add'] == 1){
-                $begin_time = getTimePeriod('BeginThisMonth');
-                $end_time = getTimePeriod('EndThisMonth');
-            }else{
-                $begin_time = getTimePeriod('BeginThisWeek');
-                $end_time = getTimePeriod('EndThisWeek');
-            }
-            $where1['u.reg_time'] = ['>=',$begin_time];
-            $where2['u.reg_time'] = ['<=',$end_time];
+        $reg_time = '';
+        if($data['add'] != ''){
+            $data['add'] == 1 ? $reg_time = 'month' : $reg_time = 'week';
         }
 
-        //住址
-        $where3 = array();
-        if(isset($data['address'])){
-            $where3['u.district'] = $data['address'];
+        //条件
+        $map = array();
+        $data['address'] != '' ? $map['address'] = $data['address'] : false;
+        $data['is_member'] != '' ? $map['member_grade'] = $data['is_member'] : false;
+        $data['mobile'] != '' ? $map['mobile'] = ['like',$data['mobile']."%"] : false;
+        $data['nickname'] != '' ? $map['nickname'] = $data['nickname'] : false;
+
+        //按孩子姓名搜索
+        if($data['childName'] != ''){
+            $childInfo = model('UserChild')->getChildNameData($data['childName']);
+            $uidArray = array();
+            foreach($childInfo as $key=>$val){
+                if(!in_array($val['uid'],$uidArray)){
+                    $uidArray[] = $val['uid'];
+                }
+            }
+            $uids = implode(",",$uidArray);
+            $map['uid'] = ['in',$uids];
         }
 
-        //是否为会员 1是会员，其他不是会员
-        $where4 = array();
-        if(isset($data['is_member'])){
-            if($data['is_member'] == 1){
-                $where4['u.member_grade'] = 1;
-            }else{
-                $where4['u.member_grade'] = 0;
-            }
-        }
 
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
             ->join('mfw_source s','u.source=s.id')
-            ->where($where1)->where($where2)->where($where3)->where($where4)
+            ->whereTime('reg_time',$reg_time)
+            ->where($map)
             ->order('uid desc')
             ->paginate(10);
 
