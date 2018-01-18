@@ -8,8 +8,17 @@ var Table=$('.data-table').dataTable({
 		"bLengthChange":true,
 		"aaSorting":[[0,"desc"]],
 		"retrieve":true,
-		"bDestroy":true
+		"bDestroy":true,
+		"bStateSave":true
 	});
+	
+//	start = $(".data-table").dataTable().fnSettings()._iDisplayStart;  
+//  total = $(".data-table").dataTable().fnSettings().fnRecordsDisplay();  
+//	if ((total - start) == 1) {  
+//	   if (start > 0) {  
+//	       $("#sorting-advanced").dataTable().fnPageChange('previous', true);  
+//	   }  
+//	}  
 	$("span.icon input:checkbox, th input:checkbox").click(function() {
 		var checkedStatus = this.checked;
 		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
