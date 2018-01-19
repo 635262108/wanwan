@@ -146,23 +146,8 @@ function getOrderSn($uid=0,$aid=0){
  * @return string
  */
 function payWay($code){
-    switch ($code){
-        case 1:
-            return '支付宝';
-            break;
-        case 2:
-            return '微信';
-            break;
-        case 3:
-            return '现金';
-            break;
-        case 4:
-            return '余额';
-        case 5:
-            return '机构';
-        default:
-            return '未付款';
-    }
+    $pay_way = config('other.pay_way');
+    return $pay_way[$code];
 }
 
 //订单状态转换

@@ -26,7 +26,7 @@ class User extends Base
 
         //条件
         $map = array();
-        $data['address'] != '' ? $map['address'] = $data['address'] : false;
+        $data['address'] != '' ? $map['district'] = $data['address'] : false;
         $data['is_member'] != '' ? $map['member_grade'] = $data['is_member'] : false;
         $data['mobile'] != '' ? $map['mobile'] = ['like',$data['mobile']."%"] : false;
         $data['nickname'] != '' ? $map['nickname'] = $data['nickname'] : false;

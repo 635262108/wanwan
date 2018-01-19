@@ -422,7 +422,6 @@ class Activity extends Base
             $data['order_status'] != '' ? $where['o.order_status'] = $data['order_status'] : false;
             $data['source'] != '' ? $where['o.source'] = $data['source'] : false;
         }
-
         $orderInfo = model('ActivityOrder')
                             ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
                             ->join('mfw_activity a','o.aid=a.aid','left')

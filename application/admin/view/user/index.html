@@ -196,14 +196,14 @@
 
     $(document).ready(function() {
         var data = {
-            "page" : 1,
-						"add" : '',
-						"address" : '',
-						'is_member' : '',
-						'mobile':'',
-						'nickname':'',
-						'childName':''
-					}
+            	"page" : 1,
+				"add" : '',
+				"address" : '',
+				'is_member' : '',
+				'mobile':'',
+				'nickname':'',
+				'childName':''
+			}
         $.get("/abab.php/user/ajax_user_index", data,
             function(data){
                 $("#con").html(data);
