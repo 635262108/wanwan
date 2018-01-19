@@ -42,58 +42,55 @@
 			<li><img src="__AIMG__/add_member.png" style="margin-right: 6px;">
 					<a href="{:url('admin/user/add_member')}">添加</a>
 			</li>
-			<!--<li><img src="__AIMG__/pai.png" style="margin-right: 6px;">排序<span></span></li>-->
 			<li><img src="__AIMG__/pai.png" style="margin-right: 6px;">筛选<span></span></li>
 		</ul>
 	</div>
 	<div class="pai_contents">
-		<!--<div class="pai">
-			<ul>
-				<li class="active">充值金额</li>
-				<li>参与活动次数</li>
-				<li>最新发生时间</li>
-			</ul>
-		</div>-->
-		<form action="{:url('user/index')}" method="get">
 		<div class="shai">
 			<div class="only_one">
 				<p>新增</p>
 				<ul>
-					<li><input  type="radio" name="add" value="1"/>本月</li>
-					<li><input 	type="radio" name="add" value="2"/>本周</li>
+					<li data-val=1 data-name="add">本月</li>
+					<li data-val=2 data-name="add">本周</li>
 				</ul>
 			</div>
 			<div class="only_one">
 				<p>住址</p>
 				<ul>
 					{foreach name="zhengZhou" item="vo"}
-					<li><input  type="radio" name="address" value="{$vo.id}"/>{$vo.name}</li>
+					<li data-val={$vo.id} data-name="address">{$vo.name}</li>
 					{/foreach}
 				</ul>
 			</div>
 		<div style="margin-bottom: 8px;" class="only_one">
 				<p style="width: 90px;">客户类型</p>
 				<ul>
-				   <li><input  type="radio" name="is_member" value="1"/>会员</li>
-				   <li><input  type="radio" name="is_member" value="2"/>非会员</li>
+				   <li data-val=1 data-name="is_member">会员</li>
+				   <li data-val=0 data-name="is_member">非会员</li>
 				</ul>
 		</div>
-		<div class="commit">
-			 <button type="reset">重置</button>
-			 <button type="submit">完成</button>
 		</div>
-		</div>
-		</form>
 	</div>
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
-							 
+							 <div class="memberSearch">
+								 <select>
+									   	   <option selected="selected" value="1">手机号</option>
+									   	   <option value="2">大人姓名</option>
+									   	   <option value="3">小孩姓名</option>
+									   	  
+							     </select>
+									   <input type="text" />
+									   <button >搜索</button>
+	            		</div>
 				<div class="widget-box">
 					<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
 						<h5>会员列表</h5>
 					</div>
-
+					<div class="widget-content nopadding" id="con">
+					
+					</div>
 				</div>
 			</div>
 		</div>
@@ -145,23 +142,6 @@
 				</ul>
 			</div>
 			<div class="child_information" style="display: none;">
-				<!--<div class="add_child"><img src="__AIMG__/add.png" style="width: 18px;height: 18px;margin-right: 22%;margin-top: -2px;"/><a href="javascript:;" class="add_new">新增</a></div>
-			  	<div class="child_part">
-			  		<div class="uid" style="display: none;"></div>
-			  		<ul>
-			  	   	   <li><span>孩子姓名:</span><span>薛茜</span></li>
-			  	   	   <li><span>孩子性别:</span><span>男</span></li>
-			  	   	   <li><span>孩子生日:</span><span>2012.2.4</span></li>
-			  	   	   <li><span>孩子学校:</span><span>第一中学</span></li>
-			  	   	   <li><span>可玩时间:</span><span>上午9点半</span></li>
-			  	   	   <li><span>登记时间:</span><span>2014.78</span></li>
-			  		</ul>
-			  		<div class="operate">
-			  			    <span class="emit"><img src="__AIMG__/edit.png"><a href="javascript:;">编辑</a></span>
-			  			    <span><img src="__AIMG__/delete.png"><a href="javascript:;" class="delete">删除</a></span>
-			  		</div>
-			  	</div>-->
-
 			</div>
 		</div>
 
@@ -205,7 +185,11 @@
 	</div>
 </div>
 
-{include file="public/footer" /}
+<script src="__AJS__/jquery.min.js"></script> 
+<script src="__AJS__/jquery.ui.custom.js"></script> 
+<script src="__AJS__/bootstrap.min.js"></script> 
+<script src="__AJS__/jquery.uniform.js"></script> 
+<script src="__AJS__/matrix.js"></script> 
 </html>
 
 <script>
@@ -213,22 +197,85 @@
     $(document).ready(function() {
         var data = {
             "page" : 1,
-			"add" : '',
-			"address" : '',
-			'is_member' : '',
-		}
+						"add" : '',
+						"address" : '',
+						'is_member' : '',
+						'mobile':'',
+						'nickname':'',
+						'childName':''
+					}
         $.get("/abab.php/user/ajax_user_index", data,
             function(data){
-                $("#content").html(data);
-            });
+                $("#con").html(data);
+         });
+         
+//       $(".currentPage").val(data.page);
     });
+//
+$(".shai li,.memberSearch button,.pagination a").live("click",function(){
+			var cur_page = $(this).data('p');
+			var data = {
+        "page" : cur_page,
+				"add" : '',
+				"address" : '',
+				'is_member' : '',
+				'mobile':'',
+				'nickname':'',
+				'childName':''
+			}
+			var c;//标记
+			var name; //名称
+			var value; //数据
+			var add;//新增
+			var address;//地址
+		 	var is_member;//是否为会员
+		 	var search= $(".memberSearch select").val();
+    	var search_text = $(".memberSearch input").val();
+		 
+		 if($(this).attr("data-c") == 1){
+				$(this).removeAttr("style")
+				$(this).removeAttr("data-c")
+		 }else{
+			 	$(this).css({color:"red"})
+				$(this).attr("data-c","1")
+				$(this).siblings().removeAttr("style");
+				$(this).siblings().removeAttr("data-c");
+		 }
+		 
+		 $(".shai li").each(function(){
+		    c = $(this).attr('data-c')
+		    if(c == "1"){
+		    	name = $(this).attr('data-name')
+		    	if(name == 'add'){
+		    		data.add = $(this).attr('data-val')
+		    	}
+		    	else if(name == 'address'){
+		    		data.address = $(this).attr('data-val')
+		    	}
+		    	else if(name == 'is_member'){
+		    		data.is_member = $(this).attr('data-val')
+		    	}
+		    }
 
-    // 点击分页触发的事件
-    $(".pagination  a").click(function(){
-        cur_page = $(this).data('p');
-        $.get("/abab.php/user/ajax_user_index", {"page":cur_page},
-            function(data){
-				$("#content").html(data);
-		});
-    });
+		 });
+		 
+		 //定义搜索条件，1手机号，2大人姓名，3小孩姓名
+    	if(search == 1){
+    		data.mobile = search_text
+    		
+    	}
+    	else if (search == 2){
+    		data.nickname = search_text
+    	}
+    	else if (search == 3){
+    		data.childName = search_text
+    	}
+		 
+		 $.get("/abab.php/user/ajax_user_index", data,
+        function(data){
+            $("#con").html(data);
+        });
+})
+
+
 </script>

@@ -687,20 +687,6 @@ activitys.on("click",function(){
 
 
 //会员列表的筛选单选点击事件
-var onLis=$(".shai").children(".only_one");
-
-    onLis.each(function(){
-    	var lis=$(this).children("ul").children("li");
-        lis.on("click",function(){
-    		if($(this).hasClass("active")){
-    			$(this).removeClass("active");
-    		}
-    		else{
-    			$(this).addClass("active").siblings().removeClass("active");
-    			
-    		}
-    	})
-    })
     
 //  点击完成
 // $(".success").on("click",function(){
