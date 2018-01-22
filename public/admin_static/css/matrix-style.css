@@ -2232,22 +2232,22 @@ div.dataTables_wrapper .ui-widget-header {
 .select_activity .activity_select{
 	margin-right: 20px;
 }
-.select_activity form{
+.select_activity .detailSelect{
 	display: flex;
 	flex-direction:row;
 	justify-content: flex-end;
 }
-.select_activity form select{
+.select_activity .detailSelect select{
 	margin-right: 15px;
 }
-.select_activity form .activityTime{
+.select_activity .detailSelect .activityTime{
 	display: flex;
 	flex-direction: row;
 	/*width: 360px;*/
 	justify-content: space-between;
 	align-items: center;
 }
-.select_activity form button{
+.select_activity .detailSelect button{
 	width: 60px;
 	height: 25px;
 	line-height: 25px;

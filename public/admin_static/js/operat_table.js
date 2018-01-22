@@ -10,15 +10,7 @@ var Table=$('.data-table').dataTable({
 		"retrieve":true,
 		"bDestroy":true,
 		"bStateSave":true
-	});
-	
-//	start = $(".data-table").dataTable().fnSettings()._iDisplayStart;  
-//  total = $(".data-table").dataTable().fnSettings().fnRecordsDisplay();  
-//	if ((total - start) == 1) {  
-//	   if (start > 0) {  
-//	       $("#sorting-advanced").dataTable().fnPageChange('previous', true);  
-//	   }  
-//	}  
+});
 	$("span.icon input:checkbox, th input:checkbox").click(function() {
 		var checkedStatus = this.checked;
 		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
@@ -45,11 +37,6 @@ var SpitUrl={
 	"addMember_url":"/api/order/addOrder",
 	"Amend_infoUrl":"/api/user/saveUser"
 }
-
-//	首页签到下拉
-//		$(".sign").on("click",function(){
-//			$("#signSelect").slideToggle();
-//		})
 		var trs = $("#tbody_center tr");
 		var checks = $(".check");
 //			查看更新所有数据
