@@ -54,11 +54,8 @@ class User extends Base
 
         $page = $userInfo->render();
 
-        $zhengZhou = model('Region')->getSonData(149);
-
         return $this->fetch('',[
             'userInfo' => $userInfo,
-            'zhengZhou' => $zhengZhou,
             'page'  => $page
         ]);
     }
@@ -273,18 +270,42 @@ class User extends Base
                 'label' => 1
             ];
         }
-
+        //获取签到信息，来源等确定之后写成静态表
         $ActivityOrder = model('ActivityOrder');
         $map['aid'] = $aid;
         $map['t_id'] = $tid;
         $map['order_status'] = array('neq',2);
         $field = 'order_id,o.name username,o.mobile,u.uid,adult_num,child_num,sign_time,o.source,s.name,order_status,u.label';
-        $actinfo = $ActivityOrder->getSignDetail($map,$field);
+        $orderInfo = $ActivityOrder->getSignDetail($map,$field);
+
+        //获取小孩姓名，便于工作人员查看
+        $uids = '';
+        foreach ($orderInfo as $k => $v) {
+            $uids .= $v['uid'].",";
+        }
+
+        $uids = rtrim($uids,',');
+
+        $children = model('UserChild')->where('uid','in',$uids)->select();
+
+        //组装数据，让小孩姓名跟在家长后面
+        $childName = '';
+        foreach($orderInfo as $key => $val){
+            foreach ($children as $k => $v){
+                if($val['uid'] == $v['uid']){
+                    $childName .= "/".$v['name'];
+                }
+            }
+            $childName = ltrim($childName,'/');
+            $orderInfo[$key]['childName'] = $childName;
+            $childName = '';
+        }
+
         $activityInfo = model('Activity')->get($aid);
         $timeInfo = model('ActivityTime')->get($tid);
         $this->assign('activityInfo',$activityInfo);
         $this->assign('timeInfo',$timeInfo);
-        $this->assign('actinfo',$actinfo);
+        $this->assign('orderInfo',$orderInfo);
         $this->assign('aid',$aid);
         return $this->fetch();
     }
