@@ -8,7 +8,7 @@
 	<!--breadcrumbs-->
 	<div id="content-header">
 		<div id="breadcrumb">
-			<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+			<a href="../activity/index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
 			<a href="#" class="tip-bottom">订单管理</a>
 			<a href="#" class="current">订单列表</a>
 		</div>
@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="select_activity">
-		<form action="{:url('activity/order')}" method="get">
+		<form action="{:url('order/activity_order')}" method="get">
 			<div class="activityTime" style="margin-right: 15px;">
 				 <input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);"/>
 				 <div class="contect"></div>
@@ -97,37 +97,7 @@
 									<th>报名渠道</th>
 								</tr>
 							</thead>
-							<tbody id="tbody_center" style="font-size: 12px;">
-								{foreach name="orderInfo" item="vo"}
-								<tr class="gradeX trs">
-									<td>{$vo.order_id}</td>
-									<td>{$vo.order_sn}</td>
-									<td>{$vo.a_title|subtext=17}</td>
-									<td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.name}</a></td>
-									<td><a href="{:url('user/user_detail',['uid'=>$vo.mobile])}">{$vo.mobile}</a></td>
-									<td>{$vo.adult_num}</td>
-									<td>{$vo.child_num}</td>
-									<td>{$vo.order_price}</td>
-									<td>
-										{$vo.pay_way|payWay}
-									</td>
-									<td>
-										{$vo.order_status|getOrderStatus}
-									</td>
-									<td>
-										{$vo.addtime|date="Y-m-d H:i",###}
-									</td>
-									<td>
-										{if condition="$vo.t_id eq 0"}
-											未选择
-										{else/}
-											{$vo.begin_time|date="Y-m-d H:i",###}--{$vo.end_time|date="H:i",###}
-										{/if}
-									</td>
-									<td>{$vo.source_name}</td>
-								</tr>
-								{/foreach}
-							</tbody>
+
 						</table>
 					</div>
 				</div>
