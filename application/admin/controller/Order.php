@@ -40,8 +40,9 @@ class Order extends Base
             ->join('mfw_source s','o.source=s.id','left')
             ->where($where)
             ->paginate(10);
-
+        $page = $orderInfo->render();
         $this->assign('orderInfo',$orderInfo);
+        $this->assign('page',$page);
         return $this->fetch();
     }
 }
