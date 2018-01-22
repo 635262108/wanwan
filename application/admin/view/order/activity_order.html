@@ -47,19 +47,14 @@
 
 			<select  style="width:6%" class="pay_way">
 				<option selected="selected" value="">支付方式</option>
-				<option value="1">支付宝</option>
-				<option value="2">微信</option>
-				<option value="3">现金</option>
-				<option value="4">余额</option>
-				<option value="5">机构</option>
+				{foreach name="pay_way" item="vo" key="k"}
+				<option value="{$k}">{$vo}</option>
+				{/foreach}
 			</select>
 
 			<select  style="width:6%" class="order_status">
 				<option selected="selected" value="">订单状态</option>
-				<option value="1">已完成</option>
-				<option value="2">未付款</option>
 				<option value="3">已付款</option>
-				<option value="4">已参加</option>
 				<option value="5">正在退款</option>
 				<option value="6">已退款</option>
 				<option value="7">已请假</option>
