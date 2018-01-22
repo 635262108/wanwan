@@ -39,7 +39,7 @@ class Order extends Base
             ->join('mfw_activity_time t','t.t_id=o.t_id','left')
             ->join('mfw_source s','o.source=s.id','left')
             ->where($where)
-            ->select();
+            ->paginate(10);
 
         $this->assign('orderInfo',$orderInfo);
         return $this->fetch();
