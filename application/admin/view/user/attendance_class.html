@@ -20,7 +20,7 @@
 		   <div class="search">
 		  	  <form action="{:url('user/attendance_class')}" method="get">
                   <input type="hidden" value="{$Request.param.aid}" name="aid">
-		  	  	   <input type="text" name="begin_time" placeholder="11月26日" value="" onFocus="new Calendar().show(this);" style="cursor: pointer;"/><div class="contect"></div><input type="text" name="end_time" placeholder="11月30日" value="" style="cursor:pointer;" onFocus="new Calendar().show(this);" />
+		  	  	   <input type="text" name="begin_time" placeholder="开始时间" value="" onFocus="new Calendar().show(this);" style="cursor: pointer;"/><div class="contect"></div><input type="text" name="end_time" placeholder="结束时间" value="" style="cursor:pointer;" onFocus="new Calendar().show(this);" />
 		  	  	   <button type="submit">查找</button>
 		  	  </form>
 		  </div>

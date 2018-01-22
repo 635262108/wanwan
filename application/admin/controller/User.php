@@ -206,6 +206,7 @@ class User extends Base
     //签到分类
     public function attendance_class(){
         $data = input('param.');
+        $where = '';
         if(isset($data['time'])){
             if($data['time'] == 1){
                 $begintime =getTimePeriod('BeginThisWeek');
@@ -214,27 +215,17 @@ class User extends Base
                 $begintime = getTimePeriod('BeginLastWeek');
                 $endtime = getTimePeriod('EndLastWeek');
             }
-        }
 
-        if(isset($data['begin_time']) & isset($data['end_time'])){
-            $begintime = strtotime($data['begin_time']);
-            $endtime = strtotime($data['end_time']);
-        }
-
-        if(isset($data['begin_time']) & !isset($data['end_time'])){
-            $begintime = strtotime($data['begin_time']);
-            $endtime = strtotime($data['begin_time'])+24*3600;
-        }
-
-        if(!isset($data['begin_time']) & isset($data['end_time'])){
-            $begintime = strtotime($data['end_time'])-24*3600;
-            $endtime = strtotime($data['end_time']);
-        }
-
-        if(!isset($data['begin_time']) & !isset($data['end_time']) & !isset($data['time'])){
-            $where = '';
-        }else{
             $where = ' and t.begin_time > '.$begintime.' and t.end_time < '.$endtime;
+        }else{
+            if(isset($data['begin_time']) && $data['begin_time'] != ''){
+                $begintime = strtotime($data['begin_time']);
+                $where .= ' and t.begin_time > '.$begintime;
+            }
+            if(isset($data['end_time']) && $data['end_time'] != ''){
+                $endtime = strtotime($data['end_time']);
+                $where .= ' and t.end_time < '.$endtime;
+            }
         }
 
         //获取数据
