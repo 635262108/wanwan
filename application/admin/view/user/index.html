@@ -203,13 +203,11 @@
 						'mobile':'',
 						'nickname':'',
 						'childName':''
-					}
+			  }
         $.get("/abab.php/user/ajax_user_index", data,
             function(data){
-                $("#con").html(data);
+               $("#con").html(data);
          });
-         
-//       $(".currentPage").val(data.page);
     });
 //
 $(".shai li,.memberSearch button,.pagination a").live("click",function(){
@@ -243,7 +241,8 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 		 }
 		 
 		 $(".shai li").each(function(){
-		    c = $(this).attr('data-c')
+		    c = $(this).attr('data-c');
+		   
 		    if(c == "1"){
 		    	name = $(this).attr('data-name')
 		    	if(name == 'add'){
@@ -262,7 +261,6 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 		 //定义搜索条件，1手机号，2大人姓名，3小孩姓名
     	if(search == 1){
     		data.mobile = search_text
-    		
     	}
     	else if (search == 2){
     		data.nickname = search_text

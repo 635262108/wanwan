@@ -425,6 +425,7 @@ var SpitUrl={
 					deleteData("/abab.php/user/delRecharge", { "id": parseInt($(this).parent().parent().siblings(".firstSib").html()) },
 					$(this).parent().parent().parent())
 			})
+			
 			$(".select_activity").on("change", function() {
 				var str = '';
 				var Activityid = $(this).val();
@@ -550,9 +551,6 @@ $(".save_member").on("click",function(event){
 				 tabChange($(this),$(".detail_record").children())
 
 			})
-
-			
-
 var str_num="<div class='one'><div class='control-group'><label class='control-label'>孩子姓名</label><div class='controls'><input type='text' style='width: 30%;' name='child_name[]' /></div></div></div><div class='control-group'><label class='control-label'>性别</label><div class='controls'><select name='child_gender[]'><option value='1' selected='selected'>男</option><option value='2'>女</option></select></div></div><div class='control-group'><label class='control-label'>生日</label><div class='controls'><input type='text' value='' name='child_birthday[]' placeholder='2017-09-07' onClick='new Calendar().show(this);' class='span11'  style='width: 25%;margin-top: -3px;cursor: pointer;'></div></div>	<div class='control-group'><label class='control-label'>学校</label><div class='controls'><input type='text' value='' class='span11' style='width: 33%' name='child_school[]'></div></div><div class='control-group'><label class='control-label'>可以玩耍的时间</label><div class='controls'><input type='text' value='' class='span11' style='width: 33%' name='child_play_time[]'></div></div>"
 //孩子选择tab栏的转换
 			$(".select_num").trigger("change");
@@ -564,8 +562,7 @@ var str_num="<div class='one'><div class='control-group'><label class='control-l
 				} else if($(this).val() == 3) {
 					$(".children_information").html(str_num+str_num+str_num)
 				} else {
-					
-					$(".children_information").html('');
+					$(".children_information").html('')
 				}
 
 			})
@@ -644,9 +641,7 @@ var firstlis=$(".ul_classify .first li:not(:last-child)");
 
 var firstContents=$(".classify_contents").children();
 
-
 firstlis.on("click",function(){
-	
 	$(this).children("span").show()
 	$(this).siblings().children("span").hide();
 	firstContents.eq($(this).index()).show().siblings().hide();
@@ -682,17 +677,6 @@ var activitys=$(".activityOperate").children();
 activitys.on("click",function(){
 	$(this).addClass("active").siblings().removeClass("active");
 })
-
-
-
-
-//会员列表的筛选单选点击事件
-    
-//  点击完成
-// $(".success").on("click",function(){
-//     
-// 	  
-// })
     
     	//  点击是否推荐
 $(".recommend .push").live("click",function(){
@@ -739,7 +723,7 @@ $(".content").live("click",function(){
 				for(var i=0;i<obj.data.length;i++){
 					str+="<li>"+obj.data[i].content+"</li>"
 				}
-				$(".rechargeDiv ul").html(str)
+				$(".rechargeDiv ul").html(str);
 				$(".rechargeModalbox").show()
 			}
 		}, "json");
@@ -924,7 +908,6 @@ $(".lose_money").on("click",function(event){
 $(".leaveModal .cancel").on("click",function(){
 	$(this).parent().parent().hide();
 })
-//点击查看
 //点击请假
 $(".activity_leave").live("click",function(){
 	if($(this).html()=="已请假"){
@@ -982,7 +965,6 @@ $(".leaveSave").on("click",function(){
 
 //点击意向客户
 $(".Wantuser").on("click",function(){
-	console.log('点击')
 	if($(this).html()=="已标记"){
 		$(this).off("click");
 	}
