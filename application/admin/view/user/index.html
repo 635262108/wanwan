@@ -196,18 +196,21 @@
 
     $(document).ready(function() {
         var data = {
-            "page" : 1,
-						"add" : '',
-						"address" : '',
-						'is_member' : '',
-						'mobile':'',
-						'nickname':'',
-						'childName':''
-			  }
+     
+            	"page" : 1,
+				"add" : '',
+				"address" : '',
+				'is_member' : '',
+				'mobile':'',
+				'nickname':'',
+				'childName':''
+			}
         $.get("/abab.php/user/ajax_user_index", data,
             function(data){
+         
                $("#con").html(data);
          });
+
     });
 //
 $(".shai li,.memberSearch button,.pagination a").live("click",function(){
@@ -241,6 +244,7 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 		 }
 		 
 		 $(".shai li").each(function(){
+		
 		    c = $(this).attr('data-c');
 		   
 		    if(c == "1"){

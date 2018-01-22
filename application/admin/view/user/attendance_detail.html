@@ -60,7 +60,8 @@
               <thead>
                 <tr>
                   <th>id</th>
-                  <th>姓名</th>  
+                  <th>姓名</th>
+                  <th>孩子姓名</th>
                   <th>电话</th>
                   <th>大人</th>
                   <th>小孩</th>
@@ -72,13 +73,14 @@
               </thead>
               <tbody id="tbody_center" style='font-size: 12px;'>
               	
-                {foreach name="actinfo" item="vo"}
+                {foreach name="orderInfo" item="vo"}
                  
                 <tr class="gradeX trs">
                   <input  type="hidden" value="{$vo.uid}" class="uid"/>
                   <td class="leave_id">{$vo.order_id}</td>
                  
                   <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.username}</a></td>
+                  <td>{$vo.childName}</td>
                   <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
                   <td>{$vo.adult_num}</td>
                   <td>{$vo.child_num}</td>

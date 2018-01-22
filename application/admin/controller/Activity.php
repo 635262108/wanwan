@@ -409,36 +409,6 @@ class Activity extends Base
         $this->assign('leaInfo',$leaInfo);
         return $this->fetch();
     }
-    
-    //订单列表
-    public function order(){
-        $data = input('get.');
-
-        $where = array();
-        if(isset($data['aid'])){
-            $data['aid'] == 0 ? $where['o.aid'] = array('>',0) : $where['o.aid'] = $data['aid'];
-            $data['begin_time'] != '' ? $where['o.addtime'] = array('between',[strtotime($data['begin_time']),strtotime($data['end_time'])+3600*12]) : false;
-            $data['pay_way'] != '' ? $where['o.pay_way'] = $data['pay_way'] : false;
-            $data['order_status'] != '' ? $where['o.order_status'] = $data['order_status'] : false;
-            $data['source'] != '' ? $where['o.source'] = $data['source'] : false;
-        }
-
-        $orderInfo = model('ActivityOrder')
-                            ->alias('o')->field('o.*,a.a_title,s.name as source_name,t.begin_time,t.end_time')
-                            ->join('mfw_activity a','o.aid=a.aid','left')
-                            ->join('mfw_activity_time t','t.t_id=o.t_id','left')
-                            ->join('mfw_source s','o.source=s.id','left')
-                            ->where($where)
-                            ->select();
-        $activityInfo = model('Activity')->getActivityAll('aid,a_title');
-
-        $source = model('Source')->all();
-
-        $this->assign('source',$source);
-        $this->assign('activityInfo',$activityInfo);
-        $this->assign('orderInfo',$orderInfo);
-        return $this->fetch();
-    }
 
     //显示添加订单
     public function dis_add_order(){
@@ -478,7 +448,7 @@ class Activity extends Base
         $model = new ActivityLogic();
         $res = $model->save_order($data);
         if($res['status'] == 200){
-            $this->success($res['msg'],'activity/order');
+            $this->success($res['msg'],'order/activity_order');
         }else{
             $this->error($res['msg']);
         }

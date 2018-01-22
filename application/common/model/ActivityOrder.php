@@ -34,6 +34,16 @@ class ActivityOrder extends Model
         $query->where('pay_time','>',0)->where('order_status','<',5);
     }
 
+    //关联孩子表
+    public function children(){
+        return $this->hasMany('UserChild','uid');
+    }
+
+    //关联来源表
+    public function source(){
+        return $this->hasOne('Source','t_id');
+    }
+
     //某个活动的订单
     public function anyActivityOrder($aid = 0,$field = '*'){
         $map = [
