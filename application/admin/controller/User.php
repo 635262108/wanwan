@@ -896,4 +896,10 @@ class User extends Base
             'tInfo' => $tInfo,
         ]);
     }
+
+    //给会员发送余额通知
+    public function send_balance(){
+        $res = \Sms::multi_send('123123','123213123');
+        var_dump($res);
+    }
 }
