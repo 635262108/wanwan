@@ -32,9 +32,9 @@
 	<div class="select_activity">
 		<div class="detailSelect">
 			<div class="activityTime" style="margin-right: 15px;">
-				 <input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);" class="beginTime"/>
+				 <input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);" onblur="new Calendar().hide(this)" class="beginTime"/>
 				 <div class="contect"></div>
-				 <input type="text" placeholder="11月30日" name="end_time" value="" onFocus="new Calendar().show(this);" style="cursor:pointer;" class="endTime"/>
+				 <input type="text" placeholder="11月30日" name="end_time" value="" onFocus="new Calendar().show(this);" style="cursor:pointer;" class="endTime" onblur="new Calendar().hide(this)"/>
 				 
 			</div>
 			<select style="width:7%" class="activity_select">
@@ -115,18 +115,18 @@
 				'order_status':'',
 				'source':''
 	    }
+        
         $.get("/abab.php/order/ajax_activity_order", data,
             function(data){
          
                $("#orderTable").html(data);
-         });
+        });
          
 
 
     });
     
  //  点击查找看点击分页的时候
-
 $(".pagination a,.orderSearch").live("click",function(){
 	var currentPage=$(this).data("p");
 	var data={
@@ -148,12 +148,9 @@ $(".pagination a,.orderSearch").live("click",function(){
 	
 	$.get("/abab.php/order/ajax_activity_order", data,
             function(data){
-         
-               $("#orderTable").html(data);
+            $("#orderTable").html(data);
     });
 })
-    
-
 
 </script>
 </body>
