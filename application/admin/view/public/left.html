@@ -1,5 +1,95 @@
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-  <ul style="display: block;">
+<div id="sidebar">
+	<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+
+	<div class="leftSide">
+		<ul style="display: block;">
+			<li class="active" id="index">
+				<a href="{:url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a>
+			</li>
+			<li class="submenu">
+				<a href="#" class="first_li"><i class="icon-user"></i>
+					<span>客户</span>
+					<!--<span class="label label-important">5</span>-->
+				</a>
+			</li>
+			<li class="submenu">
+				<a href="#" class="first_li"><i class="icon icon-file"></i>
+					<span>活动</span> 
+					
+			 </a>
+					<!--<span class="label label-important">7</span></a>-->
+			</li>
+
+			<li class="submenu">
+				<a href="#" class="first_li"><i class="icon icon-inbox"></i>
+					<span>订单</span>
+				 <!--<span class="label label-important">2</span>-->
+				</a>
+
+			</li>
+			<li class="submenu">
+				<a href="#" class="first_li"><i class="icon-headphones"></i>
+					<span>客服</span>
+					 <!--<span class="label label-important">1</span>-->
+				</a>
+
+			</li>
+			<li class="submenu">
+				<a href="#" class="first_li"><i class="icon-bell"></i>
+					<span>系统</span>
+					<!--<span class="label label-important">3</span>-->
+				</a>
+			</li>
+			<li class="submenu">
+				<a href="#" class="first_li"><i class="icon-align-left"></i>
+					<span>统计</span>
+					<!--<span class="label label-important">1</span>-->
+				</a>
+			</li>
+		</ul>
+		
+		<div class="listContent">
+			   
+			<ul style="display: none;">
+        <li><a href="{:url('admin/user/index')}">客户列表</a></li>
+        <li><a href="{:url('admin/user/recharge_policy')}">充值政策</a></li>
+        <li><a href="{:url('admin/user/attendance')}">签到概况</a></li>
+        <li><a href="{:url('admin/user/recharge_record')}">充值记录</a></li>
+        <li><a href="{:url('admin/user/deal')}">成单记录</a></li>
+      </ul>
+      
+      <ul style="display: none;" num>
+        <li><a href="{:url('admin/activity/index')}">活动列表</a></li>
+        <li><a href="{:url('admin/activity/specification')}">活动安排</a></li>
+        <li><a href="{:url('admin/activity/activity_type')}">活动分类</a></li>
+        <li><a href="{:url('admin/activity/extension')}">活动扩展</a></li>
+        <li><a href="{:url('admin/activity/activity_ask')}">活动提问</a></li>
+        <li><a href="{:url('admin/activity/activity_comment')}">评论列表</a></li>
+        <li><a href="{:url('admin/activity/leave_for')}">请假列表</a></li>
+      </ul>
+      
+       <ul style="display: none;" num>
+        <li><a href="{:url('admin/order/activity_order')}">订单列表</a></li>
+        <li><a href="{:url('admin/activity/refund')}">退款列表</a></li>
+       </ul>
+      
+      <ul style="display: none;" num>
+              <li><a href="{:url('admin/service/index')}">回访记录</a></li>
+       </ul>
+      <ul style="display: none;">
+          <li><a href="{:url('admin/admin/index')}">管理员管理</a></li>
+          <li><a href="{:url('admin/admin/role')}">角色列表</a></li>
+          <li><a href="{:url('admin/admin/source_list')}">来源管理</a></li>
+      </ul>
+      
+      <ul style="display: none;" num>
+          <li><a href="{:url('admin/Statistical/source')}">来源统计</a></li>
+      </ul>
+       
+		</div>
+	</div>
+
+	<!--<ul style="display: block;">
     <li class="active" id="index"><a href="{:url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a></li>
     <li class="submenu"> <a href="#" class="first_li"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">5</span></a>
       <ul>
@@ -59,10 +149,7 @@
       </a>
       <ul style="display: none;">
           <li><a href="{:url('admin/Statistical/source')}">来源统计</a></li>
-          <!--<li><a href="{:url('admin/order/activity_order')}">会员到场率</a></li>-->
-          <!--<li><a href="{:url('admin/activity/refund')}">会员增长率</a></li>-->
-          <!--<li><a href="{:url('admin/activity/refund')}">活动排名</a></li>-->
       </ul>
   </li>
-  </ul>
+  </ul>-->
 </div>

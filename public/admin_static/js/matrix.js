@@ -6,49 +6,103 @@ $(document).ready(function(){
 	// === Sidebar navigation === //
 	
 	$("#index > a").click(function(e){
+	
 		sessionStorage.setItem("href_name",$(this).attr("href"));
+		
+		sessionStorage.removeItem("index");
+		
+		$(".submenu").removeClass("active")
 		
 	})
 	
-	$('.submenu > a').click(function(e)
-	{
-		e.preventDefault();
-		var submenu = $(this).siblings('ul');
-		var li = $(this).parents('li');
-		var submenus = $('#sidebar li.submenu ul');
-		var submenus_parents = $('#sidebar li.submenu');
-		if(li.hasClass('open'))
-		{
-			if(($(window).width() > 768) || ($(window).width() < 479)) {
-				submenu.slideUp();
-			} else {
-				submenu.fadeOut(250);
-			}
-			li.removeClass('open');
-		} else 
-		{
-			if(($(window).width() > 768) || ($(window).width() < 479)) {
-				submenus.slideUp();			
-				submenu.slideDown();
-			} else {
-				submenus.fadeOut(250);			
-				submenu.fadeIn(250);
-			}
-			submenus_parents.removeClass('open');		
-			li.addClass('open');	
-		}
-	});
-    $(".submenu").each(function(){
-		var lis=$(this).children("ul").find("li");
-		lis.on("click",function(){
-			sessionStorage.setItem("href_name",$(this).children("a").attr("href"));
-			
-		})
-	})
-		 var href_name=JSON.stringify(sessionStorage.getItem('href_name'));
-		 $(".submenu a[href="+href_name+"]").parent().css({"background":"#28b779","border":"1px solid transparent"})
-         $(".submenu a[href="+href_name+"]").css("color","#ffffff");
-         $(".submenu a[href="+href_name+"]").parent().parent().show();
+	
+	
+	
+	
+//	侧边栏的点击事件
+    
+    var sideLis=$(".leftSide>ul").find(".submenu");
+    
+    var lisContents=$(".listContent").children();
+    sideLis.on("click",function(){
+    	var index=$(this).index();
+    	$(this).addClass("active").siblings().removeClass("active")
+    	lisContents.eq(index-1).show().siblings().hide();
+    	lisContents.eq(index-1).children("li:nth-child(1)").find("a").addClass("active");
+    	var first_href=lisContents.eq(index-1).children("li:nth-child(1)").find("a").attr("href");
+    	sessionStorage.setItem("href_name",first_href);
+    	sessionStorage.setItem("index",index);
+    	window.location.href=first_href;
+    	
+
+    	
+    })
+    
+    lisContents.each(function(index){
+    	var lis=$(this).children("li");
+    	
+    	lis.on("click",function(){
+    	
+    		sessionStorage.setItem("href_name",$(this).children("a").attr("href"));
+    	})
+    })
+    
+      var href_name=JSON.stringify(sessionStorage.getItem('href_name'));
+      var ulIndex=sessionStorage.getItem('index');  
+      if(sessionStorage.getItem('href_name')=="/abab.php/index/index.html"){
+       	   $("#index").addClass("active").siblings().removeClass("active");
+      }
+      else{
+      	sideLis.eq(ulIndex-1).addClass("active").siblings().removeClass("active");
+        $(".listContent a[href="+href_name+"]").css({"color":"#27a9e3","border-bottom":"1px solid #27a9e3"});
+        $(".listContent a[href="+href_name+"]").parent().parent().show();
+      }
+      	
+
+      
+    
+    
+	
+//	$('.submenu > a').click(function(e)
+//	{
+//		e.preventDefault();
+//		var submenu = $(this).siblings('ul');
+//		var li = $(this).parents('li');
+//		var submenus = $('#sidebar li.submenu ul');
+//		var submenus_parents = $('#sidebar li.submenu');
+//		if(li.hasClass('open'))
+//		{
+//			if(($(window).width() > 768) || ($(window).width() < 479)) {
+//				submenu.slideUp();
+//			} else {
+//				submenu.fadeOut(250);
+//			}
+//			li.removeClass('open');
+//		} else 
+//		{
+//			if(($(window).width() > 768) || ($(window).width() < 479)) {
+//				submenus.slideUp();			
+//				submenu.slideDown();
+//			} else {
+//				submenus.fadeOut(250);			
+//				submenu.fadeIn(250);
+//			}
+//			submenus_parents.removeClass('open');		
+//			li.addClass('open');	
+//		}
+//	});
+
+//  $(".submenu").each(function(){
+//		var lis=$(this).children("ul").find("li");
+//		lis.on("click",function(){
+//			sessionStorage.setItem("href_name",$(this).children("a").attr("href"));
+//			
+//		})
+//	})
+//		 var href_name=JSON.stringify(sessionStorage.getItem('href_name'));
+//		 $(".submenu a[href="+href_name+"]").parent().css({"background":"#28b779","border":"1px solid transparent"})
+//       $(".submenu a[href="+href_name+"]").css("color","#ffffff");
+//       $(".submenu a[href="+href_name+"]").parent().parent().show();
 	     
 	
 	

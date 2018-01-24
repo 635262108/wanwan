@@ -9,6 +9,8 @@ body {
 #header {
 	background-color: #1f262d;
     margin-top:10px;
+    height: 45px;
+    
 }
 #search input[type=text], #search button {
 	background-color: #28b779;
@@ -16,27 +18,64 @@ body {
 #search input[type=text]:focus {
 	color: #777777;
 }
-#sidebar > ul{border-bottom: 1px solid #37414b}
-#sidebar > ul > li {
-	border-top: 1px solid #37414b; border-bottom: 1px solid #1f262d;
+#sidebar  .leftSide{
+	height: 1189px;
+	display: flex;
+	flex-direction: row;
 }
-#sidebar > ul > li.active {
+#sidebar  .leftSide .listContent{
+	height: 100%;
+	background: #FFFFFF;
+	border-top-right-radius: 3px;
+}
+#sidebar  .leftSide .listContent ul li{
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	/*border: 1px solid blue;*/
+	font-size: 13px;
+}
+#sidebar  .leftSide .listContent ul li a:hover{
+	color: #27a9e3;
+}
+#sidebar  .leftSide .listContent ul li a{
+	display: block;
+}
+#sidebar  .leftSide .listContent ul li a.active{
+	color: #27a9e3;
+	/*background:#27a9e3;*/
+	border-bottom: 1px solid #27a9e3;
+}
+#sidebar  .leftSide .listContent ul{
+	margin: 0px;
+}
+#sidebar > .leftSide > ul{
+	border-bottom: 1px solid #37414b;
+}
+#sidebar > .leftSide > ul > li {
+	border-top: 1px solid #37414b; 
+	border-bottom: 1px solid #1f262d;
+	font-size: 13px;
+}
+#sidebar > .leftSide > ul > li.active {
     background-color: #27a9e3; 
     border-top: 1px solid #27a9e3;
 }
-#sidebar > ul > li.active a{ color:#fff; text-decoration:none;}
 
-#sidebar > ul > li > a > .label {
+#sidebar > .leftSide > ul > li.active a{ color:#fff; text-decoration:none;}
+
+#sidebar > .leftSide > ul > li > a > .label {
 	background-color:#F66;
 }
-#sidebar > ul > li > a:hover {
+#sidebar > .leftSide > ul > li > a:hover {
 	background-color: #27a9e3; color:#fff;
 }
-#sidebar > ul li ul {
+#sidebar > .leftSide > ul li ul {
 	background-color: #1e242b;
 }
-#sidebar > ul li ul li a{ color:#939da8}
-#sidebar > ul li ul li a:hover, #sidebar > ul li ul li.active a {
+#sidebar > .leftSide > ul li ul li a{ color:#939da8}
+#sidebar > .leftSide > ul li ul li a:hover, #sidebar > ul li ul li.active a {
 	color: #fff;
 	background-color: #28b779;
 }

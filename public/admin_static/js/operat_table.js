@@ -11,7 +11,7 @@ var Table=$('.data-table').dataTable({
 		"bDestroy":true,
 		"bStateSave":true
 });
-	$("span.icon input:checkbox, th input:checkbox").click(function() {
+$("span.icon input:checkbox, th input:checkbox").click(function() {
 		var checkedStatus = this.checked;
 		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
 		checkbox.each(function(){
