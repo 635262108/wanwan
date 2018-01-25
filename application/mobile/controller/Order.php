@@ -80,7 +80,7 @@ class Order extends Base
 
         try{
             $orderId = model('ActivityOrder')->add($add_order_data);
-        } catch (Exception $e){
+        } catch (\Exception $e){
             $this->error('订单处理失败');
         }
 

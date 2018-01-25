@@ -129,7 +129,7 @@ class Pay extends Base
         ];
         try{
             model('UserDetail')->insert($add_detail);
-        } catch (Exception $e){
+        } catch (\Exception $e){
             $this->error('数据异常');
         }
         //扣费
@@ -233,26 +233,25 @@ class Pay extends Base
         //实例化失败通知微信服务器
         try{
             $resultObj = new WxPayResults();
-            $weixinData = $resultObj->toXml($weixinData);
-        }catch (Exception $e){
+            $weixinData = $resultObj->Init(($weixinData));
+        }catch (\Exception $e){
             $resultObj->setData('return_code', 'FAIL');
             $resultObj->setData('return_msg', $e->getMessage());
             return $resultObj->toXml();
         }
-
         $order_sn = $weixinData['out_trade_no'];
 
         $logData = [
             'pay_way' => 2,
             'pay_status' => 0,
-            'order_sn' => $order_sn,
-            'content' => json_encode($weixinData),
+            'order_sn' => '123213123213',
+            'content' => json_encode([1,2,3]),
             'addtime' => time()
         ];
 
         //订单处理失败通知微信服务器
         if($weixinData['return_code'] === 'FAIL' || $weixinData['result_code'] !== 'SUCCESS') {
-            db('mfw_pay_log')->insert($logData);
+            db('pay_log')->insert($logData);
             $resultObj->setData('return_code', 'FAIL');
             $resultObj->setData('return_msg', 'error');
             return $resultObj->toXml();
@@ -261,7 +260,7 @@ class Pay extends Base
         //订单已处理，通知微信服务器
         $order = model('ActivityOrder')->get(['order_sn' => $order_sn]);
         if($order->order_status != 2) {
-            db('mfw_pay_log')->insert($logData);
+            db('pay_log')->insert($logData);
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');
             return $resultObj->toXml();
@@ -277,9 +276,9 @@ class Pay extends Base
             model('ActivityOrder')->save($data,['order_sn'=>$order_sn]);
 
             $logData['pay_status'] = 1;
-            db('mfw_pay_log')->insert($logData);
+            db('pay_log')->insert($logData);
 
-        }catch (Exception $e){
+        }catch (\Exception $e){
             $resultObj->setData('return_code', 'FAIL');
             $resultObj->setData('return_msg', 'error');
             return $resultObj->toXml();
