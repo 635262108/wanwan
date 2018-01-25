@@ -165,7 +165,7 @@ class Pay extends Base
         $appid =  config('wxpay.app_id');
         $mch_id = config('wxpay.mch_id');//商户号
         $key = config('wxpay.key');//商户key
-        $notify_url = "http://www.baobaowaner.com/mobile/pay/wx_notify/";//回调地址
+        $notify_url = "http://test.baobaowaner.com/mobile/pay/wx_notify/";//回调地址
         $wechatAppPay = new wechatAppPay($appid, $mch_id, $notify_url, $key);
         $params['body'] = '玩翫碗活动报名';                       //商品描述
         $params['out_trade_no'] = $order['order_sn'];    //自定义的订单号
@@ -180,7 +180,7 @@ class Pay extends Base
                 $this->error('已过有效支付时间，请重新下单');
             }
         }
-        $url = $result['mweb_url'].'&redirect_url=http://www.baobaowaner.com/mobile/pay/pay_success/orderId/'.$orderId;//redirect_url 是支付完成后返回的页面
+        $url = $result['mweb_url'].'&redirect_url=http://test.baobaowaner.com/mobile/pay/pay_success/orderId/'.$orderId;//redirect_url 是支付完成后返回的页面
         $this->redirect($url);
     }
 
@@ -233,9 +233,20 @@ class Pay extends Base
     public function pay_success($orderId){
         $orderInfo = model('ActivityOrder')->find($orderId);
         $activityInfo = model('Activity')->find($orderInfo['aid']);
-        $this->assign('activityInfo',$activityInfo);
-        $this->assign('orderInfo',$orderInfo);
-        $this->assign('title','报名成功');
-        return $this->fetch('pay/pay_success');
+
+        //查询订单
+        $notify = new PayNotifyCallBack();
+        $notify->handle(true);
+        $result = $notify->queryTradeOrder($orderInfo['order_sn']);
+        if($result){
+            $this->assign('activityInfo',$activityInfo);
+            $this->assign('orderInfo',$orderInfo);
+            $this->assign('title','报名成功');
+            return $this->fetch();
+        }else{
+            $this->error('支付失败,有疑问请联系客服');
+        }
+
+
     }
 }
