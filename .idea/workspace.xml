@@ -8,7 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Pay.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Pay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/user/my_activity.html" afterPath="$PROJECT_DIR$/application/mobile/view/user/my_activity.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +36,8 @@
       <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="243" column="0" lean-forward="false" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+            <state relative-caret-position="66">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="14" selection-end-column="23" />
               <folding>
                 <element signature="e#40#77#0#PHP" expanded="true" />
               </folding>
@@ -47,7 +48,7 @@
       <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
+            <state relative-caret-position="2024">
               <caret line="92" column="42" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="92" selection-end-column="42" />
               <folding />
             </state>
@@ -89,10 +90,10 @@
       <file leaf-file-name="Pay.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="171" column="43" lean-forward="true" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
+            <state relative-caret-position="264">
+              <caret line="84" column="9" lean-forward="true" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
               <folding>
-                <element signature="e#1959#2734#0#PHP" expanded="false" />
+                <element signature="e#40#60#0#PHP" expanded="true" />
                 <element signature="e#2751#4532#0#PHP" expanded="false" />
                 <element signature="e#6091#7578#0#PHP" expanded="false" />
               </folding>
@@ -103,8 +104,8 @@
       <file leaf-file-name="my_activity.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/view/user/my_activity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="41" column="85" lean-forward="false" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="85" />
+            <state relative-caret-position="538">
+              <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -141,10 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>attendance</find>
-      <find>multi_send</find>
-      <find>18e38978462c146b837c43e92eee92cc</find>
-      <find>source</find>
       <find>&lt;input name=&quot;id&quot; value=&quot;{$source.id}&quot; type=&quot;hidden&quot;&gt;</find>
       <find>dis_save_source</find>
       <find>extensionInfo</find>
@@ -170,7 +167,11 @@
       <find>price</find>
       <find>order_detail</find>
       <find>wxpayQRCode</find>
+      <find>签到码</find>
+      <find>orderidpay</find>
+      <find>pay</find>
       <find>orderIdPay</find>
+      <find>详情</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -204,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/api/controller/Order.php" />
         <option value="$PROJECT_DIR$/application/common/model/Source.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/Base.php" />
         <option value="$PROJECT_DIR$/application/admin/view/admin/source_list.html" />
@@ -255,6 +255,7 @@
         <option value="$PROJECT_DIR$/application/mobile/controller/Order.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Pay.php" />
+        <option value="$PROJECT_DIR$/application/mobile/view/user/my_activity.html" />
       </list>
     </option>
   </component>
@@ -525,12 +526,12 @@
       <workItem from="1516582346697" duration="25838000" />
       <workItem from="1516675479874" duration="16246000" />
       <workItem from="1516756573214" duration="20626000" />
-      <workItem from="1516841306048" duration="19288000" />
+      <workItem from="1516841306048" duration="21083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1494326000" />
+    <option name="totallyTimeSpent" value="1496121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -977,14 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/my_activity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="41" column="85" lean-forward="false" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/pay/select_pay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -993,30 +986,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2024">
+          <caret line="92" column="42" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="92" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Activity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="243" column="0" lean-forward="false" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="14" selection-end-column="23" />
           <folding>
             <element signature="e#40#77#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Order.php">
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/my_activity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="92" column="42" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="92" selection-end-column="42" />
+        <state relative-caret-position="538">
+          <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="171" column="43" lean-forward="true" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
+        <state relative-caret-position="264">
+          <caret line="84" column="9" lean-forward="true" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
           <folding>
-            <element signature="e#1959#2734#0#PHP" expanded="false" />
+            <element signature="e#40#60#0#PHP" expanded="true" />
             <element signature="e#2751#4532#0#PHP" expanded="false" />
             <element signature="e#6091#7578#0#PHP" expanded="false" />
           </folding>
