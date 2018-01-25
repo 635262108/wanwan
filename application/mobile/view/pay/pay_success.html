@@ -16,7 +16,7 @@
 
             <div class="login_operat">
                 <div class="first" style="font-size: 14px;">报名成功！请注意活动时间噢!</div>
-                <a href="{:url('mobile/user/order_detail',['order_sn'=>$orderInfo.order_sn])}" style="border: none;color: #565656;font-size: 13px;">订单详情>></a>
+                <a href="{:url('mobile/order/order_detail',['orderId'=>$orderInfo.order_id])}" style="border: none;color: #565656;font-size: 13px;">订单详情>></a>
                 <div style="font-size: 10px;color: #8d8d8d;"><span class="count">3</span>s后自动跳转会员中心</div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 count--;
                 $(".count").html(count)
                 if(count==1){
-                    location.href="{:url('mobile/user/order_detail',['order_sn'=>$orderInfo.order_sn])}";
+                    location.href="{:url('mobile/order/order_detail',['orderId'=>$orderInfo.order_id])}";
                 }else{
                     clearInterval();
                 }

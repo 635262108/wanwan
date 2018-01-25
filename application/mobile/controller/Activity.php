@@ -79,19 +79,18 @@ class Activity extends Base
     	$Activity = model('Activity');
     	$ActivityComments = model('ActivityComments');
 
-    	$ActivityExtension = model('ActivityExtension');
     	//获取活动信息
     	$activityInfo = $Activity->getIdActivity($aid);
     	//获取活动评论
     	$commentInfo = $ActivityComments->getActivityComment($aid);
 
-    	//获取活动扩展信息
-    	$extensionInfo = $ActivityExtension->getExtensionInfo($aid);
         //查看是否收藏
         $uid = Session::get("userInfo.uid");
         $userInfo = model('user')->get($uid);
         $activityCollection = model('ActivityCollection');
         $isCollection = $activityCollection->isCollection($aid,$uid);
+
+        //促销品一个人只能报三次，超过三次按原价计算
 
         //时间信息
         $map = [
@@ -105,7 +104,6 @@ class Activity extends Base
         $this->assign('activityInfo',$activityInfo);
         $this->assign('isCollection',$isCollection);
     	$this->assign('commentInfo',$commentInfo);
-    	$this->assign('extensionInfo',$extensionInfo);
     	return $this->fetch();
     }
     
@@ -244,200 +242,6 @@ class Activity extends Base
         }
     } 
 
-    //使用订单id付款
-    public function orderIdPay(){
-        $uid = Session::get('userInfo.uid');
-        $userInfo = model('user')->find($uid);
-        $orderId = input('id');
-        $map['uid'] = $uid;
-        $map['order_id'] = $orderId;
-        $orderInfo = model('ActivityOrder')->where($map)->find();
-        if(empty($orderInfo)){
-            $this->error('订单错误');
-        }
-        $aid = $orderInfo['aid'];
-        $ActivityInfo = model('Activity')->find($aid);
-        //微信浏览器只支持js支付，单独一个界面
-        $this->assign('userInfo',$userInfo);
-        $this->assign('price',$orderInfo['order_price']);
-        $this->assign('activityInfo',$ActivityInfo);
-        $this->assign('orderInfo',$orderInfo);
-        $this->assign('title','选择支付');
-        if(is_weixin()){
-            //跳转到wx_browser_pay
-            return $this->fetch('activity/wx_select_pay');
-        }else{
-            return $this->fetch('activity/select_pay');
-        }
-    }
-       
-    //微信浏览器支付
-    public function wx_browser_pay(){
-        //获取订单信息
-        $uid = Session::get('userInfo.uid');
-        $order_sn = Session::get($uid);
-        $ActivityOrder = model('ActivityOrder');
-        $order = $ActivityOrder->getSnOrderInfo($order_sn);
-
-//        //获取活动信息
-//        $Activity = model('Activity');
-//        $activityInfo = $Activity->getIdActivity($order['aid'],'aid,a_title,a_address,a_begin_time,a_end_time');
-//
-//        //获取时间信息
-//        $timeInfo = model('ActivityTime')->getAnyTime($order['t_id']);
-
-        //获取用户openid
-        $openId = session::get('openid');
-
-        //统一下单
-        $tools = new JsApiPay();
-        $money = $order['order_price'];
-        $input = new WxPayUnifiedOrder();
-        $input->setBody("玩翫碗活动报名");
-        $input->setAttach("玩翫碗活动报名");
-        $input->setOutTradeNo($order_sn);   //订单号
-        $input->setTotalFee($money * 100);  //价格
-        $input->setTimeStart(date("YmdHis"));   //生成时间
-        $input->setTradeType("JSAPI");
-        $input->setOpenid($openId);
-        $input->setNotifyUrl("http://www.baobaowaner.com/mobile/Activity/notify/order_sn/".$order_sn); //设置回调地址
-        $orders = WxPayApi::unifiedOrder($input);
-        //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
-        if(isset($orders['err_code'])){
-            if($orders['err_code'] == 'INVALID_REQUEST'){
-                model('ActivityOrder')->where('order_sn',$order_sn)->delete();
-                $this->error('已过有效支付时间，请重新下单');
-            }
-        }
-        $jsApiParameters = $tools->getJsApiParameters($orders);
-        $this->assign('order_sn',$order_sn);
-        $this->assign('jsApiParameters', $jsApiParameters);
-        return $this->fetch('activity/enter_wx_pay');
-    }
-    
-    //选择支付方式
-    public function payWay(){
-        //用户id
-        $uid = Session::get('userInfo.uid');
-        //订单号
-        $order_sn = input('post.order_sn');
-        //支付方式1：支付宝 2：微信 3：银联 4:余额
-        $bank_type = input('post.bank_type');
-
-        $ActivityOrder = model('ActivityOrder');
-        $order = $ActivityOrder->getSnOrderInfo($order_sn,'uid,order_price,pay_time');
-        if($order['uid'] != $uid){
-            $this->error("无效订单");
-        }
-        if($bank_type == 1){
-            //订单号
-            $params['out_trade_no'] = $order_sn;
-            //订单标题
-            $params['subject'] = '玩翫碗活动报名';
-            //订单金额
-            $params['total_amount'] = $order['order_price'];
-
-            \alipay\Wappay::pay($params);
-        }
-        else if($bank_type == 2){
-            //生成支付码
-            $code_url = $this->wxpayQRCode($order_sn);
-
-            $this->redirect($code_url);
-        }
-        else if($bank_type == 4){
-
-            return $this->balance_pay($uid,$order_sn);
-        }
-        else{
-            $this->error("参数错误,请勿刷新页面");
-        }
-    }
-
-    //微信浏览器选择支付
-    public function wxPayWay(){
-        //用户id
-        $uid = Session::get('userInfo.uid');
-        //订单号
-        $order_sn = input('post.order_sn');
-        //金额
-        $price = input('post.price');
-        //支付方式 2：微信 4：余额
-        $bank_type = input('post.bank_type');
-
-        //检查订单
-        $orderInfo = model('ActivityOrder')->getSnOrderInfo($order_sn);
-        if(empty($orderInfo) || $uid != $orderInfo['uid']){
-            $this->error('订单错误');
-        }
-
-        //支付过的订单直接跳我的订单
-        if($orderInfo->order_status != 2){
-            $this->redirect('user/my_activity',['a'=>1]);
-        }
-
-        //判断会员有没有使用余额支付，使用其他支付方式没有会员价
-        $userInfo = model('user')->get($uid);
-        if($userInfo->member_grade == 1 && $bank_type==4){
-            $orderInfo->order_price = $price;
-            $orderInfo->save();
-        }
-
-        if($bank_type == 2){
-            //session记录订单
-            session::set($uid,$order_sn);
-            //跳转到wx_browser_pay
-            $this->redirect('activity/wx_browser_pay');
-        }elseif($bank_type = 4) {
-            return $this->balance_pay($uid,$order_sn);
-        }
-    }
-
-    //余额支付
-    public function balance_pay($uid,$order_sn){
-        $userInfo = model('user')->find($uid);
-        $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
-        $ActivityInfo = model('Activity')->find($orderInfo['aid']);
-        if(empty($userInfo) || empty($orderInfo)){
-            $this->error('参数错误');
-        }
-
-        //检查余额够不够
-        if($orderInfo['order_price'] > $userInfo['balance']){
-            $this->error('余额不足，可以去会员中心进行充值哦');
-        }
-        //扣费
-        $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
-        $userInfo->save();
-        //记账
-        $add_detail = [
-            'uid' => $uid,
-            'type' => 3,
-            'money' => $orderInfo['order_price'],
-            'balance' => $userInfo->balance,
-            'addtime' => time(),
-            'remark'  => "参加".$ActivityInfo['a_title']."活动",
-        ];
-        model('UserDetail')->insert($add_detail);
-        //更改订单状态
-        $data = [
-            'order_status' => 3,
-            'pay_way'   => 4,
-            'pay_time'  => time(),
-        ];
-        $res = model('ActivityOrder')->where('order_sn',$order_sn)->update($data);
-        if($res) {
-            $this->sendMobileMsg($orderInfo['order_sn']);
-            $this->setActivityNum($orderInfo['order_sn']);
-            $this->assign('price',$orderInfo['order_price']);
-            $this->assign('activityInfo',$ActivityInfo);
-            $this->assign('orderInfo',$orderInfo);
-            $this->assign('title','报名成功');
-            return $this->fetch('activity/pay_success');
-        }else{
-            $this->error('支付失败，若发现余额已扣费请联系客服！');
-        }
-    }
 
     //交易成功,给用户手机号发送一条短信
     public function sendMobileMsg($order_sn){
@@ -606,40 +410,6 @@ class Activity extends Base
             db::table('mfw_order_log')->insert($data);
         }
         $Activity->commit();
-    }
-    
-    
-    /**
-     * 微信手机端网站支付（H5支付）
-     * @param $order_sn
-     */
-    public function wxpayQRCode($order_sn)
-    {
-        $activityOrder = model('ActivityOrder');
-        $order = $activityOrder->getSnOrderInfo($order_sn,'order_price,pay_time');
-        if(empty($order)){
-            $this->error('订单号不正确');
-        }
-        $appid =  config('wxpay.app_id');
-        $mch_id = config('wxpay.mch_id');//商户号
-        $key = config('wxpay.key');//商户key
-        $notify_url = "http://www.baobaowaner.com/home/Activity/notify/order_sn/".$order_sn;//回调地址
-        $wechatAppPay = new wechatAppPay($appid, $mch_id, $notify_url, $key);
-        $params['body'] = '玩翫碗活动报名';                       //商品描述
-        $params['out_trade_no'] = $order_sn;    //自定义的订单号
-        $params['total_fee'] = $order['order_price']*100;                       //订单金额 只能为整数 单位为分
-        $params['trade_type'] = 'MWEB';                   //交易类型 JSAPI | NATIVE | APP | WAP 
-        $params['scene_info'] = '{"h5_info": {"type":"Wap","wap_url": "https://api.lanhaitools.com/wap","wap_name": "玩翫碗活动报名"}}';
-        $result = $wechatAppPay->unifiedOrder( $params );
-        //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
-        if(isset($result['err_code'])){
-            if($result['err_code'] == 'INVALID_REQUEST'){
-                model('ActivityOrder')->where('order_sn',$order_sn)->delete();
-                $this->error('已过有效支付时间，请重新下单');
-            }
-        }
-        $url = $result['mweb_url'].'&redirect_url=http://www.baobaowaner.com/mobile/Activity/pay_success/order_sn/'.$order_sn;//redirect_url 是支付完成后返回的页面
-        return $url;
     }
 
     /**

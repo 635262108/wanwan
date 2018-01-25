@@ -80,6 +80,12 @@ class ActivityOrder extends Model
         return $this->field($field)->where($map);
     }
 
+    //添加订单
+    public function add($data){
+        $this->save($data);
+        return $this->order_id;
+    }
+
 
 	/**
 	*增加活动订单

@@ -2,48 +2,42 @@
 {include file="public/second_header"}
 <body style="background: #F6F6F6">
 
-
-
-<form action="{:url('activity/wxPayWay')}" method="post" class="pay_form">
-	
-    <input type="hidden" value="{$orderInfo.order_sn}" name="order_sn"/>
+    <!--<div class="title_word second_activity">选择支付</div>-->
+   
     
+    
+    <form action="{:url('pay/pay_way')}" method="get" class="pay_form">
+    	
     <div class="product_detail">
     	<div class="product_img"><img src="__AdminIMG__/{$activityInfo.a_index_img}"></div>
     	<ul class="totalPrice">
-    		{if condition="$userInfo.member_grade eq 1"}
-    		<li>
-    			 <span>￥</span>
-    			<input type="text" value="{$activityInfo.member_adult_price+$activityInfo.member_child_price}"  name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
-    			</li>
-    		{else/}
     		<li>
     			<span>￥</span>
-    			<input type="text" value="{$activityInfo.a_adult_price+$activityInfo.a_child_price}" name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
+    			<input type="text" value="{$orderInfo.order_price}"  name="price" style="border: none;outline: none;background: none;width: 100px;" readonly="readonly"/>
     		</li>
-    		{/if}
-    		
+
+
     		<li>&nbsp;&nbsp;{$activityInfo.a_title}</li>
     	</ul>
     </div>
-    <ul>
-        <li>
+    	
+        <input type="hidden" value="{$orderId}" name="orderId"/>
+    	<ul>
+    		<li>
     			<div class="first_li"><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付</div>
-    		    {if condition="$userInfo.balance lt $price"}
+    		    {if condition="$userInfo.balance lt $orderInfo.order_price"}
     		    <div class="second_li" >
     		    	   <span style="color:#c5c5c5;" class="remaining_money">余额不足</span>
-    		    	
-    		           <input type="radio" name="bank_type" value="4"  class="select_remaining">
-    		 
-    		    </div>
+    		    	   <input type="radio" name="bank_type" value="4"  class="select_remaining">
+    		   
+    		    </div>	
     		    {else/}
-    		    
-    		     <div class="second_li" style="width: 28%;">
+    		     
+    		    <div class="second_li" style="width: 28%;">
     		    	 <span style="color:#c5c5c5;" class="remaining_money">余额&nbsp;{$userInfo.balance}</span>
-    		    	
-    		          <input type="radio" name="bank_type" value="4"  class="select_remaining" checked="checked">
-    		
-    		    </div>
+    		    	 <input type="radio" name="bank_type" value="4"  class="select_remaining" checked="checked">
+    		   
+    		    </div>	
     		   
     		 {/if}
     		 </li>
@@ -54,18 +48,25 @@
     				<img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付
     			</div>
     			<div class="second_li">
-    				<input type="radio" name="bank_type"  value="2" class="weixin otherPay">
+    				<input type="radio" name="bank_type" value="2" class="weixin otherPay">
     		    </div>
     		</li>
-    </ul>
-    <button type="submit" class="Sure_pay">确认支付</button>
-</form>
-
-
-
-<script src="__MobileJs__/jquery.min.js"></script>
-<script src="__MobileJs__/index.js"></script>
-<script src="__MobileJs__/idangerous.swiper.min.js"></script>
+    			
+    				
+    		<li>
+    			<div class="first_li">
+    				<img src="__MobileImg__/zhifubao.png" style="margin-right: 9px;">支付宝
+    			</div>
+    			<div class="second_li">
+    				<input type="radio" name="bank_type" value="1" class="otherPay">
+    			</div>
+    		</li>
+    	</ul>
+    	<button type="submit" class="Sure_pay">确认支付</button>
+    </form>
+    <script src="__MobileJs__/jquery.min.js"></script>
+    <script src="__MobileJs__/index.js"></script>
+    <script src="__MobileJs__/idangerous.swiper.min.js"></script>
     <script>
     	//判断余额来显示
        var money_val=$(".remaining_money").html();

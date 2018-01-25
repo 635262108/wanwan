@@ -19,7 +19,7 @@ class User extends Base
     
     public function _initialize() {
         parent::_initialize();
-        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account','order_detail');
+        $noLogin = array('index','my_activity','myfavorite','my_message','refund','refund_succ','my_info','account');
         $this->checkUserLogin($noLogin);
     }
     
@@ -545,34 +545,6 @@ class User extends Base
         }  else {
             return_info(-1,'非法请求');
         }
-    }
-    
-    //订单详情
-    public function order_detail($order_sn){
-        //用户id
-        $uid = Session::get('userInfo.uid');
-        //获取订单信息
-        $ActivityOrder = model('ActivityOrder');
-        $orderInfo = $ActivityOrder->getSnOrderInfo($order_sn);
-        if($orderInfo['uid'] != $uid){
-            $this->error('订单异常');
-        }
-        //获取活动信息
-        $Activity = model('Activity');
-        $field = 'aid,a_title,a_index_img,a_address,a_begin_time,a_end_time';
-        $ActivityInfo = $Activity->getIdActivity($orderInfo['aid'],$field);
-        if(empty($ActivityInfo)){
-            $this->error('活动结束,订单已失效');
-        }
-        //参与时间
-        $timeInfo = model('ActivityTime')->getAnyTime($orderInfo['t_id']);
-
-        $this->assign('timeInfo',$timeInfo);
-        $this->assign('orderInfo',$orderInfo);
-        $this->assign('ActivityInfo',$ActivityInfo);
-        $this->assign('url',url('user/my_activity',['a'=>1]));
-        $this->assign('title','订单详情');
-        return $this->fetch();
     }
 
     //充值
