@@ -244,8 +244,8 @@ class Pay extends Base
         $logData = [
             'pay_way' => 2,
             'pay_status' => 0,
-            'order_sn' => '123213123213',
-            'content' => json_encode([1,2,3]),
+            'order_sn' => $order_sn,
+            'content' => json_encode($weixinData),
             'addtime' => time()
         ];
 
@@ -289,6 +289,9 @@ class Pay extends Base
     public function pay_success($orderId){
         $orderInfo = model('ActivityOrder')->find($orderId);
         $activityInfo = model('Activity')->find($orderInfo['aid']);
+
+        //延迟三秒，等待微信支付流程结束，时间原因，暂时这样，体验不好，以后优化
+        usleep(3000000);
 
         //查询订单
         $notify = new PayNotifyCallBack();
