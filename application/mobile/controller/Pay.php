@@ -181,7 +181,7 @@ class Pay extends Base
             }
         }
         $url = $result['mweb_url'].'&redirect_url=http://www.baobaowaner.com/mobile/pay/pay_success/orderId/'.$orderId;//redirect_url 是支付完成后返回的页面
-        return $url;
+        $this->redirect($url);
     }
 
     //微信js支付

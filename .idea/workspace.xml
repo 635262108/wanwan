@@ -8,19 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/mobile/controller/Order.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/mobile/controller/Pay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" afterPath="$PROJECT_DIR$/application/common/model/ActivityOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Activity.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/User.php" afterPath="$PROJECT_DIR$/application/mobile/controller/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/activity/detail.html" afterPath="$PROJECT_DIR$/application/mobile/view/activity/detail.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/mobile/view/activity/enter_wx_pay.html" afterPath="$PROJECT_DIR$/application/mobile/view/pay/enter_wx_pay.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/mobile/view/activity/pay_success.html" afterPath="$PROJECT_DIR$/application/mobile/view/pay/pay_success.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/mobile/view/activity/select_pay.html" afterPath="$PROJECT_DIR$/application/mobile/view/pay/select_pay.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/mobile/view/activity/wx_cli_pay.html" afterPath="$PROJECT_DIR$/application/mobile/view/pay/wx_cli_pay.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/mobile/view/activity/wx_select_pay.html" afterPath="$PROJECT_DIR$/application/mobile/view/pay/wx_select_pay.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/mobile/view/user/order_detail.html" afterPath="$PROJECT_DIR$/application/mobile/view/order/order_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Pay.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Pay.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,10 +89,12 @@
       <file leaf-file-name="Pay.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="174" column="57" lean-forward="true" selection-start-line="174" selection-start-column="57" selection-end-line="174" selection-end-column="57" />
+            <state relative-caret-position="588">
+              <caret line="171" column="43" lean-forward="true" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
               <folding>
-                <element signature="e#6081#7568#0#PHP" expanded="false" />
+                <element signature="e#1959#2734#0#PHP" expanded="false" />
+                <element signature="e#2751#4532#0#PHP" expanded="false" />
+                <element signature="e#6091#7578#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -535,12 +525,12 @@
       <workItem from="1516582346697" duration="25838000" />
       <workItem from="1516675479874" duration="16246000" />
       <workItem from="1516756573214" duration="20626000" />
-      <workItem from="1516841306048" duration="17222000" />
+      <workItem from="1516841306048" duration="19288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1492260000" />
+    <option name="totallyTimeSpent" value="1494326000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1023,10 +1013,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="174" column="57" lean-forward="true" selection-start-line="174" selection-start-column="57" selection-end-line="174" selection-end-column="57" />
+        <state relative-caret-position="588">
+          <caret line="171" column="43" lean-forward="true" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
           <folding>
-            <element signature="e#6081#7568#0#PHP" expanded="false" />
+            <element signature="e#1959#2734#0#PHP" expanded="false" />
+            <element signature="e#2751#4532#0#PHP" expanded="false" />
+            <element signature="e#6091#7578#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
