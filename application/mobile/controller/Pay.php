@@ -2,9 +2,12 @@
 namespace app\mobile\controller;
 
 use think\Exception;
+use wxpay\database\WxPayRefund;
+use wxpay\database\WxPayResults;
 use wxpay\database\WxPayUnifiedOrder;
 use wxpay\JsApiPay;
 use wxpay\NativePay;
+use wxpay\PayNotifyCallBack;
 use wxpay\WxPayApi;
 use wxpay\WxPayConfig;
 use \think\Session;
@@ -226,7 +229,61 @@ class Pay extends Base
     //微信支付回调
     public function wx_notify(){
         $weixinData = file_get_contents("php://input");
-        file_put_contents('/2.txt', $weixinData, FILE_APPEND);
+
+        //实例化失败通知微信服务器
+        try{
+            $resultObj = new WxPayResults();
+            $weixinData = $resultObj->toXml($weixinData);
+        }catch (Exception $e){
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', $e->getMessage());
+            return $resultObj->toXml();
+        }
+
+        $order_sn = $weixinData['out_trade_no'];
+
+        $logData = [
+            'pay_way' => 2,
+            'pay_status' => 0,
+            'order_sn' => $order_sn,
+            'content' => json_encode($weixinData),
+            'addtime' => time()
+        ];
+
+        //订单处理失败通知微信服务器
+        if($weixinData['return_code'] === 'FAIL' || $weixinData['result_code'] !== 'SUCCESS') {
+            db('mfw_pay_log')->insert($logData);
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', 'error');
+            return $resultObj->toXml();
+        }
+
+        //订单已处理，通知微信服务器
+        $order = model('ActivityOrder')->get(['order_sn' => $order_sn]);
+        if($order->order_status != 2) {
+            db('mfw_pay_log')->insert($logData);
+            $resultObj->setData('return_code', 'SUCCESS');
+            $resultObj->setData('return_msg', 'OK');
+            return $resultObj->toXml();
+        }
+
+        //更新订单表,记日志
+        try{
+            $data = [
+                'order_status' => 3,
+                'pay_way' => 2,
+                'pay_time' => time()
+            ];
+            model('ActivityOrder')->save($data,['order_sn'=>$order_sn]);
+
+            $logData['pay_status'] = 1;
+            db('mfw_pay_log')->insert($logData);
+
+        }catch (Exception $e){
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', 'error');
+            return $resultObj->toXml();
+        }
     }
 
     //报名成功
