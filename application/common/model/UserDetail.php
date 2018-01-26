@@ -17,6 +17,7 @@ class UserDetail extends Model
     public function getAnyUserDetail($uid=0){
         $map = [
             'uid'=>$uid,
+            'type'=> ['neq',0],
         ];
         return $this->where($map)->select();
     }

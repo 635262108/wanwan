@@ -226,13 +226,13 @@ class User extends Controller
         if(isMobile($data['uid'])){
             try{
                 $userInfo = model('User')->getMobileUserInfo($data['uid'],$field);
-            }catch (Exception $e){
+            }catch (\Exception $e){
                 return_info(-1,'字段不存在');
             }
         }else{
             try{
                 $userInfo = model('User')->field($field)->get($data['uid']);
-            }catch (Exception $e){
+            }catch (\Exception $e){
                 return_info(-1,'字段不存在');
             }
         }
@@ -247,19 +247,19 @@ class User extends Controller
         }
 
         $detail = model('UserDetail')->find($id);
-        $detail->type = 0;
+
         //余额更新
         $userInfo = model('User')->find($detail['uid']);
-        if($detail['type'] == 1 || $detail['type'] == 3){
-            //明细扣费增加余额
-            $userInfo->balance = $userInfo->balance + $detail->money;
-
-        }else if($detail['type'] == 2){
+        if($detail['type'] == 1){
             //明细增加扣除余额
             $userInfo->balance = $userInfo->balance - $detail->money;
+        }else if($detail['type'] == 2 || $detail['type'] == 3){
+            //明细扣费增加余额
+            $userInfo->balance = $userInfo->balance + $detail->money;
         }
 
         try{
+            $detail->type = 0;
             $detail->save();
             $userInfo->save();
             //返回余额

@@ -36,7 +36,7 @@ class Order extends Controller
         if(empty($activityInfo)){
             return_info(-1,'活动不存在');
         }
-        $data['order_price'] = $data['adult_num']*$activityInfo['a_adult_price'] + $data['child_num']*$activityInfo['a_child_price'];
+
         //签到时间存在时记录签到时间,订单状态为已签到
         if($data['sign_time'] == 1){
             $data['sign_time'] = time();
