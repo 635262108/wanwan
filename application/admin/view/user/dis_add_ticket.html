@@ -153,3 +153,22 @@
         </div>
     </div>
     {include file="public/footer" /}
+    <script>
+     $(".get_phone").on("blur",function(){
+                	var phoneVal=$(this).val();
+                	$.post(SpitUrl.getPhone_url, {uid:phoneVal,field:'nickname,member_grade'},
+					function(obj) {
+							
+								if(obj.state_code == 200) {
+									console.log(obj.data)
+									 $(".get_name").val(obj.data.nickname);
+									 if(obj.data.member_grade==1){
+									 	 $(".price").val({$member_adult_price+$member_adult_price})
+									 }
+								}
+								else{
+//								
+								}
+					}, "json");
+                })
+    </script>

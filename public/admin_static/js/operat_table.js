@@ -451,19 +451,7 @@ var SpitUrl={
 			
 //			输入手机号显示姓名
 
-                $(".get_phone").on("blur",function(){
-                	var phoneVal=$(this).val();
-                	$.post(SpitUrl.getPhone_url, {uid:phoneVal,field:'nickname'},
-					function(obj) {
-							
-								if(obj.state_code == 200) {
-									 $(".get_name").val(obj.data.nickname);
-								}
-								else{
-//								
-								}
-					}, "json");
-                })
+
 //点击新增成员保存信息
 
 $(".save_member").on("click",function(event){
@@ -478,6 +466,8 @@ $(".save_member").on("click",function(event){
 	var Name=$(".get_name").val();
 	var Source=$(".source option:selected").val();
 	var signT=$(".alreadySign option:selected").val();
+	var orderPrice=$(".price").val();
+	
 	$.post(SpitUrl.addMember_url,{mobile:mobile,
 		aid:aid,
 		t_id:tid,
@@ -487,7 +477,8 @@ $(".save_member").on("click",function(event){
 		source:Source,
 		name:Name,
 		sign_time:signT,
-		remark:reMark
+		remark:reMark,
+		order_price:orderPrice
 	},function(obj) {
 					if(obj.state_code == 200){
 						window.history.go(-1);
