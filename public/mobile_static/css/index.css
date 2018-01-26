@@ -420,11 +420,12 @@
 
 
 .five_organs .play_baoContent .playBao_part .bao_img {
-	width: 98%;
+	width: 95%;
 	height: 160px;
 	
 }
 .five_organs .play_baoContent .playBao_part .sold_num{
+	width: 97%;
 	display: flex;
 	justify-content: flex-end;
 	font-size: 12px;
@@ -482,10 +483,13 @@
 	color: #656565;
 	margin-bottom: 7px;
 	display: flex;
+	/*justify-content: flex-start;*/
 }
+
 .five_organs .play_baoContent .playBao_part .bao_content ul li span{
 	width: 80%;
-	/*border: 1px solid red;*/
+	/*border: 1px solid blue;*/
+	margin-left: 2px;
 }
 .five_organs .play_baoContent .playBao_part .bao_content ul li:last-child {
 	margin-bottom: 12px;
