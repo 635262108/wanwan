@@ -1052,7 +1052,7 @@ particularslis.on("click",function(){
 $(document).on("click",".repeal",function(){
 	   var repealId=$(this).parent().siblings(".sorting_1").html();
 	   var parent=$(this).parent().parent();
-		var trueOrfalse = confirm("是否确认删除");
+		var trueOrfalse = confirm("是否确认撤销");
 		if(!trueOrfalse) {
 			return;
 		} else {
@@ -1082,7 +1082,7 @@ $(".discount").on("blur",function(){
     var priceVal=Number($(".price").val());
     console.log(discountVal,priceVal)
     var priceNow = discountVal*priceVal;
-	$(".price").val(priceNow);
+	$(".price").val(priceNow.toFixed(2));
 	}
 	
 	
