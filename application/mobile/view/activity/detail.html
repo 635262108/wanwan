@@ -74,8 +74,7 @@
 
 <!--点击我要报名-->
 <div id="theme_modal_box">
-    <form method="get" action="{:url('activity/add_order')}">
-        {:token('token')}
+    <form method="get" action="{:url('order/sign_up')}">
         <input type="hidden" name="aid" value="{$activityInfo.aid}"/>
         <div class="moal_div">
             <div class="modal_detail">
@@ -152,27 +151,7 @@
 	
 
 <div class="detailActivity">
-    <!--<div class="activity_parts">
-    	
-        {foreach name="extensionInfo" item="vo" }
-       <a href="{:url('mobile/activity/detail_list',['eid'=>$vo.extension_id])}">
-        <div class="acyivity_part">
-            <div class="activity_imgBorder">
 
-                        <img src="__AdminIMG__/{$vo.extension_img}"/>
-
-            </div>
-            <div class="activity_detail">
-                <ul>
-                    <li>{$vo.extension_title}</li>
-                    <li>{$vo.extension_remark|subtext='40'}</li>
-                </ul>
-            </div>
-        </div>
-          </a>
-        {/foreach}
-      
-    </div>-->
     {$activityInfo.a_content}
 </div>
 
