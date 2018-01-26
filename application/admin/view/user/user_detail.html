@@ -101,9 +101,10 @@
 								<th>操作</th>
 								<th>备注</th>
 								<th>添加时间</th>
+								<th>操作</th>
 							</tr>
 						</thead>
-						<tbody id="tbody_center" style="font-size: 12px;" class="detailTable">
+						<tbody id="tbody_center" style="font-size: 12px;width: 100%;" class="detailTable">
 							
 							{foreach name="detaiInfo" item="vo"}
 								<tr>
@@ -113,6 +114,9 @@
 									<td>{$vo.type|user_detail_type}</td>
 									<td>{$vo.remark}</td>
 									<td>{$vo.addtime|date='Y-m-d H:i',###}</td>
+									<td class="center">
+                        				<i class="delete icon-pencil repeal">&nbsp;&nbsp;撤销</i>	
+                  					</td>
 								</tr>
 							{/foreach}
 						</tbody>
@@ -273,7 +277,7 @@
 			<div class="balanceContent ">
 				<div>
 					<p>账户余额</p>
-					<p>{$userInfo.balance}</p>
+					<p class="balance">{$userInfo.balance}</p>
 				</div>
 				<div>
 					<p>消费金额</p>

@@ -1006,6 +1006,7 @@ $(".amendSave").on("click",function(event){
 })
 //点击筛选条件（会员列表）
 
+//操作明细记录里面的选项
 var particularslis=$(".particularsUl").children();
 
 particularslis.on("click",function(){
@@ -1027,6 +1028,7 @@ particularslis.on("click",function(){
 						   +"<td>"+obj.data[i].type+"</td>"
 						   +"<td>"+obj.data[i].remark+"</td>"
 						   +"<td>"+obj.data[i].addtime+"</td>"
+						   +"<td class='center'><i class='delete icon-pencil repeal'>&nbsp;&nbsp;撤销</i>	</td>"
 					  "</tr>"
 				
 				
@@ -1035,6 +1037,7 @@ particularslis.on("click",function(){
 			Table.fnClearTable();
 			Table.fnDestroy();
 			$(".detailTable").html(str);
+			$(".data-table").attr("style","width: 100%;")
 		    Table=$('.data-table').dataTable({
 			    "bDestroy":true,
 				"bJQueryUI": true,
@@ -1052,6 +1055,27 @@ particularslis.on("click",function(){
 			
 		}
 	})
+})
+
+//点击明细记录里面的撤销
+$(document).on("click",".repeal",function(){
+	   var repealId=$(this).parent().siblings(".sorting_1").html();
+	   var parent=$(this).parent().parent();
+		var trueOrfalse = confirm("是否确认删除");
+		if(!trueOrfalse) {
+			return;
+		} else {
+
+		$.post('/api/user/undoUserConsumeDetail',{id:repealId},function(obj) {
+            if(obj.state_code == 200) {
+            	  parent.remove();
+				  $(".balance").html(obj.data.balance);
+				
+			} else {
+				
+			}
+		})
+	}
 })
 
 
