@@ -238,4 +238,38 @@ class User extends Controller
         }
         return_info(200,'success',$userInfo);
     }
+
+    //撤销明细
+    public function undoUserConsumeDetail(){
+        $id = input('post.id/d');
+        if(!$id){
+            return_info(-1,'fail');
+        }
+
+        $detail = model('UserDetail')->find($id);
+        $detail->type = 0;
+        //余额更新
+        $userInfo = model('User')->find($detail['uid']);
+        if($detail['type'] == 1 || $detail['type'] == 3){
+            //明细扣费增加余额
+            $userInfo->balance = $userInfo->balance + $detail->money;
+
+        }else if($detail['type'] == 2){
+            //明细增加扣除余额
+            $userInfo->balance = $userInfo->balance - $detail->money;
+        }
+
+        try{
+            $detail->save();
+            $userInfo->save();
+            //返回余额
+            $result = [
+                'balance' => $userInfo->balance,
+            ];
+            return_info(200,'success',$result);
+        }catch (\Exception $e){
+            return_info(-1,$e->getMessage());
+        }
+
+    }
 }
