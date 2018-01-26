@@ -19,7 +19,6 @@ class Order extends Base
         $aid = input('get.aid/d');
         $adult_num = input('get.adult_num/d');
         $child_num = input('get.child_num/d');
-        $price = input('get.price');
         $time = input('get.time/d');
         if(!$aid || !$child_num || !$time){
             $this->error('请求异常');
@@ -32,16 +31,13 @@ class Order extends Base
             $this->error('您选择的时间段已无名额');
         }
 
-        //检查价格是否被篡改
+        //价格
         $ActivityInfo = model('Activity')->find($aid);
-        $userInfo = model('user')->get($uid);
+        $userInfo = model('user')->find($uid);
         if($userInfo['member_grade'] == 1){
-            $sys_price = $adult_num*$ActivityInfo['member_adult_price']+$child_num*$ActivityInfo['member_child_price'];
+            $price = $adult_num*$ActivityInfo['member_adult_price']+$child_num*$ActivityInfo['member_child_price'];
         }else{
-            $sys_price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
-        }
-        if($price != $sys_price){
-            $this->error('请求异常');
+            $price = $adult_num*$ActivityInfo['a_adult_price']+$child_num*$ActivityInfo['a_child_price'];
         }
 
         //免费活动不能重复报名
