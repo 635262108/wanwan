@@ -6,51 +6,51 @@
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="#" class="tip-bottom">订单管理</a> 
       	<a href="#" class="current">退款列表</a> 
-  </div>
+      </div>
   </div>
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
   	  	        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Data table</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>退款id</th>
-                  <th>退款人</th>
-                  <th>退款人手机</th>
-                  <th>退款商品</th>
-                  <th>退款原因</th>
-                  <th>申请时间</th>
-                  <th>状态</th>
-                  <th>操作</th>
-           </tr>
-              </thead>
-              <tbody id="tbody_center" style="font-size: 12px;">
-                {foreach name="refundInfo" item="vo"}
-                <tr class="gradeX trs">
-                  <td>{$vo.id}</td>
-                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
-                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
-                  <td>{$vo.a_title}</td>
-                  <td>{$vo.reason}</td>
-                  <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
-                  <td>
-                    {switch name="$vo.type"}
-                    {case value="1"}待退款{/case}
-                    {case value="3"}已退款{/case}
-                    {/switch}
-                  </td>   
-                  <td class="center"><a href="{:url('admin/activity/order_amend',['rid'=>$vo.id])}"><i class="check icon-reorder">&nbsp;&nbsp;修改</i></a>
-                  </td>
-                </tr>
-                {/foreach}
-              </tbody>
-            </table>
-          </div>
+			          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+			              <h5>Data table</h5>
+			          </div>
+		          <div class="widget-content nopadding">
+		            <table class="table table-bordered data-table">
+		              <thead>
+		                <tr>
+		                  <th>退款id</th>
+		                  <th>退款人</th>
+		                  <th>退款人手机</th>
+		                  <th>退款商品</th>
+		                  <th>退款原因</th>
+		                  <th>申请时间</th>
+		                  <th>状态</th>
+		                  <th>操作</th>
+		           </tr>
+		              </thead>
+		              <tbody id="tbody_center" style="font-size: 12px;">
+		                {foreach name="refundInfo" item="vo"}
+		                <tr class="gradeX trs">
+		                  <td>{$vo.id}</td>
+		                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.nickname}</a></td>
+		                    <td><a href="{:url('user/user_detail',['uid'=>$vo.uid])}">{$vo.mobile}</a></td>
+		                  <td>{$vo.a_title}</td>
+		                  <td>{$vo.reason}</td>
+		                  <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
+		                  <td>
+		                    {switch name="$vo.type"}
+		                    {case value="1"}待退款{/case}
+		                    {case value="3"}已退款{/case}
+		                    {/switch}
+		                  </td>   
+		                  <td class="center"><a href="{:url('admin/activity/order_amend',['rid'=>$vo.id])}"><i class="check icon-reorder">&nbsp;&nbsp;修改</i></a>
+		                  </td>
+		                </tr>
+		                {/foreach}
+		              </tbody>
+		            </table>
+		          </div>
         </div>
   	  </div>
   </div>
