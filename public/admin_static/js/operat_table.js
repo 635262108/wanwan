@@ -854,7 +854,6 @@ $(document).on("click",".save",function(){
 //充值ajax
 $(".recharge_for").on("click",function(event){
 	event.preventDefault();
-	
 	var uid=$(".hidden_val").val();
 	var amount=$(".amountMoney").val();
 	var giveaway= $(".giveVal").val();
@@ -863,7 +862,7 @@ $(".recharge_for").on("click",function(event){
 	var payWay=$(".pay_way option:selected").val();
     $.post(SpitUrl.recharge_url,{uid:uid,amount:amount,giveaway:giveaway,pay_time:payTime,is_get:isGet,pay_way:payWay},function(obj){
 		if(obj.state_code == 200){
-            window.location.reload()
+            window.location.reload();
 		}
 	})
 	

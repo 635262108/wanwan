@@ -369,8 +369,9 @@
 	box-sizing: border-box;
 	margin: 10px auto;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	flex-direction: column;
+	/*flex-direction: row;*/
+	/*justify-content: space-around;*/
 	position: relative;
 	/*border: 1px solid red;*/
 
@@ -419,18 +420,32 @@
 
 
 .five_organs .play_baoContent .playBao_part .bao_img {
-	width: 113px;
-	height: 116px;
+	width: 334px;
+	height: 160px;
 	
 }
-
+.five_organs .play_baoContent .playBao_part .sold_num{
+	display: flex;
+	justify-content: flex-end;
+	font-size: 12px;
+	padding-right: 8px;
+	color: #666;
+	/*margin-top: 5px;*/
+}
+.five_organs .play_baoContent .playBao_part .sold_num span{
+	box-sizing: border-box;
+	padding: 5px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	background:#ebeaea;
+}
 .five_organs .play_baoContent .playBao_part .bao_img img {
 	width: 100%;
 	height: 100%
 }
 
 .five_organs .play_baoContent .playBao_part .bao_content {
-	width: 63%;
+	width: 98%;
 }
 .five_organs .play_baoContent .playBao_part .bao_content .content_bottom{
 	display: flex;
@@ -465,7 +480,12 @@
 .five_organs .play_baoContent .playBao_part .bao_content ul li {
 	font-size: 13px;
 	color: #656565;
-	margin-bottom: 7px
+	margin-bottom: 7px;
+	display: flex;
+}
+.five_organs .play_baoContent .playBao_part .bao_content ul li span{
+	width: 80%;
+	/*border: 1px solid red;*/
 }
 .five_organs .play_baoContent .playBao_part .bao_content ul li:last-child {
 	margin-bottom: 12px;

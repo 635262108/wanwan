@@ -31,7 +31,7 @@
             {if condition="$v.a_type eq $vo.id"}
             <a href="{:url('mobile/activity/detail',['aid'=>$v.aid])}">
                 <div class="playBao_part">
-                  {if condition="$v.a_end_time gt time()"/}
+                  <!--{if condition="$v.a_end_time gt time()"/}
 					<div class="sign_num">
 						
 						 <p>{$v.a_sold_num}</p>
@@ -45,18 +45,20 @@
 						 <div class="line_white"></div>
 						 <p>{$v.a_num}</p>
 					</div>
-				 {/if}
+				 {/if}-->
+				 
                     <div class="bao_img">
                         <img src="__AdminIMG__/{$v.a_index_img}"/>
                     </div>
+                    <div class="sold_num"><span>已有260人参与体验</span></div>
                     <div class="bao_content">
   	    	 	 	<span class="outer_border">
   	    	 	 		<span class="inside_border">{$v.a_title|subtext='25'}</span>
   	    	 	 	</span>
                         <ul>
-                            <li>活动介绍：{$v.a_remark|subtext='10'}</li>
-                            <li>活动时间：{$v.a_begin_time|date='Y.m.d',###}-{$v.a_end_time|date='Y.m.d',###}</li>
-                            <li>活动地点：{$v.a_address}</li>
+                            <!--<li>活动介绍：{$v.a_remark|subtext='10'}</li>-->
+                            <li>活动时间：<span>{$v.a_begin_time|date='Y.m.d',###}-{$v.a_end_time|date='Y.m.d',###}</span></li>
+                            <li>活动地点：<span>{$v.a_address}</span></li>
        
                         </ul>
                          <div class="content_bottom">

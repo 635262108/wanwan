@@ -84,14 +84,15 @@
 				<div class="bao_img">
 					<img src="__AdminIMG__/{$vo.a_index_img}" />
 				</div>
+				<div class="sold_num"><span>已有260人参与体验</span></div>
 				<div class="bao_content">
 					<span class="outer_border">
   	    	 	 		<span class="inside_border">{$vo.a_title}</span>
 					</span>
 					<ul>
-						<li>活动介绍：{$vo.a_remark|subtext='6'}</li>
-						<li>活动时间：{$vo.a_begin_time|date='Y.m.d',###}-{$vo.a_end_time|date='Y.m.d',###}</li>
-						<li>活动地点：{$vo.a_address}</li>
+						<!--<li>活动介绍：{$vo.a_remark|subtext='6'}</li>-->
+						<li>活动时间：<span>{$vo.a_begin_time|date='Y.m.d',###}-{$vo.a_end_time|date='Y.m.d',###}</span></li>
+						<li>活动地点：<span>{$vo.a_address}</span></li>
 
 					</ul>
 					<div class="content_bottom"><span>￥{$vo.a_adult_price+$vo.a_child_price}</span>
