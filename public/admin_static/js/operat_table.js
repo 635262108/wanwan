@@ -1079,6 +1079,31 @@ $(document).on("click",".repeal",function(){
 })
 
 
+//活动安排里面输入折扣,价格改变
+
+$(".discount").on("blur",function(){
+	
+	if($(this).val()==''){
+//		$(".price").val(priceVal);
+	}
+	else{
+	var discountVal=$(".discount").val()/100;
+    var priceVal=Number($(".price").val());
+    console.log(discountVal,priceVal)
+    var priceNow = discountVal*priceVal;
+	$(".price").val(priceNow);
+	}
+	
+	
+})
+
+//$(".price").on("blur",function(){
+//	priceVal=Number($(this).val());
+//	var priceNow = discountVal*priceVal;
+//	$(".price").val(priceNow);
+//})
+
+
   
 
 

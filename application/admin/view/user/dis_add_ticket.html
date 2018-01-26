@@ -46,11 +46,22 @@
                                    <span>{$tInfo.begin_time}--{$tInfo.end_time}</span> 
                                 </div>
                             </div>
+                            
+                             <div class="control-group"  style="display: flex;align-items: center;">
+                                <label class="control-label" style="padding-top: 4px;">折扣</label>
+                                
+                                <div class="controls" style="margin-left: 20px;"> 
+                                   <input class="span11 discount" style="width: 40%;" value=''  type="text">
+                                   <span style="margin-left: 5px;color: #C0C0C0 ;">(输入方式：95折写95，8折的写80)</span>
+                                </div>
+                            </div>
+
 
                             <div class="control-group" style="display: flex;align-items: center;">
                                 <label class="control-label" style="padding-top: 4px;">价格</label>
                                 <div class="controls" style="margin-left: 20px;">
-                                    <span>{$activityInfo.a_adult_price+$activityInfo.a_child_price}</span> 
+                                	<input class="price"  value="{$activityInfo.a_adult_price+$activityInfo.a_child_price}" style="width: 80px;"/>
+                                    <!--<span class="price">{$activityInfo.a_adult_price+$activityInfo.a_child_price}</span>--> 
                                     <span style="margin-left: 5px;color: #C0C0C0 ;">(价格计算方式：小孩数量*小孩价格+大人数量*大人价格)</span>
                                 </div>
                             </div>
