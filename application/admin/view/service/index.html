@@ -1,7 +1,11 @@
+
 {include file="public/header" /}
-{include file="public/left" /}
+<style>
+	#indContainerContent .indContainer{
+		margin-right: 70px;
+	}
+</style>
 <div id="content">
-<!--breadcrumbs-->
   <div id="content-header">
       <div id="breadcrumb"> 
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
@@ -10,9 +14,7 @@
   		</div>
   </div>
   
-  <!--回访详情-->
-  
-  <div class="indContainerContent" style="padding-left: 10px;">
+  <div class="indContainerContent" style="padding-left:0px;" id="indContainerContent">
 		<div class="search">
 			<form>
 				<div class="anySearch">
@@ -189,4 +191,3 @@
     })
     
 </script>
-</html>

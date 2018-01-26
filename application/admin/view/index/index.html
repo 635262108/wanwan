@@ -1,24 +1,20 @@
-{include file="public/header" /} 
-{include file="public/left" /}
-<div id="content" style="background:#F6F6F6;padding-left: 0px;">
-	
-	
-	<!--breadcrumbs-->
+{include file="public/header"/}
+{include file="public/left"/}
+<div id="content" style="background:#F6F6F6;padding-left: 0px;position: absolute;width:90%;left:220px;top: -10px;">
 	<div id="content-header">
 		<div id="breadcrumb">
 			<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i> Home</a>
 		</div>
 	</div>
-
 	<div class="sta">
 		<div class="sta_total">
 			<div class="title">
 				
 				<img src="__AIMG__/user.png" style="width: 14px;height: 16px;" /><span style="font-weight: 600;font-size: 16px;">用户:</span>
-				<span style="color:#2843a8;font-weight: 600;font-size: 16px;">{$result.user.user_num}</span>
+				<span style="color:#2843a8;font-weight:600;font-size: 16px;">{$result.user.user_num}</span>
 			</div>
 			<div id="main" style="width:180px;height: 300px;">
-
+                 
 			</div>
 			<div class="show_num">
 				<li><span></span><span>本月新增</span></li>
@@ -79,7 +75,7 @@
 			</div>
 			</div>
 			
-			<!--<div class="incomeunfold unfold">展开</div>-->
+			
 		</div>
 
 		<div class="sign">
@@ -90,56 +86,6 @@
 
 		</div>
 	</div>
-
-	<!--折线图-->
-	<!--<div class="brokenLineContent">
-		<div class="UserContainer LineContainer" style="display: none;">
-			<div>
-				<div id="monthLine" style="width:800px;height: 400px;">
-
-				</div>
-				<p>每月用户走势表</p>
-			</div>
-			<div>
-				<div id="weekLine" style="width: 400px;height: 400px;">
-
-				</div>
-				<p>每周用户走势表</p>
-			</div>
-
-		</div>
-
-		<div class="memberContainer LineContainer" style="display: none;">
-			<div>
-				<div id="monthLine1" style="width:800px;height: 400px;">
-
-				</div>
-				<p>每月用户走势表</p>
-			</div>
-			<div>
-				<div id="weekLine1" style="width: 400px;height: 400px;">
-
-				</div>
-				<p>每周用户走势表</p>
-			</div>
-
-		</div>
-		<div class="incomeContainer LineContainer" style="display: none;">
-			<div>
-				<div id="monthLine2" style="width:800px;height: 400px;">
-
-				</div>
-				<p>每月用户走势表</p>
-			</div>
-			<div>
-				<div id="weekLine2" style="width: 400px;height: 400px;">
-
-				</div>
-				<p>每周用户走势表</p>
-			</div>
-
-		</div>
-	</div>-->
 
 	<div class="indContainerContent">
 		<div class="search">
@@ -189,9 +135,9 @@
 
 	{include file="public/footer" /}
 	<script>
-		
-		$(function(){
-			var mychart = echarts.init(document.getElementById('main'));
+	$(function(){
+		$("iframe").attr({"width":"0px","height":"0px"})
+		var mychart = echarts.init(document.getElementById('main'));
 		
 		TreeViewer(mychart, {$result.user.month_user},{$result.user.week_user},{$result.user.today_user});
 		var mychart1 = echarts.init(document.getElementById('main1'));
@@ -340,4 +286,3 @@
 		})
 		
 	</script>
-</div>

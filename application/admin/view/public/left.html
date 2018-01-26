@@ -1,3 +1,35 @@
+
+<div id="header">
+	<h1></h1>
+</div>
+<div id="user-nav" class="navbar navbar-inverse" style="margin-left: 60%;">
+	<ul class="nav" style="width: auto; margin: 0px;">
+		<li class="dropdown" id="profile-messages">
+			<a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">欢迎{$Think.session.adminInfo.name}！</span><b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="#"><i class="icon-user"></i> 个人信息</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href="#"><i class="icon-check"></i> 修改密码</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href="{:url('admin/admin/login')}"><i class="icon-key"></i> 退出登录</a>
+				</li>
+			</ul>
+		</li>
+		<li class="">
+			<a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a>
+		</li>
+		<li class="">
+			<a title="" href="{:url('admin/admin/login')}"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a>
+		</li>
+	</ul>
+</div>
+
+<div class="wholePage" style="display: flex;flex-direction: row;">
 <div id="sidebar">
 	<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
 
@@ -7,13 +39,13 @@
 				<a href="{:url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a>
 			</li>
 			<li class="submenu">
-				<a href="#" class="first_li"><i class="icon-user"></i>
+				<a href="javascript:void(0)" class="first_li"><i class="icon-user"></i>
 					<span>客户</span>
 					<!--<span class="label label-important">5</span>-->
 				</a>
 			</li>
 			<li class="submenu">
-				<a href="#" class="first_li"><i class="icon icon-file"></i>
+				<a href="javascript:void(0)" class="first_li"><i class="icon icon-file"></i>
 					<span>活动</span> 
 					
 			 </a>
@@ -21,27 +53,27 @@
 			</li>
 
 			<li class="submenu">
-				<a href="#" class="first_li"><i class="icon icon-inbox"></i>
+				<a href="javascript:void(0)" class="first_li"><i class="icon icon-inbox"></i>
 					<span>订单</span>
 				 <!--<span class="label label-important">2</span>-->
 				</a>
 
 			</li>
 			<li class="submenu">
-				<a href="#" class="first_li"><i class="icon-headphones"></i>
+				<a href="javascript:void(0)" class="first_li"><i class="icon-headphones"></i>
 					<span>客服</span>
 					 <!--<span class="label label-important">1</span>-->
 				</a>
 
 			</li>
 			<li class="submenu">
-				<a href="#" class="first_li"><i class="icon-bell"></i>
+				<a href="javascript:void(0)" class="first_li"><i class="icon-bell"></i>
 					<span>系统</span>
 					<!--<span class="label label-important">3</span>-->
 				</a>
 			</li>
 			<li class="submenu">
-				<a href="#" class="first_li"><i class="icon-align-left"></i>
+				<a href="javascript:void(0)" class="first_li"><i class="icon-align-left"></i>
 					<span>统计</span>
 					<!--<span class="label label-important">1</span>-->
 				</a>
@@ -50,106 +82,45 @@
 		
 		<div class="listContent">
 			   
-			<ul style="display: none;">
-        <li><a href="{:url('admin/user/index')}">客户列表</a></li>
-        <li><a href="{:url('admin/user/recharge_policy')}">充值政策</a></li>
-        <li><a href="{:url('admin/user/attendance')}">签到概况</a></li>
-        <li><a href="{:url('admin/user/recharge_record')}">充值记录</a></li>
-        <li><a href="{:url('admin/user/deal')}">成单记录</a></li>
+		<ul style="display: none;">
+        <li><a href="{:url('admin/user/index')}"  target="iframe_a">客户列表</a></li>
+        <li><a href="{:url('admin/user/recharge_policy')}"  target="iframe_a">充值政策</a></li>
+        <li><a href="{:url('admin/user/attendance')}"  target="iframe_a">签到概况</a></li>
+        <li><a href="{:url('admin/user/recharge_record')}"  target="iframe_a">充值记录</a></li>
+        <li><a href="{:url('admin/user/deal')}"  target="iframe_a">成单记录</a></li>
       </ul>
       
       <ul style="display: none;" num>
-        <li><a href="{:url('admin/activity/index')}">活动列表</a></li>
-        <li><a href="{:url('admin/activity/specification')}">活动安排</a></li>
-        <li><a href="{:url('admin/activity/activity_type')}">活动分类</a></li>
-        <li><a href="{:url('admin/activity/extension')}">活动扩展</a></li>
-        <li><a href="{:url('admin/activity/activity_ask')}">活动提问</a></li>
-        <li><a href="{:url('admin/activity/activity_comment')}">评论列表</a></li>
-        <li><a href="{:url('admin/activity/leave_for')}">请假列表</a></li>
+        <li><a href="{:url('admin/activity/index')}"  target="iframe_a">活动列表</a></li>
+        <li><a href="{:url('admin/activity/specification')}"  target="iframe_a">活动安排</a></li>
+        <li><a href="{:url('admin/activity/activity_type')}"  target="iframe_a">活动分类</a></li>
+        <li><a href="{:url('admin/activity/extension')}"  target="iframe_a">活动扩展</a></li>
+        <li><a href="{:url('admin/activity/activity_ask')}"  target="iframe_a">活动提问</a></li>
+        <li><a href="{:url('admin/activity/activity_comment')}"  target="iframe_a">评论列表</a></li>
+        <li><a href="{:url('admin/activity/leave_for')}"  target="iframe_a">请假列表</a></li>
       </ul>
       
        <ul style="display: none;" num>
-        <li><a href="{:url('admin/order/activity_order')}">订单列表</a></li>
-        <li><a href="{:url('admin/activity/refund')}">退款列表</a></li>
+        <li><a href="{:url('admin/order/activity_order')}"  target="iframe_a">订单列表</a></li>
+        <li><a href="{:url('admin/activity/refund')}"  target="iframe_a">退款列表</a></li>
        </ul>
       
       <ul style="display: none;" num>
-              <li><a href="{:url('admin/service/index')}">回访记录</a></li>
+              <li><a href="{:url('admin/service/index')}"  target="iframe_a">回访记录</a></li>
        </ul>
       <ul style="display: none;">
-          <li><a href="{:url('admin/admin/index')}">管理员管理</a></li>
-          <li><a href="{:url('admin/admin/role')}">角色列表</a></li>
-          <li><a href="{:url('admin/admin/source_list')}">来源管理</a></li>
+          <li><a href="{:url('admin/admin/index')}"  target="iframe_a">管理员管理</a></li>
+          <li><a href="{:url('admin/admin/role')}"  target="iframe_a">角色列表</a></li>
+          <li><a href="{:url('admin/admin/source_list')}"  target="iframe_a">来源管理</a></li>
       </ul>
       
       <ul style="display: none;" num>
-          <li><a href="{:url('admin/Statistical/source')}">来源统计</a></li>
+          <li><a href="{:url('admin/Statistical/source')}"  target="iframe_a">来源统计</a></li>
       </ul>
        
 		</div>
 	</div>
-
-	<!--<ul style="display: block;">
-    <li class="active" id="index"><a href="{:url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a></li>
-    <li class="submenu"> <a href="#" class="first_li"><i class="icon-user"></i> <span>客户中心</span> <span class="label label-important">5</span></a>
-      <ul>
-        <li><a href="{:url('admin/user/index')}">客户列表</a></li>
-        <li><a href="{:url('admin/user/recharge_policy')}">充值政策</a></li>
-        <li><a href="{:url('admin/user/attendance')}">签到概况</a></li>
-        <li><a href="{:url('admin/user/recharge_record')}">充值记录</a></li>
-        <li><a href="{:url('admin/user/deal')}">成单记录</a></li>
-      </ul>
-    </li>
-    <li class="submenu"> <a href="#" class="first_li"><i class="icon icon-file"></i> <span>活动中心</span> <span class="label label-important">7</span></a>
-      <ul>
-        <li><a href="{:url('admin/activity/index')}">活动列表</a></li>
-        <li><a href="{:url('admin/activity/specification')}">活动安排</a></li>
-        <li><a href="{:url('admin/activity/activity_type')}">活动分类</a></li>
-        <li><a href="{:url('admin/activity/extension')}">活动扩展</a></li>
-        <li><a href="{:url('admin/activity/activity_ask')}">活动提问</a></li>
-        <li><a href="{:url('admin/activity/activity_comment')}">评论列表</a></li>
-        <li><a href="{:url('admin/activity/leave_for')}">请假列表</a></li>
-      </ul>
-    </li>
-
-    <li class="submenu"> 
-        <a href="#" class="first_li"><i class="icon icon-inbox"></i>
-            <span>订单中心</span>
-            <span class="label label-important">2</span>
-        </a>
-    		<ul style="display: none;">
-        <li><a href="{:url('admin/order/activity_order')}">订单列表</a></li>
-        <li><a href="{:url('admin/activity/refund')}">退款列表</a></li>
-       </ul>
-   </li>
-      <li class="submenu">
-          <a href="#" class="first_li"><i class="icon-headphones"></i>
-              <span>客服中心</span>
-              <span class="label label-important">1</span>
-          </a>
-          <ul style="display: none;">
-              <li><a href="{:url('admin/service/index')}">回访记录</a></li>
-          </ul>
-      </li>
-  <li class="submenu">
-      <a href="#" class="first_li"><i class="icon-bell"></i>
-          <span>系统中心</span>
-          <span class="label label-important">3</span>
-      </a>
-      <ul style="display: none;">
-          <li><a href="{:url('admin/admin/index')}">管理员管理</a></li>
-          <li><a href="{:url('admin/admin/role')}">角色列表</a></li>
-          <li><a href="{:url('admin/admin/source_list')}">来源管理</a></li>
-      </ul>
-  </li>
-  <li class="submenu">
-      <a href="#" class="first_li"><i class="icon-align-left"></i>
-          <span>统计中心</span>
-          <span class="label label-important">1</span>
-      </a>
-      <ul style="display: none;">
-          <li><a href="{:url('admin/Statistical/source')}">来源统计</a></li>
-      </ul>
-  </li>
-  </ul>-->
+</div>
+<iframe  name="iframe_a"  frameborder="no" width="100%" height="1200px"  scrolling="no">
+</iframe>
 </div>

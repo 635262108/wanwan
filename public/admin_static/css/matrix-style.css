@@ -292,12 +292,13 @@ hr{ border-top-color:#dadada;}
 	/*background:#F6F6F6*/
 	background: white;
 	/*background: none repeat scroll 0 0 #eeeeee;*/
-	margin-left: 220px;
+	/*margin-left: 220px;*/
 	margin-right: 0;
 	padding-bottom: 25px;
 	position: relative;
 	min-height:100%;
 	width: auto;
+	padding-top: 10px;
 }
 #content-header {
 	position: abslute;
@@ -1579,6 +1580,7 @@ body {
 }
 #content {
 	margin-top:0px;
+	
 }
 #sidebar  > .leftSide > ul > li {
 	float:none;
