@@ -25,17 +25,27 @@ class Pay extends Base
         //支付方式1：支付宝 2：微信 3：银联 4:余额
         $bank_type = input('get.bank_type');
 
-        $order = model('ActivityOrder')->get($orderId);
+        $order = model('ActivityOrder')->find($orderId);
+
+        //如果会员没选择余额支付，按原价支付
+        $userInfo = model('User')->find($uid);
+        if($userInfo['member_grade'] == 1 && $bank_type != 4){
+            $activityInfo = model('Activity')->find($order['aid']);
+            $price = $activityInfo['a_adult_price']*$order['adult_num'] + $activityInfo['a_child_price']*$order['child_num'];
+            $order->order_price = $price;
+            $order->save();
+        }
+
         if($order['uid'] != $uid){
             $this->error("无效订单");
         }
         if($bank_type == 1){
             //订单号
-            $params['out_trade_no'] = $order['order_sn'];
+            $params['out_trade_no'] = $order->order_sn;
             //订单标题
             $params['subject'] = '玩翫碗活动报名';
             //订单金额
-            $params['total_amount'] = $order['order_price'];
+            $params['total_amount'] = $order->order_price;
             \alipay\Wappay::pay($params);
         }else if($bank_type == 2){
 
