@@ -300,7 +300,7 @@ class Pay extends Base
             return $resultObj->toXml();
         }
 
-        //更新订单表,活动表,记日志
+        //更新订单表,记日志
         try{
             $data = [
                 'order_status' => 3,
@@ -308,7 +308,8 @@ class Pay extends Base
                 'pay_time' => time()
             ];
             model('ActivityOrder')->save($data,['order_sn'=>$order_sn]);
-            model('Activity')->setIncNumById($order['aid'],$order['child_num']);
+            //报名成功需要进行的操作
+            $this->signSuccessOperation($order);
 
             $logData['pay_status'] = 1;
             db('pay_log')->insert($logData);
@@ -381,7 +382,7 @@ class Pay extends Base
         $logData['content'] = '签名未通过';
         db('pay_log')->insert($logData);
 
-        //更新订单表，活动表，记录日志
+        //更新订单表，记录日志
         try{
             $data = [
                 'order_status' => 3,
@@ -390,7 +391,8 @@ class Pay extends Base
             ];
             model('ActivityOrder')->save($data,['order_sn'=>$order_sn]);
 
-            model('Activity')->setIncNumById($order['aid'],$order['child_num']);
+            //报名成功需要进行的操作
+            $this->signSuccessOperation($order);
 
             $logData['pay_status'] = 1;
             db('pay_log')->insert($logData);
@@ -402,5 +404,16 @@ class Pay extends Base
         }
 
 
+    }
+
+    //报名成功，更新活动表，安排表，发短信
+    public function signSuccessOperation($order){
+        model('Activity')->setIncNumById($order->aid,$order->child_num);
+        model('ActivityTime')->where('t_id', $order->aid)->setDec('ticket_num', $order->child_num);
+        model('ActivityTime')->where('t_id', $order->aid)->setInc('sold_num', $order->child_num);
+        $activity = model('Activity')->find($order->aid);
+        $timeInfo = model('ActivityTime')->find($order->t_id);
+        $content = "恭喜您已成功报名".$activity['a_title'].",活动地点：".$activity['a_address'].",参加时间:".$timeInfo['begin_time']."到".$timeInfo['end_time']."，大人".$order['adult_num']."个,小孩".$order['child_num']."个,请您准时参加,有问题请联系客服：400-611-2731,感谢您的支持。";
+        \Sms::single_send($order->mobile,$content);
     }
 }
