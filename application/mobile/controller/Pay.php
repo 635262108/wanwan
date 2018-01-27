@@ -27,6 +27,10 @@ class Pay extends Base
 
         $order = model('ActivityOrder')->find($orderId);
 
+        if($order['uid'] != $uid){
+            $this->error("无效订单");
+        }
+
         //支付处理过回到活动详情
         if($order->order_status != 2){
             $this->redirect('activity/detail',['aid'=>$order['aid']]);
@@ -34,15 +38,18 @@ class Pay extends Base
 
         //如果会员没选择余额支付，按原价支付
         $userInfo = model('User')->find($uid);
+        $activityInfo = model('Activity')->find($order['aid']);
         if($userInfo['member_grade'] == 1 && $bank_type != 4){
-            $activityInfo = model('Activity')->find($order['aid']);
             $price = $activityInfo['a_adult_price']*$order['adult_num'] + $activityInfo['a_child_price']*$order['child_num'];
             $order->order_price = $price;
             $order->save();
         }
 
-        if($order['uid'] != $uid){
-            $this->error("无效订单");
+        //如果会员选择余额支付但订单不是会员价，改为会员价，解决会员先不用余额支付，支付中断后在用余额支付bug
+        $price = $activityInfo['member_adult_price']*$order['adult_num'] + $activityInfo['member_child_price']*$order['child_num'];
+        if($userInfo['member_grade'] == 1 && $bank_type == 4 && $order->order_price != $price){
+            $order->order_price = $price;
+            $order->save();
         }
 
         if($bank_type == 1){
@@ -89,9 +96,16 @@ class Pay extends Base
 
         //如果会员没选择余额支付，按原价支付
         $userInfo = model('User')->find($uid);
+        $activityInfo = model('Activity')->find($order['aid']);
         if($userInfo['member_grade'] == 1 && $bank_type != 4){
-            $activityInfo = model('Activity')->find($order['aid']);
             $price = $activityInfo['a_adult_price']*$order['adult_num'] + $activityInfo['a_child_price']*$order['child_num'];
+            $order->order_price = $price;
+            $order->save();
+        }
+
+        //如果会员选择余额支付但订单不是会员价，改为会员价，解决会员先不用余额支付，支付中断后在用余额支付bug
+        $price = $activityInfo['member_adult_price']*$order['adult_num'] + $activityInfo['member_child_price']*$order['child_num'];
+        if($userInfo['member_grade'] == 1 && $bank_type == 4 && $order->order_price != $price){
             $order->order_price = $price;
             $order->save();
         }
