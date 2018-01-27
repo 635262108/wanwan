@@ -118,7 +118,7 @@ class Order extends Base
         }
         //获取活动信息
         $Activity = model('Activity');
-        $field = 'aid,a_title,a_index_img,a_address,a_begin_time,a_end_time';
+        $field = 'aid,a_title,a_img,a_address,a_begin_time,a_end_time';
         $ActivityInfo = $Activity->getIdActivity($orderInfo['aid'],$field);
         if(empty($ActivityInfo)){
             $this->error('活动结束,订单已失效');

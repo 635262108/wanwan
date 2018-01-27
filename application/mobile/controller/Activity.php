@@ -38,7 +38,7 @@ class Activity extends Base
         $titleSon = $ActivityType->getTitleSon($set);
         
         //获取字段
-    	$field = 'aid,a_index_img,a_title,a_remark,a_type,a_begin_time,a_end_time,a_address,a_child_price,a_adult_price,a_sold_num,a_num';
+    	$field = 'aid,a_img,a_title,a_remark,a_type,a_begin_time,a_end_time,a_address,a_child_price,a_adult_price,a_sold_num,a_num';
         //获取活动信息
         $Activity = model('Activity');
         $ActivityInfo = array();

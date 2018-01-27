@@ -288,6 +288,10 @@ class Pay extends Base
             $logData['pay_status'] = 1;
             db('pay_log')->insert($logData);
 
+            $resultObj->setData('return_code', 'SUCCESS');
+            $resultObj->setData('return_msg', 'OK');
+            return $resultObj->toXml();
+
         }catch (\Exception $e){
             $resultObj->setData('return_code', 'FAIL');
             $resultObj->setData('return_msg', 'error');
