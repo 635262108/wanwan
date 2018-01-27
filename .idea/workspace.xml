@@ -8,9 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Pay.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Pay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/view/pay/enter_wx_pay.html" afterPath="$PROJECT_DIR$/application/mobile/view/pay/enter_wx_pay.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,31 +64,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pay.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Pay.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="249" column="45" lean-forward="false" selection-start-line="249" selection-start-column="33" selection-end-line="249" selection-end-column="45" />
+            <state relative-caret-position="390">
+              <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding>
                 <element signature="e#40#60#0#PHP" expanded="true" />
                 <element signature="e#3027#3802#0#PHP" expanded="false" />
-                <element signature="e#3819#5601#0#PHP" expanded="false" />
-                <element signature="e#5629#7143#0#PHP" expanded="false" />
-                <element signature="e#8606#9286#0#PHP" expanded="false" />
-                <element signature="e#9305#11432#0#PHP" expanded="false" />
-                <element signature="e#11455#12219#0#PHP" expanded="false" />
-                <element signature="e#12239#13783#0#PHP" expanded="false" />
-                <element signature="e#13814#14548#0#PHP" expanded="false" />
+                <element signature="e#5587#7101#0#PHP" expanded="false" />
+                <element signature="e#11413#12177#0#PHP" expanded="false" />
+                <element signature="e#12197#13741#0#PHP" expanded="false" />
+                <element signature="e#13772#14506#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enter_wx_pay.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="enter_wx_pay.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/view/pay/enter_wx_pay.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+            <state relative-caret-position="594">
+              <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -531,12 +526,12 @@
       <workItem from="1516756573214" duration="20626000" />
       <workItem from="1516841306048" duration="30900000" />
       <workItem from="1516927417209" duration="22146000" />
-      <workItem from="1517014992153" duration="11140000" />
+      <workItem from="1517014992153" duration="11945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1539224000" />
+    <option name="totallyTimeSpent" value="1540029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -602,7 +597,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1010,29 +1005,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/pay/enter_wx_pay.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="249" column="45" lean-forward="false" selection-start-line="249" selection-start-column="33" selection-end-line="249" selection-end-column="45" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-            <element signature="e#3027#3802#0#PHP" expanded="false" />
-            <element signature="e#3819#5601#0#PHP" expanded="false" />
-            <element signature="e#5629#7143#0#PHP" expanded="false" />
-            <element signature="e#8606#9286#0#PHP" expanded="false" />
-            <element signature="e#9305#11432#0#PHP" expanded="false" />
-            <element signature="e#11455#12219#0#PHP" expanded="false" />
-            <element signature="e#12239#13783#0#PHP" expanded="false" />
-            <element signature="e#13814#14548#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="594">
+          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/pay/enter_wx_pay.html">
+    <entry file="file://$PROJECT_DIR$/application/mobile/controller/Pay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding />
+        <state relative-caret-position="390">
+          <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
+            <element signature="e#3027#3802#0#PHP" expanded="false" />
+            <element signature="e#5587#7101#0#PHP" expanded="false" />
+            <element signature="e#11413#12177#0#PHP" expanded="false" />
+            <element signature="e#12197#13741#0#PHP" expanded="false" />
+            <element signature="e#13772#14506#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

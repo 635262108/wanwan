@@ -172,8 +172,8 @@ class Pay extends Base
 
         //修改成功，进入报名成功界面
         if($res) {
-//            $this->sendMobileMsg($orderInfo['order_sn']);
-//            $this->setActivityNum($orderInfo['order_sn']);
+            //报名成功需要进行的操作
+            $this->signSuccessOperation($orderInfo);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$orderInfo);
             $this->assign('title','报名成功');
