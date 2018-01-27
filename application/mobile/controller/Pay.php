@@ -27,6 +27,11 @@ class Pay extends Base
 
         $order = model('ActivityOrder')->find($orderId);
 
+        //支付处理过回到活动详情
+        if($order->order_status != 2){
+            $this->redirect('activity/detail',['aid'=>$order['aid']]);
+        }
+
         //如果会员没选择余额支付，按原价支付
         $userInfo = model('User')->find($uid);
         if($userInfo['member_grade'] == 1 && $bank_type != 4){
@@ -39,6 +44,7 @@ class Pay extends Base
         if($order['uid'] != $uid){
             $this->error("无效订单");
         }
+
         if($bank_type == 1){
             //订单号
             $params['out_trade_no'] = $order->order_sn;
@@ -71,20 +77,29 @@ class Pay extends Base
         $bank_type = input('get.bank_type');
 
         //检查订单
-        $orderInfo = model('ActivityOrder')->get($orderId);
-        if(empty($orderInfo) || $uid != $orderInfo['uid']){
+        $order = model('ActivityOrder')->get($orderId);
+        if(empty($order) || $uid != $order['uid']){
             $this->error('订单错误');
         }
 
         //支付处理过回到活动详情
-        if($orderInfo->order_status != 2){
-            $this->redirect('activity/detail',['aid'=>$orderInfo['aid']]);
+        if($order->order_status != 2){
+            $this->redirect('activity/detail',['aid'=>$order['aid']]);
+        }
+
+        //如果会员没选择余额支付，按原价支付
+        $userInfo = model('User')->find($uid);
+        if($userInfo['member_grade'] == 1 && $bank_type != 4){
+            $activityInfo = model('Activity')->find($order['aid']);
+            $price = $activityInfo['a_adult_price']*$order['adult_num'] + $activityInfo['a_child_price']*$order['child_num'];
+            $order->order_price = $price;
+            $order->save();
         }
 
         if($bank_type == 2){
-            $this->redirect('activity/wx_browser_pay');
+            $this->redirect('pay/wxJsPay',['orderId'=>$orderId]);
         }elseif($bank_type = 4) {
-            return $this->balance_pay($uid,$orderId);
+            $this->redirect('pay/balance_pay',['orderId'=>$orderId]);
         }
     }
 
@@ -200,11 +215,10 @@ class Pay extends Base
     //微信js支付
     public function wxJsPay($orderId){
         $uid = session('userInfo.uid');
-        $order  = model('ActivityOrder')->get($orderId);
 
         //检查订单
-        $orderInfo = model('ActivityOrder')->get($orderId);
-        if(empty($orderInfo) || $uid != $orderInfo['uid']){
+        $order  = model('ActivityOrder')->get($orderId);
+        if(empty($order) || $uid != $order['uid']){
             $this->error('订单错误');
         }
         //获取用户openid
@@ -221,7 +235,7 @@ class Pay extends Base
         $input->setTimeStart(date("YmdHis"));   //生成时间
         $input->setTradeType("JSAPI");
         $input->setOpenid($openId);
-        $input->setNotifyUrl("http://www.baobaowaner.com/mobile/Activity/notify/id/".$orderId); //设置回调地址
+        $input->setNotifyUrl("http://test.baobaowaner.com/mobile/pay/wx_notify/orderId/".$orderId); //设置回调地址
         $orders = WxPayApi::unifiedOrder($input);
         //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
         if(isset($orders['err_code'])){
@@ -231,7 +245,7 @@ class Pay extends Base
             }
         }
         $jsApiParameters = $tools->getJsApiParameters($orders);
-        $this->assign('order_sn',$orderId);
+        $this->assign('orderId',$orderId);
         $this->assign('jsApiParameters', $jsApiParameters);
         return $this->fetch('pay/enter_wx_pay');
     }
