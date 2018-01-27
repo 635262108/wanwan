@@ -153,6 +153,11 @@ class Activity extends Model
         ];
         return $this->where($map)->limit("0,10")->order($order)->select();
     }
+
+    //根据id增加参加数量
+    public function setIncNumById($aid,$num){
+        return $this->where(['aid' => $aid])->setInc('a_num', $num);
+    }
     
 
 }

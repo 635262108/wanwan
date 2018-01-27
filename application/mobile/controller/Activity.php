@@ -451,31 +451,6 @@ class Activity extends Base
         }
     }
     
-    //支付宝支付跳转
-    public function ali_pay_url(){
-        //本站订单号
-        $out_trade_no = input('get.out_trade_no');
-        //支付宝订单号
-        $trade_no = input('get.trade_no');
-        
-        //获取活动信息
-        $activityOrder = model('ActivityOrder');
-        $order = $activityOrder->getSnOrderInfo($out_trade_no);
-        if(!isset($order)){
-            $this->error('参数错误');
-        }
-        $result = \alipay\Query::exec($trade_no);
-        if($result['trade_status'] == 'TRADE_SUCCESS'){
-            $this->setActivityNum($order['order_sn']);
-            $this->sendMobileMsg($order['order_sn']);
-            $this->assign('title','支付成功');
-            $this->assign('order',$order);
-            return $this->fetch('activity/pay_success');
-        }else{
-            $this->error('支付失败,有疑问请联系客服');
-        }
-    }
-    
     //活动收藏
     public function collection(){
         //检测是否为ajax请求

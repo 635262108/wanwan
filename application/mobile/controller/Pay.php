@@ -236,6 +236,30 @@ class Pay extends Base
         return $this->fetch('pay/enter_wx_pay');
     }
 
+    //微信支付返回url
+    public function pay_success($orderId){
+        $orderInfo = model('ActivityOrder')->find($orderId);
+        $activityInfo = model('Activity')->find($orderInfo['aid']);
+
+        //延迟三秒，等待微信支付流程结束，时间原因，暂时这样，体验不好，以后优化
+        usleep(3000000);
+
+        //查询订单
+        $notify = new PayNotifyCallBack();
+        $notify->handle(true);
+        $result = $notify->queryTradeOrder($orderInfo['order_sn']);
+        if($result){
+            $this->assign('activityInfo',$activityInfo);
+            $this->assign('orderInfo',$orderInfo);
+            $this->assign('title','报名成功');
+            return $this->fetch();
+        }else{
+            $this->error('支付失败,有疑问请联系客服');
+        }
+
+
+    }
+
     //微信支付回调
     public function wx_notify(){
         $weixinData = file_get_contents("php://input");
@@ -276,7 +300,7 @@ class Pay extends Base
             return $resultObj->toXml();
         }
 
-        //更新订单表,记日志
+        //更新订单表,活动表,记日志
         try{
             $data = [
                 'order_status' => 3,
@@ -284,6 +308,7 @@ class Pay extends Base
                 'pay_time' => time()
             ];
             model('ActivityOrder')->save($data,['order_sn'=>$order_sn]);
+            model('Activity')->setIncNumById($order['aid'],$order['child_num']);
 
             $logData['pay_status'] = 1;
             db('pay_log')->insert($logData);
@@ -299,25 +324,81 @@ class Pay extends Base
         }
     }
 
-    //报名成功
-    public function pay_success($orderId){
-        $orderInfo = model('ActivityOrder')->find($orderId);
-        $activityInfo = model('Activity')->find($orderInfo['aid']);
+    //支付宝支付返回url
+    public function ali_pay_url(){
+        //本站订单号
+        $out_trade_no = input('get.out_trade_no');
+        //支付宝订单号
+        $trade_no = input('get.trade_no');
 
-        //延迟三秒，等待微信支付流程结束，时间原因，暂时这样，体验不好，以后优化
-        usleep(3000000);
-
-        //查询订单
-        $notify = new PayNotifyCallBack();
-        $notify->handle(true);
-        $result = $notify->queryTradeOrder($orderInfo['order_sn']);
-        if($result){
+        //获取信息
+        $order = model('ActivityOrder')->getSnOrderInfo($out_trade_no);
+        $activityInfo = model('Activity')->find($order['aid']);
+        if(empty($order)){
+            $this->error('参数错误');
+        }
+        $result = \alipay\Query::exec($trade_no);
+        if($result['trade_status'] == 'TRADE_SUCCESS'){
             $this->assign('activityInfo',$activityInfo);
-            $this->assign('orderInfo',$orderInfo);
-            $this->assign('title','报名成功');
-            return $this->fetch();
+            $this->assign('orderInfo',$order);
+            $this->assign('title','支付成功');
+            return $this->fetch('activity/pay_success');
         }else{
             $this->error('支付失败,有疑问请联系客服');
+        }
+    }
+
+    //支付宝支付回调
+    public function alipay_notify(){
+        $params = input('post.');
+        $order_sn = $params['out_trade_no'];
+
+        //定义日志信息
+        $logData = [
+            'pay_way' => 1,
+            'pay_status' => 0,
+            'order_sn' => $order_sn,
+            'content' => json_encode($params),
+            'addtime' => time()
+        ];
+
+        //验签
+        $check_sign = \alipay\Notify::checkSign($params);
+        if(!$check_sign){
+            $logData['content'] = '签名未通过';
+            db('pay_log')->insert($logData);
+            exit('failure');
+        }
+
+        //获取订单信息
+        $order = model('ActivityOrder')->getSnOrderInfo($order_sn);
+        if(empty($order) && $order['order_price'] != $params['total_amount']){
+            $logData['content'] = '订单信息不正确';
+            db('pay_log')->insert($logData);
+            exit('failure');
+        }
+
+        $logData['content'] = '签名未通过';
+        db('pay_log')->insert($logData);
+
+        //更新订单表，活动表，记录日志
+        try{
+            $data = [
+                'order_status' => 3,
+                'pay_way' => 2,
+                'pay_time' => time()
+            ];
+            model('ActivityOrder')->save($data,['order_sn'=>$order_sn]);
+
+            model('Activity')->setIncNumById($order['aid'],$order['child_num']);
+
+            $logData['pay_status'] = 1;
+            db('pay_log')->insert($logData);
+            exit('success');
+        }catch (\Exception $e){
+            $logData['content'] = '记录失败';
+            db('pay_log')->insert($logData);
+            exit('failure');
         }
 
 
