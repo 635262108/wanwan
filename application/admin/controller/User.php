@@ -31,6 +31,8 @@ class User extends Base
         $data['mobile'] != '' ? $map['mobile'] = ['like',$data['mobile']."%"] : false;
         $data['nickname'] != '' ? $map['nickname'] = $data['nickname'] : false;
 
+        $order_str = "`{$data['orderby1']}` {$data['orderby2']}";
+
         //按孩子姓名搜索
         if($data['childName'] != ''){
             $childInfo = model('UserChild')->getChildNameData($data['childName']);
@@ -49,7 +51,7 @@ class User extends Base
             ->join('mfw_source s','u.source=s.id')
             ->whereTime('reg_time',$reg_time)
             ->where($map)
-            ->order('uid desc')
+            ->order($order_str)
             ->paginate(10);
 
         $page = $userInfo->render();

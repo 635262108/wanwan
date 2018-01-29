@@ -60,7 +60,7 @@ class Activity extends Model
 	* 获取推荐活动
     */
     public function getRecommendInfo(){
-    	$field = 'aid,a_index_img,a_child_price,a_adult_price,a_title';
+    	$field = 'aid,a_img,a_child_price,a_adult_price,a_title';
     	$map['a_is_recommend'] = 1;
     	$data = $this->where($map)->field($field)->select();
     	return $data;
@@ -152,6 +152,11 @@ class Activity extends Model
             'a_is_recommend' => 1
         ];
         return $this->where($map)->limit("0,10")->order($order)->select();
+    }
+
+    //根据id增加参加数量
+    public function setIncNumById($aid,$num){
+        return $this->where(['aid' => $aid])->setInc('a_num', $num);
     }
     
 

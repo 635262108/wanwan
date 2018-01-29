@@ -32,7 +32,7 @@ class Activity extends Base
         $titleSon = $ActivityType->getTitleSon($set);
         
         //获取字段
-    	$field = 'aid,a_index_img,a_title,a_remark,a_type';
+    	$field = 'aid,a_img,a_title,a_remark,a_type';
         //获取活动信息
         $Activity = model('Activity');
         $ActivityInfo = array();
@@ -135,7 +135,7 @@ class Activity extends Base
         }
         //检查活动名额
         $Activity = model('Activity');
-        $ActivityInfo = $Activity->getIdActivity($aid,'aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img,a_adult_price,a_child_price');
+        $ActivityInfo = $Activity->getIdActivity($aid,'aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_img,a_adult_price,a_child_price');
         //获取活动时间
         $ActivityTime = model('ActivityTime');
         $timeInfo = $ActivityTime->getAnyTime($time);
@@ -200,7 +200,7 @@ class Activity extends Base
             }
             //获取活动信息
             $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_index_img');
+            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_sign_begin_time,a_sign_end_time,a_num,a_img');
             //免费活动time字段必须传
             if($activityInfo['a_adult_price']+$activityInfo['a_child_price'] == 0){
                 if(!isset($time)){
@@ -277,7 +277,7 @@ class Activity extends Base
             //获取活动信息
             $aid = $order_info['aid'];
             $Activity = model('Activity');
-            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_begin_time,a_end_time,a_num,a_index_img');
+            $activityInfo = $Activity->getIdActivity($aid,'a_adult_price,a_child_price,aid,a_title,a_begin_time,a_end_time,a_num,a_img');
         
             $this->assign('adult_num',$order_info['adult_num']);
             $this->assign('child_num',$order_info['child_num']);
@@ -544,7 +544,7 @@ class Activity extends Base
             $this->error('未付款,如有疑问请联系客服');
         }
         $aid = $order['aid'];
-        $activityInfo = model('Activity')->getIdActivity($aid,'a_title,a_sign_begin_time,a_sign_end_time,a_index_img');
+        $activityInfo = model('Activity')->getIdActivity($aid,'a_title,a_sign_begin_time,a_sign_end_time,a_img');
 
         $this->assign('order',$order);
         $this->assign('activityInfo',$activityInfo);
