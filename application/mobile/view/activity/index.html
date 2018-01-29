@@ -2,19 +2,19 @@
 <!--玩宝总体内容部分-->
 <div class="playBaby_content almost">
     <div class="content">
-        <div class="baby_img">
-            <img src="{$titleInfo.logo}" />
-        </div>
-        <div class="baby_detail">
-           {$titleInfo.introduce}
-        </div>
+	        <div class="baby_img">
+	            <img src="{$titleInfo.logo}" />
+	        </div>
+	        <div class="baby_detail">
+	           {$titleInfo.introduce}
+	        </div>
     </div>
 </div>
 <!--五官-->
 
     <div class="second_title">
     	<ul>
-    		{foreach name="titleSon" item="vo"}
+    		 {foreach name="titleSon" item="vo"}
     		 <li>{$vo.name}</li>
     		 {/foreach}
     	</ul>
@@ -77,17 +77,14 @@
             {/foreach}
             <div class="no_style" style="display:none;margin-top:88px;" id="new_no">
             	 <div><img src="__MobileImg__/no_activity.png"></div>
-                <div style="color: #8A8A8A;">活动暂时休息一会儿噢~</div>
+                 <div style="color: #8A8A8A;">活动暂时休息一会儿噢~</div>
                  <!--<div><a href="javascript:;" style="color: #FF4134;">快去看看吧</a></div>-->
             </div>
         </div>
         
    </div>
 {/foreach}
-
 </div>
-
-
 </body>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script src="__MobileJs__/idangerous.swiper.min.js"></script>

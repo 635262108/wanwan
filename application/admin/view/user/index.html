@@ -213,7 +213,9 @@
 
     });
 //
-$(".shai li,.memberSearch button,.pagination a").live("click",function(){
+
+var Uidsort=true;
+$(".shai li,.memberSearch button,.pagination a,.userId").live("click",function(){
 			var cur_page = $(this).data('p');
 			var data = {
         "page" : cur_page,
@@ -222,7 +224,9 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 				'is_member' : '',
 				'mobile':'',
 				'nickname':'',
-				'childName':''
+				'childName':'',
+				'orderby1':'',
+				'orderby2':''
 			}
 			var c;//标记
 			var name; //名称
@@ -232,6 +236,19 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 		 	var is_member;//是否为会员
 		 	var search= $(".memberSearch select").val();
     	var search_text = $(".memberSearch input").val();
+    	if($(this).attr("class")=="userId"){
+    		    data.orderby1="uid";
+    		    if(Uidsort){
+    		    	  data.orderby2="asc";
+    		    	  Uidsort=false;
+    		    }
+    		    else{
+    		    	 data.orderby2="desc";
+    		    	 Uidsort=true;
+    		    }
+    		    
+    		    
+    	}
 		 
 		 if($(this).attr("data-c") == 1){
 				$(this).removeAttr("style")
@@ -242,7 +259,7 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 				$(this).siblings().removeAttr("style");
 				$(this).siblings().removeAttr("data-c");
 		 }
-		 
+//		 
 		 $(".shai li").each(function(){
 		
 		    c = $(this).attr('data-c');
@@ -260,12 +277,12 @@ $(".shai li,.memberSearch button,.pagination a").live("click",function(){
 		    	}
 		    }
 
-		 });
+		 })
 		 
 		 //定义搜索条件，1手机号，2大人姓名，3小孩姓名
     	if(search == 1){
     		data.mobile = search_text
-    	}
+    	}                               
     	else if (search == 2){
     		data.nickname = search_text
     	}
