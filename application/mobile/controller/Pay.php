@@ -249,7 +249,7 @@ class Pay extends Base
         $input->setTimeStart(date("YmdHis"));   //生成时间
         $input->setTradeType("JSAPI");
         $input->setOpenid($openId);
-        $input->setNotifyUrl("http://test.baobaowaner.com/mobile/pay/wx_notify/orderId/".$orderId); //设置回调地址
+        $input->setNotifyUrl("http://test.baobaowaner.com/mobile/pay/wx_notify/"); //设置回调地址
         $orders = WxPayApi::unifiedOrder($input);
         //订单失败是因为商户订单号重复，浏览器终止支付的订单再次使用微信公众号js支付会报订单号重复错误，暂时先让用户重新下单
         if(isset($orders['err_code'])){
