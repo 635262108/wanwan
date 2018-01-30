@@ -357,15 +357,13 @@
 	box-shadow: 0px 1px 1px #CCCCCC;
 	width: 100%;
 	padding-top: 12px;
-	padding-left: 6%;
+	padding-left: 5%;
 	padding-bottom: 4%;
 	box-sizing: border-box;
 	margin: 10px auto;
 	display: flex;
 	flex-direction: column;
-	/*flex-direction: row;*/
 	position: relative;
-	/*border: 1px solid red;*/
 
 }
 .five_organs .play_baoContent .playBao_part .sign_num{
@@ -412,8 +410,9 @@
 
 
 .five_organs .play_baoContent .playBao_part .bao_img {
-	width: 93%;
+	width: 94.5%;
 	height: 160px;
+	/*border: 1px solid red;*/
 	
 }
 .five_organs .play_baoContent .playBao_part .sold_num{
@@ -430,6 +429,7 @@
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 	background:#ebeaea;
+	/*border: 1px solid red;*/
 }
 .five_organs .play_baoContent .playBao_part .bao_img img {
 	width: 100%;
@@ -437,7 +437,8 @@
 }
 
 .five_organs .play_baoContent .playBao_part .bao_content {
-	width: 98%;
+	width: 94.5%;
+	/*border: 1px solid red;*/
 }
 .five_organs .play_baoContent .playBao_part .bao_content .content_bottom{
 	display: flex;
