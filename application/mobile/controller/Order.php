@@ -45,10 +45,12 @@ class Order extends Base
             $map = [
                 'uid' => $uid,
                 'aid' => $aid,
+                'order_status'=> array('neq',3)
             ];
             $check_activity = model('ActivityOrder')->where($map)->order('order_id desc')->find();
             $check_time = $ActivityTime->getAnyTime($check_activity['t_id']);
-            if(!empty($check_activity) & $check_time['is_display'] == 1){
+
+            if(!empty($check_activity) &&  $check_time['is_display'] == 1){
                 $this->error('名额有限，不能重复报名噢');
             }
         }
@@ -98,12 +100,32 @@ class Order extends Base
             //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
             $this->sendMobileMsg($add_order_data['order_sn']);
             $this->setActivityNum($add_order_data['order_sn']);
+            $add_order_data['order_id'] = $orderId;
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
             $this->assign('orderInfo',$add_order_data);
             $this->assign('title','报名成功');
-            return $this->fetch('activity/pay_success');
+            return $this->fetch('pay/pay_success');
         }
+    }
+
+    //交易成功,给用户手机号发送一条短信
+    public function sendMobileMsg($order_sn){
+        $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
+        $activity = model('Activity')->find($orderInfo['aid']);
+        $timeInfo = model('ActivityTime')->find($orderInfo['t_id']);
+        $content = "恭喜您已成功报名".$activity['a_title'].",活动地点：".$activity['a_address'].",参加时间:".$timeInfo['begin_time']."到".$timeInfo['end_time']."，大人".$orderInfo['adult_num']."个,小孩".$orderInfo['child_num']."个,请您准时参加,有问题请联系客服：400-611-2731,感谢您的支持。";
+        sendSMS($orderInfo['mobile'],$content);
+    }
+
+    //交易成功，减少报名名额
+    public function setActivityNum($order_sn){
+        $orderInfo = model('ActivityOrder')->where('order_sn',$order_sn)->find();
+        //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
+        model('activity')->where('aid', $orderInfo['aid'])->setDec('a_num', $orderInfo['child_num']);
+        model('activity')->where('aid', $orderInfo['aid'])->setInc('a_sold_num', $orderInfo['child_num']);
+        model('ActivityTime')->where('t_id', $orderInfo['t_id'])->setDec('ticket_num', $orderInfo['child_num']);
+        model('ActivityTime')->where('t_id', $orderInfo['t_id'])->setInc('sold_num', $orderInfo['child_num']);
     }
 
     //查看订单详情
