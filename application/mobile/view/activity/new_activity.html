@@ -95,7 +95,14 @@
 						<li>活动地点:<span>{$vo.a_address}</span></li>
 
 					</ul>
-					<div class="content_bottom"><span>￥{$vo.a_adult_price+$vo.a_child_price}</span>
+					<div class="content_bottom"><span>
+						￥
+						{if condition="$vo.a_adult_price+$vo.a_child_price eq 0"}
+							免费
+						{else/}
+							{$vo.a_adult_price+$vo.a_child_price}
+						{/if}
+						</span>
 						<a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}">点我报名>></a>
 					</div>
 				</div>
