@@ -2130,8 +2130,9 @@ div.dataTables_wrapper .ui-widget-header {
 	cursor: pointer;
 	height: 17px;
 	line-height: 17px;
-	margin-right: 25px;
+	margin-right: 16px;
 	position: relative;
+	white-space: nowrap;
 }
 .pai_contents .shai div ul li input{
 	position: absolute;

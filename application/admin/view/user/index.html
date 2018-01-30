@@ -22,6 +22,9 @@
 				justify-content: flex-end;
 
 		}
+		table tr th{
+			cursor: pointer;
+		}
 	  
 </style>
 
@@ -79,8 +82,7 @@
 									   	   <option selected="selected" value="1">手机号</option>
 									   	   <option value="2">大人姓名</option>
 									   	   <option value="3">小孩姓名</option>
-									   	  
-							     </select>
+								 </select>
 									   <input type="text" />
 									   <button >搜索</button>
 	            		</div>
@@ -138,18 +140,15 @@
 					<li><span>会员生日</span><span class="birthday"></span></li>
 					<li><span>会员邮箱</span><span class="email"></span></li>
 					<li><span>会员爱好</span><span class="hobby"></span></li>
-
 				</ul>
 			</div>
 			<div class="child_information" style="display: none;">
 			</div>
 		</div>
-
-	</div>
-
+  </div>
 </div>
 
-<div class="modal_addsecondBox" style="display: none;">
+<div class="modal_addsecondBox" style="display:none;">
 	<div class="second_modal">
 		<div class="second_cancel">X</div>
 		<div class="uid" style="display:none;"></div>
@@ -193,29 +192,35 @@
 </html>
 
 <script>
-
     $(document).ready(function() {
         var data = {
-     
         "page" : 1,
 				"add" : '',
 				"address" : '',
 				'is_member' : '',
 				'mobile':'',
 				'nickname':'',
-				'childName':''
+				'childName':'',
+				'orderby1':'uid',
+				'orderby2':'desc'
 			}
         $.get("/abab.php/user/ajax_user_index", data,
             function(data){
          
                $("#con").html(data);
-         });
+        });
 
     });
 //
 
 var Uidsort=true;
-$(".shai li,.memberSearch button,.pagination a,.userId").live("click",function(){
+var nickNameSort=true;
+var mobileSort=true;
+var gradeSort=true;
+var timeSort=true;
+var balanceSort=true;
+var sourceSort=true;
+$(".shai li,.memberSearch button,.pagination a,.userId,.nickName,.mobile,.member_grade,.reg_time,.balance,.source").live("click",function(){
 			var cur_page = $(this).data('p');
 			var data = {
         "page" : cur_page,
@@ -225,8 +230,8 @@ $(".shai li,.memberSearch button,.pagination a,.userId").live("click",function()
 				'mobile':'',
 				'nickname':'',
 				'childName':'',
-				'orderby1':'',
-				'orderby2':''
+				'orderby1':'uid',
+				'orderby2':'desc'
 			}
 			var c;//标记
 			var name; //名称
@@ -236,6 +241,7 @@ $(".shai li,.memberSearch button,.pagination a,.userId").live("click",function()
 		 	var is_member;//是否为会员
 		 	var search= $(".memberSearch select").val();
     	var search_text = $(".memberSearch input").val();
+
     	if($(this).attr("class")=="userId"){
     		    data.orderby1="uid";
     		    if(Uidsort){
@@ -249,6 +255,79 @@ $(".shai li,.memberSearch button,.pagination a,.userId").live("click",function()
     		    
     		    
     	}
+
+    	if($(this).attr("class")=="nickName"){
+    		   data.orderby1="nickname";
+    		  if(nickNameSort){
+    		  	  data.orderby2="asc";
+    		  	  nickNameSort=false;
+    		  }
+    		  else{
+    		  	  data.orderby2="desc";
+    		  	  nickNameSort=true;
+    		  }
+    	}
+    	
+
+    	if($(this).attr("class")=="mobile"){
+    		   data.orderby1="mobile";
+    		   if(mobileSort){
+    		   	data.orderby2="asc";
+    		   	mobileSort=false;
+    		   }
+    		   else{
+    		   	  data.orderby2="desc";
+    		   	  mobileSort=true;
+    		   }
+    	}
+
+    if($(this).attr("class")=="member_grade"){
+    	   data.orderby1="member_grade";
+    	   if(gradeSort){
+    	   	  data.orderby2="asc";
+    	   	  gradeSort=false;
+    	   }
+    	   else{
+    	   	  data.orderby2="desc";
+    		   	gradeSort=true;
+    	   }
+    }
+    
+    if($(this).attr("class")=="reg_time"){
+    	  data.orderby1="reg_time";
+    	  if(timeSort){
+    	  	data.orderby2="asc";
+    	  	timeSort=false;
+    	  }
+    	  else{
+    	  	data.orderby2="desc";
+    	  	timeSort=true;
+    	  }
+    }
+    
+    if($(this).attr("class")=="balance"){
+    	  data.orderby1="balance";
+    	  if(balanceSort){
+    	  	data.orderby2="asc";
+    	  	balanceSort=false;
+    	  }
+    	  else{
+    	  	data.orderby2="desc";
+    	  	balanceSort=true;
+    	  }
+    }
+    
+    if($(this).attr("class")=="source"){
+    	  data.orderby1="source";
+    	  if(sourceSort){
+    	  	data.orderby2="asc";
+    	  	sourceSort=false;
+    	  }
+    	  else{
+    	  	data.orderby2="desc";
+    	  	sourceSort=true;
+    	  }
+    }
 		 
 		 if($(this).attr("data-c") == 1){
 				$(this).removeAttr("style")
@@ -292,9 +371,21 @@ $(".shai li,.memberSearch button,.pagination a,.userId").live("click",function()
 		 
 		 $.get("/abab.php/user/ajax_user_index", data,
         function(data){
-            $("#con").html(data);
-        });
+          $("#con").html(data);
+     });
 })
+
+
+//实现
+//$(".clickTr").live("click",function(){
+//	     console.log(6666);
+//	   if($(this).children().attr("class")=="userId"){
+//	   	   console.log(1);
+//	   }
+//	   if($(this).children().attr("class")=="nickName"){
+//	   	   console.log(2);
+//	   }
+//})
 
 
 </script>
