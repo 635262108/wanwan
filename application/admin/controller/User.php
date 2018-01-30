@@ -268,7 +268,7 @@ class User extends Base
         $map['aid'] = $aid;
         $map['t_id'] = $tid;
         $map['order_status'] = array('neq',2);
-        $field = 'order_id,o.name username,o.mobile,u.uid,adult_num,child_num,sign_time,o.source,s.name,order_status,u.label';
+        $field = 'order_id,o.name username,o.order_price,o.mobile,u.uid,adult_num,child_num,sign_time,o.source,s.name,order_status,u.label';
         $orderInfo = $ActivityOrder->getSignDetail($map,$field);
 
         //获取小孩姓名，便于工作人员查看

@@ -66,6 +66,7 @@
                   <th>小孩</th>
                   <th>签到时间</th>
                   <th>状态</th>
+                  <th>实付金额</th>
                   <th>报名渠道</th>
                   <th>操作</th>
            </tr>
@@ -93,6 +94,7 @@
                   <td>
                       {$vo.order_status|getOrderStatus}
                   </td>
+                  <td>{$vo.order_price}</td>
                   <td>{$vo.name}</td>
                   <td class="orderStatus">
                       {if condition='$vo.order_status eq 7'}
