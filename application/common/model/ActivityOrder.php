@@ -149,7 +149,10 @@ class ActivityOrder extends Model
      * @param type $uid
      */
     public function getMyOrder($uid){
-        $map['uid'] = $uid;
+        $map = [
+            'uid' => $uid,
+            'o.order_id' => array('gt',4850) //已此id为界限，之前的数据手动录入，不准确，不展示给用户
+        ];
         $field = 'o.*,a.aid,a.a_img,a.a_title,a.a_begin_time,a.a_end_time';
         $data = $this->alias('o')->field($field)->join('mfw_activity a','o.aid=a.aid ')->where($map)->order('o.order_id desc')->select();
         return $data;

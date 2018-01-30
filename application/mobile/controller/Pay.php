@@ -157,6 +157,15 @@ class Pay extends Base
             $this->error('余额不足，可以去会员中心进行充值哦');
         }
 
+
+        try{
+            //扣费
+            $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
+            $userInfo->save();
+        } catch (\Exception $e){
+            $this->error('数据异常');
+        }
+
         //记账
         $add_detail = [
             'uid' => $uid,
@@ -166,14 +175,7 @@ class Pay extends Base
             'addtime' => time(),
             'remark'  => "参加".$ActivityInfo['a_title']."活动",
         ];
-        try{
-            model('UserDetail')->insert($add_detail);
-        } catch (\Exception $e){
-            $this->error('数据异常');
-        }
-        //扣费
-        $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
-        $userInfo->save();
+        $res1 = model('UserDetail')->insert($add_detail);
 
         //更改订单状态
         $data = [
@@ -182,10 +184,10 @@ class Pay extends Base
             'pay_time'  => time(),
         ];
 
-        $res = model('ActivityOrder')->save($data,['order_id'=>$orderId]);
+        $res2 = model('ActivityOrder')->save($data,['order_id'=>$orderId]);
 
         //修改成功，进入报名成功界面
-        if($res) {
+        if($res1 && $res2) {
             //报名成功需要进行的操作
             $this->signSuccessOperation($orderInfo);
             $this->assign('activityInfo',$ActivityInfo);

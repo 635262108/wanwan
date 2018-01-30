@@ -5,6 +5,17 @@ use think\Controller;
 class Base extends Controller
 {
     public function _initialize() {
+        //是否维护
+        if(config('maintenance')){
+            $arrayIp = [
+                '127.0.0.1',
+                '1.192.241.219'
+            ];
+           $ip = request()->ip();
+           if(!in_array($ip,$arrayIp)){
+                $this->error('系统维护中...请稍后访问');
+           }
+        }
         $this->public_assign();
     }
     /**
