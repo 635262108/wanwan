@@ -121,18 +121,27 @@
 		</div>
 	</div>
 </div>
-<iframe  name="iframe_a"  frameborder="no" width="100%" height="1400px"  scrolling="yes" id="iframe">
+<iframe  name="iframe_a"  frameborder="no" width="100%" height="1600px" scrolling="no" id="iframe">
 </iframe>
 </div>
-<!--<script>
+<script>
+	
 	var iframeUrl=JSON.stringify(localStorage.getItem('Url'));
+	var iframeUrl_new=localStorage.getItem('Url');
 	var index=localStorage.getItem('ulIndex');
 	 window.onload=function(){
 	 	var sideLis=$(".leftSide>ul").find(".submenu");
-	 	$("iframe").attr({"width":"100%","height":"1400px","src":localStorage.getItem('Url')});
+	 	if(iframeUrl_new!="/abab.php/index/index.html"){
+	 	$("iframe").attr({"width":"100%","height":"1600px","src":localStorage.getItem('Url')});
     	$(".wholePage").siblings("#content").hide();
     	$(".listContent a[href="+iframeUrl+"]").parent().parent().show();
     	$(".listContent a[href="+iframeUrl+"]").addClass("active").siblings().removeClass("active")
       	sideLis.eq(index-1).addClass("active").siblings().removeClass("active");
-    }
-</script>-->
+	 	}
+	 	else{
+	 	  $("#iframe").attr({"width":"0px","height":"0px"})
+	 	  $(".wholePage").siblings("#content").show();
+	 	}
+	 	
+  }
+</script>

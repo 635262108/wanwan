@@ -1003,6 +1003,8 @@ particularslis.on("click",function(){
     var str='';
     if($(this).hasClass("active")){
     	$(this).removeClass("active");
+    	console.log($(".activityRecord .data-table").attr("style"),'活动记录的宽度')
+//  	$(".activityRecord .data-table").attr("style","width: 100%;")
      $.post('/api/user/getAnyUserConsumption',{uid:uId,type:''
 		
 	},function(obj){
@@ -1025,7 +1027,8 @@ particularslis.on("click",function(){
 			Table.fnClearTable();
 			Table.fnDestroy();
 			$(".detailTable").html(str);
-			$(".data-table").attr("style","width: 100%;")
+			
+			
 		    Table=$('.data-table').dataTable({
 			    "bDestroy":true,
 				"bJQueryUI": true,
@@ -1038,14 +1041,16 @@ particularslis.on("click",function(){
 				"bAutoWidth":true
 			});
 			
-
+           $(".data-table").attr("style","width:100%;");
 			
 			
 		}
 	})
     }
     else{
-    	$(this).addClass("active").siblings().removeClass("active");
+    	  $(this).addClass("active").siblings().removeClass("active");
+    	  console.log($(".activityRecord .data-table").attr("style"),'活动记录的宽度1')
+//  	  $(".activityRecord .data-table").attr("style","width: 100%;")
       	  $.post('/api/user/getAnyUserConsumption',{uid:uId,type:typeNum
 		
 	},function(obj){
@@ -1068,7 +1073,8 @@ particularslis.on("click",function(){
 			Table.fnClearTable();
 			Table.fnDestroy();
 			$(".detailTable").html(str);
-			$(".data-table").attr("style","width: 100%;")
+			
+			
 		    Table=$('.data-table').dataTable({
 			    "bDestroy":true,
 				"bJQueryUI": true,
@@ -1081,7 +1087,7 @@ particularslis.on("click",function(){
 				"bAutoWidth":true
 			});
 			
-
+            $(".data-table").attr("style","width: 100%;");
 			
 			
 		}
