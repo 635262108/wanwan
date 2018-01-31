@@ -377,7 +377,7 @@ class Activity extends Base
         $this->assign('refundInfo',$refundInfo);
         return $this->fetch();
     }
-    
+
     //修改退款状态展示
     public function order_amend(){
         $rid = input('rid');
@@ -417,6 +417,7 @@ class Activity extends Base
                 model('ActivityRefund')->setStatus($rid,3);
                 //恢复名额
                 model('ActivityTime')->IncTicketNum($orderInfo->t_id);
+                model('ActivityTime')->DecSoldNum($orderInfo->t_id);
                 $this->success('金额已原路返回',url('activity/refund'));
             }
         }elseif ($orderInfo['pay_way'] == 4){   //余额
@@ -437,7 +438,7 @@ class Activity extends Base
 
         }
     }
-    
+
     //修改退款状态
     public function save_refund(){
         $rid = input('post.rid');

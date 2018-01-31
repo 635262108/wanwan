@@ -76,7 +76,7 @@ class Order extends Controller
         $addOrder = model('ActivityOrder')->insert($data);
         //增减库存
         $dec = model('ActivityTime')->DecTicketNum($data['t_id']);
-        $inc =  model('ActivityTime')->DecSoldNum($data['t_id']);
+        $inc =  model('ActivityTime')->IncSoldNum($data['t_id']);
 
         if($addOrder & $dec & $inc){
             return_info(200,'success');
