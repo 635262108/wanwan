@@ -98,8 +98,7 @@ class Order extends Base
             }
         }else{
             //报名成功，减少总名额和时间名额，增加报名人数，人员数量以小孩数量为准
-            $this->sendMobileMsg($add_order_data['order_sn']);
-            $this->setActivityNum($add_order_data['order_sn']);
+            $this->signSuccessOperation(model('ActivityOrder')->find($orderId));
             $add_order_data['order_id'] = $orderId;
             $this->assign('price',$price);
             $this->assign('activityInfo',$ActivityInfo);
