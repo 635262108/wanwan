@@ -28,8 +28,8 @@ class User extends Base
         $map = array();
         $data['address'] != '' ? $map['district'] = $data['address'] : false;
         $data['is_member'] != '' ? $map['member_grade'] = $data['is_member'] : false;
-        $data['mobile'] != '' ? $map['mobile'] = ['like',$data['mobile']."%"] : false;
-        $data['nickname'] != '' ? $map['nickname'] = $data['nickname'] : false;
+        $data['mobile'] != '' ? $map['mobile'] = ['like',"%".$data['mobile']."%"] : false;
+        $data['nickname'] != '' ? $map['nickname'] = ['like',"%".$data['nickname']."%"] : false;
 
         $order_str = "`{$data['orderby1']}` {$data['orderby2']}";
 

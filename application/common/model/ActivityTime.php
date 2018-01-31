@@ -50,13 +50,13 @@ class ActivityTime extends Model
     }
 
     //增加报名名额
-    public function DecSoldNum($t_id,$num = 1){
+    public function IncSoldNum($t_id,$num = 1){
         return $this->where('t_id',$t_id)->setInc('sold_num',$num);
     }
 
     //减少报名名额
-    public function IncSoldNum($t_id,$num = 1){
-        return $this->where('t_id',$t_id)->setInc('sold_num',$num);
+    public function DecSoldNum($t_id,$num = 1){
+        return $this->where('t_id',$t_id)->setDec('sold_num',$num);
     }
 
     //获取所有时间段(带活动信息）

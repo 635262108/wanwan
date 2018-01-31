@@ -48,74 +48,58 @@ class Activity extends Base
         return $this->fetch();
     }
     
-    //添加活动
-    public function addActivity(){
-        //活动标题
-        $a_title = input('post.activityTitle');
-        //活动描述
-        $a_remark = input('post.remark');
-        //活动开始时间
-        $a_begin_time = input('post.begin_time');
-        //活动结束时间
-        $a_end_time = input('post.end_time');
-        //活动剩余名额
-        $a_num = input('post.residue');
-        //活动大人价格
-        $a_adult_price= input('post.adult_price');
-        //活动小孩价格
-        $a_child_price = input('post.child_price');
-        //活动地址
-        $a_address = input('post.address');
-        //活动状态
-        $a_status = input('post.activity_status');
-        //活动类型
-        $a_type = input('post.activity_type_son');
-        if(empty($a_type)){
-            $a_type = input('post.activity_type');
-        }
-        //是否推荐
-        $a_is_recommend = input('post.recommend');
-        //活动内容
-        $a_content = input('post.myContent');
-        //首页小图
-        $inde_img = request()->file('index_img');
-        if(!empty($inde_img)){
-            $a_inde_img = $inde_img->move(ROOT_PATH . 'public' . DS . 'uploads'. DS .'admin_img');
-            if($a_inde_img){
-                $data['a_index_img'] = $a_inde_img->getSaveName();
-            }else{
-                // 上传失败获取错误信息
-                echo $a_inde_img->getError();die;
-            }
-        }        
-        //主页大图
+    //更新活动信息
+    public function save_activity(){
+        $data = input('post.');
+
+        $add_data = [
+            'a_title' => $data['a_title'],
+            'a_remark' => $data['a_remark'],
+            'a_begin_time' => strtotime($data['a_begin_time']),
+            'a_end_time' => strtotime($data['a_end_time']),
+            'a_adult_price' => $data['a_adult_price'],
+            'a_child_price' => $data['a_child_price'],
+            'a_num' => rand(10,99),
+            'member_adult_price' => $data['member_adult_price'],
+            'member_child_price' => $data['member_child_price'],
+            'a_status' => $data['a_status'],
+            'a_address' => $data['a_address'],
+            'a_content' => $data['a_content'],
+            'a_on_time' => time(),
+            'a_is_recommend' => $data['a_is_recommend'],
+        ];
+
+        //活动图
         $img = request()->file('a_img');
         if(!empty($img)){
             $a_img = $img->move(ROOT_PATH . 'public' . DS . 'uploads'. DS .'admin_img');
             if($a_img){
-                $data['a_img'] = $a_img->getSaveName();
+                $add_data['a_img'] = $a_img->getSaveName();
             }else{
                 // 上传失败获取错误信息
-                echo $a_img->getError();die;
+                $this->error($a_img->getError());
             }
         }
+
+        if(empty($data['a_type2'])){
+            $add_data['a_type'] = $data['a_type'];
+        }else{
+            $add_data['a_type'] = $data['a_type2'];
+        }
         
-        //新增
-        $data['a_title'] = $a_title;
-        $data['a_remark'] = $a_remark;
-        $data['a_begin_time'] = strtotime($a_begin_time);
-        $data['a_end_time'] = strtotime($a_end_time);
-        $data['a_num'] = $a_num;
-        $data['a_adult_price'] = $a_adult_price;
-        $data['a_child_price'] = $a_child_price;
-        $data['a_status'] = $a_status;
-        $data['a_address'] = $a_address;
-        $data['a_type'] = $a_type;
-        $data['a_is_recommend'] = $a_is_recommend;
-        $data['a_content'] = $a_content;
-        $Activity = model('Activity');
-        $Activity->insert($data);
-        $this->success('添加成功','activity/index');
+        //更新
+        if(isset($data['aid'])){
+            $res = model('Activity')->save($add_data,['aid'=>$data['aid']]);
+        }else{
+            $res = model('Activity')->save($add_data);
+        }
+
+        if($res){
+            $this->success('更新成功','activity/index');
+        }else{
+            $this->error('更新失败');
+        }
+
     }
 
     //活动修改列表
@@ -149,75 +133,7 @@ class Activity extends Base
         }
         return_info(200,'成功',$str);
     }
-    
-    //活动修改
-    public function saveActivity(){
-        //活动id
-        $aid = input('post.activityId');
-        //活动标题
-        $a_title = input('post.activityTitle');
-        //活动描述
-        $a_remark = input('post.remark');
-        //活动开始时间
-        $a_begin_time = input('post.begin_time');
-        //活动结束时间
-        $a_end_time = input('post.end_time');
-        //活动地址
-        $a_address = input('post.address');
-        //活动剩余名额
-        $a_num = input('post.residue');
-        //活动大人价格
-        $a_adult_price= input('post.adult_price');
-        //活动小孩价格
-        $a_child_price = input('post.child_price');
-        //活动状态
-        $a_status = input('post.activity_status');
-        //活动类型
-        $a_type = input('post.activity_type');
-        //是否推荐
-        $a_is_recommend = input('post.recommend');
-        //活动内容
-        $a_content = input('post.myContent');
-        //首页小图
-        $inde_img = request()->file('index_img');
-        if(!empty($inde_img)){
-            $a_inde_img = $inde_img->move(ROOT_PATH . 'public' . DS . 'uploads'. DS .'admin_img');
-            if($a_inde_img){
-                $data['a_index_img'] = $a_inde_img->getSaveName();
-            }else{
-                // 上传失败获取错误信息
-                echo $file->getError();die;
-            }
-        }        
-        //主页大图
-        $img = request()->file('a_img');
-        if(!empty($img)){
-            $a_img = $img->move(ROOT_PATH . 'public' . DS . 'uploads'. DS .'admin_img');
-            if($a_img){
-                $data['a_img'] = $a_img->getSaveName();
-            }else{
-                // 上传失败获取错误信息
-                echo $file->getError();die;
-            }
-        }
-        //修改
-        $data['aid'] = $aid;
-        $data['a_title'] = $a_title;
-        $data['a_remark'] = $a_remark;
-        $data['a_begin_time'] = strtotime($a_begin_time);
-        $data['a_end_time'] = strtotime($a_end_time);
-        $data['a_address'] = $a_address;
-        $data['a_num'] = $a_num;
-        $data['a_adult_price'] = $a_adult_price;
-        $data['a_child_price'] = $a_child_price;
-        $data['a_status'] = $a_status;
-        $data['a_type'] = $a_type;
-        $data['a_is_recommend'] = $a_is_recommend;
-        $data['a_content'] = $a_content;
-        $Activity = model('Activity');
-        $Activity->saveActivity($data);
-        $this->success('修改成功','activity/index');
-    }
+
     
     //删除活动
     public function delActivity(){
@@ -461,7 +377,7 @@ class Activity extends Base
         $this->assign('refundInfo',$refundInfo);
         return $this->fetch();
     }
-    
+
     //修改退款状态展示
     public function order_amend(){
         $rid = input('rid');
@@ -501,6 +417,7 @@ class Activity extends Base
                 model('ActivityRefund')->setStatus($rid,3);
                 //恢复名额
                 model('ActivityTime')->IncTicketNum($orderInfo->t_id);
+                model('ActivityTime')->DecSoldNum($orderInfo->t_id);
                 $this->success('金额已原路返回',url('activity/refund'));
             }
         }elseif ($orderInfo['pay_way'] == 4){   //余额
@@ -521,7 +438,7 @@ class Activity extends Base
 
         }
     }
-    
+
     //修改退款状态
     public function save_refund(){
         $rid = input('post.rid');

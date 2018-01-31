@@ -48,8 +48,8 @@
 			<div class="click_ulContent">
 				<ul>
 					<li class="active">孩子信息</li>
-					<li>明细记录</li>
-					<li>金额变动</li>
+					<li>余额明细</li>
+					<li>余额变动</li>
 					<li>活动记录</li>
 				</ul>
 			</div>
@@ -237,6 +237,8 @@
 							<tr>
 								<th>id</th>
 								<th>活动名称</th>
+								<th>大人数量</th>
+								<th>小孩数量</th>
 								<th>场次</th>
 								<th>金额</th>
 								<th>支付方式</th>
@@ -251,6 +253,8 @@
 							<tr>
 								<td>{$vo.order_id}</td>
 								<td>{$vo.a_title}</td>
+								<td>{$vo.adult_num}</td>
+								<td>{$vo.child_num}</td>
 								<td>{$vo.begin_time|date="Y-m-d H:i",###}--{$vo.end_time|date="H:i",###}</td>
 								<td>{$vo.order_price}</td>
 								<td>{$vo.pay_way|payWay}</td>
