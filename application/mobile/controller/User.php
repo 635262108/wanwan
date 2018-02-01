@@ -6,6 +6,7 @@ use think\Session;
 use think\Request;
 use think\Cache;
 use wxpay\database\WxPayUnifiedOrder;
+use wxpay\database\WxPayResults;
 use wxpay\JsApiPay;
 use wxpay\NativePay;
 use wxpay\PayNotifyCallBack;
@@ -684,14 +685,13 @@ class User extends Base
     //充值成功
     public function recharge_success($order_sn){
         //获取充值信息
-        $rechargeInfo = model('RechargeRecord')->find(['order_sn'=>$order_sn]);
-
+        $rechargeInfo = model('RechargeRecord')->get(['order_sn'=>$order_sn]);
         //检查
         $uid = session('userInfo.uid');
         if(empty($rechargeInfo) || $rechargeInfo['uid'] != $uid){
             $this->error('订单错误');
         }
-        
+
         //延迟三秒，等待微信支付流程结束，时间原因，暂时这样，体验不好，以后优化
         usleep(3000000);
 
