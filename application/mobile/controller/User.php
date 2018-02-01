@@ -5,8 +5,8 @@ use think\Controller;
 use think\Session;
 use think\Request;
 use think\Cache;
-use wxpay\database\WxPayUnifiedOrder;
 use wxpay\database\WxPayResults;
+use wxpay\database\WxPayUnifiedOrder;
 use wxpay\JsApiPay;
 use wxpay\NativePay;
 use wxpay\PayNotifyCallBack;
@@ -641,7 +641,7 @@ class User extends Base
         }
 
         //订单已处理，通知微信服务器
-        $order = model('RechargeRecord')->find(['order_sn' => $order_sn]);
+        $order = model('RechargeRecord')->get(['order_sn' => $order_sn]);
         if($order->status == 1) {
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');
