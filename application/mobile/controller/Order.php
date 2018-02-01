@@ -45,7 +45,7 @@ class Order extends Base
             $map = [
                 'uid' => $uid,
                 'aid' => $aid,
-                'order_status'=> array('neq',3)
+                'order_status'=> array('eq',3)
             ];
             $check_activity = model('ActivityOrder')->where($map)->order('order_id desc')->find();
             $check_time = $ActivityTime->getAnyTime($check_activity['t_id']);
