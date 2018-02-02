@@ -35,6 +35,16 @@ class Order extends Base
         $data['pay_way'] != '' ? $where['o.pay_way'] = $data['pay_way'] : false;
         $data['order_status'] != '' ? $where['o.order_status'] = $data['order_status'] : false;
         $data['source'] != '' ? $where['o.source'] = $data['source'] : false;
+
+        //输入框输入姓名或手机号
+        if($data['text'] != ''){
+            if(isMobile($data['text'])){
+                $where['o.mobile'] = $data['text'];
+            }else{
+                $where['o.name'] = $data['text'];
+            }
+        }
+
         //查询已付款的订单，需要连同未签到的数据一起查出
         if($data['order_status'] != ''){
             if( $data['order_status'] == 3){

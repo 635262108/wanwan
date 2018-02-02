@@ -603,7 +603,11 @@ class Activity extends Base
         $data = input('post.');
         if(!empty($data['t_id'])){
             $res = model('ActivityTime')->save($data,['t_id'=>$data['t_id']]);
-            if($res) {
+
+            //修改活动了需要把活动对应到订单
+            $res2 = model('ActivityOrder')->save(['aid'=>$data['aid']],['t_id' => $data['t_id']]);
+
+            if($res && $res2) {
                 $this->success('成功','activity/specification');
             }else{
                 $this->success('失败','activity/specification');
