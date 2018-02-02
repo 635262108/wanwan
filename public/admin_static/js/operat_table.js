@@ -11,19 +11,19 @@ var Table=$('.data-table').dataTable({
 		"bDestroy":true,
 		"bStateSave":true
 });
-$("span.icon input:checkbox, th input:checkbox").click(function() {
+$("span.icon input:checkbox, th input:checkbox").click(function(){
 		var checkedStatus = this.checked;
 		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
 		checkbox.each(function(){
 			this.checked = checkedStatus;
-			if (checkedStatus == this.checked) {
+			if (checkedStatus ==this.checked){
 				$(this).closest('.checker > span').removeClass('checked');
 			}
-			if (this.checked) {
+			if (this.checked){
 				$(this).closest('.checker > span').addClass('checked');
 			}
 		});
-	});	
+});	
 	
 //封装的api接口
 var SpitUrl={
@@ -45,7 +45,7 @@ var SpitUrl={
 				event.stopPropagation();
 				$(".modal_box").show();
 
-				var userId = $(this).parent().parent().children("td:nth-child(1)").html();
+				var userId=$(this).parent().parent().children("td:nth-child(1)").html();
 				$.post("/abab.php/user/getUserInfo", {"uid":userId }, function(obj) {
 					
 				
@@ -804,10 +804,9 @@ $(document).on("click",".childDelete",function(){
 	else{
 		$.post(SpitUrl.delete_url,{id:id},function(obj){
 			if(obj.state_code == 200){
-				
 				el.parent().parent().parent().remove();
 			}
-			})
+		})
 	}
 
 })

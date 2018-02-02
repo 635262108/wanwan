@@ -82,6 +82,7 @@
 									   	   <option selected="selected" value="1">手机号</option>
 									   	   <option value="2">大人姓名</option>
 									   	   <option value="3">小孩姓名</option>
+									   	   <option value="4">来源</option>
 								 </select>
 									   <input type="text" />
 									   <button >搜索</button>
@@ -202,7 +203,8 @@
 				'nickname':'',
 				'childName':'',
 				'orderby1':'uid',
-				'orderby2':'desc'
+				'orderby2':'desc',
+				'source':''
 			}
         $.get("/abab.php/user/ajax_user_index", data,
             function(data){
@@ -231,7 +233,8 @@ $(".shai li,.memberSearch button,.pagination a,.userId,.nickName,.mobile,.member
 				'nickname':'',
 				'childName':'',
 				'orderby1':'uid',
-				'orderby2':'desc'
+				'orderby2':'desc',
+				'source':''
 			}
 			var c;//标记
 			var name; //名称
@@ -367,6 +370,9 @@ $(".shai li,.memberSearch button,.pagination a,.userId,.nickName,.mobile,.member
     	}
     	else if (search == 3){
     		data.childName = search_text
+    	}
+    	else if(search == 4){
+    		data.source = search_text
     	}
 		 
 		 $.get("/abab.php/user/ajax_user_index", data,
