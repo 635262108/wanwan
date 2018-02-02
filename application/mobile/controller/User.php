@@ -5,6 +5,7 @@ use think\Controller;
 use think\Session;
 use think\Request;
 use think\Cache;
+use wxpay\database\WxPayResults;
 use wxpay\database\WxPayUnifiedOrder;
 use wxpay\JsApiPay;
 use wxpay\NativePay;
@@ -577,16 +578,16 @@ class User extends Base
             $this->redirect('user/index');
         }
 
-        $uid = Session::get('userInfo.uid');
+        $uid = session('userInfo.uid');
         //获取openid
-        $openId = session::get('openid');
+        $openId = session('openid');
         //增加订单
         $add_data['uid'] = $uid;
         $add_data['amount'] = $money;
         $add_data['pay_way'] = 2;
         $add_data['pay_time'] = time();
         $add_data['status'] = 0;
-        $add_data['order_sn'] = getOrderSn($uid,000);
+        $add_data['order_sn'] = getOrderSn($uid,rand(100,999));
         $id = model('RechargeRecord')->insertGetId($add_data);
         if($id){
             //微信下单
@@ -597,7 +598,7 @@ class User extends Base
             $input->setOutTradeNo($add_data['order_sn']);   //订单号
             $input->setTotalFee($money * 100);  //价格
             $input->setTimeStart(date("YmdHis"));   //生成时间
-            $input->setNotifyUrl("http://www.baobaowaner.com/mobile/Activity/notify/order_sn/".$add_data['order_sn']); //设置回调地址
+            $input->setNotifyUrl("http://www.baobaowaner.com/mobile/user/recharge_notify/"); //设置回调地址
             $input->setTradeType("JSAPI");
             $input->setOpenid($openId);
             $orders = WxPayApi::unifiedOrder($input);
@@ -608,35 +609,97 @@ class User extends Base
         return $this->fetch();
     }
 
+    //微信支付回调
+    public function recharge_notify(){
+        $weixinData = file_get_contents("php://input");
+
+        //实例化失败通知微信服务器
+        try{
+            $resultObj = new WxPayResults();
+            $weixinData = $resultObj->Init(($weixinData));
+        }catch (\Exception $e){
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', $e->getMessage());
+            return $resultObj->toXml();
+        }
+        $order_sn = $weixinData['out_trade_no'];
+
+        $logData = [
+            'pay_way' => 2,
+            'pay_status' => 0,
+            'order_sn' => $order_sn,
+            'content' => json_encode($weixinData),
+            'addtime' => time()
+        ];
+
+        //订单处理失败通知微信服务器
+        if($weixinData['return_code'] === 'FAIL' || $weixinData['result_code'] !== 'SUCCESS') {
+            db('pay_log')->insert($logData);
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', 'error');
+            return $resultObj->toXml();
+        }
+
+        //订单已处理，通知微信服务器
+        $order = model('RechargeRecord')->get(['order_sn' => $order_sn]);
+        if($order->status == 1) {
+            $resultObj->setData('return_code', 'SUCCESS');
+            $resultObj->setData('return_msg', 'OK');
+            return $resultObj->toXml();
+        }
+
+        ///充值成功更新订单状态，更新余额，记录账单，发短信
+        try{
+            $order->status = 1;
+            $order->pay_time = time();
+            $order->save();
+
+            $userInfo = model('user')->find($order->uid);
+            $userInfo->member_grade = 1;
+            $userInfo->balance = $userInfo->balance + $order->amount;
+            $userInfo->save();
+
+            $data = [
+                'uid' => $order->uid,
+                'type' => 1,
+                'money' => $order->amount,
+                'balance' => $userInfo->balance,
+                'addtime' => time()
+            ];
+            model('UserDetail')->save($data);
+
+            $logData['pay_status'] = 1;
+            db('pay_log')->insert($logData);
+
+            $resultObj->setData('return_code', 'SUCCESS');
+            $resultObj->setData('return_msg', 'OK');
+            return $resultObj->toXml();
+
+        }catch (\Exception $e){
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', 'error');
+            return $resultObj->toXml();
+        }
+    }
+
     //充值成功
     public function recharge_success($order_sn){
         //获取充值信息
-        $map['order_sn'] = $order_sn;
-        $rechargeInfo = model('RechargeRecord')->getRecharge($map);
-
-        //检查用户
+        $rechargeInfo = model('RechargeRecord')->get(['order_sn'=>$order_sn]);
+        //检查
         $uid = session('userInfo.uid');
-        $userInfo = model('user')->getIdUser($uid);
-
         if(empty($rechargeInfo) || $rechargeInfo['uid'] != $uid){
-            $this->error('系统异常');
+            $this->error('订单错误');
         }
+
+        //延迟三秒，等待微信支付流程结束，时间原因，暂时这样，体验不好，以后优化
+        usleep(3000000);
 
         //查询订单
         $notify = new PayNotifyCallBack();
         $notify->handle(true);
         $result = $notify->queryTradeOrder($order_sn);
         if($result){
-            //订单状态不为1时在增加，防止重复增加
-            if($rechargeInfo->status != 1){
-                //增加余额
-                $userInfo->member_grade = 1;
-                $userInfo->balance = $userInfo->balance + $rechargeInfo['amount'];
-                $userInfo->save();
-                //修改订单状态
-                $rechargeInfo->status = 1;
-                $rechargeInfo->save();
-            }
             $this->assign('url',url('mobile/user/index'));
             $this->assign('title','充值成功');
             return $this->fetch();

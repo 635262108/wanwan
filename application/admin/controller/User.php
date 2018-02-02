@@ -46,6 +46,19 @@ class User extends Base
             $map['uid'] = ['in',$uids];
         }
 
+        //来源搜索
+        if($data['source'] != ''){
+            $sourceData = model('Source')->where('name',['like',"%".$data['source']."%"])->select();
+            $sidArray = array();
+            foreach($sourceData as $key=>$val){
+                if(!in_array($val['id'],$sidArray)){
+                    $sidArray[] = $val['id'];
+                }
+            }
+            $sid = implode(",",$sidArray);
+            $map['source'] = ['in',$sid];
+        }
+
 
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
             ->join('mfw_source s','u.source=s.id')

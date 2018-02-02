@@ -21,11 +21,11 @@
               <thead>
                 <tr>
                   <th>来源名称</th>  
-                  <th>订单数</th>
-                  <th>成交金额</th>
-                  <th>已预约人数</th>
-                  <th>签到人数</th>
+                  <th>客户人数</th>
                   <th>会员转换人数</th>
+                  <th>订单数</th>
+                  <th>已签到</th>
+                  <th>订单总额</th>
                   
            		</tr>
               </thead>
@@ -33,12 +33,12 @@
                 {foreach name="res" item="vo"}
                 <tr class="gradeX trs">
                   <td class="td_id">{$vo.name}</td>
-                  <td>{$vo.order_num}</td>  
-                  <td>{$vo.order_sum_price}</td>
-                  <td>{$vo.enter_num}</td>
+                  <td>{$vo.user_num}</td>
+                  <td>{$vo.member_num}</td>
+                  <td>{$vo.order_num}</td>
                   <td>{$vo.sign_num}</td>
                   <td>
-                     {$vo.user_num}
+                     {$vo.order_sum_price}
                   </td>
                
           
