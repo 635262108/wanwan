@@ -9,7 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/mobile/controller/Order.php" afterPath="$PROJECT_DIR$/application/mobile/controller/Order.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/user/ajax_user_index.html" afterPath="$PROJECT_DIR$/application/admin/view/user/ajax_user_index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +36,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Order.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/mobile/controller/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="343">
+              <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/user/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1200">
+              <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax_user_index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/user/ajax_user_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -119,16 +139,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserChild.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/common/model/UserChild.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -140,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>a_sold_num</find>
       <find>user_detail</find>
       <find>order_</find>
       <find>明细记录</find>
@@ -170,6 +179,7 @@
       <find>WxPayResults</find>
       <find>645</find>
       <find>new_activity</find>
+      <find>查看</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;img src=&quot;__MobileImg__/logo.png&quot; /&gt;</replace>
@@ -206,7 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/controller/Admin.php" />
         <option value="$PROJECT_DIR$/application/admin/view/admin/dis_save_source.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Service.php" />
         <option value="$PROJECT_DIR$/application/mobile/view/activity/detail.html" />
@@ -257,6 +266,7 @@
         <option value="$PROJECT_DIR$/application/mobile/controller/User.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Activity.php" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Order.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/user/ajax_user_index.html" />
       </list>
     </option>
   </component>
@@ -304,6 +314,27 @@
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
               <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wanwan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="wanwan" type="b2602c69:ProjectViewProjectNode" />
@@ -483,12 +514,12 @@
       <workItem from="1517309765510" duration="1463000" />
       <workItem from="1517360185668" duration="23071000" />
       <workItem from="1517447700324" duration="17963000" />
-      <workItem from="1517541876475" duration="429000" />
+      <workItem from="1517541876475" duration="4633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1623738000" />
+    <option name="totallyTimeSpent" value="1627942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -535,20 +566,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/my_collect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/user/my_activity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="202" column="56" lean-forward="false" selection-start-line="202" selection-start-column="56" selection-end-line="202" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/pay/select_pay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -934,8 +951,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="343">
+          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1200">
+          <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/user/ajax_user_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
