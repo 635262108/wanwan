@@ -24,6 +24,12 @@ class Order extends Base
             $this->error('请求异常');
         }
 
+        //这匹会员由于政策原因不允许报名
+        $uids = array(19,11,15,21,14,9,18,5,16,27,17,1,20,22,23,271,8,10,1869,585,93,110,272,275,106,273,276,26,109,274,587,13);
+        if(in_array($uid,$uids)){
+            $this->error('请您私信玩宝报名，优惠更多哦');
+        }
+
         //检查参加时间是否还有票
         $ActivityTime = model('ActivityTime');
         $timeInfo = $ActivityTime->getAnyTime($time);
