@@ -80,6 +80,8 @@
 					<option value="{$vo.id}">{$vo.name}</option>
 				{/foreach}
 			</select>
+			
+			<input type="text" placeholder="输入手机号或者姓名" style="width: 10%;height: 30px;" class="prompt"/>
 			<button class="orderSearch">查找</button>
 		</div>
 	</div>
@@ -121,7 +123,8 @@
 				'aid' : '',
 				'pay_way':'',
 				'order_status':'',
-				'source':''
+				'source':'',
+				'text':''
 	    }
         
         $.get("/abab.php/order/ajax_activity_order", data,
@@ -144,7 +147,8 @@ $(".pagination a,.orderSearch").live("click",function(){
 				'aid' : '',
 				'pay_way':'',
 				'order_status':'',
-				'source':''
+				'source':'',
+				'text':''
 	}
 	
 	data.begin_time=$(".beginTime").val();
@@ -153,6 +157,7 @@ $(".pagination a,.orderSearch").live("click",function(){
 	data.pay_way=$(".pay_way option:selected").val();
 	data.order_status=$(".order_status option:selected").val();
 	data.source=$(".source option:selected").val();
+	data.text=$(".prompt").val();
 	
 	$.get("/abab.php/order/ajax_activity_order", data,
             function(data){
