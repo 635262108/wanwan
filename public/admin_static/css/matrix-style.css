@@ -1679,6 +1679,7 @@ body {
  width: auto;
 }
 }
+
 @media (max-width: 979px) {
 div.dataTables_wrapper .ui-widget-header {
 	height: 68px;

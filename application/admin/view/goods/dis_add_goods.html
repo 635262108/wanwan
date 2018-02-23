@@ -1,10 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+		{include file="public/header" /} 
+	
+		<div id="content">
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
+					<a href="{:url('admin/goods/index')}" class="tip-bottom" data-original-title="">商品列表</a>
+					<a href="#" class="current">添加商品</a>
+				</div>
+			</div>
+
+			<div class="row-fluid" id="emit_information">
+				<div class="span6">
+					<div class="widget-box" style="width: 100%;">
+						<div class="widget-title"> 
+							<span class="icon"> <i class="icon-align-justify"></i> </span>
+							<h5>商品信息</h5>
+						</div>
+						<div class="widget-content nopadding">
+							<form action="{:url('admin/goods/save_goods')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+								<div class="control-group">
+									<label class="control-label">活动标题</label>
+									<div class="controls">
+										<input class="span11" value='' name="title" type="text" style="width: 32%;">
+									</div>
+								</div>
+								
+						    <div class="control-group">
+                                <label class="control-label">活动图</label>
+                                <div class="controls">
+                                    <input type="file"  name="img"/>
+                                </div>
+                            </div>
+								<div class="control-group">
+									<label class="control-label">库存</label>
+									<div class="controls">
+										<input class="span11" style="width: 30%;" value='' name="inventory" type="text">
+									</div>
+								</div>
+
+							
+
+								<div class="control-group">
+									<label class="control-label">已出售</label>
+									<div class="controls">
+										<input class="span11" style="width:30%;" value='' name="sold_num">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">价格</label>
+									<div class="controls">
+										<input class="span11" style="width:30%;" value='' name="price">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">状态</label>
+									<div class="controls">
+										<select name="status">
+											  <option value="1">上架</option>
+											  <option value="2">下架</option>
+										</select>
+									</div>
+								</div>
+                             	<div class="control-group">
+									<label class="control-label">上架时间</label>
+									<div class="controls">
+										<input type="text" value="" name="on_time" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" style="width: 25%;margin-top: -3px;cursor: pointer;">
+									</div>
+								</div>
+					
+								   <div class="control-group" style="">
+			                                <label class="control-label">商品详情</label>
+			                                <textarea id="editor" name="content" style="width:83%;height:500px;display: inline-block;margin-left: 15px;z-index: 0;">
+			                                            
+			                                </textarea>
+			
+			
+			
+			                        </div>
+
+							
+
+								<div class="form-actions">
+									<button type="submit" class="btn btn-success info_sure">保存</button>
+									<a href="{:url('admin/goods/index')}" class="btn-warning">取消</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+	<script src="__AJS__/jquery.min.js"></script>
+    <script src="__AJS__/jquery.ui.custom.js"></script>
+    <script src="__AJS__/bootstrap.min.js"></script>
+    <script src="__AJS__/jquery.uniform.js"></script>
+    <script src="__AJS__/select2.min.js"></script>
+    <script src="__AJS__/jquery.dataTables.min.js"></script>
+    <script src="__AJS__/matrix.js"></script>
+    <script src="__AJS__/operat_table.js"></script>
+    <script type="text/javascript" src="__AJS__/jquery-calendar.js"></script> 
+    <script src="__AJS__/Calendar.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/lang/zh-cn/zh-cn.js"></script>
+<script>
+$(function() {
+    var ue = UE.getEditor('editor');
+    
+})
+</script>

@@ -1,10 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+{include file="public/header" /}
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+      <div id="breadcrumb"> 
+      	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
+      	<a href="#" class="tip-bottom">商品</a> 
+      	<a href="#" class="current">商品列表</a> 
+  </div>
+  </div>
+<!--添加开始部分-->
+  <div class="add_order">
+  	 <a href="{:url('admin/goods/dis_add_goods')}">
+        <div class="add" title="添加商品">
+          <span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加商品
+          </span>
+        </div>
+     </a>
+  </div>
+<!--添加结束-->
+<div class="container-fluid">
+  <div class="row-fluid">
+  	  <div class="span12">
+  	  	        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Data table</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>活动标题</th>
+                  <th>库存</th>
+                  <th>已出售</th>
+                  <th>价格</th>
+                  <th>状态</th>
+                  <th>上架时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_center" style="font-size: 12px;">
+                {foreach name="data" item="vo"}
+                <tr class="gradeX trs recommend">
+                    
+                
+                  <td>{$vo.title}</td>
+                  <td>{$vo.inventory}</td>
+                  <td>{$vo.sold_num}</td>
+                  <td>{$vo.price}</td>
+                  <td>{$vo.status}</td>
+                  <td>{$vo.on_time}</td>
+                  
+                  
+                  <td class="center">
+                  	<a href="{:url('admin/goods/dis_save_goods','id='.$vo.id)}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+                    <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>	
+                  </td>
+                </tr>
+                {/foreach}
+              </tbody>
+            </table>
+          </div>
+        </div>
+  	  </div>
+  </div>
+</div>
+</div>
+{include file="public/footer" /}
 </html>
