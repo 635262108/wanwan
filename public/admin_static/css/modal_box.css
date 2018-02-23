@@ -179,10 +179,10 @@ li{
 }
 
 
-/*#emit_information .span6{
-	margin-left: 25%;
+#emit_information .span6{
+	width:75%;
 	
-}*/
+}
 .form-actions .btn-warning{
 	display: inline-block;
 	line-height: 30px;
