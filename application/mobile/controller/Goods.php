@@ -1,5 +1,5 @@
 <?php
-namespace app\home\controller;
+namespace app\mobile\controller;
 use app\home\logic\GoodsLogic;
 use think\Controller;
 

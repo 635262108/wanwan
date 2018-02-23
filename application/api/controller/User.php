@@ -10,7 +10,7 @@ use think\Controller;
 use think\Exception;
 use think\Validate;
 
-class User extends Controller
+class User extends Base
 {
 
     //修改个人信息
