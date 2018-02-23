@@ -55,9 +55,9 @@ class Goods extends Base
         }
 
         if($res){
-            return_info(200,'success');
+            $this->success('操作成功','goods/index');
         }else{
-            return_info(-1,'fail');
+            $this->success('操作失败');
         }
     }
 }
