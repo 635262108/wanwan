@@ -50,6 +50,7 @@ class Goods extends Base
         if(!empty($data['id'])){
             $res = $this->goods->allowField(true)->save($data,['id'=>$data['id']]);
         }else{
+            $data['on_time'] = time();
             $res = $this->goods->insert($data);
         }
 
