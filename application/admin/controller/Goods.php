@@ -23,12 +23,14 @@ class Goods extends Base
     }
 
     //显示更新商品界面
-    public function dis_save_goods($gid){
-        $data = $this->goods->find($gid);
+    public function dis_save_goods($id){
+        $data = $this->goods->find($id);
         if (empty($data)){
             $this->error('商品信息异常');
         }
-        return $this->fetch();
+        return $this->fetch('',[
+			    'data' => $data
+			]);
     }
 
     //更新商品

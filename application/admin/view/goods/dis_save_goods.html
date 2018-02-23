@@ -18,17 +18,29 @@
 							<h5>商品信息</h5>
 						</div>
 						<div class="widget-content nopadding">
-							<form action="{:url('admin/user/add_member')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+							<form action="{:url('admin/goods/save_goods')}" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+						    <div class="control-group">
+                                <label class="control-label">商品Id:</label>
+                                <div class="controls">
+                                    <input class="span11" readonly="" value='{$data.id}' name="id" type="text" style="width: 20%">
+                                </div>
+                            </div>
 								<div class="control-group">
 									<label class="control-label">活动标题</label>
 									<div class="controls">
-										<input class="span11" value='' name="nickname" type="text" style="width: 32%;">
+										<input class="span11" value='{$data.title}' name="title" type="text" style="width: 32%;">
 									</div>
 								</div>
+								 <div class="control-group">
+                                <label class="control-label">活动图</label>
+                                <div class="controls">
+                                    <input type="file"  name="img"/>
+                                </div>
+                            </div>
 								<div class="control-group">
 									<label class="control-label">库存</label>
 									<div class="controls">
-										<input class="span11" style="width: 30%;" value='' name="mobile" type="text">
+										<input class="span11" style="width: 30%;" value='{$data.inventory}' name="inventory" type="text">
 									</div>
 								</div>
 
@@ -37,31 +49,41 @@
 								<div class="control-group">
 									<label class="control-label">已出售</label>
 									<div class="controls">
-										<input class="span11" style="width:30%;" value=''>
+										<input class="span11" style="width:30%;" value='{$data.sold_num}' name="sold_num">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">价格</label>
 									<div class="controls">
-										<input class="span11" style="width:30%;" value=''>
+										<input class="span11" style="width:30%;" value='{$data.price}' name="price">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">状态</label>
-									<div class="controls">
-										<select name="status">
-											 <option></option>
-											  <option></option>
-										</select>
-									</div>
+									 <div class="controls">
+                                    <select style="width: 20%;" name="status" autocomplete = "off">
+                                        <option value="1" {if condition="$data.status eq 1"} selected="selected" {/if}>上架</option>
+                                        <option value="2" {if condition="$data.status eq 2"} selected="selected" {/if}>下架</option>
+                                    </select>
+
+                                </div>
 								</div>
                              	<div class="control-group">
 									<label class="control-label">上架时间</label>
 									<div class="controls">
-										<input type="text" value="" name="birthday" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" name="birthday" style="width: 25%;margin-top: -3px;cursor: pointer;">
+										<input type="text" value="{$data.on_time}" name="on_time" placeholder="2017-09-07" onClick="new Calendar().show(this);" class="span11" style="width: 25%;margin-top: -3px;cursor: pointer;">
 									</div>
 								</div>
-					
+					  <div class="control-group" style="">
+                                <label class="control-label">商品详情</label>
+                                <textarea id="editor" name="content" style="width:790px;height:500px;display: inline-block;margin-left: 15px;z-index: 0;">
+                                            {$data.content}
+                                </textarea>
+
+                                <!--<script id="editor" type="text/plain" name="myContent" style="width:500px;height:500px;display: inline-block;margin-left: 15px;z-index: 0;"></script>-->
+
+
+                            </div>
 
 							
 
@@ -78,4 +100,30 @@
 		</div>
 
 	
-	{include file="public/footer" /}
+	<script src="__AJS__/jquery.min.js"></script>
+    <script src="__AJS__/jquery.ui.custom.js"></script>
+    <script src="__AJS__/bootstrap.min.js"></script>
+    <script src="__AJS__/jquery.uniform.js"></script>
+    <script src="__AJS__/select2.min.js"></script>
+    <script src="__AJS__/jquery.dataTables.min.js"></script>
+    
+    <script src="__AJS__/operat_table.js"></script>
+    <script src="__AJS__/jquery-calendar.js"></script>
+    <script src="__AJS__/Calendar.js"></script>
+    <script src="__AJS__/matrix.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/lang/zh-cn/zh-cn.js"></script>
+    <script>
+
+                                    $(function() {
+                                       
+                                        var ue = UE.getEditor('editor')
+
+
+                                    })
+
+
+
+
+    </script>
