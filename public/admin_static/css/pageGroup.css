@@ -8,7 +8,9 @@ li{
 }
 /*分页*/
 #pageGro{ 
-	width:450px; 
+	/*border: 1px solid red;*/
+	/*width:450px;*/ 
+	width: 35%;
 	height:25px; 
 	margin:0px auto;
 	position: absolute;

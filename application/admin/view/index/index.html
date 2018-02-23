@@ -1,6 +1,6 @@
 {include file="public/header"/}
 {include file="public/left"/}
-<div id="content" style="background:#F6F6F6;padding-left: 0px;position: absolute;width:90%;left:220px;top: -10px;">
+<div id="content" style="background:#F6F6F6;padding-left: 0px;position: absolute;left:220px;width:88%;top: -10px;padding-left: 1.5%;">
 	<div id="content-header">
 		<div id="breadcrumb">
 			<a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i> Home</a>
@@ -13,7 +13,7 @@
 				<img src="__AIMG__/user.png" style="width: 14px;height: 16px;" /><span style="font-weight: 600;font-size: 16px;">用户:</span>
 				<span style="color:#2843a8;font-weight:600;font-size: 16px;">{$result.user.user_num}</span>
 			</div>
-			<div id="main" style="width:180px;height: 300px;">
+			<div id="main" style="width:54%;height: 300px;">
                  
 			</div>
 			<div class="show_num">
@@ -29,7 +29,7 @@
 				<img src="__AIMG__/member.png" style="width: 14px;height: 16px;" /><span style="color:#dfc822;font-size: 16px;font-weight: 600">会员:</span>
 				<span style="color:#2843a8;font-size: 16px;font-weight: 600">{$result.user.member_num}</span>
 			</div>
-			<div id="main1" style="width:180px;height: 300px;">
+			<div id="main1" style="width:54%;height: 300px;">
 
 			</div>
 			<div class="show_num">
@@ -40,27 +40,27 @@
 			</div>
 			<!--<div class="memberunfold unfold">展开</div>-->
 		</div>
-		<div class="sta_total" id="incomeTotal" style="padding-right: 20px;width: 420px;">
+		<div class="sta_total" id="incomeTotal" style="padding-right: 20px;width:30%;">
 			<div class="title">
 				
 				<img src="__AIMG__/pocket.png" style="width: 14px;height: 16px;" /><span style="color:#50cfc8 ;font-size: 16px;font-weight: 600;">收入:</span>
 				<span style="color:#2843a8;margin-top: -2px;font-weight: 600;font-size: 16px;">{$result.order.order_price+$result.recharge.recharge_price}</span>
 			</div>
 			
-			<div class="totalContents">
+			<div class="totalContents" style="width: 100%;">
 			
-			<div class="order_income">
+			<div class="order_income" style="width: 45%;">
 				
-				<div id="main2" style="width:150px;height:300px;">
+				<div id="main2" style="width:100%;height:300px;">
 
 			   </div>
 				
 				<div class="order_total">订单：{$result.order.order_price}</div>
 			</div>
 			
-			<div class="recharge_incom">
+			<div class="recharge_incom" style="width: 45%;">
 				
-				<div id="main3" style="width:150px;height: 300px;">
+				<div id="main3" style="width:100%;height: 300px;">
 
 			    </div>
 			
@@ -88,7 +88,7 @@
 	</div>
 
 	<div class="indContainerContent">
-		<div class="search">
+		<div class="search" style="margin-left: 0px;">
 			<form>
 				<div class="anySearch">
 					<span>Srearch:</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" />
@@ -182,7 +182,8 @@
 								label:{show:true,position:'top',color:'#2d2d2d',fontWeight:'normal'}
 							}
 
-						}
+						},
+						barGap:'1%'
 
 					}
 				]

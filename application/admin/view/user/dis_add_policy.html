@@ -1,5 +1,21 @@
-
-		{include file="public/header"/} 
+{include file="public/header"/} 
+<style type="text/css">
+	.widget-box{
+		width: 100%;
+	}
+	#emit_information .span6{
+		margin-left: 12%;
+	}
+	@media only screen and (max-width: 960px) and (min-width: 481px) {
+	  .widget-box{
+	 		width: 80%;
+	 	}
+	 	#emit_information .span6{
+	 		margin-left: 1%;
+	 	}
+	}
+	
+</style>
 		<div id="content" style="">
 			<div id="content-header">
 				<div id="breadcrumb">
@@ -9,9 +25,9 @@
 				</div>
 			</div>
 
-			<div class="row-fluid" id="emit_information" style="width: 1300px;">
-				<div class="span6" style="margin-left: 12%;">
-					<div class="widget-box" style="width: 100%;">
+			<div class="row-fluid" id="emit_information" style="width: 100%;">
+				<div class="span6">
+					<div class="widget-box">
 						<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
 							<h5>政策信息</h5>
 						</div>

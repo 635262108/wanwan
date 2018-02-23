@@ -12,7 +12,7 @@
 		margin-top: 8px;
 	}
 	#bottom{
-		display: flex;
+		display:flex;
 		justify-content: space-between;
 		padding-left: 10px;
 	}
@@ -73,15 +73,14 @@
 				<option value="7">已请假</option>
 				<option value="8">早退</option>
 			</select>
-
-			<select style="width:6%" class="source">
+            <select style="width:6%" class="source">
 				<option selected="selected" value="">报名渠道</option>
 				{foreach name="source" item="vo"}
-					<option value="{$vo.id}">{$vo.name}</option>
+				<option value="{$vo.id}">{$vo.name}</option>
 				{/foreach}
 			</select>
 			
-			<input type="text" placeholder="输入手机号或者姓名" style="width: 10%;height: 30px;" class="prompt"/>
+			<input type="text" placeholder="输入手机号或者姓名" style="width:10%;height:30px;" class="prompt"/>
 			<button class="orderSearch">查找</button>
 		</div>
 	</div>
@@ -92,9 +91,9 @@
 					<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
 						<h5>Data table</h5>
 					</div>
-					<div class="widget-content nopadding" id="orderTable">   
+					<div class="widget-content nopadding" id="orderTable">
+						   
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -127,7 +126,7 @@
 	    }
         
         $.get("/abab.php/order/ajax_activity_order", data,
-            function(data){
+        function(data){
          
                $("#orderTable").html(data);
         });
