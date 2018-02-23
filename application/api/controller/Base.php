@@ -6,8 +6,9 @@
  * Time: 下午 3:02
  */
 namespace app\api\controller;
+use think\Controller;
 
-class Activity extends Base
+class Base extends Controller
 {
 
 }

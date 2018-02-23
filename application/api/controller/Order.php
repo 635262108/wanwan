@@ -6,9 +6,8 @@
  * Time: 下午 3:02
  */
 namespace app\api\controller;
-use think\Controller;
 
-class Order extends Controller
+class Order extends Base
 {
 
     //添加订单
