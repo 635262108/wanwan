@@ -41,16 +41,16 @@
                 </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
-               
+                {foreach name="data" item="vo"}
                 <tr class="gradeX trs recommend">
                     
                 
-                  <td>dfdfd</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <td>{$vo.title}</td>
+                  <td>{$vo.inventory}</td>
+                  <td>{$vo.sold_num}</td>
+                  <td>{$vo.price}</td>
+                  <td>{$vo.status}</td>
+                  <td>{$vo.on_time}</td>
                   
                   
                   <td class="center">
@@ -58,7 +58,7 @@
                     <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>	
                   </td>
                 </tr>
-                
+                {/foreach}
               </tbody>
             </table>
           </div>
