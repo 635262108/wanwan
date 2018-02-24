@@ -80,7 +80,7 @@ class Goods extends Base
     //删除商品
     public function del_goods(){
         $id = input('post.id');
-        $res = $this->goods->delete($id);
+        $res = $this->goods->destroy($id);
         if($res){
             return_info(200,'成功');
         }else{
