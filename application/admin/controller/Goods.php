@@ -50,7 +50,7 @@ class Goods extends Base
         }
 
         if(!empty($data['id'])){
-            $res = $this->goods->allowField(true)->save($data,['id'=>$data['id']]);
+            $res = $this->goods->updateByMap($data,['id'=>$data['id']]);
         }else{
             $data['on_time'] = time();
             $res = $this->goods->insert($data);
@@ -63,10 +63,24 @@ class Goods extends Base
         }
     }
 
+    //更新商品状态
+    public function save_goods_status(){
+        $data = input('post.');
+        if(empty($data['id'])){
+            return_info(-1,'失败');
+        }
+        $res = $this->goods->updateByMap($data,['id'=>$data['id']]);
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
+
     //删除商品
     public function del_goods(){
         $id = input('post.id');
-        $res = $this->goods->delete($id);
+        $res = $this->goods->destroy($id);
         if($res){
             return_info(200,'成功');
         }else{
