@@ -6,7 +6,7 @@ namespace app\common\model;
 use think\Model;
 use think\Db;
 
-class Goods extends Model
+class Goods extends Base
 {
 	/**
 	* 获取活相关的商品
