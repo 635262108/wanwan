@@ -696,6 +696,28 @@ $(".recommend .present").live("click",function(){
 	
 })
 
+$(".status").live("click",function(){
+	var my=$(this);
+	if($(this).html()=="上架"){
+		$.post("/abab.php/goods/save_goods_status", {"id":$(this).siblings(".tr_id").html(),"status":2},
+			function(obj) {
+				console.log(obj.msg)
+				if(obj.state_code == 200) {
+					my.html("下架");
+				}
+		}, "json");
+	}
+	else{
+		$.post("/abab.php/goods/save_goods_status", {"id":$(this).siblings(".tr_id").html(),"status":1},
+			function(obj) {
+				if(obj.state_code == 200) {
+					my.html("上架");
+				}
+		}, "json");
+	}
+	
+})
+
 //商品的上架和下架
 
 
