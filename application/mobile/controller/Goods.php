@@ -11,6 +11,11 @@ class Goods extends Base
         $this->goods = model('Goods');
     }
 
+    //商品首页
+    public function goods_list(){
+        return $this->fetch();
+    }
+
     //商品详情
     public function goods_detail($id){
     	$result = $this->goods->find($id);
