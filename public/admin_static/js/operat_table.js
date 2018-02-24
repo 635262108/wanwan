@@ -35,7 +35,8 @@ var SpitUrl={
 	"sign_url":"/api/order/saveOrderStatus",
 	"getPhone_url":"/api/user/getUserInfo",
 	"addMember_url":"/api/order/addOrder",
-	"Amend_infoUrl":"/api/user/saveUser"
+	"Amend_infoUrl":"/api/user/saveUser",
+	"goodDeleteUrl":"/abab.php/goods/del_goods"
 }
 		var trs = $("#tbody_center tr");
 		var checks = $(".check");
@@ -413,6 +414,11 @@ var SpitUrl={
 					$(this).parent().parent().parent())
 			})
 			
+//			商品删除
+            $(".goods_delete").live("click",function(){
+            	   deleteData(SpitUrl.goodDeleteUrl,{"id":parseInt($(this).parent().siblings(".tr_id").html())},$(this).parent().parent())
+            })
+			
 			$(".select_activity").on("change", function() {
 				var str = '';
 				var Activityid = $(this).val();
@@ -689,6 +695,9 @@ $(".recommend .present").live("click",function(){
    }
 	
 })
+
+//商品的上架和下架
+
 
 //充值政策的功能
 //点击查看内容

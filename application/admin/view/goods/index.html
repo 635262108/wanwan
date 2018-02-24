@@ -44,12 +44,21 @@
               <tbody id="tbody_center" style="font-size: 12px;">
                 {foreach name="data" item="vo"}
                 <tr class="gradeX trs recommend">
-                  <td>{$vo.id}</td>
+                  <td class="tr_id">{$vo.id}</td>
                   <td>{$vo.title}</td>
                   <td>{$vo.inventory}</td>
                   <td>{$vo.sold_num}</td>
                   <td>{$vo.price}</td>
-                  <td>{$vo.status|getGoodsStatus}</td>
+                  
+                    <!--{if condition="$vo.status eq 1"}
+                                   
+                      	<td class="yes present" style="cursor: pointer;"> 上架  </td>  
+                      
+                    {else/}
+                         <td class="no present" style="cursor: pointer;"> 下架  </td>     
+                      	
+                    {/if}-->
+                  <td class="status">{$vo.status|getGoodsStatus}</td>
                   <td>{$vo.on_time|date='Y-m-d H:i',###}</td>
                   
                   
