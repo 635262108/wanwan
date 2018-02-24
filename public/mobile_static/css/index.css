@@ -19,6 +19,9 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	padding: 0px 2px 0px 4px;
+	box-sizing: border-box;
+	/*border: 1px solid red;*/
 }
 .wanwan_logo span{
 	display: inline-block;
@@ -26,6 +29,43 @@
 .wanwan_logo span img{
 	width: 62px;
 	height: 26px;
+}
+
+/*搜索框*/
+.wanwan_logo .searchInput{
+	width: 70%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin:0px 6px 0px 10px;
+}
+.wanwan_logo .searchInput span{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+}
+.wanwan_logo .searchInput span img{
+	width: 100%;
+	height: 100%;
+	
+}
+.wanwan_logo .searchInput input{
+	width: 100%;
+	padding-left: 10%;
+	outline: none;
+	border-left-width:0px;
+	border-top-width:0px;
+	border-right-width:0px;
+	border-bottom: 1px solid #C0C0C0;	
+}
+.wanwan_logo .person_img{
+	width: 27px;
+	height: 27px;
+	
+}
+.wanwan_logo .person_img img{
+	width: 100%;
+	height: 100%;
 }
 .into_page {
 	width: 20%;

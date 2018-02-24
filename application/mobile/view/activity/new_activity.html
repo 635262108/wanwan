@@ -1,13 +1,18 @@
 {include file="public/header"/}
 <div class="wanwan_logo">
 	<span><img src="__MobileImg__/wanwanwan@2x.png"></span>
+	<div class="searchInput">
+		 <span><img src="__MobileImg__/searchGoods.png"></span>
+		 <input type="text" placeholder="水箭筒"/>
+	</div>
+	<div class="person_img"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></div>
 </div>
-{empty name=":session('userInfo')"}
+<!--{empty name=":session('userInfo')"}
 <div class="into_page">
 	<span><a href="{:url('mobile/user/login')}">登录</a></span>
 	<span><a href="{:url('mobile/user/register')}">注册</a></span>
 </div>
-{/empty}
+{/empty}-->
 <div class="device">
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
@@ -52,15 +57,20 @@
 			</a>
 		</li>
 		<li class="play_baby">
+			<a href="{:url('mobile/Activity/freeplay')}"><span><img src="__MobileImg__/goods_shop.png"></span>
+				<p>商城</p>
+			</a>
+		</li>
+		<li class="play_baby">
 			<a href="{:url('mobile/Activity/about')}"><span><img src="__MobileImg__/guanyuwomen@2x.png"></span>
 				<p>关于我们</p>
 			</a>
 		</li>
-		<li class="play_baby">
+		<!--<li class="play_baby">
 			<a href="{:url('mobile/User/index')}"><span><img src="__MobileImg__/huiyuanzhongxin@2x.png"></span>
 				<p>会员中心</p>
 			</a>
-		</li>
+		</li>-->
 	</ul>
 </div>
 </div>
