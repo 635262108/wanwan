@@ -62,4 +62,15 @@ class Goods extends Base
             $this->success('操作失败');
         }
     }
+
+    //删除商品
+    public function del_goods(){
+        $id = input('post.id');
+        $res = $this->goods->delete($id);
+        if($res){
+            return_info(200,'成功');
+        }else{
+            return_info(-1,'失败');
+        }
+    }
 }

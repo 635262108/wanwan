@@ -150,6 +150,14 @@ function payWay($code){
     return $pay_way[$code];
 }
 
+//商品状态
+function getGoodsStatus($status){
+    $result = [
+        '上架','下架',
+    ];
+    return isset($result[$status-1])?$result[$status-1]:'';
+}
+
 //订单状态转换
 function getOrderStatus($status){
     $result = [
