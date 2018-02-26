@@ -811,4 +811,9 @@ class User extends Base
     public function user(){
         return $this->fetch('footer/user');
     }
+
+    //我购买过的商品
+    public function my_buy_goods(){
+        return $this->fetch();
+    }
 }

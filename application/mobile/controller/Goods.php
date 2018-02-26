@@ -36,8 +36,8 @@ class Goods extends Base
         ]);
     }
 
-    //选择支付方式
-    public function goods_select_pay(){
-
+    //搜索界面
+    public function search_list(){
+        return $this->fetch();
     }
 }

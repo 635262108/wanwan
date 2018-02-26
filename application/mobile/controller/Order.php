@@ -6,10 +6,14 @@ use think\Exception;
 class Order extends Base
 {
 
+    private $goodsOrder;
+    private $goods;
     public function _initialize() {
-        parent::_initialize();
+
         $noLogin = array('sign_up','order_detail');
         $this->checkUserLogin($noLogin);
+        $this->goodsOrder = model('GoodsOrder');
+        $this->goods = model('Goods');
     }
 
     //活动报名
@@ -140,6 +144,43 @@ class Order extends Base
         $this->assign('ActivityInfo',$ActivityInfo);
         $this->assign('url',url('user/my_activity',['a'=>1]));
         $this->assign('title','订单详情');
+        return $this->fetch();
+    }
+
+    //商品生成订单
+    public function goods_buy(){
+        $id = input('get.id/d');
+        $num = input('get.num/d');
+        $goodsInfo = $this->goods->find($id);
+        if(empty($goodsInfo)){
+            $this->error('商品信息加载失败');
+        }
+        //价格
+        $price = $goodsInfo->price * $num;
+
+        //订单入库
+        $order = [
+            'uid' => session('userInfo.uid'),
+            'order_sn' => getOrderSn(),
+            'gid' => $goodsInfo->id,
+            'count' => $num,
+            'price' => $price,
+            'addtime' => time(),
+            'referer' => $_SERVER['HTTP_REFERER']
+        ];
+        $res = $this->goodsOrder->insert($order);
+        if($res){
+            return $this->fetch('',[
+                'order' => $order,
+                'goodsInfo' => $goodsInfo
+            ]);
+        }else{
+            $this->error('订单生产失败');
+        }
+    }
+
+    //商品订单详情
+    public function goods_order_detail(){
         return $this->fetch();
     }
 }
