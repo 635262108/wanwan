@@ -2,9 +2,9 @@
 	
 	<!--商品的标题-->
 <div class="goods_title" style="background: #EFEFEF;position: initial;">
-	 <span><img src="__MobileImg__/second_back.png"/></span>
+	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
 	 <div class="searchInput">
-		 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/searchGoods.png"></a></span>
+		 <span><img src="__MobileImg__/searchGoods.png"></span>
 		 <input type="text" placeholder="水箭筒"/ style="background: #EFEFEF;">
 		 <img src="__MobileImg__/goods_cancel.png" class="cancel"/>
 	 </div>
@@ -17,7 +17,7 @@
 
 <!--商品列表-->
 <div class="goodsContent">
-	<a href="{:url('mobile/goods/good_detail)}">
+	<a href="{:url('mobile/goods/goods_detail')}">
 	 <div class="goodsPart">
 	 	  <div class="goodsImg">
 	 	  	  <img src="__MobileImg__/eye.png" />

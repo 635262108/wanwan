@@ -5,14 +5,11 @@
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
 		 <input type="text" placeholder="水箭筒"/>
 	</div>
-	<div class="person_img"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></div>
+	{empty name=":session('userInfo')"}
+	<div class="person_img"><a href="{:url('mobile/user/login')}"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></a></div>
+	{/empty}
+		<div class="person_img"><a href="{:url('mobile/User/index')}"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></a></div>
 </div>
-<!--{empty name=":session('userInfo')"}
-<div class="into_page">
-	<span><a href="{:url('mobile/user/login')}">登录</a></span>
-	<span><a href="{:url('mobile/user/register')}">注册</a></span>
-</div>
-{/empty}-->
 <div class="device">
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
@@ -57,7 +54,7 @@
 			</a>
 		</li>
 		<li class="play_baby">
-			<a href="{:url('mobile/Goods/goods_list')}"><span><img src="__MobileImg__/goods_shop.png"></span>
+			<a href="{:url('mobile/Goods/goods_list')}?search="><span><img src="__MobileImg__/goods_shop.png"></span>
 				<p>商城</p>
 			</a>
 		</li>

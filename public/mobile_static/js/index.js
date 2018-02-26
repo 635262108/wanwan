@@ -94,6 +94,39 @@ $(function(){
     })
 
 
+//商品价钱加减
+//var goodTotal=parseFloat($(".goodPriceTotal").html());
+var goodSingelP=parseFloat($(".singelPrice").html());
+var goodsNum=parseFloat($(".goodsVal").val());
+//初始化价格
+$(".goodPriceTotal").html((goodSingelP*goodsNum).toFixed(2));
+//点击商品的加减
+$(".goods_plus").on("click",function(event){
+	 event.stopPropagation();
+	 goodsNum++;
+	 $(".goodsVal").val(goodsNum);
+	 $(".goodPriceTotal").html((goodsNum*goodSingelP).toFixed(2))
+	
+})
+
+$(".goods_reduce").on("click",function(event){
+	 event.stopPropagation();
+	 goodsNum--;
+	 if(goodsNum<=0){
+	 	goodsNum=0;
+	 }
+	 $(".goodsVal").val(goodsNum);
+	 $(".goodPriceTotal").html((goodsNum*goodSingelP).toFixed(2));
+	 
+})
+
+//点击选择商品数量
+$(".select_num").on("click",function(){
+	$("#theme_modal_box").show();
+	$(".moal_div").animate({"bottom":"0px"},200);
+})
+
+
 //我要报名操作
 
     $(".i_want").on("click",function(){
@@ -126,17 +159,6 @@ $(function(){
     	$(this).addClass("special").siblings().removeClass("special");
     	pay_Contents.eq($(this).index()).show().siblings().hide();
     })
-//  监听滚轮事件
-// $(window).scroll(function(event){
-// 	var distance=$(this).scrollTop();
-//   if(distance>=418){
-//   	console.log('到了');
-//   	$(".bottom_info").show();
-//   }
-//   else{
-//   	$(".bottom_info").hide();
-//   }
-// })
 
 //模态框的操作
     $("#theme_modal_box").on("click",function(){
