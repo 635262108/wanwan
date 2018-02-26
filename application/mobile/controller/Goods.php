@@ -35,4 +35,9 @@ class Goods extends Base
     	    'result'=>$result
         ]);
     }
+
+    //搜索界面
+    public function search_list(){
+        return $this->fetch();
+    }
 }

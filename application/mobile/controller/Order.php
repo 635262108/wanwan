@@ -178,4 +178,9 @@ class Order extends Base
             $this->error('订单生产失败');
         }
     }
+
+    //商品订单详情
+    public function goods_order_detail(){
+        return $this->fetch();
+    }
 }
