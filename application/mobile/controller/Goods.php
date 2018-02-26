@@ -35,9 +35,4 @@ class Goods extends Base
     	    'result'=>$result
         ]);
     }
-
-    //选择支付方式
-    public function goods_select_pay(){
-
-    }
 }
