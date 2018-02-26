@@ -5,7 +5,7 @@
 	background: #F6F6F6
 }
 
-.wanwan_logo{
+.wanwan_logo,.goods_title{
 	width: 100%;
 	background:#f9f9f9;
 	height: 36px;
@@ -23,33 +23,54 @@
 	box-sizing: border-box;
 	/*border: 1px solid red;*/
 }
-.wanwan_logo span{
+.wanwan_logo span,.goods_title span{
 	display: inline-block;
 }
 .wanwan_logo span img{
 	width: 62px;
 	height: 26px;
 }
-
+.goods_title span img{
+	width: 20px;
+	height: 20px;
+}
+.goods_title .searchInput .cancel{
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 0px;
+}
+/*商品下的搜索框*/
+.goods_title .search_btn{
+	width: 38px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 4px;
+	background: #FF4134;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-left: 10px;
+}
 /*搜索框*/
-.wanwan_logo .searchInput{
+.wanwan_logo .searchInput,.goods_title .searchInput{
 	width: 70%;
 	position: relative;
 	display: flex;
 	align-items: center;
 	margin:0px 6px 0px 10px;
 }
-.wanwan_logo .searchInput span{
+.wanwan_logo .searchInput span,.goods_title .searchInput span{
 	width: 20px;
 	height: 20px;
 	position: absolute;
 }
-.wanwan_logo .searchInput span img{
+.wanwan_logo .searchInput span img,.goods_title .searchInput img{
 	width: 100%;
 	height: 100%;
 	
 }
-.wanwan_logo .searchInput input{
+.wanwan_logo .searchInput input,.goods_title .searchInput input{
 	width: 100%;
 	padding-left: 10%;
 	outline: none;
@@ -58,15 +79,19 @@
 	border-right-width:0px;
 	border-bottom: 1px solid #C0C0C0;	
 }
+.wanwan_logo .searchInput input::-webkit-input-placeholder,.goods_title .searchInput input::-webkit-input-placeholder{
+	font-size: 12px;
+}
 .wanwan_logo .person_img{
-	width: 27px;
-	height: 27px;
+	width: 25px;
+	height: 25px;
 	
 }
 .wanwan_logo .person_img img{
 	width: 100%;
 	height: 100%;
 }
+
 .into_page {
 	width: 20%;
 	display: flex;
@@ -480,15 +505,15 @@
 	width: 94.5%;
 	/*border: 1px solid red;*/
 }
-.five_organs .play_baoContent .playBao_part .bao_content .content_bottom{
+.five_organs .play_baoContent .playBao_part .bao_content .content_bottom,.goodsPart .content_bottom{
 	display: flex;
 	justify-content: space-between;
 }
-.five_organs .play_baoContent .playBao_part .bao_content .content_bottom span{
+.five_organs .play_baoContent .playBao_part .bao_content .content_bottom span,.goodsPart .content_bottom span{
 	font-size: 13px;
 	color: #FF4314;
 }
-.five_organs .play_baoContent .playBao_part .bao_content .content_bottom a{
+.five_organs .play_baoContent .playBao_part .bao_content .content_bottom a,.goodsPart .content_bottom a{
 	font-size: 13px;
 	color: #FF4314;
 }
@@ -588,6 +613,57 @@
 	font-size: 12px;
 	text-align: center;
 }
+
+
+/*商品的List样式*/
+.goodsContent {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+.goodsContent a{
+	display: block;
+}
+.goodsContent .goodsPart{
+	width: 49%;
+    margin-bottom: 15px;
+    background: #FFFFFF;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+.goodsContent .goodsPart .goodsImg{
+	width: 100%;
+	height:127px ;
+	
+}
+.goodsContent .goodsPart .goodsImg img{
+	width: 100%;
+	height: 100%;
+}
+
+.goodsContent .goodsPart .outer_border {
+	display: inline-block;
+	height: 26px;
+	border-bottom: 1px solid #FF4134;
+	margin-left: 6px;
+	
+}
+
+.goodsContent .goodsPart .outer_border .inside_border{
+	display: inline-block;
+	height: 23px;
+	line-height: initial;
+	color: #FF4134;
+	border-bottom: 2px solid #FF4134
+}
+ .goodsContent .goodsPart .sold{
+ 	font-size: 13px;
+ 	color: #666;
+ 	margin: 8px 0px 30px 6px;
+ }
+
 
 #system_content .system_part {
 	/*margin-left: 3%;*/
