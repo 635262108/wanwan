@@ -13,11 +13,23 @@ class Goods extends Base
 
     //商品首页
     public function goods_list(){
-        return $this->fetch();
+        $data = input('get.');
+        $field = 'title,img,inventory,sold_num,price';
+
+        $map = array();
+        $map['status'] = 1;
+        $data['search'] != '' ? $map['title'] = ['like',"%".$data['search']."%"] : false;
+
+        $result = $this->goods->field($field)
+            ->where($map)
+            ->paginate(10);
+        return $this->fetch('',[
+            'result'=>$result
+        ]);
     }
 
     //商品详情
-    public function goods_detail($id){
+    public function goods_detail($id = 0){
     	$result = $this->goods->find($id);
     	return $this->fetch('',[
     	    'result'=>$result
