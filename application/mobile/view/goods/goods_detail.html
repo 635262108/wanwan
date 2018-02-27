@@ -18,12 +18,12 @@
 <div class="playBaby_content almost" id="theme_information_content">
     <div class="content" id="theme_information">
         <div class="baby_img">
-            <img src="__MobileImg__/eye.png" />
+            <img src="__AdminIMG__/{$result.img}" />
         </div>
         <div class="baby_detail goods_detail">
-            <h2 style="margin-bottom: 17px;font-size: 16px;text-align: left;margin-left: 0.5%;color: #656565;font-weight: 500;">水箭筒</h2>
+            <h2 style="margin-bottom: 17px;font-size: 16px;text-align: left;margin-left: 0.5%;color: #656565;font-weight: 500;">{$result.title}</h2>
             <ul class="goods_ul">
-            	<li><span class="price">￥10.00</span><span class="num">已售633件</span></li>
+            	<li><span class="price">￥{$result.price}</span><span class="num">已售{$result.sold_num}件</span></li>
                 <li class="select_num" style="color: #656565;margin-left: -8px;padding-left: 10px;background: #FFFFFF;">选择&nbsp;&nbsp;&nbsp;商品数量
                 	 <img src="__MobileImg__/dayu.png"  style="width:6px;height:11px;margin-left:65%;">
                 </li>
@@ -39,11 +39,11 @@
         <div class="moal_div">
             <div class="modal_detail">
                 <div class="detail_img">
-                    <img src="__MobileImg__/eye.png" />
+                    <img src="__AdminIMG__/{$result.img}" />
                 </div>
                 <div class="detail_ul">
                     <ul class="goodsList">
-                        <li>水箭筒</li>
+                        <li>{$result.title}</li>
                         <li>总计：<span class="goodPriceTotal"></span></li>
                   
                     </ul>
@@ -55,7 +55,7 @@
             <div class="pay_total">
                 <p>数量</p>
                 <ul class="time_ul">
-                    <li><span>价格:<b>￥</b><b class="singelPrice">0.01</b>
+                    <li><span>价格:<b>￥</b><b class="singelPrice">{$result.price}</b>
                         </span>
                         <div class="reduce_plus">
                             <span class="goods_reduce">-</span><input  type="text"  value="1" class="goodsVal"><span class="plus goods_plus">+</span>
@@ -82,7 +82,7 @@
 		 商品详情>>
 	</div>
 	<div class="detailActivity">
-	
+	   {$result.content}
 	</div>
 
 
@@ -92,8 +92,8 @@
 
     <div class="bottom_info">
             
-            <span class="collect">收藏</span>
-            <span><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
+            <!--<span class="collect">收藏</span>-->
+            <span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
             
              
             
