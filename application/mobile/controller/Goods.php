@@ -40,16 +40,15 @@ class Goods extends Base
         $result = $this->goods->field($field)
             ->where($map)
             ->paginate(10);
-
-        if(!empty($result->data)){
+        $result = objectArray($result);
+        if(!empty($result['data'])){
             $str = $this->fetch('',[
-                'result'=>$result
+                'result'=>$result['data']
             ]);
             return_info(200,'成功',$str);
         }else{
             return_info(-1,'数据为空');
         }
-
     }
 
     //商品详情
