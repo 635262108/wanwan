@@ -5,7 +5,7 @@
 	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
 	 <div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
-		 <input type="text" placeholder="水箭筒"/ style="background: #EFEFEF;">
+		 <input type="text" placeholder="水箭筒"/ style="background: #EFEFEF;" class="search_goods">
 		 <img src="__MobileImg__/goods_cancel.png" class="cancel"/>
 	 </div>
 	 <div class="search_btn">
@@ -17,28 +17,26 @@
 
 <!--商品列表-->
 <div class="goodsContent">
-	<a href="{:url('mobile/goods/goods_detail')}">
-	{foreach name="result" item="vo"}
-	 <div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__AdminIMG__/{$vo.img}" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">{$vo.title}</span>
-  	      </span>
-  	      <div class="sold">已售出{$vo.sold_num}件</div>
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
-                         	<span>￥{$vo.price}</span>
-                         	<a href="javascript:;">购买>></a>
-          </div>
-	 </div>
-	 {/foreach}
-	</a>
+	
 	 
 </div>
+
+<div class="Numprompt">到底了！</div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js"></script>
 <script>
+	$(document).ready(function(){
+		var data={
+			'page':1,
+			'search':''
+		}
+		$.get("/mobile/goods/ajax_goods_list", data,
+            function(data){
+            	console.log(data,'返回的数据')
+         
+               $(".goodsContent").html(data);
+        });
+	})
 	var page=1;
 	$(window).scroll(function(){
 //		滚动条距离顶部的位置
@@ -49,7 +47,18 @@
 		var windowHeight=$(this).height();
 //		页面滑动到底部的时候实现
 		if(scrollTop + windowHeight >= scrollHeight){
-			console.log('滑动到底部了')
+			page++;
+			var data={
+				'page':page,
+				'search':''
+			}
+			data.search=$(".search_goods").val();
+			$.get("/mobile/goods/ajax_goods_list", data,
+            function(data){
+                $(".goodsContent").append(data);
+               
+               
+        	});
 		}
 	})
 </script>

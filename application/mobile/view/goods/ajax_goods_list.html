@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<a href="{:url('mobile/goods/goods_detail')}">
+	{foreach name="result" item="vo"}
+	 <div class="goodsPart">
+	 	  <div class="goodsImg">
+	 	  	  <img src="__AdminIMG__/{$vo.img}" />
+	 	  </div>
+	 	  <span class="outer_border">
+  	    	 	<span class="inside_border">{$vo.title}</span>
+  	      </span>
+  	      <div class="sold">已售出{$vo.sold_num}件</div>
+  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
+                         	<span>￥{$vo.price}</span>
+                         	<a href="javascript:;">购买>></a>
+          </div>
+	 </div>
+	 {/foreach}
+</a>
