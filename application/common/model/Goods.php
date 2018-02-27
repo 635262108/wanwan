@@ -8,14 +8,14 @@ use think\Db;
 
 class Goods extends Base
 {
-	/**
-	* 获取活相关的商品
-	*@aid 活动id
-    */
-    public function getRelatedGoods($aid = 0){
-    	$field = 'gid,g_img,g_title,g_price';
-    	$map['aid'] = $aid;
-    	$data = $this->where($map)->field($field)->select();
-    	return $data;
+    //根据标题搜索商品
+	public function getGoodsBySearch($search = ''){
+        $map['status'] = 1;
+        $search != '' ? $map['title'] = ['like',"%".$search."%"] : false;
+        $field = 'id,title,img,inventory,sold_num,price';
+        $result = $this->field($field)
+            ->where($map)
+            ->paginate(10);
+        return objectArray($result);
     }
 }
