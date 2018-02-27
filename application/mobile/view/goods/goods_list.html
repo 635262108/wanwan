@@ -21,7 +21,7 @@
 	 
 </div>
 
-<div class="Numprompt">到底了！</div>
+<div class="Numprompt" style="display: none;margin: 10px auto 10px;font-size: 15px;color: #FF4134;text-align: center;">到底了!!!</div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js"></script>
 <script>
@@ -32,9 +32,13 @@
 		}
 		$.get("/mobile/goods/ajax_goods_list", data,
             function(data){
-            	console.log(data,'返回的数据')
+            	if(data.data==''){
+                	$(".Numprompt").show();
+                }
+            	else{
+            		$(".goodsContent").html(data.data);
+            	}
          
-               $(".goodsContent").html(data);
         });
 	})
 	var page=1;
@@ -55,10 +59,29 @@
 			data.search=$(".search_goods").val();
 			$.get("/mobile/goods/ajax_goods_list", data,
             function(data){
-                $(".goodsContent").append(data);
+            	
+              
+                if(data.state_code==-1){
+                   
+
+                	
+                	$(".Numprompt").show();
+                	$(window).unbind("scroll");
+                }
+                else{
+                	$(".goodsContent").append(data.data);
+                }
                
                
         	});
 		}
 	})
+	
+	
+//	点击搜索
+$(".search_btn").on("click",function(){
+	
+})
+	
+	
 </script>
