@@ -40,7 +40,8 @@ class Goods extends Base
         $result = $this->goods->field($field)
             ->where($map)
             ->paginate(10);
-        if(!empty($result)){
+
+        if(!empty($result->data)){
             $str = $this->fetch('',[
                 'result'=>$result
             ]);
