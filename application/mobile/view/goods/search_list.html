@@ -3,7 +3,7 @@
 	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
 	 <div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
-		 <input type="text" placeholder="水箭筒"/ style="background: #EFEFEF;">
+		 <input type="text" placeholder=""/ style="background: #EFEFEF;" class="search_goods">
 		 <img src="__MobileImg__/goods_cancel.png" class="cancel"/>
 	 </div>
 	 <div class="search_btn">
@@ -11,9 +11,8 @@
 	 </div>
 	 
 </div>
-
-
 <div class="Allcontent">
+	<input type="hidden" value="" class="indexNum"/>
 	<div class="Alltitle">
 		 <ul>
 		 	 <li class="active">活动</li>
@@ -23,63 +22,84 @@
 	<div class="Alldetails five_organs almost">
      <div class="play_baoContent">
          
-		  <a href="{:url('mobile/activity/detail')}">
-			<div class="playBao_part">
-				<div class="bao_img">
-					<img src="__MobileImg__/eye.png" />
-				</div>
-				<div class="sold_num"><span>已有2人参加</span></div>
-				<div class="bao_content">
-					<span class="outer_border">
-  	    	 	 		<span class="inside_border">活动名称</span>
-					</span>
-					<ul>
-						<li>活动时间:<span>2017.2.10</span></li>
-						<li>活动地点:<span>哪里</span></li>
-
-					</ul>
-					<div class="content_bottom"><span>
-						￥50
-						</span>
-						<a href="{:url('mobile/activity/detail')}">点我报名>></a>
-					</div>
-				</div>
-			</div>
-		</a>
 		
-		 <div class="no_style activityStyle" style="display:none;margin-top:117px;" id="new_no">
-            	 <div><img src="__MobileImg__/no_activity.png"></div>
-                 <div style="color: #8A8A8A;">活动暂时休息一会儿噢~</div>
-                
-         </div>
-		
+	
 		 	
-		 </div>
-		 <div class="goodsContent" style="display: none;">
-		 	<a href="{:url('mobile/goods/goods_detail')}">
-					 <div class="goodsPart">
-					 	  <div class="goodsImg">
-					 	  	  <img src="__MobileImg__/eye.png" />
-					 	  </div>
-					 	  <span class="outer_border">
-				  	    	 	<span class="inside_border">水火箭</span>
-				  	      </span>
-				  	      <div class="sold">已售出222件</div>
-				  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
-				                         	<span>￥2.22</span>
-				                         	<a href="javascript:;">购买>></a>
-				          </div>
-					 </div>
-			</a>
+     </div>
+     <div class="goodsContent">
 			
-			 <div class="no_style goodsStyle" style="display:none;margin-top:117px;width: 100%;" id="new_no">
-            	 <div><img src="__MobileImg__/no_activity.png"></div>
-                 <div style="color: #8A8A8A;">活动暂时休息一会儿噢~</div>
-                
-             </div>
+			
 		 	
-		 </div>
+	 </div>
 	</div>
+	
+	<div class="no_style goodsStyle" style="display:none;margin-top:117px;width: 100%;" id="new_no">
+            	 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div style="color: #8A8A8A;">暂时休息一会儿噢~</div>
+                
+    </div>
 </div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js"></script>
+<script>
+	//点击商品ul
+var goodslis=$(".Alltitle ul").children("li");
+var Allcontents=$(".Alldetails").children();
+
+goodslis.on("click",function(){
+	$(this).addClass("active").siblings().removeClass("active");
+	var index=$(this).index();
+	$(".indexNum").val(index+1);
+		var data={
+			'type':'',
+			'search':''
+   }
+	data.type=index+1;
+	data.search=$(".search_goods").val();
+	$.get("/mobile/goods/ajax_search_list", data,
+            function(data){
+            	if(data.state_code==-1){
+                	$(".no_style").show();
+                	Allcontents.eq(index).hide();
+                	console.log(Allcontents.eq(index).siblings(),'没有搜索到')
+                	Allcontents.eq(index).siblings().hide();
+                }
+            	else{
+            		$(".no_style").hide();
+					Allcontents.eq(index).show().siblings().hide();
+            		Allcontents.eq(index).html(data.data);
+            	}
+         
+    });
+   	
+	
+	
+})
+goodslis.eq(0).trigger("click");
+
+
+$(".search_btn").on("click",function(){
+	var index=$(".indexNum").val();
+	var data={
+			'type':'',
+			'search':''
+   }
+	data.type=$(".indexNum").val();
+	data.search=$(".search_goods").val();
+	$.get("/mobile/goods/ajax_search_list", data,
+            function(data){
+            	if(data.state_code==-1){
+            		
+                	$(".no_style").show();
+                	Allcontents.eq(index-1).hide();
+                	Allcontents.eq(index-1).siblings().hide();
+                }
+            	else{
+            		$(".no_style").hide();
+            		 Allcontents.eq(index-1).show().siblings().hide();
+            	     Allcontents.eq(index-1).html(data.data);
+            	}
+         
+    });
+})
+</script>

@@ -5,7 +5,7 @@
 	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
 	 <div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
-		 <input type="text" placeholder="水箭筒"/ style="background: #EFEFEF;" class="search_goods">
+		 <input type="text" placeholder=""/ style="background: #EFEFEF;" class="search_goods">
 		 <img src="__MobileImg__/goods_cancel.png" class="cancel"/>
 	 </div>
 	 <div class="search_btn">
@@ -22,6 +22,11 @@
 </div>
 
 <div class="Numprompt" style="display: none;margin: 10px auto 10px;font-size: 15px;color:#A9A9A9;text-align: center;">到底儿了噢~</div>
+<div class="no_style goodsStyle" style="display:none;margin-top:117px;width: 100%;" id="new_no">
+            	 <div><img src="__MobileImg__/no_activity.png"></div>
+                 <div style="color: #8A8A8A;">暂时休息一会儿噢~</div>
+                
+</div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js"></script>
 <script>
@@ -33,7 +38,8 @@
 		$.get("/mobile/goods/ajax_goods_list", data,
             function(data){
             	if(data.state_code==-1){
-                	$(".Numprompt").show();
+                	$(".no_style").show();
+                	$(".goodsContent").hide();
                 }
             	else{
             		$(".goodsContent").html(data.data);
@@ -57,10 +63,13 @@ $(".search_btn").on("click",function(){
 		$.get("/mobile/goods/ajax_goods_list", data,
             function(data){
             	if(data.state_code==-1){
-                	$(".Numprompt").show();
+                	$(".no_style").show();
+                	$(".goodsContent").hide();
                 }
             	else{
-            		
+            		$(".Numprompt").hide();
+            		$(".no_style").hide();
+            		$(".goodsContent").show()
             		$(".goodsContent").html(data.data);
             	}
          
@@ -88,10 +97,7 @@ $(window).scroll(function(){
             	
               
                 if(data.state_code==-1){
-                   
-
-                	
-                	$(".Numprompt").show();
+                    $(".Numprompt").show();
                 	$(window).unbind("scroll");
                 }
                 else{

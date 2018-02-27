@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+       {foreach name="result" item="vo"}
+		<a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}">
+			<div class="playBao_part">
+				<div class="bao_img">
+					<img src="__AdminIMG__/{$vo.a_img}" />
+				</div>
+				<div class="sold_num"><span>已有{$vo.a_num}人参加</span></div>
+				<div class="bao_content">
+					<span class="outer_border">
+  	    	 	 		<span class="inside_border">{$vo.a_title}</span>
+					</span>
+					<ul>
+						<li>活动时间:<span>{$vo.a_begin_time|date='Y.m.d',###}-{$vo.a_end_time|date='Y.m.d',###}</span></li>
+						<li>活动地点:<span>{$vo.a_address}</span></li>
 
-</body>
-</html>
+					</ul>
+					<div class="content_bottom"><span>
+						￥
+						{if condition="$vo.a_adult_price+$vo.a_child_price eq 0"}
+							免费
+						{else/}
+							{$vo.a_adult_price+$vo.a_child_price}
+						{/if}
+						</span>
+						<a href="{:url('mobile/activity/detail',['aid'=>$vo.aid])}">点我报名>></a>
+					</div>
+				</div>
+			</div>
+		</a>
+		{/foreach}
+		
