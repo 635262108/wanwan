@@ -46,7 +46,7 @@ class Goods extends Base
             ]);
             return_info(200,'成功',$str);
         }else{
-            return_info(200,'成功');
+            return_info(-1,'数据为空');
         }
 
     }
