@@ -620,18 +620,20 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	margin-top: 10px;
+	padding-left: 8px;
 }
 .goodsContent a{
 	display: block;
 }
 .goodsContent .goodsPart{
-	width: 49%;
+	width: 48%;
     margin-bottom: 15px;
     background: #FFFFFF;
     padding-bottom: 10px;
     box-sizing: border-box;
+    margin-right: 7px;
+   
 }
 .goodsContent .goodsPart .goodsImg{
 	width: 100%;
@@ -3565,4 +3567,26 @@ display: none  !important;
 .rechargeModal_box .rechargeModal_div .overBox .policyPart ul li{
 	font-size: 12px;
 	margin-bottom: 8px;
+}
+
+/*搜索内容*/
+.Allcontent{
+	margin-top: 20px;
+}
+.Alltitle ul{
+	width: 93%;
+	display: flex;
+	flex-direction: row;
+	margin: 0px auto;
+}
+.Alltitle ul li{
+	width: 50%;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+}
+.Alltitle ul li.active{
+	border-bottom: 1px solid #FF4134;
+	color: #FF4134;
 }

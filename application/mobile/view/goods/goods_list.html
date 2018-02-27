@@ -18,61 +18,38 @@
 <!--商品列表-->
 <div class="goodsContent">
 	<a href="{:url('mobile/goods/goods_detail')}">
+	{foreach name="result" item="vo"}
 	 <div class="goodsPart">
 	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
+	 	  	  <img src="__AdminIMG__/{$vo.img}" />
 	 	  </div>
 	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
+  	    	 	<span class="inside_border">{$vo.title}</span>
   	      </span>
-  	      <div class="sold">已售出222件</div>
+  	      <div class="sold">已售出{$vo.sold_num}件</div>
   	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
-                         	<span>￥2.22</span>
+                         	<span>￥{$vo.price}</span>
                          	<a href="javascript:;">购买>></a>
           </div>
 	 </div>
+	 {/foreach}
 	</a>
 	 
-	 <div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
-  	      </span>
-  	      <div class="sold">已售出222件</div>
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
-                         	<span>￥2.22</span>
-                         	<a href="javascript:;">购买>></a>
-          </div>
-	 </div>
-	 
-	 
-	<div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
-  	      </span>
-  	      <div class="sold">已售出222件</div>
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
-                         	<span>￥2.22</span>
-                         	<a href="javascript:;">购买>></a>
-          </div>
-	</div>
-	
-	<div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
-  	      </span>
-  	      <div class="sold">已售出222件</div>
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;">
-                         	<span>￥2.22</span>
-                         	<a href="javascript:;">购买>></a>
-          </div>
-	</div>
 </div>
+<script src="__MobileJs__/jquery.min.js"></script>
+<script type="text/javascript" src="__MobileJs__/index.js"></script>
+<script>
+	var page=1;
+	$(window).scroll(function(){
+//		滚动条距离顶部的位置
+		var scrollTop=$(this).scrollTop();
+//		当前页面的总高度
+		var scrollHeight=$(document).height();
+//		当前可视的页面高度
+		var windowHeight=$(this).height();
+//		页面滑动到底部的时候实现
+		if(scrollTop + windowHeight >= scrollHeight){
+			console.log('滑动到底部了')
+		}
+	})
+</script>

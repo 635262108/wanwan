@@ -3,12 +3,11 @@
 	<span><img src="__MobileImg__/wanwanwan@2x.png"></span>
 	<div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
-		 <input type="text" placeholder="水箭筒"/>
+		 <input type="text" placeholder="水箭筒" class="searchGoods"/>
 	</div>
-	{empty name=":session('userInfo')"}
-	<div class="person_img"><a href="{:url('mobile/user/login')}"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></a></div>
-	{/empty}
-		<div class="person_img"><a href="{:url('mobile/User/index')}"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></a></div>
+	
+	<div class="person_img"><a href="{:url('mobile/user/index')}"><img src="__MobileImg__/huiyuanzhongxin@2x.png"></a></div>
+	
 </div>
 <div class="device">
 	<div class="swiper-container">
@@ -135,6 +134,12 @@
 		paginationElement: 'li',
 		createPagination: true
 	})
+	
+	
+//  获取焦点之后触发的事件
+    $(".searchGoods").on("focus",function(){
+    	 location.href="/mobile/goods/search_list.html"
+    })
 </script>
 </body>
 

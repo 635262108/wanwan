@@ -112,8 +112,8 @@ $(".goods_plus").on("click",function(event){
 $(".goods_reduce").on("click",function(event){
 	 event.stopPropagation();
 	 goodsNum--;
-	 if(goodsNum<=0){
-	 	goodsNum=0;
+	 if(goodsNum<=1){
+	 	goodsNum=1;
 	 }
 	 $(".goodsVal").val(goodsNum);
 	 $(".goodPriceTotal").html((goodsNum*goodSingelP).toFixed(2));
@@ -408,6 +408,47 @@ $(".signUp").on("click",function(){
 $(".signUp_modal .cancel").on("click",function(){
 	$(".signUp_modox").hide();
 	window.location.reload();
+})
+
+//点击商品ul
+var goodslis=$(".Alltitle ul").children("li");
+var Allcontents=$(".Alldetails").children();
+
+goodslis.on("click",function(){
+	$(this).addClass("active").siblings().removeClass("active");
+	Allcontents.eq($(this).index()).show().siblings().hide();
+	var Activitycontain=Allcontents.eq(0).find(".playBao_part");
+	var goodsContain=Allcontents.eq(1).find(".goodsPart");
+	if(Activitycontain.length==0){
+		console.log($(".no_style"));
+		
+		$(".activityStyle").show();
+	}
+   	else if(Activitycontain.length>=1){
+   	
+   		console.log(2222);
+       $(".activityStyle").attr("style","display: none;margin-top:88px;");
+   	}
+   	
+   	
+   	if(goodsContain.length==0){
+		$(".goodsStyle").show();
+	}
+   	else if(goodsContain.length>=1){
+   	
+   		
+       $(".goodsStyle").attr("style","display:none;margin-top:88px;");
+   	}
+   	
+	
+	
+})
+goodslis.eq(0).trigger("click");
+
+
+//搜索点击x
+$(".searchInput .cancel").on("click",function(){
+	$(this).siblings("input").val('');
 })
 
 

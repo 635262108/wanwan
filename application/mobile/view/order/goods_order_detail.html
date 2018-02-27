@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="public/header" /}
 
+<body>
+	<div class="comeback textAlign" id="second_page">
+		<div class="comeback_whole">
+			<div class="comeback_img">
+
+				{empty name="$url"}
+				<a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png" /></a>
+				{else/}
+				<a href="{$url}"><img src="__MobileImg__/second_back.png" /></a>
+				{/empty}
+			</div>
+		</div>
+
+		<div class="title_word second_activity">订单详情</div>
+
+	</div>
+	<div class="playBaby_content almost">
+
+		<div id="orderDetail_content">
+			<div class="content">
+
+				<div class="baby_detail">
+					<ul class="detail_information">
+						<li>联系人信息</li>
+						<li>用户名:哈哈</li>
+						<li>联系人姓名：王小二</li>
+						<li>联系方式：184379725648</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="content">
+
+				<div class="baby_detail">
+					<ul class="detail_information">
+						<li>商品信息</li>
+						<li>商品名称：水火箭</li>
+						<li>数量：2</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="content">
+
+				<div class="baby_detail">
+					<ul class="detail_information">
+						<li>支付信息</li>
+						<li>
+							支付金额：￥0.02
+						</li>
+						<li>
+							支付方式：微信
+						</li>
+						<li>
+							支付时间：2017.09.18
+						</li>
+						<li>订单编号：</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+			<script src="__MobileJs__/jquery.min.js"></script>
+			<script src="__MobileJs__/idangerous.swiper.min.js"></script>
+			<script src="__MobileJs__/index.js"></script>
 </body>
+
 </html>
