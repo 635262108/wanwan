@@ -40,9 +40,15 @@ class Goods extends Base
         $result = $this->goods->field($field)
             ->where($map)
             ->paginate(10);
-        return $this->fetch('',[
-            'result'=>$result
-        ]);
+        if(!empty($result)){
+            $str = $this->fetch('',[
+                'result'=>$result
+            ]);
+            return_info(200,'成功',$str);
+        }else{
+            return_info(200,'成功');
+        }
+
     }
 
     //商品详情

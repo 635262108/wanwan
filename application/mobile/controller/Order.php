@@ -175,7 +175,7 @@ class Order extends Base
                 'goodsInfo' => $goodsInfo
             ]);
         }else{
-            $this->error('订单生产失败');
+            $this->error('订单生成失败');
         }
     }
 
