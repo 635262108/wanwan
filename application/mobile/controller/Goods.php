@@ -17,7 +17,7 @@ class Goods extends Base
     public function goods_list(){
         //微信浏览器先获取openid
         if(is_weixin()) {
-            if (Session::get('openid') == null) {
+            if (session('openid') == null) {
                 //获取openId
                 $tools = new JsApiPay();
                 $openId = $tools->getOpenid();
