@@ -155,6 +155,11 @@ class Order extends Base
         if(empty($goodsInfo)){
             $this->error('商品信息加载失败');
         }
+
+        if(empty($id) && empty($num) && empty($_SERVER['HTTP_REFERER'])){
+            $this->error('页面加载失败...');
+        }
+
         //价格
         $price = $goodsInfo->price * $num;
 
@@ -168,9 +173,10 @@ class Order extends Base
             'addtime' => time(),
             'referer' => $_SERVER['HTTP_REFERER']
         ];
-        $res = $this->goodsOrder->insert($order);
-        if($res){
-            return $this->fetch('',[
+        $orderId = $this->goodsOrder->insertGetId($order);
+        if($orderId){
+            return $this->fetch('pay/goods_select_pay',[
+                'orderId' => $orderId,
                 'order' => $order,
                 'goodsInfo' => $goodsInfo
             ]);
