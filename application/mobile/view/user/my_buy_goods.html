@@ -18,7 +18,7 @@
 <!--商品列表-->
 <div class="goodsContent">
 	{foreach name="goodsInfo" item="vo"}
-	<a href="{:url('mobile/order/goods_order_detail',['id'=>$vo.id])}">
+	<a href="{:url('mobile/goods/goods_detail',['id'=>$vo.id])}">
 	 <div class="goodsPart">
 	 	  <div class="goodsImg">
 	 	  	  <img src="__AdminIMG__/{$vo.img}" />
@@ -26,10 +26,12 @@
 	 	  <span class="outer_border">
   	    	 	<span class="inside_border">{$vo.title}</span>
   	      </span>
-  	      <div class="goodsNum">数量:{$vo.count}</div>
+  	      <div class="goodsNum">数量:&nbsp;{$vo.count}</div>
   	     
   	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
+
                 <span style="color:#666;">￥{$vo.order_price}</span>
+
                 <a href="{:url('mobile/order/goods_order_detail',['id'=>$vo.id])}" style="font-size:12px;">订单详情>></a>
           </div>
 	 </div>

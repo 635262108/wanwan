@@ -1,8 +1,5 @@
 $(function(){
-	
-	
-
-    //大人的加
+     //大人的加
     
     var time_lis=$(".select_paytime").children();
     time_lis.on("click",function(){
