@@ -130,9 +130,13 @@
                 </ul>
             </div>
              {if condition="$activityInfo.a_end_time gt time()"/}
+             <div class="bottom_buy" style="display:flex;justify-content: center;align-items: center;">
                   <button type="submit" class="my_name">我要报名</button>
+             </div>
              {else/}
+             <div class="bottom_buy" style="display:flex;justify-content: center;align-items: center;">
                     <button type="submit" class="my_name" style="color: #656565;background: #C0C0C0;">活动结束</button>
+             </div>
              {/if}
        
 

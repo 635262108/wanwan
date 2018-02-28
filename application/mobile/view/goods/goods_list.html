@@ -1,11 +1,10 @@
 {include file="public/header"/}
-	
-	<!--商品的标题-->
+<!--商品的标题-->
 <div class="goods_title" style="background: #EFEFEF;position: initial;">
 	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
 	 <div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
-		 <input type="text" placeholder=""/ style="background: #EFEFEF;" class="search_goods">
+		 <input type="text" placeholder=""/ style="background:#EFEFEF;" class="search_goods">
 		 <img src="__MobileImg__/goods_cancel.png" class="cancel"/>
 	 </div>
 	 <div class="search_btn">
@@ -16,12 +15,9 @@
 
 
 <!--商品列表-->
-<div class="goodsContent">
-	
-	 
-</div>
+<div class="goodsContent"></div>
 
-<div class="Numprompt" style="display: none;margin: 10px auto 10px;font-size: 15px;color:#A9A9A9;text-align: center;">到底儿了噢~</div>
+<div class="Numprompt" style="display: none;margin:5px auto 10px;font-size: 15px;color:#A9A9A9;text-align: center;">到底儿了噢~</div>
 <div class="no_style goodsStyle" style="display:none;margin-top:117px;width: 100%;" id="new_no">
             	 <div><img src="__MobileImg__/no_activity.png"></div>
                  <div style="color: #8A8A8A;">暂时休息一会儿噢~</div>
@@ -47,62 +43,60 @@
          
         });
 	})
-	
 	var page=1;
 //	点击搜索
-$(".search_btn").on("click",function(){
-	var data={
-			'page':1,
-			'search':''
-     }
-	data.search=$(".search_goods").val();
-		$.get("/mobile/goods/ajax_goods_list", data,
-            function(data){
-            	if(data.state_code==-1){
-                	$(".no_style").show();
-                	$(".goodsContent").hide();
-                }
-            	else{
-            		$(".Numprompt").hide();
-            		$(".no_style").hide();
-            		$(".goodsContent").show()
-            		$(".goodsContent").html(data.data);
-            	}
-         
-        });
-})
-
-//滚轮滚动事件
-$(window).scroll(function(){
-//		滚动条距离顶部的位置
-		var scrollTop=$(this).scrollTop();
-//		当前页面的总高度
-		var scrollHeight=$(document).height();
-//		当前可视的页面高度
-		var windowHeight=$(this).height();
-//		页面滑动到底部的时候实现
-		if(scrollTop + windowHeight >= scrollHeight){
-			page++;
-			var data={
-				'page':page,
+	$(".search_btn").on("click",function(){
+		var data={
+				'page':1,
 				'search':''
+	     }
+		data.search=$(".search_goods").val();
+		$.get("/mobile/goods/ajax_goods_list", data,
+	            function(data){
+	            	if(data.state_code==-1){
+	                	$(".no_style").show();
+	                	$(".goodsContent").hide();
+	                }
+	            	else{
+	            		$(".Numprompt").hide();
+	            		$(".no_style").hide();
+	            		$(".goodsContent").show()
+	            		$(".goodsContent").html(data.data);
+	            	}
+	         
+	    });
+	})
+
+	//滚轮滚动事件
+	$(window).scroll(function(){
+	//		滚动条距离顶部的位置
+			var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+	//		var scrollTop=$(this).scrollTop();
+	//		当前页面的总高度
+			var scrollHeight=$(document).height();
+	//		当前可视的页面高度
+			var windowHeight=$(this).height();
+	//		页面滑动到底部的时候实现
+			if(scrollTop + windowHeight >= scrollHeight){
+				page++;
+				var data={
+					'page':page,
+					'search':''
+				}
+				data.search=$(".search_goods").val();
+				$.get("/mobile/goods/ajax_goods_list", data,
+	            function(data){
+	            	if(data.state_code==-1){
+	                    $(".Numprompt").show();
+	                	$(window).unbind("scroll");
+	                }
+	                else{
+	                	$(".goodsContent").append(data.data);
+	                }
+	               
+	               
+	        	});
 			}
-			data.search=$(".search_goods").val();
-			$.get("/mobile/goods/ajax_goods_list", data,
-            function(data){
-            	
-              
-                if(data.state_code==-1){
-                    $(".Numprompt").show();
-                	$(window).unbind("scroll");
-                }
-                else{
-                	$(".goodsContent").append(data.data);
-                }
-               
-               
-        	});
-		}
 	})
 	
 	

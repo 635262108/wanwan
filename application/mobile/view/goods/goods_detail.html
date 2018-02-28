@@ -1,110 +1,100 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>玩翫碗报名详情</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
-    <link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="__MobileCss__/index.css" />
-    <link rel="stylesheet" href="__MobileCss__/reset.css" />
-</head>
-<body>
-<!--返回按钮-->
-<div class="three_img">
-    <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/third_back.png" /></a>
-</div>
 
-<!--玩翫碗信息-->
-<div class="playBaby_content almost" id="theme_information_content">
-    <div class="content" id="theme_information">
-        <div class="baby_img">
-            <img src="__AdminIMG__/{$result.img}" />
-        </div>
-        <div class="baby_detail goods_detail">
-            <h2 style="margin-bottom: 17px;font-size: 16px;text-align: left;margin-left: 0.5%;color: #656565;font-weight: 500;">{$result.title}</h2>
-            <ul class="goods_ul">
-            	<li><span class="price">￥{$result.price}</span><span class="num">已售{$result.sold_num}件</span></li>
-                <li class="select_num" style="color: #656565;margin-left: -8px;padding-left: 10px;background: #FFFFFF;">选择&nbsp;&nbsp;&nbsp;商品数量
-                	 <img src="__MobileImg__/dayu.png"  style="width:6px;height:11px;margin-left:65%;">
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+	<head>
+		<meta charset="UTF-8">
+		<title>玩翫碗报名详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link rel="stylesheet" href="__MobileCss__/bootstrap.min.css" />
+		<link rel="stylesheet" href="__MobileCss__/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="__MobileCss__/index.css" />
+		<link rel="stylesheet" href="__MobileCss__/reset.css" />
+	</head>
 
-<!--点击我要报名-->
-<div id="theme_modal_box">
-    <form method="get" action="{:url('order/goods_buy')}">
-        <input type="hidden" name="id" value="{$result.id}"/>
-        <div class="moal_div">
-            <div class="modal_detail">
-                <div class="detail_img">
-                    <img src="__AdminIMG__/{$result.img}" />
-                </div>
-                <div class="detail_ul">
-                    <ul class="goodsList">
-                        <li>{$result.title}</li>
-                        <li>总计：<span class="goodPriceTotal"></span></li>
-                  
-                    </ul>
-                </div>
-            </div>
+	<body>
+		<!--返回按钮-->
+		<div class="three_img">
+			<a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/third_back.png" /></a>
+		</div>
 
-            
-            
-            <div class="pay_total">
-                <p>数量</p>
-                <ul class="time_ul">
-                    <li><span>价格:<b>￥</b><b class="singelPrice">{$result.price}</b>
-                        </span>
-                        <div class="reduce_plus">
-                            <span class="goods_reduce">-</span><input  type="text"  value="1" class="goodsVal" name="num"><span class="plus goods_plus">+</span>
-                        </div>
+		<!--玩翫碗信息-->
+		<div class="playBaby_content almost" id="theme_information_content">
+			<div class="content" id="theme_information">
+				<div class="baby_img">
+					<img src="__AdminIMG__/{$result.img}" />
+				</div>
+				<div class="baby_detail goods_detail">
+					<h2 style="margin-bottom: 17px;font-size: 16px;text-align: left;margin-left: 0.5%;color: #656565;font-weight: 500;">{$result.title}</h2>
+					<ul class="goods_ul">
+						<li><span class="price">￥{$result.price}</span><span class="num">已售{$result.sold_num}件</span></li>
+						<li class="select_num" style="color: #656565;margin-left: -8px;padding-left: 10px;background: #FFFFFF;font-size: 13px;height: 25px;line-height: 25px;">选择&nbsp;&nbsp;&nbsp;商品数量
+							<img src="__MobileImg__/dayu.png" style="width:6px;height:11px;margin-left:69%;">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-                    </li>
-                 
-                </ul>
-            </div>
-            
-                  <button type="submit" class="my_name">我要购买</button>
-            
-       
+		<!--点击我要报名-->
+		<div id="theme_modal_box">
+			<form method="get" action="{:url('order/goods_buy')}">
+				<input type="hidden" name="id" value="{$result.id}" />
+				<div class="moal_div">
+					<div class="modal_detail">
+						<div class="detail_img">
+							<img src="__AdminIMG__/{$result.img}" />
+						</div>
+						<div class="detail_ul">
+							<ul class="goodsList">
+								<li>{$result.title}</li>
+								<li>总计：<span class="goodPriceTotal"></span></li>
 
-        </div>
-    </form>
-</div>
+							</ul>
+						</div>
+					</div>
 
+					<div class="pay_total">
+						<p>数量</p>
+						<ul class="time_ul">
+							<li><span>价格:<b>￥</b><b class="singelPrice">{$result.price}</b></span>
+								<div class="reduce_plus">
+									<span class="goods_reduce">-</span><input type="text" value="1" class="goodsVal" name="num"><span class="plus goods_plus">+</span>
+								</div>
 
-<!--活动内容-->
-<div class="pay_content goodsImgContent">
-	
-	<div class="goodsImg_title">
-		 商品详情>>
-	</div>
-	<div class="detailActivity">
-	   {$result.content}
-	</div>
+							</li>
 
+						</ul>
+					</div>
+					<div class="bottom_buy" style="display:flex;justify-content: center;align-items: center;">
+						<button type="submit" class="my_name">我要购买</button>
+					</div>
 
-</div>
+				</div>
+			</form>
+		</div>
 
+		<!--活动内容-->
+		<div class="pay_content goodsImgContent">
 
+			<div class="goodsImg_title">
+				商品详情>>
+			</div>
+			<div class="detailActivity">
+				{$result.content}
+			</div>
 
-    <div class="bottom_info">
-            
-            <!--<span class="collect">收藏</span>-->
-            <span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
-            
-             
-            
-    </div>
+		</div>
 
+		<div class="bottom_info" style="justify-content: center;align-items: center;">
 
-<script src="__MobileJs__/jquery.min.js"></script>
-<script type="text/javascript" src="__MobileJs__/index.js" ></script>
- <script>
-        $(".detailActivity p img").attr("style","width:100%");
-    </script>
-</body>
+			<span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
+
+		</div>
+
+		<script src="__MobileJs__/jquery.min.js"></script>
+		<script type="text/javascript" src="__MobileJs__/index.js"></script>
+		<script>
+			$(".detailActivity p img").attr("style", "width:100%");
+		</script>
+	</body>
+
 </html>
-
