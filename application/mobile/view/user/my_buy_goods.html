@@ -17,21 +17,24 @@
 
 <!--商品列表-->
 <div class="goodsContent">
-	<a href="{:url('mobile/order/goods_order_detail')}">
+	{foreach name="goodsInfo" item="vo"}
+	<a href="{:url('mobile/order/goods_order_detail',['id'=>$vo.id])}">
 	 <div class="goodsPart">
 	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
+	 	  	  <img src="__AdminIMG__/{$vo.img}" />
 	 	  </div>
 	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
+  	    	 	<span class="inside_border">{$vo.title}</span>
   	      </span>
+  	      <div class="goodsNum">数量:{$vo.count}</div>
   	     
   	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
-                <span style="color:#666;">￥2.22</span>
-                <a href="{:url('mobile/order/goods_order_detail')}" style="font-size:12px;">订单详情>></a>
+                <span style="color:#666;">￥{$vo.price}</span>
+                <a href="{:url('mobile/order/goods_order_detail',['id'=>$vo.id])}" style="font-size:12px;">订单详情>></a>
           </div>
 	 </div>
 	</a>
+	{/foreach}
 </div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
