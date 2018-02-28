@@ -18,9 +18,11 @@ class Goodspay extends Base
 
     private $goods;
     private $user;
+    private $goodsOrder;
     public function _initialize(){
         $this->goods = model('Goods');
         $this->user = model('User');
+        $this->goodsOrder = model('GoodsOrder');
     }
 
     //选择了支付方式
@@ -32,7 +34,7 @@ class Goodspay extends Base
         //支付方式1：支付宝 2：微信 4:余额支付
         $bank_type = input('get.bank_type');
 
-        $order = $this->goods->find($orderId);
+        $order = $this->goodsOrder->find($orderId);
 
         if($order['uid'] != $uid){
             $this->error("无效订单");
@@ -63,7 +65,7 @@ class Goodspay extends Base
         $uid = session('userInfo.uid');
 
         //检查订单
-        $order  = $this->goods->find($orderId);
+        $order  = $this->goodsOrder->find($orderId);
         if(empty($order) || $uid != $order['uid']){
             $this->error('订单错误');
         }
@@ -104,7 +106,7 @@ class Goodspay extends Base
         }
         $uid = session('userInfo.uid');
         $userInfo = $this->user->find($uid);
-        $orderInfo = $this->goods->find($orderId);
+        $orderInfo = $this->goodsOrder->find($orderId);
 
         if(empty($userInfo) || $uid != $orderInfo['uid'] ){
             $this->error('请求异常');
@@ -176,7 +178,7 @@ class Goodspay extends Base
         }
 
         //订单已处理，通知微信服务器
-        $order = model('GoodsOrder')->get(['order_sn' => $order_sn]);
+        $order = $this->goodsOrder->find(['order_sn' => $order_sn]);
         if($order->order_status == 1) {
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');
