@@ -266,6 +266,7 @@ class Pay extends Base
         return $this->fetch('pay/enter_wx_pay');
     }
 
+
     //微信支付返回url
     public function pay_success($orderId){
         $orderInfo = model('ActivityOrder')->find($orderId);
@@ -286,8 +287,6 @@ class Pay extends Base
         }else{
             $this->error('支付失败,有疑问请联系客服');
         }
-
-
     }
 
     //微信支付回调
@@ -343,6 +342,59 @@ class Pay extends Base
 
             $logData['pay_status'] = 1;
             db('pay_log')->insert($logData);
+
+            $resultObj->setData('return_code', 'SUCCESS');
+            $resultObj->setData('return_msg', 'OK');
+            return $resultObj->toXml();
+
+        }catch (\Exception $e){
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', 'error');
+            return $resultObj->toXml();
+        }
+    }
+
+    //微信支付回调
+    public function wx_goods_notify(){
+        $weixinData = file_get_contents("php://input");
+
+        //实例化失败通知微信服务器
+        try{
+            $resultObj = new WxPayResults();
+            $weixinData = $resultObj->Init(($weixinData));
+        }catch (\Exception $e){
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', $e->getMessage());
+            return $resultObj->toXml();
+        }
+        $order_sn = $weixinData['out_trade_no'];
+
+        //订单处理失败通知微信服务器
+        if($weixinData['return_code'] === 'FAIL' || $weixinData['result_code'] !== 'SUCCESS') {
+            $resultObj->setData('return_code', 'FAIL');
+            $resultObj->setData('return_msg', 'error');
+            return $resultObj->toXml();
+        }
+
+        //订单已处理，通知微信服务器
+        $order = model('GoodsOrder')->get(['order_sn' => $order_sn]);
+        if($order->order_status == 1) {
+            $resultObj->setData('return_code', 'SUCCESS');
+            $resultObj->setData('return_msg', 'OK');
+            return $resultObj->toXml();
+        }
+
+        //更新订单表,记日志
+        try{
+            $data = [
+                'order_status' => 1,
+                'pay_way' => 2,
+                'pay_price'=> $weixinData['total_fee'] / 100,
+                'pay_time' => time()
+            ];
+            model('GoodsOrder')->save($data,['order_sn'=>$order_sn]);
+            //报名成功需要进行的操作
+            $this->signSuccessOperation($order);
 
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');

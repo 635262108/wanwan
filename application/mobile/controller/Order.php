@@ -169,7 +169,7 @@ class Order extends Base
             'order_sn' => getOrderSn(),
             'gid' => $goodsInfo->id,
             'count' => $num,
-            'price' => $price,
+            'order_price' => $price,
             'addtime' => time(),
             'referer' => $_SERVER['HTTP_REFERER']
         ];
