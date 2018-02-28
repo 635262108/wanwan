@@ -2,7 +2,7 @@
 
 <body style="background: #F6F6F6">
 
-	<form action="{:url('order/goods_buy')}" method="get" class="pay_form">
+	<form action="{:url('Goodspay/pay_way')}" method="get" class="pay_form">
 
 		<input type="hidden" value="{$orderId}" name="orderId" />
 
@@ -10,7 +10,7 @@
 			<div class="product_img"><img src="__MobileImg__/eye.png"></div>
 			<ul class="totalPrice">
 				<li>
-					<span>￥</span> {$order.price}
+					<span>￥</span> {$order.order_price}
 				</li>
 				<li>{$goodsInfo.title}</li>
 				<li>数量:{$order.count}</li>

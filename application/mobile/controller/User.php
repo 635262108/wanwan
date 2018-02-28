@@ -814,6 +814,17 @@ class User extends Base
 
     //我购买过的商品
     public function my_buy_goods(){
-        return $this->fetch();
+        $uid = session('userInfo.uid');
+        $map = [
+            'uid' => $uid,
+        ];
+        $goodsInfo = model('GoodsOrder')->alias('o')
+            ->field('o.*,g.id,g.title,g.img')
+            ->join('__GOODS__ g','g.id = o.gid')
+            ->where($map)
+            ->select();
+        return $this->fetch('',[
+            'goodsInfo' => $goodsInfo
+        ]);
     }
 }
