@@ -7,9 +7,13 @@ class Goods extends Base
 {
     private $goods;
     private $activity;
+    private $goodsOrder;
+    private $user;
     public function _initialize(){
         $this->goods = model('Goods');
         $this->activity = model('Activity');
+        $this->goodsOrder = model('goodsOrder');
+        $this->user = model('user');
     }
 
     //商品首页
@@ -51,9 +55,13 @@ class Goods extends Base
 
     //商品详情
     public function goods_detail($id = 0){
-    	$result = $this->goods->find($id);
+    	$orderInfo = $this->goodsOrder->find($id);
+        $goodsInfo = $this->goods->find($orderInfo->gid);
+        $userInfo = $this->user->find($orderInfo->uid);
     	return $this->fetch('',[
-    	    'result'=>$result
+    	    'orderInfo'=>$orderInfo,
+            'goodsInfo'=>$goodsInfo,
+            'userInfo'=>$userInfo,
         ]);
     }
 
