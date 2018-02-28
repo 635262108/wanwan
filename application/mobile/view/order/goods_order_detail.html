@@ -24,8 +24,8 @@
 				<div class="baby_detail">
 					<ul class="detail_information">
 						<li>联系人信息</li>
-						<li>用户名:哈哈</li>
-						<li>联系方式：184379725648</li>
+						<li>用户名:{$userInfo.nickname}</li>
+						<li>联系方式：{$userInfo.mobile}</li>
 					</ul>
 
 				</div>
@@ -37,8 +37,8 @@
 				<div class="baby_detail">
 					<ul class="detail_information">
 						<li>商品信息</li>
-						<li>商品名称：水火箭</li>
-						<li>数量：2</li>
+						<li>商品名称：{$goodsInfo.title}</li>
+						<li>数量：{$orderInfo.count}</li>
 
 					</ul>
 
@@ -52,15 +52,15 @@
 					<ul class="detail_information">
 						<li>支付信息</li>
 						<li>
-							支付金额：￥0.02
+							支付金额：￥{$orderInfo.order_price}
 						</li>
 						<li>
-							支付方式：微信
+							支付方式：{$orderInfo.pay_way|payWay}
 						</li>
 						<li>
-							支付时间：2017.09.18
+							支付时间：{$orderInfo.pay_time|date='Y-m-d H:i',###}
 						</li>
-						<li>订单编号：</li>
+						<li>订单编号：{$orderInfo.order_sn}</li>
 					</ul>
 
 				</div>

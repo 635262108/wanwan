@@ -53,18 +53,6 @@ class Goods extends Base
         }
     }
 
-    //商品详情
-    public function goods_detail($id = 0){
-    	$orderInfo = $this->goodsOrder->find($id);
-        $goodsInfo = $this->goods->find($orderInfo->gid);
-        $userInfo = $this->user->find($orderInfo->uid);
-    	return $this->fetch('',[
-    	    'orderInfo'=>$orderInfo,
-            'goodsInfo'=>$goodsInfo,
-            'userInfo'=>$userInfo,
-        ]);
-    }
-
     //搜索界面
     public function search_list(){
         return $this->fetch();

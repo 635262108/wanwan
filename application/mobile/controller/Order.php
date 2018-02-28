@@ -8,12 +8,14 @@ class Order extends Base
 
     private $goodsOrder;
     private $goods;
+    private $user;
     public function _initialize() {
 
         $noLogin = array('sign_up','order_detail');
         $this->checkUserLogin($noLogin);
         $this->goodsOrder = model('GoodsOrder');
         $this->goods = model('Goods');
+        $this->user = model('user');
     }
 
     //活动报名
@@ -187,7 +189,14 @@ class Order extends Base
     }
 
     //商品订单详情
-    public function goods_order_detail(){
-        return $this->fetch();
+    public function goods_order_detail($id = 0){
+        $orderInfo = $this->goodsOrder->find($id);
+        $goodsInfo = $this->goods->find($orderInfo->gid);
+        $userInfo = $this->user->find($orderInfo->uid);
+        return $this->fetch('',[
+            'orderInfo'=>$orderInfo,
+            'goodsInfo'=>$goodsInfo,
+            'userInfo'=>$userInfo,
+        ]);
     }
 }
