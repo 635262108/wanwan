@@ -176,6 +176,7 @@ class Order extends Base
         $orderId = $this->goodsOrder->insertGetId($order);
         if($orderId){
             return $this->fetch('pay/goods_select_pay',[
+            	'title' => '选择支付',
                 'orderId' => $orderId,
                 'order' => $order,
                 'goodsInfo' => $goodsInfo

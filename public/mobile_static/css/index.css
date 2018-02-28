@@ -1,7 +1,7 @@
 .almost .title_imguser_payhtml {
 	font-size: 18px;
 }
-#whole {
+#whole{
 	background: #F6F6F6
 }
 
@@ -21,7 +21,6 @@
 	align-items: center;
 	padding: 0px 2px 0px 4px;
 	box-sizing: border-box;
-	/*border: 1px solid red;*/
 }
 .wanwan_logo span,.goods_title span{
 	display: inline-block;

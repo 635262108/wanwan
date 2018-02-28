@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="public/header" /} {include file="public/second_header"}
+
+<body style="background: #F6F6F6">
+
+	<form action="{:url('order/goods_buy')}" method="get" class="pay_form">
+
+		<input type="hidden" value="{$orderId}" name="orderId" />
+
+		<div class="product_detail">
+			<div class="product_img"><img src="__MobileImg__/eye.png"></div>
+			<ul class="totalPrice">
+				<li>
+					<span>￥</span> {$order.price}
+				</li>
+				<li>{$goodsInfo.title}</li>
+				<li>数量:{$order.count}</li>
+			</ul>
+		</div>
+		<ul>
+			<li>
+				<div class="first_li"><img src="__MobileImg__/remaining_img.png" style="margin-right: 9px;">余额支付</div>
+
+				<div class="second_li" style="width: 7%;">
+					
+					<input type="radio" name="bank_type" value="4" class="select_remaining">
+
+				</div>
+
+			</li>
+
+			<li>
+				<div class="first_li">
+					<img src="__MobileImg__/weixin.png" style="margin-right: 9px;">微信支付
+				</div>
+				<div class="second_li">
+					<input type="radio" name="bank_type" value="2" class="weixin otherPay">
+				</div>
+			</li>
+		</ul>
+		<button type="submit" class="Sure_pay">确认支付</button>
+	</form>
+
+	<script src="__MobileJs__/jquery.min.js"></script>
+	<script src="__MobileJs__/index.js"></script>
+	<script src="__MobileJs__/idangerous.swiper.min.js"></script>
 
 </body>
+
 </html>

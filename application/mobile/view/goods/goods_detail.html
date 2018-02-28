@@ -34,8 +34,8 @@
 
 <!--点击我要报名-->
 <div id="theme_modal_box">
-    <form method="get" action="">
-        <input type="hidden" name="aid" value=""/>
+    <form method="get" action="{:url('order/goods_buy')}">
+        <input type="hidden" name="id" value="{$result.id}"/>
         <div class="moal_div">
             <div class="modal_detail">
                 <div class="detail_img">
@@ -58,7 +58,7 @@
                     <li><span>价格:<b>￥</b><b class="singelPrice">{$result.price}</b>
                         </span>
                         <div class="reduce_plus">
-                            <span class="goods_reduce">-</span><input  type="text"  value="1" class="goodsVal"><span class="plus goods_plus">+</span>
+                            <span class="goods_reduce">-</span><input  type="text"  value="1" class="goodsVal" name="num"><span class="plus goods_plus">+</span>
                         </div>
 
                     </li>

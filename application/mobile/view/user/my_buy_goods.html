@@ -4,7 +4,6 @@
 <div class="comeback textAlign" id="second_page">
     <div class="comeback_whole" >
         <div class="comeback_img">
-     
             {empty name="$url"}
                 <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a>
             {else/}
@@ -12,10 +11,8 @@
             {/empty}
         </div>
     </div>
-
-    <div class="title_word second_activity"> 我购买的商品</div>
-
-</div>
+    <div class="title_word second_activity">我购买的商品</div>
+	</div>
 
 
 <!--商品列表-->
@@ -31,56 +28,10 @@
   	     
   	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
                 <span style="color:#666;">￥2.22</span>
-                <a href="javascript:;" style="font-size:12px;">订单详情>></a>
-          </div>
-	 </div>
-	</a>
-	 
-<a href="{:url('mobile/order/goods_order_detail')}">
-	 <div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
-  	      </span>
-  	     
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
-                         	<span style="color: #666;">￥2.22</span>
-                         	<a href="javascript:;" style="font-size:12px;">订单详情>></a>
-          </div>
-	 </div>
-	</a>
-	 
-	 
-    <a href="{:url('mobile/order/goods_order_detail')}">
-	 <div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
-  	      </span>
-  	     
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
-                         	<span style="color: #666;">￥2.22</span>
-                         	<a href="javascript:;" style="font-size:12px;">订单详情>></a>
-          </div>
-	 </div>
-	</a>
-	
-	<a href="{:url('mobile/order/goods_order_detail')}">
-	 <div class="goodsPart">
-	 	  <div class="goodsImg">
-	 	  	  <img src="__MobileImg__/eye.png" />
-	 	  </div>
-	 	  <span class="outer_border">
-  	    	 	<span class="inside_border">水火箭</span>
-  	      </span>
-  	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
-                         	<span style="color: #666;">￥2.22</span>
-                         	<a href="javascript:;" style="font-size:12px;">订单详情>></a>
+                <a href="{:url('mobile/order/goods_order_detail')}" style="font-size:12px;">订单详情>></a>
           </div>
 	 </div>
 	</a>
 </div>
+<script src="__MobileJs__/jquery.min.js"></script>
+<script type="text/javascript" src="__MobileJs__/index.js" ></script>

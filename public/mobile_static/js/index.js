@@ -410,42 +410,13 @@ $(".signUp_modal .cancel").on("click",function(){
 	window.location.reload();
 })
 
-//点击商品ul
-//var goodslis=$(".Alltitle ul").children("li");
-//var Allcontents=$(".Alldetails").children();
-//
-//goodslis.on("click",function(){
-//	$(this).addClass("active").siblings().removeClass("active");
-//	Allcontents.eq($(this).index()).show().siblings().hide();
-//	var Activitycontain=Allcontents.eq(0).find(".playBao_part");
-//	var goodsContain=Allcontents.eq(1).find(".goodsPart");
-//	if(Activitycontain.length==0){
-//		console.log($(".no_style"));
-//		
-//		$(".activityStyle").show();
-//	}
-// 	else if(Activitycontain.length>=1){
-// 	
-// 		console.log(2222);
-//     $(".activityStyle").attr("style","display: none;margin-top:88px;");
-// 	}
-// 	
-// 	
-// 	if(goodsContain.length==0){
-//		$(".goodsStyle").show();
-//	}
-// 	else if(goodsContain.length>=1){
-// 	
-// 		
-//     $(".goodsStyle").attr("style","display:none;margin-top:88px;");
-// 	}
-// 	
-//	
-//	
-//})
-//goodslis.eq(0).trigger("click");
-
-
+//当只有一个商品存在时的布局
+if($(".goodsPart").length==1){
+  $(".goodsContent").attr("style","justify-content:flex-start");
+}
+else{
+  $(".goodsContent").attr("style","justify-content: space-between");
+}
 //搜索点击x
 $(".searchInput .cancel").on("click",function(){
 	$(this).siblings("input").val('');
