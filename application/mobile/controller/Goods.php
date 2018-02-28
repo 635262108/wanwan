@@ -21,7 +21,7 @@ class Goods extends Base
                 //获取openId
                 $tools = new JsApiPay();
                 $openId = $tools->getOpenid();
-                session::set('openid', $openId);
+                session('openid', $openId);
             }
         }
         $data = input('get.');
