@@ -11,7 +11,7 @@ class Order extends Base
     private $user;
     public function _initialize() {
 
-        $noLogin = array('sign_up','order_detail');
+        $noLogin = array('sign_up','order_detail','goods_buy','goods_order_detail');
         $this->checkUserLogin($noLogin);
         $this->goodsOrder = model('GoodsOrder');
         $this->goods = model('Goods');
