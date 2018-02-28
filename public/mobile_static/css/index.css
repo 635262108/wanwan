@@ -616,6 +616,16 @@
 
 
 /*商品的List样式*/
+.bottom_info span:nth-child(1).wantBuy{
+	background: #FF4134;
+	width: 100%;
+	letter-spacing: 2px;
+	border-radius: 50px;
+	
+}
+.bottom_info .wantBuy a{
+	color: #fff;
+}
 .goodsContent {
 	display: flex;
 	flex-direction: row;
