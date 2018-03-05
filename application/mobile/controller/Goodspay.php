@@ -69,6 +69,11 @@ class Goodspay extends Base
         if(empty($order) || $uid != $order['uid']){
             $this->error('订单错误');
         }
+
+        if($order->order_status == 1){
+            $this->redirect('goods/goods_detail',['id'=>$order->gid]);
+        }
+
         //获取用户openid
         $openId = session('openid');
 
