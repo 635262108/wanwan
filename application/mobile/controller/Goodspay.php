@@ -203,7 +203,7 @@ class Goodspay extends Base
         }
 
         //订单已处理，通知微信服务器
-        $order = $this->goodsOrder->find(['order_sn' => $order_sn]);
+        $order = $this->goodsOrder->get(['order_sn' => $order_sn]);
         if($order->order_status == 1) {
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');
