@@ -9,8 +9,18 @@
 		<link rel="stylesheet" href="__MobileCss__/index.css" />
 		<link rel="stylesheet" href="__MobileCss__/reset.css" />
 	</head>
-
+	<script src="__MobileJs__/jquery.min.js"></script>
+    <script type="text/javascript" src="__MobileJs__/index.js"></script>
+	<script>
+			$(".detailActivity p img").attr("style", "width:100%");
+	</script>
+	
 	<body>
+		<div class="bottom_info" style="justify-content:center;align-items: center;background: #FFFFFF;height: 55px;">
+	
+				<span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
+	
+		</div>
 		<!--返回按钮-->
 		<div class="three_img">
 			<a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/third_back.png" /></a>
@@ -75,26 +85,20 @@
 		<!--活动内容-->
 		<div class="pay_content goodsImgContent">
 
-			<div class="goodsImg_title">
+			<div class="goodsImg_title" style="margin-bottom:15px;">
 				商品详情>>
 			</div>
 			<div class="detailActivity">
 				{$result.content}
 			</div>
+			
+		   
 
 		</div>
 
-		<div class="bottom_info" style="justify-content: center;align-items: center;">
+		
 
-			<span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
-
-		</div>
-
-		<script src="__MobileJs__/jquery.min.js"></script>
-		<script type="text/javascript" src="__MobileJs__/index.js"></script>
-		<script>
-			$(".detailActivity p img").attr("style", "width:100%");
-		</script>
+		
 	</body>
 
 </html>
