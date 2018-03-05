@@ -23,6 +23,8 @@ class Goodspay extends Base
         $this->goods = model('Goods');
         $this->user = model('User');
         $this->goodsOrder = model('GoodsOrder');
+        $noLogin = array('pay_way','wxJsPay','pay_success','balance_pay','wx_goods_notify');
+        $this->checkUserLogin($noLogin);
     }
 
     //选择了支付方式
@@ -69,6 +71,11 @@ class Goodspay extends Base
         if(empty($order) || $uid != $order['uid']){
             $this->error('订单错误');
         }
+
+        if($order->order_status == 1){
+            $this->redirect('goods/goods_detail',['id'=>$order->gid]);
+        }
+
         //获取用户openid
         $openId = session('openid');
 
@@ -96,7 +103,27 @@ class Goodspay extends Base
         $jsApiParameters = $tools->getJsApiParameters($orders);
         $this->assign('orderId',$orderId);
         $this->assign('jsApiParameters', $jsApiParameters);
-        return $this->fetch('pay/enter_wx_pay');
+        return $this->fetch('goodspay/enter_wx_pay');
+    }
+
+    //微信支付返回url
+    public function pay_success($orderId){
+        $orderInfo = $this->goodsOrder->find($orderId);
+
+        //延迟三秒，等待微信支付流程结束，时间原因，暂时这样，体验不好，以后优化
+        usleep(3000000);
+
+        //查询订单
+        $notify = new PayNotifyCallBack();
+        $notify->handle(true);
+        $result = $notify->queryTradeOrder($orderInfo['order_sn']);
+        if($result){
+            $this->assign('orderInfo',$orderInfo);
+            $this->assign('title','支付成功');
+            return $this->fetch();
+        }else{
+            $this->error('支付失败,有疑问请联系客服');
+        }
     }
 
     //余额支付
@@ -116,7 +143,6 @@ class Goodspay extends Base
         if($orderInfo['order_price'] > $userInfo['balance']){
             $this->error('余额不足，可以去会员中心进行充值哦');
         }
-
 
         try{
             //扣费
@@ -145,10 +171,11 @@ class Goodspay extends Base
             'pay_time' => time()
         ];
 
-        $res2 = $this->goods->save($data,['order_id'=>$orderId]);
+        $res2 = $this->goodsOrder->save($data,['id'=>$orderId]);
 
         //修改成功，进入报名成功界面
         if($res1 && $res2) {
+            $this->assign('title','支付成功');
             return $this->fetch('pay/goods_pay_success');
         }else{
             $this->error('支付失败，若发现余额已扣费请联系客服！');
@@ -178,7 +205,7 @@ class Goodspay extends Base
         }
 
         //订单已处理，通知微信服务器
-        $order = $this->goodsOrder->find(['order_sn' => $order_sn]);
+        $order = $this->goodsOrder->get(['order_sn' => $order_sn]);
         if($order->order_status == 1) {
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');
@@ -193,7 +220,7 @@ class Goodspay extends Base
                 'pay_price'=> $weixinData['total_fee'] / 100,
                 'pay_time' => time()
             ];
-            $this->goods->save($data,['order_sn'=>$order_sn]);
+            $this->goodsOrder->save($data,['order_sn'=>$order_sn]);
 
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');

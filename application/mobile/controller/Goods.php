@@ -15,15 +15,6 @@ class Goods extends Base
 
     //商品首页
     public function goods_list(){
-        //微信浏览器先获取openid
-        if(is_weixin()) {
-            if (session('openid') == null) {
-                //获取openId
-                $tools = new JsApiPay();
-                $openId = $tools->getOpenid();
-                session('openid', $openId);
-            }
-        }
         $data = input('get.');
         $field = 'title,img,inventory,sold_num,price';
 
@@ -61,6 +52,15 @@ class Goods extends Base
 
     //商品详情
     public function goods_detail($id = 0){
+        //微信浏览器先获取openid
+        if(is_weixin()) {
+            if (session('openid') == null) {
+                //获取openId
+                $tools = new JsApiPay();
+                $openId = $tools->getOpenid();
+                session('openid', $openId);
+            }
+        }
     	$result = $this->goods->find($id);
     	return $this->fetch('',[
     	    'result'=>$result
