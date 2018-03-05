@@ -23,6 +23,8 @@ class Goodspay extends Base
         $this->goods = model('Goods');
         $this->user = model('User');
         $this->goodsOrder = model('GoodsOrder');
+        $noLogin = array('pay_way','wxJsPay','pay_success','balance_pay','wx_goods_notify');
+        $this->checkUserLogin($noLogin);
     }
 
     //选择了支付方式
@@ -142,7 +144,6 @@ class Goodspay extends Base
             $this->error('余额不足，可以去会员中心进行充值哦');
         }
 
-
         try{
             //扣费
             $userInfo->balance = $userInfo->balance - $orderInfo->order_price;
@@ -170,10 +171,11 @@ class Goodspay extends Base
             'pay_time' => time()
         ];
 
-        $res2 = $this->goodsOrder->save($data,['order_id'=>$orderId]);
+        $res2 = $this->goodsOrder->save($data,['id'=>$orderId]);
 
         //修改成功，进入报名成功界面
         if($res1 && $res2) {
+            $this->assign('title','支付成功');
             return $this->fetch('pay/goods_pay_success');
         }else{
             $this->error('支付失败，若发现余额已扣费请联系客服！');
