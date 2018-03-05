@@ -1,111 +1,114 @@
-
-{include file="public/header"/}
+ {include file="public/header"/}
 <style type="text/css">
-	#goodsContent{
+	#goodsContent {
 		width: 100%;
 	}
 </style>
 <div class="goods_title" style="background: #EFEFEF;position: initial;">
-	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
-	 <div class="searchInput">
-		 <span><img src="__MobileImg__/searchGoods.png"></span>
-		 <input type="text" placeholder=""/ style="background: #EFEFEF;" class="search_goods">
-		 <img src="__MobileImg__/goods_cancel.png" class="cancel"/>
-	 </div>
-	 <div class="search_btn">
-	 	  搜索
-	 </div>
-	 
+	<span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
+	<div class="searchInput">
+		<span><img src="__MobileImg__/searchGoods.png"></span>
+		<input type="text" placeholder="" / style="background: #EFEFEF;" class="search_goods">
+		<img src="__MobileImg__/goods_cancel.png" class="cancel" />
+	</div>
+	<div class="search_btn">
+		搜索
+	</div>
+
 </div>
 <div class="Allcontent">
-	<input type="hidden" value="" class="indexNum"/>
+	<input type="hidden" value="" class="indexNum" />
 	<div class="Alltitle">
-		 <ul>
-		 	 <li class="active">活动</li>
-		 	 <li>商品</li>
-		 </ul>
+		<ul>
+			<li class="active">活动</li>
+			<li>商品</li>
+		</ul>
 	</div>
 	<div class="Alldetails five_organs almost">
-     <div class="play_baoContent">
-         
-		
-	
-		 	
-     </div>
-     <div class="goodsContent" id="goodsContent">
-			
-			
-		 	
-	 </div>
+		<div class="play_baoContent">
+
+		</div>
+		<div class="goodsContent" id="goodsContent">
+
+		</div>
 	</div>
-	
+
 	<div class="no_style goodsStyle" style="display:none;margin-top:117px;width: 100%;" id="new_no">
-            	 <div><img src="__MobileImg__/no_activity.png"></div>
-                 <div style="color: #8A8A8A;">暂时休息一会儿噢~</div>
-                
-    </div>
+		<div><img src="__MobileImg__/no_activity.png"></div>
+		<div style="color: #8A8A8A;">暂时休息一会儿噢~</div>
+
+	</div>
 </div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js"></script>
 <script>
 	//点击商品ul
-var goodslis=$(".Alltitle ul").children("li");
-var Allcontents=$(".Alldetails").children();
+	var goodslis = $(".Alltitle ul").children("li");
+	var Allcontents = $(".Alldetails").children();
 
-goodslis.on("click",function(){
-	$(this).addClass("active").siblings().removeClass("active");
-	var index=$(this).index();
-	$(".indexNum").val(index+1);
-		var data={
-			'type':'',
-			'search':''
-   }
-	data.type=index+1;
-	data.search=$(".search_goods").val();
-	$.get("/mobile/goods/ajax_search_list", data,
-            function(data){
-            	if(data.state_code==-1){
-                	$(".no_style").show();
-                	Allcontents.eq(index).hide();
-                	console.log(Allcontents.eq(index).siblings(),'没有搜索到')
-                	Allcontents.eq(index).siblings().hide();
-                }
-            	else{
-            		$(".no_style").hide();
+	goodslis.on("click", function() {
+		$(this).addClass("active").siblings().removeClass("active");
+		var index = $(this).index();
+		$(".indexNum").val(index + 1);
+		var data = {
+			'type': '',
+			'search': ''
+		}
+		data.type = index + 1;
+		data.search = $(".search_goods").val();
+		$.get("/mobile/goods/ajax_search_list", data,
+			function(data) {
+				if(data.state_code == -1) {
+					$(".no_style").show();
+					Allcontents.eq(index).hide();
+
+					Allcontents.eq(index).siblings().hide();
+				} else {
+					$(".no_style").hide();
 					Allcontents.eq(index).show().siblings().hide();
-            		Allcontents.eq(index).html(data.data);
-            	}
-         
-    });
-   	
-	
-	
-})
-goodslis.eq(0).trigger("click");
+					Allcontents.eq(index).html(data.data);
+					if($(".goodsPart").length == 1) {
+						 $(".goodsContent").attr("style", "justify-content:flex-start");
+					} else {
+						$(".goodsContent").attr("style", "justify-content: space-between");
+					}
+				}
 
+			});
 
-$(".search_btn").on("click",function(){
-	var index=$(".indexNum").val();
-	var data={
-			'type':'',
-			'search':''
-   }
-	data.type=$(".indexNum").val();
-	data.search=$(".search_goods").val();
-	$.get("/mobile/goods/ajax_search_list", data,
-            function(data){
-            	if(data.state_code==-1){
-            		
-                	$(".no_style").show();
-                	Allcontents.eq(index-1).hide();
-                	Allcontents.eq(index-1).siblings().hide();
-                }
-            	else{
-            		$(".no_style").hide();
-            		 Allcontents.eq(index-1).show().siblings().hide();
-            	     Allcontents.eq(index-1).html(data.data);
-            	}
-         
-    });
-})
+	})
+	goodslis.eq(0).trigger("click");
+
+	$(".search_btn").on("click", function() {
+
+		var index = $(".indexNum").val();
+		var data = {
+			'type': '',
+			'search': ''
+		}
+		data.type = $(".indexNum").val();
+		data.search = $(".search_goods").val();
+		$.get("/mobile/goods/ajax_search_list", data,
+			function(data) {
+				if(data.state_code == -1) {
+
+					$(".no_style").show();
+					Allcontents.eq(index - 1).hide();
+					Allcontents.eq(index - 1).siblings().hide();
+				} else {
+					$(".no_style").hide();
+					Allcontents.eq(index - 1).show().siblings().hide();
+					Allcontents.eq(index - 1).html(data.data);
+
+					if($(".goodsPart").length == 1) {
+						
+
+						$(".goodsContent").attr("style", "justify-content:flex-start");
+					} else {
+						$(".goodsContent").attr("style", "justify-content: space-between");
+					}
+				}
+
+			});
+	})
 </script>

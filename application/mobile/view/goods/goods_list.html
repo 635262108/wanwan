@@ -37,6 +37,11 @@
                 }
             	else{
             		$(".goodsContent").html(data.data);
+            		if($(".goodsPart").length == 1) {
+						 $(".goodsContent").attr("style", "justify-content:flex-start");
+					} else {
+						$(".goodsContent").attr("style", "justify-content: space-between");
+					}
             	}
          
         });
@@ -60,6 +65,11 @@
 	            		$(".no_style").hide();
 	            		$(".goodsContent").show()
 	            		$(".goodsContent").html(data.data);
+		            		if($(".goodsPart").length == 1) {
+							 $(".goodsContent").attr("style", "justify-content:flex-start");
+						} else {
+							$(".goodsContent").attr("style", "justify-content: space-between");
+						}
 	            	}
 	         
 	    });

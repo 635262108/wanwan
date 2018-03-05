@@ -409,6 +409,7 @@ $(".signUp_modal .cancel").on("click",function(){
 
 //当只有一个商品存在时的布局
 if($(".goodsPart").length==1){
+	
   $(".goodsContent").attr("style","justify-content:flex-start");
 }
 else{
