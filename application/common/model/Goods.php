@@ -18,4 +18,9 @@ class Goods extends Base
             ->paginate(10);
         return objectArray($result);
     }
+
+    //增加出售数量
+    public function addSoldNum($id = 0,$num = 1){
+	    return $this->where('id',$id)->setInc('sold_num',$num);
+    }
 }

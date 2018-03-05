@@ -175,6 +175,7 @@ class Goodspay extends Base
 
         //修改成功，进入报名成功界面
         if($res1 && $res2) {
+            $this->goods->addSoldNum($orderInfo['gid']);
             $this->assign('title','支付成功');
             return $this->fetch('pay/goods_pay_success');
         }else{
@@ -221,7 +222,7 @@ class Goodspay extends Base
                 'pay_time' => time()
             ];
             $this->goodsOrder->save($data,['order_sn'=>$order_sn]);
-
+            $this->goods->addSoldNum($order['gid']);
             $resultObj->setData('return_code', 'SUCCESS');
             $resultObj->setData('return_msg', 'OK');
             return $resultObj->toXml();
