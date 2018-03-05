@@ -2,22 +2,28 @@
 namespace app\mobile\controller;
 use app\home\logic\GoodsLogic;
 use think\Controller;
+use wxpay\JsApiPay;
 
 class Goods extends Base
 {
     private $goods;
     private $activity;
-    private $goodsOrder;
-    private $user;
     public function _initialize(){
         $this->goods = model('Goods');
         $this->activity = model('Activity');
-        $this->goodsOrder = model('goodsOrder');
-        $this->user = model('user');
     }
 
     //商品首页
     public function goods_list(){
+        //微信浏览器先获取openid
+        if(is_weixin()) {
+            if (session('openid') == null) {
+                //获取openId
+                $tools = new JsApiPay();
+                $openId = $tools->getOpenid();
+                session('openid', $openId);
+            }
+        }
         $data = input('get.');
         $field = 'title,img,inventory,sold_num,price';
 
@@ -55,13 +61,9 @@ class Goods extends Base
 
     //商品详情
     public function goods_detail($id = 0){
-    	$orderInfo = $this->goodsOrder->find($id);
-        $goodsInfo = $this->goods->find($orderInfo->gid);
-        $userInfo = $this->user->find($orderInfo->uid);
+    	$result = $this->goods->find($id);
     	return $this->fetch('',[
-    	    'orderInfo'=>$orderInfo,
-            'goodsInfo'=>$goodsInfo,
-            'userInfo'=>$userInfo,
+    	    'result'=>$result
         ]);
     }
 

@@ -29,7 +29,9 @@
   	      <div class="goodsNum">数量:&nbsp;{$vo.count}</div>
   	     
   	      <div class="content_bottom" style="padding: 0px 3px 0px 6px;margin-top: 30px;">
-                <span style="color:#666;">￥2.2</span>
+
+                <span style="color:#666;">￥{$vo.order_price}</span>
+
                 <a href="{:url('mobile/order/goods_order_detail',['id'=>$vo.id])}" style="font-size:12px;">订单详情>></a>
           </div>
 	 </div>
