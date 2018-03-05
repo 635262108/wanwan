@@ -30,7 +30,7 @@
                 count--;
                 $(".count").html(count)
                 if(count==1){
-                    location.href="{:url('mobile/order/goods_order_detail',['orderId'=>$orderInfo.id])}";
+                    location.href="{:url('mobile/order/goods_order_detail',['id'=>$orderInfo.id])}";
                 }else{
                     clearInterval();
                 }
