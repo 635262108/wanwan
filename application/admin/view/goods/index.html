@@ -6,24 +6,24 @@
       	<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a> 
       	<a href="#" class="tip-bottom">商品</a> 
       	<a href="#" class="current">商品列表</a> 
-  </div>
+  		</div>
   </div>
 <!--添加开始部分-->
-  <div class="add_order">
+<div class="add_order">
   	 <a href="{:url('admin/goods/dis_add_goods')}">
         <div class="add" title="添加商品">
           <span style="font-size: 14px;">
               <i class="icon-plus"></i>
-                 添加商品
+                	 添加商品
           </span>
         </div>
      </a>
-  </div>
+</div>
 <!--添加结束-->
 <div class="container-fluid">
   <div class="row-fluid">
   	  <div class="span12">
-  	  	        <div class="widget-box">
+  	  	<div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
             <h5>Data table</h5>
           </div>
@@ -44,19 +44,19 @@
               <tbody id="tbody_center" style="font-size: 12px;">
                 {foreach name="data" item="vo"}
                 <tr class="gradeX trs recommend">
-                  <td class="tr_id">{$vo.id}</td>
-                  <td>{$vo.title}</td>
-                  <td>{$vo.inventory}</td>
-                  <td>{$vo.sold_num}</td>
-                  <td>{$vo.price}</td>
-                  <td class="status" style="cursor: pointer;">{$vo.status|getGoodsStatus}</td>
-                  <td>{$vo.on_time|date='Y-m-d H:i',###}</td>
-                  
-                  
-                  <td class="center">
-                  	<a href="{:url('admin/goods/dis_save_goods','id='.$vo.id)}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-                    <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>	
-                  </td>
+	                  <td class="tr_id">{$vo.id}</td>
+	                  <td>{$vo.title}</td>
+	                  <td>{$vo.inventory}</td>
+	                  <td>{$vo.sold_num}</td>
+	                  <td>{$vo.price}</td>
+	                  <td class="status" style="cursor:pointer;">{$vo.status|getGoodsStatus}</td>
+	                  <td>{$vo.on_time|date='Y-m-d H:i',###}</td>
+	                  
+	                  
+	                  <td class="center">
+	                  	<a href="{:url('admin/goods/dis_save_goods','id='.$vo.id)}"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+	                    <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>	
+	                  </td>
                 </tr>
                 {/foreach}
               </tbody>
@@ -67,5 +67,5 @@
   </div>
 </div>
 </div>
-{include file="public/footer" /}
+{include file="public/footer"/}
 </html>
