@@ -191,7 +191,7 @@ class Order extends Base
     //商品订单详情
     public function goods_order_detail($id = 0){
         $orderInfo = $this->goodsOrder->find($id);
-        $goodsInfo = $this->goods->find($orderInfo->gid);
+        $goodsInfo = $this->goods->get($orderInfo->gid);
         $userInfo = $this->user->find($orderInfo->uid);
         return $this->fetch('',[
             'orderInfo'=>$orderInfo,
