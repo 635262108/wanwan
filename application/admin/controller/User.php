@@ -26,10 +26,10 @@ class User extends Base
 
         //条件
         $map = array();
-        $data['address'] != '' ? $map['district'] = $data['address'] : false;
-        $data['is_member'] != '' ? $map['member_grade'] = $data['is_member'] : false;
-        $data['mobile'] != '' ? $map['mobile'] = ['like',"%".$data['mobile']."%"] : false;
-        $data['nickname'] != '' ? $map['nickname'] = ['like',"%".$data['nickname']."%"] : false;
+        $data['address'] != '' ? $map['u.district'] = $data['address'] : false;
+        $data['is_member'] != '' ? $map['u.member_grade'] = $data['is_member'] : false;
+        $data['mobile'] != '' ? $map['u.mobile'] = ['like',"%".$data['mobile']."%"] : false;
+        $data['nickname'] != '' ? $map['u.nickname'] = ['like',"%".$data['nickname']."%"] : false;
 
         $order_str = "`{$data['orderby1']}` {$data['orderby2']}";
 
@@ -60,7 +60,7 @@ class User extends Base
         }
 
         $userInfo = model('user')->alias('u')->field('u.*,s.name as source_name')
-            ->join('mfw_source s','u.source=s.id')
+            ->join('mfw_source s','u.source=s.id','left')
             ->whereTime('reg_time',$reg_time)
             ->where($map)
             ->order($order_str)
