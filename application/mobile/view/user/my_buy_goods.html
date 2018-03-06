@@ -37,6 +37,24 @@
 	 </div>
 	</a>
 	{/foreach}
+	<div class="no_style goodsStyle" style="display:none;margin-top:117px;width: 100%;" id="new_no">
+		<div><img src="__MobileImg__/no_activity.png"></div>
+		<div style="color: #8A8A8A;">暂时没有购买的商品噢~</div>
+
+	</div>
 </div>
 <script src="__MobileJs__/jquery.min.js"></script>
 <script type="text/javascript" src="__MobileJs__/index.js" ></script>
+<script>
+	//当只有一个商品存在时的布局
+if($(".goodsPart").length==1){
+	
+  $(".goodsContent").attr("style","justify-content:flex-start");
+}
+else if($(".goodsPart").length==0){
+	    $(".no_style").show();
+}
+else{
+  $(".goodsContent").attr("style","justify-content: space-between");
+}
+</script>

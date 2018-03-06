@@ -2567,12 +2567,17 @@ div.dataTables_wrapper .ui-widget-header {
 }
 .arrangePart  .arrange_delete{
 	cursor: pointer;
-}
-.addContnet{
-	width: 40%;
-	margin-left: 7.5%;
+	/*border: 1px solid red;*/
+	position: absolute;
+	right: 13%;
 	display: flex;
 	justify-content: flex-end;
+}
+.addContnet{
+	/*border: 1px solid blue;*/
+	position: relative;
+	height: 30px;
+	
 }
 .addPolicyCon{
 	width: 66%;
@@ -2580,6 +2585,11 @@ div.dataTables_wrapper .ui-widget-header {
 	display: flex;
 	justify-content: flex-end;
 	/*border: 1px solid red;*/
+}
+.add_arrange{
+	
+	position: absolute;
+	right: 13%;
 }
 .add_arrange,.add_policy{
 	width: 30px;
@@ -2590,6 +2600,7 @@ div.dataTables_wrapper .ui-widget-header {
 	background: #EFEFEF;
 	cursor: pointer;
 }
+
 .arrangeContents .arrangePart{
 	background: #FFFFFF;
 	margin-bottom: 10px;
@@ -2600,7 +2611,7 @@ div.dataTables_wrapper .ui-widget-header {
 .arrange_delete{
 	position: absolute;
 	top: 10px;
-	left: 46%;
+	/*left: 46%;*/
 }
 .arrangePart .control-group{
 	border-bottom: none;
@@ -2618,7 +2629,6 @@ div.dataTables_wrapper .ui-widget-header {
 	box-sizing: border-box;
 	margin-top: 20px;
 	position: relative;
-	
 }
 .headerInfo img{
 	width: 100px;

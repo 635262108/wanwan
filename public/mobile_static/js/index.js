@@ -407,14 +407,7 @@ $(".signUp_modal .cancel").on("click",function(){
 	window.location.reload();
 })
 
-//当只有一个商品存在时的布局
-if($(".goodsPart").length==1){
-	
-  $(".goodsContent").attr("style","justify-content:flex-start");
-}
-else{
-  $(".goodsContent").attr("style","justify-content: space-between");
-}
+
 //搜索点击x
 $(".searchInput .cancel").on("click",function(){
 	$(this).siblings("input").val('');
