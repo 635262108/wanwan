@@ -8,7 +8,7 @@
 .wanwan_logo,.goods_title{
 	width: 100%;
 	background:#f9f9f9;
-	height: 36px;
+	height: 40px;
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -21,6 +21,7 @@
 	align-items: center;
 	padding: 0px 2px 0px 4px;
 	box-sizing: border-box;
+	/*border: 1px solid blue;*/
 }
 .wanwan_logo span,.goods_title span{
 	display: inline-block;
@@ -42,13 +43,13 @@
 /*商品下的搜索框*/
 .goods_title .search_btn{
 	width: 38px;
-	height: 18px;
-	line-height: 18px;
+	height: 22px;
+	line-height: 22px;
 	text-align: center;
 	border-radius: 4px;
 	background: #FF4134;
 	color: #FFFFFF;
-	font-size: 12px;
+	font-size: 13px;
 	margin-left: 10px;
 }
 /*搜索框*/
@@ -3129,6 +3130,7 @@ display: none  !important;
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
+	z-index: 666;
 }
 .bottom_info span{
 	width: 50%;

@@ -13,17 +13,17 @@
     <script type="text/javascript" src="__MobileJs__/index.js"></script>
 	<script>
 		window.onload=function(){
-			$(".detailActivity p img").attr("style", "width:100%");
+			$(".detailActivity  img").attr("style", "width:100%");
 		}
 			
 	</script>
 	
 	<body>
-		<div class="bottom_info" style="justify-content:center;align-items: center;background: #FFFFFF;height: 55px;">
+		 <div class="bottom_info" style="justify-content:center;align-items: center;background: #FFFFFF;height: 55px;">
 	
-				<span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over">我要购买</a></span>
+				<span class="wantBuy"><a href="javascript:;" class="i_want" class="activity_over" style="display: block;">我要购买</a></span>
 	
-		</div>
+		 </div>
 		<!--返回按钮-->
 		<div class="three_img">
 			<a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/third_back.png" /></a>
@@ -39,7 +39,7 @@
 					<h2 style="margin-bottom: 17px;font-size: 16px;text-align: left;margin-left: 0.5%;color: #656565;font-weight: 500;">{$result.title}</h2>
 					<ul class="goods_ul">
 						<li><span class="price">￥{$result.price}</span><span class="num">已售{$result.sold_num}件</span></li>
-						<li class="select_num" style="color: #656565;margin-left: -8px;padding-left: 10px;background: #FFFFFF;font-size: 13px;height: 25px;line-height: 25px;">选择&nbsp;&nbsp;&nbsp;商品数量
+						<li class="select_num" style="color: #656565;margin-left: -8px;padding-left: 10px;background: #FFFFFF;font-size: 14px;height: 35px;line-height: 35px;">选择&nbsp;&nbsp;&nbsp;商品数量
 							<img src="__MobileImg__/dayu.png" style="width:6px;height:11px;margin-left:69%;">
 						</li>
 					</ul>

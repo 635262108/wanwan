@@ -1,7 +1,15 @@
 {include file="public/header"/}
 <!--商品的标题-->
 <div class="goods_title" style="background: #EFEFEF;position: initial;">
-	 <span><a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a></span>
+	 <span>
+	 	    {empty name="$url"}
+                <a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a>
+            {else/}
+                <a href="{$url}"><img src="__MobileImg__/second_back.png"/></a>
+            {/empty}
+            
+	 	<!--<a onclick="javascript:window.history.back(-1);"><img src="__MobileImg__/second_back.png"/></a>-->
+	 </span>
 	 <div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
 		 <input type="text" placeholder=""/ style="background:#EFEFEF;" class="search_goods">
