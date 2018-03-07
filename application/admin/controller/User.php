@@ -908,6 +908,7 @@ class User extends Base
             'source' => $source,
             'activityInfo' => $activityInfo,
             'tInfo' => $tInfo,
+            'pay_way' => config('PAY_WAY')
         ]);
     }
 

@@ -15,7 +15,7 @@ class Order extends Base
     public function activity_order(){
         $source = model('Source')->all();
         $activityInfo = model('Activity')->getActivityAll('aid,a_title');
-        $pay_way = config('other.pay_way');
+        $pay_way = config('PAY_WAY');
 
         return $this->fetch('',[
             'source' => $source,

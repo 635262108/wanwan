@@ -146,7 +146,7 @@ function getOrderSn($uid=0,$aid=0){
  * @return string
  */
 function payWay($code){
-    $pay_way = config('other.pay_way');
+    $pay_way = config('PAY_WAY');
     return $pay_way[$code];
 }
 

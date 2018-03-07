@@ -138,7 +138,7 @@ class Excel extends Base
             $add_data[$i]['adult_num'] = $excel_data[$i]['adult_num'];
             $add_data[$i]['child_num'] = $excel_data[$i]['child_num'];
             $add_data[$i]['order_price'] = $excel_data[$i]['order_price'];
-            $add_data[$i]['pay_way'] = array_search($excel_data[$i]['pay_way'],config('other.pay_way'));
+            $add_data[$i]['pay_way'] = array_search($excel_data[$i]['pay_way'],config('PAY_WAY'));
             $add_data[$i]['pay_time'] = $excel_data[$i]['pay_time'];
             $add_data[$i]['order_status'] = $excel_data[$i]['order_status'];
             $add_data[$i]['addtime'] = $excel_data[$i]['addtime'];

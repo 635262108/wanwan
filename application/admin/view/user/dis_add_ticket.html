@@ -90,13 +90,9 @@
                                 <div class="controls">
                                     <select class="pay_way" style="width: 42%;">
                                         <option value="0">请选择...</option>
-
-                                        <option value="1">支付宝</option>
-                                        <option value="2">微信</option>
-                                        <option value="3">现金</option>
-                                        <option value="4">余额</option>
-                                        <option value="5">机构</option>
-
+                                     {foreach name="pay_way" item="vo" key="k"}
+                                        <option value="{$k}">{$vo}</option>
+                                      {/foreach}
 
                                     </select>
                                 </div>
