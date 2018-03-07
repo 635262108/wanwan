@@ -879,9 +879,13 @@ class User extends Base
             ->select();
         $sourceInfo = model('Source')->get($userInfo->source);
         //获取报名次数，消费金额，参加次数,充值次数
+        $order_price_map = [
+            'uid'=>$uid,
+            'order_status' => ['in','1,3,4'],
+        ];
         $result = [
             'enrol' => model('ActivityOrder')->getUserOrder($uid)->count(),
-            'order_price' => model('ActivityOrder')->getUserOrder($uid)->sum('order_price'),
+            'order_price' => model('ActivityOrder')->where($order_price_map)->sum('order_price'),
             'join_num' => model('ActivityOrder')->getUserSuccessJoinOrder($uid)->count(),
             'recharge_num' => model('RechargeRecord')->getUserRecharge($uid)->count(),
         ];

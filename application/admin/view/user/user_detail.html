@@ -252,6 +252,7 @@
 								<th>支付方式</th>
 								<th>报名渠道</th>
 								<th>签到时间</th>
+								<th>状态</th>
 								<th>备注</th>
 							</tr>
 						</thead>
@@ -275,6 +276,7 @@
 									{/if}
 
 								</td>
+								<td>{$vo.order_status|getOrderStatus}</td>
 								<td>{$vo.remark}</td>
 							</tr>
 						{/foreach}
