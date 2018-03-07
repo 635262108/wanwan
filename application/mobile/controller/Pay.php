@@ -152,11 +152,14 @@ class Pay extends Base
             $this->error('请求异常');
         }
 
+        if($orderInfo->order_status == 3 || $orderInfo->pay_time > 0){
+            $this->redirect('activity/detail',['aid'=>$ActivityInfo->aid]);
+        }
+
         //检查余额够不够
         if($orderInfo['order_price'] > $userInfo['balance']){
             $this->error('余额不足，可以去会员中心进行充值哦');
         }
-
 
         try{
             //扣费
