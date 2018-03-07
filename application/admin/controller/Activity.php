@@ -429,12 +429,12 @@ class Activity extends Base
             $userInfo->balance = $userInfo->balance+$orderInfo['order_price'];
             $userInfo->save();
 
-            $res = model('ActivityOrder')->setOrderStatus($order_sn,6);
-            if($res){
-                $this->success('金额已原路返回',url('activity/refund'));
-            }else{
-                $this->success('退款失败');
-            }
+            model('ActivityOrder')->setOrderStatus($order_sn,6);
+            model('ActivityRefund')->setStatus($rid,3);
+            //恢复名额
+            model('ActivityTime')->IncTicketNum($orderInfo->t_id);
+            model('ActivityTime')->DecSoldNum($orderInfo->t_id);
+            $this->success('金额已原路返回',url('activity/refund'));
 
         }
     }
