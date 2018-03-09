@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="public/header" /} 
+{include file="public/header_top" /} 
+<div class="wholePage">
+{include file="public/left"/}
+<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb">
+			<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+			<a href="#" class="tip-bottom">活动管理</a>
+			<a href="#" class="current">活动列表</a>
+		</div>
+	</div>
+	<!--添加开始部分-->
+	<div class="add_order">
+		<a href="{:url('seller/activity/add')}">
+			<div class="add" title="添加活动">
+				<span style="font-size: 14px;">
+              <i class="icon-plus"></i>
+                 添加活动
+          </span>
+			</div>
+		</a>
+	</div>
+	<!--添加结束-->
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+						<h5>Data table</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>活动id</th>
+									<th>活动名称</th>
+									<th>活动开始时间</th>
+									<th>活动结束时间</th>
+									<th>已报名额</th>
+									<th>大人价格</th>
+									<th>小孩价格</th>
+									<th>会员价</th>
+									<th>活动分类</th>
+									<th>是否推荐</th>
+									<th>是否上架</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="tbody_center" style="font-size: 12px;">
 
-</body>
+								<tr class="gradeX trs recommend">
+									<td>1</td>
+									<td>风筝</td>
+									<td>2013.4.20</td>
+									<td>2015.6.30</td>
+									<td>34</td>
+									<td>20</td>
+									<td>40</td>
+									<td>
+										10
+									</td>
+									<td>促销品</td>
+									<td>推荐</td>
+									<td>上架</td>
+
+									<td class="center">
+
+										<a href="javascript:;"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
+										<i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+{include file="public/footer" /}
+<script>
+	window.onload=function(){
+		$("iframe").hide();
+		$(".activity").parent().parent("ul").show();
+
+		$(".activity").css("color","#ffff");
+		$(".activity").siblings(".line").show();
+		
+	}
+</script>
 </html>

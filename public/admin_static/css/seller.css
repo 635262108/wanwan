@@ -1,0 +1,51 @@
+body{
+	overflow: hidden;
+	width: 100%;
+}
+.submenu .first_li{
+	display: block;
+}
+.submenu img{
+	width: 20px;
+	height: 20px;
+	padding-right: 10px;
+}
+.submenu span{
+	color: #FFFFFF;
+}
+.wholePage{
+	display: flex;
+	flex-direction: row;
+}
+#content{
+	width:100%;
+}
+.submenu a.active{
+	background:#27a9e3;
+}
+
+#sidebar > .leftSide > ul li ul{
+	background: none;
+}
+#sidebar > .leftSide > ul li ul li{
+	box-sizing: border-box;
+}
+#sidebar > .leftSide > ul li ul li a{
+	color: #FFFFFF;
+	display: block;
+	padding-left: 49px;
+	box-sizing: border-box;
+}
+.submenu ul li{
+	position: relative;
+}
+.submenu ul .line{
+	border-bottom: 1px solid #FFFFFF;
+	height: 0px;
+	width: 26%;
+	position: absolute;
+	bottom: 8px;
+	left: 46px;
+	display: none;
+}
+

@@ -1,10 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="public/header" /}
+    <div id="content" style="">
+        <div id="content-header">
+            <div id="breadcrumb">
+                <a href="index.html" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>首页</a>
+                <a href="{:url('seller/activity/index')}" class="tip-bottom" data-original-title="">活动管理</a>
+                <a href="#" class="current">添加活动</a>
+            </div>
+        </div>
 
-</body>
-</html>
+        <div class="row-fluid" id="emit_information" style="">
+            <div class="span6">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>活动信息</h5>
+                    </div>
+                    <div class="widget-content nopadding" style="">
+                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" name="Alist_form" style="m-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">标题 :</label>
+                                <div class="controls">
+                                    <input class="span11" value='' name="a_title" type="text">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动描述</label>
+                                <div class="controls">
+                                    <textarea class="span11" name="a_remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动图</label>
+                                <div class="controls">
+                                    <input type="file"  name="a_img"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动开始时间:</label>
+                                <div class="controls">
+                                    <input class="span11" value="" placeholder="格式：2017-09-07 15:30"  name="a_begin_time" type="text" style="width: 30%;cursor: pointer;" onfocus="$(this).calendar()">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动结束时间:</label>
+                                <div class="controls">
+                                    <input class="span11" value="" placeholder="格式：2017-09-07 15:30"  name="a_end_time" type="text" style="width:30%;cursor: pointer;" onfocus="$(this).calendar()">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动地址:</label>
+                                <div class="controls">
+                                    <input class="span11" value="" name="a_address" type="text" style="width:30%">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">大人价格</label>
+                                <div class="controls">
+                                    <input class="span11" value='' style="width: 20%;margin-right: 10px;" name="a_adult_price" type="text">元
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">小孩价格</label>
+                                <div class="controls">
+                                    <input class="span11" value='' style="width: 20%;margin-right: 10px;" name="a_child_price" type="text">元
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">会员大人价格</label>
+                                <div class="controls">
+                                    <input class="span11" value='' style="width: 20%;margin-right: 10px;" name="member_adult_price" type="text">元
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">会员小孩价格</label>
+                                <div class="controls">
+                                    <input class="span11" value='' style="width: 20%;margin-right: 10px;" name="member_child_price" type="text">元
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动状态</label>
+                                <div class="controls">
+                                    <select style="width: 20%;" name="a_status" autocomplete = "off">
+                                        <option value="1" selected="selected">上架</option>
+                                        <option value="2" >下架</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">活动类型</label>
+                                <div class="controls">
+                                    <select style="width: 20%;" autocomplete = "off" name="a_type" onChange="changeActivityType($(this).val())">
+                                        <option>请选择...</option>
+                                        
+                                        
+                                        <option value="">66</option>
+                                       
+                                    </select>
+                                    <select id="sonType" style="width: 20%;" name="a_type2">
+                                        <option>请选择...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">是否推荐</label>
+                                <div class="controls">
+                                    <select style="width: 20%;" name="a_is_recommend" autocomplete = "off">
+                                        <option value="1">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--文本编辑区-->
+                            <div class="control-group" style="">
+                                <label class="control-label">活动详情</label>
+                                <textarea id="editor" name="a_content" style="width:83%;height:500px;display: inline-block;margin-left: 15px;z-index: 0;">
+                                            
+                                </textarea>
+
+
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success info_sure">保存</button>
+                                <a href="{:url('seller/activity/index')}" class="btn-warning">取消</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+   
+   
+   {include file="public/footer"/}
+   
+    <script type="text/javascript" src="__AJS__/jquery-calendar.js"></script> 
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__EDITER__/lang/zh-cn/zh-cn.js"></script>
+  
+    
+<script>
+$(function() {
+    var ue = UE.getEditor('editor');
+})
+</script>

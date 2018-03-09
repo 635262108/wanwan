@@ -75,10 +75,10 @@ body {
 	background-color: #1e242b;
 }
 #sidebar > .leftSide > ul li ul li a{ color:#939da8}
-#sidebar > .leftSide > ul li ul li a:hover, #sidebar > ul li ul li.active a {
+/*#sidebar > .leftSide > ul li ul li a:hover, #sidebar > ul li ul li.active a {
 	color: #fff;
 	background-color: #28b779;
-}
+}*/
 
 
 #search input[type=text] {

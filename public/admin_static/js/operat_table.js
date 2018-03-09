@@ -16,7 +16,7 @@ $("span.icon input:checkbox, th input:checkbox").click(function(){
 		var checkbox = $(this).parents('.widget-box').find('tr td:first-child input:checkbox');		
 		checkbox.each(function(){
 			this.checked = checkedStatus;
-			if (checkedStatus ==this.checked){
+			if(checkedStatus ==this.checked){
 				$(this).closest('.checker > span').removeClass('checked');
 			}
 			if (this.checked){
@@ -41,7 +41,7 @@ var SpitUrl={
 		var trs = $("#tbody_center tr");
 		var checks = $(".check");
 //			查看更新所有数据
-			checks.live("click", function(event) {
+			checks.live("click", function(event) {                             
 				
 				event.stopPropagation();
 				$(".modal_box").show();
@@ -610,7 +610,7 @@ var str_num="<div class='one'><div class='control-group'><label class='control-l
 				}
 				
 				
-				 if($(this).attr("checked")){
+				if($(this).attr("checked")){
 				 	
 				 	  $(this).parent(".second_check").siblings(".first_child").attr("checked",true);
 				 	  
