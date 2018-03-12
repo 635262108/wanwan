@@ -2,7 +2,7 @@
 {include file="public/header_top" /} 
 <div class="wholePage">
 {include file="public/left"/}
-<div id="content">
+<div id="content" class="main_content">
 	<div id="content-header">
 		<div id="breadcrumb">
 			<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
@@ -78,18 +78,18 @@
 			</div>
 		</div>
 	</div>
-</div>
 
+</div>
 </div>
 {include file="public/footer" /}
 <script>
-	window.onload=function(){
+//	window.onload=function(){
 		$("iframe").hide();
 		$(".activity").parent().parent("ul").show();
-
-		$(".activity").css("color","#ffff");
+        $(".activity").css("color","#ffff");
 		$(".activity").siblings(".line").show();
 		
-	}
+		
+//	}
 </script>
 </html>

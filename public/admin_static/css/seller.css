@@ -1,6 +1,23 @@
-body{
-	overflow: hidden;
-	width: 100%;
+#sidebar h1{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: -25px;
+}
+#sidebar h1 p{
+	font-size: 16px;
+	color: #FFFFFF;
+	letter-spacing: 1px;
+	margin-top: 10px;
+}
+#sidebar h1 img:nth-child(1){
+	width: 55px;
+	height: 55px;
+	margin-bottom: 8px;
+}
+#emit_information{
+	margin-left: 8%;
 }
 .submenu .first_li{
 	display: block;
