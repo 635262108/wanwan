@@ -1124,46 +1124,7 @@ particularslis.on("click",function(){
 	})
     }
     
-//  $.post('/api/user/getAnyUserConsumption',{uid:uId,type:typeNum
-//		
-//	},function(obj){
-//		if(obj.state_code == 200){
-//			
-//			for(var i=0;i<obj.data.length;i++){
-//				
-//				str+="<tr>"+"<td>"+obj.data[i].id+"</td>"
-//				           +"<td>"+obj.data[i].money+"</td>"
-//						   +"<td>"+obj.data[i].balance+"</td>"
-//						   +"<td>"+obj.data[i].type+"</td>"
-//						   +"<td>"+obj.data[i].remark+"</td>"
-//						   +"<td>"+obj.data[i].addtime+"</td>"
-//						   +"<td class='center'><i class='delete icon-pencil repeal'>&nbsp;&nbsp;撤销</i>	</td>"
-//					  "</tr>"
-//				
-//				
-//			}
-//			
-//			Table.fnClearTable();
-//			Table.fnDestroy();
-//			$(".detailTable").html(str);
-//			$(".data-table").attr("style","width: 100%;")
-//		    Table=$('.data-table').dataTable({
-//			    "bDestroy":true,
-//				"bJQueryUI": true,
-//				"retrieve":true,
-//				"sPaginationType": "full_numbers",
-//				"sDom": '<""l>t<"F"fp>',
-//				"bFilter":true,
-//				"bLengthChange":true,
-//				"aaSorting":[[0,"desc"]],
-//				"bAutoWidth":true
-//			});
-//			
-//
-//			
-//			
-//		}
-//	})
+
 })
 
 //点击明细记录里面的撤销

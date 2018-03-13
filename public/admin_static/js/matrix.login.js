@@ -59,4 +59,21 @@ $(document).ready(function(){
             }
         }, "json");
     })
+    
+    
+     //登录
+    $("#seller_login").click(function(){
+        var mobile = $("#seller_mobile").val();
+        var pwd = $("#seller_pwd").val();
+        console.log('点击登录');
+       $.post("/seller/user/login",{ mobile: mobile,pwd:pwd},
+        function(obj){
+            if(obj.state_code != 200){
+                alert(obj.msg);
+                return false;
+            }else{
+                window.location.href = '/seller/activity/index.html'
+            }
+        }, "json");
+    })
 });

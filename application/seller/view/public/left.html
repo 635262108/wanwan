@@ -1,4 +1,3 @@
-
 <div id="sidebar">
 	<h1>
 		 <img src="__AIMG__/wan_title.png" />
@@ -8,7 +7,7 @@
 	<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
 
 	<div class="leftSide">
-		<ul style="display: block;">
+		<ul style="display:block;">
 			<!--<li class="active" id="index">
 				<a href="{:url('seller/index/index')}"><img src="__AIMG__/index_icon.png" style="width: 18px;height: 18px;padding-right: 14px;"><span style="color: #FFFFFF;">首页</span></a>
 				
@@ -27,30 +26,30 @@
 			</li>-->
 			<li class="submenu">
 				<a href="javascript:void(0)" class="first_li active"><img src="__AIMG__/activity_icon.png" />
-					<span>活动</span> 
+					<span>活动</span>
 				</a>
-				
+
 				<ul>
-        			<li>
-        				<a href="{:url('seller/activity/index')}" class="activity">活动列表</a>
-        				<div class="line"></div>
-        			</li>
-       
-      			</ul>
-					
+					<li>
+						<a href="{:url('seller/activity/index')}" class="activity">活动列表</a>
+						<div class="line"></div>
+					</li>
+
+				</ul>
+
 			</li>
 
 			<li class="submenu">
 				<a href="javascript:void(0)" class="first_li"><img src="__AIMG__/goods_icon.png" />
 					<span>商品</span>
-				
+
 				</a>
 				<ul>
-        			<li>
-        				<a href="{:url('seller/goods/index')}"  target="iframe_a">商品列表</a>
-        				<div class="line"></div>
-        			</li>
-       			</ul>
+					<li>
+						<a href="{:url('seller/goods/index')}" target="iframe_a">商品列表</a>
+						<div class="line"></div>
+					</li>
+				</ul>
 
 			</li>
 			<li class="submenu">
@@ -58,59 +57,57 @@
 					<span>订单中心</span>
 				</a>
 				<ul>
-              		<li>
-              			<a href="javascript:void(0)"  target="iframe_a">订单列表</a>
-              			<div class="line"></div>
-              		</li>
-       			</ul>
+					<li>
+						<a href="javascript:void(0)" target="iframe_a">订单列表</a>
+						<div class="line"></div>
+					</li>
+				</ul>
 
 			</li>
 			<li class="submenu">
 				<a href="javascript:void(0)" class="first_li"><img src="__AIMG__/system_icon.png" />
 					<span>系统</span>
-					
+
 				</a>
-				
+
 				<ul>
-			          <li>
-			          	<a href="javascript:void(0)"  target="iframe_a">系统管理</a>
-			          	<div class="line">
-			          	</div>
-			          </li>
-			          <li><a href="javascript:void(0)"  target="iframe_a">系统列表</a>
-			          <div class="line"></div></li>
-			          <li><a href="javascript:void(0)"  target="iframe_a">系统管理</a>
-			          	<div class="line"></div>
-			          </li>
-      			</ul>
+					<li>
+						<a href="javascript:void(0)" target="iframe_a">系统管理</a>
+						<div class="line">
+						</div>
+					</li>
+					<li>
+						<a href="javascript:void(0)" target="iframe_a">系统列表</a>
+						<div class="line"></div>
+					</li>
+					<li>
+						<a href="javascript:void(0)" target="iframe_a">系统管理</a>
+						<div class="line"></div>
+					</li>
+				</ul>
 			</li>
-			
+
 		</ul>
 	</div>
 </div>
-<iframe  name="iframe_a"  frameborder="no" width="100%"  scrolling="yes"  id="iframe_a" height="1815px">
-	
+<iframe name="iframe_a" frameborder="no" width="100%" scrolling="yes" id="iframe_a" height="1815px">
 </iframe>
-<script src="__AJS__/jquery.min.js"></script> 
+<script src="__AJS__/jquery.min.js"></script>
 <script>
-//	var iframeUrl_new=localStorage.getItem('Url');
-//	var index=localStorage.getItem('Uindex');
-//	var iframeUrl=JSON.stringify(localStorage.getItem('Url'));
-//	var sublis=$(".submenu:not(':first')");
-//	if(iframeUrl_new!="/seller/activity/index.html"){
-//		sublis.eq(index-1).find(".first_li").addClass("active");
-//		sublis.eq(index-1).siblings().find(".first_li").removeClass("active");
-//		sublis.eq(index-1).siblings().find("ul").hide();
-//		$(".submenu a[href="+iframeUrl+"]").parent().parent().show();
-//		$(".submenu a[href="+iframeUrl+"]").siblings(".line").show();
-//
-//	}
-//	else if(iframeUrl_new=="/seller/activity/index.html"){
-//		    $(".activity").addClass("active");
-//		
-//	}
-
-	
-	
+	//	var iframeUrl_new=localStorage.getItem('Url');
+	//	var index=localStorage.getItem('Uindex');
+	//	var iframeUrl=JSON.stringify(localStorage.getItem('Url'));
+	//	var sublis=$(".submenu:not(':first')");
+	//	if(iframeUrl_new!="/seller/activity/index.html"){
+	//		sublis.eq(index-1).find(".first_li").addClass("active");
+	//		sublis.eq(index-1).siblings().find(".first_li").removeClass("active");
+	//		sublis.eq(index-1).siblings().find("ul").hide();
+	//		$(".submenu a[href="+iframeUrl+"]").parent().parent().show();
+	//		$(".submenu a[href="+iframeUrl+"]").siblings(".line").show();
+	//
+	//	}
+	//	else if(iframeUrl_new=="/seller/activity/index.html"){
+	//		    $(".activity").addClass("active");
+	//		
+	//	}
 </script>
-
