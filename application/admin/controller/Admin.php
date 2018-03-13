@@ -97,8 +97,9 @@ class Admin extends Base
         $data['mobile'] = input('post.mobile');
         $data['role_id'] = input('post.role');
         if(!empty(input('post.password'))){
-            $data['password'] = input('post.password');
+            $data['password'] = md5(input('post.password'));
         }
+
         //修改
         $model = new AdminLogic();
         $res = $model->save_admin_user($data);

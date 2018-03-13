@@ -12,8 +12,41 @@ use think\Validate;
 
 class User extends Base
 {
+    private $adminUser;
+
+    public function _initialize(){
+        $this->adminUser = model('adminUser');
+    }
+
     //登录界面
     public function login(){
-        return $this->fetch();
+        if(!request()->isPost()){
+            return $this->fetch();
+        }
+
+        $mobile = input('post.mobile');
+        if(!isMobile($mobile)){
+            return_info(-1,'请输入正确的手机号');
+        }
+        $pwd = input('post.pwd');
+
+        $map = [
+            'mobile' => $mobile,
+            'password' => md5($pwd)
+         ];
+
+        $res = $this->adminUser->where($map)->find();
+        if($res){
+            $session_data = [
+                'name' => $res->name,
+                'mobile' => $res->mobile,
+                'store' => $res->store,
+            ];
+            session('userInfo',$session_data);
+            return_info(200,'登录成功');
+        }else{
+            return_info(-1,'账号或密码不正确');
+        }
+
     }
 }

@@ -10,5 +10,10 @@ use think\Controller;
 
 class Base extends Controller
 {
+    protected $store_info;
+
+    protected function _initialize(){
+        $this->store_info = model('store')->find(session('userInfo.store'));
+    }
 
 }
