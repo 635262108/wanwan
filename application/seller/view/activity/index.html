@@ -35,8 +35,6 @@
 								<tr>
 									<th>活动id</th>
 									<th>活动名称</th>
-									<th>活动开始时间</th>
-									<th>活动结束时间</th>
 									<th>已报名额</th>
 									<th>大人价格</th>
 									<th>小孩价格</th>
@@ -48,29 +46,16 @@
 								</tr>
 							</thead>
 							<tbody id="tbody_center" style="font-size: 12px;">
-
-								<tr class="gradeX trs recommend">
-									<td>1</td>
-									<td>风筝</td>
-									<td>2013.4.20</td>
-									<td>2015.6.30</td>
-									<td>34</td>
-									<td>20</td>
-									<td>40</td>
-									<td>
-										10
-									</td>
-									<td>促销品</td>
-									<td>推荐</td>
-									<td>上架</td>
-
-									<td class="center">
-
-										<a href="javascript:;"><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-										<i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>
-									</td>
-								</tr>
-
+							{foreach name="activityInfo" item="vo"}
+							<tr class="gradeX trs recommend">
+								<td>{$vo.aid}</td>
+								<td>{$vo.a_title|subtext=17}</td>
+								<td>{$vo.a_begin_time|date="m-d H:i",###}</td>
+								<td>{$vo.a_end_time|date="m-d H:i",###}</td>
+								<td>{$vo.a_num}</td>
+								<td>{$vo.a_adult_price}</td>
+								<td>{$vo.a_child_price}</td>
+							{/foreach}
 							</tbody>
 						</table>
 					</div>
