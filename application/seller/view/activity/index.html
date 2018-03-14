@@ -46,7 +46,7 @@
 							</thead>
 							<tbody id="tbody_center" style="font-size: 12px;">
 							{foreach name="activityInfo" item="vo"}
-							<tr class="gradeX trs recommend">
+							<tr class="gradeX trs seller_recommend">
 								<td>{$vo.id}</td>
 								<td>{$vo.a_title|subtext=17}</td>
 								<td>{$vo.a_begin_time|date="m-d H:i",###}</td>
@@ -62,7 +62,7 @@
 								</td>
 								<td class="yes present" style="cursor: pointer;">{$vo.status|getGoodsStatus}</td>
 								<td class="center">
-									<i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>
+									<i class="delete icon-pencil sellerActivity_delete">&nbsp;&nbsp;删除</i>
 								</td>
 
 
@@ -79,13 +79,11 @@
 </div>
 {include file="public/footer" /}
 <script>
-//	window.onload=function(){
-		$("iframe").hide();
+        $("iframe").hide();
 		$(".activity").parent().parent("ul").show();
         $(".activity").css("color","#ffff");
 		$(".activity").siblings(".line").show();
+		$(".activity").parents(".submenu").addClass("open");
 		
-		
-//	}
 </script>
 </html>
