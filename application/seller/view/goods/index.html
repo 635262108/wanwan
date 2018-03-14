@@ -37,28 +37,24 @@
                   <th>已出售</th>
                   <th>价格</th>
                   <th>状态</th>
-                  <th>上架时间</th>
                   <th>操作</th>
                 </tr>
               </thead>
               <tbody id="tbody_center" style="font-size: 12px;">
-               
+               {foreach name="goodsInfo" item="vo"}
                 <tr class="gradeX trs recommend">
-	                  <td class="tr_id">2</td>
-	                  <td>标题</td>
-	                  <td>2</td>
-	                  <td>56</td>
-	                  <td>23</td>
-	                  <td class="status" style="cursor:pointer;">67</td>
-	                  <td>89</td>
-	                  
+	                  <td class="tr_id">{$vo.id}</td>
+	                  <td>{$vo.title}</td>
+                      <td>{$vo.inventory}</td>
+                      <td>{$vo.sold_num}</td>
+	                  <td>{$vo.price}</td>
+	                  <td>{$vo.status|getGoodsStatus}</td>
 	                  
 	                  <td class="center">
-	                  	<a href=""><i class="check icon-reorder">&nbsp;&nbsp;编辑</i></a>
-	                    <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>	
+	                    <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>
 	                  </td>
                 </tr>
-              
+                {/foreach}
               </tbody>
             </table>
           </div>

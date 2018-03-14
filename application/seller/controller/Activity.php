@@ -20,7 +20,7 @@ class Activity extends Base
     //活动首页
     public function index(){
         $sid = $this->store_info->id;
-        $activityInfo = $this->AssociatedAs->getActivityIndexList($sid);
+        $activityInfo = $this->AssociatedAs->getSellerActivityIndexList($sid);
 
         return $this->fetch('',[
             'activityInfo' => $activityInfo

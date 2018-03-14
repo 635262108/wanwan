@@ -60,14 +60,7 @@
 									{$vo.member_adult_price+$vo.member_child_price}
 									{/if}
 								</td>
-								{if condition="$vo.status eq 1"}
-
-								<td class="yes present" style="cursor: pointer;"> 上架  </td>
-
-								{else/}
-								<td class="no present" style="cursor: pointer;"> 下架  </td>
-
-								{/if}
+								<td class="yes present" style="cursor: pointer;">{$vo.status|getGoodsStatus}</td>
 								<td class="center">
 									<i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>
 								</td>
