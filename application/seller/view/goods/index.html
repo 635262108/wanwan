@@ -48,10 +48,10 @@
                       <td>{$vo.inventory}</td>
                       <td>{$vo.sold_num}</td>
 	                  <td>{$vo.price}</td>
-	                  <td>{$vo.status|getGoodsStatus}</td>
+	                  <td class="seller_status" style="cursor: pointer;">{$vo.status|getGoodsStatus}</td>
 	                  
 	                  <td class="center">
-	                    <i class="delete icon-pencil goods_delete">&nbsp;&nbsp;删除</i>
+	                    <i class="delete icon-pencil seller_goods_delete">&nbsp;&nbsp;删除</i>
 	                  </td>
                 </tr>
                 {/foreach}

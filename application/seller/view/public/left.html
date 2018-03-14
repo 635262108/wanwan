@@ -64,12 +64,12 @@
 				<a href="javascript:void(0)" class="first_li"><img src="__AIMG__/order_icon.png">
 					<span>订单中心</span>
 				</a>
-				<!--<ul>
+				<ul>
 					<li>
-						<a href="javascript:void(0)" target="iframe_a">订单列表</a>
+						<a href="{:url('seller/order/index')}" target="iframe_a">订单列表</a>
 						<div class="line"></div>
 					</li>
-				</ul>-->
+				</ul>
 
 			</li>
 			<li class="submenu">
@@ -102,20 +102,25 @@
 </iframe>
 <script src="__AJS__/jquery.min.js"></script>
 <script>
-	//	var iframeUrl_new=localStorage.getItem('Url');
-	//	var index=localStorage.getItem('Uindex');
-	//	var iframeUrl=JSON.stringify(localStorage.getItem('Url'));
-	//	var sublis=$(".submenu:not(':first')");
-	//	if(iframeUrl_new!="/seller/activity/index.html"){
-	//		sublis.eq(index-1).find(".first_li").addClass("active");
-	//		sublis.eq(index-1).siblings().find(".first_li").removeClass("active");
-	//		sublis.eq(index-1).siblings().find("ul").hide();
-	//		$(".submenu a[href="+iframeUrl+"]").parent().parent().show();
-	//		$(".submenu a[href="+iframeUrl+"]").siblings(".line").show();
-	//
-	//	}
-	//	else if(iframeUrl_new=="/seller/activity/index.html"){
-	//		    $(".activity").addClass("active");
-	//		
-	//	}
+//		var iframeUrl_new=localStorage.getItem('Url');
+//		console.log(iframeUrl_new,'储存的地址');
+//		var index=localStorage.getItem('Uindex');
+//		var iframeUrl=JSON.stringify(localStorage.getItem('Url'));
+//		var submenus=$(".submenu");
+//		if(iframeUrl_new=="/seller/activity/index.html"){
+//			
+//		}
+//		var sublis=$(".submenu:not(':first')");
+//		if(iframeUrl_new!="/seller/activity/index.html"){
+//			sublis.eq(index-1).find(".first_li").addClass("active");
+//			sublis.eq(index-1).siblings().find(".first_li").removeClass("active");
+//			sublis.eq(index-1).siblings().find("ul").hide();
+//			$(".submenu a[href="+iframeUrl+"]").parent().parent().show();
+//			$(".submenu a[href="+iframeUrl+"]").siblings(".line").show();
+//	
+//		}
+//		else if(iframeUrl_new=="/seller/activity/index.html"){
+//			    $(".activity").addClass("active");
+//			
+//		}
 </script>

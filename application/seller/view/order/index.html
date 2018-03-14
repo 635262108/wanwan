@@ -1,10 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+ {include file="public/header"/}
+<style type="text/css">
+	#DataTables_Table_0_length label:nth-child(1) select {
+		width: 55px;
+	}
+	
+	#orderTable .pagination {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0px;
+		margin: 0px;
+		margin-top: 8px;
+	}
+	
+	#bottom {
+		display: flex;
+		justify-content: space-between;
+		padding-left: 10px;
+	}
+	
+	#bottom .text {
+		margin-top: 13px;
+	}
+</style>
 
+<div id="content">
+
+	<div id="content-header">
+		<div id="breadcrumb">
+			<a href="../activity/index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>首页</a>
+			<a href="#" class="tip-bottom">订单管理</a>
+			<a href="#" class="current">订单列表</a>
+		</div>
+	</div>
+
+	<div class="add_order">
+		<a href="{:url('admin/activity/dis_add_order')}">
+			<div class="add" title="添加订单">
+				<span style="font-size: 14px;">
+                <i class="icon-plus"></i>
+                		 添加订单
+				</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="select_activity">
+		<div class="detailSelect">
+			<div class="activityTime" style="margin-right: 15px;">
+				<input type="text" placeholder="11月26日" name="begin_time" value="" style="cursor: pointer;" onFocus="new Calendar().show(this);" class="beginTime" />
+				<div class="contect"></div>
+				<input type="text" placeholder="11月30日" name="end_time" value="" onFocus="new Calendar().show(this);" style="cursor:pointer;" class="endTime" />
+
+			</div>
+			<select style="width:7%" class="activity_select">
+				<option value="0">按活动查询</option>
+				<option value="0">全部</option>
+
+				<option value="1">活动</option>
+
+			</select>
+
+			<select style="width:6%" class="pay_way">
+				<option selected="selected" value="">支付方式</option>
+
+				<option value="1">支付宝</option>
+				<option value="2">微信</option>
+
+			</select>
+
+			<select style="width:6%" class="order_status">
+				<option selected="selected" value="">订单状态</option>
+				<option value="3">已付款</option>
+				<option value="5">正在退款</option>
+				<option value="6">已退款</option>
+				<option value="7">已请假</option>
+				<option value="8">早退</option>
+			</select>
+			<select style="width:6%" class="source">
+				<option selected="selected" value="">报名渠道</option>
+
+				<option value="">玩玩玩</option>
+
+			</select>
+
+			<input type="text" placeholder="输入手机号或者姓名" style="width:10%;height:30px;" class="prompt" />
+			<button class="orderSearch">查找</button>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+						<h5>Data table</h5>
+					</div>
+					<div class="widget-content nopadding" id="orderTable">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>id</th>
+									<th>订单号</th>
+									<th style="width: 200px;">商品信息</th>
+									<th>提交人</th>
+									<th>手机号</th>
+									<th>大人数量</th>
+									<th>小孩数量</th>
+									<th>总金额</th>
+									<th>支付方式</th>
+									<th>订单状态</th>
+									<th>订单提交时间</th>
+									<th>参加时间</th>
+									<th>报名渠道</th>
+								</tr>
+							</thead>
+
+							<tbody id="tbody_center" style="font-size: 12px;">
+							
+								<tr class="gradeX trs">
+									<td>1</td>
+									<td>2323</td>
+									<td>555</td>
+									<td>
+										<a href="">撒撒</a>
+									</td>
+									<td>
+										<a href="">18437976558</a>
+									</td>
+									<td>4</td>
+									<td>7</td>
+									<td>25</td>
+									<td>微信</td>
+									<td>付款</td>
+									<td>20154.23</td>
+									<td>4343</td>
+									<td>8989</td>
+								</tr>
+							
+							</tbody>
+						</table>
+						<div id="bottom">
+							<p class="text">总金额：2323232</p>
+							
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="__AJS__/jquery.min.js"></script>
+<script src="__AJS__/jquery.ui.custom.js"></script>
+<script src="__AJS__/bootstrap.min.js"></script>
+<script src="__AJS__/jquery.uniform.js"></script>
+<script src="__AJS__/select2.min.js"></script>
+<script src="__AJS__/jquery.dataTables.min.js"></script>
+<script src="__AJS__/matrix.js"></script>
+<script src="__AJS__/operat_table.js"></script>
+<script src="__AJS__/Calendar.js"></script>
+<script src="__AJS__/birthday.js"></script>
+<script src="__AJS__/echarts.common.min.js"></script>
+<script src="__AJS__/radialIndicator.js"></script>
 </body>
+
 </html>

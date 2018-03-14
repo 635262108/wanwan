@@ -84,6 +84,8 @@
         $(".activity").css("color","#ffff");
 		$(".activity").siblings(".line").show();
 		$(".activity").parents(".submenu").addClass("open");
+		var activityHref=$(".activity").attr("href");
+		JSON.stringify(localStorage.setItem('Url', activityHref))
 		
 </script>
 </html>

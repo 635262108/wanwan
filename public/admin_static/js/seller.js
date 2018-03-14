@@ -3,7 +3,6 @@ $(document).ready(function(){
 
 
 $(".submenu").on("click", function(){
-	console.log('点击了')
 	var index = $(this).index();
 	
 	if($(this).hasClass("open")){
@@ -60,9 +59,37 @@ $(".seller_recommend .present").live("click",function(){
 	
 })
 
+//分店商品的上架，下架
+$(".seller_status").live("click",function(){
+	var my=$(this);
+	if($(this).html()=="上架"){
+		$.post("/seller/goods/saveAssociatedGs", {"id":$(this).siblings(".tr_id").html(),"status":2},
+			function(obj) {
+				console.log(obj.msg)
+				if(obj.state_code == 200) {
+					my.html("下架");
+				}
+		}, "json");
+	}
+	else{
+		$.post("/seller/goods/saveAssociatedGs", {"id":$(this).siblings(".tr_id").html(),"status":1},
+			function(obj) {
+				if(obj.state_code == 200) {
+					my.html("上架");
+				}
+		}, "json");
+	}
+	
+})
+
 //分店活动的删除
 $(".sellerActivity_delete").live("click", function() {
     deleteData("/seller/activity/delAssociatedAs", { "id": parseInt($(this).parent().parent().children("td:nth-child(1)").text()) },
+	$(this).parent().parent())
+})
+
+$(".seller_goods_delete").live("click", function() {
+    deleteData("/seller/goods/delAssociatedGs", { "id": parseInt($(this).parent().parent().children("td:nth-child(1)").text()) },
 	$(this).parent().parent())
 })
 
@@ -80,7 +107,6 @@ function ClickRecommend(url,option,my,wordNo,wordYes,addClass) {
 			} 
 			else{
 				my.html(wordYes);
-				
 				my.attr("class","yes")
 				my.addClass(addClass);
 			}
