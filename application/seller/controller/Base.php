@@ -14,6 +14,7 @@ class Base extends Controller
 
     protected function _initialize(){
         $this->store_info = model('store')->find(session('userInfo.store'));
+        $this->assign('store_info',$this->store_info);
     }
 
 }
