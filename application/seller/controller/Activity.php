@@ -20,14 +20,8 @@ class Activity extends Base
     //活动首页
     public function index(){
         $sid = $this->store_info->id;
-        $as = $this->AssociatedAs->getBySId($sid);
+        $activityInfo = $this->AssociatedAs->getActivityIndexList($sid);
 
-        foreach($as as $k=>$v){
-            $aid[] = $v['aid'];
-        }
-        $aids = implode(',',$aid);
-
-        $activityInfo = $this->Activity->where('aid','in',$aids)->select();
         return $this->fetch('',[
             'activityInfo' => $activityInfo
         ]);
@@ -36,5 +30,33 @@ class Activity extends Base
     //添加活动
     public function add(){
         return $this->fetch();
+    }
+
+    //修改关联表信息
+    public function saveAssociatedAs(){
+        $data = input('post.');
+        if(empty($data['id'])){
+            return_info(-1,'id不能为空');
+        }
+        $res = $this->AssociatedAs->allowField(true)->save($data,['id'=>$data['id']]);
+        if($res){
+            return_info(200,'更新成功');
+        }else{
+            return_info(-1,'更新失败');
+        }
+    }
+
+    //删除活动
+    public function delAssociatedAs(){
+        $data = input('post.');
+        if(empty($data['id'])){
+            return_info(-1,'id不能为空');
+        }
+        $res = $this->AssociatedAs->destroy($data['id']);
+        if($res){
+            return_info(200,'删除成功');
+        }else{
+            return_info(-1,'删除失败');
+        }
     }
 }

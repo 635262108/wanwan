@@ -10,18 +10,18 @@
 			<a href="#" class="current">活动列表</a>
 		</div>
 	</div>
-	<!--添加开始部分-->
-	<div class="add_order">
-		<a href="{:url('seller/activity/add')}">
-			<div class="add" title="添加活动">
-				<span style="font-size: 14px;">
-              <i class="icon-plus"></i>
-                 添加活动
-          </span>
-			</div>
-		</a>
-	</div>
-	<!--添加结束-->
+	<!--&lt;!&ndash;添加开始部分&ndash;&gt;-->
+	<!--<div class="add_order">-->
+		<!--<a href="{:url('seller/activity/add')}">-->
+			<!--<div class="add" title="添加活动">-->
+				<!--<span style="font-size: 14px;">-->
+              <!--<i class="icon-plus"></i>-->
+                 <!--添加活动-->
+          <!--</span>-->
+			<!--</div>-->
+		<!--</a>-->
+	<!--</div>-->
+	<!--&lt;!&ndash;添加结束&ndash;&gt;-->
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
@@ -33,14 +33,13 @@
 						<table class="table table-bordered data-table">
 							<thead>
 								<tr>
-									<th>活动id</th>
+									<th>id</th>
 									<th>活动名称</th>
-									<th>已报名额</th>
+									<th>活动开始时间</th>
+									<th>活动结束时间</th>
 									<th>大人价格</th>
 									<th>小孩价格</th>
 									<th>会员价</th>
-									<th>活动分类</th>
-									<th>是否推荐</th>
 									<th>是否上架</th>
 									<th>操作</th>
 								</tr>
@@ -48,13 +47,32 @@
 							<tbody id="tbody_center" style="font-size: 12px;">
 							{foreach name="activityInfo" item="vo"}
 							<tr class="gradeX trs recommend">
-								<td>{$vo.aid}</td>
+								<td>{$vo.id}</td>
 								<td>{$vo.a_title|subtext=17}</td>
 								<td>{$vo.a_begin_time|date="m-d H:i",###}</td>
 								<td>{$vo.a_end_time|date="m-d H:i",###}</td>
-								<td>{$vo.a_num}</td>
 								<td>{$vo.a_adult_price}</td>
 								<td>{$vo.a_child_price}</td>
+								<td>
+									{if condition="$vo.member_adult_price+$vo.member_child_price eq 0"}
+									未定
+									{else/}
+									{$vo.member_adult_price+$vo.member_child_price}
+									{/if}
+								</td>
+								{if condition="$vo.status eq 1"}
+
+								<td class="yes present" style="cursor: pointer;"> 上架  </td>
+
+								{else/}
+								<td class="no present" style="cursor: pointer;"> 下架  </td>
+
+								{/if}
+								<td class="center">
+									<i class="delete icon-pencil activity_delete">&nbsp;&nbsp;删除</i>
+								</td>
+
+
 							{/foreach}
 							</tbody>
 						</table>

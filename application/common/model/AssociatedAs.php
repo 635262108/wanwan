@@ -14,7 +14,14 @@ use think\Model;
 class AssociatedAs extends Base
 {
     //获取某个店的活动id
-    public function getBySId($sid = 0){
-        return $this->where('sid',$sid)->select();
+    public function getActivityIndexList($sid = 0){
+        $map = [
+            'sid' => $sid,
+        ];
+        $field = 's.id,a_title,a_img,a_begin_time,a_end_time,a_adult_price,a_child_price,member_child_price,s.status,member_adult_price';
+        return $this->where($map)->alias('s')
+                ->field($field)
+                ->join('__ACTIVITY__ a','a.aid = s.aid')
+                ->select();
     }
 }
