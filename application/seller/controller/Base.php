@@ -13,6 +13,9 @@ class Base extends Controller
     protected $store_info;
 
     protected function _initialize(){
+        if(empty(session('userInfo'))){
+            $this->redirect('User/login');
+        }
         $this->store_info = model('store')->find(session('userInfo.store'));
         $this->assign('store_info',$this->store_info);
     }
