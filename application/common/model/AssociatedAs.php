@@ -18,7 +18,7 @@ class AssociatedAs extends Base
         $map = [
             'sid' => $sid,
         ];
-        $field = 's.id,a_title,a_img,a_begin_time,a_end_time,a_adult_price,a_child_price,member_child_price,s.status,member_adult_price';
+        $field = 's.id,a_title,a_img,a_begin_time,a_end_time,a_adult_price,a_child_price,member_child_price,s.status,member_adult_price,a.aid';
         return $this->where($map)->alias('s')
                 ->field($field)
                 ->join('__ACTIVITY__ a','a.aid = s.aid')
