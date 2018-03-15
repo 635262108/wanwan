@@ -99,4 +99,9 @@ class Order extends Base
             'price_sum' => $price_sum
         ]);
     }
+
+    //显示添加订单界面
+    public function dis_add_order(){
+        return $this->fetch();
+    }
 }

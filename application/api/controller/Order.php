@@ -11,7 +11,7 @@ class Order extends Base
 {
 
     //添加订单
-    public function addOrder(){
+    public function addActivityOrder(){
         $data = input('post.');
         $validate = validate('Order');
         $check = $validate->scene('addOrder')->check($data);

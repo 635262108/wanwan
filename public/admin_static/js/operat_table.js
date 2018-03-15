@@ -34,7 +34,7 @@ var SpitUrl={
 	"leave_url":"/api/user/askForLeave",
 	"sign_url":"/api/order/saveOrderStatus",
 	"getPhone_url":"/api/user/getUserInfo",
-	"addMember_url":"/api/order/addOrder",
+	"addMember_url":"/api/order/addActivityOrder",
 	"Amend_infoUrl":"/api/user/saveUser",
 	"goodDeleteUrl":"/abab.php/goods/del_goods"
 }
