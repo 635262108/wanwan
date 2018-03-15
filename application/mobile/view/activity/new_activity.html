@@ -1,6 +1,6 @@
 {include file="public/header"/}
 <div class="wanwan_logo">
-	<span><img src="__MobileImg__/wanwanwan@2x.png"></span>
+	<span style="font-size: 12px;color: #ff4134;"><img src="__MobileImg__/wanwanwan@2x.png"></span>
 	<div class="searchInput">
 		 <span><img src="__MobileImg__/searchGoods.png"></span>
 		 <input type="text" placeholder="" class="searchGoods"/>
@@ -118,6 +118,43 @@
 	</div>
 </div>
 
+<div class="select_box" style="display: none;">
+	<div class="select_div" style="display: none;">
+		<div class="selectshop">
+			<p class="title">选择你想去的社区店</p>
+			<ul class="shops">
+				<li>
+					<a href="javascript:;">
+						<span>圣菲城店</span>
+						<span>渠东路圣菲城2期5号楼2单元1楼0033</span>
+					</a>
+					
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span>中央特区店</span>
+						<span>农业南路商鼎路中央特区东院10号楼二单元2楼</span>
+					</a>
+					
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span>其他一店</span>
+						<span>渠东路圣菲城2期5号楼2单元1楼0033</span>
+					</a>
+					
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span>其他二店</span>
+						<span>渠东路圣菲城2期5号楼2单元1楼0033</span>
+					</a>
+					
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 {include file="public/footer" /}
 <script src="__MobileJs__/jquery.min.js"></script>
 <script src="__MobileJs__/idangerous.swiper.min.js"></script>
@@ -139,6 +176,20 @@
 //  获取焦点之后触发的事件
     $(".searchGoods").on("focus",function(){
     	 location.href="/mobile/goods/search_list.html"
+    })
+    
+    $(".select_box").css("display","block");
+    $(".select_div").fadeIn(1000);
+    
+    var shopslis=$(".shops").children("li");
+    shopslis.on("click",function(){
+    	var textword=$(this).children("a").find("span:nth-child(1)").html();
+    	$(this).children("a").addClass("active");
+    	$(".select_box").css("display","none");
+    	$(".wanwan_logo").children("span").empty();
+    	$(".wanwan_logo").children("span").html(textword);
+//  	$(this).siblings().children("a").removeClass("active");
+    	
     })
 </script>
 </body>
