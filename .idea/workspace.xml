@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="21d84812-8bb7-4511-894a-82a710dc1d69" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/seller/controller/Order.php" afterPath="$PROJECT_DIR$/application/seller/controller/Order.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="Order.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/seller/controller/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="374">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#879#3244#0#PHP" expanded="false" />
               </folding>
@@ -584,12 +583,12 @@
       <workItem from="1520903443387" duration="24420000" />
       <workItem from="1520989283204" duration="24240000" />
       <workItem from="1521079616143" duration="17686000" />
-      <workItem from="1521167727056" duration="9852000" />
+      <workItem from="1521167727056" duration="14391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1916216000" />
+    <option name="totallyTimeSpent" value="1920755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1019,8 +1018,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/seller/controller/Order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#879#3244#0#PHP" expanded="false" />
           </folding>
