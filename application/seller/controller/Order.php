@@ -32,7 +32,6 @@ class Order extends Base
             'activityInfo' => $activityInfo,
             'pay_way' => $pay_way
         ]);
-        return $this->fetch();
     }
 
     //ajax订单首页
